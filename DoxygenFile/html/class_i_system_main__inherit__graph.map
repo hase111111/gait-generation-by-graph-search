@@ -1,0 +1,9 @@
+<map id="ISystemMain" name="ISystemMain">
+<area shape="rect" id="Node000001" title="システムのインターフェース．" alt="" coords="234,5,332,32"/>
+<area shape="rect" id="Node000002" href="$class_system_main_graph_viewer.html" title="グラフを表示するシステムのメインクラス" alt="" coords="5,80,174,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="236,40,124,82,123,77,234,35"/>
+<area shape="rect" id="Node000003" href="$class_system_main_result_viewer.html" title="結果を表示するシステムのクラス．" alt="" coords="198,80,368,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="286,48,286,80,280,80,280,48"/>
+<area shape="rect" id="Node000004" href="$class_system_main_simulation.html" title="中～大規模な設計において，int mainになんでも詰め込むわけにはいかないため，このクラスにまとめる．" alt="" coords="392,80,547,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="330,35,438,77,436,82,328,40"/>
+</map>

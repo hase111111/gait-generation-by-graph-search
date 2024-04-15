@@ -1,0 +1,5 @@
+<map id="jsoncons::detail::is_json_type_traits_unspecialized&lt; Json, T, typename std::enable_if&lt;!std::integral_constant&lt; bool, json_type_traits&lt; Json, T &gt;::is_compatible &gt;::value &gt;::type &gt;" name="jsoncons::detail::is_json_type_traits_unspecialized&lt; Json, T, typename std::enable_if&lt;!std::integral_constant&lt; bool, json_type_traits&lt; Json, T &gt;::is_compatible &gt;::value &gt;::type &gt;">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,216,187"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="60,5,161,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,48,113,79,108,79,108,48"/>
+</map>

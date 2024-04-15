@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: C:/Users/hasegawa/Desktop/main/program/DesignLab/DesignLab/dead_lock_checker.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('dead__lock__checker_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">dead_lock_checker.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="dead__lock__checker_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef DESIGNLAB_DEAD_LOCK_CHECKER_H_</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define DESIGNLAB_DEAD_LOCK_CHECKER_H_</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;deque&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="robot__state__node_8h.html">robot_state_node.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_dead_lock_checker.html">   27</a></span><span class="keyword">class </span><a class="code hl_class" href="classdesignlab_1_1_dead_lock_checker.html">DeadLockChecker</a> final</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_dead_lock_checker.html#a63e79bf9a46cb90509d022e512b674fd">AddNode</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a>&amp; node);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_dead_lock_checker.html#aac293568de69a6bd716123f033c8f164">IsDeadLock</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> kMaxDataNum = 30;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    std::deque&lt;RobotStateNode&gt; node_vec_;  </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>};</div>
+</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>}  <span class="comment">// namespace designlab</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_DEAD_LOCK_CHECKER_H_</span></div>
+<div class="ttc" id="aclassdesignlab_1_1_dead_lock_checker_html"><div class="ttname"><a href="classdesignlab_1_1_dead_lock_checker.html">designlab::DeadLockChecker</a></div><div class="ttdoc">動作のループを感知するクラス．</div><div class="ttdef"><b>Definition</b> dead_lock_checker.h:28</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_dead_lock_checker_html_a63e79bf9a46cb90509d022e512b674fd"><div class="ttname"><a href="classdesignlab_1_1_dead_lock_checker.html#a63e79bf9a46cb90509d022e512b674fd">designlab::DeadLockChecker::AddNode</a></div><div class="ttdeci">void AddNode(const RobotStateNode &amp;node)</div><div class="ttdoc">ロボットが行った動作を追加する．上限数を超えたら，古いものから削除する．</div><div class="ttdef"><b>Definition</b> dead_lock_checker.cpp:11</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_dead_lock_checker_html_aac293568de69a6bd716123f033c8f164"><div class="ttname"><a href="classdesignlab_1_1_dead_lock_checker.html#aac293568de69a6bd716123f033c8f164">designlab::DeadLockChecker::IsDeadLock</a></div><div class="ttdeci">bool IsDeadLock() const</div><div class="ttdoc">直近に行った動作を比較して，ロボットが正しく動作できているか判断する．</div><div class="ttdef"><b>Definition</b> dead_lock_checker.cpp:24</div></div>
+<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> abstract_dxlib_gui.cpp:16</div></div>
+<div class="ttc" id="arobot__state__node_8h_html"><div class="ttname"><a href="robot__state__node_8h.html">robot_state_node.h</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_robot_state_node_html"><div class="ttname"><a href="structdesignlab_1_1_robot_state_node.html">designlab::RobotStateNode</a></div><div class="ttdoc">グラフ構造のためのノード(頂点)．旧名 LNODE</div><div class="ttdef"><b>Definition</b> robot_state_node.h:46</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_65b03a49640d0599dba701447d580643.html">hasegawa</a></li><li class="navelem"><a class="el" href="dir_2854940d141de6d3c7cee6483e7afda9.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_fad4873fd0f485db7102df865d883d5c.html">main</a></li><li class="navelem"><a class="el" href="dir_227eda1db808a252df8518c263632a71.html">program</a></li><li class="navelem"><a class="el" href="dir_136482520f873a40e541bfb5e9b2bb76.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_adb386b1713ce6556ea69a7596f0b080.html">DesignLab</a></li><li class="navelem"><a class="el" href="dead__lock__checker_8h.html">dead_lock_checker.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

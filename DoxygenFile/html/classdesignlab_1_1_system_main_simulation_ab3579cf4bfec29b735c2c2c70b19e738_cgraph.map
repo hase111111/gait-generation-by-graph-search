@@ -1,0 +1,68 @@
+<map id="designlab::SystemMainSimulation::Main" name="designlab::SystemMainSimulation::Main">
+<area shape="rect" id="Node000001" title="いままで int mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="5,404,224,447"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dead_lock_checker.html#a63e79bf9a46cb90509d022e512b674fd" title="ロボットが行った動作を追加する．上限数を超えたら，古いものから削除する．" alt="" coords="272,5,462,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,403,130,337,157,244,177,194,203,145,233,99,270,58,273,55,277,59,274,62,237,102,207,148,182,197,162,246,135,338,122,404"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_robot_state_node.html#a58600c23d1383094c7f880a487ab61fb" title="自身を根ノードに変更する関数． &#160;&#160;depthを0に，parent_numを&#45;1に初期化する．" alt="" coords="277,72,457,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="119,403,136,347,166,273,210,194,238,157,270,125,274,121,277,126,273,129,242,161,214,197,171,275,141,349,124,404"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_stopwatch.html#abd870de16a431b5541ff7a3c9f900424" title="計測終了時にこの関数を呼ぶ．" alt="" coords="279,139,455,165"/>
+<area shape="poly" id="edge5_Node000001_Node000009" title=" " alt="" coords="122,402,142,357,173,298,216,236,242,207,270,182,290,170,293,174,273,186,246,211,220,239,178,300,147,359,127,405"/>
+<area shape="rect" id="Node000010" href="$classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="513,179,656,221"/>
+<area shape="poly" id="edge6_Node000001_Node000010" title=" " alt="" coords="123,403,144,363,176,314,218,265,243,243,270,226,326,203,385,191,444,187,497,187,497,193,444,192,386,196,328,208,273,230,246,248,222,269,180,317,149,366,128,405"/>
+<area shape="rect" id="Node000012" href="$classdesignlab_1_1_stopwatch.html#ab6f02190fdf5f0c8e14f205611c7173f" title="計測結果をミリ秒で取得． &#160;&#160;start()と end()を呼び出してからこの関数を呼ぶ．" alt="" coords="285,631,449,673"/>
+<area shape="poly" id="edge8_Node000001_Node000012" title=" " alt="" coords="131,446,187,524,228,570,273,610,291,621,288,625,270,614,224,573,183,528,127,449"/>
+<area shape="rect" id="Node000013" href="$classdesignlab_1_1_cmd_i_o_util.html#aa27aa18b11d6199f27f82cfe97241336" title="yesかnoを入力させる関数．返り値で yes なら true，noなら falseを返す． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="295,240,439,283"/>
+<area shape="poly" id="edge9_Node000001_Node000013" title=" " alt="" coords="137,401,196,352,270,299,292,287,295,292,273,304,199,356,141,405"/>
+<area shape="rect" id="Node000014" href="$classdesignlab_1_1_dead_lock_checker.html#aac293568de69a6bd716123f033c8f164" title="直近に行った動作を比較して，ロボットが正しく動作できているか判断する．" alt="" coords="272,697,462,740"/>
+<area shape="poly" id="edge12_Node000001_Node000014" title=" " alt="" coords="126,446,145,495,176,559,219,625,245,656,273,683,278,687,275,691,270,687,241,660,214,628,171,561,140,497,121,448"/>
+<area shape="rect" id="Node000015" href="$classdesignlab_1_1_cmd_i_o_util.html#a6f864d04e44ac8b10262c9dcdb23fcbd" title="コマンドラインに水平線を出力する関数．" alt="" coords="721,295,872,337"/>
+<area shape="poly" id="edge13_Node000001_Node000015" title=" " alt="" coords="183,401,271,377,388,356,506,339,706,319,706,325,506,344,389,361,272,383,184,406"/>
+<area shape="rect" id="Node000016" href="$classdesignlab_1_1_cmd_i_o_util.html#a563e04e0ce3cf7b6c988a94b887a74b9" title="コマンドラインで改行をする関数．" alt="" coords="725,495,868,537"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="224,432,462,459,659,489,710,498,709,503,658,495,462,464,224,438"/>
+<area shape="rect" id="Node000017" href="$classdesignlab_1_1_cmd_i_o_util.html#a5fb6070a9e27ce7644f6071cd56dcbc1" title="コマンドラインにこのソフトのタイトルを出力する関数． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="513,357,656,400"/>
+<area shape="poly" id="edge17_Node000001_Node000017" title=" " alt="" coords="224,409,271,404,497,383,498,388,272,409,224,415"/>
+<area shape="rect" id="Node000020" href="$classdesignlab_1_1_cmd_i_o_util.html#af73833cbfe91109d75ddad14c98fbb56" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="290,513,444,556"/>
+<area shape="poly" id="edge24_Node000001_Node000020" title=" " alt="" coords="166,445,273,492,301,504,299,509,271,497,163,450"/>
+<area shape="rect" id="Node000021" href="$classdesignlab_1_1_cmd_i_o_util.html#a2bd896161fb3d008d638cfc0736ed421" title="コマンドラインに文字を出力する関数． &#160;&#160;前と後ろに改行を挿入する．" alt="" coords="513,504,656,547"/>
+<area shape="poly" id="edge28_Node000001_Node000021" title=" " alt="" coords="219,445,498,504,497,510,218,450"/>
+<area shape="rect" id="Node000022" href="$classdesignlab_1_1_stopwatch.html#ae1befceaeb038d9841a020ee99cba068" title="計測開始にこの関数を呼ぶ． &#160;&#160;リセット処理などを呼ぶ必要なしで，再度計測できる．" alt="" coords="294,764,440,807"/>
+<area shape="poly" id="edge29_Node000001_Node000022" title=" " alt="" coords="123,446,138,506,167,588,187,631,211,674,240,715,273,750,282,757,279,761,270,754,236,718,207,677,182,634,162,590,133,508,118,448"/>
+<area shape="rect" id="Node000023" href="$structdesignlab_1_1_robot_state_node.html#a7fa3f31f167ac1cf468d81509f55c407" title="ノードの情報を文字列に変換する関数． &#160;&#160;デバッグ用に詳細な情報を出力する．" alt="" coords="277,831,457,873"/>
+<area shape="poly" id="edge30_Node000001_Node000023" title=" " alt="" coords="121,447,133,517,159,616,179,670,204,723,235,773,274,817,276,819,272,823,270,821,231,776,199,726,174,672,154,618,127,518,116,448"/>
+<area shape="rect" id="Node000030" href="$classdesignlab_1_1_cmd_i_o_util.html#a438dd94d87d41b43af1e484690af5b8a" title="入力待ちをする関数． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="725,612,868,655"/>
+<area shape="poly" id="edge38_Node000001_Node000030" title=" " alt="" coords="134,445,191,507,229,540,273,566,308,578,355,589,471,606,598,618,710,626,709,632,597,624,471,611,354,594,306,583,271,570,226,544,187,511,130,449"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaternion.html#a45dfcf48edea7b439e7d189d0d105bfa" title="自身を正規化する．ノルムが１になる．" alt="" coords="511,72,658,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="457,91,495,91,495,96,457,96"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="723,72,870,115"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="658,91,707,91,707,96,658,96"/>
+<area shape="rect" id="Node000011" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="935,395,1078,437"/>
+<area shape="poly" id="edge7_Node000010_Node000011" title=" " alt="" coords="656,191,710,190,770,196,831,210,888,236,925,267,955,305,978,344,994,379,989,381,973,346,950,308,921,271,885,241,829,215,769,201,710,196,656,196"/>
+<area shape="poly" id="edge10_Node000013_Node000010" title=" " alt="" coords="438,239,497,222,498,227,440,244"/>
+<area shape="poly" id="edge11_Node000013_Node000011" title=" " alt="" coords="439,255,550,251,680,252,802,260,851,268,888,280,919,300,947,326,988,380,983,383,943,330,916,304,886,285,850,273,801,265,680,257,550,257,439,260"/>
+<area shape="poly" id="edge14_Node000015_Node000011" title=" " alt="" coords="861,335,888,347,958,384,955,389,886,352,859,340"/>
+<area shape="poly" id="edge16_Node000016_Node000011" title=" " alt="" coords="859,492,886,480,955,443,958,448,888,485,861,497"/>
+<area shape="poly" id="edge20_Node000017_Node000015" title=" " alt="" coords="656,355,706,340,708,345,657,360"/>
+<area shape="poly" id="edge21_Node000017_Node000016" title=" " alt="" coords="634,398,660,417,675,434,684,450,693,465,708,481,713,484,710,489,705,485,688,469,679,453,671,437,657,421,631,403"/>
+<area shape="rect" id="Node000018" href="$classdesignlab_1_1_cmd_i_o_util.html#ab32a7649e9c86ded7b337e6246247c57" title="中央に文字を出力する関数． 文字列が長すぎる場合は普通に左詰めで出力される．" alt="" coords="725,361,868,404"/>
+<area shape="poly" id="edge18_Node000017_Node000018" title=" " alt="" coords="657,377,709,378,709,384,656,383"/>
+<area shape="rect" id="Node000019" href="$classdesignlab_1_1_cmd_i_o_util.html#ac8d2ba7c9fd6850d56615a9fdaeddc2d" title="右端に文字を出力する関数． 文字列が長すぎる場合は普通に左詰めで出力される．" alt="" coords="725,428,868,471"/>
+<area shape="poly" id="edge22_Node000017_Node000019" title=" " alt="" coords="652,398,716,420,715,425,650,403"/>
+<area shape="poly" id="edge19_Node000018_Node000011" title=" " alt="" coords="869,391,920,400,919,405,868,397"/>
+<area shape="poly" id="edge23_Node000019_Node000011" title=" " alt="" coords="868,435,919,427,920,432,869,441"/>
+<area shape="poly" id="edge25_Node000020_Node000021" title=" " alt="" coords="444,529,497,526,497,532,444,534"/>
+<area shape="poly" id="edge26_Node000021_Node000011" title=" " alt="" coords="649,545,702,558,762,565,826,564,856,557,886,547,917,528,944,503,984,449,988,452,948,506,920,532,888,552,858,562,826,569,762,571,701,563,647,550"/>
+<area shape="poly" id="edge27_Node000021_Node000016" title=" " alt="" coords="656,520,709,517,709,522,657,525"/>
+<area shape="rect" id="Node000024" href="$namespacedesignlab_1_1leg__func.html#a97269d1d2e67a17e729889089a859b78" title="現在の脚状態から重心パターンを取得する．" alt="" coords="510,697,658,740"/>
+<area shape="poly" id="edge31_Node000023_Node000024" title=" " alt="" coords="442,828,460,817,476,801,484,785,493,768,508,750,513,746,516,751,512,754,497,771,489,787,480,804,464,821,444,832"/>
+<area shape="rect" id="Node000025" href="$namespacedesignlab_1_1leg__func.html#ab7617bec21b4f953dc3b4641f58a0e2e" title="脚状態を取得する．" alt="" coords="513,764,655,807"/>
+<area shape="poly" id="edge32_Node000023_Node000025" title=" " alt="" coords="438,828,497,809,499,814,439,833"/>
+<area shape="rect" id="Node000026" href="$namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="518,831,650,873"/>
+<area shape="poly" id="edge33_Node000023_Node000026" title=" " alt="" coords="457,849,502,849,502,855,457,855"/>
+<area shape="rect" id="Node000027" href="$structdesignlab_1_1_quaternion.html#a37c43da43484613d050d79393feaecec" title="クォータニオンを文字列に変換する． &#160;&#160;w, x, y, z の順で出力する．" alt="" coords="511,897,658,940"/>
+<area shape="poly" id="edge34_Node000023_Node000027" title=" " alt="" coords="439,871,499,890,497,895,438,876"/>
+<area shape="rect" id="Node000029" href="$structdesignlab_1_1_vector3.html#adced04a30051a7d7a5845a1d9a9d1c11" title="このベクトルを文字列にして返す． &#160;&#160;(x, y, z) の形式，小数点以下3桁まで．" alt="" coords="520,964,649,1007"/>
+<area shape="poly" id="edge36_Node000023_Node000029" title=" " alt="" coords="398,872,449,910,511,950,520,954,517,959,509,954,446,914,394,876"/>
+<area shape="rect" id="Node000028" href="$namespacedesignlab_1_1math__util.html#a45276ca396d3aa1331b5bb5a4c849bbe" title="小数を文字列に変換する関数． &#160;&#160;C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する．" alt="" coords="706,931,887,973"/>
+<area shape="poly" id="edge35_Node000027_Node000028" title=" " alt="" coords="659,928,691,933,690,938,658,933"/>
+<area shape="poly" id="edge37_Node000029_Node000028" title=" " alt="" coords="649,973,691,966,691,971,649,978"/>
+<area shape="poly" id="edge39_Node000030_Node000011" title=" " alt="" coords="857,609,885,591,918,558,946,521,986,450,991,453,950,524,922,562,888,595,860,614"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="RobotStateNode::ChangeQuat" name="RobotStateNode::ChangeQuat">
+<area shape="rect" id="Node000001" title="クォータニオンを変更し，胴体を回転させる関数．" alt="" coords="197,13,393,40"/>
+<area shape="rect" id="Node000002" href="$class_node_creator_body_rot.html#a1907d799d7f6ecc4019b941893671da7" title="現在のノードから次のノード群を生成する" alt="" coords="5,5,149,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,29,149,29,149,24,182,24"/>
+</map>

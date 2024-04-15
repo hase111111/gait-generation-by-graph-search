@@ -1,0 +1,13 @@
+<map id="PhantomXMkII::IsLegInterfering" name="PhantomXMkII::IsLegInterfering">
+<area shape="rect" id="Node000001" title="脚が他の脚と干渉しているかどうかを判定する．" alt="" coords="5,80,205,107"/>
+<area shape="rect" id="Node000002" href="$class_phantom_x_mk_i_i.html#a6260133210372d2669e96917468d8179" title="脚の付け根の座標( leg base position )を取得する．ロボット座標系．" alt="" coords="253,5,437,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,77,250,50,251,55,157,82"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_line_segment2.html#a8e2bdbc5c825c119d1801aa07bf3555e" title="他の線分と交点が存在しているかどうか調べる関数" alt="" coords="261,72,429,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="205,91,245,91,245,96,205,96"/>
+<area shape="rect" id="Node000006" href="$structdesignlab_1_1_vector3.html#aaf3651416f231824ffd780b72f5bba27" title="XY平面に射影したベクトルを返す．" alt="" coords="280,139,410,181"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="157,105,266,135,265,141,155,110"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector2.html#ab3002b222969339234b908a42a735f44" title="このベクトルとotherの外積を返す" alt="" coords="504,39,633,81"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="429,78,488,69,489,75,430,83"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_line_segment2.html#a8608ddbcf8e71c74186de4fc6420f4ee" title="線分が平行かどうか調べる関数．全てconstexpr関数で処理できるため非常に高速．" alt="" coords="485,105,652,148"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="430,103,470,109,469,115,429,108"/>
+</map>

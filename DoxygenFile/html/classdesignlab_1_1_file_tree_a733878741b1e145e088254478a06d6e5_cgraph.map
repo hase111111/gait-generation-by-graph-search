@@ -1,0 +1,20 @@
+<map id="designlab::FileTree::SelectFile" name="designlab::FileTree::SelectFile">
+<area shape="rect" id="Node000001" title="ディレクトリの中から，ファイルを一つ選択する．" alt="" coords="5,89,136,132"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_cmd_i_o_util.html#a46968822c14aa0afa22c346a06afe753" title="整数を入力させる関数． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="184,23,327,65"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,86,179,69,181,74,132,91"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="573,85,717,128"/>
+<area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="86,87,126,45,153,24,183,8,245,3,357,3,467,7,526,12,552,24,575,39,615,72,612,76,572,43,549,29,525,17,467,12,357,9,245,9,184,13,156,28,130,49,90,91"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_cmd_i_o_util.html#aa27aa18b11d6199f27f82cfe97241336" title="yesかnoを入力させる関数．返り値で yes なら true，noなら falseを返す． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="184,89,327,132"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="136,108,168,108,168,113,136,113"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_cmd_i_o_util.html#a6f864d04e44ac8b10262c9dcdb23fcbd" title="コマンドラインに水平線を出力する関数．" alt="" coords="375,144,525,187"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="137,130,184,141,274,154,360,160,359,166,274,159,183,147,136,135"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_cmd_i_o_util.html#a563e04e0ce3cf7b6c988a94b887a74b9" title="コマンドラインで改行をする関数．" alt="" coords="379,211,522,253"/>
+<area shape="poly" id="edge10_Node000001_Node000007" title=" " alt="" coords="111,130,185,164,277,193,364,214,363,219,275,198,183,169,109,135"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="379,27,522,69"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="327,43,363,44,363,49,327,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="523,67,560,78,558,83,521,72"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="323,86,367,72,368,77,325,91"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="328,107,558,105,558,110,328,113"/>
+<area shape="poly" id="edge9_Node000006_Node000004" title=" " alt="" coords="522,141,557,130,559,135,524,146"/>
+<area shape="poly" id="edge11_Node000007_Node000004" title=" " alt="" coords="503,208,524,197,568,167,606,136,610,140,571,171,527,201,506,212"/>
+</map>

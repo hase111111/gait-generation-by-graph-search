@@ -1,0 +1,5 @@
+<map id="DevideMapState::GetPointNum" name="DevideMapState::GetPointNum">
+<area shape="rect" id="Node000001" title="長方形状に切り分けられたマップから，脚設置可能点の数を取得する． &#160;&#160;範囲外の値を指定した場合は，0を返す．" alt="" coords="189,5,390,32"/>
+<area shape="rect" id="Node000002" href="$class_map_renderer.html#a0815f3b31a4c24cf5c2342a67ab43bf0" title="マップの描画を行う．" alt="" coords="5,5,141,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,21,141,21,141,16,173,16"/>
+</map>

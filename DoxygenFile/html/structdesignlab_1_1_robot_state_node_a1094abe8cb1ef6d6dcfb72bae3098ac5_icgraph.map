@@ -1,0 +1,7 @@
+<map id="designlab::RobotStateNode::IsLootNode" name="designlab::RobotStateNode::IsLootNode">
+<area shape="rect" id="Node000001" title="自身が根ノードであるか判定する．" alt="" coords="292,39,471,81"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_gait_pattern_generator_basic.html#a3b957e224a453c5fc85bd15684560043" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="8,5,241,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="276,49,241,44,241,39,276,44"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_gait_pattern_generator_thread.html#af6729bdafbd310f762733e7fa10f8df5" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,72,244,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="276,76,245,80,244,75,276,71"/>
+</map>

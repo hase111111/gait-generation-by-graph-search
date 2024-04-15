@@ -1,0 +1,5 @@
+<map id="RobotStateNode::Init" name="RobotStateNode::Init">
+<area shape="rect" id="Node000001" title="初期化関数" alt="" coords="222,13,363,40"/>
+<area shape="rect" id="Node000002" href="$class_graph_viewer_system_main.html#ac0c837edb4f1387fcdae35b39c9999eb" title="メイン関数" alt="" coords="5,5,174,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,29,174,29,174,24,206,24"/>
+</map>

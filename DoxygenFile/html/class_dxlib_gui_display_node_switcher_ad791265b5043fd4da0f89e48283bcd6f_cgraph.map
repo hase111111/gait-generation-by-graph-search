@@ -1,0 +1,7 @@
+<map id="DxlibGuiDisplayNodeSwitcher::IsDraggable" name="DxlibGuiDisplayNodeSwitcher::IsDraggable">
+<area shape="rect" id="Node000001" title="ドラッグ可能な位置にあるかを判定する．" alt="" coords="5,39,199,81"/>
+<area shape="rect" id="Node000002" href="$class_dxlib_gui_display_node_switcher.html#a2f23794396d153c2e1deeb7f048c9a41" title="GUIの上にカーソルがあるかどうかを返す．" alt="" coords="247,5,440,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,44,231,40,232,45,199,49"/>
+<area shape="rect" id="Node000003" href="$class_dxlib_gui_display_node_switcher.html#aa331368cbb6aaf99cb8e6a4b1fa28f7d" title="GUIの表示を行うかどうかを返す．" alt="" coords="247,72,440,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="199,71,232,75,231,80,199,76"/>
+</map>

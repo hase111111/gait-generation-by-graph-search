@@ -1,0 +1,15 @@
+<map id="TargetUpdaterForGpg::Update" name="TargetUpdaterForGpg::Update">
+<area shape="rect" id="Node000001" title="ロボットの動作を更新する．" alt="" coords="5,72,151,115"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#aceb2e5421b7bd78b50708c02f9e09cf8" title="角度をradからdegに変換する関数．" alt="" coords="206,5,343,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,69,194,51,196,56,144,74"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector3.html#a404131c2f7081018d36c9e38fb0073e2" title="単位ベクトルを返す．normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す． &#160;&#160;絶対値が0のベクトルの場合，そのまま0ベクトルを返す．" alt="" coords="210,72,339,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="151,91,194,91,194,96,151,96"/>
+<area shape="rect" id="Node000007" href="$namespacedesignlab.html#a3cd136a3ae33275b2a1743c250ab94cc" title="回転角行列からXYZオイラー角への変換" alt="" coords="199,139,350,165"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="152,112,213,131,212,136,150,118"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector3.html#aa36dbc9d5ec20bf4e1161e0f2593776c" title="ベクトルの長さを返す．sqrt(ルートの計算)がまぁまぁ重いので，lengthSquareでいいならそっちを使うべき．" alt="" coords="402,39,531,81"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="339,80,386,71,387,76,340,85"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1math__util.html#a12bdd69889d7939a25c5f873fad76978" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="398,105,535,148"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="340,102,383,110,382,115,339,107"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_vector3.html#a3b3da21ea415ea86d6d409f2ad053897" title="ベクトルの長さの2乗を返す．sqrt(ルートの計算)がまぁまぁ重いのでこっちを使えるなら使うべき．" alt="" coords="583,39,721,81"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="532,57,568,57,568,63,532,63"/>
+</map>

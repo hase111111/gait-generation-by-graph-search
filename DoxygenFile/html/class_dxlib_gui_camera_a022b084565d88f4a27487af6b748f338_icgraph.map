@@ -1,0 +1,5 @@
+<map id="DxlibGuiCamera::SetPos" name="DxlibGuiCamera::SetPos">
+<area shape="rect" id="Node000001" title="GUIの位置を設定する． &#160;&#160;Dxlibの画面の座標は左上を原点とし，右下に行くほど値が大きくなる． &#160;&#160;横方向にx軸，縦方向にy軸をとる．" alt="" coords="262,5,428,32"/>
+<area shape="rect" id="Node000002" href="$class_dxlib_gui_camera.html#ae62fe64176ec673038ca34e353776b4d" title="ドラッグ中の処理を行う． &#160;&#160;カーソルは上にあるけど，ドラッグ中ではない場合でも呼び出される．" alt="" coords="5,5,214,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="246,21,214,21,214,16,246,16"/>
+</map>

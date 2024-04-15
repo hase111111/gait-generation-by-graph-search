@@ -1,0 +1,5 @@
+<map id="MapCreatorByCsv::InitMap" name="MapCreatorByCsv::InitMap">
+<area shape="rect" id="Node000001" title="マップの初期化を行う．" alt="" coords="5,5,181,32"/>
+<area shape="rect" id="Node000002" href="$class_map_file_importer.html#ab13fc7981a4104a89303f90693c78925" title="マップをcsvに出力したものを読み込む．" alt="" coords="229,5,412,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,16,213,16,213,21,181,21"/>
+</map>

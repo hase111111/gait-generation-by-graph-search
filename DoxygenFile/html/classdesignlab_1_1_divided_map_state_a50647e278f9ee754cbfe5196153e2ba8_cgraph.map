@@ -1,0 +1,17 @@
+<map id="designlab::DividedMapState::Init" name="designlab::DividedMapState::Init">
+<area shape="rect" id="Node000001" title="マップのデータを初期化する． ロボットの重心座標を中心にマップのデータを格子状に分割し， その中に存在する脚設置可能点を集める．" alt="" coords="5,205,187,248"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_divided_map_state.html#a726a21449619c1d6980ed867c141992f" title="マップのデータを消去する．" alt="" coords="235,5,416,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,204,157,133,192,93,233,58,240,53,243,58,236,62,196,97,161,136,112,207"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_divided_map_state.html#a22c0df011d0506e6d5106c6acd931be9" title="指定した座標を DividedMap のインデックスに変換する． 範囲外の値を指定した場合でも，値を丸めずに返す． そのため，IsInMap で範囲内に存在するかどうかを確認する必要がある．" alt="" coords="235,72,416,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="121,203,171,164,233,124,244,119,247,124,236,129,175,168,124,207"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_divided_map_state.html#a8dcc229f5560978d2a082b326191d6ee" title="指定した座標を DividedMap のインデックスに変換する． 範囲外の値を指定した場合でも，値を丸めずに返す． そのため，IsInMap で範囲内に存在するかどうかを確認する必要がある．" alt="" coords="235,139,416,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="171,202,234,184,236,189,172,207"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_map_state.html#a80c42812e6ff529ed9b468d0db52d757" title="脚設置可能点の座標を返す．" alt="" coords="255,205,396,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="187,224,240,224,240,229,187,229"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_map_state.html#a221db2fa4a7021da6e9b240c209fa59c" title="脚設置可能点の総数を返す．" alt="" coords="255,272,396,315"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="172,246,241,266,239,271,171,251"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_divided_map_state.html#a50c9ba4fb3821ba6a674f3657fe80f6f" title="指定した座標がマップの範囲内に存在するかどうかを返す．" alt="" coords="235,339,416,381"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="124,246,175,285,236,324,247,330,244,335,233,329,171,290,121,251"/>
+<area shape="rect" id="Node000008" href="$namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5" title="2乗した値を返す関数．" alt="" coords="257,405,394,448"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="112,247,161,317,196,357,236,391,244,396,241,401,233,395,192,360,157,320,108,250"/>
+</map>

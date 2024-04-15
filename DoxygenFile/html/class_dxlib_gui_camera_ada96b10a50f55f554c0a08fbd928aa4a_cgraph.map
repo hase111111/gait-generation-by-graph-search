@@ -1,0 +1,7 @@
+<map id="DxlibGuiCamera::IsDraggable" name="DxlibGuiCamera::IsDraggable">
+<area shape="rect" id="Node000001" title="ドラッグ可能な位置にあるかを判定する．" alt="" coords="5,31,197,57"/>
+<area shape="rect" id="Node000002" href="$class_dxlib_gui_camera.html#a358780153d33642be6deb020c8d08a2f" title="GUIの上にカーソルがあるかどうかを返す．" alt="" coords="245,5,443,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,31,229,28,230,33,198,37"/>
+<area shape="rect" id="Node000003" href="$class_dxlib_gui_camera.html#ad48320e4ccc71d0419667d1871e68817" title="GUIの表示を行うかどうかを返す．" alt="" coords="258,56,430,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="198,51,242,56,242,61,197,57"/>
+</map>

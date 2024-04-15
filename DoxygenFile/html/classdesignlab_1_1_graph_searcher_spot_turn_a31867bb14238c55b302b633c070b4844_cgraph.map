@@ -1,0 +1,13 @@
+<map id="designlab::GraphSearcherSpotTurn::SearchGraphTree" name="designlab::GraphSearcherSpotTurn::SearchGraphTree">
+<area shape="rect" id="Node000001" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="5,139,188,181"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#af2594414411d9eb5e9103d30dffe9714" title="グラフのノードの総数を返す．" alt="" coords="236,5,421,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,136,172,97,234,58,245,52,248,57,237,62,175,101,125,140"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#ac9d24a79c7d5e3db0eb943cd9ecd446d" title="グラフのノードの参照を返す．" alt="" coords="236,72,421,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,136,236,117,238,122,174,141"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#a69eaf1ffd9772f8ea1063c36ee7bbcaa" title="指定したノードの親ノードの参照を返す．depthは親ノードの深さを指定する．" alt="" coords="236,139,421,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="188,157,220,157,220,163,188,163"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#a58dc796c0ec1334efff0cbcaee77eb6e" title="グラフの根ノードの参照を返す．" alt="" coords="236,205,421,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="174,179,238,198,236,203,172,184"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#adfa3cd34663f368fe3e9e76962b38898" title="グラフが根ノードを持つかどうかを返す． &#160;&#160;根ノードとは，親を持たないノードのこと． &#160;&#160;一番最初に追加するノードは必ず親になるため，親を持つかどうかはノードの総数が0でないかどうかで判定できる．" alt="" coords="236,272,421,315"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="125,180,175,219,237,258,248,263,245,268,234,262,172,223,122,184"/>
+</map>

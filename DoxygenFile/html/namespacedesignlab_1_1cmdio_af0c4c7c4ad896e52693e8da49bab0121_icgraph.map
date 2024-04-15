@@ -1,0 +1,5 @@
+<map id="designlab::cmdio::WaitAnyKey" name="designlab::cmdio::WaitAnyKey">
+<area shape="rect" id="Node000001" title="入力待ちをする関数．" alt="" coords="272,13,472,40"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままでint mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="5,5,224,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="256,29,224,29,224,24,256,24"/>
+</map>

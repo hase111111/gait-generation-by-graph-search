@@ -1,0 +1,7 @@
+<map id="Stopwatch::GetElapsedMicroSecondString" name="Stopwatch::GetElapsedMicroSecondString">
+<area shape="rect" id="Node000001" title="経過時間をマイクロ秒で表した文字列を取得する．" alt="" coords="5,39,196,81"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#adf888555ef4b5b7c531fdd5b2aa4208c" title="小数を文字列に変換する関数． &#160;&#160;C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する" alt="" coords="259,5,419,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,44,243,37,243,43,197,49"/>
+<area shape="rect" id="Node000003" href="$class_stopwatch.html#a79d207f79140305845985e1097d87ce8" title="計測結果をマイクロ秒で取得． &#160;&#160;start()とend()を呼び出してからこの関数を呼ぶ． &#160;&#160;(このレベルのオーダーで精度出せるのか...?)．" alt="" coords="244,72,434,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="197,71,229,75,228,81,196,76"/>
+</map>

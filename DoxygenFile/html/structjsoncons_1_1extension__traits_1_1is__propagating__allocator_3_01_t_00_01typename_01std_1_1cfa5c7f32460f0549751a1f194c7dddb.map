@@ -1,0 +1,5 @@
+<map id="jsoncons::extension_traits::is_propagating_allocator&lt; T, typename std::enable_if&lt;(is_polymorphic_allocator&lt; T &gt;::value)||(is_detected&lt; allocator_outer_allocator_type_t, T &gt;::value &amp;&amp;is_detected&lt; allocator_inner_allocator_type_t, T &gt;::value)&gt;::type &gt;" name="jsoncons::extension_traits::is_propagating_allocator&lt; T, typename std::enable_if&lt;(is_polymorphic_allocator&lt; T &gt;::value)||(is_detected&lt; allocator_outer_allocator_type_t, T &gt;::value &amp;&amp;is_detected&lt; allocator_inner_allocator_type_t, T &gt;::value)&gt;::type &gt;">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,237,235"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="70,5,172,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,48,124,80,118,80,118,48"/>
+</map>

@@ -1,0 +1,48 @@
+<map id="SimulationSystemMain::Main" name="SimulationSystemMain::Main">
+<area shape="rect" id="Node000001" title="いままでint mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="5,392,161,435"/>
+<area shape="rect" id="Node000002" href="$class_stopwatch.html#abb0f0d7c76a4f36357f33dbdecbe02a8" title="計測終了時にこの関数を呼ぶ．" alt="" coords="252,5,366,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,391,90,325,109,234,124,184,146,135,173,89,207,49,236,30,239,34,210,53,177,92,150,138,129,186,114,235,95,326,88,392"/>
+<area shape="rect" id="Node000003" href="$class_result_file_exporter.html#a8abd756066b11cba198717310af1dd33" title="最新のマップ状態をファイルに出力する． &#160;&#160;初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない． &#160;&#160;Init()が呼ばれていない場合は，なにも出力しない..." alt="" coords="475,107,634,149"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="92,390,135,316,168,275,207,239,268,203,333,175,399,154,459,140,460,145,400,159,335,180,270,207,210,243,172,279,140,319,97,393"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ずSetOutputLimit()を呼び出してから使うこと．" alt="" coords="699,336,866,363"/>
+<area shape="poly" id="edge12_Node000001_Node000004" title=" " alt="" coords="88,391,102,347,126,289,161,230,182,202,207,178,267,135,322,114,382,103,457,92,558,70,580,68,602,71,626,79,653,92,682,115,706,142,726,172,743,205,766,268,779,320,774,321,761,270,738,207,722,175,702,145,678,118,650,97,624,84,601,76,580,74,559,75,457,97,383,108,324,119,270,140,210,182,186,206,165,233,131,292,107,348,93,392"/>
+<area shape="rect" id="Node000005" href="$class_result_file_exporter.html#adecd9f1f56ba5357aff1896db12feb93" title="最新のノードリストをファイルに出力する． &#160;&#160;初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない． &#160;&#160;Init()が呼ばれていない場合は，なにも出力しな..." alt="" coords="477,173,631,216"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="100,390,145,342,175,317,207,295,270,264,337,240,402,221,461,207,462,213,403,226,339,245,273,269,210,300,178,321,149,346,104,394"/>
+<area shape="rect" id="Node000006" href="$class_result_file_exporter.html#abceefde731efa7b06df3a57aa098dff6" title="シミュレーション結果を全てファイルに出力する． &#160;&#160;初期化ができていない場合は，なにも出力しない．また，出力フラグがfalseの場合もなにも出力しない． &#160;&#160;Init()が呼ばれていない場合は，なにも出..." alt="" coords="490,240,618,283"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="115,389,158,364,208,340,277,316,347,297,474,271,475,276,349,302,278,322,210,345,161,368,118,394"/>
+<area shape="rect" id="Node000007" href="$class_stopwatch.html#a79d207f79140305845985e1097d87ce8" title="計測結果をマイクロ秒で取得． &#160;&#160;start()とend()を呼び出してからこの関数を呼ぶ． &#160;&#160;(このレベルのオーダーで精度出せるのか...?)" alt="" coords="214,568,404,611"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="100,433,144,493,175,526,210,554,218,558,215,563,207,558,172,530,140,496,96,436"/>
+<area shape="rect" id="Node000008" href="$namespacedesignlab_1_1cmdio.html#a1d5f07e4f8ddd98dd7e1858cfad64b6b" title="yesかnoを入力する関数．返り値でyesならtrue，noならfalseを受け取る． &#160;&#160;必ず，OutputDetailがkSystemで出力される．" alt="" coords="457,307,651,333"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="158,389,208,376,328,352,441,333,442,339,329,357,209,381,159,394"/>
+<area shape="rect" id="Node000009" href="$class_node_validity_checker.html#a4381d87f712e63f70ee3e4e99a24fc83" title=" " alt="" coords="238,635,380,677"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="94,434,110,474,134,524,168,576,210,621,225,630,222,635,207,625,163,579,129,527,105,476,89,436"/>
+<area shape="rect" id="Node000010" href="$namespacedesignlab_1_1cmdio.html#a4e349377c9ecf3763014ca8436fa44f6" title="コマンドラインに水平線を出力する関数．" alt="" coords="471,357,637,400"/>
+<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="161,405,455,383,455,389,161,410"/>
+<area shape="rect" id="Node000011" href="$namespacedesignlab_1_1cmdio.html#aa8ed2785f4f2ed80a29f9b6d3a3d1d4a" title="コマンドラインで改行をする関数．" alt="" coords="471,424,637,467"/>
+<area shape="poly" id="edge15_Node000001_Node000011" title=" " alt="" coords="161,416,455,436,455,441,161,421"/>
+<area shape="rect" id="Node000012" href="$namespacedesignlab_1_1cmdio.html#aac156719fff45c1e6da33d779eee8a4a" title="コマンドラインにこのソフトのタイトルを出力する関数． &#160;&#160;必ず，OutputDetailがkSystemで出力される．" alt="" coords="226,451,392,493"/>
+<area shape="poly" id="edge17_Node000001_Node000012" title=" " alt="" coords="162,431,211,444,210,449,160,436"/>
+<area shape="rect" id="Node000015" href="$class_result_file_exporter.html#ae6ad5bb78a87ff63c5ea02422786f157" title="シミュレーション結果を追加する．" alt="" coords="230,701,388,744"/>
+<area shape="poly" id="edge24_Node000001_Node000015" title=" " alt="" coords="91,434,103,486,125,554,160,625,183,658,210,687,218,694,215,698,207,691,179,662,156,628,120,556,97,487,85,436"/>
+<area shape="rect" id="Node000016" href="$class_node_validity_checker.html#a34b6dc9b1b2179487d5aca4b5ee1441f" title=" " alt="" coords="238,768,380,811"/>
+<area shape="poly" id="edge25_Node000001_Node000016" title=" " alt="" coords="89,435,97,497,117,583,132,629,153,674,179,717,211,754,225,765,222,770,207,758,174,720,148,677,127,631,111,584,91,498,83,436"/>
+<area shape="rect" id="Node000017" href="$class_stopwatch.html#adb93923510f12409132445fc187d828f" title="計測開始にこの関数を呼ぶ． &#160;&#160;リセット処理などを呼ぶ必要なしで，再度計測できる．" alt="" coords="250,835,368,861"/>
+<area shape="poly" id="edge26_Node000001_Node000017" title=" " alt="" coords="87,435,90,509,106,613,122,669,144,725,173,776,210,821,236,836,233,841,207,825,168,779,139,727,117,671,101,614,85,510,81,435"/>
+<area shape="rect" id="Node000018" href="$namespacedesignlab_1_1cmdio.html#af0c4c7c4ad896e52693e8da49bab0121" title="入力待ちをする関数．" alt="" coords="209,517,409,544"/>
+<area shape="poly" id="edge27_Node000001_Node000018" title=" " alt="" coords="109,433,154,469,210,503,225,509,223,514,207,508,151,473,106,437"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="634,148,653,159,693,197,727,241,753,285,772,321,767,323,748,287,722,244,689,201,650,163,631,152"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="630,214,653,226,685,248,715,274,762,322,758,326,711,277,682,252,650,230,627,219"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="620,280,652,292,737,327,735,332,650,297,618,285"/>
+<area shape="poly" id="edge10_Node000008_Node000004" title=" " alt="" coords="652,330,684,334,684,339,652,335"/>
+<area shape="poly" id="edge14_Node000010_Node000004" title=" " alt="" coords="637,365,683,359,684,365,638,371"/>
+<area shape="poly" id="edge16_Node000011_Node000004" title=" " alt="" coords="621,421,650,410,740,368,742,373,652,414,623,426"/>
+<area shape="poly" id="edge20_Node000012_Node000010" title=" " alt="" coords="361,448,456,410,473,403,475,408,458,414,363,453"/>
+<area shape="poly" id="edge21_Node000012_Node000011" title=" " alt="" coords="392,460,455,453,456,459,393,466"/>
+<area shape="rect" id="Node000013" href="$namespacedesignlab_1_1cmdio.html#a53517d90c6e49e06907cdf04b9979cdc" title="中央に文字を出力する関数．文字列が長すぎる場合は普通に出力される．" alt="" coords="471,491,637,533"/>
+<area shape="poly" id="edge18_Node000012_Node000013" title=" " alt="" coords="393,483,456,493,455,499,392,488"/>
+<area shape="rect" id="Node000014" href="$namespacedesignlab_1_1cmdio.html#a8c8bce312d4541906ad912f79317b013" title="右端に文字を出力する関数．文字列が長すぎる場合は普通に出力される．" alt="" coords="471,557,637,600"/>
+<area shape="poly" id="edge22_Node000012_Node000014" title=" " alt="" coords="386,491,410,503,435,523,458,543,468,548,466,553,456,548,431,527,408,508,384,496"/>
+<area shape="poly" id="edge19_Node000013_Node000004" title=" " alt="" coords="628,488,650,476,683,453,713,425,760,373,763,377,716,429,686,457,653,481,631,493"/>
+<area shape="poly" id="edge23_Node000014_Node000004" title=" " alt="" coords="632,554,650,543,690,504,724,458,750,413,768,375,772,378,754,415,728,461,694,507,653,547,635,559"/>
+<area shape="poly" id="edge28_Node000018_Node000004" title=" " alt="" coords="386,542,411,554,426,569,435,584,443,598,458,610,511,631,556,640,578,639,600,634,650,610,679,587,703,560,723,528,740,495,762,430,774,377,780,378,768,432,744,497,728,531,707,563,682,591,653,614,602,639,579,644,556,645,509,636,456,614,439,602,430,587,422,572,407,558,384,547"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="DxlibCamera::SetCameraViewMode" name="DxlibCamera::SetCameraViewMode">
+<area shape="rect" id="Node000001" title="カメラのモードをセットする．同時にカメラの目標回転角度などを設定する" alt="" coords="5,13,234,40"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a3ce7a029b3ea27974e5b2cb238aa7590" title="角度をdegからradに変換する関数．" alt="" coords="282,5,419,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="234,24,266,24,266,29,234,29"/>
+</map>

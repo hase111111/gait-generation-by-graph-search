@@ -1,0 +1,5 @@
+<map id="jsoncons::unicode_traits::is_output_iterator&lt; I, E, void_t&lt; typename std::iterator_traits&lt; I &gt;::iterator_category, decltype(*std::declval&lt; I &gt;()=std::declval&lt; E &gt;())&gt; &gt;" name="jsoncons::unicode_traits::is_output_iterator&lt; I, E, void_t&lt; typename std::iterator_traits&lt; I &gt;::iterator_category, decltype(*std::declval&lt; I &gt;()=std::declval&lt; E &gt;())&gt; &gt;">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,215,187"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="59,5,161,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,48,113,79,107,79,107,48"/>
+</map>

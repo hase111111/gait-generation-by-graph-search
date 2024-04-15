@@ -1,0 +1,5 @@
+<map id="PhantomXMkIIConst::IsVaildFemurAngle" name="PhantomXMkIIConst::IsVaildFemurAngle">
+<area shape="rect" id="Node000001" title=" " alt="" coords="232,5,378,48"/>
+<area shape="rect" id="Node000002" href="$class_phantom_x_mk_i_i.html#ab9527c144cad587c8ee66ace2349bbe5" title="指定した脚のHexapodJointStateが正しく計算できているかを調べる． &#160;&#160;目標座標に届かない場合や，間接の可動範囲外まで動いてしまう場合，戻り値はfalseになる．" alt="" coords="5,5,184,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,29,184,29,184,24,216,24"/>
+</map>

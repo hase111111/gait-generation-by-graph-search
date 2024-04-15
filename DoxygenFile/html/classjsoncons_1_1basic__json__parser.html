@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: jsoncons::basic_json_parser&lt; CharT, TempAllocator &gt; クラステンプレート</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classjsoncons_1_1basic__json__parser.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
+<a href="#pub-types">公開型</a> &#124;
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="classjsoncons_1_1basic__json__parser-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">jsoncons::basic_json_parser&lt; CharT, TempAllocator &gt; クラステンプレート</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+jsoncons::basic_json_parser&lt; CharT, TempAllocator &gt; の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="classjsoncons_1_1basic__json__parser__inherit__graph.png" border="0" usemap="#ajsoncons_1_1basic__json__parser_3_01_char_t_00_01_temp_allocator_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="ajsoncons_1_1basic__json__parser_3_01_char_t_00_01_temp_allocator_01_4_inherit__map" id="ajsoncons_1_1basic__json__parser_3_01_char_t_00_01_temp_allocator_01_4_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,80,219,123"/>
+<area shape="rect" href="classjsoncons_1_1ser__context.html" title=" " alt="" coords="37,5,187,32"/>
+<area shape="poly" title=" " alt="" coords="115,48,115,80,109,80,109,48"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+jsoncons::basic_json_parser&lt; CharT, TempAllocator &gt; 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="classjsoncons_1_1basic__json__parser__coll__graph.png" border="0" usemap="#ajsoncons_1_1basic__json__parser_3_01_char_t_00_01_temp_allocator_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="ajsoncons_1_1basic__json__parser_3_01_char_t_00_01_temp_allocator_01_4_coll__map" id="ajsoncons_1_1basic__json__parser_3_01_char_t_00_01_temp_allocator_01_4_coll__map">
+<area shape="rect" title=" " alt="" coords="5,80,219,123"/>
+<area shape="rect" href="classjsoncons_1_1ser__context.html" title=" " alt="" coords="37,5,187,32"/>
+<area shape="poly" title=" " alt="" coords="115,48,115,80,109,80,109,48"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+公開型</h2></td></tr>
+<tr class="memitem:ae51e6ceeb5711cfc7099d0b39229bef4" id="r_ae51e6ceeb5711cfc7099d0b39229bef4"><td class="memItemLeft" align="right" valign="top"><a id="ae51e6ceeb5711cfc7099d0b39229bef4" name="ae51e6ceeb5711cfc7099d0b39229bef4"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>char_type</b> = CharT</td></tr>
+<tr class="separator:ae51e6ceeb5711cfc7099d0b39229bef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9693e6597ff9494a069b70b048115c9b" id="r_a9693e6597ff9494a069b70b048115c9b"><td class="memItemLeft" align="right" valign="top"><a id="a9693e6597ff9494a069b70b048115c9b" name="a9693e6597ff9494a069b70b048115c9b"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>string_view_type</b> = typename <a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; CharT &gt;::string_view_type</td></tr>
+<tr class="separator:a9693e6597ff9494a069b70b048115c9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a44c59aec15453e46e66d361ac039a8d6" id="r_a44c59aec15453e46e66d361ac039a8d6"><td class="memItemLeft" align="right" valign="top"><a id="a44c59aec15453e46e66d361ac039a8d6" name="a44c59aec15453e46e66d361ac039a8d6"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>basic_json_parser</b> (const TempAllocator &amp;temp_alloc=TempAllocator())</td></tr>
+<tr class="separator:a44c59aec15453e46e66d361ac039a8d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3004674ee7de5d01ec494bc4e2f276e9" id="r_a3004674ee7de5d01ec494bc4e2f276e9"><td class="memItemLeft" align="right" valign="top"><a id="a3004674ee7de5d01ec494bc4e2f276e9" name="a3004674ee7de5d01ec494bc4e2f276e9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>basic_json_parser</b> (std::function&lt; bool(json_errc, const <a class="el" href="classjsoncons_1_1ser__context.html">ser_context</a> &amp;)&gt; err_handler, const TempAllocator &amp;temp_alloc=TempAllocator())</td></tr>
+<tr class="separator:a3004674ee7de5d01ec494bc4e2f276e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a879194fdb19bc408dd4b43d3f9283e49" id="r_a879194fdb19bc408dd4b43d3f9283e49"><td class="memItemLeft" align="right" valign="top"><a id="a879194fdb19bc408dd4b43d3f9283e49" name="a879194fdb19bc408dd4b43d3f9283e49"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>basic_json_parser</b> (const <a class="el" href="classjsoncons_1_1basic__json__decode__options.html">basic_json_decode_options</a>&lt; char_type &gt; &amp;options, const TempAllocator &amp;temp_alloc=TempAllocator())</td></tr>
+<tr class="separator:a879194fdb19bc408dd4b43d3f9283e49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0f6c8a8def38da381aa5a6d1a6916c6" id="r_ad0f6c8a8def38da381aa5a6d1a6916c6"><td class="memItemLeft" align="right" valign="top"><a id="ad0f6c8a8def38da381aa5a6d1a6916c6" name="ad0f6c8a8def38da381aa5a6d1a6916c6"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>basic_json_parser</b> (const <a class="el" href="classjsoncons_1_1basic__json__decode__options.html">basic_json_decode_options</a>&lt; char_type &gt; &amp;options, std::function&lt; bool(json_errc, const <a class="el" href="classjsoncons_1_1ser__context.html">ser_context</a> &amp;)&gt; err_handler, const TempAllocator &amp;temp_alloc=TempAllocator())</td></tr>
+<tr class="separator:ad0f6c8a8def38da381aa5a6d1a6916c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6106d8dbeb6911b9bfff98813668ebd" id="r_af6106d8dbeb6911b9bfff98813668ebd"><td class="memItemLeft" align="right" valign="top"><a id="af6106d8dbeb6911b9bfff98813668ebd" name="af6106d8dbeb6911b9bfff98813668ebd"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>source_exhausted</b> () const</td></tr>
+<tr class="separator:af6106d8dbeb6911b9bfff98813668ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d4b35e79e0fb57db4272b848cdab3f3" id="r_a8d4b35e79e0fb57db4272b848cdab3f3"><td class="memItemLeft" align="right" valign="top"><a id="a8d4b35e79e0fb57db4272b848cdab3f3" name="a8d4b35e79e0fb57db4272b848cdab3f3"></a>
+json_parse_state&#160;</td><td class="memItemRight" valign="bottom"><b>parent</b> () const</td></tr>
+<tr class="separator:a8d4b35e79e0fb57db4272b848cdab3f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42612931c0d737dd6f1e2ddce5917dca" id="r_a42612931c0d737dd6f1e2ddce5917dca"><td class="memItemLeft" align="right" valign="top"><a id="a42612931c0d737dd6f1e2ddce5917dca" name="a42612931c0d737dd6f1e2ddce5917dca"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>done</b> () const</td></tr>
+<tr class="separator:a42612931c0d737dd6f1e2ddce5917dca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6eb740b53c5a08368a754883ce6c7280" id="r_a6eb740b53c5a08368a754883ce6c7280"><td class="memItemLeft" align="right" valign="top"><a id="a6eb740b53c5a08368a754883ce6c7280" name="a6eb740b53c5a08368a754883ce6c7280"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>enter</b> () const</td></tr>
+<tr class="separator:a6eb740b53c5a08368a754883ce6c7280"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af190a873dce0215fe4d62a0a9019de7d" id="r_af190a873dce0215fe4d62a0a9019de7d"><td class="memItemLeft" align="right" valign="top"><a id="af190a873dce0215fe4d62a0a9019de7d" name="af190a873dce0215fe4d62a0a9019de7d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>accept</b> () const</td></tr>
+<tr class="separator:af190a873dce0215fe4d62a0a9019de7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e5e867e94d23652ea95f93158a8bb0a" id="r_a3e5e867e94d23652ea95f93158a8bb0a"><td class="memItemLeft" align="right" valign="top"><a id="a3e5e867e94d23652ea95f93158a8bb0a" name="a3e5e867e94d23652ea95f93158a8bb0a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>stopped</b> () const</td></tr>
+<tr class="separator:a3e5e867e94d23652ea95f93158a8bb0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaa37485f3203ad00a83337ffbf00dc1" id="r_abaa37485f3203ad00a83337ffbf00dc1"><td class="memItemLeft" align="right" valign="top"><a id="abaa37485f3203ad00a83337ffbf00dc1" name="abaa37485f3203ad00a83337ffbf00dc1"></a>
+json_parse_state&#160;</td><td class="memItemRight" valign="bottom"><b>state</b> () const</td></tr>
+<tr class="separator:abaa37485f3203ad00a83337ffbf00dc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a060647cd3e4922405187472ed89e7010" id="r_a060647cd3e4922405187472ed89e7010"><td class="memItemLeft" align="right" valign="top"><a id="a060647cd3e4922405187472ed89e7010" name="a060647cd3e4922405187472ed89e7010"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>finished</b> () const</td></tr>
+<tr class="separator:a060647cd3e4922405187472ed89e7010"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4356e2799106f35e15997ce943064f58" id="r_a4356e2799106f35e15997ce943064f58"><td class="memItemLeft" align="right" valign="top"><a id="a4356e2799106f35e15997ce943064f58" name="a4356e2799106f35e15997ce943064f58"></a>
+const char_type *&#160;</td><td class="memItemRight" valign="bottom"><b>first</b> () const</td></tr>
+<tr class="separator:a4356e2799106f35e15997ce943064f58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0937cc12494a254a9d48c8cb786c988" id="r_ae0937cc12494a254a9d48c8cb786c988"><td class="memItemLeft" align="right" valign="top"><a id="ae0937cc12494a254a9d48c8cb786c988" name="ae0937cc12494a254a9d48c8cb786c988"></a>
+const char_type *&#160;</td><td class="memItemRight" valign="bottom"><b>current</b> () const</td></tr>
+<tr class="separator:ae0937cc12494a254a9d48c8cb786c988"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1135f6f01dec9ac99706d8b145bee96" id="r_ac1135f6f01dec9ac99706d8b145bee96"><td class="memItemLeft" align="right" valign="top"><a id="ac1135f6f01dec9ac99706d8b145bee96" name="ac1135f6f01dec9ac99706d8b145bee96"></a>
+const char_type *&#160;</td><td class="memItemRight" valign="bottom"><b>last</b> () const</td></tr>
+<tr class="separator:ac1135f6f01dec9ac99706d8b145bee96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17eb74c4c7196e03ff354ed88f55fc4f" id="r_a17eb74c4c7196e03ff354ed88f55fc4f"><td class="memItemLeft" align="right" valign="top"><a id="a17eb74c4c7196e03ff354ed88f55fc4f" name="a17eb74c4c7196e03ff354ed88f55fc4f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>skip_space</b> ()</td></tr>
+<tr class="separator:a17eb74c4c7196e03ff354ed88f55fc4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e014b38583b5be59532f4f105a4ab5d" id="r_a9e014b38583b5be59532f4f105a4ab5d"><td class="memItemLeft" align="right" valign="top"><a id="a9e014b38583b5be59532f4f105a4ab5d" name="a9e014b38583b5be59532f4f105a4ab5d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>skip_whitespace</b> ()</td></tr>
+<tr class="separator:a9e014b38583b5be59532f4f105a4ab5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ea7a665eed05791b86248303757ce80" id="r_a0ea7a665eed05791b86248303757ce80"><td class="memItemLeft" align="right" valign="top"><a id="a0ea7a665eed05791b86248303757ce80" name="a0ea7a665eed05791b86248303757ce80"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>begin_object</b> (<a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; char_type &gt; &amp;visitor, std::error_code &amp;ec)</td></tr>
+<tr class="separator:a0ea7a665eed05791b86248303757ce80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d6aec0b0519ccf467f7c5ba0c283b78" id="r_a7d6aec0b0519ccf467f7c5ba0c283b78"><td class="memItemLeft" align="right" valign="top"><a id="a7d6aec0b0519ccf467f7c5ba0c283b78" name="a7d6aec0b0519ccf467f7c5ba0c283b78"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>end_object</b> (<a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; char_type &gt; &amp;visitor, std::error_code &amp;ec)</td></tr>
+<tr class="separator:a7d6aec0b0519ccf467f7c5ba0c283b78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c54cba699b35cd5666d80c2598bbfc6" id="r_a7c54cba699b35cd5666d80c2598bbfc6"><td class="memItemLeft" align="right" valign="top"><a id="a7c54cba699b35cd5666d80c2598bbfc6" name="a7c54cba699b35cd5666d80c2598bbfc6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>begin_array</b> (<a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; char_type &gt; &amp;visitor, std::error_code &amp;ec)</td></tr>
+<tr class="separator:a7c54cba699b35cd5666d80c2598bbfc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08968752904542b1a47d93c9c690d28b" id="r_a08968752904542b1a47d93c9c690d28b"><td class="memItemLeft" align="right" valign="top"><a id="a08968752904542b1a47d93c9c690d28b" name="a08968752904542b1a47d93c9c690d28b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>end_array</b> (<a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; char_type &gt; &amp;visitor, std::error_code &amp;ec)</td></tr>
+<tr class="separator:a08968752904542b1a47d93c9c690d28b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad67f85a9b6d53998e2ce08e2ac61f9ad" id="r_ad67f85a9b6d53998e2ce08e2ac61f9ad"><td class="memItemLeft" align="right" valign="top"><a id="ad67f85a9b6d53998e2ce08e2ac61f9ad" name="ad67f85a9b6d53998e2ce08e2ac61f9ad"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reinitialize</b> ()</td></tr>
+<tr class="separator:ad67f85a9b6d53998e2ce08e2ac61f9ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6100f2fe5d6adce2bcdf2eded0a44c0b" id="r_a6100f2fe5d6adce2bcdf2eded0a44c0b"><td class="memItemLeft" align="right" valign="top"><a id="a6100f2fe5d6adce2bcdf2eded0a44c0b" name="a6100f2fe5d6adce2bcdf2eded0a44c0b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> ()</td></tr>
+<tr class="separator:a6100f2fe5d6adce2bcdf2eded0a44c0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fc3b9628d6f432067bdf98ea4fe9ea7" id="r_a7fc3b9628d6f432067bdf98ea4fe9ea7"><td class="memItemLeft" align="right" valign="top"><a id="a7fc3b9628d6f432067bdf98ea4fe9ea7" name="a7fc3b9628d6f432067bdf98ea4fe9ea7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>restart</b> ()</td></tr>
+<tr class="separator:a7fc3b9628d6f432067bdf98ea4fe9ea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76c317d824cf939f9dce6146f121ca10" id="r_a76c317d824cf939f9dce6146f121ca10"><td class="memItemLeft" align="right" valign="top"><a id="a76c317d824cf939f9dce6146f121ca10" name="a76c317d824cf939f9dce6146f121ca10"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>check_done</b> ()</td></tr>
+<tr class="separator:a76c317d824cf939f9dce6146f121ca10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98d29e15b957f5f11de4c8a6db43a751" id="r_a98d29e15b957f5f11de4c8a6db43a751"><td class="memItemLeft" align="right" valign="top"><a id="a98d29e15b957f5f11de4c8a6db43a751" name="a98d29e15b957f5f11de4c8a6db43a751"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>check_done</b> (std::error_code &amp;ec)</td></tr>
+<tr class="separator:a98d29e15b957f5f11de4c8a6db43a751"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a731cdb955f59f4eb37bf7b957cd85ff8" id="r_a731cdb955f59f4eb37bf7b957cd85ff8"><td class="memItemLeft" align="right" valign="top"><a id="a731cdb955f59f4eb37bf7b957cd85ff8" name="a731cdb955f59f4eb37bf7b957cd85ff8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (const string_view_type sv)</td></tr>
+<tr class="separator:a731cdb955f59f4eb37bf7b957cd85ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd753ba1fe838b5c4741bd01c989353a" id="r_afd753ba1fe838b5c4741bd01c989353a"><td class="memItemLeft" align="right" valign="top"><a id="afd753ba1fe838b5c4741bd01c989353a" name="afd753ba1fe838b5c4741bd01c989353a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (const char_type *data, std::size_t length)</td></tr>
+<tr class="separator:afd753ba1fe838b5c4741bd01c989353a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a810d3e63125d7c3b9106af8a1b4e147d" id="r_a810d3e63125d7c3b9106af8a1b4e147d"><td class="memItemLeft" align="right" valign="top"><a id="a810d3e63125d7c3b9106af8a1b4e147d" name="a810d3e63125d7c3b9106af8a1b4e147d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>parse_some</b> (<a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; char_type &gt; &amp;visitor)</td></tr>
+<tr class="separator:a810d3e63125d7c3b9106af8a1b4e147d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7aee2748d66d1db65c88c71fb63ad94" id="r_ae7aee2748d66d1db65c88c71fb63ad94"><td class="memItemLeft" align="right" valign="top"><a id="ae7aee2748d66d1db65c88c71fb63ad94" name="ae7aee2748d66d1db65c88c71fb63ad94"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>parse_some</b> (<a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; char_type &gt; &amp;visitor, std::error_code &amp;ec)</td></tr>
+<tr class="separator:ae7aee2748d66d1db65c88c71fb63ad94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8f382355dd0c6018e9a2819fed2281f" id="r_ab8f382355dd0c6018e9a2819fed2281f"><td class="memItemLeft" align="right" valign="top"><a id="ab8f382355dd0c6018e9a2819fed2281f" name="ab8f382355dd0c6018e9a2819fed2281f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>finish_parse</b> (<a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; char_type &gt; &amp;visitor)</td></tr>
+<tr class="separator:ab8f382355dd0c6018e9a2819fed2281f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab66e19db3a668b20f1ebdc843ad70c46" id="r_ab66e19db3a668b20f1ebdc843ad70c46"><td class="memItemLeft" align="right" valign="top"><a id="ab66e19db3a668b20f1ebdc843ad70c46" name="ab66e19db3a668b20f1ebdc843ad70c46"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>finish_parse</b> (<a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; char_type &gt; &amp;visitor, std::error_code &amp;ec)</td></tr>
+<tr class="separator:ab66e19db3a668b20f1ebdc843ad70c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29d67fd71f772d9cd4e3ad0298040e69" id="r_a29d67fd71f772d9cd4e3ad0298040e69"><td class="memItemLeft" align="right" valign="top"><a id="a29d67fd71f772d9cd4e3ad0298040e69" name="a29d67fd71f772d9cd4e3ad0298040e69"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>parse_some_</b> (<a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; char_type &gt; &amp;visitor, std::error_code &amp;ec)</td></tr>
+<tr class="separator:a29d67fd71f772d9cd4e3ad0298040e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d8ae9eaaea723d3d45bbed0ed0c2e11" id="r_a5d8ae9eaaea723d3d45bbed0ed0c2e11"><td class="memItemLeft" align="right" valign="top"><a id="a5d8ae9eaaea723d3d45bbed0ed0c2e11" name="a5d8ae9eaaea723d3d45bbed0ed0c2e11"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>parse_true</b> (<a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; char_type &gt; &amp;visitor, std::error_code &amp;ec)</td></tr>
+<tr class="separator:a5d8ae9eaaea723d3d45bbed0ed0c2e11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac15a06eda2c00fab50233594326853e3" id="r_ac15a06eda2c00fab50233594326853e3"><td class="memItemLeft" align="right" valign="top"><a id="ac15a06eda2c00fab50233594326853e3" name="ac15a06eda2c00fab50233594326853e3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>parse_null</b> (<a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; char_type &gt; &amp;visitor, std::error_code &amp;ec)</td></tr>
+<tr class="separator:ac15a06eda2c00fab50233594326853e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1b69796fa9ea12dedc0f9aef3c41fbe" id="r_aa1b69796fa9ea12dedc0f9aef3c41fbe"><td class="memItemLeft" align="right" valign="top"><a id="aa1b69796fa9ea12dedc0f9aef3c41fbe" name="aa1b69796fa9ea12dedc0f9aef3c41fbe"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>parse_false</b> (<a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; char_type &gt; &amp;visitor, std::error_code &amp;ec)</td></tr>
+<tr class="separator:aa1b69796fa9ea12dedc0f9aef3c41fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d643a4073464060d1647fc0aa1e1fdc" id="r_a9d643a4073464060d1647fc0aa1e1fdc"><td class="memItemLeft" align="right" valign="top"><a id="a9d643a4073464060d1647fc0aa1e1fdc" name="a9d643a4073464060d1647fc0aa1e1fdc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>parse_number</b> (<a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; char_type &gt; &amp;visitor, std::error_code &amp;ec)</td></tr>
+<tr class="separator:a9d643a4073464060d1647fc0aa1e1fdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02cff297c1d9dada4ef95eb4a2e6bc96" id="r_a02cff297c1d9dada4ef95eb4a2e6bc96"><td class="memItemLeft" align="right" valign="top"><a id="a02cff297c1d9dada4ef95eb4a2e6bc96" name="a02cff297c1d9dada4ef95eb4a2e6bc96"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>parse_string</b> (<a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; char_type &gt; &amp;visitor, std::error_code &amp;ec)</td></tr>
+<tr class="separator:a02cff297c1d9dada4ef95eb4a2e6bc96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0617c56e532207401ec388d7a4d7d6e" id="r_ae0617c56e532207401ec388d7a4d7d6e"><td class="memItemLeft" align="right" valign="top"><a id="ae0617c56e532207401ec388d7a4d7d6e" name="ae0617c56e532207401ec388d7a4d7d6e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>translate_conv_errc</b> (unicode_traits::conv_errc result, std::error_code &amp;ec)</td></tr>
+<tr class="separator:ae0617c56e532207401ec388d7a4d7d6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a845038ad9bc978d461306bffb9b06265" id="r_a845038ad9bc978d461306bffb9b06265"><td class="memItemLeft" align="right" valign="top"><a id="a845038ad9bc978d461306bffb9b06265" name="a845038ad9bc978d461306bffb9b06265"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>end_parse</b> (<a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; char_type &gt; &amp;visitor)</td></tr>
+<tr class="separator:a845038ad9bc978d461306bffb9b06265"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace245e44c7128312e17d43d75e6c0e40" id="r_ace245e44c7128312e17d43d75e6c0e40"><td class="memItemLeft" align="right" valign="top"><a id="ace245e44c7128312e17d43d75e6c0e40" name="ace245e44c7128312e17d43d75e6c0e40"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>end_parse</b> (<a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; char_type &gt; &amp;visitor, std::error_code &amp;ec)</td></tr>
+<tr class="separator:ace245e44c7128312e17d43d75e6c0e40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af262b74d9fb4de22616025de7ec9e765" id="r_af262b74d9fb4de22616025de7ec9e765"><td class="memItemLeft" align="right" valign="top"><a id="af262b74d9fb4de22616025de7ec9e765" name="af262b74d9fb4de22616025de7ec9e765"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>set_source</b> (const char_type *data, std::size_t length)</td></tr>
+<tr class="separator:af262b74d9fb4de22616025de7ec9e765"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab87b62c18a859a078c8d22d6072e4675" id="r_ab87b62c18a859a078c8d22d6072e4675"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjsoncons_1_1basic__json__parser.html#ab87b62c18a859a078c8d22d6072e4675">line</a> () const override</td></tr>
+<tr class="separator:ab87b62c18a859a078c8d22d6072e4675"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a289081e8bb0f604c4ec5f226e055e12f" id="r_a289081e8bb0f604c4ec5f226e055e12f"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjsoncons_1_1basic__json__parser.html#a289081e8bb0f604c4ec5f226e055e12f">column</a> () const override</td></tr>
+<tr class="separator:a289081e8bb0f604c4ec5f226e055e12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d3468ef02b654dc54b8f76875a12284" id="r_a9d3468ef02b654dc54b8f76875a12284"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjsoncons_1_1basic__json__parser.html#a9d3468ef02b654dc54b8f76875a12284">position</a> () const override</td></tr>
+<tr class="separator:a9d3468ef02b654dc54b8f76875a12284"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe61a042b8e4bbaf06ef92ecba714830" id="r_abe61a042b8e4bbaf06ef92ecba714830"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjsoncons_1_1basic__json__parser.html#abe61a042b8e4bbaf06ef92ecba714830">end_position</a> () const override</td></tr>
+<tr class="separator:abe61a042b8e4bbaf06ef92ecba714830"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09a6e0956cec1c7655990fe760c55dcc" id="r_a09a6e0956cec1c7655990fe760c55dcc"><td class="memItemLeft" align="right" valign="top"><a id="a09a6e0956cec1c7655990fe760c55dcc" name="a09a6e0956cec1c7655990fe760c55dcc"></a>
+std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>offset</b> () const</td></tr>
+<tr class="separator:a09a6e0956cec1c7655990fe760c55dcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classjsoncons_1_1ser__context"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classjsoncons_1_1ser__context')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classjsoncons_1_1ser__context.html">jsoncons::ser_context</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:ac5ba3e56f5a2fee54d0dbcc5882937d4 inherit pub_methods_classjsoncons_1_1ser__context" id="r_ac5ba3e56f5a2fee54d0dbcc5882937d4"><td class="memItemLeft" align="right" valign="top">
+std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>line_number</b> () const</td></tr>
+<tr class="separator:ac5ba3e56f5a2fee54d0dbcc5882937d4 inherit pub_methods_classjsoncons_1_1ser__context"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a0588aa60e52c4a49012269a4119135 inherit pub_methods_classjsoncons_1_1ser__context" id="r_a5a0588aa60e52c4a49012269a4119135"><td class="memItemLeft" align="right" valign="top">
+std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>column_number</b> () const</td></tr>
+<tr class="separator:a5a0588aa60e52c4a49012269a4119135 inherit pub_methods_classjsoncons_1_1ser__context"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a289081e8bb0f604c4ec5f226e055e12f" name="a289081e8bb0f604c4ec5f226e055e12f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a289081e8bb0f604c4ec5f226e055e12f">&#9670;&#160;</a></span>column()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CharT , class TempAllocator  = std::allocator&lt;char&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="classjsoncons_1_1basic__json__parser.html">jsoncons::basic_json_parser</a>&lt; CharT, TempAllocator &gt;::column </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classjsoncons_1_1ser__context.html">jsoncons::ser_context</a>を再実装しています。</p>
+
+</div>
+</div>
+<a id="abe61a042b8e4bbaf06ef92ecba714830" name="abe61a042b8e4bbaf06ef92ecba714830"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe61a042b8e4bbaf06ef92ecba714830">&#9670;&#160;</a></span>end_position()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CharT , class TempAllocator  = std::allocator&lt;char&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="classjsoncons_1_1basic__json__parser.html">jsoncons::basic_json_parser</a>&lt; CharT, TempAllocator &gt;::end_position </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classjsoncons_1_1ser__context.html">jsoncons::ser_context</a>を再実装しています。</p>
+
+</div>
+</div>
+<a id="ab87b62c18a859a078c8d22d6072e4675" name="ab87b62c18a859a078c8d22d6072e4675"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab87b62c18a859a078c8d22d6072e4675">&#9670;&#160;</a></span>line()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CharT , class TempAllocator  = std::allocator&lt;char&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="classjsoncons_1_1basic__json__parser.html">jsoncons::basic_json_parser</a>&lt; CharT, TempAllocator &gt;::line </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classjsoncons_1_1ser__context.html">jsoncons::ser_context</a>を再実装しています。</p>
+
+</div>
+</div>
+<a id="a9d3468ef02b654dc54b8f76875a12284" name="a9d3468ef02b654dc54b8f76875a12284"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d3468ef02b654dc54b8f76875a12284">&#9670;&#160;</a></span>position()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CharT , class TempAllocator  = std::allocator&lt;char&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="classjsoncons_1_1basic__json__parser.html">jsoncons::basic_json_parser</a>&lt; CharT, TempAllocator &gt;::position </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classjsoncons_1_1ser__context.html">jsoncons::ser_context</a>を再実装しています。</p>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/hasegawa/Desktop/main/program/DesignLab/jsoncons/include/jsoncons/<a class="el" href="json__parser_8hpp_source.html">json_parser.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacejsoncons.html">jsoncons</a></li><li class="navelem"><a class="el" href="classjsoncons_1_1basic__json__parser.html">basic_json_parser</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

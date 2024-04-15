@@ -1,0 +1,5 @@
+<map id="PhantomXStateCalclator::GetLocalLegPosition" name="PhantomXStateCalclator::GetLocalLegPosition">
+<area shape="rect" id="Node000001" title="脚先の座標を取得する．ローカル(ロボット)座標系" alt="" coords="5,5,168,48"/>
+<area shape="rect" id="Node000002" href="$class_phantom_x_state_calclator.html#a399c599a8fbfdb4064c8a65a2a163122" title="脚の付け根の座標( leg base position)を取得する．ローカル(ロボット)座標系" alt="" coords="216,5,395,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,24,200,24,200,29,168,29"/>
+</map>

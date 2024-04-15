@@ -1,0 +1,7 @@
+<map id="PhantomXConst::IsVaildCoxaAngle" name="PhantomXConst::IsVaildCoxaAngle">
+<area shape="rect" id="Node000001" title="第1関節の角度が有効な範囲内かどうかを判定する．" alt="" coords="216,39,407,81"/>
+<area shape="rect" id="Node000002" href="$class_phantom_x_state_calclator.html#a11a402fd0dbb6dfca694191dd7b3d1ce" title="指定した脚の関節のグローバル座標と，角度を計算する． &#160;&#160;重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない． &#160;&#160;間接の可動範囲外まで動いてしまう場合でも，答えを返す． &#160;&#160;目標座標..." alt="" coords="5,5,168,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,46,168,41,168,36,200,41"/>
+<area shape="rect" id="Node000003" href="$class_phantom_x_state_calclator.html#a8797de2b7195930654f00f18d2ae86d5" title="指定した脚のHexapodJointStateが正しく計算できているかを調べる． &#160;&#160;目標座標に届かない場合や，間接の可動範囲外まで動いてしまう場合，戻り値はfalseになる．" alt="" coords="5,72,168,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="200,79,168,84,168,79,200,74"/>
+</map>

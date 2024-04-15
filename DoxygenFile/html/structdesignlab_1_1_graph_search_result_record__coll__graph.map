@@ -1,0 +1,12 @@
+<map id="designlab::GraphSearchResultRecord" name="designlab::GraphSearchResultRecord">
+<area shape="rect" id="Node000001" title="グラフ探索の結果を格納する構造体．" alt="" coords="155,283,352,325"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_robot_state_node.html" title="グラフ構造のためのノード(頂点)．旧名 LNODE" alt="" coords="5,192,185,219"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,225,221,280,218,284,127,229"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector3.html" title="3次元の位置ベクトルを表す構造体．" alt="" coords="30,5,160,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,48,89,96,90,149,95,191,90,192,85,149,83,96,88,47"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaternion.html" title="クォータニオンを表す構造体．" alt="" coords="235,99,382,125"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="140,36,280,96,278,100,137,41"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="266,134,126,194,124,189,264,129"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_graph_search_result.html" title="グラフ探索の評価値を評価するクラス．" alt="" coords="208,192,406,219"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="295,234,267,283,263,281,290,231"/>
+</map>

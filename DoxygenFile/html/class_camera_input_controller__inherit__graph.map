@@ -1,0 +1,5 @@
+<map id="CameraInputController" name="CameraInputController">
+<area shape="rect" id="Node000001" title="マウスの入力でカメラを動かすクラス．" alt="" coords="5,80,155,107"/>
+<area shape="rect" id="Node000002" href="$class_i_dxlib_draggable.html" title="ドラッグ可能なGUIのインターフェース． &#160;&#160;ドラッグ動作を実装したいGUIはこのインターフェースを継承する．" alt="" coords="24,5,136,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,48,83,80,77,80,77,48"/>
+</map>

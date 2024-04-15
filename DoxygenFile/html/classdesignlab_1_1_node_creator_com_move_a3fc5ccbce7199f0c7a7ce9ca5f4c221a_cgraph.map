@@ -1,0 +1,16 @@
+<map id="designlab::NodeCreatorComMove::Create" name="designlab::NodeCreatorComMove::Create">
+<area shape="rect" id="Node000001" title="現在のノードから次のノード群を生成する．" alt="" coords="5,105,189,148"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_robot_state_node.html#a28bedf0298ebf8f315a21294dd111f45" title="重心位置を変更する関数．" alt="" coords="237,72,430,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,111,221,107,222,112,189,116"/>
+<area shape="rect" id="Node000011" href="$structdesignlab_1_1_robot_state_node.html#a6b3997cbc4ff0c8a48582608a12fca8e" title="次の動作を設定する関数． &#160;&#160;深さを一つ深くして，親と次の動作を設定する．" alt="" coords="244,139,423,181"/>
+<area shape="poly" id="edge7_Node000001_Node000011" title=" " alt="" coords="189,137,229,143,228,148,189,142"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_quaternion.html#a893ee3dc143f059822f17ead2f716de1" title="クォータニオンの共役を返す． 共役なクォータニオンとは，ベクトル成分の符号を反転させたもの &#160;&#160;q = w + xi + yj + zk とすると， qの共役は w &#45; xi &#45; yj &#45; zk となる..." alt="" coords="488,5,635,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="408,69,472,50,474,55,409,74"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="496,72,628,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="430,91,480,91,480,96,430,96"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="478,163,645,189"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="399,113,431,124,511,154,509,159,429,129,397,118"/>
+<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="524,164,517,154,522,144,537,138,562,136,588,139,602,145,600,150,587,144,562,141,538,143,526,148,523,153,528,161"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換．" alt="" coords="693,163,876,189"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="646,173,678,173,678,179,646,179"/>
+</map>

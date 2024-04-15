@@ -1,0 +1,5 @@
+<map id="designlab::Vector3::GetUpVec" name="designlab::Vector3::GetUpVec">
+<area shape="rect" id="Node000001" title="上に進む単位ベクトルを返す． 静的な関数なので，Vector3::GetUpVec() と呼び出せる．" alt="" coords="189,5,318,48"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1dxlib__util.html#a817972c248c109584a567e959799b9e6" title="3D処理を行う上で必要な初期化処理をまとめたもの．" alt="" coords="5,5,141,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,29,141,29,141,24,173,24"/>
+</map>

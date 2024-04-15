@@ -1,0 +1,19 @@
+<map id="MapRenderer::SetMapState" name="MapRenderer::SetMapState">
+<area shape="rect" id="Node000001" title="マップの状態を設定する．代入と同時にDevideMapも更新される．" alt="" coords="5,189,188,216"/>
+<area shape="rect" id="Node000002" href="$class_devide_map_state.html#a86d9f7ad8e8fc412757154dc88f3cbe9" title="Devideマップのデータを初期化する． &#160;&#160;マップのデータを格子状に分割し，その中に存在する脚設置可能点を集める．" alt="" coords="236,189,376,216"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,200,220,200,220,205,188,205"/>
+<area shape="rect" id="Node000003" href="$class_devide_map_state.html#a790fff92a0bfa4a4831cbe27dd20737e" title="Devideマップのデータを初期化する．" alt="" coords="441,5,594,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="311,188,327,157,351,118,383,77,422,42,431,37,434,41,426,46,387,80,355,121,331,160,316,190"/>
+<area shape="rect" id="Node000004" href="$class_devide_map_state.html#a7c045f5838aa6e2ca95e2fcce73f3997" title="指定した座標がDevideマップのindexにおいてどの位置にあるかを返す．" alt="" coords="427,56,609,99"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="320,187,364,149,423,108,432,103,435,108,425,113,367,153,323,191"/>
+<area shape="rect" id="Node000005" href="$class_devide_map_state.html#a224053c333f390056d7075c582740af7" title="指定した座標がDevideマップのindexにおいてどの位置にあるかを返す．" alt="" coords="427,123,609,165"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="356,186,423,167,425,173,357,191"/>
+<area shape="rect" id="Node000006" href="$class_map_state.html#ab01ed7b1a6d0f47a8f23f4bd42d86da0" title="脚設置可能点の座標を返す．" alt="" coords="437,189,598,216"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="376,200,421,200,421,205,376,205"/>
+<area shape="rect" id="Node000007" href="$class_map_state.html#ac1d3feddfa06c7465aa205875cbe00e4" title="脚設置可能点の総数を返す．" alt="" coords="424,240,611,267"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="366,214,445,233,443,238,364,219"/>
+<area shape="rect" id="Node000008" href="$class_devide_map_state.html#a92aedd65b746989074b4cd40640b8ff5" title="指定した座標がDevideマップの範囲内に存在するかどうかを返す．" alt="" coords="434,291,602,317"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="326,214,370,245,425,276,442,283,440,288,423,281,367,250,323,219"/>
+<area shape="rect" id="Node000009" href="$namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5" title="2乗した値を返す関数． &#160;&#160;整数型や，小数型のみを想定して作っているので，他の型で使うとエラーが出るかも．" alt="" coords="449,341,586,384"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="319,215,361,269,391,300,426,327,436,333,433,338,422,332,388,304,357,272,314,218"/>
+</map>

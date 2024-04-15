@@ -1,0 +1,17 @@
+<map id="FileTree::SelectFile" name="FileTree::SelectFile">
+<area shape="rect" id="Node000001" title="ディレクトリの中から，ファイルを一つ選択する" alt="" coords="5,107,139,133"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1cmdio.html#a38240b12de09622fec60b69636218237" title="整数を入力する関数． &#160;&#160;必ず，OutputDetailがkSystemで出力される．" alt="" coords="199,5,369,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,104,134,76,186,48,219,35,221,40,188,53,137,81,94,108"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ずSetOutputLimit()を呼び出してから使うこと．" alt="" coords="429,107,595,133"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="124,103,186,92,284,85,381,92,438,100,437,106,381,97,284,91,187,97,125,109"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1cmdio.html#a1d5f07e4f8ddd98dd7e1858cfad64b6b" title="yesかnoを入力する関数．返り値でyesならtrue，noならfalseを受け取る． &#160;&#160;必ず，OutputDetailがkSystemで出力される．" alt="" coords="187,107,381,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="139,117,171,117,171,123,139,123"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab_1_1cmdio.html#a4e349377c9ecf3763014ca8436fa44f6" title="コマンドラインに水平線を出力する関数．" alt="" coords="201,157,367,200"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="124,131,191,150,189,155,122,136"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1cmdio.html#aa8ed2785f4f2ed80a29f9b6d3a3d1d4a" title="コマンドラインで改行をする関数．" alt="" coords="201,224,367,267"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="89,132,131,170,188,210,198,215,196,220,185,214,128,174,85,136"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="333,30,382,48,476,96,474,101,380,53,331,35"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="382,117,413,117,413,123,382,123"/>
+<area shape="poly" id="edge7_Node000005_Node000003" title=" " alt="" coords="367,155,442,135,443,140,368,160"/>
+<area shape="poly" id="edge9_Node000006_Node000003" title=" " alt="" coords="355,221,380,210,435,176,481,141,485,145,438,180,382,214,357,226"/>
+</map>

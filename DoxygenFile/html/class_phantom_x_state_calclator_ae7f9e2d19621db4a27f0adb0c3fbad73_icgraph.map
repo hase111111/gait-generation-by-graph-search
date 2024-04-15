@@ -1,0 +1,11 @@
+<map id="PhantomXStateCalclator::GetLegBasePosRobotCoodinate" name="PhantomXStateCalclator::GetLegBasePosRobotCoodinate">
+<area shape="rect" id="Node000001" title="脚の付け根の座標( leg base position )を取得する．ロボット座標系．" alt="" coords="260,105,476,148"/>
+<area shape="rect" id="Node000002" href="$class_phantom_x_state_calclator.html#acd9ac5e0a6970777a346f89aaace6058" title="安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算す..." alt="" coords="24,5,193,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="304,101,211,62,179,51,181,46,213,58,306,96"/>
+<area shape="rect" id="Node000003" href="$class_phantom_x_state_calclator.html#a50385ad42ae02002635f364b3623cb22" title="グローバル座標系で表現されている座標を，脚座標系に変換する．" alt="" coords="5,72,212,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="244,113,212,109,213,104,244,108"/>
+<area shape="rect" id="Node000004" href="$class_phantom_x_state_calclator.html#a7a9792217c245959d5bbabfe696945e1" title="脚座標系で表現されている座標を，グローバル座標系に変換する．" alt="" coords="5,139,212,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="244,145,213,149,212,144,244,140"/>
+<area shape="rect" id="Node000005" href="$class_phantom_x_state_calclator.html#a76cbbca0a406e63796956e9ea01b373f" title="脚が他の脚と干渉しているかどうかを判定する．" alt="" coords="27,205,190,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="306,157,213,196,181,207,179,202,211,191,304,152"/>
+</map>

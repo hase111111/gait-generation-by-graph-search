@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: C:/Users/hasegawa/Desktop/main/program/DesignLab/DesignLab/graph_search_evaluator.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('graph__search__evaluator_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">graph_search_evaluator.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="graph__search__evaluator_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef DESIGNLAB_GRAPH_SEARCH_EVALUATOR_H_</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define DESIGNLAB_GRAPH_SEARCH_EVALUATOR_H_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_graph_search_evaluation_value.html">   19</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1_graph_search_evaluation_value.html">GraphSearchEvaluationValue</a> final</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">using </span>Tag = int;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keywordtype">float</span> kMaxEvaluationValue = 1.0e+7f;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keywordtype">float</span> kMinEvaluationValue = -1.0e+7f;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    std::map&lt;Tag, float&gt; value;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
+</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_graph_search_evaluator.html">   32</a></span><span class="keyword">class </span><a class="code hl_class" href="classdesignlab_1_1_graph_search_evaluator.html">GraphSearchEvaluator</a> final</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">using </span>Tag = GraphSearchEvaluationValue::Tag;  <span class="comment">// 読みやすさのため，別名をつける．</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_graph_search_evaluator_1_1_evaluation_method.html">   39</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1_graph_search_evaluator_1_1_evaluation_method.html">EvaluationMethod</a> final</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_graph_search_evaluator_1_1_evaluation_method.html#a784357a0a735e40322ebcbf308a482a3">   41</a></span>        <span class="keywordtype">bool</span> <a class="code hl_variable" href="structdesignlab_1_1_graph_search_evaluator_1_1_evaluation_method.html#a784357a0a735e40322ebcbf308a482a3">is_lower_better</a>;  </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_graph_search_evaluator_1_1_evaluation_method.html#a627731e6b7031d7a88e6792a24dcb2e7">   43</a></span>        <span class="keywordtype">float</span> <a class="code hl_variable" href="structdesignlab_1_1_graph_search_evaluator_1_1_evaluation_method.html#a627731e6b7031d7a88e6792a24dcb2e7">margin</a>;  </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    };</div>
+</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_graph_search_evaluator.html#aecaeb3af78608aad1f8990c6ff1f99c1">   46</a></span>    <a class="code hl_function" href="classdesignlab_1_1_graph_search_evaluator.html#aecaeb3af78608aad1f8990c6ff1f99c1">GraphSearchEvaluator</a>() = <span class="keyword">delete</span>;  </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_graph_search_evaluator.html#aaccc79f54b1956e1a644acc637638666">   51</a></span>    <a class="code hl_function" href="classdesignlab_1_1_graph_search_evaluator.html#aaccc79f54b1956e1a644acc637638666">GraphSearchEvaluator</a>(<span class="keyword">const</span> std::map&lt;Tag, EvaluationMethod&gt;&amp; evaluation_method_map,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                         <span class="keyword">const</span> std::vector&lt;Tag&gt;&amp; evaluation_priority_list);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_class" href="classdesignlab_1_1_graph_search_evaluator.html">~GraphSearchEvaluator</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_graph_search_evaluator.html#ae225cfba0b80231e46ed4865b9c2013e">LeftIsBetter</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_graph_search_evaluation_value.html">GraphSearchEvaluationValue</a>&amp; left,</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                      <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_graph_search_evaluation_value.html">GraphSearchEvaluationValue</a>&amp; right,</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                      <span class="keywordtype">bool</span> return_true_case_of_equal = <span class="keyword">true</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_graph_search_evaluator.html#a5f80fb4f62a375b4f33343e59e2644cb">LeftIsBetterWithTag</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_graph_search_evaluation_value.html">GraphSearchEvaluationValue</a>&amp; left,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                             <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_graph_search_evaluation_value.html">GraphSearchEvaluationValue</a>&amp; right,</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                             Tag tag,</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                             <span class="keywordtype">bool</span> return_true_case_of_equal = <span class="keyword">true</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <a class="code hl_struct" href="structdesignlab_1_1_graph_search_evaluation_value.html">GraphSearchEvaluationValue</a> <a class="code hl_function" href="classdesignlab_1_1_graph_search_evaluator.html#afec9e5848a45da7d934104e85140169f">InitializeEvaluationValue</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keyword">const</span> std::map&lt;Tag, EvaluationMethod&gt; evaluation_method_map_;  </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keyword">const</span> std::vector&lt;Tag&gt; evaluation_priority_list_;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>};</div>
+</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>}  <span class="comment">// namespace designlab</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_GRAPH_SEARCH_EVALUATOR_H_</span></div>
+<div class="ttc" id="aclassdesignlab_1_1_graph_search_evaluator_html"><div class="ttname"><a href="classdesignlab_1_1_graph_search_evaluator.html">designlab::GraphSearchEvaluator</a></div><div class="ttdef"><b>Definition</b> graph_search_evaluator.h:33</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_graph_search_evaluator_html_a5f80fb4f62a375b4f33343e59e2644cb"><div class="ttname"><a href="classdesignlab_1_1_graph_search_evaluator.html#a5f80fb4f62a375b4f33343e59e2644cb">designlab::GraphSearchEvaluator::LeftIsBetterWithTag</a></div><div class="ttdeci">bool LeftIsBetterWithTag(const GraphSearchEvaluationValue &amp;left, const GraphSearchEvaluationValue &amp;right, Tag tag, bool return_true_case_of_equal=true) const</div><div class="ttdoc">2つの評価値を比較する．左側の評価値が良い場合は true を返す．</div><div class="ttdef"><b>Definition</b> graph_search_evaluator.cpp:66</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_graph_search_evaluator_html_aaccc79f54b1956e1a644acc637638666"><div class="ttname"><a href="classdesignlab_1_1_graph_search_evaluator.html#aaccc79f54b1956e1a644acc637638666">designlab::GraphSearchEvaluator::GraphSearchEvaluator</a></div><div class="ttdeci">GraphSearchEvaluator(const std::map&lt; Tag, EvaluationMethod &gt; &amp;evaluation_method_map, const std::vector&lt; Tag &gt; &amp;evaluation_priority_list)</div><div class="ttdoc">コンストラクタ．</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_graph_search_evaluator_html_ae225cfba0b80231e46ed4865b9c2013e"><div class="ttname"><a href="classdesignlab_1_1_graph_search_evaluator.html#ae225cfba0b80231e46ed4865b9c2013e">designlab::GraphSearchEvaluator::LeftIsBetter</a></div><div class="ttdeci">bool LeftIsBetter(const GraphSearchEvaluationValue &amp;left, const GraphSearchEvaluationValue &amp;right, bool return_true_case_of_equal=true) const</div><div class="ttdoc">2つの評価値を比較する．左側の評価値が良い場合は true を返す．</div><div class="ttdef"><b>Definition</b> graph_search_evaluator.cpp:24</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_graph_search_evaluator_html_aecaeb3af78608aad1f8990c6ff1f99c1"><div class="ttname"><a href="classdesignlab_1_1_graph_search_evaluator.html#aecaeb3af78608aad1f8990c6ff1f99c1">designlab::GraphSearchEvaluator::GraphSearchEvaluator</a></div><div class="ttdeci">GraphSearchEvaluator()=delete</div><div class="ttdoc">デフォルトコンストラクタは禁止．</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_graph_search_evaluator_html_afec9e5848a45da7d934104e85140169f"><div class="ttname"><a href="classdesignlab_1_1_graph_search_evaluator.html#afec9e5848a45da7d934104e85140169f">designlab::GraphSearchEvaluator::InitializeEvaluationValue</a></div><div class="ttdeci">GraphSearchEvaluationValue InitializeEvaluationValue() const</div><div class="ttdoc">評価値を初期化する． 自身の持つ評価方法を用いて，評価値を初期化する．</div><div class="ttdef"><b>Definition</b> graph_search_evaluator.cpp:92</div></div>
+<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> abstract_dxlib_gui.cpp:16</div></div>
+<div class="ttc" id="astructdesignlab_1_1_graph_search_evaluation_value_html"><div class="ttname"><a href="structdesignlab_1_1_graph_search_evaluation_value.html">designlab::GraphSearchEvaluationValue</a></div><div class="ttdoc">グラフ探索の評価値を格納する構造体．</div><div class="ttdef"><b>Definition</b> graph_search_evaluator.h:20</div></div>
+<div class="ttc" id="astructdesignlab_1_1_graph_search_evaluator_1_1_evaluation_method_html"><div class="ttname"><a href="structdesignlab_1_1_graph_search_evaluator_1_1_evaluation_method.html">designlab::GraphSearchEvaluator::EvaluationMethod</a></div><div class="ttdoc">評価方法を格納する構造体．</div><div class="ttdef"><b>Definition</b> graph_search_evaluator.h:40</div></div>
+<div class="ttc" id="astructdesignlab_1_1_graph_search_evaluator_1_1_evaluation_method_html_a627731e6b7031d7a88e6792a24dcb2e7"><div class="ttname"><a href="structdesignlab_1_1_graph_search_evaluator_1_1_evaluation_method.html#a627731e6b7031d7a88e6792a24dcb2e7">designlab::GraphSearchEvaluator::EvaluationMethod::margin</a></div><div class="ttdeci">float margin</div><div class="ttdoc">この値よりも違いが小さい場合は，評価値が同じとみなす．</div><div class="ttdef"><b>Definition</b> graph_search_evaluator.h:43</div></div>
+<div class="ttc" id="astructdesignlab_1_1_graph_search_evaluator_1_1_evaluation_method_html_a784357a0a735e40322ebcbf308a482a3"><div class="ttname"><a href="structdesignlab_1_1_graph_search_evaluator_1_1_evaluation_method.html#a784357a0a735e40322ebcbf308a482a3">designlab::GraphSearchEvaluator::EvaluationMethod::is_lower_better</a></div><div class="ttdeci">bool is_lower_better</div><div class="ttdoc">評価値が小さいほど良い場合は true．</div><div class="ttdef"><b>Definition</b> graph_search_evaluator.h:41</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_65b03a49640d0599dba701447d580643.html">hasegawa</a></li><li class="navelem"><a class="el" href="dir_2854940d141de6d3c7cee6483e7afda9.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_fad4873fd0f485db7102df865d883d5c.html">main</a></li><li class="navelem"><a class="el" href="dir_227eda1db808a252df8518c263632a71.html">program</a></li><li class="navelem"><a class="el" href="dir_136482520f873a40e541bfb5e9b2bb76.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_adb386b1713ce6556ea69a7596f0b080.html">DesignLab</a></li><li class="navelem"><a class="el" href="graph__search__evaluator_8h.html">graph_search_evaluator.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

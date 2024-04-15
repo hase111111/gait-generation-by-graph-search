@@ -1,0 +1,8 @@
+<map id="designlab::CmdIOUtil::InputYesNo" name="designlab::CmdIOUtil::InputYesNo">
+<area shape="rect" id="Node000001" title="yesかnoを入力させる関数．返り値で yes なら true，noなら falseを返す． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="5,35,149,77"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="197,5,340,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,42,181,37,182,43,150,48"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="388,35,531,77"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="149,56,197,57,340,57,372,57,372,62,340,63,197,63,149,61"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="341,35,373,40,372,45,340,40"/>
+</map>

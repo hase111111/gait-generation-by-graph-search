@@ -1,0 +1,42 @@
+<map id="designlab::Quaternion::GetNormalized" name="designlab::Quaternion::GetNormalized">
+<area shape="rect" id="Node000001" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="962,235,1109,277"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_camera_dragger.html#ad9f9da3070ea76a8ae205590e5599d10" title="ドラッグ中の処理を行う． &#160;&#160;カーソルは上にあるけど，ドラッグ中ではない場合でも呼び出される．" alt="" coords="259,205,434,248"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="946,255,434,233,434,228,946,250"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_quaternion.html#a45dfcf48edea7b439e7d189d0d105bfa" title="自身を正規化する．ノルムが１になる．" alt="" coords="749,139,896,181"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="971,230,871,184,873,179,974,225"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_dxlib_camera.html#af574fd9e57c002865025f41d05491b85" title="カメラのクォータニオンをセットする．" alt="" coords="743,264,902,307"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="946,271,902,277,902,272,946,266"/>
+<area shape="rect" id="Node000010" href="$namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換．" alt="" coords="731,335,914,361"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="984,288,915,321,872,337,871,332,913,316,981,283"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_robot_state_node.html#a58600c23d1383094c7f880a487ab61fb" title="自身を根ノードに変更する関数． &#160;&#160;depthを0に，parent_numを&#45;1に初期化する．" alt="" coords="504,139,683,181"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="733,163,684,163,684,157,733,157"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab.html#aa1c6fabbe9cbddd910f4578751c0ec86" title="回転角行列からクォータニオンへの変換．" alt="" coords="513,80,674,107"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="733,137,642,110,643,105,735,132"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="237,139,456,181"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="489,163,456,163,456,157,489,157"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_simulation_end_checker_factory.html#a5efe7f1b9b7701783fa8245758d57daa" title="シミュレーションの終了を判定するクラスを生成する．" alt="" coords="262,72,431,115"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="498,96,431,96,431,91,498,91"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_node_initializer.html#a2a8cf59dc1fd538a6c8f25a473fc3b14" title="ノードの初期化を行う．" alt="" coords="264,5,429,48"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="526,78,428,51,429,46,527,73"/>
+<area shape="rect" id="Node000011" href="$namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="510,413,677,440"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="768,369,636,415,634,410,766,364"/>
+<area shape="rect" id="Node000022" href="$namespacedesignlab.html#a6078399857761c9309ce7d7fcdf3a90b" title="クォータニオンからXYZオイラー角への変換．" alt="" coords="518,335,669,361"/>
+<area shape="poly" id="edge21_Node000010_Node000022" title=" " alt="" coords="716,351,670,351,670,345,716,345"/>
+<area shape="poly" id="edge18_Node000011_Node000002" title=" " alt="" coords="544,408,522,393,502,375,491,359,485,344,479,315,473,288,466,275,454,262,432,247,435,243,458,258,470,272,478,286,484,314,490,343,496,357,506,372,525,389,547,404"/>
+<area shape="poly" id="edge20_Node000011_Node000011" title=" " alt="" coords="633,401,620,394,594,392,570,394,557,399,553,404,559,411,555,414,548,405,553,395,568,389,594,387,621,389,636,396"/>
+<area shape="rect" id="Node000012" href="$structdesignlab_1_1_robot_state_node.html#a28bedf0298ebf8f315a21294dd111f45" title="重心位置を変更する関数．" alt="" coords="250,589,443,632"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="576,454,526,513,494,545,457,573,422,591,420,586,455,568,490,541,522,510,572,451"/>
+<area shape="rect" id="Node000014" href="$classdesignlab_1_1_node_creator_com_move_straight.html#a3e2fd67280dd581a695a09cea4f816a4" title="現在のノードから次のノード群を生成する．" alt="" coords="5,560,189,603"/>
+<area shape="poly" id="edge17_Node000011_Node000014" title=" " alt="" coords="569,453,520,493,489,513,457,529,389,552,318,567,250,577,189,582,189,577,250,572,318,562,388,547,455,524,487,508,517,489,566,449"/>
+<area shape="rect" id="Node000016" href="$structdesignlab_1_1_robot_state_node.html#a73efce324f3ffd5ead5fbc663acd96a2" title="クォータニオンを変更し，胴体を回転させる関数．" alt="" coords="257,656,436,699"/>
+<area shape="poly" id="edge13_Node000011_Node000016" title=" " alt="" coords="585,456,567,498,539,549,503,601,458,646,438,658,435,654,454,642,499,598,535,546,562,495,580,453"/>
+<area shape="rect" id="Node000018" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a0630fa1d537f7e00aa422a83c98ebdda" title="グローバル座標系で表現されている座標を，脚座標系に変換する．" alt="" coords="243,272,450,315"/>
+<area shape="poly" id="edge14_Node000011_Node000018" title=" " alt="" coords="551,408,502,375,479,351,469,340,455,329,432,318,434,313,457,324,473,336,483,347,506,371,554,403"/>
+<area shape="rect" id="Node000019" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a028f4e024ebebca50325beef3444bfc5" title="脚座標系で表現されている座標を，グローバル座標系に変換する．" alt="" coords="243,339,450,381"/>
+<area shape="poly" id="edge15_Node000011_Node000019" title=" " alt="" coords="526,411,428,385,429,379,527,406"/>
+<area shape="rect" id="Node000020" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#ae4b923566d06eef5f765b1e7afdd57ae" title="ロボット座標系で表現されている座標を，グローバル座標系に変換する．" alt="" coords="237,405,456,448"/>
+<area shape="poly" id="edge16_Node000011_Node000020" title=" " alt="" coords="494,429,456,429,456,424,494,424"/>
+<area shape="rect" id="Node000021" href="$classdesignlab_1_1_com_selector.html#afe154bc35f0971d6c2c2a649299b23c3" title="重心を求める．" alt="" coords="267,472,426,515"/>
+<area shape="poly" id="edge19_Node000011_Node000021" title=" " alt="" coords="527,447,427,474,426,469,526,442"/>
+<area shape="poly" id="edge12_Node000012_Node000014" title=" " alt="" coords="234,600,189,595,189,589,235,595"/>
+</map>

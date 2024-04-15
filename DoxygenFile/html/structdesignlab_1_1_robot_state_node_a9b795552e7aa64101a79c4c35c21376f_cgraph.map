@@ -1,0 +1,14 @@
+<map id="designlab::RobotStateNode::ChangeQuat" name="designlab::RobotStateNode::ChangeQuat">
+<area shape="rect" id="Node000001" title="クォータニオンを変更し，胴体を回転させる関数．" alt="" coords="5,72,185,115"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_quaternion.html#a893ee3dc143f059822f17ead2f716de1" title="クォータニオンの共役を返す．共役なクォータニオンとは，ベクトル成分の符号を反転させたもの &#160;&#160;q = w + xi + yj + zk とすると，qの共役は w &#45; xi &#45; yj &#45; zk となる．回..." alt="" coords="243,5,390,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,69,228,50,229,56,169,74"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="250,72,383,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="185,91,235,91,235,96,185,96"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="233,163,400,189"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="155,113,265,154,263,159,153,118"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="279,164,272,154,277,144,292,138,316,136,343,139,357,145,354,150,341,144,316,141,293,143,280,148,278,153,283,161"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換．" alt="" coords="448,163,630,189"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="400,173,432,173,432,179,400,179"/>
+<area shape="rect" id="Node000006" href="$structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="678,155,826,197"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="631,173,663,173,663,179,631,179"/>
+</map>

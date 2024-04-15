@@ -1,0 +1,12 @@
+<map id="RobotStateNode::ChangeGlobalCenterOfMass" name="RobotStateNode::ChangeGlobalCenterOfMass">
+<area shape="rect" id="Node000001" title="重心位置を変更する関数．" alt="" coords="5,47,211,89"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="276,5,409,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,47,260,38,261,44,212,52"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="259,96,426,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="212,84,248,90,247,95,211,89"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="305,97,298,87,303,77,318,71,342,69,369,72,383,78,381,83,367,77,342,75,319,77,306,81,303,87,309,94"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab.html#a52c3a31f05a9a4b8e59ddab11243b353" title="クォータニオンから回転角行列への変換" alt="" coords="474,96,656,123"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="426,107,458,107,458,112,426,112"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_quaternion.html#a22fd9f4f5c3a4c600e859ebd1891c45a" title="正規化したクォータニオンを返す &#160;&#160;クォータニオンの正規化とは，ノルムを1にすること． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる" alt="" coords="704,88,852,131"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="657,107,689,107,689,112,657,112"/>
+</map>

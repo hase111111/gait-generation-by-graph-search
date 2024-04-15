@@ -1,0 +1,13 @@
+<map id="designlab::Vector2::Dot" name="designlab::Vector2::Dot">
+<area shape="rect" id="Node000001" title="自分・引数 の内積の結果を返す．" alt="" coords="621,80,779,107"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector2.html#a80b722825f1793105702da0677867a08" title="このベクトルの長さの2乗を返す．" alt="" coords="436,72,573,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="606,96,574,96,574,91,606,91"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector2.html#ab62323b441e66a37e41668fb0ac7ae99" title="このベクトルの長さを返す．" alt="" coords="240,39,369,81"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="421,82,369,73,370,68,421,77"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#aab0677aba41eed4d1138c6adacc27fa1" title="脚が可動範囲内にあるかどうかを判定する．" alt="" coords="221,105,388,148"/>
+<area shape="poly" id="edge5_Node000002_Node000009" title=" " alt="" coords="421,110,389,115,388,110,421,105"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#ac027dc121a54e00da42ffcbab0028561" title="指定した脚の関節のグローバル座標と，角度を計算する． &#160;&#160;重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない． &#160;&#160;間接の可動範囲外まで動いてしまう場合でも，答えを返す． &#160;&#160;目標座標..." alt="" coords="5,5,173,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="224,50,173,42,173,37,225,45"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_vector2.html#a5b486befcef8a9c50ff78137783c3ba9" title="このベクトルを正規化したベクトルを返す．" alt="" coords="24,72,154,115"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="225,75,155,86,154,81,224,70"/>
+</map>

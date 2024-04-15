@@ -1,0 +1,27 @@
+<map id="ComSelecterHato::GetComFromPolygon" name="ComSelecterHato::GetComFromPolygon">
+<area shape="rect" id="Node000001" title="重心を求める" alt="" coords="5,168,215,211"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_quaternion.html#a893ee3dc143f059822f17ead2f716de1" title="クォータニオンの共役を返す．共役なクォータニオンとは，ベクトル成分の符号を反転させたもの &#160;&#160;q = w + xi + yj + zk とすると，qの共役は w &#45; xi &#45; yj &#45; zk となる．回..." alt="" coords="273,5,420,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,166,187,113,223,84,261,58,270,53,272,58,264,62,226,88,190,117,134,170"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector2.html#a5b486befcef8a9c50ff78137783c3ba9" title="このベクトルを正規化したベクトルを返す" alt="" coords="282,72,411,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="163,165,262,124,275,119,277,123,264,129,165,170"/>
+<area shape="rect" id="Node000008" href="$structdesignlab_1_1_polygon2.html#a69f7aa8caa2158c440b5bb8f1416a6bf" title="頂点の座標を返す関数" alt="" coords="277,139,416,181"/>
+<area shape="poly" id="edge6_Node000001_Node000008" title=" " alt="" coords="215,174,262,168,262,173,216,179"/>
+<area shape="rect" id="Node000009" href="$structdesignlab_1_1_polygon2.html#a5325a59337947d2b61e055431f2ce3f3" title="多角形の頂点数を返す関数" alt="" coords="500,168,638,211"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="215,190,263,191,430,191,485,189,485,195,430,196,263,196,215,195"/>
+<area shape="rect" id="Node000010" href="$namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="280,256,413,299"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="171,209,274,248,272,253,169,214"/>
+<area shape="rect" id="Node000011" href="$namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="263,347,430,373"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="138,209,195,256,264,308,308,336,306,341,261,313,191,260,135,213"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector2.html#ab62323b441e66a37e41668fb0ac7ae99" title="このベクトルの長さを返す" alt="" coords="505,20,634,63"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="411,76,489,57,490,62,412,81"/>
+<area shape="rect" id="Node000007" href="$namespacedesignlab_1_1math__util.html#a12bdd69889d7939a25c5f873fad76978" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="501,87,638,129"/>
+<area shape="poly" id="edge5_Node000003_Node000007" title=" " alt="" coords="412,95,485,100,485,105,411,100"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_vector2.html#a80b722825f1793105702da0677867a08" title="このベクトルの長さの2乗を返す" alt="" coords="713,20,851,63"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="634,39,698,39,698,44,634,44"/>
+<area shape="poly" id="edge7_Node000008_Node000009" title=" " alt="" coords="416,166,485,176,484,181,416,172"/>
+<area shape="poly" id="edge11_Node000011_Node000011" title=" " alt="" coords="309,348,302,338,307,328,322,322,346,320,373,323,387,329,385,334,371,328,346,325,323,327,310,332,307,337,313,345"/>
+<area shape="rect" id="Node000012" href="$namespacedesignlab.html#a52c3a31f05a9a4b8e59ddab11243b353" title="クォータニオンから回転角行列への変換" alt="" coords="478,347,660,373"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="430,357,462,357,462,363,430,363"/>
+<area shape="rect" id="Node000013" href="$structdesignlab_1_1_quaternion.html#a22fd9f4f5c3a4c600e859ebd1891c45a" title="正規化したクォータニオンを返す &#160;&#160;クォータニオンの正規化とは，ノルムを1にすること． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる" alt="" coords="708,339,856,381"/>
+<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="661,357,693,357,693,363,661,363"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="designlab::leg_func::GetDiscreteLegPos" name="designlab::leg_func::GetDiscreteLegPos">
+<area shape="rect" id="Node000001" title="脚状態を取得する．" alt="" coords="517,39,659,81"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_graph_search_result_record.html#ab817d6534ee46d02492002e1966801e4" title="構造体の内容をCSV形式の文字列にして返す． , (カンマ) で区切られる．" alt="" coords="272,5,469,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="501,49,469,44,470,39,502,44"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_robot_state_node.html#a7fa3f31f167ac1cf468d81509f55c407" title="ノードの情報を文字列に変換する関数． &#160;&#160;デバッグ用に詳細な情報を出力する．" alt="" coords="281,72,460,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="502,76,461,82,460,77,501,71"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_system_main_graph_viewer.html#a19d272521cd15d5e493e24ef5834c218" title="主要な処理を行う関数．" alt="" coords="18,39,211,81"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="265,82,211,75,211,70,266,77"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="5,105,224,148"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="265,110,224,115,224,110,265,104"/>
+</map>

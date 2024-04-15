@@ -1,0 +1,10 @@
+<map id="designlab::PhantomXMkII::ConvertLegToGlobalCoordinate" name="designlab::PhantomXMkII::ConvertLegToGlobalCoordinate">
+<area shape="rect" id="Node000001" title="脚座標系で表現されている座標を，グローバル座標系に変換する．" alt="" coords="5,21,212,64"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="260,29,427,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="212,40,244,40,244,45,212,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="306,30,299,21,304,11,319,5,343,3,370,5,384,12,382,16,368,10,343,8,320,10,307,15,304,20,310,27"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換．" alt="" coords="475,29,657,56"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="427,40,459,40,459,45,427,45"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="705,21,853,64"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="658,40,690,40,690,45,658,45"/>
+</map>

@@ -1,0 +1,22 @@
+<map id="PhantomXMkII::CalculateJointState" name="PhantomXMkII::CalculateJointState">
+<area shape="rect" id="Node000001" title="指定した脚の関節のグローバル座標と，角度を計算する． &#160;&#160;重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない． &#160;&#160;間接の可動範囲外まで動いてしまう場合でも，答えを返す． &#160;&#160;目標座標..." alt="" coords="5,197,199,240"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a3348e7fb941d17865e0077f24d1e772a" title="3辺で三角形が作れるか調べる関数．" alt="" coords="251,5,389,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,195,169,130,205,92,245,58,251,54,254,58,248,62,209,96,173,133,120,199"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector2.html#ab62323b441e66a37e41668fb0ac7ae99" title="このベクトルの長さを返す" alt="" coords="255,72,385,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="133,195,245,124,254,120,257,124,248,129,136,199"/>
+<area shape="rect" id="Node000006" href="$structdesignlab_1_1_vector3.html#aa36dbc9d5ec20bf4e1161e0f2593776c" title="ベクトルの長さを返す．sqrt(ルートの計算)がまぁまぁ重いので，lengthSquareでいいならそっちを使うべき．" alt="" coords="255,139,385,181"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="183,194,240,179,241,184,184,199"/>
+<area shape="rect" id="Node000007" href="$structdesignlab_1_1_vector3.html#a3b3da21ea415ea86d6d409f2ad053897" title="ベクトルの長さの2乗を返す．sqrt(ルートの計算)がまぁまぁ重いのでこっちを使えるなら使うべき．" alt="" coords="441,168,578,211"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="199,209,425,193,426,198,200,214"/>
+<area shape="rect" id="Node000008" href="$class_phantom_x_mk_i_i_const.html#ac755467ec8f1170109d267875ed195fe" title="第1関節の角度が有効な範囲内かどうかを判定する．" alt="" coords="247,256,393,299"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="184,238,232,251,231,256,183,243"/>
+<area shape="rect" id="Node000009" href="$structdesignlab_1_1_vector3.html#aaf3651416f231824ffd780b72f5bba27" title="XY平面に射影したベクトルを返す．" alt="" coords="255,323,385,365"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="136,238,248,308,257,313,254,318,245,313,133,243"/>
+<area shape="rect" id="Node000010" href="$namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5" title="2乗した値を返す関数． &#160;&#160;整数型や，小数型のみを想定して作っているので，他の型で使うとエラーが出るかも．" alt="" coords="251,389,389,432"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="120,239,173,304,209,342,248,375,254,379,251,383,245,379,205,345,169,308,116,242"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector2.html#a80b722825f1793105702da0677867a08" title="このベクトルの長さの2乗を返す" alt="" coords="441,72,578,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="385,91,426,91,426,96,385,96"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_vector2.html#a4ff63a4ad67617a23ed4206d994ecc84" title="このベクトルとotherの内積を返す" alt="" coords="626,80,784,107"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="579,91,611,91,611,96,579,96"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="385,167,427,174,426,179,385,173"/>
+</map>

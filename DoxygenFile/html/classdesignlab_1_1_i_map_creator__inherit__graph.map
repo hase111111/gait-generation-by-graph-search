@@ -1,0 +1,9 @@
+<map id="designlab::IMapCreator" name="designlab::IMapCreator">
+<area shape="rect" id="Node000001" title="マップ生成クラスのインターフェース．" alt="" coords="5,64,160,91"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_map_creator_by_csv.html" title="CSV ファイルからマップを生成するクラス．" alt="" coords="208,5,396,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,57,248,30,250,35,151,62"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_map_creator_for_simulation.html" title="シミュレーション用のマップを生成するクラス．" alt="" coords="217,56,387,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="175,75,216,75,216,80,175,80"/>
+<area shape="rect" id="Node000004" href="$classdivided__map__state__test__internal_1_1_test_map_creator.html" title=" " alt="" coords="217,123,387,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="145,93,230,119,228,125,143,98"/>
+</map>

@@ -1,0 +1,27 @@
+<map id="jsoncons::jsonpath::detail::base_selector&lt; Json, JsonReference &gt;" name="jsoncons::jsonpath::detail::base_selector&lt; Json, JsonReference &gt;">
+<area shape="rect" id="Node000001" title=" " alt="" coords="224,419,389,477"/>
+<area shape="rect" id="Node000003" href="$classjsoncons_1_1jsonpath_1_1detail_1_1current__node__selector.html" title=" " alt="" coords="437,5,655,64"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="309,402,319,332,341,244,358,199,378,154,404,112,435,74,449,62,453,66,439,78,408,115,383,156,363,201,346,246,324,333,314,403"/>
+<area shape="rect" id="Node000004" href="$classjsoncons_1_1jsonpath_1_1detail_1_1filter__selector.html" title=" " alt="" coords="464,88,629,147"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="314,403,329,347,353,282,388,215,410,184,435,157,461,138,464,143,439,161,414,188,392,218,358,284,334,349,319,404"/>
+<area shape="rect" id="Node000005" href="$classjsoncons_1_1jsonpath_1_1detail_1_1function__selector.html" title=" " alt="" coords="463,171,629,229"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="323,403,341,364,366,320,398,277,435,239,461,223,464,227,439,243,402,281,371,323,346,366,327,405"/>
+<area shape="rect" id="Node000006" href="$classjsoncons_1_1jsonpath_1_1detail_1_1identifier__selector.html" title=" " alt="" coords="437,253,655,312"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="340,405,384,362,436,322,456,310,459,315,438,326,387,366,344,409"/>
+<area shape="rect" id="Node000007" href="$classjsoncons_1_1jsonpath_1_1detail_1_1index__expression__selector.html" title=" " alt="" coords="437,336,655,395"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="403,412,458,393,460,398,405,417"/>
+<area shape="rect" id="Node000008" href="$classjsoncons_1_1jsonpath_1_1detail_1_1index__selector.html" title=" " alt="" coords="464,419,629,477"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="405,445,463,445,463,451,405,451"/>
+<area shape="rect" id="Node000009" href="$classjsoncons_1_1jsonpath_1_1detail_1_1parent__node__selector.html" title=" " alt="" coords="437,501,655,560"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="405,479,460,498,458,503,403,484"/>
+<area shape="rect" id="Node000010" href="$classjsoncons_1_1jsonpath_1_1detail_1_1recursive__selector.html" title=" " alt="" coords="437,584,655,643"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="344,487,387,530,438,570,459,581,456,586,436,574,384,534,340,491"/>
+<area shape="rect" id="Node000011" href="$classjsoncons_1_1jsonpath_1_1detail_1_1root__selector.html" title=" " alt="" coords="464,667,629,725"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="327,491,346,530,371,573,402,615,439,653,465,669,462,674,435,657,398,619,366,576,341,532,323,493"/>
+<area shape="rect" id="Node000012" href="$classjsoncons_1_1jsonpath_1_1detail_1_1slice__selector.html" title=" " alt="" coords="464,749,629,808"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="319,492,334,547,358,612,392,678,414,708,439,735,464,753,461,758,435,739,410,712,388,681,353,614,329,549,314,493"/>
+<area shape="rect" id="Node000013" href="$classjsoncons_1_1jsonpath_1_1detail_1_1wildcard__selector.html" title=" " alt="" coords="462,832,630,891"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="314,493,324,563,346,650,363,695,383,740,408,781,439,818,463,836,460,841,435,822,404,784,378,742,358,697,341,652,319,564,309,494"/>
+<area shape="rect" id="Node000002" href="$classjsoncons_1_1jsonpath_1_1detail_1_1jsonpath__selector.html" title=" " alt="" coords="5,419,176,477"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,445,223,445,223,451,191,451"/>
+</map>

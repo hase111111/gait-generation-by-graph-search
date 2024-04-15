@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: C:/Users/hasegawa/Desktop/main/program/DesignLab/DesignLab/dxlib_util.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('dxlib__util_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">dxlib_util.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="dxlib__util_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef DESIGNLAB_DXLIB_UTIL_H_</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define DESIGNLAB_DXLIB_UTIL_H_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;Dxlib.h&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="math__rotation__matrix_8h.html">math_rotation_matrix.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="math__vector3_8h.html">math_vector3.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab_1_1dxlib__util.html">designlab::dxlib_util</a></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#a817972c248c109584a567e959799b9e6">InitDxlib3DSetting</a>(<span class="keywordtype">bool</span> high_quality);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="}">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1dxlib__util.html#aceffcb5f4496686bed7db7fc55488958">   34</a></span><span class="keyword">inline</span> VECTOR <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#aceffcb5f4496686bed7db7fc55488958">ConvertToDxlibVec</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a>&amp; vec)</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordflow">return</span> VGet(vec.<a class="code hl_variable" href="structdesignlab_1_1_vector3.html#a1173ed2dd31322b92dd4dae067177cbc">x</a>, -vec.<a class="code hl_variable" href="structdesignlab_1_1_vector3.html#af2c9878342038c6a35c98e30dd532fae">y</a>, vec.<a class="code hl_variable" href="structdesignlab_1_1_vector3.html#a71c4baaa6cf57587e5cdadc5558cb4fd">z</a>);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
+</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1dxlib__util.html#a8f89f7de73bd71a2703403fe4a3ed86b">   43</a></span><span class="keyword">inline</span> MATRIX <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#a8f89f7de73bd71a2703403fe4a3ed86b">ConvertToDxlibMat</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_rotation_matrix3x3.html">RotationMatrix3x3</a>&amp; mat)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>{</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordflow">return</span> {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>      mat.<a class="code hl_variable" href="structdesignlab_1_1_rotation_matrix3x3.html#a459ee5b68e688cafa9f7227666e4c6a8">element</a>[0][0], mat.<a class="code hl_variable" href="structdesignlab_1_1_rotation_matrix3x3.html#a459ee5b68e688cafa9f7227666e4c6a8">element</a>[0][1], mat.<a class="code hl_variable" href="structdesignlab_1_1_rotation_matrix3x3.html#a459ee5b68e688cafa9f7227666e4c6a8">element</a>[0][2], 0,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>      mat.<a class="code hl_variable" href="structdesignlab_1_1_rotation_matrix3x3.html#a459ee5b68e688cafa9f7227666e4c6a8">element</a>[1][0], mat.<a class="code hl_variable" href="structdesignlab_1_1_rotation_matrix3x3.html#a459ee5b68e688cafa9f7227666e4c6a8">element</a>[1][1], mat.<a class="code hl_variable" href="structdesignlab_1_1_rotation_matrix3x3.html#a459ee5b68e688cafa9f7227666e4c6a8">element</a>[1][2], 0,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>      mat.<a class="code hl_variable" href="structdesignlab_1_1_rotation_matrix3x3.html#a459ee5b68e688cafa9f7227666e4c6a8">element</a>[2][0], mat.<a class="code hl_variable" href="structdesignlab_1_1_rotation_matrix3x3.html#a459ee5b68e688cafa9f7227666e4c6a8">element</a>[2][1], mat.<a class="code hl_variable" href="structdesignlab_1_1_rotation_matrix3x3.html#a459ee5b68e688cafa9f7227666e4c6a8">element</a>[2][2], 0,</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>      0, 0, 0, 1</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    };</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>}</div>
+</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1dxlib__util.html#a0d817b826c384ab728b5ffba73d05e6e">   60</a></span><span class="keyword">inline</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a> <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#a0d817b826c384ab728b5ffba73d05e6e">ConvertDesignLabVec</a>(<span class="keyword">const</span> VECTOR&amp; vec)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>{</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordflow">return</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a>(vec.x, -vec.y, vec.z);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}</div>
+</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#a5f59136031be16081cffcef06767b9e5">SetZBufferEnable</a>();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#aec08fe28b57053d60e3085bd20ce8b25">DrawCube3D</a>(<span class="keyword">const</span> VECTOR&amp; center_pos, <span class="keywordtype">float</span> side_len, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> color);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#a170cac2fc964414af49c550aee6583c8">DrawCube3DWithTopPos</a>(</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keyword">const</span> VECTOR&amp; top_pos, <span class="keywordtype">float</span> side_len, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> color);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#aa8892901793b338c6a643dc12d19a99e">DrawHexagon</a>(<span class="keyword">const</span> std::array&lt;VECTOR, 6&gt;&amp; vertex, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> color);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#ad8cc0ecb50fc678af0d50370a137356e">DrawHexagonalPrism</a>(</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keyword">const</span> std::array&lt;VECTOR, 6&gt;&amp; vertex, <span class="keywordtype">float</span> height, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> color);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>}  <span class="comment">// namespace designlab::dxlib_util</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="keyword">namespace </span>DxLib</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>{</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">// VECTORの算術演算子を自作する．</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keyword">constexpr</span> VECTOR operator+(<span class="keyword">const</span> VECTOR&amp; vec1, <span class="keyword">const</span> VECTOR&amp; vec2)</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>{</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">return</span> { vec1.x + vec2.x, vec1.y + vec2.y, vec1.z + vec2.z };</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>};</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="keyword">constexpr</span> VECTOR operator-(<span class="keyword">const</span> VECTOR&amp; vec1, <span class="keyword">const</span> VECTOR&amp; vec2)</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>{</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordflow">return</span> { vec1.x - vec2.x, vec1.y - vec2.y, vec1.z - vec2.z };</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>};</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="keyword">constexpr</span> VECTOR operator*(<span class="keyword">const</span> VECTOR&amp; vec, <span class="keyword">const</span> <span class="keywordtype">float</span> s)</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>{</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="keywordflow">return</span> { vec.x * s, vec.y * s, vec.z * s };</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>};</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="keyword">constexpr</span> VECTOR operator*(<span class="keyword">const</span> <span class="keywordtype">float</span> s, <span class="keyword">const</span> VECTOR&amp; vec)</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>{</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keywordflow">return</span> vec * s;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>};</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="keyword">constexpr</span> VECTOR operator/(<span class="keyword">const</span> VECTOR&amp; vec, <span class="keyword">const</span> <span class="keywordtype">float</span> s)</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>{</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordflow">return</span> { vec.x / s, vec.y / s, vec.z / s };</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>};</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>}  <span class="comment">// namespace DxLib</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_DXLIB_UTIL_H_</span></div>
+<div class="ttc" id="amath__rotation__matrix_8h_html"><div class="ttname"><a href="math__rotation__matrix_8h.html">math_rotation_matrix.h</a></div></div>
+<div class="ttc" id="amath__vector3_8h_html"><div class="ttname"><a href="math__vector3_8h.html">math_vector3.h</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html">designlab::dxlib_util</a></div><div class="ttdoc">Dxlibの3D表示を行う処理を書き直した関数をまとめた名前空間．</div><div class="ttdef"><b>Definition</b> dxlib_util.cpp:15</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_a0d817b826c384ab728b5ffba73d05e6e"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#a0d817b826c384ab728b5ffba73d05e6e">designlab::dxlib_util::ConvertDesignLabVec</a></div><div class="ttdeci">Vector3 ConvertDesignLabVec(const VECTOR &amp;vec)</div><div class="ttdoc">このプログラムで使用しているVectorと， Dxlibの座標を示す VECTOR を変換する．   ロボット座標系は右手座標系， Dxlibは左手座標系(工学は右手・ゲームライブラリは左手が多い) な...</div><div class="ttdef"><b>Definition</b> dxlib_util.h:60</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_a170cac2fc964414af49c550aee6583c8"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#a170cac2fc964414af49c550aee6583c8">designlab::dxlib_util::DrawCube3DWithTopPos</a></div><div class="ttdeci">void DrawCube3DWithTopPos(const VECTOR &amp;top_pos, const float side_len, const unsigned int color)</div><div class="ttdoc">3D空間に立方体を描画する．立方体の上面の中心の座標から描画する．</div><div class="ttdef"><b>Definition</b> dxlib_util.cpp:93</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_a5f59136031be16081cffcef06767b9e5"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#a5f59136031be16081cffcef06767b9e5">designlab::dxlib_util::SetZBufferEnable</a></div><div class="ttdeci">void SetZBufferEnable()</div><div class="ttdoc">デフォルトだと描画処理を書いた順に描画されるが， これをZバッファを使用して奥行きを考慮して描画するようにする． 毎フレーム実行する必要がある．</div><div class="ttdef"><b>Definition</b> dxlib_util.cpp:35</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_a817972c248c109584a567e959799b9e6"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#a817972c248c109584a567e959799b9e6">designlab::dxlib_util::InitDxlib3DSetting</a></div><div class="ttdeci">void InitDxlib3DSetting(const bool high_quality)</div><div class="ttdoc">3D処理を行う上で必要な初期化処理をまとめたもの．</div><div class="ttdef"><b>Definition</b> dxlib_util.cpp:17</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_a8f89f7de73bd71a2703403fe4a3ed86b"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#a8f89f7de73bd71a2703403fe4a3ed86b">designlab::dxlib_util::ConvertToDxlibMat</a></div><div class="ttdeci">MATRIX ConvertToDxlibMat(const RotationMatrix3x3 &amp;mat)</div><div class="ttdoc">このプログラムで使用しているMatrixを， Dxlibの行列を示すMATRIXに変換する．</div><div class="ttdef"><b>Definition</b> dxlib_util.h:43</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_aa8892901793b338c6a643dc12d19a99e"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#aa8892901793b338c6a643dc12d19a99e">designlab::dxlib_util::DrawHexagon</a></div><div class="ttdeci">void DrawHexagon(const std::array&lt; VECTOR, 6 &gt; &amp;vertex, const unsigned int color)</div><div class="ttdoc">3D空間に六角形を描画する．</div><div class="ttdef"><b>Definition</b> dxlib_util.cpp:100</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_aceffcb5f4496686bed7db7fc55488958"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#aceffcb5f4496686bed7db7fc55488958">designlab::dxlib_util::ConvertToDxlibVec</a></div><div class="ttdeci">VECTOR ConvertToDxlibVec(const Vector3 &amp;vec)</div><div class="ttdoc">Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する．   ロボット座標系は右手座標系， Dxlibは左手座標系（工学は右手・ゲームライブラリは左手が多い）なのでyを...</div><div class="ttdef"><b>Definition</b> dxlib_util.h:34</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_ad8cc0ecb50fc678af0d50370a137356e"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#ad8cc0ecb50fc678af0d50370a137356e">designlab::dxlib_util::DrawHexagonalPrism</a></div><div class="ttdeci">void DrawHexagonalPrism(const std::array&lt; VECTOR, 6 &gt; &amp;vertex, const float height, const unsigned int color)</div><div class="ttdoc">3D空間に六角柱を描画する．</div><div class="ttdef"><b>Definition</b> dxlib_util.cpp:111</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_aec08fe28b57053d60e3085bd20ce8b25"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#aec08fe28b57053d60e3085bd20ce8b25">designlab::dxlib_util::DrawCube3D</a></div><div class="ttdeci">void DrawCube3D(const VECTOR &amp;center_pos, const float side_len, const unsigned int color)</div><div class="ttdoc">3D空間に立方体を描画する．</div><div class="ttdef"><b>Definition</b> dxlib_util.cpp:45</div></div>
+<div class="ttc" id="astructdesignlab_1_1_rotation_matrix3x3_html"><div class="ttname"><a href="structdesignlab_1_1_rotation_matrix3x3.html">designlab::RotationMatrix3x3</a></div><div class="ttdoc">3次元の回転行列を表す構造体．</div><div class="ttdef"><b>Definition</b> math_rotation_matrix.h:32</div></div>
+<div class="ttc" id="astructdesignlab_1_1_rotation_matrix3x3_html_a459ee5b68e688cafa9f7227666e4c6a8"><div class="ttname"><a href="structdesignlab_1_1_rotation_matrix3x3.html#a459ee5b68e688cafa9f7227666e4c6a8">designlab::RotationMatrix3x3::element</a></div><div class="ttdeci">std::array&lt; std::array&lt; float, 3 &gt;, 3 &gt; element</div><div class="ttdef"><b>Definition</b> math_rotation_matrix.h:86</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3_html"><div class="ttname"><a href="structdesignlab_1_1_vector3.html">designlab::Vector3</a></div><div class="ttdoc">3次元の位置ベクトルを表す構造体．</div><div class="ttdef"><b>Definition</b> math_vector3.h:39</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3_html_a1173ed2dd31322b92dd4dae067177cbc"><div class="ttname"><a href="structdesignlab_1_1_vector3.html#a1173ed2dd31322b92dd4dae067177cbc">designlab::Vector3::x</a></div><div class="ttdeci">float x</div><div class="ttdoc">ロボットの正面方向に正．</div><div class="ttdef"><b>Definition</b> math_vector3.h:242</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3_html_a71c4baaa6cf57587e5cdadc5558cb4fd"><div class="ttname"><a href="structdesignlab_1_1_vector3.html#a71c4baaa6cf57587e5cdadc5558cb4fd">designlab::Vector3::z</a></div><div class="ttdeci">float z</div><div class="ttdoc">ロボットの上向きに正．</div><div class="ttdef"><b>Definition</b> math_vector3.h:244</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3_html_af2c9878342038c6a35c98e30dd532fae"><div class="ttname"><a href="structdesignlab_1_1_vector3.html#af2c9878342038c6a35c98e30dd532fae">designlab::Vector3::y</a></div><div class="ttdeci">float y</div><div class="ttdoc">ロボットの左向きに正．</div><div class="ttdef"><b>Definition</b> math_vector3.h:243</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_65b03a49640d0599dba701447d580643.html">hasegawa</a></li><li class="navelem"><a class="el" href="dir_2854940d141de6d3c7cee6483e7afda9.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_fad4873fd0f485db7102df865d883d5c.html">main</a></li><li class="navelem"><a class="el" href="dir_227eda1db808a252df8518c263632a71.html">program</a></li><li class="navelem"><a class="el" href="dir_136482520f873a40e541bfb5e9b2bb76.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_adb386b1713ce6556ea69a7596f0b080.html">DesignLab</a></li><li class="navelem"><a class="el" href="dxlib__util_8h.html">dxlib_util.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

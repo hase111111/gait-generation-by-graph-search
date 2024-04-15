@@ -1,0 +1,19 @@
+<map id="PhantomXMkII::IsStable" name="PhantomXMkII::IsStable">
+<area shape="rect" id="Node000001" title="安定余裕を用いて，静的に安定しているかどうかを判定する．" alt="" coords="5,147,165,173"/>
+<area shape="rect" id="Node000002" href="$class_phantom_x_mk_i_i.html#afd56f10869537b954a009cb4a2e39d9b" title="安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算す..." alt="" coords="213,139,426,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,157,197,157,197,163,165,163"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector2.html#ab3002b222969339234b908a42a735f44" title="このベクトルとotherの外積を返す" alt="" coords="502,5,631,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="348,136,404,97,473,58,486,51,488,56,475,62,407,102,351,141"/>
+<area shape="rect" id="Node000004" href="$class_phantom_x_mk_i_i.html#a6260133210372d2669e96917468d8179" title="脚の付け根の座標( leg base position )を取得する．ロボット座標系．" alt="" coords="474,72,658,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="400,136,469,117,470,122,402,141"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_vector2.html#a5b486befcef8a9c50ff78137783c3ba9" title="このベクトルを正規化したベクトルを返す" alt="" coords="502,139,631,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="426,157,486,157,486,163,426,163"/>
+<area shape="rect" id="Node000010" href="$namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="500,205,632,248"/>
+<area shape="poly" id="edge7_Node000002_Node000010" title=" " alt="" coords="402,179,486,202,484,207,400,184"/>
+<area shape="rect" id="Node000011" href="$structdesignlab_1_1_vector3.html#aaf3651416f231824ffd780b72f5bba27" title="XY平面に射影したベクトルを返す．" alt="" coords="502,272,631,315"/>
+<area shape="poly" id="edge8_Node000002_Node000011" title=" " alt="" coords="351,179,407,218,475,258,488,264,486,269,473,262,404,223,348,184"/>
+<area shape="rect" id="Node000006" href="$structdesignlab_1_1_vector2.html#ab62323b441e66a37e41668fb0ac7ae99" title="このベクトルの長さを返す" alt="" coords="710,105,840,148"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="631,147,694,137,695,142,631,152"/>
+<area shape="rect" id="Node000009" href="$namespacedesignlab_1_1math__util.html#a12bdd69889d7939a25c5f873fad76978" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="706,172,844,215"/>
+<area shape="poly" id="edge6_Node000005_Node000009" title=" " alt="" coords="631,168,691,177,690,183,631,173"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="designlab::com_func::RemoveLegGroundPatternFromCom" name="designlab::com_func::RemoveLegGroundPatternFromCom">
+<area shape="rect" id="Node000001" title="離散化された重心位置から，その重心位置では取り得ない脚接地パターンをfalseにする．" alt="" coords="5,5,243,48"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1com__func.html#a32f26cf991322f7e7cc4ea68213967a7" title="脚の接地パターンの総数を返す．" alt="" coords="291,5,473,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="243,24,275,24,275,29,243,29"/>
+</map>

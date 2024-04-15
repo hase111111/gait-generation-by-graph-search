@@ -1,0 +1,5 @@
+<map id="ResultFileImporter::ImportNodeListAndMapState" name="ResultFileImporter::ImportNodeListAndMapState">
+<area shape="rect" id="Node000001" title="ノードリストとマップの状態をファイルから読み込む．" alt="" coords="5,5,201,48"/>
+<area shape="rect" id="Node000002" href="$class_map_state.html#ac1d3feddfa06c7465aa205875cbe00e4" title="脚設置可能点の総数を返す．" alt="" coords="249,13,436,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,24,233,24,233,29,201,29"/>
+</map>

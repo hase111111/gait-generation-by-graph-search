@@ -1,0 +1,5 @@
+<map id="SimulationEndCheckerByPosition" name="SimulationEndCheckerByPosition">
+<area shape="rect" id="Node000001" title="最終位置によるシミュレーション終了判定クラス．" alt="" coords="5,80,222,107"/>
+<area shape="rect" id="Node000002" href="$class_i_simulation_end_checker.html" title="シミュレーションの終了を判定するクラスのインターフェース．" alt="" coords="35,5,192,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,48,116,80,111,80,111,48"/>
+</map>

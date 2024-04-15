@@ -1,0 +1,7 @@
+<map id="designlab::leg_func::MakeLegStateBit" name="designlab::leg_func::MakeLegStateBit">
+<area shape="rect" id="Node000001" title="脚状態を作成して返す関数．脚状態は重心パターン，脚の接地・遊脚，離散化した脚位置のデータが含まれる．" alt="" coords="411,5,543,48"/>
+<area shape="rect" id="Node000002" href="$struct_robot_state_node.html#a34cf13a90af9c6ddb3a3b5ff400d40c0" title="初期化関数" alt="" coords="222,13,363,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="395,29,363,29,363,24,395,24"/>
+<area shape="rect" id="Node000003" href="$class_graph_viewer_system_main.html#ac0c837edb4f1387fcdae35b39c9999eb" title="メイン関数" alt="" coords="5,5,174,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="206,29,174,29,174,24,206,24"/>
+</map>

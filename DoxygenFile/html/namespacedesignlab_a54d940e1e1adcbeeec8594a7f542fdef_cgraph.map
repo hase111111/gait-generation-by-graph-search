@@ -1,0 +1,11 @@
+<map id="designlab::ToQuaternion" name="designlab::ToQuaternion">
+<area shape="rect" id="Node000001" title="オイラー角からクォータニオンへの変換．" alt="" coords="5,47,167,73"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_quaternion.html#a56bbbd522805450144f54aae7dbd117e" title="クォータニオンのノルムを返す． &#160;&#160;ノルムとは，ベクトルの大きさのこと． クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 の平方根で求められる．" alt="" coords="215,5,362,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,44,199,39,200,44,167,49"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab_1_1math__util.html#a92c055e0799991e88871e2a5d4f09280" title="C++において，小数同士の計算は誤差が出てしまう． 誤差込みで値が等しいか調べる．" alt="" coords="220,72,357,115"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="167,71,205,77,204,82,166,76"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_quaternion.html#a24ad10137dd081de9002ac270cdce9f9" title="クォータニオンの長さの2乗を返す(ノルムの2乗)． &#160;&#160;クォータニオンの長さの2乗は，w^2 + x^2 + y^2 + z^2 で求められる．" alt="" coords="410,5,557,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="363,24,394,24,394,29,363,29"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector3.html#aa0a76dfe9dc375fd09561734cf782f63" title="自分・引数 の内積の結果を返す．" alt="" coords="605,13,763,40"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="557,24,590,24,590,29,557,29"/>
+</map>

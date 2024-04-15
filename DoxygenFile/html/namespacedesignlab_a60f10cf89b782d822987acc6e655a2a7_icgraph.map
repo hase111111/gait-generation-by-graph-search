@@ -1,0 +1,26 @@
+<map id="designlab::RotateVector3" name="designlab::RotateVector3">
+<area shape="rect" id="Node000001" title="3次元の位置ベクトルを回転させる．必ず正規化クォータニオンを用いること．" alt="" coords="507,276,674,303"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_robot_state_node.html#a28bedf0298ebf8f315a21294dd111f45" title="重心位置を変更する関数．" alt="" coords="253,17,446,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="577,263,559,223,534,174,499,124,457,81,428,63,431,58,461,77,504,121,538,171,564,221,582,261"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_node_creator_com_move_straight.html#a3e2fd67280dd581a695a09cea4f816a4" title="現在のノードから次のノード群を生成する．" alt="" coords="7,72,190,115"/>
+<area shape="poly" id="edge9_Node000001_Node000004" title=" " alt="" coords="574,263,556,229,530,191,497,154,458,125,426,110,392,99,322,86,253,82,191,84,191,79,253,77,323,81,394,94,428,105,460,120,501,150,535,188,561,227,579,260"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_robot_state_node.html#a9b795552e7aa64101a79c4c35c21376f" title="クォータニオンを変更し，胴体を回転させる関数．" alt="" coords="260,135,439,177"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="562,267,515,229,458,192,432,180,434,175,460,187,518,224,565,263"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a0630fa1d537f7e00aa422a83c98ebdda" title="グローバル座標系で表現されている座標を，脚座標系に変換する．" alt="" coords="246,201,453,244"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="524,274,429,247,430,242,526,269"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a028f4e024ebebca50325beef3444bfc5" title="脚座標系で表現されている座標を，グローバル座標系に変換する．" alt="" coords="246,268,453,311"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="491,292,453,292,453,287,491,287"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#ae4b923566d06eef5f765b1e7afdd57ae" title="ロボット座標系で表現されている座標を，グローバル座標系に変換する．" alt="" coords="240,335,459,377"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="526,310,430,337,429,331,524,305"/>
+<area shape="rect" id="Node000010" href="$classdesignlab_1_1_camera_dragger.html#ad9f9da3070ea76a8ae205590e5599d10" title="ドラッグ中の処理を行う． &#160;&#160;カーソルは上にあるけど，ドラッグ中ではない場合でも呼び出される．" alt="" coords="262,401,437,444"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="565,316,518,354,460,392,434,403,432,398,458,387,515,350,562,312"/>
+<area shape="rect" id="Node000011" href="$classdesignlab_1_1_com_selecter_hato.html#aa42e2305819e1fb8a6314dc59db4bf8f" title="重心を求める" alt="" coords="256,468,443,511"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="577,318,532,388,499,426,461,458,440,470,437,465,457,454,495,422,527,385,573,315"/>
+<area shape="rect" id="Node000012" href="$namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="266,535,433,561"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="584,318,569,364,544,420,508,477,486,503,461,525,434,539,432,534,457,520,482,499,504,474,539,418,564,362,579,317"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_node_creator_com_move.html#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する．" alt="" coords="7,5,190,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,36,191,34,191,28,237,31"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="238,66,191,76,190,71,237,60"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_node_creator_body_rot.html#a162277203f0422a351c4d24e8167d43d" title="現在のノードから次のノード群を生成する．" alt="" coords="5,139,192,181"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="244,160,192,161,192,156,244,155"/>
+</map>

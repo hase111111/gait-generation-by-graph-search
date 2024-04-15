@@ -1,0 +1,25 @@
+<map id="designlab::GaitPatternGeneratorBasic::GetNextNodeByGraphSearch" name="designlab::GaitPatternGeneratorBasic::GetNextNodeByGraphSearch">
+<area shape="rect" id="Node000001" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,239,238,281"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#ac0d2e4ec3bd05e0092f8f27b34e88908" title="ノードを追加する． &#160;&#160;追加するノードは親ノードのインデックスと，depthの指定が適切にされている必要がある． &#160;&#160;これらが適切にされていない場合，アサーションに引っかかる． &#160;&#160;また，あらかじめ確保..." alt="" coords="286,139,471,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,236,285,191,301,185,303,190,287,196,176,240"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_divided_map_state.html#a50647e278f9ee754cbfe5196153e2ba8" title="マップのデータを初期化する． ロボットの重心座標を中心にマップのデータを格子状に分割し， その中に存在する脚設置可能点を集める．" alt="" coords="288,205,469,248"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="238,242,272,238,273,243,238,248"/>
+<area shape="rect" id="Node000011" href="$structdesignlab_1_1_robot_state_node.html#a1094abe8cb1ef6d6dcfb72bae3098ac5" title="自身が根ノードであるか判定する．" alt="" coords="289,272,468,315"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="238,272,273,277,273,282,238,278"/>
+<area shape="rect" id="Node000012" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#a3a2e1f65d243cc24527387bc52a651ae" title="グラフをリセットする．" alt="" coords="286,339,471,381"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="176,280,287,324,303,330,301,335,285,329,174,284"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_divided_map_state.html#a726a21449619c1d6980ed867c141992f" title="マップのデータを消去する．" alt="" coords="519,5,700,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="455,203,469,191,482,175,488,159,492,126,496,93,504,75,517,58,520,56,523,60,521,62,508,78,502,94,498,127,494,161,486,178,473,195,458,207"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_divided_map_state.html#a22c0df011d0506e6d5106c6acd931be9" title="指定した座標を DividedMap のインデックスに変換する． 範囲外の値を指定した場合でも，値を丸めずに返す． そのため，IsInMap で範囲内に存在するかどうかを確認する必要がある．" alt="" coords="519,72,700,115"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="451,202,469,191,485,175,493,159,501,142,517,125,523,121,526,125,521,129,506,145,497,161,489,178,473,195,454,207"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_divided_map_state.html#a8dcc229f5560978d2a082b326191d6ee" title="指定した座標を DividedMap のインデックスに変換する． 範囲外の値を指定した場合でも，値を丸めずに返す． そのため，IsInMap で範囲内に存在するかどうかを確認する必要がある．" alt="" coords="519,139,700,181"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="454,202,518,184,519,189,455,207"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_map_state.html#a80c42812e6ff529ed9b468d0db52d757" title="脚設置可能点の座標を返す．" alt="" coords="540,205,680,248"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="469,224,524,224,524,229,469,229"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_map_state.html#a221db2fa4a7021da6e9b240c209fa59c" title="脚設置可能点の総数を返す．" alt="" coords="540,272,680,315"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="455,246,525,266,524,271,454,251"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_divided_map_state.html#a50c9ba4fb3821ba6a674f3657fe80f6f" title="指定した座標がマップの範囲内に存在するかどうかを返す．" alt="" coords="519,339,700,381"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="454,246,473,258,489,275,497,292,506,308,521,325,526,328,523,333,517,329,501,312,493,294,485,278,469,262,451,251"/>
+<area shape="rect" id="Node000010" href="$namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5" title="2乗した値を返す関数．" alt="" coords="541,405,678,448"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="458,246,473,258,486,275,494,293,498,326,502,359,508,375,521,391,530,399,526,403,517,395,504,378,496,361,492,327,488,294,482,278,469,262,455,250"/>
+</map>

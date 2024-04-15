@@ -1,0 +1,5 @@
+<map id="designlab::InterpolatedNodeCreator::CreateInterpolatedNode" name="designlab::InterpolatedNodeCreator::CreateInterpolatedNode">
+<area shape="rect" id="Node000001" title="ノード間を補間する．" alt="" coords="249,5,455,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_interpolate_validator.html#a5317df06cf659fb275d74eb8c8f4924e" title="2つのノード間を矩形軌道で補完し，可動範囲外を通過しないか検証する．" alt="" coords="5,5,201,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="233,29,201,29,201,24,233,24"/>
+</map>

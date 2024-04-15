@@ -1,0 +1,11 @@
+<map id="designlab::cmdio::OutputCenter" name="designlab::cmdio::OutputCenter">
+<area shape="rect" id="Node000001" title="中央に文字を出力する関数．文字列が長すぎる場合は普通に出力される．" alt="" coords="438,56,604,99"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1cmdio.html#aac156719fff45c1e6da33d779eee8a4a" title="コマンドラインにこのソフトのタイトルを出力する関数． &#160;&#160;必ず，OutputDetailがkSystemで出力される．" alt="" coords="224,56,390,99"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="422,80,390,80,390,75,422,75"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="プログラムのエントリポイント．" alt="" coords="66,5,115,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="211,54,115,28,116,23,212,49"/>
+<area shape="rect" id="Node000004" href="$class_system_main_result_viewer.html#a398650e91a6bdafc25f7081f72e323dd" title="主要な処理を行う関数．" alt="" coords="5,56,176,99"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="208,80,176,80,176,75,208,75"/>
+<area shape="rect" id="Node000005" href="$class_system_main_simulation.html#a707546a7a9971ede2a1ba39cdc7ace71" title="いままでint mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="13,123,168,165"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="222,106,163,125,162,119,220,101"/>
+</map>

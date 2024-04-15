@@ -1,0 +1,13 @@
+<map id="designlab::DxlibGuiNodeDisplayer" name="designlab::DxlibGuiNodeDisplayer">
+<area shape="rect" id="Node000001" title="ノードの情報を表示するGUIのクラス．" alt="" coords="245,155,462,181"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_abstract_dxlib_gui.html" title="Dxlibを使ったGUIの抽象クラス．" alt="" coords="160,80,342,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="283,114,337,152,334,156,280,118"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_i_dxlib_gui.html" title="Dxlibの画面に表示するGUIのインターフェース．" alt="" coords="5,5,142,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="120,36,221,77,219,82,118,41"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_i_dxlib_clickable.html" title="クリック可能なGUIのインターフェース．" alt="" coords="166,5,336,32"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="254,48,254,80,248,80,248,48"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_i_dxlib_draggable.html" title="ドラッグ可能なGUIのインターフェース．" alt="" coords="360,5,534,32"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="399,40,286,82,284,77,398,35"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_i_dxlib_node_setter.html" title="DxLibのGuiやRendererでノードのセットを行うためのインターフェース．" alt="" coords="366,80,547,107"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="427,118,373,156,370,152,424,114"/>
+</map>

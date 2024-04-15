@@ -1,0 +1,30 @@
+<map id="designlab::ToRotationMatrix" name="designlab::ToRotationMatrix">
+<area shape="rect" id="Node000001" title="クォータニオンから回転角行列への変換" alt="" coords="734,231,917,257"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="519,205,686,232"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="719,235,687,231,687,226,719,229"/>
+<area shape="rect" id="Node000013" href="$namespacedesignlab.html#a9092a81419a0e9db24ec18e935ae0ba3" title="回転角行列からクォータニオンへの変換" alt="" coords="527,256,678,283"/>
+<area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="719,259,679,263,679,258,719,253"/>
+<area shape="poly" id="edge14_Node000002_Node000002" title=" " alt="" coords="641,192,628,186,603,184,579,186,567,191,564,196,569,203,565,206,558,197,563,187,578,181,603,179,629,181,643,188"/>
+<area shape="rect" id="Node000003" href="$struct_robot_state_node.html#a33c971635a3a21d2c24e6599935744cb" title="重心位置を変更する関数．" alt="" coords="264,197,469,240"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="504,221,469,221,469,216,504,216"/>
+<area shape="rect" id="Node000005" href="$struct_robot_state_node.html#a0195e308fede393696d2a58b4c397424" title="クォータニオンを変更し，胴体を回転させる関数．" alt="" coords="268,13,465,40"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="586,193,567,161,540,123,508,86,470,54,447,43,449,38,472,50,511,82,545,120,571,158,590,190"/>
+<area shape="rect" id="Node000007" href="$class_phantom_x_mk_i_i.html#a0f2bb2021a78c13f4f42dc2abc832929" title="グローバル座標系で表現されている座標を，脚座標系に変換する．" alt="" coords="270,131,463,173"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="537,203,444,177,445,171,539,198"/>
+<area shape="rect" id="Node000008" href="$class_phantom_x_mk_i_i.html#aab91f439acca0fd6ac018d6542f15bfd" title="脚座標系で表現されている座標を，グローバル座標系に変換する．" alt="" coords="278,264,455,307"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="539,239,445,266,444,261,537,234"/>
+<area shape="rect" id="Node000010" href="$class_phantom_x_mk_i_i.html#a15541b3bb2c8abd9d0fa79148fad0750" title="ロボット座標系で表現されている座標を，グローバル座標系に変換する．" alt="" coords="272,381,461,424"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="525,243,521,246,508,261,502,276,498,307,493,339,486,355,473,371,457,383,454,379,469,367,481,352,488,337,492,306,497,274,504,258,517,242,521,239"/>
+<area shape="rect" id="Node000011" href="$class_camera_dragger.html#aafa5324bb0f98edd0922c46c4a8ec778" title="ドラッグ中の処理を行う． &#160;&#160;カーソルは上にあるけど，ドラッグ中ではない場合でも呼び出される．" alt="" coords="264,331,469,357"/>
+<area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="527,242,521,246,505,264,498,283,490,302,473,321,451,332,449,328,469,317,485,299,493,281,500,261,517,242,524,237"/>
+<area shape="rect" id="Node000012" href="$class_com_selecter_hato.html#aceabd4cdafd15be3bbd93c72f1a127b7" title="重心を求める" alt="" coords="262,64,471,107"/>
+<area shape="poly" id="edge12_Node000002_Node000012" title=" " alt="" coords="574,197,527,158,470,121,445,110,447,105,472,116,530,154,577,192"/>
+<area shape="rect" id="Node000004" href="$class_node_creator_com_move.html#a1e65dff80372e44bdc9dd8d7e4c66e05" title="現在のノードから次のノード群を生成する" alt="" coords="34,135,185,177"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="261,196,184,177,186,172,262,190"/>
+<area shape="rect" id="Node000006" href="$class_node_creator_body_rot.html#a1907d799d7f6ecc4019b941893671da7" title="現在のノードから次のノード群を生成する" alt="" coords="38,5,181,48"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="253,29,181,29,181,24,253,24"/>
+<area shape="rect" id="Node000009" href="$class_phantom_x_mk_i_i.html#ac333dee5b46e1b63fdca6202b91a2834" title="胴体が地面と干渉しているかどうかを判定する．" alt="" coords="5,323,214,365"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="263,312,206,325,205,319,262,306"/>
+<area shape="poly" id="edge10_Node000010_Node000009" title=" " alt="" coords="256,380,205,369,207,363,257,375"/>
+<area shape="poly" id="edge13_Node000012_Node000004" title=" " alt="" coords="272,114,186,138,184,133,271,109"/>
+</map>

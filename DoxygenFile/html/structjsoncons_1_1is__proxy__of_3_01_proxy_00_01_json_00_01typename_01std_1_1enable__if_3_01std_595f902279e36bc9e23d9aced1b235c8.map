@@ -1,0 +1,5 @@
+<map id="jsoncons::is_proxy_of&lt; Proxy, Json, typename std::enable_if&lt; std::is_same&lt; typename Proxy::proxied_type, Json &gt;::value &gt;::type &gt;" name="jsoncons::is_proxy_of&lt; Proxy, Json, typename std::enable_if&lt; std::is_same&lt; typename Proxy::proxied_type, Json &gt;::value &gt;::type &gt;">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,223,171"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="63,5,165,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,48,117,80,111,80,111,48"/>
+</map>

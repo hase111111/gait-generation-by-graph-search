@@ -1,0 +1,9 @@
+<map id="designlab::Vector3::GetNormalized" name="designlab::Vector3::GetNormalized">
+<area shape="rect" id="Node000001" title="単位ベクトルを返す． normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す． &#160;&#160;絶対値が0のベクトルの場合，そのまま0ベクトルを返す．" alt="" coords="259,72,388,115"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector3.html#ac5187e0ab8d45cda4a36dd38f34884e8" title="このベクトルを正規化する． &#160;&#160;絶対値が0のベクトルの場合，そのまま0ベクトルになる．" alt="" coords="43,5,173,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="243,71,172,49,174,44,245,66"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_graph_searcher_straight_move.html#a64643a2293909dc6b0166a916c5b26ee" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="5,72,211,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="243,96,211,96,211,91,243,91"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_robot_operator_for_gpg.html#a240d9588144861d5556613811dc5433e" title="ロボットの動作を更新する．" alt="" coords="24,139,192,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="245,120,180,141,179,135,243,115"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="designlab::CmdIOUtil::WaitAnyKey" name="designlab::CmdIOUtil::WaitAnyKey">
+<area shape="rect" id="Node000001" title="入力待ちをする関数． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="5,5,149,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="197,5,340,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,24,181,24,181,29,149,29"/>
+</map>

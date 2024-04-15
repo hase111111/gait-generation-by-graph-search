@@ -1,0 +1,5 @@
+<map id="jsoncons::extension_traits::is_constructible_from_const_pointer_and_size&lt; T, typename std::enable_if&lt; std::is_constructible&lt; T, typename T::const_pointer, typename T::size_type &gt;::value &gt;::type &gt;" name="jsoncons::extension_traits::is_constructible_from_const_pointer_and_size&lt; T, typename std::enable_if&lt; std::is_constructible&lt; T, typename T::const_pointer, typename T::size_type &gt;::value &gt;::type &gt;">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,250,203"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="77,5,178,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,48,130,79,125,79,125,48"/>
+</map>

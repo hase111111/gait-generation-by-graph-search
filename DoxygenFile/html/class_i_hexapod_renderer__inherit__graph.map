@@ -1,0 +1,7 @@
+<map id="IHexapodRenderer" name="IHexapodRenderer">
+<area shape="rect" id="Node000001" title="6脚ロボットの描画のインターフェース" alt="" coords="121,5,249,32"/>
+<area shape="rect" id="Node000002" href="$class_phantom_x_renderer_model.html" title="PhantomXの描画を行うクラス．3Dモデルを使用する" alt="" coords="5,80,173,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,44,107,82,104,77,155,39"/>
+<area shape="rect" id="Node000003" href="$class_phantom_x_renderer_simple.html" title="PhantomXの描画を行うクラス．3Dモデルを使用せず，多角形を組み合わせてロボットを描画する．" alt="" coords="196,80,369,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,39,267,77,264,82,212,44"/>
+</map>

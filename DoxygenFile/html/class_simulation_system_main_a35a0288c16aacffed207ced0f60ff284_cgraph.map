@@ -1,0 +1,9 @@
+<map id="SimulationSystemMain::SimulationSystemMain" name="SimulationSystemMain::SimulationSystemMain">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,23,169,65"/>
+<area shape="rect" id="Node000002" href="$class_result_file_exporter.html#a0006605d4d439194d4f30cd188d38268" title="resultフォルダがなければ作成する．また，フォルダ名を指定する．" alt="" coords="217,23,345,65"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,41,201,41,201,47,169,47"/>
+<area shape="rect" id="Node000003" href="$class_stopwatch.html#a227203b6b93c4dd1b0e17f6d3a5437e0" title="現在の日時をYYYY/MM/DD HH:MM形式の文字列で取得する" alt="" coords="393,5,591,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="345,34,377,30,378,35,346,39"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ずSetOutputLimit()を呼び出してから使うこと．" alt="" coords="409,56,575,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="346,49,394,55,393,60,345,54"/>
+</map>

@@ -1,0 +1,962 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: designlab::Quaternion 構造体</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('structdesignlab_1_1_quaternion.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
+<a href="#pub-attribs">公開変数類</a> &#124;
+<a href="structdesignlab_1_1_quaternion-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">designlab::Quaternion 構造体<span class="mlabels"><span class="mlabel">final</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>クォータニオンを表す構造体．  
+ <a href="structdesignlab_1_1_quaternion.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="math__quaternion_8h_source.html">math_quaternion.h</a>&gt;</code></p>
+<div class="dynheader">
+designlab::Quaternion 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="structdesignlab_1_1_quaternion__coll__graph.png" border="0" usemap="#adesignlab_1_1_quaternion_coll__map" alt="Collaboration graph"/></div>
+<map name="adesignlab_1_1_quaternion_coll__map" id="adesignlab_1_1_quaternion_coll__map">
+<area shape="rect" title="クォータニオンを表す構造体．" alt="" coords="5,96,153,123"/>
+<area shape="rect" href="structdesignlab_1_1_vector3.html" title="3次元の位置ベクトルを表す構造体．" alt="" coords="14,5,144,32"/>
+<area shape="poly" title=" " alt="" coords="82,48,82,95,76,95,76,48"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:aa80a5e88802595ce7a63b75eccc7aa65" id="r_aa80a5e88802595ce7a63b75eccc7aa65"><td class="memItemLeft" align="right" valign="top"><a id="aa80a5e88802595ce7a63b75eccc7aa65" name="aa80a5e88802595ce7a63b75eccc7aa65"></a>
+constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>Quaternion</b> ()</td></tr>
+<tr class="memdesc:aa80a5e88802595ce7a63b75eccc7aa65"><td class="mdescLeft">&#160;</td><td class="mdescRight">1 + {0,0,0}で初期化する， <br /></td></tr>
+<tr class="separator:aa80a5e88802595ce7a63b75eccc7aa65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8e53b628000940f37c14d6d4541442a" id="r_ad8e53b628000940f37c14d6d4541442a"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_quaternion.html#ad8e53b628000940f37c14d6d4541442a">Quaternion</a> (const float w_, const float x_, const float y_, const float z_)</td></tr>
+<tr class="memdesc:ad8e53b628000940f37c14d6d4541442a"><td class="mdescLeft">&#160;</td><td class="mdescRight">スカラー成分とベクトル成分を指定して初期化する． ノルムが1になるように代入すること， <br  />
+ 使用は非推奨，MakeByAngleAxisを使うこと．  <br /></td></tr>
+<tr class="separator:ad8e53b628000940f37c14d6d4541442a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3478e87815e90f29f0d03b1881ca213b" id="r_a3478e87815e90f29f0d03b1881ca213b"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_quaternion.html#a3478e87815e90f29f0d03b1881ca213b">Quaternion</a> (const float w_, const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;v_)</td></tr>
+<tr class="memdesc:a3478e87815e90f29f0d03b1881ca213b"><td class="mdescLeft">&#160;</td><td class="mdescRight">スカラー成分とベクトル成分を指定して初期化する． ノルムが1になるように代入すること， <br  />
+ 使用は非推奨，MakeByAngleAxisを使うこと．  <br /></td></tr>
+<tr class="separator:a3478e87815e90f29f0d03b1881ca213b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa8e4c81d8f2c93afac802fd80e46d2d" id="r_aaa8e4c81d8f2c93afac802fd80e46d2d"><td class="memItemLeft" align="right" valign="top"><a id="aaa8e4c81d8f2c93afac802fd80e46d2d" name="aaa8e4c81d8f2c93afac802fd80e46d2d"></a>
+constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>Quaternion</b> (const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q)=default</td></tr>
+<tr class="memdesc:aaa8e4c81d8f2c93afac802fd80e46d2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">コピーコンストラクタ． <br /></td></tr>
+<tr class="separator:aaa8e4c81d8f2c93afac802fd80e46d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d93a76afbddfc6f8cd52b8af0dd7a07" id="r_a4d93a76afbddfc6f8cd52b8af0dd7a07"><td class="memItemLeft" align="right" valign="top"><a id="a4d93a76afbddfc6f8cd52b8af0dd7a07" name="a4d93a76afbddfc6f8cd52b8af0dd7a07"></a>
+constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>Quaternion</b> (<a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;&amp;q) noexcept=default</td></tr>
+<tr class="memdesc:a4d93a76afbddfc6f8cd52b8af0dd7a07"><td class="mdescLeft">&#160;</td><td class="mdescRight">ムーブコンストラクタ． <br /></td></tr>
+<tr class="separator:a4d93a76afbddfc6f8cd52b8af0dd7a07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2accb86ebd5abbc1e62471b5892bccd1" id="r_a2accb86ebd5abbc1e62471b5892bccd1"><td class="memItemLeft" align="right" valign="top"><a id="a2accb86ebd5abbc1e62471b5892bccd1" name="a2accb86ebd5abbc1e62471b5892bccd1"></a>
+constexpr <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q)=default</td></tr>
+<tr class="memdesc:a2accb86ebd5abbc1e62471b5892bccd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">コピー代入演算子． <br /></td></tr>
+<tr class="separator:a2accb86ebd5abbc1e62471b5892bccd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c27cd72cb16f4abd00d2791fd7efdbc" id="r_a8c27cd72cb16f4abd00d2791fd7efdbc"><td class="memItemLeft" align="right" valign="top"><a id="a8c27cd72cb16f4abd00d2791fd7efdbc" name="a8c27cd72cb16f4abd00d2791fd7efdbc"></a>
+constexpr <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> () const noexcept</td></tr>
+<tr class="separator:a8c27cd72cb16f4abd00d2791fd7efdbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad302dad089b4931d8fa541792349056" id="r_aad302dad089b4931d8fa541792349056"><td class="memItemLeft" align="right" valign="top"><a id="aad302dad089b4931d8fa541792349056" name="aad302dad089b4931d8fa541792349056"></a>
+constexpr <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> () const noexcept</td></tr>
+<tr class="separator:aad302dad089b4931d8fa541792349056"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8398f73756f5e0216d5a1be8533f6fa" id="r_aa8398f73756f5e0216d5a1be8533f6fa"><td class="memItemLeft" align="right" valign="top"><a id="aa8398f73756f5e0216d5a1be8533f6fa" name="aa8398f73756f5e0216d5a1be8533f6fa"></a>
+constexpr <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q) const noexcept</td></tr>
+<tr class="separator:aa8398f73756f5e0216d5a1be8533f6fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a398beced0fe94c5058330b7dbbf16b6e" id="r_a398beced0fe94c5058330b7dbbf16b6e"><td class="memItemLeft" align="right" valign="top"><a id="a398beced0fe94c5058330b7dbbf16b6e" name="a398beced0fe94c5058330b7dbbf16b6e"></a>
+constexpr <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q) const noexcept</td></tr>
+<tr class="separator:a398beced0fe94c5058330b7dbbf16b6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd5b6f28d19d82dd8bddce3fb6d4d90a" id="r_abd5b6f28d19d82dd8bddce3fb6d4d90a"><td class="memItemLeft" align="right" valign="top"><a id="abd5b6f28d19d82dd8bddce3fb6d4d90a" name="abd5b6f28d19d82dd8bddce3fb6d4d90a"></a>
+constexpr <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q) const noexcept</td></tr>
+<tr class="separator:abd5b6f28d19d82dd8bddce3fb6d4d90a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3bde389928d55547e49a06437553454" id="r_aa3bde389928d55547e49a06437553454"><td class="memItemLeft" align="right" valign="top"><a id="aa3bde389928d55547e49a06437553454" name="aa3bde389928d55547e49a06437553454"></a>
+constexpr <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const float s) const noexcept</td></tr>
+<tr class="separator:aa3bde389928d55547e49a06437553454"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52ec83e29e2e519ccba9dad894045766" id="r_a52ec83e29e2e519ccba9dad894045766"><td class="memItemLeft" align="right" valign="top"><a id="a52ec83e29e2e519ccba9dad894045766" name="a52ec83e29e2e519ccba9dad894045766"></a>
+constexpr <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (const float s) const</td></tr>
+<tr class="separator:a52ec83e29e2e519ccba9dad894045766"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2479b775b88f53f45e0c15f9ce81b66a" id="r_a2479b775b88f53f45e0c15f9ce81b66a"><td class="memItemLeft" align="right" valign="top"><a id="a2479b775b88f53f45e0c15f9ce81b66a" name="a2479b775b88f53f45e0c15f9ce81b66a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q) const noexcept</td></tr>
+<tr class="separator:a2479b775b88f53f45e0c15f9ce81b66a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4a4d754eba42c20ff550a3bb175617c" id="r_ad4a4d754eba42c20ff550a3bb175617c"><td class="memItemLeft" align="right" valign="top"><a id="ad4a4d754eba42c20ff550a3bb175617c" name="ad4a4d754eba42c20ff550a3bb175617c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q) const noexcept</td></tr>
+<tr class="separator:ad4a4d754eba42c20ff550a3bb175617c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7ab2278db21570bcfbcfc2e9ee9756b" id="r_ab7ab2278db21570bcfbcfc2e9ee9756b"><td class="memItemLeft" align="right" valign="top"><a id="ab7ab2278db21570bcfbcfc2e9ee9756b" name="ab7ab2278db21570bcfbcfc2e9ee9756b"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q) const noexcept</td></tr>
+<tr class="separator:ab7ab2278db21570bcfbcfc2e9ee9756b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36d3d412e604362640f057f6d4eaaa5b" id="r_a36d3d412e604362640f057f6d4eaaa5b"><td class="memItemLeft" align="right" valign="top"><a id="a36d3d412e604362640f057f6d4eaaa5b" name="a36d3d412e604362640f057f6d4eaaa5b"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:a36d3d412e604362640f057f6d4eaaa5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1753ec4991940e35ccde9416687adebf" id="r_a1753ec4991940e35ccde9416687adebf"><td class="memItemLeft" align="right" valign="top"><a id="a1753ec4991940e35ccde9416687adebf" name="a1753ec4991940e35ccde9416687adebf"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=</b> (const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:a1753ec4991940e35ccde9416687adebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67c96022b6ddc2f66353d1fe443b2f6e" id="r_a67c96022b6ddc2f66353d1fe443b2f6e"><td class="memItemLeft" align="right" valign="top"><a id="a67c96022b6ddc2f66353d1fe443b2f6e" name="a67c96022b6ddc2f66353d1fe443b2f6e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;other) const noexcept</td></tr>
+<tr class="separator:a67c96022b6ddc2f66353d1fe443b2f6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaac2f3922f46f7286a2e650f791cec4" id="r_afaac2f3922f46f7286a2e650f791cec4"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_quaternion.html#afaac2f3922f46f7286a2e650f791cec4">Dot</a> (<a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> other) const noexcept</td></tr>
+<tr class="memdesc:afaac2f3922f46f7286a2e650f791cec4"><td class="mdescLeft">&#160;</td><td class="mdescRight">クォータニオンの内積を返す． クォータニオンを4次元のベクトルとみなし，ベクトルの内積を求める．  <br /></td></tr>
+<tr class="separator:afaac2f3922f46f7286a2e650f791cec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a893ee3dc143f059822f17ead2f716de1" id="r_a893ee3dc143f059822f17ead2f716de1"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_quaternion.html#a893ee3dc143f059822f17ead2f716de1">GetConjugate</a> () const noexcept</td></tr>
+<tr class="memdesc:a893ee3dc143f059822f17ead2f716de1"><td class="mdescLeft">&#160;</td><td class="mdescRight">クォータニオンの共役を返す． 共役なクォータニオンとは，ベクトル成分の符号を反転させたもの <br  />
+ q = w + xi + yj + zk とすると， qの共役は w - xi - yj - zk となる．回転は逆方向になる  <br /></td></tr>
+<tr class="separator:a893ee3dc143f059822f17ead2f716de1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24ad10137dd081de9002ac270cdce9f9" id="r_a24ad10137dd081de9002ac270cdce9f9"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_quaternion.html#a24ad10137dd081de9002ac270cdce9f9">GetLengthSquared</a> () const noexcept</td></tr>
+<tr class="memdesc:a24ad10137dd081de9002ac270cdce9f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">クォータニオンの長さの2乗を返す(ノルムの2乗)． <br  />
+ クォータニオンの長さの2乗は，w^2 + x^2 + y^2 + z^2 で求められる．  <br /></td></tr>
+<tr class="separator:a24ad10137dd081de9002ac270cdce9f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56bbbd522805450144f54aae7dbd117e" id="r_a56bbbd522805450144f54aae7dbd117e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_quaternion.html#a56bbbd522805450144f54aae7dbd117e">GetNorm</a> () const noexcept</td></tr>
+<tr class="memdesc:a56bbbd522805450144f54aae7dbd117e"><td class="mdescLeft">&#160;</td><td class="mdescRight">クォータニオンのノルムを返す． <br  />
+ ノルムとは，ベクトルの大きさのこと． クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 の平方根で求められる．  <br /></td></tr>
+<tr class="separator:a56bbbd522805450144f54aae7dbd117e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad164e180a90ff6e7e1df3f5b57cb8b3b" id="r_ad164e180a90ff6e7e1df3f5b57cb8b3b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_quaternion.html#ad164e180a90ff6e7e1df3f5b57cb8b3b">GetInverse</a> () const</td></tr>
+<tr class="memdesc:ad164e180a90ff6e7e1df3f5b57cb8b3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">クォータニオンの逆数を返す． <br  />
+ クォータニオンqの逆数q^-1は，qの共役をノルムで割ったもの． <br  />
+ q^-1 = q* / |q|^2  <br /></td></tr>
+<tr class="separator:ad164e180a90ff6e7e1df3f5b57cb8b3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c504d31353e189b1fa7a83cfd60deba" id="r_a2c504d31353e189b1fa7a83cfd60deba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba">GetNormalized</a> () const noexcept</td></tr>
+<tr class="memdesc:a2c504d31353e189b1fa7a83cfd60deba"><td class="mdescLeft">&#160;</td><td class="mdescRight">正規化したクォータニオンを返す． <br  />
+ クォータニオンの正規化とは，ノルムを1にすることを表す． <br  />
+ クォータニオンqの正規化は，q / |q| で求められる．  <br /></td></tr>
+<tr class="separator:a2c504d31353e189b1fa7a83cfd60deba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab34d9fa35a4954182603f9c706f525fe" id="r_ab34d9fa35a4954182603f9c706f525fe"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_quaternion.html#ab34d9fa35a4954182603f9c706f525fe">GetDistanceSquared</a> (const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;q) const noexcept</td></tr>
+<tr class="memdesc:ab34d9fa35a4954182603f9c706f525fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">他のクォータニオンとの距離の2乗を返す． クォータニオンを4次元ベクトルとみなし，ベクトルの距離の2乗を求める．  <br /></td></tr>
+<tr class="separator:ab34d9fa35a4954182603f9c706f525fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45dfcf48edea7b439e7d189d0d105bfa" id="r_a45dfcf48edea7b439e7d189d0d105bfa"><td class="memItemLeft" align="right" valign="top"><a id="a45dfcf48edea7b439e7d189d0d105bfa" name="a45dfcf48edea7b439e7d189d0d105bfa"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Normalize</b> () noexcept</td></tr>
+<tr class="memdesc:a45dfcf48edea7b439e7d189d0d105bfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">自身を正規化する．ノルムが１になる． <br /></td></tr>
+<tr class="separator:a45dfcf48edea7b439e7d189d0d105bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ab059ba534429c41818b66bed33e7a2" id="r_a7ab059ba534429c41818b66bed33e7a2"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_quaternion.html#a7ab059ba534429c41818b66bed33e7a2">ToLeftHandCoordinate</a> () const noexcept</td></tr>
+<tr class="memdesc:a7ab059ba534429c41818b66bed33e7a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">左手座標系への変換を行う． <br  />
+ 言うまでもないが，機械工学では通例右手座標系を使う． しかし，dxlib は左手座標系なので，dxlib で描画するときは， この関数を使って左手座標系に変換する必要がある．  <br /></td></tr>
+<tr class="separator:a7ab059ba534429c41818b66bed33e7a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37c43da43484613d050d79393feaecec" id="r_a37c43da43484613d050d79393feaecec"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_quaternion.html#a37c43da43484613d050d79393feaecec">ToString</a> () const</td></tr>
+<tr class="memdesc:a37c43da43484613d050d79393feaecec"><td class="mdescLeft">&#160;</td><td class="mdescRight">クォータニオンを文字列に変換する． <br  />
+ w, x, y, z の順で出力する．  <br /></td></tr>
+<tr class="separator:a37c43da43484613d050d79393feaecec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad46b2f2a6e3c2f6e69a5daa3bbd8ada6" id="r_ad46b2f2a6e3c2f6e69a5daa3bbd8ada6"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_quaternion.html#ad46b2f2a6e3c2f6e69a5daa3bbd8ada6">ToCsvString</a> () const</td></tr>
+<tr class="memdesc:ad46b2f2a6e3c2f6e69a5daa3bbd8ada6"><td class="mdescLeft">&#160;</td><td class="mdescRight">クォータニオンをCsv形式の文字列に変換する．カンマ区切り． <br  />
+ w, x, y, z の順にカンマ区切りで出力する．  <br /></td></tr>
+<tr class="separator:ad46b2f2a6e3c2f6e69a5daa3bbd8ada6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:a557aa980908890a7c7e5b6e2caab9301" id="r_a557aa980908890a7c7e5b6e2caab9301"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_quaternion.html#a557aa980908890a7c7e5b6e2caab9301">MakeByAngleAxis</a> (float rad_angle, const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;axis)</td></tr>
+<tr class="memdesc:a557aa980908890a7c7e5b6e2caab9301"><td class="mdescLeft">&#160;</td><td class="mdescRight">回転軸と回転角からクォータニオンを作成する． <br  />
+ q = cos(θ/2) * w + sin(θ/2) * { v.x + v.y + v.z } となる． ノルムは必ず1になる．  <br /></td></tr>
+<tr class="separator:a557aa980908890a7c7e5b6e2caab9301"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+公開変数類</h2></td></tr>
+<tr class="memitem:af1dd98ff07b064332ad81745c277026f" id="r_af1dd98ff07b064332ad81745c277026f"><td class="memItemLeft" align="right" valign="top"><a id="af1dd98ff07b064332ad81745c277026f" name="af1dd98ff07b064332ad81745c277026f"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>w</b></td></tr>
+<tr class="memdesc:af1dd98ff07b064332ad81745c277026f"><td class="mdescLeft">&#160;</td><td class="mdescRight">スカラー成分． <br /></td></tr>
+<tr class="separator:af1dd98ff07b064332ad81745c277026f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5de03d2ccf59cbdcb55ab526832c3a9c" id="r_a5de03d2ccf59cbdcb55ab526832c3a9c"><td class="memItemLeft" align="right" valign="top"><a id="a5de03d2ccf59cbdcb55ab526832c3a9c" name="a5de03d2ccf59cbdcb55ab526832c3a9c"></a>
+<a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><b>v</b></td></tr>
+<tr class="memdesc:a5de03d2ccf59cbdcb55ab526832c3a9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">ベクトル成分． <br /></td></tr>
+<tr class="separator:a5de03d2ccf59cbdcb55ab526832c3a9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>クォータニオンを表す構造体． </p>
+<p>クォータニオンは，スカラー成分とベクトル成分からなる． 四元数とも呼ばれる． </p>
+<h3><a class="anchor" id="参考"></a>
+参考</h3>
+<ul>
+<li>Zenn クォータニオン <a href="https://zenn.dev/mebiusbox/books/132b654aa02124/viewer/2966c7">https://zenn.dev/mebiusbox/books/132b654aa02124/viewer/2966c7</a> ( アクセス日 2024/2/29 ) </li>
+<li>SPORTS SENSING，運動計測概説&gt;クォータニオン4：クォータニオンの演算 <a href="https://www.sports-sensing.com/brands/labss/motionmeasurement/">https://www.sports-sensing.com/brands/labss/motionmeasurement/</a> ( アクセス日 2024/2/29 ) </li>
+<li>F_ クォータニオンと回転 <a href="https://www.f-sp.com/entry/2017/06/30/221124">https://www.f-sp.com/entry/2017/06/30/221124</a> ( アクセス日 2024/2/29 ) </li>
+</ul>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="ad8e53b628000940f37c14d6d4541442a" name="ad8e53b628000940f37c14d6d4541442a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8e53b628000940f37c14d6d4541442a">&#9670;&#160;</a></span>Quaternion() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr designlab::Quaternion::Quaternion </td>
+          <td>(</td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>w_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>x_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>y_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>z_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>スカラー成分とベクトル成分を指定して初期化する． ノルムが1になるように代入すること， <br  />
+ 使用は非推奨，MakeByAngleAxisを使うこと． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">w_</td><td>スカラー成分． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x_</td><td>ベクトル成分のx成分． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y_</td><td>ベクトル成分のy成分． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">z_</td><td>ベクトル成分のz成分． </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3478e87815e90f29f0d03b1881ca213b" name="a3478e87815e90f29f0d03b1881ca213b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3478e87815e90f29f0d03b1881ca213b">&#9670;&#160;</a></span>Quaternion() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr designlab::Quaternion::Quaternion </td>
+          <td>(</td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>w_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>v_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>スカラー成分とベクトル成分を指定して初期化する． ノルムが1になるように代入すること， <br  />
+ 使用は非推奨，MakeByAngleAxisを使うこと． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">w_</td><td>スカラー成分． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">v_</td><td>ベクトル成分． </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="afaac2f3922f46f7286a2e650f791cec4" name="afaac2f3922f46f7286a2e650f791cec4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaac2f3922f46f7286a2e650f791cec4">&#9670;&#160;</a></span>Dot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr float designlab::Quaternion::Dot </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>クォータニオンの内積を返す． クォータニオンを4次元のベクトルとみなし，ベクトルの内積を求める． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">other</td><td>内積を求めるクォータニオン． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>内積． </dd></dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdesignlab_1_1_quaternion_afaac2f3922f46f7286a2e650f791cec4_cgraph.png" border="0" usemap="#astructdesignlab_1_1_quaternion_afaac2f3922f46f7286a2e650f791cec4_cgraph" alt=""/></div>
+<map name="astructdesignlab_1_1_quaternion_afaac2f3922f46f7286a2e650f791cec4_cgraph" id="astructdesignlab_1_1_quaternion_afaac2f3922f46f7286a2e650f791cec4_cgraph">
+<area shape="rect" title="クォータニオンの内積を返す． クォータニオンを4次元のベクトルとみなし，ベクトルの内積を求める．" alt="" coords="5,5,181,32"/>
+<area shape="rect" href="structdesignlab_1_1_vector3.html#aa0a76dfe9dc375fd09561734cf782f63" title="自分・引数 の内積の結果を返す．" alt="" coords="229,5,386,32"/>
+<area shape="poly" title=" " alt="" coords="181,16,213,16,213,21,181,21"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdesignlab_1_1_quaternion_afaac2f3922f46f7286a2e650f791cec4_icgraph.png" border="0" usemap="#astructdesignlab_1_1_quaternion_afaac2f3922f46f7286a2e650f791cec4_icgraph" alt=""/></div>
+<map name="astructdesignlab_1_1_quaternion_afaac2f3922f46f7286a2e650f791cec4_icgraph" id="astructdesignlab_1_1_quaternion_afaac2f3922f46f7286a2e650f791cec4_icgraph">
+<area shape="rect" title="クォータニオンの内積を返す． クォータニオンを4次元のベクトルとみなし，ベクトルの内積を求める．" alt="" coords="437,13,612,40"/>
+<area shape="rect" href="namespacedesignlab.html#aa6386f09017c25f59fbdf0fa7088ec90" title="球面線形補間を行う．" alt="" coords="212,13,389,40"/>
+<area shape="poly" title=" " alt="" coords="421,29,389,29,389,24,421,24"/>
+<area shape="rect" href="classdesignlab_1_1_dxlib_camera.html#a849d4bd740e6cebcbe726c7a537d74be" title="カメラの位置などの更新を行う．毎フレーム実行すること．" alt="" coords="5,5,164,48"/>
+<area shape="poly" title=" " alt="" coords="196,29,164,29,164,24,196,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a893ee3dc143f059822f17ead2f716de1" name="a893ee3dc143f059822f17ead2f716de1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a893ee3dc143f059822f17ead2f716de1">&#9670;&#160;</a></span>GetConjugate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> designlab::Quaternion::GetConjugate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>クォータニオンの共役を返す． 共役なクォータニオンとは，ベクトル成分の符号を反転させたもの <br  />
+ q = w + xi + yj + zk とすると， qの共役は w - xi - yj - zk となる．回転は逆方向になる </p>
+<dl class="section return"><dt>戻り値</dt><dd>共役クォータニオン </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdesignlab_1_1_quaternion_a893ee3dc143f059822f17ead2f716de1_icgraph.png" border="0" usemap="#astructdesignlab_1_1_quaternion_a893ee3dc143f059822f17ead2f716de1_icgraph" alt=""/></div>
+<map name="astructdesignlab_1_1_quaternion_a893ee3dc143f059822f17ead2f716de1_icgraph" id="astructdesignlab_1_1_quaternion_a893ee3dc143f059822f17ead2f716de1_icgraph">
+<area shape="rect" title="クォータニオンの共役を返す． 共役なクォータニオンとは，ベクトル成分の符号を反転させたもの &#160;&#160;q = w + xi + yj + zk とすると， qの共役は w &#45; xi &#45; yj &#45; zk となる..." alt="" coords="494,288,641,331"/>
+<area shape="rect" href="structdesignlab_1_1_robot_state_node.html#a28bedf0298ebf8f315a21294dd111f45" title="重心位置を変更する関数．" alt="" coords="246,105,440,148"/>
+<area shape="poly" title=" " alt="" coords="540,277,498,227,444,178,398,151,401,146,448,174,502,224,544,274"/>
+<area shape="rect" href="structdesignlab_1_1_robot_state_node.html#a73efce324f3ffd5ead5fbc663acd96a2" title="クォータニオンを変更し，胴体を回転させる関数．" alt="" coords="253,188,433,231"/>
+<area shape="poly" title=" " alt="" coords="517,282,445,245,416,234,418,229,447,240,519,277"/>
+<area shape="rect" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a0630fa1d537f7e00aa422a83c98ebdda" title="グローバル座標系で表現されている座標を，脚座標系に変換する．" alt="" coords="240,255,446,297"/>
+<area shape="poly" title=" " alt="" coords="478,299,446,294,447,289,479,294"/>
+<area shape="rect" href="classdesignlab_1_1_com_selector.html#afe154bc35f0971d6c2c2a649299b23c3" title="重心を求める．" alt="" coords="263,321,423,364"/>
+<area shape="poly" title=" " alt="" coords="479,325,423,334,422,328,478,320"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#ad164e180a90ff6e7e1df3f5b57cb8b3b" title="クォータニオンの逆数を返す． &#160;&#160;クォータニオンqの逆数q^&#45;1は，qの共役をノルムで割ったもの． &#160;&#160;q^&#45;1 = q* / |q|^2" alt="" coords="269,388,417,431"/>
+<area shape="poly" title=" " alt="" coords="519,341,447,378,418,390,416,385,445,374,517,336"/>
+<area shape="rect" href="namespacedesignlab.html#a60f10cf89b782d822987acc6e655a2a7" title="3次元の位置ベクトルを回転させる．必ず正規化クォータニオンを用いること．" alt="" coords="259,455,427,481"/>
+<area shape="poly" title=" " alt="" coords="546,345,505,397,478,423,447,445,422,457,420,452,445,440,474,419,501,393,542,342"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_com_move.html#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する．" alt="" coords="7,5,190,48"/>
+<area shape="poly" title=" " alt="" coords="280,101,191,62,161,51,163,46,193,58,282,96"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_com_move_straight.html#a3e2fd67280dd581a695a09cea4f816a4" title="現在のノードから次のノード群を生成する．" alt="" coords="7,72,190,115"/>
+<area shape="poly" title=" " alt="" coords="230,114,190,108,191,103,231,109"/>
+<area shape="rect" href="classdesignlab_1_1_node_initializer.html#a717aea9fc00fcb51c5ba3518fac717fc" title="地形に適した初期姿勢を設定する．" alt="" coords="16,139,181,181"/>
+<area shape="poly" title=" " alt="" coords="231,145,182,151,181,146,230,139"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_body_rot.html#a162277203f0422a351c4d24e8167d43d" title="現在のノードから次のノード群を生成する．" alt="" coords="5,205,192,248"/>
+<area shape="poly" title=" " alt="" coords="238,219,192,223,192,217,237,214"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab34d9fa35a4954182603f9c706f525fe" name="ab34d9fa35a4954182603f9c706f525fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab34d9fa35a4954182603f9c706f525fe">&#9670;&#160;</a></span>GetDistanceSquared()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr float designlab::Quaternion::GetDistanceSquared </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;&#160;</td>
+          <td class="paramname"><em>q</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>他のクォータニオンとの距離の2乗を返す． クォータニオンを4次元ベクトルとみなし，ベクトルの距離の2乗を求める． </p>
+<dl class="section return"><dt>戻り値</dt><dd>距離の2乗． </dd></dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdesignlab_1_1_quaternion_ab34d9fa35a4954182603f9c706f525fe_cgraph.png" border="0" usemap="#astructdesignlab_1_1_quaternion_ab34d9fa35a4954182603f9c706f525fe_cgraph" alt=""/></div>
+<map name="astructdesignlab_1_1_quaternion_ab34d9fa35a4954182603f9c706f525fe_cgraph" id="astructdesignlab_1_1_quaternion_ab34d9fa35a4954182603f9c706f525fe_cgraph">
+<area shape="rect" title="他のクォータニオンとの距離の2乗を返す． クォータニオンを4次元ベクトルとみなし，ベクトルの距離の2乗を求める．" alt="" coords="5,5,155,48"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#a24ad10137dd081de9002ac270cdce9f9" title="クォータニオンの長さの2乗を返す(ノルムの2乗)． &#160;&#160;クォータニオンの長さの2乗は，w^2 + x^2 + y^2 + z^2 で求められる．" alt="" coords="203,5,350,48"/>
+<area shape="poly" title=" " alt="" coords="155,24,187,24,187,29,155,29"/>
+<area shape="rect" href="structdesignlab_1_1_vector3.html#aa0a76dfe9dc375fd09561734cf782f63" title="自分・引数 の内積の結果を返す．" alt="" coords="398,13,555,40"/>
+<area shape="poly" title=" " alt="" coords="350,24,382,24,382,29,350,29"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad164e180a90ff6e7e1df3f5b57cb8b3b" name="ad164e180a90ff6e7e1df3f5b57cb8b3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad164e180a90ff6e7e1df3f5b57cb8b3b">&#9670;&#160;</a></span>GetInverse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> designlab::Quaternion::GetInverse </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>クォータニオンの逆数を返す． <br  />
+ クォータニオンqの逆数q^-1は，qの共役をノルムで割ったもの． <br  />
+ q^-1 = q* / |q|^2 </p>
+<dl class="section return"><dt>戻り値</dt><dd>逆数． </dd></dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdesignlab_1_1_quaternion_ad164e180a90ff6e7e1df3f5b57cb8b3b_cgraph.png" border="0" usemap="#astructdesignlab_1_1_quaternion_ad164e180a90ff6e7e1df3f5b57cb8b3b_cgraph" alt=""/></div>
+<map name="astructdesignlab_1_1_quaternion_ad164e180a90ff6e7e1df3f5b57cb8b3b_cgraph" id="astructdesignlab_1_1_quaternion_ad164e180a90ff6e7e1df3f5b57cb8b3b_cgraph">
+<area shape="rect" title="クォータニオンの逆数を返す． &#160;&#160;クォータニオンqの逆数q^&#45;1は，qの共役をノルムで割ったもの． &#160;&#160;q^&#45;1 = q* / |q|^2" alt="" coords="5,39,153,81"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#a893ee3dc143f059822f17ead2f716de1" title="クォータニオンの共役を返す． 共役なクォータニオンとは，ベクトル成分の符号を反転させたもの &#160;&#160;q = w + xi + yj + zk とすると， qの共役は w &#45; xi &#45; yj &#45; zk となる..." alt="" coords="201,5,348,48"/>
+<area shape="poly" title=" " alt="" coords="153,45,185,39,186,45,154,50"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#a56bbbd522805450144f54aae7dbd117e" title="クォータニオンのノルムを返す． &#160;&#160;ノルムとは，ベクトルの大きさのこと． クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 の平方根で求められる．" alt="" coords="201,72,348,115"/>
+<area shape="poly" title=" " alt="" coords="154,70,186,75,185,81,153,75"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#a24ad10137dd081de9002ac270cdce9f9" title="クォータニオンの長さの2乗を返す(ノルムの2乗)． &#160;&#160;クォータニオンの長さの2乗は，w^2 + x^2 + y^2 + z^2 で求められる．" alt="" coords="396,72,543,115"/>
+<area shape="poly" title=" " alt="" coords="349,91,380,91,380,96,349,96"/>
+<area shape="rect" href="structdesignlab_1_1_vector3.html#aa0a76dfe9dc375fd09561734cf782f63" title="自分・引数 の内積の結果を返す．" alt="" coords="591,80,749,107"/>
+<area shape="poly" title=" " alt="" coords="543,91,576,91,576,96,543,96"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a24ad10137dd081de9002ac270cdce9f9" name="a24ad10137dd081de9002ac270cdce9f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24ad10137dd081de9002ac270cdce9f9">&#9670;&#160;</a></span>GetLengthSquared()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr float designlab::Quaternion::GetLengthSquared </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>クォータニオンの長さの2乗を返す(ノルムの2乗)． <br  />
+ クォータニオンの長さの2乗は，w^2 + x^2 + y^2 + z^2 で求められる． </p>
+<dl class="section return"><dt>戻り値</dt><dd>長さの2乗． </dd></dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdesignlab_1_1_quaternion_a24ad10137dd081de9002ac270cdce9f9_cgraph.png" border="0" usemap="#astructdesignlab_1_1_quaternion_a24ad10137dd081de9002ac270cdce9f9_cgraph" alt=""/></div>
+<map name="astructdesignlab_1_1_quaternion_a24ad10137dd081de9002ac270cdce9f9_cgraph" id="astructdesignlab_1_1_quaternion_a24ad10137dd081de9002ac270cdce9f9_cgraph">
+<area shape="rect" title="クォータニオンの長さの2乗を返す(ノルムの2乗)． &#160;&#160;クォータニオンの長さの2乗は，w^2 + x^2 + y^2 + z^2 で求められる．" alt="" coords="5,5,153,48"/>
+<area shape="rect" href="structdesignlab_1_1_vector3.html#aa0a76dfe9dc375fd09561734cf782f63" title="自分・引数 の内積の結果を返す．" alt="" coords="201,13,358,40"/>
+<area shape="poly" title=" " alt="" coords="153,24,185,24,185,29,153,29"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdesignlab_1_1_quaternion_a24ad10137dd081de9002ac270cdce9f9_icgraph.png" border="0" usemap="#astructdesignlab_1_1_quaternion_a24ad10137dd081de9002ac270cdce9f9_icgraph" alt=""/></div>
+<map name="astructdesignlab_1_1_quaternion_a24ad10137dd081de9002ac270cdce9f9_icgraph" id="astructdesignlab_1_1_quaternion_a24ad10137dd081de9002ac270cdce9f9_icgraph">
+<area shape="rect" title="クォータニオンの長さの2乗を返す(ノルムの2乗)． &#160;&#160;クォータニオンの長さの2乗は，w^2 + x^2 + y^2 + z^2 で求められる．" alt="" coords="648,101,796,144"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#ab34d9fa35a4954182603f9c706f525fe" title="他のクォータニオンとの距離の2乗を返す． クォータニオンを4次元ベクトルとみなし，ベクトルの距離の2乗を求める．" alt="" coords="451,68,600,111"/>
+<area shape="poly" title=" " alt="" coords="632,110,600,105,601,99,633,105"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#a56bbbd522805450144f54aae7dbd117e" title="クォータニオンのノルムを返す． &#160;&#160;ノルムとは，ベクトルの大きさのこと． クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 の平方根で求められる．" alt="" coords="452,135,599,177"/>
+<area shape="poly" title=" " alt="" coords="633,140,600,146,599,141,632,135"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#ad164e180a90ff6e7e1df3f5b57cb8b3b" title="クォータニオンの逆数を返す． &#160;&#160;クォータニオンqの逆数q^&#45;1は，qの共役をノルムで割ったもの． &#160;&#160;q^&#45;1 = q* / |q|^2" alt="" coords="246,39,393,81"/>
+<area shape="poly" title=" " alt="" coords="459,130,450,125,402,96,377,84,379,80,404,91,452,120,461,125"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="246,105,393,148"/>
+<area shape="poly" title=" " alt="" coords="436,146,393,140,394,135,437,141"/>
+<area shape="rect" href="namespacedesignlab.html#a60f10cf89b782d822987acc6e655a2a7" title="3次元の位置ベクトルを回転させる．必ず正規化クォータニオンを用いること．" alt="" coords="236,172,403,199"/>
+<area shape="poly" title=" " alt="" coords="437,171,404,176,403,171,436,166"/>
+<area shape="rect" href="namespacedesignlab.html#a54d940e1e1adcbeeec8594a7f542fdef" title="オイラー角からクォータニオンへの変換．" alt="" coords="239,223,400,249"/>
+<area shape="poly" title=" " alt="" coords="467,187,404,213,370,225,368,220,402,208,465,182"/>
+<area shape="rect" href="classdesignlab_1_1_camera_dragger.html#ad9f9da3070ea76a8ae205590e5599d10" title="ドラッグ中の処理を行う． &#160;&#160;カーソルは上にあるけど，ドラッグ中ではない場合でも呼び出される．" alt="" coords="9,5,184,48"/>
+<area shape="poly" title=" " alt="" coords="244,101,234,96,210,79,186,62,162,51,164,46,189,58,213,74,237,91,247,96"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#a45dfcf48edea7b439e7d189d0d105bfa" title="自身を正規化する．ノルムが１になる．" alt="" coords="23,72,170,115"/>
+<area shape="poly" title=" " alt="" coords="230,116,170,107,171,102,231,111"/>
+<area shape="rect" href="classdesignlab_1_1_dxlib_camera.html#af574fd9e57c002865025f41d05491b85" title="カメラのクォータニオンをセットする．" alt="" coords="17,139,176,181"/>
+<area shape="poly" title=" " alt="" coords="231,143,177,151,176,146,230,137"/>
+<area shape="rect" href="namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換．" alt="" coords="5,205,188,232"/>
+<area shape="poly" title=" " alt="" coords="247,157,237,162,213,179,189,196,159,207,157,202,186,191,210,175,234,158,244,153"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a56bbbd522805450144f54aae7dbd117e" name="a56bbbd522805450144f54aae7dbd117e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56bbbd522805450144f54aae7dbd117e">&#9670;&#160;</a></span>GetNorm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float designlab::Quaternion::GetNorm </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>クォータニオンのノルムを返す． <br  />
+ ノルムとは，ベクトルの大きさのこと． クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 の平方根で求められる． </p>
+<dl class="section return"><dt>戻り値</dt><dd>ノルム． </dd></dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdesignlab_1_1_quaternion_a56bbbd522805450144f54aae7dbd117e_cgraph.png" border="0" usemap="#astructdesignlab_1_1_quaternion_a56bbbd522805450144f54aae7dbd117e_cgraph" alt=""/></div>
+<map name="astructdesignlab_1_1_quaternion_a56bbbd522805450144f54aae7dbd117e_cgraph" id="astructdesignlab_1_1_quaternion_a56bbbd522805450144f54aae7dbd117e_cgraph">
+<area shape="rect" title="クォータニオンのノルムを返す． &#160;&#160;ノルムとは，ベクトルの大きさのこと． クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 の平方根で求められる．" alt="" coords="5,5,153,48"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#a24ad10137dd081de9002ac270cdce9f9" title="クォータニオンの長さの2乗を返す(ノルムの2乗)． &#160;&#160;クォータニオンの長さの2乗は，w^2 + x^2 + y^2 + z^2 で求められる．" alt="" coords="201,5,348,48"/>
+<area shape="poly" title=" " alt="" coords="153,24,185,24,185,29,153,29"/>
+<area shape="rect" href="structdesignlab_1_1_vector3.html#aa0a76dfe9dc375fd09561734cf782f63" title="自分・引数 の内積の結果を返す．" alt="" coords="396,13,553,40"/>
+<area shape="poly" title=" " alt="" coords="348,24,380,24,380,29,348,29"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdesignlab_1_1_quaternion_a56bbbd522805450144f54aae7dbd117e_icgraph.png" border="0" usemap="#astructdesignlab_1_1_quaternion_a56bbbd522805450144f54aae7dbd117e_icgraph" alt=""/></div>
+<map name="astructdesignlab_1_1_quaternion_a56bbbd522805450144f54aae7dbd117e_icgraph" id="astructdesignlab_1_1_quaternion_a56bbbd522805450144f54aae7dbd117e_icgraph">
+<area shape="rect" title="クォータニオンのノルムを返す． &#160;&#160;ノルムとは，ベクトルの大きさのこと． クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 の平方根で求められる．" alt="" coords="901,120,1048,162"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#ad164e180a90ff6e7e1df3f5b57cb8b3b" title="クォータニオンの逆数を返す． &#160;&#160;クォータニオンqの逆数q^&#45;1は，qの共役をノルムで割ったもの． &#160;&#160;q^&#45;1 = q* / |q|^2" alt="" coords="695,24,843,66"/>
+<area shape="poly" title=" " alt="" coords="919,114,852,81,825,69,828,64,854,76,921,110"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="695,90,843,133"/>
+<area shape="poly" title=" " alt="" coords="885,131,843,125,843,119,886,126"/>
+<area shape="rect" href="namespacedesignlab.html#a60f10cf89b782d822987acc6e655a2a7" title="3次元の位置ベクトルを回転させる．必ず正規化クォータニオンを用いること．" alt="" coords="685,157,853,184"/>
+<area shape="poly" title=" " alt="" coords="886,156,853,161,853,156,885,151"/>
+<area shape="rect" href="namespacedesignlab.html#a54d940e1e1adcbeeec8594a7f542fdef" title="オイラー角からクォータニオンへの変換．" alt="" coords="688,208,850,234"/>
+<area shape="poly" title=" " alt="" coords="916,172,854,198,820,209,819,204,852,193,914,167"/>
+<area shape="rect" href="classdesignlab_1_1_camera_dragger.html#ad9f9da3070ea76a8ae205590e5599d10" title="ドラッグ中の処理を行う． &#160;&#160;カーソルは上にあるけど，ドラッグ中ではない場合でも呼び出される．" alt="" coords="5,90,180,133"/>
+<area shape="poly" title=" " alt="" coords="694,86,684,80,660,62,651,54,636,47,525,17,478,10,434,8,390,11,342,18,228,43,173,65,126,92,123,87,170,60,227,38,341,13,389,5,434,3,478,5,526,12,638,42,653,49,664,58,687,76,696,81"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#a45dfcf48edea7b439e7d189d0d105bfa" title="自身を正規化する．ノルムが１になる．" alt="" coords="473,57,620,100"/>
+<area shape="poly" title=" " alt="" coords="680,101,620,92,621,87,680,96"/>
+<area shape="rect" href="classdesignlab_1_1_dxlib_camera.html#af574fd9e57c002865025f41d05491b85" title="カメラのクォータニオンをセットする．" alt="" coords="467,124,625,166"/>
+<area shape="poly" title=" " alt="" coords="681,127,626,136,625,130,680,122"/>
+<area shape="rect" href="namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換．" alt="" coords="455,194,637,221"/>
+<area shape="poly" title=" " alt="" coords="696,142,687,147,663,164,639,181,600,196,598,191,636,176,660,160,684,143,694,137"/>
+<area shape="rect" href="structdesignlab_1_1_robot_state_node.html#a58600c23d1383094c7f880a487ab61fb" title="自身を根ノードに変更する関数． &#160;&#160;depthを0に，parent_numを&#45;1に初期化する．" alt="" coords="228,53,407,96"/>
+<area shape="poly" title=" " alt="" coords="457,79,408,78,408,73,457,74"/>
+<area shape="rect" href="namespacedesignlab.html#aa1c6fabbe9cbddd910f4578751c0ec86" title="回転角行列からクォータニオンへの変換．" alt="" coords="237,120,398,146"/>
+<area shape="poly" title=" " alt="" coords="458,102,377,122,376,116,457,97"/>
+<area shape="rect" href="namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="234,194,401,221"/>
+<area shape="poly" title=" " alt="" coords="440,210,401,210,401,205,440,205"/>
+<area shape="rect" href="namespacedesignlab.html#a6078399857761c9309ce7d7fcdf3a90b" title="クォータニオンからXYZオイラー角への変換．" alt="" coords="242,245,393,272"/>
+<area shape="poly" title=" " alt="" coords="468,227,381,247,380,242,467,222"/>
+<area shape="poly" title=" " alt="" coords="269,190,144,136,146,131,271,185"/>
+<area shape="poly" title=" " alt="" coords="356,181,343,175,317,173,294,175,281,180,278,185,284,192,279,195,273,185,277,176,293,170,317,168,344,170,358,177"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a2c504d31353e189b1fa7a83cfd60deba" name="a2c504d31353e189b1fa7a83cfd60deba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c504d31353e189b1fa7a83cfd60deba">&#9670;&#160;</a></span>GetNormalized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> designlab::Quaternion::GetNormalized </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>正規化したクォータニオンを返す． <br  />
+ クォータニオンの正規化とは，ノルムを1にすることを表す． <br  />
+ クォータニオンqの正規化は，q / |q| で求められる． </p>
+<dl class="section return"><dt>戻り値</dt><dd>正規化されたクォータニオン． </dd></dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdesignlab_1_1_quaternion_a2c504d31353e189b1fa7a83cfd60deba_cgraph.png" border="0" usemap="#astructdesignlab_1_1_quaternion_a2c504d31353e189b1fa7a83cfd60deba_cgraph" alt=""/></div>
+<map name="astructdesignlab_1_1_quaternion_a2c504d31353e189b1fa7a83cfd60deba_cgraph" id="astructdesignlab_1_1_quaternion_a2c504d31353e189b1fa7a83cfd60deba_cgraph">
+<area shape="rect" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="5,5,153,48"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#a56bbbd522805450144f54aae7dbd117e" title="クォータニオンのノルムを返す． &#160;&#160;ノルムとは，ベクトルの大きさのこと． クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 の平方根で求められる．" alt="" coords="201,5,348,48"/>
+<area shape="poly" title=" " alt="" coords="153,24,185,24,185,29,153,29"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#a24ad10137dd081de9002ac270cdce9f9" title="クォータニオンの長さの2乗を返す(ノルムの2乗)． &#160;&#160;クォータニオンの長さの2乗は，w^2 + x^2 + y^2 + z^2 で求められる．" alt="" coords="396,5,543,48"/>
+<area shape="poly" title=" " alt="" coords="349,24,380,24,380,29,349,29"/>
+<area shape="rect" href="structdesignlab_1_1_vector3.html#aa0a76dfe9dc375fd09561734cf782f63" title="自分・引数 の内積の結果を返す．" alt="" coords="591,13,749,40"/>
+<area shape="poly" title=" " alt="" coords="543,24,576,24,576,29,543,29"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdesignlab_1_1_quaternion_a2c504d31353e189b1fa7a83cfd60deba_icgraph.png" border="0" usemap="#astructdesignlab_1_1_quaternion_a2c504d31353e189b1fa7a83cfd60deba_icgraph" alt=""/></div>
+<map name="astructdesignlab_1_1_quaternion_a2c504d31353e189b1fa7a83cfd60deba_icgraph" id="astructdesignlab_1_1_quaternion_a2c504d31353e189b1fa7a83cfd60deba_icgraph">
+<area shape="rect" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="962,235,1109,277"/>
+<area shape="rect" href="classdesignlab_1_1_camera_dragger.html#ad9f9da3070ea76a8ae205590e5599d10" title="ドラッグ中の処理を行う． &#160;&#160;カーソルは上にあるけど，ドラッグ中ではない場合でも呼び出される．" alt="" coords="259,205,434,248"/>
+<area shape="poly" title=" " alt="" coords="946,255,434,233,434,228,946,250"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#a45dfcf48edea7b439e7d189d0d105bfa" title="自身を正規化する．ノルムが１になる．" alt="" coords="749,139,896,181"/>
+<area shape="poly" title=" " alt="" coords="971,230,871,184,873,179,974,225"/>
+<area shape="rect" href="classdesignlab_1_1_dxlib_camera.html#af574fd9e57c002865025f41d05491b85" title="カメラのクォータニオンをセットする．" alt="" coords="743,264,902,307"/>
+<area shape="poly" title=" " alt="" coords="946,271,902,277,902,272,946,266"/>
+<area shape="rect" href="namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換．" alt="" coords="731,335,914,361"/>
+<area shape="poly" title=" " alt="" coords="984,288,915,321,872,337,871,332,913,316,981,283"/>
+<area shape="rect" href="structdesignlab_1_1_robot_state_node.html#a58600c23d1383094c7f880a487ab61fb" title="自身を根ノードに変更する関数． &#160;&#160;depthを0に，parent_numを&#45;1に初期化する．" alt="" coords="504,139,683,181"/>
+<area shape="poly" title=" " alt="" coords="733,163,684,163,684,157,733,157"/>
+<area shape="rect" href="namespacedesignlab.html#aa1c6fabbe9cbddd910f4578751c0ec86" title="回転角行列からクォータニオンへの変換．" alt="" coords="513,80,674,107"/>
+<area shape="poly" title=" " alt="" coords="733,137,642,110,643,105,735,132"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="237,139,456,181"/>
+<area shape="poly" title=" " alt="" coords="489,163,456,163,456,157,489,157"/>
+<area shape="rect" href="classdesignlab_1_1_simulation_end_checker_factory.html#a5efe7f1b9b7701783fa8245758d57daa" title="シミュレーションの終了を判定するクラスを生成する．" alt="" coords="262,72,431,115"/>
+<area shape="poly" title=" " alt="" coords="498,96,431,96,431,91,498,91"/>
+<area shape="rect" href="classdesignlab_1_1_node_initializer.html#a2a8cf59dc1fd538a6c8f25a473fc3b14" title="ノードの初期化を行う．" alt="" coords="264,5,429,48"/>
+<area shape="poly" title=" " alt="" coords="526,78,428,51,429,46,527,73"/>
+<area shape="rect" href="namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="510,413,677,440"/>
+<area shape="poly" title=" " alt="" coords="768,369,636,415,634,410,766,364"/>
+<area shape="rect" href="namespacedesignlab.html#a6078399857761c9309ce7d7fcdf3a90b" title="クォータニオンからXYZオイラー角への変換．" alt="" coords="518,335,669,361"/>
+<area shape="poly" title=" " alt="" coords="716,351,670,351,670,345,716,345"/>
+<area shape="poly" title=" " alt="" coords="544,408,522,393,502,375,491,359,485,344,479,315,473,288,466,275,454,262,432,247,435,243,458,258,470,272,478,286,484,314,490,343,496,357,506,372,525,389,547,404"/>
+<area shape="poly" title=" " alt="" coords="633,401,620,394,594,392,570,394,557,399,553,404,559,411,555,414,548,405,553,395,568,389,594,387,621,389,636,396"/>
+<area shape="rect" href="structdesignlab_1_1_robot_state_node.html#a28bedf0298ebf8f315a21294dd111f45" title="重心位置を変更する関数．" alt="" coords="250,589,443,632"/>
+<area shape="poly" title=" " alt="" coords="576,454,526,513,494,545,457,573,422,591,420,586,455,568,490,541,522,510,572,451"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_com_move_straight.html#a3e2fd67280dd581a695a09cea4f816a4" title="現在のノードから次のノード群を生成する．" alt="" coords="5,560,189,603"/>
+<area shape="poly" title=" " alt="" coords="569,453,520,493,489,513,457,529,389,552,318,567,250,577,189,582,189,577,250,572,318,562,388,547,455,524,487,508,517,489,566,449"/>
+<area shape="rect" href="structdesignlab_1_1_robot_state_node.html#a73efce324f3ffd5ead5fbc663acd96a2" title="クォータニオンを変更し，胴体を回転させる関数．" alt="" coords="257,656,436,699"/>
+<area shape="poly" title=" " alt="" coords="585,456,567,498,539,549,503,601,458,646,438,658,435,654,454,642,499,598,535,546,562,495,580,453"/>
+<area shape="rect" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a0630fa1d537f7e00aa422a83c98ebdda" title="グローバル座標系で表現されている座標を，脚座標系に変換する．" alt="" coords="243,272,450,315"/>
+<area shape="poly" title=" " alt="" coords="551,408,502,375,479,351,469,340,455,329,432,318,434,313,457,324,473,336,483,347,506,371,554,403"/>
+<area shape="rect" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a028f4e024ebebca50325beef3444bfc5" title="脚座標系で表現されている座標を，グローバル座標系に変換する．" alt="" coords="243,339,450,381"/>
+<area shape="poly" title=" " alt="" coords="526,411,428,385,429,379,527,406"/>
+<area shape="rect" href="classdesignlab_1_1_phantom_x_mk_i_i.html#ae4b923566d06eef5f765b1e7afdd57ae" title="ロボット座標系で表現されている座標を，グローバル座標系に変換する．" alt="" coords="237,405,456,448"/>
+<area shape="poly" title=" " alt="" coords="494,429,456,429,456,424,494,424"/>
+<area shape="rect" href="classdesignlab_1_1_com_selector.html#afe154bc35f0971d6c2c2a649299b23c3" title="重心を求める．" alt="" coords="267,472,426,515"/>
+<area shape="poly" title=" " alt="" coords="527,447,427,474,426,469,526,442"/>
+<area shape="poly" title=" " alt="" coords="234,600,189,595,189,589,235,595"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a557aa980908890a7c7e5b6e2caab9301" name="a557aa980908890a7c7e5b6e2caab9301"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a557aa980908890a7c7e5b6e2caab9301">&#9670;&#160;</a></span>MakeByAngleAxis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> designlab::Quaternion::MakeByAngleAxis </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rad_angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>axis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>回転軸と回転角からクォータニオンを作成する． <br  />
+ q = cos(θ/2) * w + sin(θ/2) * { v.x + v.y + v.z } となる． ノルムは必ず1になる． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">rad_angle</td><td>回転角θ [rad] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">axis</td><td>回転軸． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>指定された回転軸周りに回転したクォータニオン． </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdesignlab_1_1_quaternion_a557aa980908890a7c7e5b6e2caab9301_icgraph.png" border="0" usemap="#astructdesignlab_1_1_quaternion_a557aa980908890a7c7e5b6e2caab9301_icgraph" alt=""/></div>
+<map name="astructdesignlab_1_1_quaternion_a557aa980908890a7c7e5b6e2caab9301_icgraph" id="astructdesignlab_1_1_quaternion_a557aa980908890a7c7e5b6e2caab9301_icgraph">
+<area shape="rect" title="回転軸と回転角からクォータニオンを作成する． &#160;&#160;q = cos(θ/2) * w + sin(θ/2) * { v.x + v.y + v.z } となる． ノルムは必ず1になる．" alt="" coords="228,5,375,48"/>
+<area shape="rect" href="classdesignlab_1_1_camera_dragger.html#ad9f9da3070ea76a8ae205590e5599d10" title="ドラッグ中の処理を行う． &#160;&#160;カーソルは上にあるけど，ドラッグ中ではない場合でも呼び出される．" alt="" coords="5,5,180,48"/>
+<area shape="poly" title=" " alt="" coords="212,29,180,29,180,24,212,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad46b2f2a6e3c2f6e69a5daa3bbd8ada6" name="ad46b2f2a6e3c2f6e69a5daa3bbd8ada6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad46b2f2a6e3c2f6e69a5daa3bbd8ada6">&#9670;&#160;</a></span>ToCsvString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string designlab::Quaternion::ToCsvString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>クォータニオンをCsv形式の文字列に変換する．カンマ区切り． <br  />
+ w, x, y, z の順にカンマ区切りで出力する． </p>
+<dl class="section return"><dt>戻り値</dt><dd>クォータニオンを表す文字列． </dd></dl>
+
+</div>
+</div>
+<a id="a7ab059ba534429c41818b66bed33e7a2" name="a7ab059ba534429c41818b66bed33e7a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ab059ba534429c41818b66bed33e7a2">&#9670;&#160;</a></span>ToLeftHandCoordinate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> designlab::Quaternion::ToLeftHandCoordinate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>左手座標系への変換を行う． <br  />
+ 言うまでもないが，機械工学では通例右手座標系を使う． しかし，dxlib は左手座標系なので，dxlib で描画するときは， この関数を使って左手座標系に変換する必要がある． </p>
+<dl class="section return"><dt>戻り値</dt><dd>左手座標系に変換されたクォータニオン． </dd></dl>
+
+</div>
+</div>
+<a id="a37c43da43484613d050d79393feaecec" name="a37c43da43484613d050d79393feaecec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37c43da43484613d050d79393feaecec">&#9670;&#160;</a></span>ToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string designlab::Quaternion::ToString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>クォータニオンを文字列に変換する． <br  />
+ w, x, y, z の順で出力する． </p>
+<dl class="section return"><dt>戻り値</dt><dd>クォータニオンを表す文字列． </dd></dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdesignlab_1_1_quaternion_a37c43da43484613d050d79393feaecec_cgraph.png" border="0" usemap="#astructdesignlab_1_1_quaternion_a37c43da43484613d050d79393feaecec_cgraph" alt=""/></div>
+<map name="astructdesignlab_1_1_quaternion_a37c43da43484613d050d79393feaecec_cgraph" id="astructdesignlab_1_1_quaternion_a37c43da43484613d050d79393feaecec_cgraph">
+<area shape="rect" title="クォータニオンを文字列に変換する． &#160;&#160;w, x, y, z の順で出力する．" alt="" coords="5,5,153,48"/>
+<area shape="rect" href="namespacedesignlab_1_1math__util.html#a45276ca396d3aa1331b5bb5a4c849bbe" title="小数を文字列に変換する関数． &#160;&#160;C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する．" alt="" coords="201,5,381,48"/>
+<area shape="poly" title=" " alt="" coords="153,24,185,24,185,29,153,29"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdesignlab_1_1_quaternion_a37c43da43484613d050d79393feaecec_icgraph.png" border="0" usemap="#astructdesignlab_1_1_quaternion_a37c43da43484613d050d79393feaecec_icgraph" alt=""/></div>
+<map name="astructdesignlab_1_1_quaternion_a37c43da43484613d050d79393feaecec_icgraph" id="astructdesignlab_1_1_quaternion_a37c43da43484613d050d79393feaecec_icgraph">
+<area shape="rect" title="クォータニオンを文字列に変換する． &#160;&#160;w, x, y, z の順で出力する．" alt="" coords="499,39,646,81"/>
+<area shape="rect" href="structdesignlab_1_1_robot_state_node.html#a7fa3f31f167ac1cf468d81509f55c407" title="ノードの情報を文字列に変換する関数． &#160;&#160;デバッグ用に詳細な情報を出力する．" alt="" coords="272,39,451,81"/>
+<area shape="poly" title=" " alt="" coords="483,63,451,63,451,57,483,57"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_graph_viewer.html#a19d272521cd15d5e493e24ef5834c218" title="主要な処理を行う関数．" alt="" coords="18,5,211,48"/>
+<area shape="poly" title=" " alt="" coords="256,48,211,42,212,37,257,43"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="5,72,224,115"/>
+<area shape="poly" title=" " alt="" coords="257,77,225,81,224,76,256,72"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>この構造体詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/hasegawa/Desktop/main/program/DesignLab/DesignLab/<a class="el" href="math__quaternion_8h_source.html">math_quaternion.h</a></li>
+<li>C:/Users/hasegawa/Desktop/main/program/DesignLab/DesignLab/<b>math_quaternion.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacedesignlab.html">designlab</a></li><li class="navelem"><a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

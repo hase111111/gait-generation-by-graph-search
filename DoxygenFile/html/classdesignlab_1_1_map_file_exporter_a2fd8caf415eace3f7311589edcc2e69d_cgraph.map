@@ -1,0 +1,5 @@
+<map id="designlab::MapFileExporter::ExportMap" name="designlab::MapFileExporter::ExportMap">
+<area shape="rect" id="Node000001" title="マップを csv に出力する．" alt="" coords="5,5,185,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="233,5,376,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,24,217,24,217,29,185,29"/>
+</map>

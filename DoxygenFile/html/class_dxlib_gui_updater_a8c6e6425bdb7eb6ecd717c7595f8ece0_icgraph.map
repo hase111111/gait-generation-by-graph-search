@@ -1,0 +1,9 @@
+<map id="DxlibGuiUpdater::Activate" name="DxlibGuiUpdater::Activate">
+<area shape="rect" id="Node000001" title="GUIのUpdate関数を実行し，クリック，ドラッグなどの判定を行う． &#160;&#160;優先度の高いものから順に各種判定を行う．" alt="" coords="230,64,399,91"/>
+<area shape="rect" id="Node000002" href="$class_graphic_main_basic.html#a281c12f1a5df1d5dfce7aefad5057985" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,5,182,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="246,62,146,35,147,30,247,57"/>
+<area shape="rect" id="Node000003" href="$class_graphic_main_graph_viewer.html#ac77d5fa3c4596eda65ae4bb4884134b0" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,56,178,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,80,178,80,178,75,214,75"/>
+<area shape="rect" id="Node000004" href="$class_graphic_main_test.html#a4f7ad32f20357a7eb5ab1a7b1271a916" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,123,178,149"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="247,98,147,125,146,120,246,93"/>
+</map>

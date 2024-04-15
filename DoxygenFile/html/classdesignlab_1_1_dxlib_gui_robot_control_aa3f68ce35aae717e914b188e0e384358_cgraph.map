@@ -1,0 +1,7 @@
+<map id="designlab::DxlibGuiRobotControl::IsDraggable" name="designlab::DxlibGuiRobotControl::IsDraggable">
+<area shape="rect" id="Node000001" title="ドラッグ可能な位置にあるかを判定する．" alt="" coords="5,39,173,81"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib_gui_robot_control.html#a3590767e69f30a3e27676492f8bdead8" title="GUIの上にカーソルがあるかどうかを返す．" alt="" coords="221,5,388,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,44,205,39,205,45,174,50"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_dxlib_gui_robot_control.html#a5300fd6424eaf32981caeabdebd224ff" title="GUIの表示を行うかどうかを返す．" alt="" coords="221,72,388,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="174,70,205,75,205,81,173,76"/>
+</map>

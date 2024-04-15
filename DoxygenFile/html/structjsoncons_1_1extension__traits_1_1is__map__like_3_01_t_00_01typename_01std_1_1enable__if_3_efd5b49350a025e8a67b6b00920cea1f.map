@@ -1,0 +1,5 @@
+<map id="jsoncons::extension_traits::is_map_like&lt; T, typename std::enable_if&lt; is_detected&lt; container_mapped_type_t, T &gt;::value &amp;&amp;is_detected&lt; container_allocator_type_t, T &gt;::value &amp;&amp;is_detected&lt; container_key_type_t, T &gt;::value &amp;&amp;is_detected&lt; container_value_type_t, T &gt;::value &gt;::type &gt;" name="jsoncons::extension_traits::is_map_like&lt; T, typename std::enable_if&lt; is_detected&lt; container_mapped_type_t, T &gt;::value &amp;&amp;is_detected&lt; container_allocator_type_t, T &gt;::value &amp;&amp;is_detected&lt; container_key_type_t, T &gt;::value &amp;&amp;is_detected&lt; container_value_type_t, T &gt;::value &gt;::type &gt;">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,249,251"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="76,5,178,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,48,130,80,124,80,124,48"/>
+</map>

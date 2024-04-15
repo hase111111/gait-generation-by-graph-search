@@ -1,0 +1,5 @@
+<map id="IHexapodJointCalculator" name="IHexapodJointCalculator">
+<area shape="rect" id="Node000001" title="間接角度や角速度を計算する処理のインターフェース．" alt="" coords="5,5,166,32"/>
+<area shape="rect" id="Node000002" href="$class_phantom_x_mk_i_i.html" title="PhantomX mk&#45;2 の状態を計算するクラス．" alt="" coords="33,80,138,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="88,48,88,80,83,80,83,48"/>
+</map>

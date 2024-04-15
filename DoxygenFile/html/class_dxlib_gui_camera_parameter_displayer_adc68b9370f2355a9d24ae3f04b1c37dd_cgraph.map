@@ -1,0 +1,5 @@
+<map id="DxlibGuiCameraParameterDisplayer::IsDraggable" name="DxlibGuiCameraParameterDisplayer::IsDraggable">
+<area shape="rect" id="Node000001" title="ドラッグ可能な位置にあるかを判定する．" alt="" coords="5,5,235,48"/>
+<area shape="rect" id="Node000002" href="$class_dxlib_gui_camera_parameter_displayer.html#a6a0e7c59d898736a3049ca2281287768" title="GUIの表示を行うかどうかを返す．" alt="" coords="283,5,512,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="235,24,267,24,267,29,235,29"/>
+</map>

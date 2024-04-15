@@ -1,0 +1,5 @@
+<map id="jsoncons::extension_traits::is_string&lt; T, typename std::enable_if&lt; is_string_or_string_view&lt; T &gt;::value &amp;&amp;has_allocator_type&lt; T &gt;::value &gt;::type &gt;" name="jsoncons::extension_traits::is_string&lt; T, typename std::enable_if&lt; is_string_or_string_view&lt; T &gt;::value &amp;&amp;has_allocator_type&lt; T &gt;::value &gt;::type &gt;">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,225,187"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="64,5,166,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,48,118,79,112,79,112,48"/>
+</map>

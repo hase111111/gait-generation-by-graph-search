@@ -1,0 +1,7 @@
+<map id="designlab::Vector2::GetLength" name="designlab::Vector2::GetLength">
+<area shape="rect" id="Node000001" title="このベクトルの長さを返す．" alt="" coords="5,5,135,48"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector2.html#a80b722825f1793105702da0677867a08" title="このベクトルの長さの2乗を返す．" alt="" coords="183,5,320,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,24,167,24,167,29,135,29"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector2.html#a4ff63a4ad67617a23ed4206d994ecc84" title="自分・引数 の内積の結果を返す．" alt="" coords="368,13,525,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="321,24,352,24,352,29,321,29"/>
+</map>

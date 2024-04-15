@@ -1,0 +1,10 @@
+<map id="GraphSearchResultRecoder" name="GraphSearchResultRecoder">
+<area shape="rect" id="Node000001" title="グラフ探索の結果を格納する構造体．変数をごちゃごちゃさせたくないので作成した．" alt="" coords="5,277,188,304"/>
+<area shape="rect" id="Node000002" href="$struct_robot_state_node.html" title="ノードの構造体を定義する．" alt="" coords="38,187,155,213"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,229,99,277,94,277,94,229"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector3.html" title="3次元の位置ベクトルを表す構造体" alt="" coords="32,5,161,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,48,91,84,90,123,97,186,92,187,85,123,85,83,89,47"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaternion.html" title="クォータニオンを表す構造体" alt="" coords="236,96,384,123"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="142,36,280,93,278,98,140,41"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="267,131,128,189,126,184,264,126"/>
+</map>

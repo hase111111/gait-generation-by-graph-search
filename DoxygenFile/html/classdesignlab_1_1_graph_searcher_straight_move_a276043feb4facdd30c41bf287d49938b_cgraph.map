@@ -1,0 +1,21 @@
+<map id="designlab::GraphSearcherStraightMove::SearchGraphTree" name="designlab::GraphSearcherStraightMove::SearchGraphTree">
+<area shape="rect" id="Node000001" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="5,172,211,215"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#af2594414411d9eb5e9103d30dffe9714" title="グラフのノードの総数を返す．" alt="" coords="259,5,444,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,170,182,115,218,84,257,58,266,53,269,57,260,62,222,89,186,119,130,174"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#ac9d24a79c7d5e3db0eb943cd9ecd446d" title="グラフのノードの参照を返す．" alt="" coords="259,72,444,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="155,169,258,124,273,118,275,123,260,129,157,174"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector3.html#a685643adba69e22d8f449434f1fce78b" title="単位ベクトルを返す．normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す． &#160;&#160;絶対値が0のベクトルの場合，そのまま0ベクトルを返す．" alt="" coords="287,139,416,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="211,177,271,168,272,174,211,182"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#a69eaf1ffd9772f8ea1063c36ee7bbcaa" title="指定したノードの親ノードの参照を返す．depthは親ノードの深さを指定する．" alt="" coords="259,205,444,248"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="211,205,244,209,243,215,211,210"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#a58dc796c0ec1334efff0cbcaee77eb6e" title="グラフの根ノードの参照を返す．" alt="" coords="259,272,444,315"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="157,213,260,258,275,264,273,269,258,262,155,218"/>
+<area shape="rect" id="Node000010" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#adfa3cd34663f368fe3e9e76962b38898" title="グラフが根ノードを持つかどうかを返す． &#160;&#160;根ノードとは，親を持たないノードのこと． &#160;&#160;一番最初に追加するノードは必ず親になるため，親を持つかどうかはノードの総数が0でないかどうかで判定できる．" alt="" coords="259,339,444,381"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="130,213,186,268,222,298,260,324,269,329,266,334,257,329,218,302,182,272,127,217"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_vector3.html#aa36dbc9d5ec20bf4e1161e0f2593776c" title="ベクトルの長さを返す．sqrt(ルートの計算)が重いので，GetSquaredLength でいいならそちらを使うべき．" alt="" coords="496,105,625,148"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="416,147,480,137,481,142,417,152"/>
+<area shape="rect" id="Node000007" href="$namespacedesignlab_1_1math__util.html#a12bdd69889d7939a25c5f873fad76978" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="492,172,629,215"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="417,168,477,177,476,183,416,173"/>
+<area shape="rect" id="Node000006" href="$structdesignlab_1_1_vector3.html#a3b3da21ea415ea86d6d409f2ad053897" title="ベクトルの長さの2乗を返す．sqrt(ルートの計算)が重いのでこちらを使えるなら使うべき．" alt="" coords="677,105,815,148"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="626,124,662,124,662,129,626,129"/>
+</map>

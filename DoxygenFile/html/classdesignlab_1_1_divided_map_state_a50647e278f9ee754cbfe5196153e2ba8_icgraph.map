@@ -1,0 +1,9 @@
+<map id="designlab::DividedMapState::Init" name="designlab::DividedMapState::Init">
+<area shape="rect" id="Node000001" title="マップのデータを初期化する． ロボットの重心座標を中心にマップのデータを格子状に分割し， その中に存在する脚設置可能点を集める．" alt="" coords="292,72,473,115"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_gait_pattern_generator_basic.html#a3b957e224a453c5fc85bd15684560043" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="8,5,241,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="282,70,209,51,210,46,283,65"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_gait_pattern_generator_thread.html#af6729bdafbd310f762733e7fa10f8df5" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,72,244,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="276,96,244,96,244,91,276,91"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_node_initializer.html#a717aea9fc00fcb51c5ba3518fac717fc" title="地形に適した初期姿勢を設定する．" alt="" coords="42,139,207,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="283,122,208,141,207,136,282,117"/>
+</map>

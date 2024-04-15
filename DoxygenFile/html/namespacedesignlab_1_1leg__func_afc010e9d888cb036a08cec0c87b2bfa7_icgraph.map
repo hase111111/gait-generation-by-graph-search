@@ -1,0 +1,5 @@
+<map id="designlab::leg_func::ChangeDiscreteComPos" name="designlab::leg_func::ChangeDiscreteComPos">
+<area shape="rect" id="Node000001" title="重心のデータを変更する．" alt="" coords="204,5,375,48"/>
+<area shape="rect" id="Node000002" href="$class_node_creator_com_move.html#a1e65dff80372e44bdc9dd8d7e4c66e05" title="現在のノードから次のノード群を生成する" alt="" coords="5,5,156,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,29,156,29,156,24,188,24"/>
+</map>

@@ -1,0 +1,15 @@
+<map id="designlab::leg_func::GetDiscreteComPos" name="designlab::leg_func::GetDiscreteComPos">
+<area shape="rect" id="Node000001" title="現在の脚状態から重心パターンを取得する．" alt="" coords="452,105,600,148"/>
+<area shape="rect" id="Node000002" href="$class_node_creator_leg_up_down.html#ac75763b1e845d6b1e9e804c790f834ac" title="現在のノードから次のノード群を生成する" alt="" coords="232,5,394,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="474,100,403,62,376,51,378,46,405,58,477,95"/>
+<area shape="rect" id="Node000003" href="$class_node_creator_leg_up_down2d.html#a184621ec6b94c2d766586317b0510e55" title="現在のノードから次のノード群を生成する" alt="" coords="225,72,401,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="436,115,401,110,402,105,437,110"/>
+<area shape="rect" id="Node000004" href="$struct_graph_search_result_recoder.html#aaa7c793174f9b19f075196222600baf0" title="構造体の内容をCSV形式の文字列にして返す． , (カンマ) で区切られる．" alt="" coords="222,139,404,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="437,143,405,148,404,143,436,138"/>
+<area shape="rect" id="Node000005" href="$struct_robot_state_node.html#aa64c56712d3d329da4c3931cc3dc63cd" title="ノードの情報を文字列に変換する関数． &#160;&#160;デバッグ用に詳細な情報を出力する．" alt="" coords="227,205,399,232"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="479,158,405,196,372,207,370,202,403,191,476,154"/>
+<area shape="rect" id="Node000006" href="$class_system_main_graph_viewer.html#a71c27c2958172ae7b85560e5962ebf97" title="メイン関数" alt="" coords="5,164,174,207"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="211,206,174,201,175,195,212,201"/>
+<area shape="rect" id="Node000007" href="$class_system_main_simulation.html#a707546a7a9971ede2a1ba39cdc7ace71" title="いままでint mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="12,231,167,273"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="211,236,168,243,167,238,211,231"/>
+</map>

@@ -1,0 +1,17 @@
+<map id="designlab::DevideMapState::Init" name="designlab::DevideMapState::Init">
+<area shape="rect" id="Node000001" title="Devideマップのデータを初期化する． &#160;&#160;マップのデータを格子状に分割し，その中に存在する脚設置可能点を集める．" alt="" coords="5,205,184,248"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_devide_map_state.html#ac60dcb98d5fbc78977162fbf537e6762" title="Devideマップのデータを初期化する．" alt="" coords="232,5,410,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,204,155,133,190,93,230,58,237,54,239,58,233,62,193,97,159,136,110,207"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_devide_map_state.html#a45be6ee9c71a9b67ea756fba649fb65c" title="指定した座標がDevideマップのindexにおいてどの位置にあるかを返す．" alt="" coords="232,72,410,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="119,203,169,164,230,124,241,119,243,124,233,129,172,168,123,207"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_devide_map_state.html#ac3bf9d3faa8ff55967e21386d6df2463" title="指定した座標がDevideマップのindexにおいてどの位置にあるかを返す．" alt="" coords="232,139,410,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="168,202,230,184,232,189,170,207"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_map_state.html#a80c42812e6ff529ed9b468d0db52d757" title="脚設置可能点の座標を返す．" alt="" coords="251,205,391,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="184,224,235,224,235,229,184,229"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_map_state.html#a221db2fa4a7021da6e9b240c209fa59c" title="脚設置可能点の総数を返す．" alt="" coords="251,272,391,315"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="170,246,237,266,235,271,168,251"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_devide_map_state.html#aaa23f4a86882d02bf94504c3b245f8f1" title="指定した座標がDevideマップの範囲内に存在するかどうかを返す．" alt="" coords="232,339,410,381"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="123,246,172,285,233,324,243,330,241,334,230,329,169,289,119,251"/>
+<area shape="rect" id="Node000008" href="$namespacedesignlab_1_1math__util.html#a26cb7dd9bd5855a542bb43ec79190415" title="2乗した値を返す関数．" alt="" coords="252,405,390,448"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="110,247,159,317,193,357,233,391,240,396,237,400,230,395,190,360,155,320,106,250"/>
+</map>

@@ -1,0 +1,22 @@
+<map id="designlab::cmdio::OutputNewLine" name="designlab::cmdio::OutputNewLine">
+<area shape="rect" id="Node000001" title="コマンドラインで改行をする関数．" alt="" coords="445,189,611,232"/>
+<area shape="rect" id="Node000002" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="プログラムのエントリポイント．" alt="" coords="66,139,115,165"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="435,188,397,180,316,169,237,162,116,155,116,150,237,156,317,164,397,175,436,182"/>
+<area shape="rect" id="Node000003" href="$class_system_main_graph_viewer.html#a71c27c2958172ae7b85560e5962ebf97" title="メイン関数" alt="" coords="226,72,395,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="478,183,396,136,359,118,362,113,398,131,481,178"/>
+<area shape="rect" id="Node000004" href="$class_system_main_result_viewer.html#a398650e91a6bdafc25f7081f72e323dd" title="主要な処理を行う関数．" alt="" coords="5,299,176,341"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="508,247,463,302,432,328,398,348,367,358,335,364,270,366,208,357,154,344,155,339,209,352,270,360,335,359,366,353,396,343,429,324,459,298,503,244"/>
+<area shape="rect" id="Node000005" href="$class_system_main_simulation.html#a707546a7a9971ede2a1ba39cdc7ace71" title="いままでint mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="13,211,168,253"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="440,239,397,247,338,251,277,252,168,245,169,239,277,246,337,246,397,241,440,234"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1cmdio.html#aac156719fff45c1e6da33d779eee8a4a" title="コマンドラインにこのソフトのタイトルを出力する関数． &#160;&#160;必ず，OutputDetailがkSystemで出力される．" alt="" coords="227,189,394,232"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="430,213,394,213,394,208,430,208"/>
+<area shape="rect" id="Node000007" href="$class_boot_mode_selecter.html#a8ec3fc0da7625aa8000987472348d31e" title="起動モードを選択する &#160;&#160;BootModeがint型をもとにしているかつ，0から始まることを前提にしているので，うまく動作しない場合は &#160;&#160;BootModeの定義を見直すこと" alt="" coords="224,5,397,48"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="503,178,457,119,428,89,395,62,376,51,379,46,399,58,431,85,461,116,507,175"/>
+<area shape="rect" id="Node000008" href="$class_file_tree.html#aa324670dea684ce0ec0a6cc716c60625" title="ディレクトリの中から，ファイルを一つ選択する" alt="" coords="244,307,377,333"/>
+<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="483,243,398,290,354,309,352,304,396,286,480,238"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="213,187,115,161,116,156,214,182"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="253,242,136,301,134,296,251,237"/>
+<area shape="poly" id="edge8_Node000006_Node000005" title=" " alt="" coords="212,223,169,227,168,222,212,218"/>
+<area shape="poly" id="edge10_Node000007_Node000002" title=" " alt="" coords="235,57,225,62,160,103,110,140,107,136,157,98,222,58,233,52"/>
+<area shape="poly" id="edge12_Node000008_Node000004" title=" " alt="" coords="228,323,176,323,176,317,228,317"/>
+</map>

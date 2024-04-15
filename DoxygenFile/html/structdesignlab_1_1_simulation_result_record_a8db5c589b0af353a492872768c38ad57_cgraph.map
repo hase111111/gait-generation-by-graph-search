@@ -1,0 +1,5 @@
+<map id="designlab::SimulationResultRecord::ToCsvString" name="designlab::SimulationResultRecord::ToCsvString">
+<area shape="rect" id="Node000001" title="このクラスのデータを， csvファイルに出力する用の形式で文字列に変換する．" alt="" coords="5,5,188,48"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_graph_search_result_record.html#a5c544b05fea97002cd283a22d3e5edf5" title="CSV形式のヘッダを返す．" alt="" coords="236,5,433,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,24,220,24,220,29,188,29"/>
+</map>

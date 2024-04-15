@@ -1,0 +1,5 @@
+<map id="FontLoader" name="FontLoader">
+<area shape="rect" id="Node000001" title="Dxlibのフォントを読み込むクラス．シングルトンであり，FontLoader::GetIns()でインスタンスを取得する． &#160;&#160;呼び出すときはFontLoader::GetIns()&#45;&gt;GetFont..." alt="" coords="44,80,131,107"/>
+<area shape="rect" id="Node000002" href="$class_singleton.html" title=" " alt="" coords="5,5,170,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,48,90,80,85,80,85,48"/>
+</map>

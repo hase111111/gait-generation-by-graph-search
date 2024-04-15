@@ -366,4 +366,4 @@ FodyWeavers.xsd
 # Add by Hasegawa
 *.csv
 DesignLab/Log.txt
-DoxygenFile/
+# DoxygenFile/

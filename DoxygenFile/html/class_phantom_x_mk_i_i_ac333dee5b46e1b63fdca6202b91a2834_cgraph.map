@@ -1,0 +1,28 @@
+<map id="PhantomXMkII::IsBodyInterferingWithGround" name="PhantomXMkII::IsBodyInterferingWithGround">
+<area shape="rect" id="Node000001" title="胴体が地面と干渉しているかどうかを判定する．" alt="" coords="5,256,214,299"/>
+<area shape="rect" id="Node000002" href="$class_phantom_x_mk_i_i.html#aab91f439acca0fd6ac018d6542f15bfd" title="脚座標系で表現されている座標を，グローバル座標系に変換する．" alt="" coords="280,56,456,99"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,254,177,183,216,143,260,109,268,104,271,108,263,113,220,147,181,187,127,258"/>
+<area shape="rect" id="Node000003" href="$class_phantom_x_mk_i_i.html#a6260133210372d2669e96917468d8179" title="脚の付け根の座標( leg base position )を取得する．ロボット座標系．" alt="" coords="522,8,706,51"/>
+<area shape="poly" id="edge12_Node000001_Node000003" title=" " alt="" coords="115,255,132,208,162,149,204,89,230,63,260,42,289,28,320,17,384,6,448,3,507,7,506,12,448,8,385,11,321,23,291,33,263,47,234,67,208,93,166,151,137,210,120,257"/>
+<area shape="rect" id="Node000010" href="$class_phantom_x_mk_i_i.html#a15541b3bb2c8abd9d0fa79148fad0750" title="ロボット座標系で表現されている座標を，グローバル座標系に変換する．" alt="" coords="273,123,463,166"/>
+<area shape="poly" id="edge6_Node000001_Node000010" title=" " alt="" coords="137,254,192,215,260,175,274,169,276,174,263,180,195,219,140,258"/>
+<area shape="rect" id="Node000011" href="$class_devide_map_state.html#a7c045f5838aa6e2ca95e2fcce73f3997" title="指定した座標がDevideマップのindexにおいてどの位置にあるかを返す．" alt="" coords="277,190,459,232"/>
+<area shape="poly" id="edge8_Node000001_Node000011" title=" " alt="" coords="194,253,267,234,268,239,196,258"/>
+<area shape="rect" id="Node000012" href="$class_devide_map_state.html#a224053c333f390056d7075c582740af7" title="指定した座標がDevideマップのindexにおいてどの位置にあるかを返す．" alt="" coords="277,256,459,299"/>
+<area shape="poly" id="edge9_Node000001_Node000012" title=" " alt="" coords="214,275,261,275,261,280,214,280"/>
+<area shape="rect" id="Node000013" href="$class_phantom_x_mk_i_i.html#ad2149f7249b82e1c89fd7a56f8ec778d" title="遊脚する位置を返す，脚座標系．" alt="" coords="278,323,458,366"/>
+<area shape="poly" id="edge10_Node000001_Node000013" title=" " alt="" coords="196,297,268,316,267,321,194,302"/>
+<area shape="rect" id="Node000014" href="$class_phantom_x_mk_i_i.html#a9e7216a98a4a26bcd08b110e364bc698" title="地面の最大高さと重心位置を最小どれだけ離すかを返す" alt="" coords="262,390,474,432"/>
+<area shape="poly" id="edge11_Node000001_Node000014" title=" " alt="" coords="140,297,195,336,263,375,276,381,274,386,260,380,192,341,137,302"/>
+<area shape="rect" id="Node000015" href="$class_devide_map_state.html#a9519d3349374d58fe5ec391280f5d44d" title="長方形状に切り分けられたマップから，最も高いZ座標を返す．" alt="" coords="282,456,454,483"/>
+<area shape="poly" id="edge13_Node000001_Node000015" title=" " alt="" coords="126,298,149,330,180,370,219,409,263,442,274,448,271,452,260,447,215,413,176,373,144,334,122,301"/>
+<area shape="rect" id="Node000016" href="$class_devide_map_state.html#a92aedd65b746989074b4cd40640b8ff5" title="指定した座標がDevideマップの範囲内に存在するかどうかを返す．" alt="" coords="284,507,452,534"/>
+<area shape="poly" id="edge14_Node000001_Node000016" title=" " alt="" coords="122,298,142,340,172,393,213,448,237,472,263,493,271,498,268,502,260,497,233,476,209,451,168,396,137,343,117,301"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="456,58,506,48,507,53,457,63"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="531,110,698,136"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="457,91,524,104,523,109,456,97"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="575,111,568,101,573,91,589,85,614,83,642,86,657,92,654,97,641,91,614,88,590,90,577,95,574,100,580,108"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab.html#a52c3a31f05a9a4b8e59ddab11243b353" title="クォータニオンから回転角行列への変換" alt="" coords="754,110,937,136"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="698,120,739,120,739,126,698,126"/>
+<area shape="poly" id="edge7_Node000010_Node000004" title=" " alt="" coords="463,133,515,129,515,134,463,139"/>
+</map>

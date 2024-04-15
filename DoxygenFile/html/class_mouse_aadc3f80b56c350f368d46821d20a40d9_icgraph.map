@@ -1,0 +1,5 @@
+<map id="Mouse::GetDiffPosX" name="Mouse::GetDiffPosX">
+<area shape="rect" id="Node000001" title="マウスカーソルの移動量を取得する．X座標は画面の左端を0として，右向きが正．これはDxlibの仕様なので変更不能．" alt="" coords="184,5,321,32"/>
+<area shape="rect" id="Node000002" href="$class_mouse.html#a4ddc62fbcd2d97808b7552181cde2954" title="マウスカーソルの移動量を取得する．" alt="" coords="5,5,136,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,21,136,21,136,16,168,16"/>
+</map>

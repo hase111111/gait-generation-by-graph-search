@@ -1,0 +1,7 @@
+<map id="Stopwatch::GetNowTimeString" name="Stopwatch::GetNowTimeString">
+<area shape="rect" id="Node000001" title="現在の日時をYYYY/MM/DD HH:MM形式の文字列で取得する．" alt="" coords="393,13,591,40"/>
+<area shape="rect" id="Node000002" href="$class_result_file_exporter.html#a0006605d4d439194d4f30cd188d38268" title="resultフォルダがなければ作成する．また，フォルダ名を指定する．" alt="" coords="217,5,345,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="378,29,345,29,345,24,378,24"/>
+<area shape="rect" id="Node000003" href="$class_system_main_simulation.html#a8c36e306192b804807a78ba145137f7f" title=" " alt="" coords="5,5,169,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="201,29,169,29,169,24,201,24"/>
+</map>

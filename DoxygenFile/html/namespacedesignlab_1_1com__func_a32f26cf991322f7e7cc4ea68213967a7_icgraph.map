@@ -1,0 +1,9 @@
+<map id="designlab::com_func::GetLegGroundPatternNum" name="designlab::com_func::GetLegGroundPatternNum">
+<area shape="rect" id="Node000001" title="脚の接地パターンの総数を返す．" alt="" coords="291,80,473,123"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1com__func.html#a05a453333f804b587fdc1b14ade6adde" title="離散化された重心位置から，その重心位置では取り得ない脚接地パターンを falseにする．" alt="" coords="5,5,243,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="293,78,242,63,202,51,204,46,243,57,294,72"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1com__func.html#ad4f5fda73fce48453c9bd16789dd3929" title="遊脚できない脚番号から， その脚が遊脚できない場合に取り得ない接地パターンを falseにする．" alt="" coords="19,72,229,131"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="275,104,229,104,229,99,275,99"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1com__func.html#aa0397b4df03e5663553ae9b3d383e3d0" title="接地できない脚番号から， その脚が接地できない場合に取り得ない接地パターンを falseにする．" alt="" coords="19,155,229,213"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="299,130,219,157,217,151,298,125"/>
+</map>

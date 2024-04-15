@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: jsoncons::ser_context クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classjsoncons_1_1ser__context.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="classjsoncons_1_1ser__context-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">jsoncons::ser_context クラス</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+jsoncons::ser_context の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="classjsoncons_1_1ser__context__inherit__graph.png" border="0" usemap="#ajsoncons_1_1ser__context_inherit__map" alt="Inheritance graph"/></div>
+<map name="ajsoncons_1_1ser__context_inherit__map" id="ajsoncons_1_1ser__context_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,1139,155,1165"/>
+<area shape="rect" href="classjsoncons_1_1basic__json__parser.html" title=" " alt="" coords="250,5,395,64"/>
+<area shape="poly" title=" " alt="" coords="80,1123,93,902,118,569,135,401,154,252,176,138,188,99,201,74,223,55,249,43,251,48,225,60,205,78,193,101,181,139,159,253,140,401,123,570,98,902,85,1123"/>
+<area shape="rect" href="classjsoncons_1_1bson_1_1basic__bson__parser.html" title=" " alt="" coords="241,88,404,163"/>
+<area shape="poly" title=" " alt="" coords="78,1124,81,936,86,801,95,653,110,505,131,367,145,307,161,253,180,208,201,173,218,156,239,143,242,148,221,160,205,176,184,210,166,255,150,308,137,368,115,505,100,653,91,801,86,936,84,1124"/>
+<area shape="rect" href="classjsoncons_1_1bson_1_1basic__bson__parser.html" title=" " alt="" coords="242,187,403,245"/>
+<area shape="poly" title=" " alt="" coords="79,1123,82,949,88,825,98,690,113,555,134,431,163,327,181,287,201,256,219,239,240,228,243,233,222,244,205,259,185,289,168,329,139,432,118,556,103,690,93,825,87,949,84,1123"/>
+<area shape="rect" href="classjsoncons_1_1cbor_1_1basic__cbor__parser.html" title=" " alt="" coords="242,269,403,344"/>
+<area shape="poly" title=" " alt="" coords="79,1123,86,966,105,737,121,619,141,509,167,418,183,382,201,354,219,337,240,324,243,329,222,341,205,358,188,385,172,420,146,510,126,619,110,738,92,967,85,1123"/>
+<area shape="rect" href="classjsoncons_1_1cbor_1_1basic__cbor__parser.html" title=" " alt="" coords="246,368,399,427"/>
+<area shape="poly" title=" " alt="" coords="80,1123,88,981,108,776,124,670,144,573,169,493,184,461,201,437,221,420,244,408,247,413,224,424,205,440,189,464,174,495,149,574,129,671,113,776,93,981,85,1124"/>
+<area shape="rect" href="classjsoncons_1_1cbor_1_1basic__cbor__parser.html" title=" " alt="" coords="242,451,403,509"/>
+<area shape="poly" title=" " alt="" coords="80,1123,91,995,113,815,129,723,149,638,172,568,186,541,201,520,219,504,240,493,243,497,222,508,205,523,191,544,177,570,154,640,134,724,118,816,96,996,86,1123"/>
+<area shape="rect" href="classjsoncons_1_1csv_1_1basic__csv__parser.html" title=" " alt="" coords="241,533,404,592"/>
+<area shape="poly" title=" " alt="" coords="81,1123,94,1010,118,855,134,776,153,703,175,644,201,602,219,587,240,576,242,580,222,591,205,606,180,646,158,705,140,777,123,856,100,1011,87,1123"/>
+<area shape="rect" href="classjsoncons_1_1msgpack_1_1basic__msgpack__parser.html" title=" " alt="" coords="235,616,410,707"/>
+<area shape="poly" title=" " alt="" coords="79,1123,84,1045,102,938,117,880,138,822,166,767,201,717,233,690,236,694,205,720,170,770,143,824,122,882,107,939,90,1046,84,1123"/>
+<area shape="rect" href="classjsoncons_1_1msgpack_1_1basic__msgpack__parser.html" title=" " alt="" coords="244,731,401,805"/>
+<area shape="poly" title=" " alt="" coords="81,1123,91,1060,112,979,127,935,147,893,171,852,201,815,220,799,242,787,245,792,223,804,205,819,176,855,152,895,132,937,117,981,96,1062,87,1123"/>
+<area shape="rect" href="classjsoncons_1_1ubjson_1_1basic__ubjson__parser.html" title=" " alt="" coords="236,829,409,904"/>
+<area shape="poly" title=" " alt="" coords="86,1123,101,1078,125,1023,158,965,178,938,201,914,234,892,237,896,204,918,182,942,162,968,130,1025,106,1080,91,1125"/>
+<area shape="rect" href="classjsoncons_1_1ubjson_1_1basic__ubjson__parser.html" title=" " alt="" coords="239,928,406,987"/>
+<area shape="poly" title=" " alt="" coords="94,1124,137,1061,167,1026,201,996,238,977,240,981,204,1001,170,1030,141,1064,98,1127"/>
+<area shape="rect" href="classjsoncons_1_1basic__json__cursor.html" title=" " alt="" coords="241,1011,404,1069"/>
+<area shape="poly" title=" " alt="" coords="114,1128,202,1079,240,1063,242,1068,204,1084,116,1132"/>
+<area shape="rect" href="classjsoncons_1_1basic__json__parser.html" title=" " alt="" coords="216,1093,429,1136"/>
+<area shape="poly" title=" " alt="" coords="170,1136,215,1129,216,1134,171,1141"/>
+<area shape="rect" href="classjsoncons_1_1bson_1_1basic__bson__cursor.html" title=" " alt="" coords="244,1160,401,1219"/>
+<area shape="poly" title=" " alt="" coords="171,1163,244,1175,243,1180,170,1168"/>
+<area shape="rect" href="classjsoncons_1_1bson_1_1basic__bson__parser.html" title=" " alt="" coords="244,1243,401,1301"/>
+<area shape="poly" title=" " alt="" coords="113,1172,155,1201,204,1228,245,1245,242,1250,201,1233,153,1205,110,1177"/>
+<area shape="rect" href="classjsoncons_1_1cbor_1_1basic__cbor__cursor.html" title=" " alt="" coords="246,1325,399,1384"/>
+<area shape="poly" title=" " alt="" coords="97,1178,140,1245,170,1280,204,1311,246,1333,244,1338,201,1316,166,1284,135,1248,93,1181"/>
+<area shape="rect" href="classjsoncons_1_1cbor_1_1basic__cbor__parser.html" title=" " alt="" coords="246,1408,399,1467"/>
+<area shape="poly" title=" " alt="" coords="90,1179,104,1226,127,1283,160,1343,181,1370,204,1394,224,1408,247,1418,244,1423,222,1413,201,1398,177,1373,156,1346,122,1286,99,1228,85,1181"/>
+<area shape="rect" href="classjsoncons_1_1cbor_1_1cbor__event__reader.html" title=" " alt="" coords="243,1491,402,1549"/>
+<area shape="poly" title=" " alt="" coords="87,1180,96,1241,116,1321,132,1363,151,1404,175,1443,205,1477,223,1491,244,1501,242,1506,220,1495,201,1481,171,1446,146,1407,127,1365,111,1322,91,1242,81,1181"/>
+<area shape="rect" href="classjsoncons_1_1csv_1_1basic__csv__cursor.html" title=" " alt="" coords="228,1573,417,1632"/>
+<area shape="poly" title=" " alt="" coords="84,1181,89,1256,106,1357,121,1411,142,1465,170,1515,205,1559,229,1578,226,1582,201,1563,165,1518,137,1467,116,1413,101,1358,84,1256,79,1181"/>
+<area shape="rect" href="classjsoncons_1_1csv_1_1basic__csv__parser.html" title=" " alt="" coords="203,1656,442,1699"/>
+<area shape="poly" title=" " alt="" coords="87,1180,101,1283,126,1422,142,1492,161,1555,182,1607,205,1642,219,1654,215,1658,201,1646,177,1610,156,1557,137,1493,121,1423,96,1284,82,1181"/>
+<area shape="rect" href="classjsoncons_1_1jsonpath_1_1detail_1_1jsonpath__evaluator.html" title=" " alt="" coords="235,1723,410,1781"/>
+<area shape="poly" title=" " alt="" coords="87,1180,99,1295,123,1453,139,1534,158,1607,180,1668,205,1709,219,1722,236,1731,233,1736,216,1726,201,1712,175,1670,153,1609,134,1535,117,1454,94,1296,81,1181"/>
+<area shape="rect" href="classjsoncons_1_1msgpack_1_1basic__msgpack__cursor.html" title=" " alt="" coords="245,1805,400,1864"/>
+<area shape="poly" title=" " alt="" coords="86,1181,96,1310,118,1493,134,1587,153,1673,177,1743,190,1771,205,1792,223,1807,246,1819,243,1823,220,1812,201,1795,186,1773,172,1746,148,1674,128,1588,112,1494,91,1311,80,1181"/>
+<area shape="rect" href="classjsoncons_1_1msgpack_1_1basic__msgpack__parser.html" title=" " alt="" coords="245,1888,400,1947"/>
+<area shape="poly" title=" " alt="" coords="85,1181,93,1325,113,1533,128,1640,149,1738,174,1819,189,1850,205,1874,223,1890,245,1901,243,1906,220,1895,201,1878,184,1853,169,1821,143,1740,123,1641,107,1534,88,1326,80,1181"/>
+<area shape="rect" href="classjsoncons_1_1msgpack_1_1msgpack__event__reader.html" title=" " alt="" coords="245,1971,400,2029"/>
+<area shape="poly" title=" " alt="" coords="84,1181,90,1339,108,1572,123,1692,144,1803,171,1895,187,1930,205,1957,223,1973,246,1984,243,1989,220,1978,201,1960,182,1932,166,1896,139,1804,118,1693,103,1572,85,1340,79,1181"/>
+<area shape="rect" href="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor.html" title=" " alt="" coords="239,2053,406,2112"/>
+<area shape="poly" title=" " alt="" coords="84,1180,88,1353,93,1477,103,1611,118,1745,139,1868,168,1970,185,2009,205,2040,221,2054,240,2065,238,2070,218,2059,201,2043,181,2012,163,1972,134,1869,113,1745,98,1611,88,1477,82,1354,79,1181"/>
+<area shape="rect" href="classjsoncons_1_1ubjson_1_1basic__ubjson__parser.html" title=" " alt="" coords="239,2136,406,2195"/>
+<area shape="poly" title=" " alt="" coords="84,1180,85,1367,90,1502,98,1650,113,1797,135,1933,149,1993,165,2045,184,2089,205,2122,221,2137,240,2148,238,2152,218,2141,201,2126,179,2091,160,2047,144,1994,130,1934,108,1798,93,1650,84,1503,80,1367,78,1180"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:ab249da20e7631324adb1c0bc106417fb" id="r_ab249da20e7631324adb1c0bc106417fb"><td class="memItemLeft" align="right" valign="top"><a id="ab249da20e7631324adb1c0bc106417fb" name="ab249da20e7631324adb1c0bc106417fb"></a>
+virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>line</b> () const</td></tr>
+<tr class="separator:ab249da20e7631324adb1c0bc106417fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b62e112249adab9310414c7269df6bb" id="r_a7b62e112249adab9310414c7269df6bb"><td class="memItemLeft" align="right" valign="top"><a id="a7b62e112249adab9310414c7269df6bb" name="a7b62e112249adab9310414c7269df6bb"></a>
+virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>column</b> () const</td></tr>
+<tr class="separator:a7b62e112249adab9310414c7269df6bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bf1523b705d969e4f1bc6fc0e23d172" id="r_a2bf1523b705d969e4f1bc6fc0e23d172"><td class="memItemLeft" align="right" valign="top"><a id="a2bf1523b705d969e4f1bc6fc0e23d172" name="a2bf1523b705d969e4f1bc6fc0e23d172"></a>
+virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>position</b> () const</td></tr>
+<tr class="separator:a2bf1523b705d969e4f1bc6fc0e23d172"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93e380122edc1773c4428fccabe12b6a" id="r_a93e380122edc1773c4428fccabe12b6a"><td class="memItemLeft" align="right" valign="top"><a id="a93e380122edc1773c4428fccabe12b6a" name="a93e380122edc1773c4428fccabe12b6a"></a>
+virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>end_position</b> () const</td></tr>
+<tr class="separator:a93e380122edc1773c4428fccabe12b6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5ba3e56f5a2fee54d0dbcc5882937d4" id="r_ac5ba3e56f5a2fee54d0dbcc5882937d4"><td class="memItemLeft" align="right" valign="top"><a id="ac5ba3e56f5a2fee54d0dbcc5882937d4" name="ac5ba3e56f5a2fee54d0dbcc5882937d4"></a>
+std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>line_number</b> () const</td></tr>
+<tr class="separator:ac5ba3e56f5a2fee54d0dbcc5882937d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a0588aa60e52c4a49012269a4119135" id="r_a5a0588aa60e52c4a49012269a4119135"><td class="memItemLeft" align="right" valign="top"><a id="a5a0588aa60e52c4a49012269a4119135" name="a5a0588aa60e52c4a49012269a4119135"></a>
+std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>column_number</b> () const</td></tr>
+<tr class="separator:a5a0588aa60e52c4a49012269a4119135"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/hasegawa/Desktop/main/program/DesignLab/jsoncons/include/jsoncons/<a class="el" href="ser__context_8hpp_source.html">ser_context.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacejsoncons.html">jsoncons</a></li><li class="navelem"><a class="el" href="classjsoncons_1_1ser__context.html">ser_context</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

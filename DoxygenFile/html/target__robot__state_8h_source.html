@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: C:/Users/hasegawa/Desktop/main/program/DesignLab/DesignLab/target_robot_state.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('target__robot__state_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">target_robot_state.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="target__robot__state_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span>﻿</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef DESIGNLAB_TARGET_ROBOT_STATE_H_</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define DESIGNLAB_TARGET_ROBOT_STATE_H_</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="designlab__quaternion_8h.html">designlab_quaternion.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="designlab__vector3_8h.html">designlab_vector3.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">namespace </span>enums</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    {</div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9">   28</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9">TargetMode</a> : <span class="keywordtype">int</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9a35c3ace1970663a16e5c65baa5941b13">kNone</a>,                  </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9a59375d9badbbc17fc1acf25a5276e38f">kStraightMoveVector</a>,    </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9a8738b1472ce83f22b2b53b1d59030ebe">kStraightMovePosition</a>,  </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9af8407776554fc79437feff37aead8538">kSpotTurnLastPosture</a>,   </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9a32efdb36a9070a5a5042b2db2a492f61">kSpotTurnRotAxis</a>,       </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        };</div>
+</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="};">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="class_target_robot_state.html">   42</a></span><span class="keyword">class </span><a class="code hl_class" href="class_target_robot_state.html">TargetRobotState</a> final</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>{</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="class_target_robot_state.html#a80519559b5fff316ed87d4f43eae64ae">   48</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_target_robot_state.html#a80519559b5fff316ed87d4f43eae64ae">SetStraightMoveVector</a>(const ::designlab::Vector3&amp; straight_move_vector)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        assert(<a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a12bdd69889d7939a25c5f873fad76978">::designlab::math_util::IsEqual</a>(straight_move_vector.GetLength(), 1.0f));</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        ResetAllData();</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        straight_move_vector_ = straight_move_vector;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        target_mode = <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9a59375d9badbbc17fc1acf25a5276e38f">::designlab::enums::TargetMode::kStraightMoveVector</a>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    }</div>
+</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="class_target_robot_state.html#a49a0c45ac775ff1bccc26db8dd4824d3">   60</a></span>    [[nodiscard]] constexpr ::designlab::Vector3 <a class="code hl_function" href="class_target_robot_state.html#a49a0c45ac775ff1bccc26db8dd4824d3">GetStraightMoveVector</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        assert(target_mode == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9a59375d9badbbc17fc1acf25a5276e38f">::designlab::enums::TargetMode::kStraightMoveVector</a>); <span class="comment">//SetStraightMoveVector()が呼ばれていない場合はエラー</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        assert(straight_move_vector_.has_value());</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">return</span> straight_move_vector_.value();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
+</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="class_target_robot_state.html#a6928ac81b040c3fb6ac5049611d374a3">   70</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_target_robot_state.html#a6928ac81b040c3fb6ac5049611d374a3">SetStraightMovePosition</a>(const ::designlab::Vector3&amp; straight_move_position)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    {</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        ResetAllData();</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        straight_move_position_ = straight_move_position;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        target_mode = <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9a8738b1472ce83f22b2b53b1d59030ebe">::designlab::enums::TargetMode::kStraightMovePosition</a>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    }</div>
+</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="foldopen" id="foldopen00080" data-start="{" data-end="}">
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="class_target_robot_state.html#a740e4cf4afce714e33ea513d75719775">   80</a></span>    [[nodiscard]] constexpr ::designlab::Vector3 <a class="code hl_function" href="class_target_robot_state.html#a740e4cf4afce714e33ea513d75719775">GetStraightMovePosition</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        assert(target_mode == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9a8738b1472ce83f22b2b53b1d59030ebe">::designlab::enums::TargetMode::kStraightMovePosition</a>);   <span class="comment">//SetStraightMovePosition()が呼ばれていない場合はエラー</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        assert(straight_move_position_.has_value());</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordflow">return</span> straight_move_position_.value();</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    }</div>
+</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="foldopen" id="foldopen00090" data-start="{" data-end="}">
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="class_target_robot_state.html#a28c359c67c69ab057382e4013c98f88a">   90</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_target_robot_state.html#a28c359c67c69ab057382e4013c98f88a">SetSpotTurnLastPosture</a>(const ::designlab::Quaternion&amp; last_posture)</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        ResetAllData();</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        spot_turn_last_posture_ = last_posture;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        target_mode = <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9af8407776554fc79437feff37aead8538">::designlab::enums::TargetMode::kSpotTurnLastPosture</a>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    }</div>
+</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="foldopen" id="foldopen00100" data-start="{" data-end="}">
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="class_target_robot_state.html#a50c8761c856303bf6889ec2549f86490">  100</a></span>    [[nodiscard]] constexpr ::designlab::Quaternion <a class="code hl_function" href="class_target_robot_state.html#a50c8761c856303bf6889ec2549f86490">GetSpotTurnLastPosture</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        assert(target_mode == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9af8407776554fc79437feff37aead8538">::designlab::enums::TargetMode::kSpotTurnLastPosture</a>);    <span class="comment">//SetSpotTurnLastPosture()が呼ばれていない場合はエラー</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        assert(spot_turn_last_posture_.has_value());</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="keywordflow">return</span> spot_turn_last_posture_.value();</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    }</div>
+</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="foldopen" id="foldopen00110" data-start="{" data-end="}">
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="class_target_robot_state.html#ab822318c326a4ca80a668866404a5c1c">  110</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_target_robot_state.html#ab822318c326a4ca80a668866404a5c1c">SetSpotTurnRotAxis</a>(const ::designlab::Vector3&amp; rot_axis)</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    {</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        ResetAllData();</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        spot_turn_rot_axis = rot_axis;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        target_mode = <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9a32efdb36a9070a5a5042b2db2a492f61">::designlab::enums::TargetMode::kSpotTurnRotAxis</a>;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    }</div>
+</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="foldopen" id="foldopen00120" data-start="{" data-end="}">
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="class_target_robot_state.html#a90b0c104efbf8674422b7a64a401eb84">  120</a></span>    [[nodiscard]] constexpr ::designlab::Vector3 <a class="code hl_function" href="class_target_robot_state.html#a90b0c104efbf8674422b7a64a401eb84">GetSpotTurnRotAxis</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        assert(target_mode == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9a32efdb36a9070a5a5042b2db2a492f61">::designlab::enums::TargetMode::kSpotTurnRotAxis</a>);    <span class="comment">//SetSpotTurnRotAxis()が呼ばれていない場合はエラー</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        assert(spot_turn_rot_axis.has_value());</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keywordflow">return</span> spot_turn_rot_axis.value();</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    }</div>
+</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    [[nodiscard]] constexpr ::designlab::enums::TargetMode GetTargetMode()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordflow">return</span> target_mode;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    }</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> ResetAllData()</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    {</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        straight_move_vector_ = std::nullopt;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        straight_move_position_ = std::nullopt;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        spot_turn_last_posture_ = std::nullopt;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        spot_turn_rot_axis = std::nullopt;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    }</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    std::optional&lt;::designlab::Vector3&gt; straight_move_vector_{ std::nullopt };      </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    std::optional&lt;::designlab::Vector3&gt; straight_move_position_{ std::nullopt };    </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    std::optional&lt;::designlab::Quaternion&gt; spot_turn_last_posture_{ std::nullopt }; </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    std::optional&lt;::designlab::Vector3&gt; spot_turn_rot_axis{ std::nullopt };         </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <a class="code hl_enumeration" href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9">::designlab::enums::TargetMode</a> target_mode{ <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9a35c3ace1970663a16e5c65baa5941b13">::designlab::enums::TargetMode::kNone</a> };    </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>};</div>
+</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_TARGET_ROBOT_STATE_H_</span></div>
+<div class="ttc" id="aclass_target_robot_state_html"><div class="ttname"><a href="class_target_robot_state.html">TargetRobotState</a></div><div class="ttdoc">探索において目標となる座標や角度，評価する値についてまとめた構造体</div><div class="ttdef"><b>Definition</b> target_robot_state.h:43</div></div>
+<div class="ttc" id="aclass_target_robot_state_html_a28c359c67c69ab057382e4013c98f88a"><div class="ttname"><a href="class_target_robot_state.html#a28c359c67c69ab057382e4013c98f88a">TargetRobotState::SetSpotTurnLastPosture</a></div><div class="ttdeci">void SetSpotTurnLastPosture(const ::designlab::Quaternion &amp;last_posture)</div><div class="ttdoc">その場旋回時の目標姿勢を指定する．</div><div class="ttdef"><b>Definition</b> target_robot_state.h:90</div></div>
+<div class="ttc" id="aclass_target_robot_state_html_a49a0c45ac775ff1bccc26db8dd4824d3"><div class="ttname"><a href="class_target_robot_state.html#a49a0c45ac775ff1bccc26db8dd4824d3">TargetRobotState::GetStraightMoveVector</a></div><div class="ttdeci">constexpr ::designlab::Vector3 GetStraightMoveVector() const</div><div class="ttdoc">進行方向を取得する．値を設定していない場合はエラー．</div><div class="ttdef"><b>Definition</b> target_robot_state.h:60</div></div>
+<div class="ttc" id="aclass_target_robot_state_html_a50c8761c856303bf6889ec2549f86490"><div class="ttname"><a href="class_target_robot_state.html#a50c8761c856303bf6889ec2549f86490">TargetRobotState::GetSpotTurnLastPosture</a></div><div class="ttdeci">constexpr ::designlab::Quaternion GetSpotTurnLastPosture() const</div><div class="ttdoc">その場旋回時の目標姿勢を取得する．値を設定していない場合はエラー．</div><div class="ttdef"><b>Definition</b> target_robot_state.h:100</div></div>
+<div class="ttc" id="aclass_target_robot_state_html_a6928ac81b040c3fb6ac5049611d374a3"><div class="ttname"><a href="class_target_robot_state.html#a6928ac81b040c3fb6ac5049611d374a3">TargetRobotState::SetStraightMovePosition</a></div><div class="ttdeci">void SetStraightMovePosition(const ::designlab::Vector3 &amp;straight_move_position)</div><div class="ttdoc">目標到達地点を指定する．グローバル座標．</div><div class="ttdef"><b>Definition</b> target_robot_state.h:70</div></div>
+<div class="ttc" id="aclass_target_robot_state_html_a740e4cf4afce714e33ea513d75719775"><div class="ttname"><a href="class_target_robot_state.html#a740e4cf4afce714e33ea513d75719775">TargetRobotState::GetStraightMovePosition</a></div><div class="ttdeci">constexpr ::designlab::Vector3 GetStraightMovePosition() const</div><div class="ttdoc">目標到達地点を取得する．値を設定していない場合はエラー．</div><div class="ttdef"><b>Definition</b> target_robot_state.h:80</div></div>
+<div class="ttc" id="aclass_target_robot_state_html_a80519559b5fff316ed87d4f43eae64ae"><div class="ttname"><a href="class_target_robot_state.html#a80519559b5fff316ed87d4f43eae64ae">TargetRobotState::SetStraightMoveVector</a></div><div class="ttdeci">void SetStraightMoveVector(const ::designlab::Vector3 &amp;straight_move_vector)</div><div class="ttdoc">進行方向を指定する．正規化されたベクトルを渡すこと．</div><div class="ttdef"><b>Definition</b> target_robot_state.h:48</div></div>
+<div class="ttc" id="aclass_target_robot_state_html_a90b0c104efbf8674422b7a64a401eb84"><div class="ttname"><a href="class_target_robot_state.html#a90b0c104efbf8674422b7a64a401eb84">TargetRobotState::GetSpotTurnRotAxis</a></div><div class="ttdeci">constexpr ::designlab::Vector3 GetSpotTurnRotAxis() const</div><div class="ttdoc">その場旋回時の回転軸を取得する．値を設定していない場合はエラー．</div><div class="ttdef"><b>Definition</b> target_robot_state.h:120</div></div>
+<div class="ttc" id="aclass_target_robot_state_html_ab822318c326a4ca80a668866404a5c1c"><div class="ttname"><a href="class_target_robot_state.html#ab822318c326a4ca80a668866404a5c1c">TargetRobotState::SetSpotTurnRotAxis</a></div><div class="ttdeci">void SetSpotTurnRotAxis(const ::designlab::Vector3 &amp;rot_axis)</div><div class="ttdoc">その場旋回時の回転軸を指定する．</div><div class="ttdef"><b>Definition</b> target_robot_state.h:110</div></div>
+<div class="ttc" id="adesignlab__quaternion_8h_html"><div class="ttname"><a href="designlab__quaternion_8h.html">designlab_quaternion.h</a></div><div class="ttdoc">クォータニオンを表す構造体</div></div>
+<div class="ttc" id="adesignlab__vector3_8h_html"><div class="ttname"><a href="designlab__vector3_8h.html">designlab_vector3.h</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1enums_html_a60cda4ea7c94ccf0534cd03125ade2e9"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9">designlab::enums::TargetMode</a></div><div class="ttdeci">TargetMode</div><div class="ttdoc">Targetへの移動をどのように評価するか表す列挙体．</div><div class="ttdef"><b>Definition</b> target_robot_state.h:29</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1enums_html_a60cda4ea7c94ccf0534cd03125ade2e9a32efdb36a9070a5a5042b2db2a492f61"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9a32efdb36a9070a5a5042b2db2a492f61">designlab::enums::TargetMode::kSpotTurnRotAxis</a></div><div class="ttdeci">@ kSpotTurnRotAxis</div><div class="ttdoc">その場で旋回させる（回転軸を示し，その軸周りの右ねじの回転）．</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1enums_html_a60cda4ea7c94ccf0534cd03125ade2e9a35c3ace1970663a16e5c65baa5941b13"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9a35c3ace1970663a16e5c65baa5941b13">designlab::enums::TargetMode::kNone</a></div><div class="ttdeci">@ kNone</div><div class="ttdoc">評価しない．</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1enums_html_a60cda4ea7c94ccf0534cd03125ade2e9a59375d9badbbc17fc1acf25a5276e38f"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9a59375d9badbbc17fc1acf25a5276e38f">designlab::enums::TargetMode::kStraightMoveVector</a></div><div class="ttdeci">@ kStraightMoveVector</div><div class="ttdoc">直線移動をさせる（移動したい方向をベクトルで示す）．</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1enums_html_a60cda4ea7c94ccf0534cd03125ade2e9a8738b1472ce83f22b2b53b1d59030ebe"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9a8738b1472ce83f22b2b53b1d59030ebe">designlab::enums::TargetMode::kStraightMovePosition</a></div><div class="ttdeci">@ kStraightMovePosition</div><div class="ttdoc">直線移動をさせる（移動したい座標を示す）．</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1enums_html_a60cda4ea7c94ccf0534cd03125ade2e9af8407776554fc79437feff37aead8538"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#a60cda4ea7c94ccf0534cd03125ade2e9af8407776554fc79437feff37aead8538">designlab::enums::TargetMode::kSpotTurnLastPosture</a></div><div class="ttdeci">@ kSpotTurnLastPosture</div><div class="ttdoc">その場で旋回させる（最終的な姿勢Postureを示す）．</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1math__util_html_a12bdd69889d7939a25c5f873fad76978"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#a12bdd69889d7939a25c5f873fad76978">designlab::math_util::IsEqual</a></div><div class="ttdeci">constexpr bool IsEqual(const float num1, const float num2) noexcept</div><div class="ttdoc">C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．</div><div class="ttdef"><b>Definition</b> designlab_math_util.h:36</div></div>
+<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdoc">DesignLabの名前空間</div><div class="ttdef"><b>Definition</b> boot_mode.h:10</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_65b03a49640d0599dba701447d580643.html">hasegawa</a></li><li class="navelem"><a class="el" href="dir_2854940d141de6d3c7cee6483e7afda9.html">Desktop</a></li><li class="navelem"><a class="el" href="dir_fad4873fd0f485db7102df865d883d5c.html">main</a></li><li class="navelem"><a class="el" href="dir_227eda1db808a252df8518c263632a71.html">program</a></li><li class="navelem"><a class="el" href="dir_136482520f873a40e541bfb5e9b2bb76.html">DesignLab</a></li><li class="navelem"><a class="el" href="dir_adb386b1713ce6556ea69a7596f0b080.html">DesignLab</a></li><li class="navelem"><a class="el" href="target__robot__state_8h.html">target_robot_state.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<map id="designlab::RobotOperatorFixed" name="designlab::RobotOperatorFixed">
+<area shape="rect" id="Node000001" title="命令の更新をせず，初期化時の命令を送り続けるクラス．" alt="" coords="7,80,175,123"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_robot_operator.html" title="ロボットの動作を決定する処理のインターフェース．" alt="" coords="5,5,177,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,48,94,80,88,80,88,48"/>
+</map>

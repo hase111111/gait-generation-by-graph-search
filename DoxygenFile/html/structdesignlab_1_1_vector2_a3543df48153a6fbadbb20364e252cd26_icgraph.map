@@ -1,0 +1,11 @@
+<map id="designlab::Vector2::Dot" name="designlab::Vector2::Dot">
+<area shape="rect" id="Node000001" title="このベクトルとotherの内積を返す" alt="" coords="578,47,736,73"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector2.html#a75bdf006147b87999534393d4b9a4c81" title="このベクトルの長さの2乗を返す" alt="" coords="393,39,530,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="563,63,531,63,531,57,563,57"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector2.html#ab62323b441e66a37e41668fb0ac7ae99" title="このベクトルの長さを返す" alt="" coords="199,5,329,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="377,49,328,40,329,35,378,43"/>
+<area shape="rect" id="Node000008" href="$class_phantom_x_state_calclator___hato.html#ac56aef3f9820b542dc4eadd625f5d51d" title="脚が可動範囲内にあるかどうかを判定する．" alt="" coords="183,72,345,115"/>
+<area shape="poly" id="edge4_Node000002_Node000008" title=" " alt="" coords="378,77,346,82,345,77,377,71"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector2.html#a5b486befcef8a9c50ff78137783c3ba9" title="このベクトルを正規化したベクトルを返す" alt="" coords="5,5,135,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="184,29,135,29,135,24,184,24"/>
+</map>

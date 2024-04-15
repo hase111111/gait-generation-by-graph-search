@@ -1,0 +1,5 @@
+<map id="designlab::Vector3::GetNormalized" name="designlab::Vector3::GetNormalized">
+<area shape="rect" id="Node000001" title="単位ベクトルを返す．normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す． &#160;&#160;絶対値が0のベクトルの場合，そのまま0ベクトルを返す．" alt="" coords="199,5,328,48"/>
+<area shape="rect" id="Node000002" href="$class_target_updater_for_gpg.html#a04d06e165ca09f3cc426b06986e1a28d" title="ロボットの動作を更新する．" alt="" coords="5,5,151,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,29,151,29,151,24,183,24"/>
+</map>

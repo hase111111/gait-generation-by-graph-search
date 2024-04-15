@@ -1,0 +1,507 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: GaitPatternGraphTree クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_gait_pattern_graph_tree.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="class_gait_pattern_graph_tree-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">GaitPatternGraphTree クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>グラフ構造を持つRobotStateNodeのツリー構造を管理するクラス． <br  />
+ 歩容パターングラフ．  
+ <a href="class_gait_pattern_graph_tree.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="gait__pattern__graph__tree_8h_source.html">gait_pattern_graph_tree.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:ab699d5c462d843e3f6345a9c50306386" id="r_ab699d5c462d843e3f6345a9c50306386"><td class="memItemLeft" align="right" valign="top"><a id="ab699d5c462d843e3f6345a9c50306386" name="ab699d5c462d843e3f6345a9c50306386"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>GaitPatternGraphTree</b> (const int graph_max_size)</td></tr>
+<tr class="memdesc:ab699d5c462d843e3f6345a9c50306386"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ． <br  />
+ ノード数の最大値を指定する． <br /></td></tr>
+<tr class="separator:ab699d5c462d843e3f6345a9c50306386"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09b4a0418d2d5ac2fa987d7518a06101" id="r_a09b4a0418d2d5ac2fa987d7518a06101"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gait_pattern_graph_tree.html#a09b4a0418d2d5ac2fa987d7518a06101">GetGraphSize</a> () const</td></tr>
+<tr class="memdesc:a09b4a0418d2d5ac2fa987d7518a06101"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフのノードの総数を返す．  <br /></td></tr>
+<tr class="separator:a09b4a0418d2d5ac2fa987d7518a06101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8061469cfd0e987aefa6356d7e551dd6" id="r_a8061469cfd0e987aefa6356d7e551dd6"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gait_pattern_graph_tree.html#a8061469cfd0e987aefa6356d7e551dd6">IsEmpty</a> () const</td></tr>
+<tr class="memdesc:a8061469cfd0e987aefa6356d7e551dd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフが空かどうかを返す．  <br /></td></tr>
+<tr class="separator:a8061469cfd0e987aefa6356d7e551dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03b3dba65de70d1a42dd70360f36f4c4" id="r_a03b3dba65de70d1a42dd70360f36f4c4"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gait_pattern_graph_tree.html#a03b3dba65de70d1a42dd70360f36f4c4">HasRoot</a> () const</td></tr>
+<tr class="memdesc:a03b3dba65de70d1a42dd70360f36f4c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフが根ノードを持つかどうかを返す． <br  />
+ 根ノードとは，親を持たないノードのこと． <br  />
+ 一番最初に追加するノードは必ず親になるため，親を持つかどうかはノードの総数が0でないかどうかで判定できる．  <br /></td></tr>
+<tr class="separator:a03b3dba65de70d1a42dd70360f36f4c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ee08f6d08f07ed53187a724abae73fa" id="r_a5ee08f6d08f07ed53187a724abae73fa"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gait_pattern_graph_tree.html#a5ee08f6d08f07ed53187a724abae73fa">GetRootIndex</a> () const</td></tr>
+<tr class="memdesc:a5ee08f6d08f07ed53187a724abae73fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフの根ノードのindexを返す． <br  />
+ ノードがない場合を考慮していないため，HasRoot()で根ノードを持つかどうかを確認すること． <br  />
+ 一番最初に追加されたノードは必ず根ノードになるため，根ノードのindexは0で固定される．  <br /></td></tr>
+<tr class="separator:a5ee08f6d08f07ed53187a724abae73fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63952c23000ed948a9869086c36e47a4" id="r_a63952c23000ed948a9869086c36e47a4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gait_pattern_graph_tree.html#a63952c23000ed948a9869086c36e47a4">GetRootNode</a> () const</td></tr>
+<tr class="memdesc:a63952c23000ed948a9869086c36e47a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフの根ノードの参照を返す．  <br /></td></tr>
+<tr class="separator:a63952c23000ed948a9869086c36e47a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28a3f83a58949f3cae26dc658f6926a3" id="r_a28a3f83a58949f3cae26dc658f6926a3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gait_pattern_graph_tree.html#a28a3f83a58949f3cae26dc658f6926a3">GetNode</a> (const int index) const</td></tr>
+<tr class="memdesc:a28a3f83a58949f3cae26dc658f6926a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフのノードの参照を返す．  <br /></td></tr>
+<tr class="separator:a28a3f83a58949f3cae26dc658f6926a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac41706b99c85361246bee93070b83de2" id="r_ac41706b99c85361246bee93070b83de2"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gait_pattern_graph_tree.html#ac41706b99c85361246bee93070b83de2">GetParentNode</a> (const int index, const int depth) const</td></tr>
+<tr class="memdesc:ac41706b99c85361246bee93070b83de2"><td class="mdescLeft">&#160;</td><td class="mdescRight">指定したノードの親ノードの参照を返す．depthは親ノードの深さを指定する．  <br /></td></tr>
+<tr class="separator:ac41706b99c85361246bee93070b83de2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66067fba5d0c9531f8deb9630eb47a09" id="r_a66067fba5d0c9531f8deb9630eb47a09"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gait_pattern_graph_tree.html#a66067fba5d0c9531f8deb9630eb47a09">GetParentNodeIndex</a> (const int index, const int depth) const</td></tr>
+<tr class="memdesc:a66067fba5d0c9531f8deb9630eb47a09"><td class="mdescLeft">&#160;</td><td class="mdescRight">指定したノードの親ノードの参照を返す．depthは親ノードの深さを指定する．  <br /></td></tr>
+<tr class="separator:a66067fba5d0c9531f8deb9630eb47a09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98e25066f5a1ea4fd321a7e44c46a15e" id="r_a98e25066f5a1ea4fd321a7e44c46a15e"><td class="memItemLeft" align="right" valign="top"><a id="a98e25066f5a1ea4fd321a7e44c46a15e" name="a98e25066f5a1ea4fd321a7e44c46a15e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>AddNode</b> (const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp;node)</td></tr>
+<tr class="memdesc:a98e25066f5a1ea4fd321a7e44c46a15e"><td class="mdescLeft">&#160;</td><td class="mdescRight">ノードを追加する． <br  />
+ 追加するノードは親ノードのindexと，depthの指定が適切にされている必要がある． <br  />
+ また，あらかじめ確保したノード数を超えて追加しようとするとassertionに引っかかる． <br  />
+ この条件下では一番最初に追加されるノードは必ず根ノード(親を持たず，深さ0)になる， <br /></td></tr>
+<tr class="separator:a98e25066f5a1ea4fd321a7e44c46a15e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a550c1bad0377310d1ff2c695c97f7c17" id="r_a550c1bad0377310d1ff2c695c97f7c17"><td class="memItemLeft" align="right" valign="top"><a id="a550c1bad0377310d1ff2c695c97f7c17" name="a550c1bad0377310d1ff2c695c97f7c17"></a>
+constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>Reset</b> ()</td></tr>
+<tr class="memdesc:a550c1bad0377310d1ff2c695c97f7c17"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフをリセットする． <br /></td></tr>
+<tr class="separator:a550c1bad0377310d1ff2c695c97f7c17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>グラフ構造を持つRobotStateNodeのツリー構造を管理するクラス． <br  />
+ 歩容パターングラフ． </p>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="a09b4a0418d2d5ac2fa987d7518a06101" name="a09b4a0418d2d5ac2fa987d7518a06101"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09b4a0418d2d5ac2fa987d7518a06101">&#9670;&#160;</a></span>GetGraphSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int GaitPatternGraphTree::GetGraphSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>グラフのノードの総数を返す． </p>
+<dl class="section return"><dt>戻り値</dt><dd>int グラフのノードの総数． </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_gait_pattern_graph_tree_a09b4a0418d2d5ac2fa987d7518a06101_icgraph.png" border="0" usemap="#aclass_gait_pattern_graph_tree_a09b4a0418d2d5ac2fa987d7518a06101_icgraph" alt=""/></div>
+<map name="aclass_gait_pattern_graph_tree_a09b4a0418d2d5ac2fa987d7518a06101_icgraph" id="aclass_gait_pattern_graph_tree_a09b4a0418d2d5ac2fa987d7518a06101_icgraph">
+<area shape="rect" title="グラフのノードの総数を返す．" alt="" coords="251,139,398,181"/>
+<area shape="rect" href="class_gait_pattern_generator_basic.html#a645616757f44ba90e39f2ea90421ba69" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,5,203,48"/>
+<area shape="poly" title=" " alt="" coords="290,130,249,95,201,62,178,51,180,46,204,58,252,91,293,126"/>
+<area shape="rect" href="class_gait_pattern_generator_thread.html#abb68c5e14f5ca65059deb2c97880b0e5" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,72,203,115"/>
+<area shape="poly" title=" " alt="" coords="237,136,176,118,178,113,238,131"/>
+<area shape="rect" href="class_graph_searcher_random.html#a4d9ebc0ad49303fe2ef2fa4a1873b579" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="26,139,182,181"/>
+<area shape="poly" title=" " alt="" coords="235,163,183,163,183,157,235,157"/>
+<area shape="rect" href="class_graph_searcher_straight_move.html#a6d66c2b57a7352dfd78cb0ba52921031" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="12,205,196,248"/>
+<area shape="poly" title=" " alt="" coords="238,189,178,207,176,202,237,184"/>
+<area shape="rect" href="class_graph_searcher_spot_turn.html#ab68e51e335e4dcea6c745f6b825e4d97" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="24,272,184,315"/>
+<area shape="poly" title=" " alt="" coords="293,194,252,229,204,262,180,274,178,269,201,258,249,225,290,190"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a28a3f83a58949f3cae26dc658f6926a3" name="a28a3f83a58949f3cae26dc658f6926a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28a3f83a58949f3cae26dc658f6926a3">&#9670;&#160;</a></span>GetNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp; GaitPatternGraphTree::GetNode </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>グラフのノードの参照を返す． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>参照したいノードのindex．最大ノード数を超える数を指定するとassertionに引っかかる． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>indexで指定したノードの参照． </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_gait_pattern_graph_tree_a28a3f83a58949f3cae26dc658f6926a3_icgraph.png" border="0" usemap="#aclass_gait_pattern_graph_tree_a28a3f83a58949f3cae26dc658f6926a3_icgraph" alt=""/></div>
+<map name="aclass_gait_pattern_graph_tree_a28a3f83a58949f3cae26dc658f6926a3_icgraph" id="aclass_gait_pattern_graph_tree_a28a3f83a58949f3cae26dc658f6926a3_icgraph">
+<area shape="rect" title="グラフのノードの参照を返す．" alt="" coords="251,139,398,181"/>
+<area shape="rect" href="class_gait_pattern_generator_basic.html#a645616757f44ba90e39f2ea90421ba69" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,5,203,48"/>
+<area shape="poly" title=" " alt="" coords="290,130,249,95,201,62,178,51,180,46,204,58,252,91,293,126"/>
+<area shape="rect" href="class_gait_pattern_generator_thread.html#abb68c5e14f5ca65059deb2c97880b0e5" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,72,203,115"/>
+<area shape="poly" title=" " alt="" coords="237,136,176,118,178,113,238,131"/>
+<area shape="rect" href="class_graph_searcher_random.html#a4d9ebc0ad49303fe2ef2fa4a1873b579" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="26,139,182,181"/>
+<area shape="poly" title=" " alt="" coords="235,163,183,163,183,157,235,157"/>
+<area shape="rect" href="class_graph_searcher_straight_move.html#a6d66c2b57a7352dfd78cb0ba52921031" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="12,205,196,248"/>
+<area shape="poly" title=" " alt="" coords="238,189,178,207,176,202,237,184"/>
+<area shape="rect" href="class_graph_searcher_spot_turn.html#ab68e51e335e4dcea6c745f6b825e4d97" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="24,272,184,315"/>
+<area shape="poly" title=" " alt="" coords="293,194,252,229,204,262,180,274,178,269,201,258,249,225,290,190"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac41706b99c85361246bee93070b83de2" name="ac41706b99c85361246bee93070b83de2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac41706b99c85361246bee93070b83de2">&#9670;&#160;</a></span>GetParentNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp; GaitPatternGraphTree::GetParentNode </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>depth</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>指定したノードの親ノードの参照を返す．depthは親ノードの深さを指定する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>参照したいノードのindex．最大ノード数を超える数を指定するとassertionに引っかかる． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">depth</td><td>親ノードの深さ． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>const <a class="el" href="struct_robot_state_node.html" title="ノードの構造体を定義する．">RobotStateNode</a>&amp; indexで指定したノードの親ノードの参照． </dd></dl>
+
+</div>
+</div>
+<a id="a66067fba5d0c9531f8deb9630eb47a09" name="a66067fba5d0c9531f8deb9630eb47a09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66067fba5d0c9531f8deb9630eb47a09">&#9670;&#160;</a></span>GetParentNodeIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int GaitPatternGraphTree::GetParentNodeIndex </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>depth</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>指定したノードの親ノードの参照を返す．depthは親ノードの深さを指定する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>参照したいノードのindex．最大ノード数を超える数を指定するとassertionに引っかかる． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">depth</td><td>親ノードの深さ． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>int indexで指定したノードの親ノードのindex． </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_gait_pattern_graph_tree_a66067fba5d0c9531f8deb9630eb47a09_icgraph.png" border="0" usemap="#aclass_gait_pattern_graph_tree_a66067fba5d0c9531f8deb9630eb47a09_icgraph" alt=""/></div>
+<map name="aclass_gait_pattern_graph_tree_a66067fba5d0c9531f8deb9630eb47a09_icgraph" id="aclass_gait_pattern_graph_tree_a66067fba5d0c9531f8deb9630eb47a09_icgraph">
+<area shape="rect" title="指定したノードの親ノードの参照を返す．depthは親ノードの深さを指定する．" alt="" coords="237,39,386,81"/>
+<area shape="rect" href="class_graph_searcher_straight_move.html#a6d66c2b57a7352dfd78cb0ba52921031" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="5,5,189,48"/>
+<area shape="poly" title=" " alt="" coords="221,49,189,44,190,38,222,43"/>
+<area shape="rect" href="class_graph_searcher_spot_turn.html#ab68e51e335e4dcea6c745f6b825e4d97" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="17,72,177,115"/>
+<area shape="poly" title=" " alt="" coords="222,77,178,83,177,78,221,71"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5ee08f6d08f07ed53187a724abae73fa" name="a5ee08f6d08f07ed53187a724abae73fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ee08f6d08f07ed53187a724abae73fa">&#9670;&#160;</a></span>GetRootIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int GaitPatternGraphTree::GetRootIndex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>グラフの根ノードのindexを返す． <br  />
+ ノードがない場合を考慮していないため，HasRoot()で根ノードを持つかどうかを確認すること． <br  />
+ 一番最初に追加されたノードは必ず根ノードになるため，根ノードのindexは0で固定される． </p>
+<dl class="section return"><dt>戻り値</dt><dd>int グラフの根ノードのindex． </dd></dl>
+
+</div>
+</div>
+<a id="a63952c23000ed948a9869086c36e47a4" name="a63952c23000ed948a9869086c36e47a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63952c23000ed948a9869086c36e47a4">&#9670;&#160;</a></span>GetRootNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct_robot_state_node.html">RobotStateNode</a> &amp; GaitPatternGraphTree::GetRootNode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>グラフの根ノードの参照を返す． </p>
+<dl class="section return"><dt>戻り値</dt><dd>const <a class="el" href="struct_robot_state_node.html" title="ノードの構造体を定義する．">RobotStateNode</a>&amp; グラフの根ノードの参照． </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_gait_pattern_graph_tree_a63952c23000ed948a9869086c36e47a4_icgraph.png" border="0" usemap="#aclass_gait_pattern_graph_tree_a63952c23000ed948a9869086c36e47a4_icgraph" alt=""/></div>
+<map name="aclass_gait_pattern_graph_tree_a63952c23000ed948a9869086c36e47a4_icgraph" id="aclass_gait_pattern_graph_tree_a63952c23000ed948a9869086c36e47a4_icgraph">
+<area shape="rect" title="グラフの根ノードの参照を返す．" alt="" coords="237,39,384,81"/>
+<area shape="rect" href="class_graph_searcher_straight_move.html#a6d66c2b57a7352dfd78cb0ba52921031" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="5,5,189,48"/>
+<area shape="poly" title=" " alt="" coords="221,49,189,44,190,38,222,44"/>
+<area shape="rect" href="class_graph_searcher_spot_turn.html#ab68e51e335e4dcea6c745f6b825e4d97" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="17,72,177,115"/>
+<area shape="poly" title=" " alt="" coords="222,76,178,83,177,78,221,71"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a03b3dba65de70d1a42dd70360f36f4c4" name="a03b3dba65de70d1a42dd70360f36f4c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03b3dba65de70d1a42dd70360f36f4c4">&#9670;&#160;</a></span>HasRoot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool GaitPatternGraphTree::HasRoot </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>グラフが根ノードを持つかどうかを返す． <br  />
+ 根ノードとは，親を持たないノードのこと． <br  />
+ 一番最初に追加するノードは必ず親になるため，親を持つかどうかはノードの総数が0でないかどうかで判定できる． </p>
+<dl class="section return"><dt>戻り値</dt><dd>bool グラフが親を持つならtrue． </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_gait_pattern_graph_tree_a03b3dba65de70d1a42dd70360f36f4c4_icgraph.png" border="0" usemap="#aclass_gait_pattern_graph_tree_a03b3dba65de70d1a42dd70360f36f4c4_icgraph" alt=""/></div>
+<map name="aclass_gait_pattern_graph_tree_a03b3dba65de70d1a42dd70360f36f4c4_icgraph" id="aclass_gait_pattern_graph_tree_a03b3dba65de70d1a42dd70360f36f4c4_icgraph">
+<area shape="rect" title="グラフが根ノードを持つかどうかを返す． &#160;&#160;根ノードとは，親を持たないノードのこと． &#160;&#160;一番最初に追加するノードは必ず親になるため，親を持つかどうかはノードの総数が0でないかどうかで判定できる．" alt="" coords="237,39,384,81"/>
+<area shape="rect" href="class_graph_searcher_straight_move.html#a6d66c2b57a7352dfd78cb0ba52921031" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="5,5,189,48"/>
+<area shape="poly" title=" " alt="" coords="221,49,189,44,190,38,222,44"/>
+<area shape="rect" href="class_graph_searcher_spot_turn.html#ab68e51e335e4dcea6c745f6b825e4d97" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="17,72,177,115"/>
+<area shape="poly" title=" " alt="" coords="222,76,178,83,177,78,221,71"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8061469cfd0e987aefa6356d7e551dd6" name="a8061469cfd0e987aefa6356d7e551dd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8061469cfd0e987aefa6356d7e551dd6">&#9670;&#160;</a></span>IsEmpty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool GaitPatternGraphTree::IsEmpty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>グラフが空かどうかを返す． </p>
+<dl class="section return"><dt>戻り値</dt><dd>bool グラフが空ならtrue． </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_gait_pattern_graph_tree_a8061469cfd0e987aefa6356d7e551dd6_icgraph.png" border="0" usemap="#aclass_gait_pattern_graph_tree_a8061469cfd0e987aefa6356d7e551dd6_icgraph" alt=""/></div>
+<map name="aclass_gait_pattern_graph_tree_a8061469cfd0e987aefa6356d7e551dd6_icgraph" id="aclass_gait_pattern_graph_tree_a8061469cfd0e987aefa6356d7e551dd6_icgraph">
+<area shape="rect" title="グラフが空かどうかを返す．" alt="" coords="210,5,357,48"/>
+<area shape="rect" href="class_graph_searcher_random.html#a4d9ebc0ad49303fe2ef2fa4a1873b579" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="5,5,162,48"/>
+<area shape="poly" title=" " alt="" coords="194,29,162,29,162,24,194,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/hasegawa/Desktop/main/program/DesignLab/DesignLab/<a class="el" href="gait__pattern__graph__tree_8h_source.html">gait_pattern_graph_tree.h</a></li>
+<li>C:/Users/hasegawa/Desktop/main/program/DesignLab/DesignLab/<b>gait_pattern_graph_tree.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_gait_pattern_graph_tree.html">GaitPatternGraphTree</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

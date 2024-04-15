@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: jsoncons::basic_bigint&lt; Allocator &gt; クラステンプレート</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classjsoncons_1_1basic__bigint.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
+<a href="#pub-types">公開型</a> &#124;
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
+<a href="#pub-static-attribs">静的公開変数類</a> &#124;
+<a href="#friends">フレンド</a> &#124;
+<a href="classjsoncons_1_1basic__bigint-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">jsoncons::basic_bigint&lt; Allocator &gt; クラステンプレート</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+jsoncons::basic_bigint&lt; Allocator &gt; の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="classjsoncons_1_1basic__bigint__inherit__graph.png" border="0" usemap="#ajsoncons_1_1basic__bigint_3_01_allocator_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="ajsoncons_1_1basic__bigint_3_01_allocator_01_4_inherit__map" id="ajsoncons_1_1basic__bigint_3_01_allocator_01_4_inherit__map">
+<area shape="rect" title=" " alt="" coords="15,96,165,139"/>
+<area shape="rect" href="classjsoncons_1_1detail_1_1basic__bigint__base.html" title=" " alt="" coords="5,5,175,48"/>
+<area shape="poly" title=" " alt="" coords="93,64,93,96,87,96,87,64"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+jsoncons::basic_bigint&lt; Allocator &gt; 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="classjsoncons_1_1basic__bigint__coll__graph.png" border="0" usemap="#ajsoncons_1_1basic__bigint_3_01_allocator_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="ajsoncons_1_1basic__bigint_3_01_allocator_01_4_coll__map" id="ajsoncons_1_1basic__bigint_3_01_allocator_01_4_coll__map">
+<area shape="rect" title=" " alt="" coords="327,117,477,160"/>
+<area shape="rect" href="classjsoncons_1_1detail_1_1basic__bigint__base.html" title=" " alt="" coords="12,5,182,48"/>
+<area shape="poly" title=" " alt="" coords="185,51,304,92,356,114,354,119,302,97,183,56"/>
+<area shape="rect" title=" " alt="" coords="20,72,174,131"/>
+<area shape="poly" title=" " alt="" coords="190,110,327,127,326,132,189,115"/>
+<area shape="rect" title=" " alt="" coords="5,155,189,197"/>
+<area shape="poly" title=" " alt="" coords="204,160,326,145,326,150,204,166"/>
+<area shape="rect" title=" " alt="" coords="20,221,174,280"/>
+<area shape="poly" title=" " alt="" coords="188,221,302,182,355,158,357,163,304,186,190,226"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+公開型</h2></td></tr>
+<tr class="memitem:a2194d9090bc461c7ffeb85ec54641fba" id="r_a2194d9090bc461c7ffeb85ec54641fba"><td class="memItemLeft" align="right" valign="top"><a id="a2194d9090bc461c7ffeb85ec54641fba" name="a2194d9090bc461c7ffeb85ec54641fba"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>size_type</b> = typename base_t::size_type</td></tr>
+<tr class="separator:a2194d9090bc461c7ffeb85ec54641fba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7450623e49119bf8129cc874f6e3b527" id="r_a7450623e49119bf8129cc874f6e3b527"><td class="memItemLeft" align="right" valign="top"><a id="a7450623e49119bf8129cc874f6e3b527" name="a7450623e49119bf8129cc874f6e3b527"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b> = typename base_t::value_type</td></tr>
+<tr class="separator:a7450623e49119bf8129cc874f6e3b527"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4b9d48b006b28d061f5bc7fb40d6057" id="r_ad4b9d48b006b28d061f5bc7fb40d6057"><td class="memItemLeft" align="right" valign="top"><a id="ad4b9d48b006b28d061f5bc7fb40d6057" name="ad4b9d48b006b28d061f5bc7fb40d6057"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>bigint_type</b> = <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;</td></tr>
+<tr class="separator:ad4b9d48b006b28d061f5bc7fb40d6057"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:af924de68eb83845d3dc8d71ea14697fb" id="r_af924de68eb83845d3dc8d71ea14697fb"><td class="memItemLeft" align="right" valign="top"><a id="af924de68eb83845d3dc8d71ea14697fb" name="af924de68eb83845d3dc8d71ea14697fb"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>basic_bigint</b> (const Allocator &amp;alloc)</td></tr>
+<tr class="separator:af924de68eb83845d3dc8d71ea14697fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adced8dd50c4cc5062dc7e8c0cd7c1dac" id="r_adced8dd50c4cc5062dc7e8c0cd7c1dac"><td class="memItemLeft" align="right" valign="top"><a id="adced8dd50c4cc5062dc7e8c0cd7c1dac" name="adced8dd50c4cc5062dc7e8c0cd7c1dac"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>basic_bigint</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;n)</td></tr>
+<tr class="separator:adced8dd50c4cc5062dc7e8c0cd7c1dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addb694b3271b674afd6e0735831f6046" id="r_addb694b3271b674afd6e0735831f6046"><td class="memItemLeft" align="right" valign="top"><a id="addb694b3271b674afd6e0735831f6046" name="addb694b3271b674afd6e0735831f6046"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>basic_bigint</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;&amp;other) noexcept</td></tr>
+<tr class="separator:addb694b3271b674afd6e0735831f6046"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dbe0c74f48daf02c6edbd789ea19a16" id="r_a5dbe0c74f48daf02c6edbd789ea19a16"><td class="memTemplParams" colspan="2"><a id="a5dbe0c74f48daf02c6edbd789ea19a16" name="a5dbe0c74f48daf02c6edbd789ea19a16"></a>
+template&lt;class Integer &gt; </td></tr>
+<tr class="memitem:a5dbe0c74f48daf02c6edbd789ea19a16"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>basic_bigint</b> (Integer n, typename std::enable_if&lt; std::is_integral&lt; Integer &gt;::value &gt;::type *=0)</td></tr>
+<tr class="separator:a5dbe0c74f48daf02c6edbd789ea19a16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36785a9bd3337b3b02d8ac137f915486" id="r_a36785a9bd3337b3b02d8ac137f915486"><td class="memItemLeft" align="right" valign="top"><a id="a36785a9bd3337b3b02d8ac137f915486" name="a36785a9bd3337b3b02d8ac137f915486"></a>
+constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_dynamic</b> () const</td></tr>
+<tr class="separator:a36785a9bd3337b3b02d8ac137f915486"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d03fbc20ab1d2c985d9e36713fdccd5" id="r_a2d03fbc20ab1d2c985d9e36713fdccd5"><td class="memItemLeft" align="right" valign="top"><a id="a2d03fbc20ab1d2c985d9e36713fdccd5" name="a2d03fbc20ab1d2c985d9e36713fdccd5"></a>
+constexpr size_type&#160;</td><td class="memItemRight" valign="bottom"><b>length</b> () const</td></tr>
+<tr class="separator:a2d03fbc20ab1d2c985d9e36713fdccd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a821a69d2d1463bac6796d2d50e014d7d" id="r_a821a69d2d1463bac6796d2d50e014d7d"><td class="memItemLeft" align="right" valign="top"><a id="a821a69d2d1463bac6796d2d50e014d7d" name="a821a69d2d1463bac6796d2d50e014d7d"></a>
+constexpr size_type&#160;</td><td class="memItemRight" valign="bottom"><b>capacity</b> () const</td></tr>
+<tr class="separator:a821a69d2d1463bac6796d2d50e014d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a869b65b1dc0f022888b89e9c701bd0c5" id="r_a869b65b1dc0f022888b89e9c701bd0c5"><td class="memItemLeft" align="right" valign="top"><a id="a869b65b1dc0f022888b89e9c701bd0c5" name="a869b65b1dc0f022888b89e9c701bd0c5"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_negative</b> () const</td></tr>
+<tr class="separator:a869b65b1dc0f022888b89e9c701bd0c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33c78d8b3ab07ce6eefdc7da9549f551" id="r_a33c78d8b3ab07ce6eefdc7da9549f551"><td class="memItemLeft" align="right" valign="top"><a id="a33c78d8b3ab07ce6eefdc7da9549f551" name="a33c78d8b3ab07ce6eefdc7da9549f551"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>is_negative</b> (bool value)</td></tr>
+<tr class="separator:a33c78d8b3ab07ce6eefdc7da9549f551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22ab3406e2c5ce38a08ca2f53b420b81" id="r_a22ab3406e2c5ce38a08ca2f53b420b81"><td class="memItemLeft" align="right" valign="top"><a id="a22ab3406e2c5ce38a08ca2f53b420b81" name="a22ab3406e2c5ce38a08ca2f53b420b81"></a>
+constexpr const uint64_t *&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> () const</td></tr>
+<tr class="separator:a22ab3406e2c5ce38a08ca2f53b420b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c1db6f3fba4b9c0a3a1cfce95be2caa" id="r_a9c1db6f3fba4b9c0a3a1cfce95be2caa"><td class="memItemLeft" align="right" valign="top"><a id="a9c1db6f3fba4b9c0a3a1cfce95be2caa" name="a9c1db6f3fba4b9c0a3a1cfce95be2caa"></a>
+uint64_t *&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> ()</td></tr>
+<tr class="separator:a9c1db6f3fba4b9c0a3a1cfce95be2caa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a519b7c41d47e77f85d4b4e7f74924e90" id="r_a519b7c41d47e77f85d4b4e7f74924e90"><td class="memItemLeft" align="right" valign="top"><a id="a519b7c41d47e77f85d4b4e7f74924e90" name="a519b7c41d47e77f85d4b4e7f74924e90"></a>
+uint64_t *&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
+<tr class="separator:a519b7c41d47e77f85d4b4e7f74924e90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a98b134467a9cf4cdb2e226e928a57f" id="r_a1a98b134467a9cf4cdb2e226e928a57f"><td class="memItemLeft" align="right" valign="top"><a id="a1a98b134467a9cf4cdb2e226e928a57f" name="a1a98b134467a9cf4cdb2e226e928a57f"></a>
+const uint64_t *&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> () const</td></tr>
+<tr class="separator:a1a98b134467a9cf4cdb2e226e928a57f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a565bb106172721a7d84826c34ad616b3" id="r_a565bb106172721a7d84826c34ad616b3"><td class="memItemLeft" align="right" valign="top"><a id="a565bb106172721a7d84826c34ad616b3" name="a565bb106172721a7d84826c34ad616b3"></a>
+uint64_t *&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
+<tr class="separator:a565bb106172721a7d84826c34ad616b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e237ac2da3d3109ac703364a5a73566" id="r_a1e237ac2da3d3109ac703364a5a73566"><td class="memItemLeft" align="right" valign="top"><a id="a1e237ac2da3d3109ac703364a5a73566" name="a1e237ac2da3d3109ac703364a5a73566"></a>
+const uint64_t *&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> () const</td></tr>
+<tr class="separator:a1e237ac2da3d3109ac703364a5a73566"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f658ebe82adeed0a7ca03f22716f916" id="r_a4f658ebe82adeed0a7ca03f22716f916"><td class="memItemLeft" align="right" valign="top"><a id="a4f658ebe82adeed0a7ca03f22716f916" name="a4f658ebe82adeed0a7ca03f22716f916"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>resize</b> (size_type n)</td></tr>
+<tr class="separator:a4f658ebe82adeed0a7ca03f22716f916"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cfd806be898886048cba2da2944ed72" id="r_a6cfd806be898886048cba2da2944ed72"><td class="memItemLeft" align="right" valign="top"><a id="a6cfd806be898886048cba2da2944ed72" name="a6cfd806be898886048cba2da2944ed72"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reserve</b> (size_type n)</td></tr>
+<tr class="separator:a6cfd806be898886048cba2da2944ed72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfca514b2c2bd6485c02eb0a3499e4c4" id="r_adfca514b2c2bd6485c02eb0a3499e4c4"><td class="memItemLeft" align="right" valign="top"><a id="adfca514b2c2bd6485c02eb0a3499e4c4" name="adfca514b2c2bd6485c02eb0a3499e4c4"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!</b> () const</td></tr>
+<tr class="separator:adfca514b2c2bd6485c02eb0a3499e4c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a132d75db4c2399c2b360046690a81353" id="r_a132d75db4c2399c2b360046690a81353"><td class="memItemLeft" align="right" valign="top"><a id="a132d75db4c2399c2b360046690a81353" name="a132d75db4c2399c2b360046690a81353"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> () const</td></tr>
+<tr class="separator:a132d75db4c2399c2b360046690a81353"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d41f38006b8c1d425873c712dca4e0e" id="r_a8d41f38006b8c1d425873c712dca4e0e"><td class="memItemLeft" align="right" valign="top"><a id="a8d41f38006b8c1d425873c712dca4e0e" name="a8d41f38006b8c1d425873c712dca4e0e"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;y)</td></tr>
+<tr class="separator:a8d41f38006b8c1d425873c712dca4e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a548371172c192412f8ff146e1e343fa5" id="r_a548371172c192412f8ff146e1e343fa5"><td class="memItemLeft" align="right" valign="top"><a id="a548371172c192412f8ff146e1e343fa5" name="a548371172c192412f8ff146e1e343fa5"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;y)</td></tr>
+<tr class="separator:a548371172c192412f8ff146e1e343fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b98d60207ebdf3f646bc0b9952062cb" id="r_a8b98d60207ebdf3f646bc0b9952062cb"><td class="memItemLeft" align="right" valign="top"><a id="a8b98d60207ebdf3f646bc0b9952062cb" name="a8b98d60207ebdf3f646bc0b9952062cb"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-=</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;y)</td></tr>
+<tr class="separator:a8b98d60207ebdf3f646bc0b9952062cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d36ef6ebe366cd1cff4bf183d567ad2" id="r_a7d36ef6ebe366cd1cff4bf183d567ad2"><td class="memItemLeft" align="right" valign="top"><a id="a7d36ef6ebe366cd1cff4bf183d567ad2" name="a7d36ef6ebe366cd1cff4bf183d567ad2"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*=</b> (int64_t y)</td></tr>
+<tr class="separator:a7d36ef6ebe366cd1cff4bf183d567ad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fb39ccf18dfb2d0815dd8af12b9625f" id="r_a0fb39ccf18dfb2d0815dd8af12b9625f"><td class="memItemLeft" align="right" valign="top"><a id="a0fb39ccf18dfb2d0815dd8af12b9625f" name="a0fb39ccf18dfb2d0815dd8af12b9625f"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*=</b> (uint64_t y)</td></tr>
+<tr class="separator:a0fb39ccf18dfb2d0815dd8af12b9625f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb72bb5acb5eea601b37486fad2543c8" id="r_adb72bb5acb5eea601b37486fad2543c8"><td class="memItemLeft" align="right" valign="top"><a id="adb72bb5acb5eea601b37486fad2543c8" name="adb72bb5acb5eea601b37486fad2543c8"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*=</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; y)</td></tr>
+<tr class="separator:adb72bb5acb5eea601b37486fad2543c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad11f03c588016382f9fc29cb70f8750d" id="r_ad11f03c588016382f9fc29cb70f8750d"><td class="memItemLeft" align="right" valign="top"><a id="ad11f03c588016382f9fc29cb70f8750d" name="ad11f03c588016382f9fc29cb70f8750d"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/=</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;divisor)</td></tr>
+<tr class="separator:ad11f03c588016382f9fc29cb70f8750d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43c42054d6e0ec442440a1361d703797" id="r_a43c42054d6e0ec442440a1361d703797"><td class="memItemLeft" align="right" valign="top"><a id="a43c42054d6e0ec442440a1361d703797" name="a43c42054d6e0ec442440a1361d703797"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator%=</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;divisor)</td></tr>
+<tr class="separator:a43c42054d6e0ec442440a1361d703797"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b8989f818dbd750123248387f8de9c9" id="r_a3b8989f818dbd750123248387f8de9c9"><td class="memItemLeft" align="right" valign="top"><a id="a3b8989f818dbd750123248387f8de9c9" name="a3b8989f818dbd750123248387f8de9c9"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;=</b> (uint64_t k)</td></tr>
+<tr class="separator:a3b8989f818dbd750123248387f8de9c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafae3f53d63c8d01a271dcee1789c5ff" id="r_aafae3f53d63c8d01a271dcee1789c5ff"><td class="memItemLeft" align="right" valign="top"><a id="aafae3f53d63c8d01a271dcee1789c5ff" name="aafae3f53d63c8d01a271dcee1789c5ff"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;&gt;=</b> (uint64_t k)</td></tr>
+<tr class="separator:aafae3f53d63c8d01a271dcee1789c5ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d0692dd7d1ef516c7f66a8a6a2832a2" id="r_a5d0692dd7d1ef516c7f66a8a6a2832a2"><td class="memItemLeft" align="right" valign="top"><a id="a5d0692dd7d1ef516c7f66a8a6a2832a2" name="a5d0692dd7d1ef516c7f66a8a6a2832a2"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator++</b> ()</td></tr>
+<tr class="separator:a5d0692dd7d1ef516c7f66a8a6a2832a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5018fec5066f851298e7a6f1061d10a" id="r_af5018fec5066f851298e7a6f1061d10a"><td class="memItemLeft" align="right" valign="top"><a id="af5018fec5066f851298e7a6f1061d10a" name="af5018fec5066f851298e7a6f1061d10a"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator++</b> (int)</td></tr>
+<tr class="separator:af5018fec5066f851298e7a6f1061d10a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61b789caa8e56ede7ad9be2c3b00ec42" id="r_a61b789caa8e56ede7ad9be2c3b00ec42"><td class="memItemLeft" align="right" valign="top"><a id="a61b789caa8e56ede7ad9be2c3b00ec42" name="a61b789caa8e56ede7ad9be2c3b00ec42"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator--</b> ()</td></tr>
+<tr class="separator:a61b789caa8e56ede7ad9be2c3b00ec42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5922c2109176d7e8685a1b67e376c1c9" id="r_a5922c2109176d7e8685a1b67e376c1c9"><td class="memItemLeft" align="right" valign="top"><a id="a5922c2109176d7e8685a1b67e376c1c9" name="a5922c2109176d7e8685a1b67e376c1c9"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator--</b> (int)</td></tr>
+<tr class="separator:a5922c2109176d7e8685a1b67e376c1c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0a51a825d0a6a5f11e2262a0e0fba6c" id="r_ad0a51a825d0a6a5f11e2262a0e0fba6c"><td class="memItemLeft" align="right" valign="top"><a id="ad0a51a825d0a6a5f11e2262a0e0fba6c" name="ad0a51a825d0a6a5f11e2262a0e0fba6c"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator|=</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;a)</td></tr>
+<tr class="separator:ad0a51a825d0a6a5f11e2262a0e0fba6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33bbc5945d57cf21564a78f79d65c7d5" id="r_a33bbc5945d57cf21564a78f79d65c7d5"><td class="memItemLeft" align="right" valign="top"><a id="a33bbc5945d57cf21564a78f79d65c7d5" name="a33bbc5945d57cf21564a78f79d65c7d5"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator^=</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;a)</td></tr>
+<tr class="separator:a33bbc5945d57cf21564a78f79d65c7d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a278619f14bb2824d32fab3ed91be43f5" id="r_a278619f14bb2824d32fab3ed91be43f5"><td class="memItemLeft" align="right" valign="top"><a id="a278619f14bb2824d32fab3ed91be43f5" name="a278619f14bb2824d32fab3ed91be43f5"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&amp;=</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;a)</td></tr>
+<tr class="separator:a278619f14bb2824d32fab3ed91be43f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafe8f76d6a42c418244a422b2af0a6dc" id="r_aafe8f76d6a42c418244a422b2af0a6dc"><td class="memItemLeft" align="right" valign="top"><a id="aafe8f76d6a42c418244a422b2af0a6dc" name="aafe8f76d6a42c418244a422b2af0a6dc"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>operator bool</b> () const</td></tr>
+<tr class="separator:aafe8f76d6a42c418244a422b2af0a6dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fb11f7bd4780752f896fab6037e1922" id="r_a8fb11f7bd4780752f896fab6037e1922"><td class="memItemLeft" align="right" valign="top"><a id="a8fb11f7bd4780752f896fab6037e1922" name="a8fb11f7bd4780752f896fab6037e1922"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>operator int64_t</b> () const</td></tr>
+<tr class="separator:a8fb11f7bd4780752f896fab6037e1922"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2ee35a2fbf4a8abac8f39011110754a" id="r_aa2ee35a2fbf4a8abac8f39011110754a"><td class="memItemLeft" align="right" valign="top"><a id="aa2ee35a2fbf4a8abac8f39011110754a" name="aa2ee35a2fbf4a8abac8f39011110754a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>operator uint64_t</b> () const</td></tr>
+<tr class="separator:aa2ee35a2fbf4a8abac8f39011110754a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee31b2d254fc754cdf7f37d6ac898f79" id="r_aee31b2d254fc754cdf7f37d6ac898f79"><td class="memItemLeft" align="right" valign="top"><a id="aee31b2d254fc754cdf7f37d6ac898f79" name="aee31b2d254fc754cdf7f37d6ac898f79"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>operator double</b> () const</td></tr>
+<tr class="separator:aee31b2d254fc754cdf7f37d6ac898f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a907d12f6f3cf471a8d60714b704a92" id="r_a8a907d12f6f3cf471a8d60714b704a92"><td class="memItemLeft" align="right" valign="top"><a id="a8a907d12f6f3cf471a8d60714b704a92" name="a8a907d12f6f3cf471a8d60714b704a92"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>operator long double</b> () const</td></tr>
+<tr class="separator:a8a907d12f6f3cf471a8d60714b704a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aebdf608392d70cfaecf97623486d6f" id="r_a6aebdf608392d70cfaecf97623486d6f"><td class="memTemplParams" colspan="2"><a id="a6aebdf608392d70cfaecf97623486d6f" name="a6aebdf608392d70cfaecf97623486d6f"></a>
+template&lt;typename Alloc &gt; </td></tr>
+<tr class="memitem:a6aebdf608392d70cfaecf97623486d6f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>write_bytes_be</b> (int &amp;signum, std::vector&lt; uint8_t, Alloc &gt; &amp;data) const</td></tr>
+<tr class="separator:a6aebdf608392d70cfaecf97623486d6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b4ef4bafebfdc8b987124724c5a5ddd" id="r_a4b4ef4bafebfdc8b987124724c5a5ddd"><td class="memItemLeft" align="right" valign="top"><a id="a4b4ef4bafebfdc8b987124724c5a5ddd" name="a4b4ef4bafebfdc8b987124724c5a5ddd"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>to_string</b> () const</td></tr>
+<tr class="separator:a4b4ef4bafebfdc8b987124724c5a5ddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a114aa8ed719e8118d67490881c44048f" id="r_a114aa8ed719e8118d67490881c44048f"><td class="memTemplParams" colspan="2"><a id="a114aa8ed719e8118d67490881c44048f" name="a114aa8ed719e8118d67490881c44048f"></a>
+template&lt;typename Ch , typename Traits , typename Alloc &gt; </td></tr>
+<tr class="memitem:a114aa8ed719e8118d67490881c44048f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>write_string</b> (std::basic_string&lt; Ch, Traits, Alloc &gt; &amp;data) const</td></tr>
+<tr class="separator:a114aa8ed719e8118d67490881c44048f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfaaa922c99f72fc7f023d796e0e0a8c" id="r_acfaaa922c99f72fc7f023d796e0e0a8c"><td class="memItemLeft" align="right" valign="top"><a id="acfaaa922c99f72fc7f023d796e0e0a8c" name="acfaaa922c99f72fc7f023d796e0e0a8c"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>to_string_hex</b> () const</td></tr>
+<tr class="separator:acfaaa922c99f72fc7f023d796e0e0a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d33f9fc23df6429e016194a5a836824" id="r_a2d33f9fc23df6429e016194a5a836824"><td class="memTemplParams" colspan="2"><a id="a2d33f9fc23df6429e016194a5a836824" name="a2d33f9fc23df6429e016194a5a836824"></a>
+template&lt;typename Ch , typename Traits , typename Alloc &gt; </td></tr>
+<tr class="memitem:a2d33f9fc23df6429e016194a5a836824"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>write_string_hex</b> (std::basic_string&lt; Ch, Traits, Alloc &gt; &amp;data) const</td></tr>
+<tr class="separator:a2d33f9fc23df6429e016194a5a836824"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a696a42259f2d54c96a53cca4ca506cf4" id="r_a696a42259f2d54c96a53cca4ca506cf4"><td class="memItemLeft" align="right" valign="top"><a id="a696a42259f2d54c96a53cca4ca506cf4" name="a696a42259f2d54c96a53cca4ca506cf4"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>compare</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;y) const noexcept</td></tr>
+<tr class="separator:a696a42259f2d54c96a53cca4ca506cf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ca48800ea77fb131afdf018eea37b23" id="r_a1ca48800ea77fb131afdf018eea37b23"><td class="memItemLeft" align="right" valign="top"><a id="a1ca48800ea77fb131afdf018eea37b23" name="a1ca48800ea77fb131afdf018eea37b23"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>divide</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; denom, <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;quot, <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;rem, bool remDesired) const</td></tr>
+<tr class="separator:a1ca48800ea77fb131afdf018eea37b23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ad4e12d89c4ff7a9f7499e6f5eba8cc" id="r_a0ad4e12d89c4ff7a9f7499e6f5eba8cc"><td class="memItemLeft" align="right" valign="top"><a id="a0ad4e12d89c4ff7a9f7499e6f5eba8cc" name="a0ad4e12d89c4ff7a9f7499e6f5eba8cc"></a>
+basic_type_allocator_type&#160;</td><td class="memItemRight" valign="bottom"><b>get_allocator</b> () const</td></tr>
+<tr class="separator:a0ad4e12d89c4ff7a9f7499e6f5eba8cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:a293645c5a6f006634f8c47ebebdb4ce0" id="r_a293645c5a6f006634f8c47ebebdb4ce0"><td class="memTemplParams" colspan="2"><a id="a293645c5a6f006634f8c47ebebdb4ce0" name="a293645c5a6f006634f8c47ebebdb4ce0"></a>
+template&lt;class CharT &gt; </td></tr>
+<tr class="memitem:a293645c5a6f006634f8c47ebebdb4ce0"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>from_string</b> (const std::basic_string&lt; CharT &gt; &amp;s)</td></tr>
+<tr class="separator:a293645c5a6f006634f8c47ebebdb4ce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e82d5d3c93d59988aecd0b75b4a0091" id="r_a7e82d5d3c93d59988aecd0b75b4a0091"><td class="memTemplParams" colspan="2"><a id="a7e82d5d3c93d59988aecd0b75b4a0091" name="a7e82d5d3c93d59988aecd0b75b4a0091"></a>
+template&lt;class CharT &gt; </td></tr>
+<tr class="memitem:a7e82d5d3c93d59988aecd0b75b4a0091"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>from_string</b> (const CharT *s)</td></tr>
+<tr class="separator:a7e82d5d3c93d59988aecd0b75b4a0091"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e414ffb88a7a48f807710bd99ef08af" id="r_a0e414ffb88a7a48f807710bd99ef08af"><td class="memTemplParams" colspan="2"><a id="a0e414ffb88a7a48f807710bd99ef08af" name="a0e414ffb88a7a48f807710bd99ef08af"></a>
+template&lt;class CharT &gt; </td></tr>
+<tr class="memitem:a0e414ffb88a7a48f807710bd99ef08af"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>from_string</b> (const CharT *data, size_type length)</td></tr>
+<tr class="separator:a0e414ffb88a7a48f807710bd99ef08af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4195e86a7080997f4d913e2410990c4c" id="r_a4195e86a7080997f4d913e2410990c4c"><td class="memTemplParams" colspan="2"><a id="a4195e86a7080997f4d913e2410990c4c" name="a4195e86a7080997f4d913e2410990c4c"></a>
+template&lt;class CharT &gt; </td></tr>
+<tr class="memitem:a4195e86a7080997f4d913e2410990c4c"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>from_string_radix</b> (const CharT *data, size_type length, uint8_t radix)</td></tr>
+<tr class="separator:a4195e86a7080997f4d913e2410990c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa50c693f13644572681d4f0f6df84ff" id="r_aaa50c693f13644572681d4f0f6df84ff"><td class="memItemLeft" align="right" valign="top"><a id="aaa50c693f13644572681d4f0f6df84ff" name="aaa50c693f13644572681d4f0f6df84ff"></a>
+static <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>from_bytes_be</b> (int signum, const uint8_t *str, std::size_t n)</td></tr>
+<tr class="separator:aaa50c693f13644572681d4f0f6df84ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+静的公開変数類</h2></td></tr>
+<tr class="memitem:ab24e0d62e71dab1fca66b36568c25b4f" id="r_ab24e0d62e71dab1fca66b36568c25b4f"><td class="memItemLeft" align="right" valign="top"><a id="ab24e0d62e71dab1fca66b36568c25b4f" name="ab24e0d62e71dab1fca66b36568c25b4f"></a>
+static constexpr uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>max_basic_type</b> = (std::numeric_limits&lt;uint64_t&gt;::max)()</td></tr>
+<tr class="separator:ab24e0d62e71dab1fca66b36568c25b4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa36fd9fe3edda2b391800d77c318d137" id="r_aa36fd9fe3edda2b391800d77c318d137"><td class="memItemLeft" align="right" valign="top"><a id="aa36fd9fe3edda2b391800d77c318d137" name="aa36fd9fe3edda2b391800d77c318d137"></a>
+static constexpr uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>basic_type_bits</b> = sizeof(uint64_t) * 8</td></tr>
+<tr class="separator:aa36fd9fe3edda2b391800d77c318d137"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4953ab605f81b75a32e271f456ed3ac9" id="r_a4953ab605f81b75a32e271f456ed3ac9"><td class="memItemLeft" align="right" valign="top"><a id="a4953ab605f81b75a32e271f456ed3ac9" name="a4953ab605f81b75a32e271f456ed3ac9"></a>
+static constexpr uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>basic_type_halfBits</b> = basic_type_bits/2</td></tr>
+<tr class="separator:a4953ab605f81b75a32e271f456ed3ac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9ad39b8545d4c1585073578bc5a2224" id="r_aa9ad39b8545d4c1585073578bc5a2224"><td class="memItemLeft" align="right" valign="top"><a id="aa9ad39b8545d4c1585073578bc5a2224" name="aa9ad39b8545d4c1585073578bc5a2224"></a>
+static constexpr uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>word_length</b> = 4</td></tr>
+<tr class="separator:aa9ad39b8545d4c1585073578bc5a2224"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0586e25781d5fff63b84330fc7ffb07" id="r_af0586e25781d5fff63b84330fc7ffb07"><td class="memItemLeft" align="right" valign="top"><a id="af0586e25781d5fff63b84330fc7ffb07" name="af0586e25781d5fff63b84330fc7ffb07"></a>
+static constexpr uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>r_mask</b> = (uint64_t(1) &lt;&lt; basic_type_halfBits) - 1</td></tr>
+<tr class="separator:af0586e25781d5fff63b84330fc7ffb07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d72a576b78ff2b49079cbc42ee8d9ed" id="r_a1d72a576b78ff2b49079cbc42ee8d9ed"><td class="memItemLeft" align="right" valign="top"><a id="a1d72a576b78ff2b49079cbc42ee8d9ed" name="a1d72a576b78ff2b49079cbc42ee8d9ed"></a>
+static constexpr uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>l_mask</b> = max_basic_type - r_mask</td></tr>
+<tr class="separator:a1d72a576b78ff2b49079cbc42ee8d9ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad38de508416cabadfed52ace16876635" id="r_ad38de508416cabadfed52ace16876635"><td class="memItemLeft" align="right" valign="top"><a id="ad38de508416cabadfed52ace16876635" name="ad38de508416cabadfed52ace16876635"></a>
+static constexpr uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>l_bit</b> = max_basic_type - (max_basic_type &gt;&gt; 1)</td></tr>
+<tr class="separator:ad38de508416cabadfed52ace16876635"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+フレンド</h2></td></tr>
+<tr class="memitem:ae8aabf7d15cb45b7cab84f987d0a5c56" id="r_ae8aabf7d15cb45b7cab84f987d0a5c56"><td class="memItemLeft" align="right" valign="top"><a id="ae8aabf7d15cb45b7cab84f987d0a5c56" name="ae8aabf7d15cb45b7cab84f987d0a5c56"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;x, const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;y) noexcept</td></tr>
+<tr class="separator:ae8aabf7d15cb45b7cab84f987d0a5c56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a176cc500bf766f34ddfe4535eb83ffb8" id="r_a176cc500bf766f34ddfe4535eb83ffb8"><td class="memItemLeft" align="right" valign="top"><a id="a176cc500bf766f34ddfe4535eb83ffb8" name="a176cc500bf766f34ddfe4535eb83ffb8"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;x, int y) noexcept</td></tr>
+<tr class="separator:a176cc500bf766f34ddfe4535eb83ffb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8df413d542ef999b18e00584c278229" id="r_ad8df413d542ef999b18e00584c278229"><td class="memItemLeft" align="right" valign="top"><a id="ad8df413d542ef999b18e00584c278229" name="ad8df413d542ef999b18e00584c278229"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;x, const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;y) noexcept</td></tr>
+<tr class="separator:ad8df413d542ef999b18e00584c278229"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a993a62c3845e6a3cda65e6beccc1a63f" id="r_a993a62c3845e6a3cda65e6beccc1a63f"><td class="memItemLeft" align="right" valign="top"><a id="a993a62c3845e6a3cda65e6beccc1a63f" name="a993a62c3845e6a3cda65e6beccc1a63f"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;x, int y) noexcept</td></tr>
+<tr class="separator:a993a62c3845e6a3cda65e6beccc1a63f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab439233b1beefc67c2716a2803e533fe" id="r_ab439233b1beefc67c2716a2803e533fe"><td class="memItemLeft" align="right" valign="top"><a id="ab439233b1beefc67c2716a2803e533fe" name="ab439233b1beefc67c2716a2803e533fe"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;x, const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;y) noexcept</td></tr>
+<tr class="separator:ab439233b1beefc67c2716a2803e533fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a035b6d1ba3e44261e9c49186eb342360" id="r_a035b6d1ba3e44261e9c49186eb342360"><td class="memItemLeft" align="right" valign="top"><a id="a035b6d1ba3e44261e9c49186eb342360" name="a035b6d1ba3e44261e9c49186eb342360"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;x, int64_t y) noexcept</td></tr>
+<tr class="separator:a035b6d1ba3e44261e9c49186eb342360"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f09d3ed98ae1489d647037eb5b97d2d" id="r_a1f09d3ed98ae1489d647037eb5b97d2d"><td class="memItemLeft" align="right" valign="top"><a id="a1f09d3ed98ae1489d647037eb5b97d2d" name="a1f09d3ed98ae1489d647037eb5b97d2d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;x, const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;y) noexcept</td></tr>
+<tr class="separator:a1f09d3ed98ae1489d647037eb5b97d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad29a83ad0202cc91b2af2c239405250b" id="r_ad29a83ad0202cc91b2af2c239405250b"><td class="memItemLeft" align="right" valign="top"><a id="ad29a83ad0202cc91b2af2c239405250b" name="ad29a83ad0202cc91b2af2c239405250b"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;x, int y) noexcept</td></tr>
+<tr class="separator:ad29a83ad0202cc91b2af2c239405250b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d00b3f12ff7189cc94c4b991ec01007" id="r_a0d00b3f12ff7189cc94c4b991ec01007"><td class="memItemLeft" align="right" valign="top"><a id="a0d00b3f12ff7189cc94c4b991ec01007" name="a0d00b3f12ff7189cc94c4b991ec01007"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;x, const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;y) noexcept</td></tr>
+<tr class="separator:a0d00b3f12ff7189cc94c4b991ec01007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed4ed60081cfb465cc62b6c1223b5082" id="r_aed4ed60081cfb465cc62b6c1223b5082"><td class="memItemLeft" align="right" valign="top"><a id="aed4ed60081cfb465cc62b6c1223b5082" name="aed4ed60081cfb465cc62b6c1223b5082"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;x, int y) noexcept</td></tr>
+<tr class="separator:aed4ed60081cfb465cc62b6c1223b5082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae31c27f9e4aacd16daa829738ce2ab6f" id="r_ae31c27f9e4aacd16daa829738ce2ab6f"><td class="memItemLeft" align="right" valign="top"><a id="ae31c27f9e4aacd16daa829738ce2ab6f" name="ae31c27f9e4aacd16daa829738ce2ab6f"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;x, const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;y) noexcept</td></tr>
+<tr class="separator:ae31c27f9e4aacd16daa829738ce2ab6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a291c78705a174b24c7f1be1d15ebe1e1" id="r_a291c78705a174b24c7f1be1d15ebe1e1"><td class="memItemLeft" align="right" valign="top"><a id="a291c78705a174b24c7f1be1d15ebe1e1" name="a291c78705a174b24c7f1be1d15ebe1e1"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;x, int y) noexcept</td></tr>
+<tr class="separator:a291c78705a174b24c7f1be1d15ebe1e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a505ca44e9064bb345dcbb4a582886527" id="r_a505ca44e9064bb345dcbb4a582886527"><td class="memItemLeft" align="right" valign="top"><a id="a505ca44e9064bb345dcbb4a582886527" name="a505ca44e9064bb345dcbb4a582886527"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; x, const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;y)</td></tr>
+<tr class="separator:a505ca44e9064bb345dcbb4a582886527"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c8b4bb9c88b6feaa659060818bd83ff" id="r_a0c8b4bb9c88b6feaa659060818bd83ff"><td class="memItemLeft" align="right" valign="top"><a id="a0c8b4bb9c88b6feaa659060818bd83ff" name="a0c8b4bb9c88b6feaa659060818bd83ff"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; x, int64_t y)</td></tr>
+<tr class="separator:a0c8b4bb9c88b6feaa659060818bd83ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41a3ac6762977a39afba6a7716c16fb2" id="r_a41a3ac6762977a39afba6a7716c16fb2"><td class="memItemLeft" align="right" valign="top"><a id="a41a3ac6762977a39afba6a7716c16fb2" name="a41a3ac6762977a39afba6a7716c16fb2"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; x, const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;y)</td></tr>
+<tr class="separator:a41a3ac6762977a39afba6a7716c16fb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae93e7c99559a864c89bad26b02610b43" id="r_ae93e7c99559a864c89bad26b02610b43"><td class="memItemLeft" align="right" valign="top"><a id="ae93e7c99559a864c89bad26b02610b43" name="ae93e7c99559a864c89bad26b02610b43"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; x, int64_t y)</td></tr>
+<tr class="separator:ae93e7c99559a864c89bad26b02610b43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdf6532ecc4e306b59b2b3cf3cc479d0" id="r_afdf6532ecc4e306b59b2b3cf3cc479d0"><td class="memItemLeft" align="right" valign="top"><a id="afdf6532ecc4e306b59b2b3cf3cc479d0" name="afdf6532ecc4e306b59b2b3cf3cc479d0"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (int64_t x, const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;y)</td></tr>
+<tr class="separator:afdf6532ecc4e306b59b2b3cf3cc479d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ad90a5bd931ccaa91c19e14b48e9a9a" id="r_a7ad90a5bd931ccaa91c19e14b48e9a9a"><td class="memItemLeft" align="right" valign="top"><a id="a7ad90a5bd931ccaa91c19e14b48e9a9a" name="a7ad90a5bd931ccaa91c19e14b48e9a9a"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; x, const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;y)</td></tr>
+<tr class="separator:a7ad90a5bd931ccaa91c19e14b48e9a9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10a039ab8cf560607f3414fa0e400c9c" id="r_a10a039ab8cf560607f3414fa0e400c9c"><td class="memItemLeft" align="right" valign="top"><a id="a10a039ab8cf560607f3414fa0e400c9c" name="a10a039ab8cf560607f3414fa0e400c9c"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; x, int64_t y)</td></tr>
+<tr class="separator:a10a039ab8cf560607f3414fa0e400c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79b6363941ebe213cbd92cc173c63f7a" id="r_a79b6363941ebe213cbd92cc173c63f7a"><td class="memItemLeft" align="right" valign="top"><a id="a79b6363941ebe213cbd92cc173c63f7a" name="a79b6363941ebe213cbd92cc173c63f7a"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; x, const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;y)</td></tr>
+<tr class="separator:a79b6363941ebe213cbd92cc173c63f7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9fec9d1d0ade164b8fdfc9e922709fa" id="r_ab9fec9d1d0ade164b8fdfc9e922709fa"><td class="memItemLeft" align="right" valign="top"><a id="ab9fec9d1d0ade164b8fdfc9e922709fa" name="ab9fec9d1d0ade164b8fdfc9e922709fa"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; x, int y)</td></tr>
+<tr class="separator:ab9fec9d1d0ade164b8fdfc9e922709fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ee0f4794cb571c3c3029e92c582dec3" id="r_a2ee0f4794cb571c3c3029e92c582dec3"><td class="memItemLeft" align="right" valign="top"><a id="a2ee0f4794cb571c3c3029e92c582dec3" name="a2ee0f4794cb571c3c3029e92c582dec3"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator%</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; x, const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;y)</td></tr>
+<tr class="separator:a2ee0f4794cb571c3c3029e92c582dec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4740be7be39a0f04fa7aabe9480c5b1" id="r_af4740be7be39a0f04fa7aabe9480c5b1"><td class="memItemLeft" align="right" valign="top"><a id="af4740be7be39a0f04fa7aabe9480c5b1" name="af4740be7be39a0f04fa7aabe9480c5b1"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; u, unsigned k)</td></tr>
+<tr class="separator:af4740be7be39a0f04fa7aabe9480c5b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ce815cc713ed90c52145e14159f8d76" id="r_a3ce815cc713ed90c52145e14159f8d76"><td class="memItemLeft" align="right" valign="top"><a id="a3ce815cc713ed90c52145e14159f8d76" name="a3ce815cc713ed90c52145e14159f8d76"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; u, int k)</td></tr>
+<tr class="separator:a3ce815cc713ed90c52145e14159f8d76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0169317c364a475fcd696ef3e4b38f05" id="r_a0169317c364a475fcd696ef3e4b38f05"><td class="memItemLeft" align="right" valign="top"><a id="a0169317c364a475fcd696ef3e4b38f05" name="a0169317c364a475fcd696ef3e4b38f05"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;&gt;</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; u, unsigned k)</td></tr>
+<tr class="separator:a0169317c364a475fcd696ef3e4b38f05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a687ca398c35cc90071a3fffa693646f5" id="r_a687ca398c35cc90071a3fffa693646f5"><td class="memItemLeft" align="right" valign="top"><a id="a687ca398c35cc90071a3fffa693646f5" name="a687ca398c35cc90071a3fffa693646f5"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;&gt;</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; u, int k)</td></tr>
+<tr class="separator:a687ca398c35cc90071a3fffa693646f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f454ebfcf457804f1a4cf6bebce7179" id="r_a3f454ebfcf457804f1a4cf6bebce7179"><td class="memItemLeft" align="right" valign="top"><a id="a3f454ebfcf457804f1a4cf6bebce7179" name="a3f454ebfcf457804f1a4cf6bebce7179"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator|</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; x, const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;y)</td></tr>
+<tr class="separator:a3f454ebfcf457804f1a4cf6bebce7179"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8548ecd97cfea3d23fd5abbfc3126da" id="r_ad8548ecd97cfea3d23fd5abbfc3126da"><td class="memItemLeft" align="right" valign="top"><a id="ad8548ecd97cfea3d23fd5abbfc3126da" name="ad8548ecd97cfea3d23fd5abbfc3126da"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator|</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; x, int y)</td></tr>
+<tr class="separator:ad8548ecd97cfea3d23fd5abbfc3126da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79fd908cf13c268d6c34d128424407de" id="r_a79fd908cf13c268d6c34d128424407de"><td class="memItemLeft" align="right" valign="top"><a id="a79fd908cf13c268d6c34d128424407de" name="a79fd908cf13c268d6c34d128424407de"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator|</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; x, unsigned y)</td></tr>
+<tr class="separator:a79fd908cf13c268d6c34d128424407de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ee2641d61e7415c3f62d7d532b59618" id="r_a8ee2641d61e7415c3f62d7d532b59618"><td class="memItemLeft" align="right" valign="top"><a id="a8ee2641d61e7415c3f62d7d532b59618" name="a8ee2641d61e7415c3f62d7d532b59618"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator^</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; x, const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;y)</td></tr>
+<tr class="separator:a8ee2641d61e7415c3f62d7d532b59618"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa03021a36f920fb6e8a6b104cb27aa50" id="r_aa03021a36f920fb6e8a6b104cb27aa50"><td class="memItemLeft" align="right" valign="top"><a id="aa03021a36f920fb6e8a6b104cb27aa50" name="aa03021a36f920fb6e8a6b104cb27aa50"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator^</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; x, int y)</td></tr>
+<tr class="separator:aa03021a36f920fb6e8a6b104cb27aa50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a898e794e022b9090cbd4e4d59614ffd4" id="r_a898e794e022b9090cbd4e4d59614ffd4"><td class="memItemLeft" align="right" valign="top"><a id="a898e794e022b9090cbd4e4d59614ffd4" name="a898e794e022b9090cbd4e4d59614ffd4"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator^</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; x, unsigned y)</td></tr>
+<tr class="separator:a898e794e022b9090cbd4e4d59614ffd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a455e14daf1d6e6712790b63fd0b06921" id="r_a455e14daf1d6e6712790b63fd0b06921"><td class="memItemLeft" align="right" valign="top"><a id="a455e14daf1d6e6712790b63fd0b06921" name="a455e14daf1d6e6712790b63fd0b06921"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&amp;</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; x, const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;y)</td></tr>
+<tr class="separator:a455e14daf1d6e6712790b63fd0b06921"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfd0ac268be11041eb4b4c959c1a60b9" id="r_acfd0ac268be11041eb4b4c959c1a60b9"><td class="memItemLeft" align="right" valign="top"><a id="acfd0ac268be11041eb4b4c959c1a60b9" name="acfd0ac268be11041eb4b4c959c1a60b9"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&amp;</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; x, int y)</td></tr>
+<tr class="separator:acfd0ac268be11041eb4b4c959c1a60b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae130482db909784308590ca4536e08d5" id="r_ae130482db909784308590ca4536e08d5"><td class="memItemLeft" align="right" valign="top"><a id="ae130482db909784308590ca4536e08d5" name="ae130482db909784308590ca4536e08d5"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&amp;</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; x, unsigned y)</td></tr>
+<tr class="separator:ae130482db909784308590ca4536e08d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab19d9717521240c01785be45237f61dc" id="r_ab19d9717521240c01785be45237f61dc"><td class="memItemLeft" align="right" valign="top"><a id="ab19d9717521240c01785be45237f61dc" name="ab19d9717521240c01785be45237f61dc"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>abs</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;a)</td></tr>
+<tr class="separator:ab19d9717521240c01785be45237f61dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8a873a34d5725c126f9207005386936" id="r_ad8a873a34d5725c126f9207005386936"><td class="memItemLeft" align="right" valign="top"><a id="ad8a873a34d5725c126f9207005386936" name="ad8a873a34d5725c126f9207005386936"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>power</b> (<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; x, unsigned n)</td></tr>
+<tr class="separator:ad8a873a34d5725c126f9207005386936"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc8c58f12daf9983e865cb9c84b2a43c" id="r_afc8c58f12daf9983e865cb9c84b2a43c"><td class="memItemLeft" align="right" valign="top"><a id="afc8c58f12daf9983e865cb9c84b2a43c" name="afc8c58f12daf9983e865cb9c84b2a43c"></a>
+<a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>sqrt</b> (const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;a)</td></tr>
+<tr class="separator:afc8c58f12daf9983e865cb9c84b2a43c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41d0002ab4b0c0d84f2268ea1b315720" id="r_a41d0002ab4b0c0d84f2268ea1b315720"><td class="memTemplParams" colspan="2"><a id="a41d0002ab4b0c0d84f2268ea1b315720" name="a41d0002ab4b0c0d84f2268ea1b315720"></a>
+template&lt;class CharT &gt; </td></tr>
+<tr class="memitem:a41d0002ab4b0c0d84f2268ea1b315720"><td class="memTemplItemLeft" align="right" valign="top">std::basic_ostream&lt; CharT &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::basic_ostream&lt; CharT &gt; &amp;os, const <a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a>&lt; Allocator &gt; &amp;v)</td></tr>
+<tr class="separator:a41d0002ab4b0c0d84f2268ea1b315720"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+その他の継承メンバ</h2></td></tr>
+<tr class="inherit_header pro_types_classjsoncons_1_1detail_1_1basic__bigint__base"><td colspan="2" onclick="javascript:toggleInherit('pro_types_classjsoncons_1_1detail_1_1basic__bigint__base')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classjsoncons_1_1detail_1_1basic__bigint__base.html">jsoncons::detail::basic_bigint_base&lt; Allocator &gt;</a> に属する継承限定公開型</td></tr>
+<tr class="memitem:ad71bbab77fdc0e7774d88e628674f12a inherit pro_types_classjsoncons_1_1detail_1_1basic__bigint__base" id="r_ad71bbab77fdc0e7774d88e628674f12a"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>allocator_type</b> = Allocator</td></tr>
+<tr class="separator:ad71bbab77fdc0e7774d88e628674f12a inherit pro_types_classjsoncons_1_1detail_1_1basic__bigint__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace0964104a673d226836d00d3b4ebb74 inherit pro_types_classjsoncons_1_1detail_1_1basic__bigint__base" id="r_ace0964104a673d226836d00d3b4ebb74"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>basic_type_allocator_type</b> = typename std::allocator_traits&lt; allocator_type &gt;::template rebind_alloc&lt; uint64_t &gt;</td></tr>
+<tr class="separator:ace0964104a673d226836d00d3b4ebb74 inherit pro_types_classjsoncons_1_1detail_1_1basic__bigint__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a426af2ce00cbfbeff040d24e49fea1f0 inherit pro_types_classjsoncons_1_1detail_1_1basic__bigint__base" id="r_a426af2ce00cbfbeff040d24e49fea1f0"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>allocator_traits_type</b> = std::allocator_traits&lt; allocator_type &gt;</td></tr>
+<tr class="separator:a426af2ce00cbfbeff040d24e49fea1f0 inherit pro_types_classjsoncons_1_1detail_1_1basic__bigint__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0529e127d1b24120abd08d7137cb9470 inherit pro_types_classjsoncons_1_1detail_1_1basic__bigint__base" id="r_a0529e127d1b24120abd08d7137cb9470"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>stored_allocator_type</b> = allocator_type</td></tr>
+<tr class="separator:a0529e127d1b24120abd08d7137cb9470 inherit pro_types_classjsoncons_1_1detail_1_1basic__bigint__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada0baef86f6f241e8958ac83a1979f28 inherit pro_types_classjsoncons_1_1detail_1_1basic__bigint__base" id="r_ada0baef86f6f241e8958ac83a1979f28"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>pointer</b> = typename allocator_traits_type::pointer</td></tr>
+<tr class="separator:ada0baef86f6f241e8958ac83a1979f28 inherit pro_types_classjsoncons_1_1detail_1_1basic__bigint__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28f14797ff48d46627cf7f2d1998a36f inherit pro_types_classjsoncons_1_1detail_1_1basic__bigint__base" id="r_a28f14797ff48d46627cf7f2d1998a36f"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b> = typename allocator_traits_type::value_type</td></tr>
+<tr class="separator:a28f14797ff48d46627cf7f2d1998a36f inherit pro_types_classjsoncons_1_1detail_1_1basic__bigint__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a096d48fb03aa7f109d47478e014b07b0 inherit pro_types_classjsoncons_1_1detail_1_1basic__bigint__base" id="r_a096d48fb03aa7f109d47478e014b07b0"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>size_type</b> = typename allocator_traits_type::size_type</td></tr>
+<tr class="separator:a096d48fb03aa7f109d47478e014b07b0 inherit pro_types_classjsoncons_1_1detail_1_1basic__bigint__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ac9c32f3bafe0b853a80568f8d04528 inherit pro_types_classjsoncons_1_1detail_1_1basic__bigint__base" id="r_a3ac9c32f3bafe0b853a80568f8d04528"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>pointer_traits</b> = std::pointer_traits&lt; pointer &gt;</td></tr>
+<tr class="separator:a3ac9c32f3bafe0b853a80568f8d04528 inherit pro_types_classjsoncons_1_1detail_1_1basic__bigint__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_classjsoncons_1_1detail_1_1basic__bigint__base"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classjsoncons_1_1detail_1_1basic__bigint__base')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classjsoncons_1_1detail_1_1basic__bigint__base.html">jsoncons::detail::basic_bigint_base&lt; Allocator &gt;</a> に属する継承限定公開メンバ関数</td></tr>
+<tr class="memitem:a6f227a6ee50ac6803702ec9c26b88b6d inherit pro_methods_classjsoncons_1_1detail_1_1basic__bigint__base" id="r_a6f227a6ee50ac6803702ec9c26b88b6d"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>basic_bigint_base</b> (const allocator_type &amp;alloc)</td></tr>
+<tr class="separator:a6f227a6ee50ac6803702ec9c26b88b6d inherit pro_methods_classjsoncons_1_1detail_1_1basic__bigint__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ad4e12d89c4ff7a9f7499e6f5eba8cc inherit pro_methods_classjsoncons_1_1detail_1_1basic__bigint__base" id="r_a0ad4e12d89c4ff7a9f7499e6f5eba8cc"><td class="memItemLeft" align="right" valign="top">
+basic_type_allocator_type&#160;</td><td class="memItemRight" valign="bottom"><b>get_allocator</b> () const</td></tr>
+<tr class="separator:a0ad4e12d89c4ff7a9f7499e6f5eba8cc inherit pro_methods_classjsoncons_1_1detail_1_1basic__bigint__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/hasegawa/Desktop/main/program/DesignLab/jsoncons/include/jsoncons/<a class="el" href="bigint_8hpp_source.html">bigint.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacejsoncons.html">jsoncons</a></li><li class="navelem"><a class="el" href="classjsoncons_1_1basic__bigint.html">basic_bigint</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

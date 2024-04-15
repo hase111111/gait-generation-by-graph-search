@@ -1,0 +1,5 @@
+<map id="TargetRobotState::SetStraightMoveVector" name="TargetRobotState::SetStraightMoveVector">
+<area shape="rect" id="Node000001" title="進行方向を指定する．正規化されたベクトルを渡すこと．" alt="" coords="5,5,201,48"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a12bdd69889d7939a25c5f873fad76978" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="249,5,386,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,24,233,24,233,29,201,29"/>
+</map>

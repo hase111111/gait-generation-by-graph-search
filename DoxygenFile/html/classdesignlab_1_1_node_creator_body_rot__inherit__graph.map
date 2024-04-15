@@ -1,0 +1,5 @@
+<map id="designlab::NodeCreatorBodyRot" name="designlab::NodeCreatorBodyRot">
+<area shape="rect" id="Node000001" title="ロボットの回転を表すノードを生成するクラス．" alt="" coords="5,80,212,107"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_node_creator.html" title="ノード生成処理のインターフェース．" alt="" coords="29,5,188,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,48,111,80,106,80,106,48"/>
+</map>

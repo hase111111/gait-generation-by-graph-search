@@ -1,0 +1,9 @@
+<map id="designlab::StabilityMarginRenderer::Draw" name="designlab::StabilityMarginRenderer::Draw">
+<area shape="rect" id="Node000001" title="描画処理を行う． const 関数にしているのは， 描画処理の中でメンバ変数を変更しないようにするため．" alt="" coords="5,39,176,81"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_polygon2.html#a3a86701c31b1eefd1089183db2d5846c" title="頂点を追加する関数．" alt="" coords="224,5,362,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,43,208,38,209,43,176,49"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_polygon2.html#a3965642438156b1b86dfea1d76beaa53" title="点が多角形の内部にあるかどうか調べる関数． 多角形が凸でない場合は正しく判定できない．" alt="" coords="224,72,362,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="176,71,209,77,208,82,175,77"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_polygon2.html#a5325a59337947d2b61e055431f2ce3f3" title="多角形の頂点数を返す関数．" alt="" coords="410,72,548,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="363,91,394,91,394,96,363,96"/>
+</map>

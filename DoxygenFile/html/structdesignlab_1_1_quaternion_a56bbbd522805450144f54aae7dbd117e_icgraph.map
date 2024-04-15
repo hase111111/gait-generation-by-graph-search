@@ -1,0 +1,29 @@
+<map id="designlab::Quaternion::GetNorm" name="designlab::Quaternion::GetNorm">
+<area shape="rect" id="Node000001" title="クォータニオンのノルムを返す． &#160;&#160;ノルムとは，ベクトルの大きさのこと． クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 の平方根で求められる．" alt="" coords="901,120,1048,162"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_quaternion.html#ad164e180a90ff6e7e1df3f5b57cb8b3b" title="クォータニオンの逆数を返す． &#160;&#160;クォータニオンqの逆数q^&#45;1は，qの共役をノルムで割ったもの． &#160;&#160;q^&#45;1 = q* / |q|^2" alt="" coords="695,24,843,66"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="919,114,852,81,825,69,828,64,854,76,921,110"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="695,90,843,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="885,131,843,125,843,119,886,126"/>
+<area shape="rect" id="Node000025" href="$namespacedesignlab.html#a60f10cf89b782d822987acc6e655a2a7" title="3次元の位置ベクトルを回転させる．必ず正規化クォータニオンを用いること．" alt="" coords="685,157,853,184"/>
+<area shape="poly" id="edge13_Node000001_Node000025" title=" " alt="" coords="886,156,853,161,853,156,885,151"/>
+<area shape="rect" id="Node000026" href="$namespacedesignlab.html#a54d940e1e1adcbeeec8594a7f542fdef" title="オイラー角からクォータニオンへの変換．" alt="" coords="688,208,850,234"/>
+<area shape="poly" id="edge14_Node000001_Node000026" title=" " alt="" coords="916,172,854,198,820,209,819,204,852,193,914,167"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_camera_dragger.html#ad9f9da3070ea76a8ae205590e5599d10" title="ドラッグ中の処理を行う． &#160;&#160;カーソルは上にあるけど，ドラッグ中ではない場合でも呼び出される．" alt="" coords="5,90,180,133"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="694,86,684,80,660,62,651,54,636,47,525,17,478,10,434,8,390,11,342,18,228,43,173,65,126,92,123,87,170,60,227,38,341,13,389,5,434,3,478,5,526,12,638,42,653,49,664,58,687,76,696,81"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_quaternion.html#a45dfcf48edea7b439e7d189d0d105bfa" title="自身を正規化する．ノルムが１になる．" alt="" coords="473,57,620,100"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="680,101,620,92,621,87,680,96"/>
+<area shape="rect" id="Node000011" href="$classdesignlab_1_1_dxlib_camera.html#af574fd9e57c002865025f41d05491b85" title="カメラのクォータニオンをセットする．" alt="" coords="467,124,625,166"/>
+<area shape="poly" id="edge7_Node000003_Node000011" title=" " alt="" coords="681,127,626,136,625,130,680,122"/>
+<area shape="rect" id="Node000012" href="$namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換．" alt="" coords="455,194,637,221"/>
+<area shape="poly" id="edge8_Node000003_Node000012" title=" " alt="" coords="696,142,687,147,663,164,639,181,600,196,598,191,636,176,660,160,684,143,694,137"/>
+<area shape="rect" id="Node000006" href="$structdesignlab_1_1_robot_state_node.html#a58600c23d1383094c7f880a487ab61fb" title="自身を根ノードに変更する関数． &#160;&#160;depthを0に，parent_numを&#45;1に初期化する．" alt="" coords="228,53,407,96"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="457,79,408,78,408,73,457,74"/>
+<area shape="rect" id="Node000008" href="$namespacedesignlab.html#aa1c6fabbe9cbddd910f4578751c0ec86" title="回転角行列からクォータニオンへの変換．" alt="" coords="237,120,398,146"/>
+<area shape="poly" id="edge6_Node000005_Node000008" title=" " alt="" coords="458,102,377,122,376,116,457,97"/>
+<area shape="rect" id="Node000013" href="$namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="234,194,401,221"/>
+<area shape="poly" id="edge9_Node000012_Node000013" title=" " alt="" coords="440,210,401,210,401,205,440,205"/>
+<area shape="rect" id="Node000024" href="$namespacedesignlab.html#a6078399857761c9309ce7d7fcdf3a90b" title="クォータニオンからXYZオイラー角への変換．" alt="" coords="242,245,393,272"/>
+<area shape="poly" id="edge12_Node000012_Node000024" title=" " alt="" coords="468,227,381,247,380,242,467,222"/>
+<area shape="poly" id="edge10_Node000013_Node000004" title=" " alt="" coords="269,190,144,136,146,131,271,185"/>
+<area shape="poly" id="edge11_Node000013_Node000013" title=" " alt="" coords="356,181,343,175,317,173,294,175,281,180,278,185,284,192,279,195,273,185,277,176,293,170,317,168,344,170,358,177"/>
+</map>

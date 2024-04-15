@@ -1,0 +1,9 @@
+<map id="designlab::PhantomXMkII::IsLegInRange" name="designlab::PhantomXMkII::IsLegInRange">
+<area shape="rect" id="Node000001" title="脚が可動範囲内にあるかどうかを判定する．" alt="" coords="5,39,173,81"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector2.html#a80b722825f1793105702da0677867a08" title="このベクトルの長さの2乗を返す．" alt="" coords="221,5,358,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,43,205,38,206,43,173,49"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector3.html#aaf3651416f231824ffd780b72f5bba27" title="XY平面に射影したベクトルを返す．" alt="" coords="225,72,354,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="173,71,210,77,209,83,173,77"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector2.html#a4ff63a4ad67617a23ed4206d994ecc84" title="自分・引数 の内積の結果を返す．" alt="" coords="406,13,563,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="359,24,390,24,390,29,359,29"/>
+</map>

@@ -1,0 +1,633 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: DxlibGuiCameraParameterDisplayer クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_dxlib_gui_camera_parameter_displayer.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="class_dxlib_gui_camera_parameter_displayer-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">DxlibGuiCameraParameterDisplayer クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+DxlibGuiCameraParameterDisplayer の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="class_dxlib_gui_camera_parameter_displayer__inherit__graph.png" border="0" usemap="#a_dxlib_gui_camera_parameter_displayer_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_dxlib_gui_camera_parameter_displayer_inherit__map" id="a_dxlib_gui_camera_parameter_displayer_inherit__map">
+<area shape="rect" title=" " alt="" coords="41,80,270,107"/>
+<area shape="rect" href="class_i_dxlib_gui.html" title="Dxlibの画面に表示するGUIのインターフェース．" alt="" coords="5,5,79,32"/>
+<area shape="poly" title=" " alt="" coords="76,38,137,77,134,82,73,43"/>
+<area shape="rect" href="class_i_dxlib_clickable.html" title="クリック可能なGUIのインターフェース． &#160;&#160;クリック時の動作をGUIに実装したいならばこのインターフェースを継承する．" alt="" coords="102,5,209,32"/>
+<area shape="poly" title=" " alt="" coords="158,48,158,80,153,80,153,48"/>
+<area shape="rect" href="class_i_dxlib_draggable.html" title="ドラッグ可能なGUIのインターフェース． &#160;&#160;ドラッグ動作を実装したいGUIはこのインターフェースを継承する．" alt="" coords="233,5,344,32"/>
+<area shape="poly" title=" " alt="" coords="254,42,180,82,177,77,251,37"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+DxlibGuiCameraParameterDisplayer 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="class_dxlib_gui_camera_parameter_displayer__coll__graph.png" border="0" usemap="#a_dxlib_gui_camera_parameter_displayer_coll__map" alt="Collaboration graph"/></div>
+<map name="a_dxlib_gui_camera_parameter_displayer_coll__map" id="a_dxlib_gui_camera_parameter_displayer_coll__map">
+<area shape="rect" title=" " alt="" coords="41,80,270,107"/>
+<area shape="rect" href="class_i_dxlib_gui.html" title="Dxlibの画面に表示するGUIのインターフェース．" alt="" coords="5,5,79,32"/>
+<area shape="poly" title=" " alt="" coords="76,38,137,77,134,82,73,43"/>
+<area shape="rect" href="class_i_dxlib_clickable.html" title="クリック可能なGUIのインターフェース． &#160;&#160;クリック時の動作をGUIに実装したいならばこのインターフェースを継承する．" alt="" coords="102,5,209,32"/>
+<area shape="poly" title=" " alt="" coords="158,48,158,80,153,80,153,48"/>
+<area shape="rect" href="class_i_dxlib_draggable.html" title="ドラッグ可能なGUIのインターフェース． &#160;&#160;ドラッグ動作を実装したいGUIはこのインターフェースを継承する．" alt="" coords="233,5,344,32"/>
+<area shape="poly" title=" " alt="" coords="254,42,180,82,177,77,251,37"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:ac7acf279af8c03bd05f5a42c264f3101" id="r_ac7acf279af8c03bd05f5a42c264f3101"><td class="memItemLeft" align="right" valign="top"><a id="ac7acf279af8c03bd05f5a42c264f3101" name="ac7acf279af8c03bd05f5a42c264f3101"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>DxlibGuiCameraParameterDisplayer</b> (int window_x, int window_y, const std::shared_ptr&lt; <a class="el" href="class_dxlib_camera.html">DxlibCamera</a> &gt; camera_ptr)</td></tr>
+<tr class="separator:ac7acf279af8c03bd05f5a42c264f3101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acef8c79d3144f7d2bd2befcf6638914f" id="r_acef8c79d3144f7d2bd2befcf6638914f"><td class="memItemLeft" align="right" valign="top"><a id="acef8c79d3144f7d2bd2befcf6638914f" name="acef8c79d3144f7d2bd2befcf6638914f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetPos</b> (int pos_x, int pos_y, unsigned int option=::designlab::kDxlibGuiAnchorLeftTop, bool this_is_first_time=false)</td></tr>
+<tr class="separator:acef8c79d3144f7d2bd2befcf6638914f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b1c638dffdd6a65c017d5ffe1a50ba1" id="r_a4b1c638dffdd6a65c017d5ffe1a50ba1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dxlib_gui_camera_parameter_displayer.html#a4b1c638dffdd6a65c017d5ffe1a50ba1">Update</a> () override</td></tr>
+<tr class="memdesc:a4b1c638dffdd6a65c017d5ffe1a50ba1"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIの更新，毎フレーム実行すること．  <br /></td></tr>
+<tr class="separator:a4b1c638dffdd6a65c017d5ffe1a50ba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b4b4cdcfd573b6d908d2200c3308fb5" id="r_a2b4b4cdcfd573b6d908d2200c3308fb5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dxlib_gui_camera_parameter_displayer.html#a2b4b4cdcfd573b6d908d2200c3308fb5">Draw</a> () const override</td></tr>
+<tr class="memdesc:a2b4b4cdcfd573b6d908d2200c3308fb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIの描画．  <br /></td></tr>
+<tr class="separator:a2b4b4cdcfd573b6d908d2200c3308fb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad85c22158d9887173dbfb0e461782112" id="r_ad85c22158d9887173dbfb0e461782112"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dxlib_gui_camera_parameter_displayer.html#ad85c22158d9887173dbfb0e461782112">SetVisible</a> (bool visible) override</td></tr>
+<tr class="memdesc:ad85c22158d9887173dbfb0e461782112"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIの表示を行うかどうかを設定する．  <br /></td></tr>
+<tr class="separator:ad85c22158d9887173dbfb0e461782112"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a0e7c59d898736a3049ca2281287768" id="r_a6a0e7c59d898736a3049ca2281287768"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dxlib_gui_camera_parameter_displayer.html#a6a0e7c59d898736a3049ca2281287768">IsVisible</a> () const override</td></tr>
+<tr class="memdesc:a6a0e7c59d898736a3049ca2281287768"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIの表示を行うかどうかを返す．  <br /></td></tr>
+<tr class="separator:a6a0e7c59d898736a3049ca2281287768"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f9021ca9abd4e2798c9e5f4bdae25a4" id="r_a0f9021ca9abd4e2798c9e5f4bdae25a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dxlib_gui_camera_parameter_displayer.html#a0f9021ca9abd4e2798c9e5f4bdae25a4">ClickedAction</a> (int cursor_x, int cursor_y, int left_pushing_count, int middle_pushing_count, int right_pushing_count) override</td></tr>
+<tr class="memdesc:a0f9021ca9abd4e2798c9e5f4bdae25a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIがクリックされたときに実行される関数． <br  />
+ CursorOnGuiがtrueを返すときに呼び出される．複数のGUIが重なっている場合は，優先度の高いものから順に呼び出される．  <br /></td></tr>
+<tr class="separator:a0f9021ca9abd4e2798c9e5f4bdae25a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4eb3a8af095b507dedd754e0d32f6c5" id="r_aa4eb3a8af095b507dedd754e0d32f6c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dxlib_gui_camera_parameter_displayer.html#aa4eb3a8af095b507dedd754e0d32f6c5">CursorOnGui</a> (int cursor_x, int cursor_y) const noexcept override</td></tr>
+<tr class="memdesc:aa4eb3a8af095b507dedd754e0d32f6c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIの上にカーソルがあるかどうかを返す．  <br /></td></tr>
+<tr class="separator:aa4eb3a8af095b507dedd754e0d32f6c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc68b9370f2355a9d24ae3f04b1c37dd" id="r_adc68b9370f2355a9d24ae3f04b1c37dd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dxlib_gui_camera_parameter_displayer.html#adc68b9370f2355a9d24ae3f04b1c37dd">IsDraggable</a> (int cursor_x, int cursor_y) const override</td></tr>
+<tr class="memdesc:adc68b9370f2355a9d24ae3f04b1c37dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">ドラッグ可能な位置にあるかを判定する．  <br /></td></tr>
+<tr class="separator:adc68b9370f2355a9d24ae3f04b1c37dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64de4edb9b0f8b1933c96e4a8d0c5d04" id="r_a64de4edb9b0f8b1933c96e4a8d0c5d04"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dxlib_gui_camera_parameter_displayer.html#a64de4edb9b0f8b1933c96e4a8d0c5d04">IsDragged</a> () const override</td></tr>
+<tr class="memdesc:a64de4edb9b0f8b1933c96e4a8d0c5d04"><td class="mdescLeft">&#160;</td><td class="mdescRight">ドラッグ中かどうかを取得する．  <br /></td></tr>
+<tr class="separator:a64de4edb9b0f8b1933c96e4a8d0c5d04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4295e315730ad41c22e5922a8f065a65" id="r_a4295e315730ad41c22e5922a8f065a65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dxlib_gui_camera_parameter_displayer.html#a4295e315730ad41c22e5922a8f065a65">SetDragged</a> (const bool is_dragged) override</td></tr>
+<tr class="memdesc:a4295e315730ad41c22e5922a8f065a65"><td class="mdescLeft">&#160;</td><td class="mdescRight">ドラッグ中かどうかを設定する．  <br /></td></tr>
+<tr class="separator:a4295e315730ad41c22e5922a8f065a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acccc08a938454232267440ae2b45177e" id="r_acccc08a938454232267440ae2b45177e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dxlib_gui_camera_parameter_displayer.html#acccc08a938454232267440ae2b45177e">DraggedAction</a> (int cursor_dif_x, int cursor_dif_y, unsigned int mouse_key_bit) override</td></tr>
+<tr class="memdesc:acccc08a938454232267440ae2b45177e"><td class="mdescLeft">&#160;</td><td class="mdescRight">ドラッグ中の処理を行う． <br  />
+ カーソルは上にあるけど，ドラッグ中ではない場合でも呼び出される．  <br /></td></tr>
+<tr class="separator:acccc08a938454232267440ae2b45177e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a0f9021ca9abd4e2798c9e5f4bdae25a4" name="a0f9021ca9abd4e2798c9e5f4bdae25a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f9021ca9abd4e2798c9e5f4bdae25a4">&#9670;&#160;</a></span>ClickedAction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DxlibGuiCameraParameterDisplayer::ClickedAction </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cursor_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cursor_y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>left_pushing_count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>middle_pushing_count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>right_pushing_count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GUIがクリックされたときに実行される関数． <br  />
+ CursorOnGuiがtrueを返すときに呼び出される．複数のGUIが重なっている場合は，優先度の高いものから順に呼び出される． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cursor_x</td><td>マウスカーソルのX座標．左端を0とし，右に正の値をとる． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cursor_y</td><td>マウスカーソルのY座標．上端を0とし，下に正の値をとる． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">left_pushing_count</td><td>マウスの左ボタンが押されているフレーム数． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">middle_pushing_count</td><td>マウスの中ボタンが押されているフレーム数． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">right_pushing_count</td><td>マウスの右ボタンが押されているフレーム数． </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><a class="el" href="class_i_dxlib_clickable.html#ac7c8ccbae6f9e289578233aa789f3b70">IDxlibClickable</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="aa4eb3a8af095b507dedd754e0d32f6c5" name="aa4eb3a8af095b507dedd754e0d32f6c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4eb3a8af095b507dedd754e0d32f6c5">&#9670;&#160;</a></span>CursorOnGui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DxlibGuiCameraParameterDisplayer::CursorOnGui </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cursor_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cursor_y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GUIの上にカーソルがあるかどうかを返す． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cursor_x</td><td>マウスカーソルのX座標．左端を0とし，右に正の値をとる． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cursor_y</td><td>マウスカーソルのY座標．上端を0とし，下に正の値をとる． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>bool GUIの上にカーソルがあるならばtrueを返す． </dd></dl>
+
+<p><a class="el" href="class_i_dxlib_clickable.html#af153e0ca074d051d421e4c5e36072e6a">IDxlibClickable</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="acccc08a938454232267440ae2b45177e" name="acccc08a938454232267440ae2b45177e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acccc08a938454232267440ae2b45177e">&#9670;&#160;</a></span>DraggedAction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DxlibGuiCameraParameterDisplayer::DraggedAction </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cursor_dif_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cursor_dif_y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>mouse_key_bit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ドラッグ中の処理を行う． <br  />
+ カーソルは上にあるけど，ドラッグ中ではない場合でも呼び出される． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cursor_dif_x</td><td>前回のフレームからのマウスカーソルのX座標の差分． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cursor_dif_y</td><td>前回のフレームからのマウスカーソルのY座標の差分． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mouse_key_bit</td><td>押されているマウスのボタン，Dxlibの定数，MOUSE_INPUT_LEFTなどで指定する． </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><a class="el" href="class_i_dxlib_draggable.html#a7db1b56ff3a648f8af085459dbfc132c">IDxlibDraggable</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="a2b4b4cdcfd573b6d908d2200c3308fb5" name="a2b4b4cdcfd573b6d908d2200c3308fb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b4b4cdcfd573b6d908d2200c3308fb5">&#9670;&#160;</a></span>Draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DxlibGuiCameraParameterDisplayer::Draw </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GUIの描画． </p>
+
+<p><a class="el" href="class_i_dxlib_gui.html#a5812ee1a2f5faa1b15288e90e9b5770e">IDxlibGui</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="adc68b9370f2355a9d24ae3f04b1c37dd" name="adc68b9370f2355a9d24ae3f04b1c37dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc68b9370f2355a9d24ae3f04b1c37dd">&#9670;&#160;</a></span>IsDraggable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DxlibGuiCameraParameterDisplayer::IsDraggable </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cursor_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cursor_y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ドラッグ可能な位置にあるかを判定する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cursor_x</td><td>マウスカーソルのX座標．左端が0．右方向に正． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cursor_y</td><td>マウスカーソルのY座標．上端が0．下方向に正． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>GUI状にマウスカーネルがあって，ドラッグ可能であるならば true． </dd></dl>
+
+<p><a class="el" href="class_i_dxlib_draggable.html#a99635c51417dd51f071a59f2eff6e12b">IDxlibDraggable</a>を実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_dxlib_gui_camera_parameter_displayer_adc68b9370f2355a9d24ae3f04b1c37dd_cgraph.png" border="0" usemap="#aclass_dxlib_gui_camera_parameter_displayer_adc68b9370f2355a9d24ae3f04b1c37dd_cgraph" alt=""/></div>
+<map name="aclass_dxlib_gui_camera_parameter_displayer_adc68b9370f2355a9d24ae3f04b1c37dd_cgraph" id="aclass_dxlib_gui_camera_parameter_displayer_adc68b9370f2355a9d24ae3f04b1c37dd_cgraph">
+<area shape="rect" title="ドラッグ可能な位置にあるかを判定する．" alt="" coords="5,5,235,48"/>
+<area shape="rect" href="class_dxlib_gui_camera_parameter_displayer.html#a6a0e7c59d898736a3049ca2281287768" title="GUIの表示を行うかどうかを返す．" alt="" coords="283,5,512,48"/>
+<area shape="poly" title=" " alt="" coords="235,24,267,24,267,29,235,29"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a64de4edb9b0f8b1933c96e4a8d0c5d04" name="a64de4edb9b0f8b1933c96e4a8d0c5d04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64de4edb9b0f8b1933c96e4a8d0c5d04">&#9670;&#160;</a></span>IsDragged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DxlibGuiCameraParameterDisplayer::IsDragged </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ドラッグ中かどうかを取得する． </p>
+<dl class="section return"><dt>戻り値</dt><dd>ドラッグ中ならばtrue． </dd></dl>
+
+<p><a class="el" href="class_i_dxlib_draggable.html#acae373a6a1f3d28698b5c5f49df47f4f">IDxlibDraggable</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="a6a0e7c59d898736a3049ca2281287768" name="a6a0e7c59d898736a3049ca2281287768"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a0e7c59d898736a3049ca2281287768">&#9670;&#160;</a></span>IsVisible()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DxlibGuiCameraParameterDisplayer::IsVisible </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GUIの表示を行うかどうかを返す． </p>
+<dl class="section return"><dt>戻り値</dt><dd>bool GUIの表示を行うかどうか． </dd></dl>
+
+<p><a class="el" href="class_i_dxlib_gui.html#acc74781eaca51477aa01c989c9bf9ef5">IDxlibGui</a>を実装しています。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_dxlib_gui_camera_parameter_displayer_a6a0e7c59d898736a3049ca2281287768_icgraph.png" border="0" usemap="#aclass_dxlib_gui_camera_parameter_displayer_a6a0e7c59d898736a3049ca2281287768_icgraph" alt=""/></div>
+<map name="aclass_dxlib_gui_camera_parameter_displayer_a6a0e7c59d898736a3049ca2281287768_icgraph" id="aclass_dxlib_gui_camera_parameter_displayer_a6a0e7c59d898736a3049ca2281287768_icgraph">
+<area shape="rect" title="GUIの表示を行うかどうかを返す．" alt="" coords="283,5,512,48"/>
+<area shape="rect" href="class_dxlib_gui_camera_parameter_displayer.html#adc68b9370f2355a9d24ae3f04b1c37dd" title="ドラッグ可能な位置にあるかを判定する．" alt="" coords="5,5,235,48"/>
+<area shape="poly" title=" " alt="" coords="267,29,235,29,235,24,267,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4295e315730ad41c22e5922a8f065a65" name="a4295e315730ad41c22e5922a8f065a65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4295e315730ad41c22e5922a8f065a65">&#9670;&#160;</a></span>SetDragged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DxlibGuiCameraParameterDisplayer::SetDragged </td>
+          <td>(</td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>is_dragged</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ドラッグ中かどうかを設定する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">is_dragged</td><td>ドラッグ中にしたいならtrue． </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><a class="el" href="class_i_dxlib_draggable.html#a51c4573ef0da5f41a5763b40dc97542f">IDxlibDraggable</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="ad85c22158d9887173dbfb0e461782112" name="ad85c22158d9887173dbfb0e461782112"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad85c22158d9887173dbfb0e461782112">&#9670;&#160;</a></span>SetVisible()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DxlibGuiCameraParameterDisplayer::SetVisible </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>visible</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GUIの表示を行うかどうかを設定する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">visible</td><td>GUIの表示を行うかどうか． </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><a class="el" href="class_i_dxlib_gui.html#ae54bc3d5fadf6a89aec76a6edc1b7ed0">IDxlibGui</a>を実装しています。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_dxlib_gui_camera_parameter_displayer_ad85c22158d9887173dbfb0e461782112_icgraph.png" border="0" usemap="#aclass_dxlib_gui_camera_parameter_displayer_ad85c22158d9887173dbfb0e461782112_icgraph" alt=""/></div>
+<map name="aclass_dxlib_gui_camera_parameter_displayer_ad85c22158d9887173dbfb0e461782112_icgraph" id="aclass_dxlib_gui_camera_parameter_displayer_ad85c22158d9887173dbfb0e461782112_icgraph">
+<area shape="rect" title="GUIの表示を行うかどうかを設定する．" alt="" coords="283,5,512,48"/>
+<area shape="rect" href="class_dxlib_gui_camera_parameter_displayer.html#a4b1c638dffdd6a65c017d5ffe1a50ba1" title="GUIの更新，毎フレーム実行すること．" alt="" coords="5,5,235,48"/>
+<area shape="poly" title=" " alt="" coords="267,29,235,29,235,24,267,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4b1c638dffdd6a65c017d5ffe1a50ba1" name="a4b1c638dffdd6a65c017d5ffe1a50ba1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b1c638dffdd6a65c017d5ffe1a50ba1">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DxlibGuiCameraParameterDisplayer::Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GUIの更新，毎フレーム実行すること． </p>
+
+<p><a class="el" href="class_i_dxlib_gui.html#aef04cee8e8276a2a4812a114ed643b20">IDxlibGui</a>を実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_dxlib_gui_camera_parameter_displayer_a4b1c638dffdd6a65c017d5ffe1a50ba1_cgraph.png" border="0" usemap="#aclass_dxlib_gui_camera_parameter_displayer_a4b1c638dffdd6a65c017d5ffe1a50ba1_cgraph" alt=""/></div>
+<map name="aclass_dxlib_gui_camera_parameter_displayer_a4b1c638dffdd6a65c017d5ffe1a50ba1_cgraph" id="aclass_dxlib_gui_camera_parameter_displayer_a4b1c638dffdd6a65c017d5ffe1a50ba1_cgraph">
+<area shape="rect" title="GUIの更新，毎フレーム実行すること．" alt="" coords="5,5,235,48"/>
+<area shape="rect" href="class_dxlib_gui_camera_parameter_displayer.html#ad85c22158d9887173dbfb0e461782112" title="GUIの表示を行うかどうかを設定する．" alt="" coords="283,5,512,48"/>
+<area shape="poly" title=" " alt="" coords="235,24,267,24,267,29,235,29"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/hasegawa/Desktop/main/program/DesignLab/DesignLab/<a class="el" href="dxlib__gui__camera__parameter__displayer_8h_source.html">dxlib_gui_camera_parameter_displayer.h</a></li>
+<li>C:/Users/hasegawa/Desktop/main/program/DesignLab/DesignLab/<b>dxlib_gui_camera_parameter_displayer.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_dxlib_gui_camera_parameter_displayer.html">DxlibGuiCameraParameterDisplayer</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

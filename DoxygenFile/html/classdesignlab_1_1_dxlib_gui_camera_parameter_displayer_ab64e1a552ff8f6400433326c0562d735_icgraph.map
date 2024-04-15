@@ -1,0 +1,11 @@
+<map id="designlab::DxlibGuiCameraParameterDisplayer::SetPos" name="designlab::DxlibGuiCameraParameterDisplayer::SetPos">
+<area shape="rect" id="Node000001" title="GUIの位置を設定する． &#160;&#160;Dxlibの画面の座標は左上を原点とし，右下に行くほど値が大きくなる． &#160;&#160;横方向にx軸，縦方向にy軸をとる．" alt="" coords="567,39,753,81"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib_gui_camera_parameter_displayer.html#a34ad492d0aed5c9bc73fdfcf81faca10" title="ドラッグ中の処理を行う． &#160;&#160;カーソルは上にあるけど，ドラッグ中ではない場合でも呼び出される．" alt="" coords="291,5,519,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="551,48,519,44,520,39,552,43"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_dxlib_gui_camera_parameter_displayer.html#a882d794c895d5bcb18da68fd45793a34" title="GUIの表示を行うかどうかを設定する．" alt="" coords="304,72,506,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="552,77,507,83,506,77,551,71"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_dxlib_gui_camera_parameter_displayer.html#ae000b3d95e9d866d096c684429615f64" title="コンストラクタでWindowのサイズと，カメラの管理を行うクラスを受け取る．" alt="" coords="5,27,243,85"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="288,81,243,74,243,69,289,75"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_dxlib_gui_camera_parameter_displayer.html#ab716723e2ae412d1acfeb57fa4d749ff" title="GUIの更新，毎フレーム実行すること．" alt="" coords="32,109,216,152"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="288,111,217,121,216,116,288,106"/>
+</map>

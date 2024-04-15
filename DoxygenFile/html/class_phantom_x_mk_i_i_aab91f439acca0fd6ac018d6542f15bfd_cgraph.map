@@ -1,0 +1,12 @@
+<map id="PhantomXMkII::ConvertLegToGlobalCoordinate" name="PhantomXMkII::ConvertLegToGlobalCoordinate">
+<area shape="rect" id="Node000001" title="脚座標系で表現されている座標を，グローバル座標系に変換する．" alt="" coords="5,47,182,89"/>
+<area shape="rect" id="Node000002" href="$class_phantom_x_mk_i_i.html#a6260133210372d2669e96917468d8179" title="脚の付け根の座標( leg base position )を取得する．ロボット座標系．" alt="" coords="230,5,414,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,49,214,44,214,49,183,55"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="238,96,406,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="183,81,230,90,229,95,182,87"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="283,97,276,87,281,77,297,71,322,69,349,72,364,79,361,84,348,77,322,75,298,77,285,81,282,87,288,94"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab.html#a52c3a31f05a9a4b8e59ddab11243b353" title="クォータニオンから回転角行列への変換" alt="" coords="462,96,644,123"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="406,107,446,107,446,112,406,112"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_quaternion.html#a22fd9f4f5c3a4c600e859ebd1891c45a" title="正規化したクォータニオンを返す &#160;&#160;クォータニオンの正規化とは，ノルムを1にすること． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる" alt="" coords="692,88,840,131"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="645,107,677,107,677,112,645,112"/>
+</map>

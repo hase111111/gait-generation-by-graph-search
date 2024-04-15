@@ -1,0 +1,9 @@
+<map id="designlab::GaitPatternGraphTree::HasRoot" name="designlab::GaitPatternGraphTree::HasRoot">
+<area shape="rect" id="Node000001" title="グラフが根ノードを持つかどうかを返す． &#160;&#160;根ノードとは，親を持たないノードのこと． &#160;&#160;一番最初に追加するノードは必ず根になるため， 根を持つかどうかはノードの総数が0でないかどうかで判定できる．" alt="" coords="259,72,444,115"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graph_searcher_spot_turn.html#a14d0f85dce3acf5c7715e52f03cb4701" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="17,5,199,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="256,70,188,51,189,46,257,65"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_graph_searcher_straight_move.html#a64643a2293909dc6b0166a916c5b26ee" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="5,72,211,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="243,96,211,96,211,91,243,91"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_graph_searcher_turn.html#ac22fbad22f153e4d367575fe6cc55197" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="22,139,194,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="257,122,189,141,188,135,256,117"/>
+</map>

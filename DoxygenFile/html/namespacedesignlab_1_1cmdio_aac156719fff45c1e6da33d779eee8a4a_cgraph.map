@@ -1,0 +1,16 @@
+<map id="designlab::cmdio::OutputTitle" name="designlab::cmdio::OutputTitle">
+<area shape="rect" id="Node000001" title="コマンドラインにこのソフトのタイトルを出力する関数． &#160;&#160;必ず，OutputDetailがkSystemで出力される．" alt="" coords="5,105,172,148"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1cmdio.html#a53517d90c6e49e06907cdf04b9979cdc" title="中央に文字を出力する関数．文字列が長すぎる場合は普通に出力される．" alt="" coords="220,5,386,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,102,219,58,231,52,233,57,221,62,132,107"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1cmdio.html#a4e349377c9ecf3763014ca8436fa44f6" title="コマンドラインに水平線を出力する関数．" alt="" coords="220,72,386,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="172,111,204,106,205,111,173,116"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab_1_1cmdio.html#aa8ed2785f4f2ed80a29f9b6d3a3d1d4a" title="コマンドラインで改行をする関数．" alt="" coords="220,139,386,181"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="173,137,205,142,204,147,172,142"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1cmdio.html#a8c8bce312d4541906ad912f79317b013" title="右端に文字を出力する関数．文字列が長すぎる場合は普通に出力される．" alt="" coords="220,205,386,248"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="132,146,221,191,233,196,231,201,219,196,129,151"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ずSetOutputLimit()を呼び出してから使うこと．" alt="" coords="434,113,600,140"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="361,46,387,58,478,103,476,108,385,62,359,51"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="387,104,419,109,418,114,386,109"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="386,144,418,139,419,145,387,150"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="359,202,385,191,476,145,478,150,387,196,361,207"/>
+</map>

@@ -1,0 +1,36 @@
+<map id="ComMoveNodeCreatorHato::Create" name="ComMoveNodeCreatorHato::Create">
+<area shape="rect" id="Node000001" title="現在のノードから次のノード群を生成する" alt="" coords="5,172,183,215"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__func.html#afc010e9d888cb036a08cec0c87b2bfa7" title="重心のデータを変更する．" alt="" coords="250,5,421,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,170,159,114,193,84,229,58,238,53,241,57,232,62,196,88,163,118,114,173"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1leg__func.html#a95e7ace2cf674688c2f73330ed14ebf4" title="脚の状態を変更する．遊脚を表すbitはそのまま．" alt="" coords="253,72,418,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="134,169,230,124,246,118,248,123,232,129,137,174"/>
+<area shape="rect" id="Node000005" href="$struct_robot_state_node.html#a33c971635a3a21d2c24e6599935744cb" title="重心位置を変更する関数．" alt="" coords="233,139,438,181"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="183,178,217,174,218,179,184,184"/>
+<area shape="rect" id="Node000013" href="$struct_robot_state_node.html#a0895b99a32c28e8f8ca61da4785770f3" title="次の動作を設定する関数．" alt="" coords="244,205,427,248"/>
+<area shape="poly" id="edge9_Node000001_Node000013" title=" " alt="" coords="184,203,229,209,228,215,183,208"/>
+<area shape="rect" id="Node000014" href="$class_com_selecter_hato.html#aceabd4cdafd15be3bbd93c72f1a127b7" title="重心を求める" alt="" coords="231,272,440,315"/>
+<area shape="poly" id="edge10_Node000001_Node000014" title=" " alt="" coords="137,213,232,258,248,264,246,269,230,262,134,217"/>
+<area shape="rect" id="Node000022" href="$class_com_candidate_polygon_maker.html#ae0ed342ff04161b8b86335b9ac5d2b24" title="現在のロボットの状態を表すノードから，重心位置の候補地点を示す多角形を作成する" alt="" coords="241,339,430,381"/>
+<area shape="poly" id="edge18_Node000001_Node000022" title=" " alt="" coords="114,213,163,269,196,298,232,324,241,329,238,334,229,329,193,303,159,272,110,217"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1leg__func.html#a750956a1f23f352888bf57e42780418c" title="脚位置は4bitの下位三桁で管理されるので，そこをマスクする" alt="" coords="506,56,638,99"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="418,85,490,80,490,85,419,90"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="506,197,638,240"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="424,179,491,196,490,201,423,184"/>
+<area shape="rect" id="Node000007" href="$namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="488,147,655,173"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="438,157,472,157,472,163,438,163"/>
+<area shape="poly" id="edge7_Node000007_Node000007" title=" " alt="" coords="534,148,527,138,532,128,547,122,572,120,598,123,612,129,610,134,597,128,572,125,548,127,536,132,533,137,538,145"/>
+<area shape="rect" id="Node000008" href="$namespacedesignlab.html#a52c3a31f05a9a4b8e59ddab11243b353" title="クォータニオンから回転角行列への変換" alt="" coords="703,147,886,173"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="656,157,688,157,688,163,656,163"/>
+<area shape="poly" id="edge17_Node000014_Node000006" title=" " alt="" coords="405,269,490,242,491,247,406,274"/>
+<area shape="rect" id="Node000015" href="$structdesignlab_1_1_vector2.html#a5b486befcef8a9c50ff78137783c3ba9" title="このベクトルを正規化したベクトルを返す" alt="" coords="507,264,636,307"/>
+<area shape="poly" id="edge11_Node000014_Node000015" title=" " alt="" coords="440,287,491,285,491,291,441,292"/>
+<area shape="rect" id="Node000020" href="$structdesignlab_1_1_polygon2.html#a69f7aa8caa2158c440b5bb8f1416a6bf" title="頂点の座標を返す関数" alt="" coords="503,331,641,373"/>
+<area shape="poly" id="edge14_Node000014_Node000020" title=" " alt="" coords="424,313,488,329,487,334,423,318"/>
+<area shape="rect" id="Node000021" href="$structdesignlab_1_1_polygon2.html#a5325a59337947d2b61e055431f2ce3f3" title="多角形の頂点数を返す関数" alt="" coords="725,375,864,417"/>
+<area shape="poly" id="edge16_Node000014_Node000021" title=" " alt="" coords="421,313,442,325,457,340,465,356,474,371,489,383,543,402,601,411,658,412,710,408,710,414,658,418,601,416,542,407,487,388,470,374,461,359,453,343,438,329,418,317"/>
+<area shape="rect" id="Node000016" href="$structdesignlab_1_1_vector2.html#ab62323b441e66a37e41668fb0ac7ae99" title="このベクトルの長さを返す" alt="" coords="730,212,859,255"/>
+<area shape="poly" id="edge12_Node000015_Node000016" title=" " alt="" coords="636,268,714,249,715,254,637,273"/>
+<area shape="rect" id="Node000019" href="$namespacedesignlab_1_1math__util.html#a12bdd69889d7939a25c5f873fad76978" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="726,279,863,321"/>
+<area shape="poly" id="edge13_Node000015_Node000019" title=" " alt="" coords="637,287,710,292,710,297,637,292"/>
+<area shape="poly" id="edge15_Node000020_Node000021" title=" " alt="" coords="642,363,711,377,710,382,641,368"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="DxlibGuiCameraParameterDisplayer" name="DxlibGuiCameraParameterDisplayer">
+<area shape="rect" id="Node000001" title=" " alt="" coords="41,80,270,107"/>
+<area shape="rect" id="Node000002" href="$class_i_dxlib_gui.html" title="Dxlibの画面に表示するGUIのインターフェース．" alt="" coords="5,5,79,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,38,137,77,134,82,73,43"/>
+<area shape="rect" id="Node000003" href="$class_i_dxlib_clickable.html" title="クリック可能なGUIのインターフェース． &#160;&#160;クリック時の動作をGUIに実装したいならばこのインターフェースを継承する．" alt="" coords="102,5,209,32"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="158,48,158,80,153,80,153,48"/>
+<area shape="rect" id="Node000004" href="$class_i_dxlib_draggable.html" title="ドラッグ可能なGUIのインターフェース． &#160;&#160;ドラッグ動作を実装したいGUIはこのインターフェースを継承する．" alt="" coords="233,5,344,32"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="254,42,180,82,177,77,251,37"/>
+</map>

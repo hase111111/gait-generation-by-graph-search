@@ -1,0 +1,4 @@
+<map id="designlab::string_util::EnumToStringRemoveTopK" name="designlab::string_util::EnumToStringRemoveTopK">
+<area shape="rect" id="Node000001" title="enumを文字列に変換する関数． &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている． &#160;&#160;例えば，" alt="" coords="5,29,193,72"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="63,29,62,19,68,10,80,5,99,3,119,5,131,11,129,16,118,10,99,8,82,10,71,15,67,21,68,28"/>
+</map>

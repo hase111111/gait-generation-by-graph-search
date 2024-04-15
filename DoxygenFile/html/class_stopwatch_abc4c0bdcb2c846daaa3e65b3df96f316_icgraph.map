@@ -1,0 +1,5 @@
+<map id="Stopwatch::GetElapsedSeconds" name="Stopwatch::GetElapsedSeconds">
+<area shape="rect" id="Node000001" title="経過時間を秒で取得． &#160;&#160;start()とend()を呼び出してからこの関数を呼ぶ．" alt="" coords="263,13,472,40"/>
+<area shape="rect" id="Node000002" href="$class_stopwatch.html#aa36ebea4c66044dad61fe0b94b61fc64" title="経過時間を秒で表した文字列を取得する．" alt="" coords="5,5,215,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="247,29,215,29,215,24,247,24"/>
+</map>

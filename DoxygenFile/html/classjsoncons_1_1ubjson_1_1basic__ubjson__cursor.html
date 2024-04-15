@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: jsoncons::ubjson::basic_ubjson_cursor&lt; Source, Allocator &gt; クラステンプレート</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classjsoncons_1_1ubjson_1_1basic__ubjson__cursor.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">公開型</a> &#124;
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#friends">フレンド</a> &#124;
+<a href="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">jsoncons::ubjson::basic_ubjson_cursor&lt; Source, Allocator &gt; クラステンプレート</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+jsoncons::ubjson::basic_ubjson_cursor&lt; Source, Allocator &gt; の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor__inherit__graph.png" border="0" usemap="#ajsoncons_1_1ubjson_1_1basic__ubjson__cursor_3_01_source_00_01_allocator_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="ajsoncons_1_1ubjson_1_1basic__ubjson__cursor_3_01_source_00_01_allocator_01_4_inherit__map" id="ajsoncons_1_1ubjson_1_1basic__ubjson__cursor_3_01_source_00_01_allocator_01_4_inherit__map">
+<area shape="rect" title=" " alt="" coords="76,96,243,155"/>
+<area shape="rect" href="classjsoncons_1_1basic__staj__cursor.html" title=" " alt="" coords="5,5,146,48"/>
+<area shape="poly" title=" " alt="" coords="105,58,137,94,133,97,101,62"/>
+<area shape="rect" href="classjsoncons_1_1ser__context.html" title=" " alt="" coords="170,13,320,40"/>
+<area shape="poly" title=" " alt="" coords="226,53,187,97,183,94,222,50"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+jsoncons::ubjson::basic_ubjson_cursor&lt; Source, Allocator &gt; 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor__coll__graph.png" border="0" usemap="#ajsoncons_1_1ubjson_1_1basic__ubjson__cursor_3_01_source_00_01_allocator_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="ajsoncons_1_1ubjson_1_1basic__ubjson__cursor_3_01_source_00_01_allocator_01_4_coll__map" id="ajsoncons_1_1ubjson_1_1basic__ubjson__cursor_3_01_source_00_01_allocator_01_4_coll__map">
+<area shape="rect" title=" " alt="" coords="76,96,243,155"/>
+<area shape="rect" href="classjsoncons_1_1basic__staj__cursor.html" title=" " alt="" coords="5,5,146,48"/>
+<area shape="poly" title=" " alt="" coords="105,58,137,94,133,97,101,62"/>
+<area shape="rect" href="classjsoncons_1_1ser__context.html" title=" " alt="" coords="170,13,320,40"/>
+<area shape="poly" title=" " alt="" coords="226,53,187,97,183,94,222,50"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+公開型</h2></td></tr>
+<tr class="memitem:af4d0f07ec26f0dfddf92f405e86a2310" id="r_af4d0f07ec26f0dfddf92f405e86a2310"><td class="memItemLeft" align="right" valign="top"><a id="af4d0f07ec26f0dfddf92f405e86a2310" name="af4d0f07ec26f0dfddf92f405e86a2310"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>source_type</b> = Source</td></tr>
+<tr class="separator:af4d0f07ec26f0dfddf92f405e86a2310"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cedc15ae5ed886d79e7e478e487ffab" id="r_a0cedc15ae5ed886d79e7e478e487ffab"><td class="memItemLeft" align="right" valign="top"><a id="a0cedc15ae5ed886d79e7e478e487ffab" name="a0cedc15ae5ed886d79e7e478e487ffab"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>char_type</b> = char</td></tr>
+<tr class="separator:a0cedc15ae5ed886d79e7e478e487ffab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bb5a62d166483d46a85c9bda730d525" id="r_a1bb5a62d166483d46a85c9bda730d525"><td class="memItemLeft" align="right" valign="top"><a id="a1bb5a62d166483d46a85c9bda730d525" name="a1bb5a62d166483d46a85c9bda730d525"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>allocator_type</b> = Allocator</td></tr>
+<tr class="separator:a1bb5a62d166483d46a85c9bda730d525"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff949160a3cfb0fcda39c9eaefec74a4" id="r_aff949160a3cfb0fcda39c9eaefec74a4"><td class="memItemLeft" align="right" valign="top"><a id="aff949160a3cfb0fcda39c9eaefec74a4" name="aff949160a3cfb0fcda39c9eaefec74a4"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>string_view_type</b> = <a class="el" href="classjsoncons_1_1detail_1_1basic__string__view.html">string_view</a></td></tr>
+<tr class="separator:aff949160a3cfb0fcda39c9eaefec74a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:ad8b6c229007dea98fc92c52e5b6090f5" id="r_ad8b6c229007dea98fc92c52e5b6090f5"><td class="memTemplParams" colspan="2"><a id="ad8b6c229007dea98fc92c52e5b6090f5" name="ad8b6c229007dea98fc92c52e5b6090f5"></a>
+template&lt;class Sourceable &gt; </td></tr>
+<tr class="memitem:ad8b6c229007dea98fc92c52e5b6090f5"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>basic_ubjson_cursor</b> (Sourceable &amp;&amp;source, const <a class="el" href="classjsoncons_1_1ubjson_1_1ubjson__decode__options.html">ubjson_decode_options</a> &amp;options=<a class="el" href="classjsoncons_1_1ubjson_1_1ubjson__decode__options.html">ubjson_decode_options</a>(), const Allocator &amp;alloc=Allocator())</td></tr>
+<tr class="separator:ad8b6c229007dea98fc92c52e5b6090f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e2fd087f204f965bb6435dd67086a42" id="r_a0e2fd087f204f965bb6435dd67086a42"><td class="memTemplParams" colspan="2"><a id="a0e2fd087f204f965bb6435dd67086a42" name="a0e2fd087f204f965bb6435dd67086a42"></a>
+template&lt;class Sourceable &gt; </td></tr>
+<tr class="memitem:a0e2fd087f204f965bb6435dd67086a42"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>basic_ubjson_cursor</b> (Sourceable &amp;&amp;source, std::error_code &amp;ec)</td></tr>
+<tr class="separator:a0e2fd087f204f965bb6435dd67086a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05df66bbbe0a9c313ba10668579af181" id="r_a05df66bbbe0a9c313ba10668579af181"><td class="memTemplParams" colspan="2"><a id="a05df66bbbe0a9c313ba10668579af181" name="a05df66bbbe0a9c313ba10668579af181"></a>
+template&lt;class Sourceable &gt; </td></tr>
+<tr class="memitem:a05df66bbbe0a9c313ba10668579af181"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>basic_ubjson_cursor</b> (Sourceable &amp;&amp;source, const <a class="el" href="classjsoncons_1_1ubjson_1_1ubjson__decode__options.html">ubjson_decode_options</a> &amp;options, std::error_code &amp;ec)</td></tr>
+<tr class="separator:a05df66bbbe0a9c313ba10668579af181"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a74d9adce7664b7816e64b7285c7151" id="r_a7a74d9adce7664b7816e64b7285c7151"><td class="memTemplParams" colspan="2"><a id="a7a74d9adce7664b7816e64b7285c7151" name="a7a74d9adce7664b7816e64b7285c7151"></a>
+template&lt;class Sourceable &gt; </td></tr>
+<tr class="memitem:a7a74d9adce7664b7816e64b7285c7151"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>basic_ubjson_cursor</b> (std::allocator_arg_t, const Allocator &amp;alloc, Sourceable &amp;&amp;source, const <a class="el" href="classjsoncons_1_1ubjson_1_1ubjson__decode__options.html">ubjson_decode_options</a> &amp;options, std::error_code &amp;ec)</td></tr>
+<tr class="separator:a7a74d9adce7664b7816e64b7285c7151"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d42e4e8c91e25571c63c51f4346b26c" id="r_a4d42e4e8c91e25571c63c51f4346b26c"><td class="memItemLeft" align="right" valign="top"><a id="a4d42e4e8c91e25571c63c51f4346b26c" name="a4d42e4e8c91e25571c63c51f4346b26c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> ()</td></tr>
+<tr class="separator:a4d42e4e8c91e25571c63c51f4346b26c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfbc99e53c67fef32744dd93b0eec538" id="r_abfbc99e53c67fef32744dd93b0eec538"><td class="memTemplParams" colspan="2"><a id="abfbc99e53c67fef32744dd93b0eec538" name="abfbc99e53c67fef32744dd93b0eec538"></a>
+template&lt;class Sourceable &gt; </td></tr>
+<tr class="memitem:abfbc99e53c67fef32744dd93b0eec538"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>reset</b> (Sourceable &amp;&amp;source)</td></tr>
+<tr class="separator:abfbc99e53c67fef32744dd93b0eec538"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a9214f6e70fab0f42fd5207a71db729" id="r_a3a9214f6e70fab0f42fd5207a71db729"><td class="memItemLeft" align="right" valign="top"><a id="a3a9214f6e70fab0f42fd5207a71db729" name="a3a9214f6e70fab0f42fd5207a71db729"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> (std::error_code &amp;ec)</td></tr>
+<tr class="separator:a3a9214f6e70fab0f42fd5207a71db729"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaa56ccf82e7c856a3d6c0aa8efc93e3" id="r_aeaa56ccf82e7c856a3d6c0aa8efc93e3"><td class="memTemplParams" colspan="2"><a id="aeaa56ccf82e7c856a3d6c0aa8efc93e3" name="aeaa56ccf82e7c856a3d6c0aa8efc93e3"></a>
+template&lt;class Sourceable &gt; </td></tr>
+<tr class="memitem:aeaa56ccf82e7c856a3d6c0aa8efc93e3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>reset</b> (Sourceable &amp;&amp;source, std::error_code &amp;ec)</td></tr>
+<tr class="separator:aeaa56ccf82e7c856a3d6c0aa8efc93e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1ff2464ccbb8a265a1e68af7f436adf" id="r_aa1ff2464ccbb8a265a1e68af7f436adf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor.html#aa1ff2464ccbb8a265a1e68af7f436adf">done</a> () const override</td></tr>
+<tr class="separator:aa1ff2464ccbb8a265a1e68af7f436adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a925a2eafa7778a36315f71e4940e9bc6" id="r_a925a2eafa7778a36315f71e4940e9bc6"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classjsoncons_1_1basic__staj__event.html">staj_event</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor.html#a925a2eafa7778a36315f71e4940e9bc6">current</a> () const override</td></tr>
+<tr class="separator:a925a2eafa7778a36315f71e4940e9bc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe58d7a05e6925275dcdc88417d83135" id="r_afe58d7a05e6925275dcdc88417d83135"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor.html#afe58d7a05e6925275dcdc88417d83135">read_to</a> (<a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; char_type &gt; &amp;visitor) override</td></tr>
+<tr class="separator:afe58d7a05e6925275dcdc88417d83135"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a7fea66d46c7c46b46279c5353f8b6b" id="r_a2a7fea66d46c7c46b46279c5353f8b6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor.html#a2a7fea66d46c7c46b46279c5353f8b6b">read_to</a> (<a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; char_type &gt; &amp;visitor, std::error_code &amp;ec) override</td></tr>
+<tr class="separator:a2a7fea66d46c7c46b46279c5353f8b6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cce931068d58324222f595d19300db7" id="r_a9cce931068d58324222f595d19300db7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor.html#a9cce931068d58324222f595d19300db7">next</a> () override</td></tr>
+<tr class="separator:a9cce931068d58324222f595d19300db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae99f80a5d36a680f3fa5d13b92306004" id="r_ae99f80a5d36a680f3fa5d13b92306004"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor.html#ae99f80a5d36a680f3fa5d13b92306004">next</a> (std::error_code &amp;ec) override</td></tr>
+<tr class="separator:ae99f80a5d36a680f3fa5d13b92306004"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8338709e2f668f2a2ad398c44d64b31d" id="r_a8338709e2f668f2a2ad398c44d64b31d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classjsoncons_1_1ser__context.html">ser_context</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor.html#a8338709e2f668f2a2ad398c44d64b31d">context</a> () const override</td></tr>
+<tr class="separator:a8338709e2f668f2a2ad398c44d64b31d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a964f49fb58307baebe56da9d9f17e083" id="r_a964f49fb58307baebe56da9d9f17e083"><td class="memItemLeft" align="right" valign="top"><a id="a964f49fb58307baebe56da9d9f17e083" name="a964f49fb58307baebe56da9d9f17e083"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>eof</b> () const</td></tr>
+<tr class="separator:a964f49fb58307baebe56da9d9f17e083"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06f9b261324cb91ef2eef4cc3faacaa6" id="r_a06f9b261324cb91ef2eef4cc3faacaa6"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor.html#a06f9b261324cb91ef2eef4cc3faacaa6">line</a> () const override</td></tr>
+<tr class="separator:a06f9b261324cb91ef2eef4cc3faacaa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dc291715d0f34f314ca3fc26338f35f" id="r_a8dc291715d0f34f314ca3fc26338f35f"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor.html#a8dc291715d0f34f314ca3fc26338f35f">column</a> () const override</td></tr>
+<tr class="separator:a8dc291715d0f34f314ca3fc26338f35f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0209ed55e30959847976d39d2f04f7be" id="r_a0209ed55e30959847976d39d2f04f7be"><td class="memTemplParams" colspan="2"><a id="a0209ed55e30959847976d39d2f04f7be" name="a0209ed55e30959847976d39d2f04f7be"></a>
+template&lt;class Sourceable &gt; </td></tr>
+<tr class="memitem:a0209ed55e30959847976d39d2f04f7be"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>basic_ubjson_cursor</b> (Sourceable &amp;&amp;source, std::function&lt; bool(const <a class="el" href="classjsoncons_1_1basic__staj__event.html">staj_event</a> &amp;, const <a class="el" href="classjsoncons_1_1ser__context.html">ser_context</a> &amp;)&gt; filter, const <a class="el" href="classjsoncons_1_1ubjson_1_1ubjson__decode__options.html">ubjson_decode_options</a> &amp;options=<a class="el" href="classjsoncons_1_1ubjson_1_1ubjson__decode__options.html">ubjson_decode_options</a>(), const Allocator &amp;alloc=Allocator())</td></tr>
+<tr class="separator:a0209ed55e30959847976d39d2f04f7be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01dec2df339a39397e6d6d9ffcde6c0b" id="r_a01dec2df339a39397e6d6d9ffcde6c0b"><td class="memTemplParams" colspan="2"><a id="a01dec2df339a39397e6d6d9ffcde6c0b" name="a01dec2df339a39397e6d6d9ffcde6c0b"></a>
+template&lt;class Sourceable &gt; </td></tr>
+<tr class="memitem:a01dec2df339a39397e6d6d9ffcde6c0b"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>basic_ubjson_cursor</b> (Sourceable &amp;&amp;source, std::function&lt; bool(const <a class="el" href="classjsoncons_1_1basic__staj__event.html">staj_event</a> &amp;, const <a class="el" href="classjsoncons_1_1ser__context.html">ser_context</a> &amp;)&gt; filter, std::error_code &amp;ec)</td></tr>
+<tr class="separator:a01dec2df339a39397e6d6d9ffcde6c0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b14b3ea0de2cf04c843eabd994874a7" id="r_a8b14b3ea0de2cf04c843eabd994874a7"><td class="memTemplParams" colspan="2"><a id="a8b14b3ea0de2cf04c843eabd994874a7" name="a8b14b3ea0de2cf04c843eabd994874a7"></a>
+template&lt;class Sourceable &gt; </td></tr>
+<tr class="memitem:a8b14b3ea0de2cf04c843eabd994874a7"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>basic_ubjson_cursor</b> (std::allocator_arg_t, const Allocator &amp;alloc, Sourceable &amp;&amp;source, std::function&lt; bool(const <a class="el" href="classjsoncons_1_1basic__staj__event.html">staj_event</a> &amp;, const <a class="el" href="classjsoncons_1_1ser__context.html">ser_context</a> &amp;)&gt; filter, std::error_code &amp;ec)</td></tr>
+<tr class="separator:a8b14b3ea0de2cf04c843eabd994874a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aed57afe5ff4380f3a5052c9d674bc9" id="r_a1aed57afe5ff4380f3a5052c9d674bc9"><td class="memItemLeft" align="right" valign="top"><a id="a1aed57afe5ff4380f3a5052c9d674bc9" name="a1aed57afe5ff4380f3a5052c9d674bc9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>read</b> (<a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; char_type &gt; &amp;visitor)</td></tr>
+<tr class="separator:a1aed57afe5ff4380f3a5052c9d674bc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7142eb31c81d159f825496c0f09e6daf" id="r_a7142eb31c81d159f825496c0f09e6daf"><td class="memItemLeft" align="right" valign="top"><a id="a7142eb31c81d159f825496c0f09e6daf" name="a7142eb31c81d159f825496c0f09e6daf"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>read</b> (<a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; char_type &gt; &amp;visitor, std::error_code &amp;ec)</td></tr>
+<tr class="separator:a7142eb31c81d159f825496c0f09e6daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classjsoncons_1_1basic__staj__cursor"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classjsoncons_1_1basic__staj__cursor')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classjsoncons_1_1basic__staj__cursor.html">jsoncons::basic_staj_cursor&lt; char &gt;</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:afd90cd718936ebe3bb4187a5f71a5c82 inherit pub_methods_classjsoncons_1_1basic__staj__cursor" id="r_afd90cd718936ebe3bb4187a5f71a5c82"><td class="memItemLeft" align="right" valign="top">
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>array_expected</b> (std::error_code &amp;ec)</td></tr>
+<tr class="separator:afd90cd718936ebe3bb4187a5f71a5c82 inherit pub_methods_classjsoncons_1_1basic__staj__cursor"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+フレンド</h2></td></tr>
+<tr class="memitem:a98443984ccba5b6e5a569ff1285e1ef4" id="r_a98443984ccba5b6e5a569ff1285e1ef4"><td class="memItemLeft" align="right" valign="top"><a id="a98443984ccba5b6e5a569ff1285e1ef4" name="a98443984ccba5b6e5a569ff1285e1ef4"></a>
+<a class="el" href="classjsoncons_1_1basic__staj__filter__view.html">staj_filter_view</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator|</b> (<a class="el" href="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor.html">basic_ubjson_cursor</a> &amp;cursor, std::function&lt; bool(const <a class="el" href="classjsoncons_1_1basic__staj__event.html">staj_event</a> &amp;, const <a class="el" href="classjsoncons_1_1ser__context.html">ser_context</a> &amp;)&gt; pred)</td></tr>
+<tr class="separator:a98443984ccba5b6e5a569ff1285e1ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a8dc291715d0f34f314ca3fc26338f35f" name="a8dc291715d0f34f314ca3fc26338f35f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dc291715d0f34f314ca3fc26338f35f">&#9670;&#160;</a></span>column()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Source  = jsoncons::binary_stream_source, class Allocator  = std::allocator&lt;char&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor.html">jsoncons::ubjson::basic_ubjson_cursor</a>&lt; Source, Allocator &gt;::column </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classjsoncons_1_1ser__context.html">jsoncons::ser_context</a>を再実装しています。</p>
+
+</div>
+</div>
+<a id="a8338709e2f668f2a2ad398c44d64b31d" name="a8338709e2f668f2a2ad398c44d64b31d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8338709e2f668f2a2ad398c44d64b31d">&#9670;&#160;</a></span>context()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Source  = jsoncons::binary_stream_source, class Allocator  = std::allocator&lt;char&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classjsoncons_1_1ser__context.html">ser_context</a> &amp; <a class="el" href="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor.html">jsoncons::ubjson::basic_ubjson_cursor</a>&lt; Source, Allocator &gt;::context </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classjsoncons_1_1basic__staj__cursor.html">jsoncons::basic_staj_cursor&lt; char &gt;</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="a925a2eafa7778a36315f71e4940e9bc6" name="a925a2eafa7778a36315f71e4940e9bc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a925a2eafa7778a36315f71e4940e9bc6">&#9670;&#160;</a></span>current()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Source  = jsoncons::binary_stream_source, class Allocator  = std::allocator&lt;char&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classjsoncons_1_1basic__staj__event.html">staj_event</a> &amp; <a class="el" href="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor.html">jsoncons::ubjson::basic_ubjson_cursor</a>&lt; Source, Allocator &gt;::current </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classjsoncons_1_1basic__staj__cursor.html">jsoncons::basic_staj_cursor&lt; char &gt;</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="aa1ff2464ccbb8a265a1e68af7f436adf" name="aa1ff2464ccbb8a265a1e68af7f436adf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1ff2464ccbb8a265a1e68af7f436adf">&#9670;&#160;</a></span>done()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Source  = jsoncons::binary_stream_source, class Allocator  = std::allocator&lt;char&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor.html">jsoncons::ubjson::basic_ubjson_cursor</a>&lt; Source, Allocator &gt;::done </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classjsoncons_1_1basic__staj__cursor.html">jsoncons::basic_staj_cursor&lt; char &gt;</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="a06f9b261324cb91ef2eef4cc3faacaa6" name="a06f9b261324cb91ef2eef4cc3faacaa6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06f9b261324cb91ef2eef4cc3faacaa6">&#9670;&#160;</a></span>line()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Source  = jsoncons::binary_stream_source, class Allocator  = std::allocator&lt;char&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor.html">jsoncons::ubjson::basic_ubjson_cursor</a>&lt; Source, Allocator &gt;::line </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classjsoncons_1_1ser__context.html">jsoncons::ser_context</a>を再実装しています。</p>
+
+</div>
+</div>
+<a id="a9cce931068d58324222f595d19300db7" name="a9cce931068d58324222f595d19300db7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cce931068d58324222f595d19300db7">&#9670;&#160;</a></span>next() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Source  = jsoncons::binary_stream_source, class Allocator  = std::allocator&lt;char&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor.html">jsoncons::ubjson::basic_ubjson_cursor</a>&lt; Source, Allocator &gt;::next </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classjsoncons_1_1basic__staj__cursor.html">jsoncons::basic_staj_cursor&lt; char &gt;</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="ae99f80a5d36a680f3fa5d13b92306004" name="ae99f80a5d36a680f3fa5d13b92306004"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae99f80a5d36a680f3fa5d13b92306004">&#9670;&#160;</a></span>next() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Source  = jsoncons::binary_stream_source, class Allocator  = std::allocator&lt;char&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor.html">jsoncons::ubjson::basic_ubjson_cursor</a>&lt; Source, Allocator &gt;::next </td>
+          <td>(</td>
+          <td class="paramtype">std::error_code &amp;&#160;</td>
+          <td class="paramname"><em>ec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classjsoncons_1_1basic__staj__cursor.html">jsoncons::basic_staj_cursor&lt; char &gt;</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="afe58d7a05e6925275dcdc88417d83135" name="afe58d7a05e6925275dcdc88417d83135"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe58d7a05e6925275dcdc88417d83135">&#9670;&#160;</a></span>read_to() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Source  = jsoncons::binary_stream_source, class Allocator  = std::allocator&lt;char&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor.html">jsoncons::ubjson::basic_ubjson_cursor</a>&lt; Source, Allocator &gt;::read_to </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; char_type &gt; &amp;&#160;</td>
+          <td class="paramname"><em>visitor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classjsoncons_1_1basic__staj__cursor.html">jsoncons::basic_staj_cursor&lt; char &gt;</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="a2a7fea66d46c7c46b46279c5353f8b6b" name="a2a7fea66d46c7c46b46279c5353f8b6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a7fea66d46c7c46b46279c5353f8b6b">&#9670;&#160;</a></span>read_to() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Source  = jsoncons::binary_stream_source, class Allocator  = std::allocator&lt;char&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor.html">jsoncons::ubjson::basic_ubjson_cursor</a>&lt; Source, Allocator &gt;::read_to </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classjsoncons_1_1basic__json__visitor.html">basic_json_visitor</a>&lt; char_type &gt; &amp;&#160;</td>
+          <td class="paramname"><em>visitor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::error_code &amp;&#160;</td>
+          <td class="paramname"><em>ec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classjsoncons_1_1basic__staj__cursor.html">jsoncons::basic_staj_cursor&lt; char &gt;</a>を実装しています。</p>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/hasegawa/Desktop/main/program/DesignLab/jsoncons/include/jsoncons_ext/ubjson/<a class="el" href="ubjson__cursor_8hpp_source.html">ubjson_cursor.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacejsoncons.html">jsoncons</a></li><li class="navelem"><b>ubjson</b></li><li class="navelem"><a class="el" href="classjsoncons_1_1ubjson_1_1basic__ubjson__cursor.html">basic_ubjson_cursor</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

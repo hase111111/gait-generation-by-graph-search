@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: jsoncons::jmespath::detail::jmespath_evaluator&lt; Json, JsonReference &gt;::token クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classjsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator_1_1token.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-attribs">公開変数類</a> &#124;
+<a href="classjsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator_1_1token-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">jsoncons::jmespath::detail::jmespath_evaluator&lt; Json, JsonReference &gt;::token クラス</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+jsoncons::jmespath::detail::jmespath_evaluator&lt; Json, JsonReference &gt;::token 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="classjsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator_1_1token__coll__graph.png" border="0" usemap="#ajsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator_3_01_json_00_01_json_reference_01_4_1_1token_coll__map" alt="Collaboration graph"/></div>
+<map name="ajsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator_3_01_json_00_01_json_reference_01_4_1_1token_coll__map" id="ajsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator_3_01_json_00_01_json_reference_01_4_1_1token_coll__map">
+<area shape="rect" title=" " alt="" coords="333,112,538,171"/>
+<area shape="rect" href="classjsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator_1_1unary__operator.html" title=" " alt="" coords="5,5,185,80"/>
+<area shape="poly" title=" " alt="" coords="200,70,333,109,331,114,199,75"/>
+<area shape="rect" href="classjsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator_1_1binary__operator.html" title=" " alt="" coords="5,104,185,179"/>
+<area shape="poly" title=" " alt="" coords="200,139,332,139,332,144,200,144"/>
+<area shape="rect" href="classjsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator_1_1function__base.html" title=" " alt="" coords="5,203,185,277"/>
+<area shape="poly" title=" " alt="" coords="199,207,331,169,333,174,200,212"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a2f1023916a8983ed9edc55a261f9ec2f" id="r_a2f1023916a8983ed9edc55a261f9ec2f"><td class="memItemLeft" align="right" valign="top"><a id="a2f1023916a8983ed9edc55a261f9ec2f" name="a2f1023916a8983ed9edc55a261f9ec2f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (<a class="el" href="structjsoncons_1_1jmespath_1_1current__node__arg__t.html">current_node_arg_t</a>) noexcept</td></tr>
+<tr class="separator:a2f1023916a8983ed9edc55a261f9ec2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7667407b698d363d662a9c79566e8f6f" id="r_a7667407b698d363d662a9c79566e8f6f"><td class="memItemLeft" align="right" valign="top"><a id="a7667407b698d363d662a9c79566e8f6f" name="a7667407b698d363d662a9c79566e8f6f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (<a class="el" href="structjsoncons_1_1jmespath_1_1end__function__arg__t.html">end_function_arg_t</a>) noexcept</td></tr>
+<tr class="separator:a7667407b698d363d662a9c79566e8f6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa5eb6ecdb6176d9369d90c57ca5f20d" id="r_aaa5eb6ecdb6176d9369d90c57ca5f20d"><td class="memItemLeft" align="right" valign="top"><a id="aaa5eb6ecdb6176d9369d90c57ca5f20d" name="aaa5eb6ecdb6176d9369d90c57ca5f20d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (<a class="el" href="structjsoncons_1_1jmespath_1_1separator__arg__t.html">separator_arg_t</a>) noexcept</td></tr>
+<tr class="separator:aaa5eb6ecdb6176d9369d90c57ca5f20d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53a8e9ee5725149d3581c71941992e77" id="r_a53a8e9ee5725149d3581c71941992e77"><td class="memItemLeft" align="right" valign="top"><a id="a53a8e9ee5725149d3581c71941992e77" name="a53a8e9ee5725149d3581c71941992e77"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (<a class="el" href="structjsoncons_1_1jmespath_1_1lparen__arg__t.html">lparen_arg_t</a>) noexcept</td></tr>
+<tr class="separator:a53a8e9ee5725149d3581c71941992e77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96d77c24394d86d5f9d1b2f310d3de59" id="r_a96d77c24394d86d5f9d1b2f310d3de59"><td class="memItemLeft" align="right" valign="top"><a id="a96d77c24394d86d5f9d1b2f310d3de59" name="a96d77c24394d86d5f9d1b2f310d3de59"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (<a class="el" href="structjsoncons_1_1jmespath_1_1rparen__arg__t.html">rparen_arg_t</a>) noexcept</td></tr>
+<tr class="separator:a96d77c24394d86d5f9d1b2f310d3de59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ab5f179f8cc67c24f5f6a2785aa31b8" id="r_a1ab5f179f8cc67c24f5f6a2785aa31b8"><td class="memItemLeft" align="right" valign="top"><a id="a1ab5f179f8cc67c24f5f6a2785aa31b8" name="a1ab5f179f8cc67c24f5f6a2785aa31b8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (<a class="el" href="structjsoncons_1_1jmespath_1_1end__of__expression__arg__t.html">end_of_expression_arg_t</a>) noexcept</td></tr>
+<tr class="separator:a1ab5f179f8cc67c24f5f6a2785aa31b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6808b028a5f476cfb65e17d8f5e9f67" id="r_ae6808b028a5f476cfb65e17d8f5e9f67"><td class="memItemLeft" align="right" valign="top"><a id="ae6808b028a5f476cfb65e17d8f5e9f67" name="ae6808b028a5f476cfb65e17d8f5e9f67"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (<a class="el" href="structjsoncons_1_1jmespath_1_1begin__multi__select__hash__arg__t.html">begin_multi_select_hash_arg_t</a>) noexcept</td></tr>
+<tr class="separator:ae6808b028a5f476cfb65e17d8f5e9f67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9bb870ead9714fd2400451e9c586a59" id="r_ac9bb870ead9714fd2400451e9c586a59"><td class="memItemLeft" align="right" valign="top"><a id="ac9bb870ead9714fd2400451e9c586a59" name="ac9bb870ead9714fd2400451e9c586a59"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (<a class="el" href="structjsoncons_1_1jmespath_1_1end__multi__select__hash__arg__t.html">end_multi_select_hash_arg_t</a>) noexcept</td></tr>
+<tr class="separator:ac9bb870ead9714fd2400451e9c586a59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30bbc45b31a98865a68777432e29f873" id="r_a30bbc45b31a98865a68777432e29f873"><td class="memItemLeft" align="right" valign="top"><a id="a30bbc45b31a98865a68777432e29f873" name="a30bbc45b31a98865a68777432e29f873"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (<a class="el" href="structjsoncons_1_1jmespath_1_1begin__multi__select__list__arg__t.html">begin_multi_select_list_arg_t</a>) noexcept</td></tr>
+<tr class="separator:a30bbc45b31a98865a68777432e29f873"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66281052ebd984e7c938b4b3c2d35f68" id="r_a66281052ebd984e7c938b4b3c2d35f68"><td class="memItemLeft" align="right" valign="top"><a id="a66281052ebd984e7c938b4b3c2d35f68" name="a66281052ebd984e7c938b4b3c2d35f68"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (<a class="el" href="structjsoncons_1_1jmespath_1_1end__multi__select__list__arg__t.html">end_multi_select_list_arg_t</a>) noexcept</td></tr>
+<tr class="separator:a66281052ebd984e7c938b4b3c2d35f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e634a8c332f9f15e882b3638624f1a4" id="r_a8e634a8c332f9f15e882b3638624f1a4"><td class="memItemLeft" align="right" valign="top"><a id="a8e634a8c332f9f15e882b3638624f1a4" name="a8e634a8c332f9f15e882b3638624f1a4"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (<a class="el" href="structjsoncons_1_1jmespath_1_1begin__filter__arg__t.html">begin_filter_arg_t</a>) noexcept</td></tr>
+<tr class="separator:a8e634a8c332f9f15e882b3638624f1a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f98ea16bcaab0f05c57c24eff614fa3" id="r_a7f98ea16bcaab0f05c57c24eff614fa3"><td class="memItemLeft" align="right" valign="top"><a id="a7f98ea16bcaab0f05c57c24eff614fa3" name="a7f98ea16bcaab0f05c57c24eff614fa3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (<a class="el" href="structjsoncons_1_1jmespath_1_1end__filter__arg__t.html">end_filter_arg_t</a>) noexcept</td></tr>
+<tr class="separator:a7f98ea16bcaab0f05c57c24eff614fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdca8e33ad57c6d7d29a75286624b53b" id="r_afdca8e33ad57c6d7d29a75286624b53b"><td class="memItemLeft" align="right" valign="top"><a id="afdca8e33ad57c6d7d29a75286624b53b" name="afdca8e33ad57c6d7d29a75286624b53b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (<a class="el" href="structjsoncons_1_1jmespath_1_1pipe__arg__t.html">pipe_arg_t</a>) noexcept</td></tr>
+<tr class="separator:afdca8e33ad57c6d7d29a75286624b53b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fd09faf60c53518c5687a2c1eb9d5e7" id="r_a7fd09faf60c53518c5687a2c1eb9d5e7"><td class="memItemLeft" align="right" valign="top"><a id="a7fd09faf60c53518c5687a2c1eb9d5e7" name="a7fd09faf60c53518c5687a2c1eb9d5e7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (<a class="el" href="structjsoncons_1_1jmespath_1_1key__arg__t.html">key_arg_t</a>, const string_type &amp;key)</td></tr>
+<tr class="separator:a7fd09faf60c53518c5687a2c1eb9d5e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2baf0526d8092330baabe4e5df32414f" id="r_a2baf0526d8092330baabe4e5df32414f"><td class="memItemLeft" align="right" valign="top"><a id="a2baf0526d8092330baabe4e5df32414f" name="a2baf0526d8092330baabe4e5df32414f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (std::unique_ptr&lt; <a class="el" href="classjsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator_1_1expression__base.html">expression_base</a> &gt; &amp;&amp;expression)</td></tr>
+<tr class="separator:a2baf0526d8092330baabe4e5df32414f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad8678cd6122272afe46129547487eaa" id="r_aad8678cd6122272afe46129547487eaa"><td class="memItemLeft" align="right" valign="top"><a id="aad8678cd6122272afe46129547487eaa" name="aad8678cd6122272afe46129547487eaa"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (const <a class="el" href="classjsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator_1_1unary__operator.html">unary_operator</a> *expression) noexcept</td></tr>
+<tr class="separator:aad8678cd6122272afe46129547487eaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfd520697e4e8b19ed7deb215aebd949" id="r_acfd520697e4e8b19ed7deb215aebd949"><td class="memItemLeft" align="right" valign="top"><a id="acfd520697e4e8b19ed7deb215aebd949" name="acfd520697e4e8b19ed7deb215aebd949"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (const <a class="el" href="classjsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator_1_1binary__operator.html">binary_operator</a> *expression) noexcept</td></tr>
+<tr class="separator:acfd520697e4e8b19ed7deb215aebd949"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a347be0aace33db0df7b39920a56630e4" id="r_a347be0aace33db0df7b39920a56630e4"><td class="memItemLeft" align="right" valign="top"><a id="a347be0aace33db0df7b39920a56630e4" name="a347be0aace33db0df7b39920a56630e4"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (const <a class="el" href="classjsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator_1_1function__base.html">function_base</a> *function) noexcept</td></tr>
+<tr class="separator:a347be0aace33db0df7b39920a56630e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7495aefb2ca1703e9ad657fa9132d39d" id="r_a7495aefb2ca1703e9ad657fa9132d39d"><td class="memItemLeft" align="right" valign="top"><a id="a7495aefb2ca1703e9ad657fa9132d39d" name="a7495aefb2ca1703e9ad657fa9132d39d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (<a class="el" href="structjsoncons_1_1jmespath_1_1argument__arg__t.html">argument_arg_t</a>) noexcept</td></tr>
+<tr class="separator:a7495aefb2ca1703e9ad657fa9132d39d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aa5c94c3877fb0b9350a36849a740e2" id="r_a1aa5c94c3877fb0b9350a36849a740e2"><td class="memItemLeft" align="right" valign="top"><a id="a1aa5c94c3877fb0b9350a36849a740e2" name="a1aa5c94c3877fb0b9350a36849a740e2"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (<a class="el" href="structjsoncons_1_1jmespath_1_1begin__expression__type__arg__t.html">begin_expression_type_arg_t</a>) noexcept</td></tr>
+<tr class="separator:a1aa5c94c3877fb0b9350a36849a740e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af016bcc97fdc405eeffcf3d4b5386b0b" id="r_af016bcc97fdc405eeffcf3d4b5386b0b"><td class="memItemLeft" align="right" valign="top"><a id="af016bcc97fdc405eeffcf3d4b5386b0b" name="af016bcc97fdc405eeffcf3d4b5386b0b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (<a class="el" href="structjsoncons_1_1jmespath_1_1end__expression__type__arg__t.html">end_expression_type_arg_t</a>) noexcept</td></tr>
+<tr class="separator:af016bcc97fdc405eeffcf3d4b5386b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa929f6c9c8e0d9e62a715f070864019a" id="r_aa929f6c9c8e0d9e62a715f070864019a"><td class="memItemLeft" align="right" valign="top"><a id="aa929f6c9c8e0d9e62a715f070864019a" name="aa929f6c9c8e0d9e62a715f070864019a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (<a class="el" href="structjsoncons_1_1jmespath_1_1literal__arg__t.html">literal_arg_t</a>, Json &amp;&amp;value) noexcept</td></tr>
+<tr class="separator:aa929f6c9c8e0d9e62a715f070864019a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a5e64f5750ffe11df7bbb87cfac2fe2" id="r_a1a5e64f5750ffe11df7bbb87cfac2fe2"><td class="memItemLeft" align="right" valign="top"><a id="a1a5e64f5750ffe11df7bbb87cfac2fe2" name="a1a5e64f5750ffe11df7bbb87cfac2fe2"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>token</b> (<a class="el" href="classjsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator_1_1token.html">token</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="separator:a1a5e64f5750ffe11df7bbb87cfac2fe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a586fe019153518697bfdc5ce64825f62" id="r_a586fe019153518697bfdc5ce64825f62"><td class="memItemLeft" align="right" valign="top"><a id="a586fe019153518697bfdc5ce64825f62" name="a586fe019153518697bfdc5ce64825f62"></a>
+<a class="el" href="classjsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator_1_1token.html">token</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classjsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator_1_1token.html">token</a> &amp;&amp;other)</td></tr>
+<tr class="separator:a586fe019153518697bfdc5ce64825f62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad50fa11e498b12be49d4b680ae4d3fff" id="r_ad50fa11e498b12be49d4b680ae4d3fff"><td class="memItemLeft" align="right" valign="top"><a id="ad50fa11e498b12be49d4b680ae4d3fff" name="ad50fa11e498b12be49d4b680ae4d3fff"></a>
+token_kind&#160;</td><td class="memItemRight" valign="bottom"><b>type</b> () const</td></tr>
+<tr class="separator:ad50fa11e498b12be49d4b680ae4d3fff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac913222ecaf4c2790b9961171600092d" id="r_ac913222ecaf4c2790b9961171600092d"><td class="memItemLeft" align="right" valign="top"><a id="ac913222ecaf4c2790b9961171600092d" name="ac913222ecaf4c2790b9961171600092d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_lparen</b> () const</td></tr>
+<tr class="separator:ac913222ecaf4c2790b9961171600092d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e5c62891850113c24b970b933b3199d" id="r_a2e5c62891850113c24b970b933b3199d"><td class="memItemLeft" align="right" valign="top"><a id="a2e5c62891850113c24b970b933b3199d" name="a2e5c62891850113c24b970b933b3199d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_lbrace</b> () const</td></tr>
+<tr class="separator:a2e5c62891850113c24b970b933b3199d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a624b9f4c4930fa00317b25f1576e51a0" id="r_a624b9f4c4930fa00317b25f1576e51a0"><td class="memItemLeft" align="right" valign="top"><a id="a624b9f4c4930fa00317b25f1576e51a0" name="a624b9f4c4930fa00317b25f1576e51a0"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_key</b> () const</td></tr>
+<tr class="separator:a624b9f4c4930fa00317b25f1576e51a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace4b0a42e2b8a6efe04746630e724cd4" id="r_ace4b0a42e2b8a6efe04746630e724cd4"><td class="memItemLeft" align="right" valign="top"><a id="ace4b0a42e2b8a6efe04746630e724cd4" name="ace4b0a42e2b8a6efe04746630e724cd4"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_rparen</b> () const</td></tr>
+<tr class="separator:ace4b0a42e2b8a6efe04746630e724cd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa726c2a4961028376d7c0c03203b1a9f" id="r_aa726c2a4961028376d7c0c03203b1a9f"><td class="memItemLeft" align="right" valign="top"><a id="aa726c2a4961028376d7c0c03203b1a9f" name="aa726c2a4961028376d7c0c03203b1a9f"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_current_node</b> () const</td></tr>
+<tr class="separator:aa726c2a4961028376d7c0c03203b1a9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae01fa97428fbeff374dc9072e055edd" id="r_aae01fa97428fbeff374dc9072e055edd"><td class="memItemLeft" align="right" valign="top"><a id="aae01fa97428fbeff374dc9072e055edd" name="aae01fa97428fbeff374dc9072e055edd"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_projection</b> () const</td></tr>
+<tr class="separator:aae01fa97428fbeff374dc9072e055edd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29b3ee7ade52e0c5b3eb91966baa6311" id="r_a29b3ee7ade52e0c5b3eb91966baa6311"><td class="memItemLeft" align="right" valign="top"><a id="a29b3ee7ade52e0c5b3eb91966baa6311" name="a29b3ee7ade52e0c5b3eb91966baa6311"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_expression</b> () const</td></tr>
+<tr class="separator:a29b3ee7ade52e0c5b3eb91966baa6311"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa0588112dd39b60e885982c0f38605c" id="r_afa0588112dd39b60e885982c0f38605c"><td class="memItemLeft" align="right" valign="top"><a id="afa0588112dd39b60e885982c0f38605c" name="afa0588112dd39b60e885982c0f38605c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_operator</b> () const</td></tr>
+<tr class="separator:afa0588112dd39b60e885982c0f38605c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ffce97edafa194c0714e9b335467c45" id="r_a4ffce97edafa194c0714e9b335467c45"><td class="memItemLeft" align="right" valign="top"><a id="a4ffce97edafa194c0714e9b335467c45" name="a4ffce97edafa194c0714e9b335467c45"></a>
+std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>precedence_level</b> () const</td></tr>
+<tr class="separator:a4ffce97edafa194c0714e9b335467c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5640e636256ba19cbcb848d1371fb979" id="r_a5640e636256ba19cbcb848d1371fb979"><td class="memItemLeft" align="right" valign="top"><a id="a5640e636256ba19cbcb848d1371fb979" name="a5640e636256ba19cbcb848d1371fb979"></a>
+<a class="el" href="classjsoncons_1_1detail_1_1optional.html">jsoncons::optional</a>&lt; std::size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>arity</b> () const</td></tr>
+<tr class="separator:a5640e636256ba19cbcb848d1371fb979"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae76291f66085b3b81f61b006ad001b59" id="r_ae76291f66085b3b81f61b006ad001b59"><td class="memItemLeft" align="right" valign="top"><a id="ae76291f66085b3b81f61b006ad001b59" name="ae76291f66085b3b81f61b006ad001b59"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_right_associative</b> () const</td></tr>
+<tr class="separator:ae76291f66085b3b81f61b006ad001b59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac574519ab3268446f92e09b3b591bb35" id="r_ac574519ab3268446f92e09b3b591bb35"><td class="memItemLeft" align="right" valign="top"><a id="ac574519ab3268446f92e09b3b591bb35" name="ac574519ab3268446f92e09b3b591bb35"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>construct</b> (<a class="el" href="classjsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator_1_1token.html">token</a> &amp;&amp;other)</td></tr>
+<tr class="separator:ac574519ab3268446f92e09b3b591bb35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5016c399c8d97b3deee2ae1593aee232" id="r_a5016c399c8d97b3deee2ae1593aee232"><td class="memItemLeft" align="right" valign="top"><a id="a5016c399c8d97b3deee2ae1593aee232" name="a5016c399c8d97b3deee2ae1593aee232"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> () noexcept</td></tr>
+<tr class="separator:a5016c399c8d97b3deee2ae1593aee232"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fd6590e85ec90594cfc8f774e374a5e" id="r_a3fd6590e85ec90594cfc8f774e374a5e"><td class="memItemLeft" align="right" valign="top"><a id="a3fd6590e85ec90594cfc8f774e374a5e" name="a3fd6590e85ec90594cfc8f774e374a5e"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>to_string</b> (std::size_t indent=0) const</td></tr>
+<tr class="separator:a3fd6590e85ec90594cfc8f774e374a5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+公開変数類</h2></td></tr>
+<tr class="memitem:a0773ba6619da9cf5ca346a04864f423a" id="r_a0773ba6619da9cf5ca346a04864f423a"><td class="memItemLeft" align="right" valign="top"><a id="a0773ba6619da9cf5ca346a04864f423a" name="a0773ba6619da9cf5ca346a04864f423a"></a>
+token_kind&#160;</td><td class="memItemRight" valign="bottom"><b>type_</b></td></tr>
+<tr class="separator:a0773ba6619da9cf5ca346a04864f423a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b5f3d1b8c8769e8675591da5c69a463" id="r_a7b5f3d1b8c8769e8675591da5c69a463"><td class="memItemLeft" ><a id="a7b5f3d1b8c8769e8675591da5c69a463" name="a7b5f3d1b8c8769e8675591da5c69a463"></a>
+union {&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ebf305134905d844c40e6dbb788733f" id="r_a1ebf305134905d844c40e6dbb788733f"><td class="memItemLeft" >
+&#160;&#160;&#160;std::unique_ptr&lt; <a class="el" href="classjsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator_1_1expression__base.html">expression_base</a> &gt;&#160;&#160;&#160;<b>expression_</b>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a1ebf305134905d844c40e6dbb788733f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e8da3df2f89f228920af02c17c7931d" id="r_a1e8da3df2f89f228920af02c17c7931d"><td class="memItemLeft" >
+&#160;&#160;&#160;const <a class="el" href="classjsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator_1_1unary__operator.html">unary_operator</a> *&#160;&#160;&#160;<b>unary_operator_</b>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a1e8da3df2f89f228920af02c17c7931d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eb7fae36fbec65cf17806ab0278cbc1" id="r_a8eb7fae36fbec65cf17806ab0278cbc1"><td class="memItemLeft" >
+&#160;&#160;&#160;const <a class="el" href="classjsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator_1_1binary__operator.html">binary_operator</a> *&#160;&#160;&#160;<b>binary_operator_</b>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a8eb7fae36fbec65cf17806ab0278cbc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafe1f05cb4f400f9d9b6e69cc4465489" id="r_aafe1f05cb4f400f9d9b6e69cc4465489"><td class="memItemLeft" >
+&#160;&#160;&#160;const <a class="el" href="classjsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator_1_1function__base.html">function_base</a> *&#160;&#160;&#160;<b>function_</b>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:aafe1f05cb4f400f9d9b6e69cc4465489"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a707c9d8bc8db1e1f7bc85f3ed0546f2f" id="r_a707c9d8bc8db1e1f7bc85f3ed0546f2f"><td class="memItemLeft" >
+&#160;&#160;&#160;Json&#160;&#160;&#160;<b>value_</b>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a707c9d8bc8db1e1f7bc85f3ed0546f2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4490a5a1c1abad8bbebd8ec3f8a12082" id="r_a4490a5a1c1abad8bbebd8ec3f8a12082"><td class="memItemLeft" >
+&#160;&#160;&#160;string_type&#160;&#160;&#160;<b>key_</b>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a4490a5a1c1abad8bbebd8ec3f8a12082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b5f3d1b8c8769e8675591da5c69a463" id="r_a7b5f3d1b8c8769e8675591da5c69a463"><td class="memItemLeft" valign="top">};&#160;</td><td class="memItemRight" valign="bottom">&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a7b5f3d1b8c8769e8675591da5c69a463"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/hasegawa/Desktop/main/program/DesignLab/jsoncons/include/jsoncons_ext/jmespath/<a class="el" href="jmespath_8hpp_source.html">jmespath.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacejsoncons.html">jsoncons</a></li><li class="navelem"><b>jmespath</b></li><li class="navelem"><b>detail</b></li><li class="navelem"><a class="el" href="classjsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator.html">jmespath_evaluator</a></li><li class="navelem"><a class="el" href="classjsoncons_1_1jmespath_1_1detail_1_1jmespath__evaluator_1_1token.html">token</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

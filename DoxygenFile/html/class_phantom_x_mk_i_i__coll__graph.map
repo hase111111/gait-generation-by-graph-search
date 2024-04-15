@@ -1,0 +1,11 @@
+<map id="PhantomXMkII" name="PhantomXMkII">
+<area shape="rect" id="Node000001" title="PhantomX mk&#45;2 の状態を計算するクラス．" alt="" coords="245,81,349,108"/>
+<area shape="rect" id="Node000002" href="$class_i_hexapod_coordinate_converter.html" title="ロボットは重心位置・アクチュエータなど様々な点を基準とする座標系を持つ．これらを相互に変換するクラス．" alt="" coords="5,5,197,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,34,198,42,273,78,271,83,196,46,175,39"/>
+<area shape="rect" id="Node000003" href="$class_i_hexapod_joint_calculator.html" title="間接角度や角速度を計算する処理のインターフェース．" alt="" coords="21,56,181,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="197,79,245,85,244,91,196,84"/>
+<area shape="rect" id="Node000004" href="$class_i_hexapod_state_presenter.html" title="6脚ロボットの状態を表示するクラス" alt="" coords="20,107,182,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="197,105,244,99,245,104,198,110"/>
+<area shape="rect" id="Node000005" href="$class_i_hexapod_vaild_checker.html" title="6脚ロボットが有効な姿勢をとっているかをチェックするクラス" alt="" coords="25,157,177,184"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="175,150,196,143,271,106,273,111,198,148,177,155"/>
+</map>

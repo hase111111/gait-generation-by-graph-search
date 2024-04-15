@@ -1,0 +1,7 @@
+<map id="designlab::SerialCommunicationThread::SetWriteData" name="designlab::SerialCommunicationThread::SetWriteData">
+<area shape="rect" id="Node000001" title="指定した文字列をシリアル通信で送信する． この時，排他制御を行う．" alt="" coords="248,39,455,81"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib_gui_robot_control.html#a1af38aed3eb6e1a916c257e6ed3945f0" title="コンストラクタでWindowのサイズと，カメラの管理を行うクラスを受け取る．" alt="" coords="5,5,200,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,47,200,42,200,37,232,41"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_dxlib_gui_robot_control.html#aa075bae9ff758183dbb734c67609122c" title="GUIの更新，毎フレーム実行すること．" alt="" coords="19,72,186,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="233,79,187,85,186,79,232,73"/>
+</map>

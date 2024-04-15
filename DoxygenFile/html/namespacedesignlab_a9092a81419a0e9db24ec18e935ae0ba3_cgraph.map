@@ -1,0 +1,11 @@
+<map id="designlab::ToEulerXYZ" name="designlab::ToEulerXYZ">
+<area shape="rect" id="Node000001" title="回転角行列からクォータニオンへの変換" alt="" coords="5,31,157,57"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab.html#a3cd136a3ae33275b2a1743c250ab94cc" title="回転角行列からXYZオイラー角への変換" alt="" coords="220,5,372,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,32,204,27,205,32,157,38"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab.html#a52c3a31f05a9a4b8e59ddab11243b353" title="クォータニオンから回転角行列への変換" alt="" coords="205,56,387,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="157,50,189,54,189,59,157,56"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaternion.html#a22fd9f4f5c3a4c600e859ebd1891c45a" title="正規化したクォータニオンを返す &#160;&#160;クォータニオンの正規化とは，ノルムを1にすること． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる" alt="" coords="435,48,582,91"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="388,67,420,67,420,72,388,72"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_quaternion.html#a56bbbd522805450144f54aae7dbd117e" title="クォータニオンのノルムを返す &#160;&#160;ノルムとは，ベクトルの大きさのこと．クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 で求められる" alt="" coords="630,48,778,91"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="583,67,614,67,614,72,583,72"/>
+</map>

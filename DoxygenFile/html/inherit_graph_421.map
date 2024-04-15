@@ -1,0 +1,29 @@
+<map id="クラス階層図" name="クラス階層図">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,413,136,440"/>
+<area shape="rect" id="Node000001" href="$classjsoncons_1_1bson_1_1bson__error__category__impl.html" title=" " alt="" coords="218,5,363,48"/>
+<area shape="poly" id="edge300_Node000000_Node000001" title=" " alt="" coords="69,398,74,329,91,238,105,190,124,142,150,98,182,58,198,46,216,37,219,41,201,50,186,62,154,101,129,145,110,192,96,240,80,330,75,398"/>
+<area shape="rect" id="Node000002" href="$classjsoncons_1_1cbor_1_1cbor__error__category__impl.html" title=" " alt="" coords="219,72,362,115"/>
+<area shape="poly" id="edge301_Node000000_Node000002" title=" " alt="" coords="72,397,81,340,99,267,114,229,132,191,154,156,182,125,199,112,218,103,220,108,202,117,185,129,159,159,137,194,119,231,104,269,86,341,77,398"/>
+<area shape="rect" id="Node000003" href="$classjsoncons_1_1csv_1_1csv__error__category__impl.html" title=" " alt="" coords="219,139,362,181"/>
+<area shape="poly" id="edge302_Node000000_Node000003" title=" " alt="" coords="75,398,88,353,109,297,139,240,159,214,182,191,218,171,220,176,185,195,163,218,144,243,113,299,93,354,80,399"/>
+<area shape="rect" id="Node000004" href="$classjsoncons_1_1detail_1_1conv__error__category__impl.html" title=" " alt="" coords="217,205,364,248"/>
+<area shape="poly" id="edge303_Node000000_Node000004" title=" " alt="" coords="81,397,119,328,148,290,182,258,215,240,218,245,185,262,152,294,124,331,86,400"/>
+<area shape="rect" id="Node000005" href="$classjsoncons_1_1detail_1_1to__integer__error__category__impl.html" title=" " alt="" coords="196,272,385,315"/>
+<area shape="poly" id="edge304_Node000000_Node000005" title=" " alt="" coords="92,400,132,361,182,324,206,313,209,318,185,329,135,365,95,404"/>
+<area shape="rect" id="Node000006" href="$classjsoncons_1_1jmespath_1_1jmespath__error__category__impl.html" title=" " alt="" coords="189,339,392,381"/>
+<area shape="poly" id="edge305_Node000000_Node000006" title=" " alt="" coords="131,406,217,379,218,385,133,411"/>
+<area shape="rect" id="Node000007" href="$classjsoncons_1_1json__error__category__impl.html" title=" " alt="" coords="221,405,360,448"/>
+<area shape="poly" id="edge306_Node000000_Node000007" title=" " alt="" coords="151,424,221,424,221,429,151,429"/>
+<area shape="rect" id="Node000008" href="$classjsoncons_1_1jsonpatch_1_1jsonpatch__error__category__impl.html" title=" " alt="" coords="187,472,394,515"/>
+<area shape="poly" id="edge307_Node000000_Node000008" title=" " alt="" coords="133,443,218,469,217,474,131,448"/>
+<area shape="rect" id="Node000009" href="$classjsoncons_1_1jsonpath_1_1jsonpath__error__category__impl.html" title=" " alt="" coords="191,539,390,581"/>
+<area shape="poly" id="edge308_Node000000_Node000009" title=" " alt="" coords="95,449,135,488,185,524,209,536,206,541,182,529,132,492,92,453"/>
+<area shape="rect" id="Node000010" href="$classjsoncons_1_1jsonpointer_1_1jsonpointer__error__category__impl.html" title=" " alt="" coords="184,605,397,648"/>
+<area shape="poly" id="edge309_Node000000_Node000010" title=" " alt="" coords="86,453,124,523,152,560,185,591,204,603,201,607,182,595,148,563,119,526,81,456"/>
+<area shape="rect" id="Node000011" href="$classjsoncons_1_1msgpack_1_1msgpack__error__category__impl.html" title=" " alt="" coords="193,672,388,715"/>
+<area shape="poly" id="edge310_Node000000_Node000011" title=" " alt="" coords="80,454,93,499,113,554,144,610,163,636,185,658,202,669,199,674,182,662,159,639,139,613,109,556,88,501,75,456"/>
+<area shape="rect" id="Node000012" href="$classjsoncons_1_1ubjson_1_1ubjson__error__category__impl.html" title=" " alt="" coords="208,739,373,781"/>
+<area shape="poly" id="edge311_Node000000_Node000012" title=" " alt="" coords="77,455,86,512,104,585,119,623,137,660,159,694,185,725,209,740,206,745,182,729,154,698,132,662,114,625,99,586,81,513,72,456"/>
+<area shape="rect" id="Node000013" href="$classjsoncons_1_1unicode__traits_1_1_unicode__traits__error__category__impl__.html" title=" " alt="" coords="209,805,372,864"/>
+<area shape="poly" id="edge312_Node000000_Node000013" title=" " alt="" coords="75,455,81,523,98,612,112,660,131,707,155,752,186,791,210,810,207,814,182,795,151,755,126,710,107,662,92,614,76,524,70,456"/>
+</map>

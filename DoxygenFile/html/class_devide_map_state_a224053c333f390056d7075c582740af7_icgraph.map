@@ -1,0 +1,17 @@
+<map id="DevideMapState::GetDevideMapIndexY" name="DevideMapState::GetDevideMapIndexY">
+<area shape="rect" id="Node000001" title="指定した座標がDevideマップのindexにおいてどの位置にあるかを返す．" alt="" coords="507,101,689,144"/>
+<area shape="rect" id="Node000002" href="$class_node_creator_com_up_down.html#ab86336f2494138be43a8d6b66edbde23" title="現在のノードから次のノード群を生成する" alt="" coords="271,43,439,85"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="492,100,439,87,440,82,493,95"/>
+<area shape="rect" id="Node000003" href="$class_devide_map_state.html#a86d9f7ad8e8fc412757154dc88f3cbe9" title="Devideマップのデータを初期化する． &#160;&#160;マップのデータを格子状に分割し，その中に存在する脚設置可能点を集める．" alt="" coords="285,109,425,136"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="491,125,426,125,426,120,491,120"/>
+<area shape="rect" id="Node000008" href="$class_phantom_x_mk_i_i.html#ac333dee5b46e1b63fdca6202b91a2834" title="胴体が地面と干渉しているかどうかを判定する．" alt="" coords="251,160,459,203"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="493,151,447,162,446,157,492,146"/>
+<area shape="rect" id="Node000004" href="$class_gait_pattern_generator_basic.html#a645616757f44ba90e39f2ea90421ba69" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,5,203,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="269,108,249,100,225,81,201,62,177,51,179,46,204,58,228,77,252,95,271,103"/>
+<area shape="rect" id="Node000005" href="$class_gait_pattern_generator_thread.html#abb68c5e14f5ca65059deb2c97880b0e5" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,72,203,115"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="269,115,203,108,204,102,270,110"/>
+<area shape="rect" id="Node000006" href="$class_map_renderer.html#a037a5e00015c227acbec0f3eb63ff598" title="マップの状態を設定する．代入と同時にDevideMapも更新される．" alt="" coords="13,139,195,165"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="269,135,196,144,195,139,269,130"/>
+<area shape="rect" id="Node000007" href="$class_map_renderer.html#a6dd0e42e2a9f90fba741f233dedb402e" title="ロボットの重心のグローバル座標を設定する． &#160;&#160;DevideMapはロボットの重心を中心にしているので，ロボットの重心のグローバル座標を設定する必要がある． &#160;&#160;代入と同時にDevideMapも更新され..." alt="" coords="26,189,182,216"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="271,143,252,150,228,165,204,180,170,191,169,186,202,175,225,160,250,146,269,138"/>
+</map>

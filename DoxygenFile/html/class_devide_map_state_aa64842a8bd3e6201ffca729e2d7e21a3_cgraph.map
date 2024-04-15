@@ -1,0 +1,5 @@
+<map id="DevideMapState::IsInMap" name="DevideMapState::IsInMap">
+<area shape="rect" id="Node000001" title="指定した座標がDevideマップの範囲内に存在するかどうかを返す．" alt="" coords="5,5,174,32"/>
+<area shape="rect" id="Node000002" href="$class_devide_map_state.html#a92aedd65b746989074b4cd40640b8ff5" title="指定した座標がDevideマップの範囲内に存在するかどうかを返す．" alt="" coords="222,5,390,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,16,206,16,206,21,174,21"/>
+</map>

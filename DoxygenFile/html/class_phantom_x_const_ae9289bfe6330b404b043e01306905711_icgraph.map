@@ -1,0 +1,5 @@
+<map id="PhantomXConst::IsVaildTibiaAngle" name="PhantomXConst::IsVaildTibiaAngle">
+<area shape="rect" id="Node000001" title="第3関節の角度が有効な範囲内かどうかを判定する．" alt="" coords="216,5,404,48"/>
+<area shape="rect" id="Node000002" href="$class_phantom_x_state_calclator.html#a8797de2b7195930654f00f18d2ae86d5" title="指定した脚のHexapodJointStateが正しく計算できているかを調べる． &#160;&#160;目標座標に届かない場合や，間接の可動範囲外まで動いてしまう場合，戻り値はfalseになる．" alt="" coords="5,5,168,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,29,168,29,168,24,200,24"/>
+</map>

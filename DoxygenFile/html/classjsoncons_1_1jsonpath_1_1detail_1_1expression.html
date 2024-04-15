@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DesignLabDoxygen: jsoncons::jsonpath::detail::expression&lt; Json, JsonReference &gt; クラステンプレート</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DesignLabDoxygen
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classjsoncons_1_1jsonpath_1_1detail_1_1expression.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">公開型</a> &#124;
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="classjsoncons_1_1jsonpath_1_1detail_1_1expression-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">jsoncons::jsonpath::detail::expression&lt; Json, JsonReference &gt; クラステンプレート</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+jsoncons::jsonpath::detail::expression&lt; Json, JsonReference &gt; の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="classjsoncons_1_1jsonpath_1_1detail_1_1expression__inherit__graph.png" border="0" usemap="#ajsoncons_1_1jsonpath_1_1detail_1_1expression_3_01_json_00_01_json_reference_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="ajsoncons_1_1jsonpath_1_1detail_1_1expression_3_01_json_00_01_json_reference_01_4_inherit__map" id="ajsoncons_1_1jsonpath_1_1detail_1_1expression_3_01_json_00_01_json_reference_01_4_inherit__map">
+<area shape="rect" title=" " alt="" coords="23,112,188,171"/>
+<area shape="rect" href="classjsoncons_1_1jsonpath_1_1detail_1_1expression__base.html" title=" " alt="" coords="5,5,206,64"/>
+<area shape="poly" title=" " alt="" coords="108,80,108,112,103,112,103,80"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+jsoncons::jsonpath::detail::expression&lt; Json, JsonReference &gt; 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="classjsoncons_1_1jsonpath_1_1detail_1_1expression__coll__graph.png" border="0" usemap="#ajsoncons_1_1jsonpath_1_1detail_1_1expression_3_01_json_00_01_json_reference_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="ajsoncons_1_1jsonpath_1_1detail_1_1expression_3_01_json_00_01_json_reference_01_4_coll__map" id="ajsoncons_1_1jsonpath_1_1detail_1_1expression_3_01_json_00_01_json_reference_01_4_coll__map">
+<area shape="rect" title=" " alt="" coords="23,112,188,171"/>
+<area shape="rect" href="classjsoncons_1_1jsonpath_1_1detail_1_1expression__base.html" title=" " alt="" coords="5,5,206,64"/>
+<area shape="poly" title=" " alt="" coords="108,80,108,112,103,112,103,80"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+公開型</h2></td></tr>
+<tr class="memitem:a91f2960955cfe1fca7d4df4d8308dd8b" id="r_a91f2960955cfe1fca7d4df4d8308dd8b"><td class="memItemLeft" align="right" valign="top"><a id="a91f2960955cfe1fca7d4df4d8308dd8b" name="a91f2960955cfe1fca7d4df4d8308dd8b"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>path_value_pair_type</b> = <a class="el" href="structjsoncons_1_1jsonpath_1_1detail_1_1path__value__pair.html">path_value_pair</a>&lt; Json, JsonReference &gt;</td></tr>
+<tr class="separator:a91f2960955cfe1fca7d4df4d8308dd8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92274d147926835d52a01688a605b466" id="r_a92274d147926835d52a01688a605b466"><td class="memItemLeft" align="right" valign="top"><a id="a92274d147926835d52a01688a605b466" name="a92274d147926835d52a01688a605b466"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b> = Json</td></tr>
+<tr class="separator:a92274d147926835d52a01688a605b466"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3015abe097f5411237e91b488060f3e" id="r_ad3015abe097f5411237e91b488060f3e"><td class="memItemLeft" align="right" valign="top"><a id="ad3015abe097f5411237e91b488060f3e" name="ad3015abe097f5411237e91b488060f3e"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>reference</b> = typename path_value_pair_type::reference</td></tr>
+<tr class="separator:ad3015abe097f5411237e91b488060f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27136f4a317e458fe7cbe696a17dbf93" id="r_a27136f4a317e458fe7cbe696a17dbf93"><td class="memItemLeft" align="right" valign="top"><a id="a27136f4a317e458fe7cbe696a17dbf93" name="a27136f4a317e458fe7cbe696a17dbf93"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>pointer</b> = typename path_value_pair_type::value_pointer</td></tr>
+<tr class="separator:a27136f4a317e458fe7cbe696a17dbf93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2206d9fce395a18c3e90f244554f31df" id="r_a2206d9fce395a18c3e90f244554f31df"><td class="memItemLeft" align="right" valign="top"><a id="a2206d9fce395a18c3e90f244554f31df" name="a2206d9fce395a18c3e90f244554f31df"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>const_pointer</b> = const value_type *</td></tr>
+<tr class="separator:a2206d9fce395a18c3e90f244554f31df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b177b0fbf6bdcb8c0fe3d7d9bae9a07" id="r_a9b177b0fbf6bdcb8c0fe3d7d9bae9a07"><td class="memItemLeft" align="right" valign="top"><a id="a9b177b0fbf6bdcb8c0fe3d7d9bae9a07" name="a9b177b0fbf6bdcb8c0fe3d7d9bae9a07"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>char_type</b> = typename Json::char_type</td></tr>
+<tr class="separator:a9b177b0fbf6bdcb8c0fe3d7d9bae9a07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c48c14070c29752aba7238b72f7cbb8" id="r_a9c48c14070c29752aba7238b72f7cbb8"><td class="memItemLeft" align="right" valign="top"><a id="a9c48c14070c29752aba7238b72f7cbb8" name="a9c48c14070c29752aba7238b72f7cbb8"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>string_type</b> = typename Json::string_type</td></tr>
+<tr class="separator:a9c48c14070c29752aba7238b72f7cbb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add99dadc6c6ce9914c3258685bd33a5e" id="r_add99dadc6c6ce9914c3258685bd33a5e"><td class="memItemLeft" align="right" valign="top"><a id="add99dadc6c6ce9914c3258685bd33a5e" name="add99dadc6c6ce9914c3258685bd33a5e"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>string_view_type</b> = typename Json::string_view_type</td></tr>
+<tr class="separator:add99dadc6c6ce9914c3258685bd33a5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc6dde951cf06de1e2e108f285a7554c" id="r_acc6dde951cf06de1e2e108f285a7554c"><td class="memItemLeft" align="right" valign="top"><a id="acc6dde951cf06de1e2e108f285a7554c" name="acc6dde951cf06de1e2e108f285a7554c"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>path_value_pair_less_type</b> = <a class="el" href="structjsoncons_1_1jsonpath_1_1detail_1_1path__value__pair__less.html">path_value_pair_less</a>&lt; Json, reference &gt;</td></tr>
+<tr class="separator:acc6dde951cf06de1e2e108f285a7554c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc641251f08909d9694605a42715c112" id="r_afc641251f08909d9694605a42715c112"><td class="memItemLeft" align="right" valign="top"><a id="afc641251f08909d9694605a42715c112" name="afc641251f08909d9694605a42715c112"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>path_value_pair_equal_type</b> = <a class="el" href="structjsoncons_1_1jsonpath_1_1detail_1_1path__value__pair__equal.html">path_value_pair_equal</a>&lt; Json, reference &gt;</td></tr>
+<tr class="separator:afc641251f08909d9694605a42715c112"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a394a1e5abb4f1c0e44cab4b1631aa3c4" id="r_a394a1e5abb4f1c0e44cab4b1631aa3c4"><td class="memItemLeft" align="right" valign="top"><a id="a394a1e5abb4f1c0e44cab4b1631aa3c4" name="a394a1e5abb4f1c0e44cab4b1631aa3c4"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>parameter_type</b> = <a class="el" href="classjsoncons_1_1jsonpath_1_1parameter.html">parameter</a>&lt; Json &gt;</td></tr>
+<tr class="separator:a394a1e5abb4f1c0e44cab4b1631aa3c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5c8b4c48d20caaa6a6bdc64d9ff9c17" id="r_ac5c8b4c48d20caaa6a6bdc64d9ff9c17"><td class="memItemLeft" align="right" valign="top"><a id="ac5c8b4c48d20caaa6a6bdc64d9ff9c17" name="ac5c8b4c48d20caaa6a6bdc64d9ff9c17"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>token_type</b> = <a class="el" href="classjsoncons_1_1jsonpath_1_1detail_1_1token.html">token</a>&lt; Json, reference &gt;</td></tr>
+<tr class="separator:ac5c8b4c48d20caaa6a6bdc64d9ff9c17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47e053a4a9123866d978bde703d875c5" id="r_a47e053a4a9123866d978bde703d875c5"><td class="memItemLeft" align="right" valign="top"><a id="a47e053a4a9123866d978bde703d875c5" name="a47e053a4a9123866d978bde703d875c5"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>reference_arg_type</b> = typename std::conditional&lt; std::is_const&lt; typename std::remove_reference&lt; reference &gt;::type &gt;::value, <a class="el" href="structjsoncons_1_1jsonpath_1_1const__reference__arg__t.html">const_reference_arg_t</a>, <a class="el" href="structjsoncons_1_1jsonpath_1_1reference__arg__t.html">reference_arg_t</a> &gt;::type</td></tr>
+<tr class="separator:a47e053a4a9123866d978bde703d875c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe48d06d3fe57ccc26c0fdf61c62e855" id="r_abe48d06d3fe57ccc26c0fdf61c62e855"><td class="memItemLeft" align="right" valign="top"><a id="abe48d06d3fe57ccc26c0fdf61c62e855" name="abe48d06d3fe57ccc26c0fdf61c62e855"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>json_location_node_type</b> = <a class="el" href="classjsoncons_1_1jsonpath_1_1json__location__node.html">json_location_node</a>&lt; string_type &gt;</td></tr>
+<tr class="separator:abe48d06d3fe57ccc26c0fdf61c62e855"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a386117961afdbc7a6bc938662c85604e" id="r_a386117961afdbc7a6bc938662c85604e"><td class="memItemLeft" align="right" valign="top"><a id="a386117961afdbc7a6bc938662c85604e" name="a386117961afdbc7a6bc938662c85604e"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>stack_item_type</b> = <a class="el" href="classjsoncons_1_1jsonpath_1_1value__or__pointer.html">value_or_pointer</a>&lt; Json, JsonReference &gt;</td></tr>
+<tr class="separator:a386117961afdbc7a6bc938662c85604e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_types_classjsoncons_1_1jsonpath_1_1detail_1_1expression__base"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classjsoncons_1_1jsonpath_1_1detail_1_1expression__base')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classjsoncons_1_1jsonpath_1_1detail_1_1expression__base.html">jsoncons::jsonpath::detail::expression_base&lt; Json, JsonReference &gt;</a> に属する継承公開型</td></tr>
+<tr class="memitem:aeafd6dc2970f60d8472fc189678c923d inherit pub_types_classjsoncons_1_1jsonpath_1_1detail_1_1expression__base" id="r_aeafd6dc2970f60d8472fc189678c923d"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>char_type</b> = typename Json::char_type</td></tr>
+<tr class="separator:aeafd6dc2970f60d8472fc189678c923d inherit pub_types_classjsoncons_1_1jsonpath_1_1detail_1_1expression__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd98f9063fad271f51de4d48feea7f9d inherit pub_types_classjsoncons_1_1jsonpath_1_1detail_1_1expression__base" id="r_afd98f9063fad271f51de4d48feea7f9d"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>string_type</b> = typename Json::string_type</td></tr>
+<tr class="separator:afd98f9063fad271f51de4d48feea7f9d inherit pub_types_classjsoncons_1_1jsonpath_1_1detail_1_1expression__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7c2809d9835eed976441b6310adf73a inherit pub_types_classjsoncons_1_1jsonpath_1_1detail_1_1expression__base" id="r_ac7c2809d9835eed976441b6310adf73a"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>string_view_type</b> = <a class="el" href="classjsoncons_1_1detail_1_1basic__string__view.html">jsoncons::basic_string_view</a>&lt; char_type, std::char_traits&lt; char_type &gt; &gt;</td></tr>
+<tr class="separator:ac7c2809d9835eed976441b6310adf73a inherit pub_types_classjsoncons_1_1jsonpath_1_1detail_1_1expression__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60f86ea26b4dd97064f6003b16defedf inherit pub_types_classjsoncons_1_1jsonpath_1_1detail_1_1expression__base" id="r_a60f86ea26b4dd97064f6003b16defedf"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b> = Json</td></tr>
+<tr class="separator:a60f86ea26b4dd97064f6003b16defedf inherit pub_types_classjsoncons_1_1jsonpath_1_1detail_1_1expression__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a685232de358ee80c18c75440b7b72026 inherit pub_types_classjsoncons_1_1jsonpath_1_1detail_1_1expression__base" id="r_a685232de358ee80c18c75440b7b72026"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>reference</b> = JsonReference</td></tr>
+<tr class="separator:a685232de358ee80c18c75440b7b72026 inherit pub_types_classjsoncons_1_1jsonpath_1_1detail_1_1expression__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88137b31fa2c9cd12a02b0f50c5c7fd9 inherit pub_types_classjsoncons_1_1jsonpath_1_1detail_1_1expression__base" id="r_a88137b31fa2c9cd12a02b0f50c5c7fd9"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>pointer</b> = typename std::conditional&lt; std::is_const&lt; typename std::remove_reference&lt; JsonReference &gt;::type &gt;::value, typename Json::const_pointer, typename Json::pointer &gt;::type</td></tr>
+<tr class="separator:a88137b31fa2c9cd12a02b0f50c5c7fd9 inherit pub_types_classjsoncons_1_1jsonpath_1_1detail_1_1expression__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b12fe75ad2551c2675b1fab4bb9708b inherit pub_types_classjsoncons_1_1jsonpath_1_1detail_1_1expression__base" id="r_a2b12fe75ad2551c2675b1fab4bb9708b"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>path_value_pair_type</b> = <a class="el" href="structjsoncons_1_1jsonpath_1_1detail_1_1path__value__pair.html">path_value_pair</a>&lt; Json, JsonReference &gt;</td></tr>
+<tr class="separator:a2b12fe75ad2551c2675b1fab4bb9708b inherit pub_types_classjsoncons_1_1jsonpath_1_1detail_1_1expression__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74e4166735287e371119b9548096873d inherit pub_types_classjsoncons_1_1jsonpath_1_1detail_1_1expression__base" id="r_a74e4166735287e371119b9548096873d"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>json_location_node_type</b> = <a class="el" href="classjsoncons_1_1jsonpath_1_1json__location__node.html">json_location_node</a>&lt; string_type &gt;</td></tr>
+<tr class="separator:a74e4166735287e371119b9548096873d inherit pub_types_classjsoncons_1_1jsonpath_1_1detail_1_1expression__base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a04d9a6cfd5105ae4ba1cb273a1723600" id="r_a04d9a6cfd5105ae4ba1cb273a1723600"><td class="memItemLeft" align="right" valign="top"><a id="a04d9a6cfd5105ae4ba1cb273a1723600" name="a04d9a6cfd5105ae4ba1cb273a1723600"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>expression</b> (<a class="el" href="classjsoncons_1_1jsonpath_1_1detail_1_1expression.html">expression</a> &amp;&amp;expr)</td></tr>
+<tr class="separator:a04d9a6cfd5105ae4ba1cb273a1723600"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76de7798640ff78875da28dec2246095" id="r_a76de7798640ff78875da28dec2246095"><td class="memItemLeft" align="right" valign="top"><a id="a76de7798640ff78875da28dec2246095" name="a76de7798640ff78875da28dec2246095"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>expression</b> (std::vector&lt; <a class="el" href="classjsoncons_1_1jsonpath_1_1detail_1_1token.html">token_type</a> &gt; &amp;&amp;token_stack)</td></tr>
+<tr class="separator:a76de7798640ff78875da28dec2246095"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6cc69800c66159b0d3eb600f52736bb" id="r_ad6cc69800c66159b0d3eb600f52736bb"><td class="memItemLeft" align="right" valign="top"><a id="ad6cc69800c66159b0d3eb600f52736bb" name="ad6cc69800c66159b0d3eb600f52736bb"></a>
+<a class="el" href="classjsoncons_1_1jsonpath_1_1detail_1_1expression.html">expression</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classjsoncons_1_1jsonpath_1_1detail_1_1expression.html">expression</a> &amp;&amp;expr)=default</td></tr>
+<tr class="separator:ad6cc69800c66159b0d3eb600f52736bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a408261efafa0de411692b6e1900fce05" id="r_a408261efafa0de411692b6e1900fce05"><td class="memItemLeft" align="right" valign="top">value_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjsoncons_1_1jsonpath_1_1detail_1_1expression.html#a408261efafa0de411692b6e1900fce05">evaluate</a> (<a class="el" href="classjsoncons_1_1jsonpath_1_1detail_1_1dynamic__resources.html">dynamic_resources</a>&lt; Json, reference &gt; &amp;resources, reference root, reference current, result_options options, std::error_code &amp;ec) const override</td></tr>
+<tr class="separator:a408261efafa0de411692b6e1900fce05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2212e067c663eb4aca87693330b8ed5a" id="r_a2212e067c663eb4aca87693330b8ed5a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjsoncons_1_1jsonpath_1_1detail_1_1expression.html#a2212e067c663eb4aca87693330b8ed5a">to_string</a> (int level) const override</td></tr>
+<tr class="separator:a2212e067c663eb4aca87693330b8ed5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a408261efafa0de411692b6e1900fce05" name="a408261efafa0de411692b6e1900fce05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a408261efafa0de411692b6e1900fce05">&#9670;&#160;</a></span>evaluate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Json , class JsonReference &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">value_type <a class="el" href="classjsoncons_1_1jsonpath_1_1detail_1_1expression.html">jsoncons::jsonpath::detail::expression</a>&lt; Json, JsonReference &gt;::evaluate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classjsoncons_1_1jsonpath_1_1detail_1_1dynamic__resources.html">dynamic_resources</a>&lt; Json, reference &gt; &amp;&#160;</td>
+          <td class="paramname"><em>resources</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">reference&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">reference&#160;</td>
+          <td class="paramname"><em>current</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">result_options&#160;</td>
+          <td class="paramname"><em>options</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::error_code &amp;&#160;</td>
+          <td class="paramname"><em>ec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classjsoncons_1_1jsonpath_1_1detail_1_1expression__base.html">jsoncons::jsonpath::detail::expression_base&lt; Json, JsonReference &gt;</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="a2212e067c663eb4aca87693330b8ed5a" name="a2212e067c663eb4aca87693330b8ed5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2212e067c663eb4aca87693330b8ed5a">&#9670;&#160;</a></span>to_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Json , class JsonReference &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="classjsoncons_1_1jsonpath_1_1detail_1_1expression.html">jsoncons::jsonpath::detail::expression</a>&lt; Json, JsonReference &gt;::to_string </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>level</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classjsoncons_1_1jsonpath_1_1detail_1_1expression__base.html">jsoncons::jsonpath::detail::expression_base&lt; Json, JsonReference &gt;</a>を実装しています。</p>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/hasegawa/Desktop/main/program/DesignLab/jsoncons/include/jsoncons_ext/jsonpath/<a class="el" href="expression_8hpp_source.html">expression.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacejsoncons.html">jsoncons</a></li><li class="navelem"><b>jsonpath</b></li><li class="navelem"><b>detail</b></li><li class="navelem"><a class="el" href="classjsoncons_1_1jsonpath_1_1detail_1_1expression.html">expression</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<map id="designlab::MapState::GetMapPointSize" name="designlab::MapState::GetMapPointSize">
+<area shape="rect" id="Node000001" title="脚設置可能点の総数を返す．" alt="" coords="535,72,675,115"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_map_renderer.html#a4338a7d3f08cd663096e3226fa0c6fa3" title="マップの描画を行う．" alt="" coords="309,5,470,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="520,70,460,51,462,46,521,65"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_result_file_importer.html#a6d2660954a38564ea358b2fb6da71036" title="ノードリストとマップの状態をファイルから読み込む．" alt="" coords="292,72,487,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="519,96,487,96,487,91,519,91"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_divided_map_state.html#a50647e278f9ee754cbfe5196153e2ba8" title="マップのデータを初期化する． ロボットの重心座標を中心にマップのデータを格子状に分割し， その中に存在する脚設置可能点を集める．" alt="" coords="299,139,480,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="521,122,462,141,460,135,520,117"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_gait_pattern_generator_basic.html#a3b957e224a453c5fc85bd15684560043" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="8,72,241,115"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="286,137,211,118,213,113,288,132"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_gait_pattern_generator_thread.html#af6729bdafbd310f762733e7fa10f8df5" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,139,244,181"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="283,163,244,163,244,157,283,157"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_node_initializer.html#a717aea9fc00fcb51c5ba3518fac717fc" title="地形に適した初期姿勢を設定する．" alt="" coords="42,205,207,248"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="288,188,208,208,207,203,286,183"/>
+</map>

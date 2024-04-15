@@ -1,0 +1,5 @@
+<map id="designlab::Vector2::GetSquaredLength" name="designlab::Vector2::GetSquaredLength">
+<area shape="rect" id="Node000001" title="このベクトルの長さの2乗を返す" alt="" coords="5,5,143,48"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector2.html#a3543df48153a6fbadbb20364e252cd26" title="このベクトルとotherの内積を返す" alt="" coords="191,13,348,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,24,175,24,175,29,143,29"/>
+</map>

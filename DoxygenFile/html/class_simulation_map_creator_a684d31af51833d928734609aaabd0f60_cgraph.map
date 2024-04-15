@@ -1,0 +1,5 @@
+<map id="SimulationMapCreator::InitMap" name="SimulationMapCreator::InitMap">
+<area shape="rect" id="Node000001" title="マップの初期化を行う．" alt="" coords="5,5,155,48"/>
+<area shape="rect" id="Node000002" href="$class_map_state.html#a07c2d65f15e866db0fbdda73171353e7" title="脚設置可能点の座標を設定する" alt="" coords="203,13,386,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,24,187,24,187,29,155,29"/>
+</map>

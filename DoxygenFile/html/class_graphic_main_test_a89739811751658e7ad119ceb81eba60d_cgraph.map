@@ -1,0 +1,9 @@
+<map id="GraphicMainTest::Draw" name="GraphicMainTest::Draw">
+<area shape="rect" id="Node000001" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,43,162,69"/>
+<area shape="rect" id="Node000002" href="$class_dxlib3d_renderer_group.html#a1b94aba71ab3dd52ef82bfbca00030de" title="登録されているrendererのdraw関数を呼ぶ． &#160;&#160;また，Zソートを行う．" alt="" coords="210,5,362,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,42,195,37,196,42,162,47"/>
+<area shape="rect" id="Node000004" href="$class_dxlib_gui_updater.html#abec76b0e74097cb27c85aa8b9fa3c187" title="登録済みのGUIのDraw関数を実行する．" alt="" coords="210,72,362,99"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="162,65,195,69,194,75,162,70"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1dxlib__util.html#a5f59136031be16081cffcef06767b9e5" title="デフォルトだと描画処理を書いた順に描画されるが，これをZバッファを使用して奥行きを考慮して描画するようにする． &#160;&#160;なんか毎フレーム実行しなきゃいけないっぽい？仕様がよくわからん" alt="" coords="410,5,545,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="362,24,394,24,394,29,362,29"/>
+</map>

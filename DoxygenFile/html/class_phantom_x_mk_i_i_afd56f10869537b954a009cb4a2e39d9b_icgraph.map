@@ -1,0 +1,5 @@
+<map id="PhantomXMkII::CalculateStabilityMargin" name="PhantomXMkII::CalculateStabilityMargin">
+<area shape="rect" id="Node000001" title="安定余裕(Stability Margin))を計算する．詳しくは「不整地における歩行機械の静的安定性評価基準」という論文を読んで欲しい &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算す..." alt="" coords="213,5,426,48"/>
+<area shape="rect" id="Node000002" href="$class_phantom_x_mk_i_i.html#ad535cff56a47f2416ace5167bd0cf130" title="安定余裕を用いて，静的に安定しているかどうかを判定する．" alt="" coords="5,13,165,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,29,165,29,165,24,197,24"/>
+</map>

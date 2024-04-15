@@ -1,0 +1,19 @@
+<map id="designlab::AbstractDxlibGui" name="designlab::AbstractDxlibGui">
+<area shape="rect" id="Node000001" title="Dxlibを使ったGUIの抽象クラス．" alt="" coords="228,131,410,157"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_dxlib_gui_camera.html" title="カメラの操作・管理を行うGUIの処理・描画を行うクラス．" alt="" coords="478,5,656,32"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="345,118,394,79,457,42,489,30,490,35,459,46,397,83,348,122"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_dxlib_gui_camera_parameter_displayer.html" title="カメラの情報を表示するGUIの処理・描画を行うクラス．" alt="" coords="478,56,656,99"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="386,123,484,97,485,102,387,129"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_dxlib_gui_display_node_switcher.html" title="ノードの表示・切り替えを行うGUIのクラス．" alt="" coords="479,123,655,165"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="426,141,478,141,478,147,426,147"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_dxlib_gui_node_displayer.html" title="ノードの情報を表示するGUIのクラス．" alt="" coords="458,189,675,216"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="392,159,459,175,507,186,506,191,457,180,391,164"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_dxlib_gui_robot_control.html" title="カメラの操作・管理を行うGUIの処理・描画を行うクラス．" alt="" coords="483,240,650,283"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="353,164,402,195,459,226,488,237,486,242,457,230,399,200,351,169"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_dxlib_gui.html" title="Dxlibの画面に表示するGUIのインターフェース．" alt="" coords="24,80,161,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,108,257,127,255,133,170,113"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_i_dxlib_clickable.html" title="クリック可能なGUIのインターフェース．" alt="" coords="8,131,177,157"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="193,141,227,141,227,147,193,147"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_i_dxlib_draggable.html" title="ドラッグ可能なGUIのインターフェース．" alt="" coords="5,181,180,208"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="170,175,255,155,257,161,171,180"/>
+</map>

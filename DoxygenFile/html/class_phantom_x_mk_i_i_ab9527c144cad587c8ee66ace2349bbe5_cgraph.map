@@ -1,0 +1,11 @@
+<map id="PhantomXMkII::IsVaildJointState" name="PhantomXMkII::IsVaildJointState">
+<area shape="rect" id="Node000001" title="指定した脚のHexapodJointStateが正しく計算できているかを調べる． &#160;&#160;目標座標に届かない場合や，間接の可動範囲外まで動いてしまう場合，戻り値はfalseになる．" alt="" coords="5,105,184,148"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a12bdd69889d7939a25c5f873fad76978" title="C++において，小数同士の計算は誤差が出てしまう．誤差込みで値が等しいか調べる．" alt="" coords="236,5,374,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,102,231,58,241,53,243,57,233,62,141,107"/>
+<area shape="rect" id="Node000003" href="$class_phantom_x_mk_i_i_const.html#ac755467ec8f1170109d267875ed195fe" title="第1関節の角度が有効な範囲内かどうかを判定する．" alt="" coords="232,72,378,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="183,110,216,105,217,110,184,115"/>
+<area shape="rect" id="Node000004" href="$class_phantom_x_mk_i_i_const.html#a28a5c301a5097c97c9e6f7ec0df397f7" title=" " alt="" coords="232,139,378,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="184,138,217,143,216,149,183,143"/>
+<area shape="rect" id="Node000005" href="$class_phantom_x_mk_i_i_const.html#a969cfd0fc31d0cbf6de2e85b8b7d1d0f" title="第3関節の角度が有効な範囲内かどうかを判定する．" alt="" coords="232,205,378,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="141,146,233,191,243,196,241,201,231,196,139,151"/>
+</map>

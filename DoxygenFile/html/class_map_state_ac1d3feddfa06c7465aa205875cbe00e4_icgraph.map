@@ -1,0 +1,19 @@
+<map id="MapState::GetMapPointSize" name="MapState::GetMapPointSize">
+<area shape="rect" id="Node000001" title="脚設置可能点の総数を返す．" alt="" coords="494,64,681,91"/>
+<area shape="rect" id="Node000002" href="$class_map_renderer.html#a0815f3b31a4c24cf5c2342a67ab43bf0" title="マップの描画を行う．" alt="" coords="281,5,416,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="515,62,405,35,406,30,516,57"/>
+<area shape="rect" id="Node000003" href="$class_result_file_importer.html#ab01d6714b97dc610fb2a8af6adae2f60" title="ノードリストとマップの状態をファイルから読み込む．" alt="" coords="251,56,446,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="478,80,447,80,447,75,478,75"/>
+<area shape="rect" id="Node000005" href="$class_devide_map_state.html#a86d9f7ad8e8fc412757154dc88f3cbe9" title="Devideマップのデータを初期化する． &#160;&#160;マップのデータを格子状に分割し，その中に存在する脚設置可能点を集める．" alt="" coords="278,160,419,187"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="539,99,385,162,383,157,537,95"/>
+<area shape="rect" id="Node000004" href="$class_system_main_result_viewer.html#a398650e91a6bdafc25f7081f72e323dd" title="主要な処理を行う関数．" alt="" coords="19,19,189,61"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="235,63,189,56,190,50,235,57"/>
+<area shape="rect" id="Node000006" href="$class_gait_pattern_generator_basic.html#a645616757f44ba90e39f2ea90421ba69" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,85,203,128"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="281,158,184,131,186,126,282,153"/>
+<area shape="rect" id="Node000007" href="$class_gait_pattern_generator_thread.html#abb68c5e14f5ca65059deb2c97880b0e5" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,152,203,195"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="263,176,203,176,203,171,263,171"/>
+<area shape="rect" id="Node000008" href="$class_map_renderer.html#a037a5e00015c227acbec0f3eb63ff598" title="マップの状態を設定する．代入と同時にDevideMapも更新される．" alt="" coords="13,219,195,245"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="275,193,163,221,162,216,274,188"/>
+<area shape="rect" id="Node000009" href="$class_map_renderer.html#a6dd0e42e2a9f90fba741f233dedb402e" title="ロボットの重心のグローバル座標を設定する． &#160;&#160;DevideMapはロボットの重心を中心にしているので，ロボットの重心のグローバル座標を設定する必要がある． &#160;&#160;代入と同時にDevideMapも更新され..." alt="" coords="26,269,182,296"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="316,198,264,230,204,260,170,271,168,266,202,255,262,225,313,193"/>
+</map>
