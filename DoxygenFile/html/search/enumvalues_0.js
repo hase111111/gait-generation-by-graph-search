@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['kback_0',['kback',['../discrete__com__pos_8h.html#aae667c8a4db0938ece7d037c80ea858ea1aa843cfb007a05d484edf751fdc905d',1,'kBackdesignlab::enums'],['../discrete__leg__pos_8h.html#ab5710dabeacf5161415ee779fe947495a1aa843cfb007a05d484edf751fdc905d',1,'kBackdesignlab::enums']]],
+  ['kback_0',['kBack',['../discrete__com__pos_8h.html#aae667c8a4db0938ece7d037c80ea858ea1aa843cfb007a05d484edf751fdc905d',1,'kBackdesignlab::enums'],['../discrete__leg__pos_8h.html#ab5710dabeacf5161415ee779fe947495a1aa843cfb007a05d484edf751fdc905d',1,'kBackdesignlab::enums']]],
   ['kbackleft_1',['kBackLeft',['../discrete__com__pos_8h.html#aae667c8a4db0938ece7d037c80ea858ea86fd41d9644e647c1742fbd525ab46ba',1,'designlab::enums']]],
   ['kbackright_2',['kBackRight',['../discrete__com__pos_8h.html#aae667c8a4db0938ece7d037c80ea858eabecb87c73a49003b78d6ccdefc281243',1,'designlab::enums']]],
   ['kbackview_3',['kBackView',['../dxlib__camera_8h.html#a509fd8d7488558de09b20b067bb4dde0ac34246769d028a8eb522bb09f46521f6',1,'designlab::enums']]],
@@ -23,7 +23,7 @@ var searchData=
   ['kflat_20',['kFlat',['../simulation__map__parameter_8h.html#a907b88828aa3d7858f436483f434bae3a87e664a10c53376737024444ba714bba',1,'designlab::enums']]],
   ['kfreecontrolled_21',['kFreeControlled',['../dxlib__camera_8h.html#a509fd8d7488558de09b20b067bb4dde0ad9f29d5c6483ba9d6f06391af00e214c',1,'designlab::enums']]],
   ['kfreecontrolledandmovabletarget_22',['kFreeControlledAndMovableTarget',['../dxlib__camera_8h.html#a509fd8d7488558de09b20b067bb4dde0a57c0b31763a84285fb937d13bd6a2417',1,'designlab::enums']]],
-  ['kfront_23',['kfront',['../discrete__com__pos_8h.html#aae667c8a4db0938ece7d037c80ea858ea74b33dfe34e13923f9b235450de37871',1,'kFrontdesignlab::enums'],['../discrete__leg__pos_8h.html#ab5710dabeacf5161415ee779fe947495a74b33dfe34e13923f9b235450de37871',1,'kFrontdesignlab::enums']]],
+  ['kfront_23',['kFront',['../discrete__com__pos_8h.html#aae667c8a4db0938ece7d037c80ea858ea74b33dfe34e13923f9b235450de37871',1,'kFrontdesignlab::enums'],['../discrete__leg__pos_8h.html#ab5710dabeacf5161415ee779fe947495a74b33dfe34e13923f9b235450de37871',1,'kFrontdesignlab::enums']]],
   ['kfrontleft_24',['kFrontLeft',['../discrete__com__pos_8h.html#aae667c8a4db0938ece7d037c80ea858ea1a46deb2cd611afce2f0e5e1c182656f',1,'designlab::enums']]],
   ['kfrontright_25',['kFrontRight',['../discrete__com__pos_8h.html#aae667c8a4db0938ece7d037c80ea858ea0e1eab792a30d17af8487e5e0ffd4880',1,'designlab::enums']]],
   ['kfrontview_26',['kFrontView',['../dxlib__camera_8h.html#a509fd8d7488558de09b20b067bb4dde0ad3f1de8d6a59bccdf5cdd0f1214d0d6a',1,'designlab::enums']]],
@@ -40,7 +40,7 @@ var searchData=
   ['klowerfront_37',['kLowerFront',['../discrete__leg__pos_8h.html#ab5710dabeacf5161415ee779fe947495ac197680fbf6de70bd3752b01a43d1ba7',1,'designlab::enums']]],
   ['kmedium_38',['kMedium',['../namespacedesignlab.html#a53323f0d14b3c1aef6879f5b9ceffc3da3ce9d817402b59f65fb01ea044bb1ee9',1,'designlab']]],
   ['kmesh_39',['kMesh',['../simulation__map__parameter_8h.html#a907b88828aa3d7858f436483f434bae3aabc9ae4af025584b80a1cd62880fbf1a',1,'designlab::enums']]],
-  ['knone_40',['knone',['../namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a35c3ace1970663a16e5c65baa5941b13',1,'designlab::kNone'],['../namespacedesignlab.html#a3f1608338ad72e7ffe1024af10173b73a35c3ace1970663a16e5c65baa5941b13',1,'designlab::kNone'],['../simulation__map__parameter_8h.html#ab640f79752b6b2c4c4a9a3bb2129102ba35c3ace1970663a16e5c65baa5941b13',1,'kNonedesignlab::enums']]],
+  ['knone_40',['kNone',['../namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a35c3ace1970663a16e5c65baa5941b13',1,'designlab::kNone'],['../namespacedesignlab.html#a3f1608338ad72e7ffe1024af10173b73a35c3ace1970663a16e5c65baa5941b13',1,'designlab::kNone'],['../simulation__map__parameter_8h.html#ab640f79752b6b2c4c4a9a3bb2129102ba35c3ace1970663a16e5c65baa5941b13',1,'kNonedesignlab::enums']]],
   ['kperforated_41',['kPerforated',['../simulation__map__parameter_8h.html#ab640f79752b6b2c4c4a9a3bb2129102ba8e35636aec82464935030f4c1d6d1724',1,'designlab::enums']]],
   ['kposition_42',['kPosition',['../simulation__setting__record_8h.html#a481a7e0f2d1ac1ab9e809d2cd948e5a4aea78f90b3c3afd64e139a391d6fdd88a',1,'designlab::enums']]],
   ['kposture_43',['kPosture',['../simulation__setting__record_8h.html#a481a7e0f2d1ac1ab9e809d2cd948e5a4a573c06b134e3157b36068e8b2950e448',1,'designlab::enums']]],
