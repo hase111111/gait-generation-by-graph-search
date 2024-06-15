@@ -1,5 +1,0 @@
-<map id="designlab::cmdio::SetOutputLimit" name="designlab::cmdio::SetOutputLimit">
-<area shape="rect" id="Node000001" title="出力するメッセージをどこまで許可するかを設定する関数． &#160;&#160;この関数を呼び出してから出ないと，他の関数を使えない． &#160;&#160;例えば kError に設定すると，kError 未満の出力( kInfo とか ..." alt="" coords="103,5,289,48"/>
-<area shape="rect" id="Node000002" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="プログラムのエントリポイント．" alt="" coords="5,13,55,40"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,29,55,29,55,24,87,24"/>
-</map>

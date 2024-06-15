@@ -1,9 +1,0 @@
-<map id="jsoncons::basic_default_json_visitor&lt; CharT &gt;" name="jsoncons::basic_default_json_visitor&lt; CharT &gt;">
-<area shape="rect" id="Node000001" title=" " alt="" coords="197,51,354,93"/>
-<area shape="rect" id="Node000003" href="$classjsoncons_1_1basic__json__diagnostics__visitor.html" title=" " alt="" coords="405,5,548,64"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="369,52,404,45,405,51,370,57"/>
-<area shape="rect" id="Node000004" href="$structjsoncons_1_1typed__array__visitor.html" title=" " alt="" coords="402,88,551,131"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="370,87,402,93,401,98,369,92"/>
-<area shape="rect" id="Node000002" href="$classjsoncons_1_1basic__json__visitor.html" title=" " alt="" coords="5,51,149,93"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,69,196,69,196,75,164,75"/>
-</map>

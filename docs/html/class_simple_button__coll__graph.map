@@ -1,7 +1,0 @@
-<map id="SimpleButton" name="SimpleButton">
-<area shape="rect" id="Node000001" title="ボタンの処理，描画を管理するクラス．" alt="" coords="48,80,148,107"/>
-<area shape="rect" id="Node000002" href="$class_i_dxlib_gui.html" title="Dxlibの画面に表示するGUIのインターフェース．" alt="" coords="5,5,79,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="63,43,90,78,86,81,59,46"/>
-<area shape="rect" id="Node000003" href="$class_i_dxlib_clickable.html" title="クリック可能なGUIのインターフェース． &#160;&#160;クリック時の動作をGUIに実装したいならばこのインターフェースを継承する．" alt="" coords="102,5,209,32"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="138,46,110,81,106,78,134,43"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="designlab::SimulationResultRecorder" name="designlab::SimulationResultRecorder">
-<area shape="rect" id="Node000001" title="シミュレーションの結果を格納する構造体．変数をごちゃごちゃさせたくないので作成．" alt="" coords="5,96,188,139"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_map_state.html" title="マップを表すクラス．" alt="" coords="26,5,167,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,48,99,95,94,95,94,48"/>
-</map>

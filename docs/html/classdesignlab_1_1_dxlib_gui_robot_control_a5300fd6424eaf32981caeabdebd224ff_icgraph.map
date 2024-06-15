@@ -1,5 +1,0 @@
-<map id="designlab::DxlibGuiRobotControl::IsVisible" name="designlab::DxlibGuiRobotControl::IsVisible">
-<area shape="rect" id="Node000001" title="GUIの表示を行うかどうかを返す．" alt="" coords="221,5,388,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib_gui_robot_control.html#aa3f68ce35aae717e914b188e0e384358" title="ドラッグ可能な位置にあるかを判定する．" alt="" coords="5,5,173,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,29,173,29,173,24,205,24"/>
-</map>

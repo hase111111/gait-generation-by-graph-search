@@ -1,5 +1,0 @@
-<map id="DxlibGuiNodeDisplayer::IsVisible" name="DxlibGuiNodeDisplayer::IsVisible">
-<area shape="rect" id="Node000001" title="GUIの表示を行うかどうかを返す．" alt="" coords="208,5,362,48"/>
-<area shape="rect" id="Node000002" href="$class_dxlib_gui_node_displayer.html#ae37d195b697f9faedfe54f1448fa18c0" title="ドラッグ可能な位置にあるかを判定する．" alt="" coords="5,5,160,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,29,160,29,160,24,192,24"/>
-</map>

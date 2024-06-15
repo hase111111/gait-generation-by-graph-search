@@ -1,5 +1,0 @@
-<map id="DxlibGuiCameraParameterDisplayer::SetVisible" name="DxlibGuiCameraParameterDisplayer::SetVisible">
-<area shape="rect" id="Node000001" title="GUIの表示を行うかどうかを設定する．" alt="" coords="283,5,512,48"/>
-<area shape="rect" id="Node000002" href="$class_dxlib_gui_camera_parameter_displayer.html#a4b1c638dffdd6a65c017d5ffe1a50ba1" title="GUIの更新，毎フレーム実行すること．" alt="" coords="5,5,235,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="267,29,235,29,235,24,267,24"/>
-</map>

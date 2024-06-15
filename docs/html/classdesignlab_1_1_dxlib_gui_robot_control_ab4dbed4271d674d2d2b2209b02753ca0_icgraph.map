@@ -1,7 +1,0 @@
-<map id="designlab::DxlibGuiRobotControl::SetVisible" name="designlab::DxlibGuiRobotControl::SetVisible">
-<area shape="rect" id="Node000001" title="GUIの表示を行うかどうかを設定する．" alt="" coords="248,39,415,81"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib_gui_robot_control.html#a1af38aed3eb6e1a916c257e6ed3945f0" title="コンストラクタでWindowのサイズと，カメラの管理を行うクラスを受け取る．" alt="" coords="5,5,200,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,48,200,44,201,38,233,43"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_dxlib_gui_robot_control.html#aa075bae9ff758183dbb734c67609122c" title="GUIの更新，毎フレーム実行すること．" alt="" coords="19,72,186,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="233,77,187,84,186,78,232,72"/>
-</map>

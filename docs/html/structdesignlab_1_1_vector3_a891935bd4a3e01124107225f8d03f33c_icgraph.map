@@ -1,5 +1,0 @@
-<map id="designlab::Vector3::GetFrontVec" name="designlab::Vector3::GetFrontVec">
-<area shape="rect" id="Node000001" title="正面に進む単位ベクトルを返す．静的な関数なので，Vector3::GetFrontVec() と呼び出せる．" alt="" coords="222,5,351,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_robot_operator_free.html#a145ec7cecde24b5c2037b4ae08d49a14" title="ロボットの動作を初期化する．" alt="" coords="5,5,174,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,29,174,29,174,24,206,24"/>
-</map>

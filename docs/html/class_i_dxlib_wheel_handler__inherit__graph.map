@@ -1,5 +1,0 @@
-<map id="IDxlibWheelHandler" name="IDxlibWheelHandler">
-<area shape="rect" id="Node000001" title="マウスホイールの入力を受け取るためのインターフェース． &#160;&#160;マウスホイールの入力を受け取りたいGUIはこのインターフェースを継承する．" alt="" coords="5,5,140,32"/>
-<area shape="rect" id="Node000002" href="$class_camera_dragger.html" title="マウスの入力でカメラを動かすクラス．" alt="" coords="17,80,128,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,48,75,80,70,80,70,48"/>
-</map>

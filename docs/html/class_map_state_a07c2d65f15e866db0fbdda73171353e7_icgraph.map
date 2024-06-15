@@ -1,5 +1,0 @@
-<map id="MapState::SetMapPointVec" name="MapState::SetMapPointVec">
-<area shape="rect" id="Node000001" title="脚設置可能点の座標を設定する" alt="" coords="203,13,386,40"/>
-<area shape="rect" id="Node000002" href="$class_simulation_map_creator.html#a684d31af51833d928734609aaabd0f60" title="マップの初期化を行う．" alt="" coords="5,5,155,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,29,155,29,155,24,187,24"/>
-</map>

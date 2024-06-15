@@ -1,5 +1,0 @@
-<map id="designlab::DxlibGuiCamera::SetVisible" name="designlab::DxlibGuiCamera::SetVisible">
-<area shape="rect" id="Node000001" title="GUIの表示を行うかどうかを設定する．" alt="" coords="5,5,184,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib_gui_camera.html#a931a8f13a7f72549c0ac82c5323c2d19" title="GUIの位置を設定する． &#160;&#160;Dxlibの画面の座標は左上を原点とし，右下に行くほど値が大きくなる． &#160;&#160;横方向にx軸，縦方向にy軸をとる．" alt="" coords="232,5,410,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,24,216,24,216,29,184,29"/>
-</map>

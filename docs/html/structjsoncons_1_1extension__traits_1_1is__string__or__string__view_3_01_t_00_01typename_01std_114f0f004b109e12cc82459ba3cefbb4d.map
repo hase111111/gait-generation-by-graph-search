@@ -1,5 +1,0 @@
-<map id="jsoncons::extension_traits::is_string_or_string_view&lt; T, typename std::enable_if&lt; is_character&lt; typename T::value_type &gt;::value &amp;&amp;is_detected_exact&lt; typename T::value_type, container_char_traits_t, T &gt;::value &amp;&amp;is_detected&lt; container_npos_t, T &gt;::value &gt;::type &gt;" name="jsoncons::extension_traits::is_string_or_string_view&lt; T, typename std::enable_if&lt; is_character&lt; typename T::value_type &gt;::value &amp;&amp;is_detected_exact&lt; typename T::value_type, container_char_traits_t, T &gt;::value &amp;&amp;is_detected&lt; container_npos_t, T &gt;::value &gt;::type &gt;">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,256,235"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="80,5,181,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,48,133,80,128,80,128,48"/>
-</map>

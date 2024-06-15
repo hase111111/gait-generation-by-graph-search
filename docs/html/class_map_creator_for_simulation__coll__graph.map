@@ -1,5 +1,0 @@
-<map id="MapCreatorForSimulation" name="MapCreatorForSimulation">
-<area shape="rect" id="Node000001" title="マップ生成クラス．" alt="" coords="5,80,174,107"/>
-<area shape="rect" id="Node000002" href="$class_i_map_creator.html" title="マップ生成クラスのインターフェース．" alt="" coords="44,5,135,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,48,92,80,87,80,87,48"/>
-</map>

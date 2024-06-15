@@ -1,5 +1,0 @@
-<map id="StabilityMarginRenderer::Draw" name="StabilityMarginRenderer::Draw">
-<area shape="rect" id="Node000001" title="ロボットの静的安定余裕(支持脚多角形)を描画する．" alt="" coords="218,5,377,48"/>
-<area shape="rect" id="Node000002" href="$class_graphic_main_basic.html#a1e698ba2d3c8d10a78d37f1be466b061" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,13,170,40"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,29,170,29,170,24,202,24"/>
-</map>

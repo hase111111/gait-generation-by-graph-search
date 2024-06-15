@@ -1,7 +1,0 @@
-<map id="MapRenderer" name="MapRenderer">
-<area shape="rect" id="Node000001" title="Mapの描画を行うクラス．" alt="" coords="86,80,184,107"/>
-<area shape="rect" id="Node000002" href="$class_i_dxlib_node_setter.html" title="DxLibのGuiやRendererでノードのセットを行うためのインターフェース．" alt="" coords="5,5,124,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,41,125,78,121,81,85,45"/>
-<area shape="rect" id="Node000003" href="$class_i_dxlib3d_renderer.html" title="DxLibの描画処理を行うクラスのインターフェース．" alt="" coords="148,5,267,32"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="186,45,149,81,146,78,182,41"/>
-</map>

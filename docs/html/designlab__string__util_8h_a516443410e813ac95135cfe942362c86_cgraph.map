@@ -1,4 +1,0 @@
-<map id="designlab::string_util::Split" name="designlab::string_util::Split">
-<area shape="rect" id="Node000001" title="文字列を分割する関数．指定した文字で文字列を分割する． &#160;&#160;分割した結果，空文字列が含まれる場合は，空文字列を含めて返す． &#160;&#160;最後が区切り文字で終わる場合は，それを無視して返す．" alt="" coords="5,29,146,72"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="48,29,47,19,51,11,61,5,76,3,91,5,100,12,97,16,89,10,75,8,63,10,55,14,52,20,53,28"/>
-</map>

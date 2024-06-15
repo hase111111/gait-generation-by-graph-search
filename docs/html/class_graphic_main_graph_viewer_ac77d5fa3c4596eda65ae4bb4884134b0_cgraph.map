@@ -1,7 +1,0 @@
-<map id="GraphicMainGraphViewer::Update" name="GraphicMainGraphViewer::Update">
-<area shape="rect" id="Node000001" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,27,174,69"/>
-<area shape="rect" id="Node000002" href="$class_dxlib_gui_updater.html#a8c6e6425bdb7eb6ecd717c7595f8ece0" title="GUIのUpdate関数を実行し，クリック，ドラッグなどの判定を行う． &#160;&#160;優先度の高いものから順に各種判定を行う．" alt="" coords="222,5,391,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,34,206,30,207,35,175,39"/>
-<area shape="rect" id="Node000003" href="$class_dxlib_node_setter_group.html#a0f2a23410df897eac6d870282a273fa0" title="登録済みの全てのクラスに対してノードの設定を行う．" alt="" coords="231,56,382,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="175,57,216,62,215,68,174,62"/>
-</map>

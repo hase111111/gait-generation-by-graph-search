@@ -1,7 +1,0 @@
-<map id="Stopwatch::GetElapsedMilliSecond" name="Stopwatch::GetElapsedMilliSecond">
-<area shape="rect" id="Node000001" title="計測結果をミリ秒で取得． &#160;&#160;start()とend()を呼び出してからこの関数を呼ぶ．" alt="" coords="235,39,416,81"/>
-<area shape="rect" id="Node000002" href="$class_stopwatch.html#ae9211f0c708effae5b2b533ecf4852e2" title="経過時間をミリ秒で表した文字列を取得する．" alt="" coords="5,5,187,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,47,187,42,187,37,220,42"/>
-<area shape="rect" id="Node000003" href="$class_system_main_simulation.html#a707546a7a9971ede2a1ba39cdc7ace71" title="いままでint mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="18,72,174,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,78,175,85,174,79,219,73"/>
-</map>

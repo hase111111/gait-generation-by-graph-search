@@ -1,7 +1,0 @@
-<map id="GaitPatternGraphTree::HasRoot" name="GaitPatternGraphTree::HasRoot">
-<area shape="rect" id="Node000001" title="グラフが根ノードを持つかどうかを返す． &#160;&#160;根ノードとは，親を持たないノードのこと． &#160;&#160;一番最初に追加するノードは必ず親になるため，親を持つかどうかはノードの総数が0でないかどうかで判定できる．" alt="" coords="237,39,384,81"/>
-<area shape="rect" id="Node000002" href="$class_graph_searcher_straight_move.html#a6d66c2b57a7352dfd78cb0ba52921031" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="5,5,189,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,49,189,44,190,38,222,44"/>
-<area shape="rect" id="Node000003" href="$class_graph_searcher_spot_turn.html#ab68e51e335e4dcea6c745f6b825e4d97" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="17,72,177,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="222,76,178,83,177,78,221,71"/>
-</map>

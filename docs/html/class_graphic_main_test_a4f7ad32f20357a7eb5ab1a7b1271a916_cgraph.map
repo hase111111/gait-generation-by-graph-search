@@ -1,9 +1,0 @@
-<map id="GraphicMainTest::Update" name="GraphicMainTest::Update">
-<area shape="rect" id="Node000001" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,64,174,91"/>
-<area shape="rect" id="Node000002" href="$class_dxlib_gui_updater.html#a8c6e6425bdb7eb6ecd717c7595f8ece0" title="GUIのUpdate関数を実行し，クリック，ドラッグなどの判定を行う． &#160;&#160;優先度の高いものから順に各種判定を行う．" alt="" coords="222,5,391,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,61,239,34,240,39,142,66"/>
-<area shape="rect" id="Node000003" href="$class_singleton.html#a91badcd3446f8897e73bd1af9c7a37ff" title="インスタンスを取得する． &#160;&#160;このクラスを継承したクラスは クラス名::getIns()&#45;&gt; の形式でメンバ関数を呼び出す．" alt="" coords="235,56,378,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="174,75,219,75,219,80,174,80"/>
-<area shape="rect" id="Node000004" href="$class_dxlib_node_setter_group.html#a0f2a23410df897eac6d870282a273fa0" title="登録済みの全てのクラスに対してノードの設定を行う．" alt="" coords="231,123,382,165"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="137,89,221,115,219,120,135,94"/>
-</map>

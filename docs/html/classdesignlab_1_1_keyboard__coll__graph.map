@@ -1,5 +1,0 @@
-<map id="designlab::Keyboard" name="designlab::Keyboard">
-<area shape="rect" id="Node000001" title="Dxlibのキーボード入力を取得するクラス．" alt="" coords="5,96,145,123"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_singleton.html" title=" " alt="" coords="6,5,144,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="78,64,78,95,72,95,72,64"/>
-</map>

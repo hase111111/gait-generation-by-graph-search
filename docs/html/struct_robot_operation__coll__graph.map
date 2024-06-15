@@ -1,8 +1,0 @@
-<map id="RobotOperation" name="RobotOperation">
-<area shape="rect" id="Node000001" title="探索において目標となる座標や角度，評価する値についてまとめた構造体．" alt="" coords="14,224,126,251"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector3.html" title="3次元の位置ベクトルを表す構造体" alt="" coords="5,5,135,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="68,48,63,96,63,160,71,223,65,224,58,160,58,96,63,47"/>
-<area shape="rect" id="Node000003" href="$structdesignlab_1_1_quaternion.html" title="クォータニオンを表す構造体" alt="" coords="204,115,352,141"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="109,37,255,112,252,116,107,42"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="241,151,96,226,93,221,239,146"/>
-</map>

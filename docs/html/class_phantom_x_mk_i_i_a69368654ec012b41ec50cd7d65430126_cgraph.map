@@ -1,5 +1,0 @@
-<map id="PhantomXMkII::ConvertLegToRobotCoordinate" name="PhantomXMkII::ConvertLegToRobotCoordinate">
-<area shape="rect" id="Node000001" title="脚座標系で表現されている座標を，ロボット座標系に変換する．" alt="" coords="5,5,182,48"/>
-<area shape="rect" id="Node000002" href="$class_phantom_x_mk_i_i.html#a6260133210372d2669e96917468d8179" title="脚の付け根の座標( leg base position )を取得する．ロボット座標系．" alt="" coords="230,5,414,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,24,214,24,214,29,182,29"/>
-</map>

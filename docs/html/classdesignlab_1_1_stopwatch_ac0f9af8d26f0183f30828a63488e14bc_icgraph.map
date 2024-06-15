@@ -1,7 +1,0 @@
-<map id="designlab::Stopwatch::GetNowTimeString" name="designlab::Stopwatch::GetNowTimeString">
-<area shape="rect" id="Node000001" title="現在の日時をYYYY/MM/DD HH:MM形式の文字列で取得する．" alt="" coords="511,5,656,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_result_file_exporter.html#aebd436670aeba9f2dc021961a2c321f8" title="resultフォルダがなければ作成する．また，フォルダ名を指定する．" alt="" coords="272,5,463,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="495,29,463,29,463,24,495,24"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_system_main_simulation.html#af4e2e23e7d94f65801c280e3e2f3e366" title=" " alt="" coords="5,5,224,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="256,29,224,29,224,24,256,24"/>
-</map>

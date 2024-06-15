@@ -1,5 +1,0 @@
-<map id="jsoncons::extension_traits::is_char32&lt; CharT, typename std::enable_if&lt; std::is_integral&lt; CharT &gt;::value &amp;&amp;!std::is_same&lt; CharT, bool &gt;::value &amp;&amp;(std::is_same&lt; CharT, char32_t &gt;::value||(!std::is_same&lt; CharT, char16_t &gt;::value &amp;&amp;sizeof(uint32_t)==sizeof(CharT)))&gt;::type &gt;" name="jsoncons::extension_traits::is_char32&lt; CharT, typename std::enable_if&lt; std::is_integral&lt; CharT &gt;::value &amp;&amp;!std::is_same&lt; CharT, bool &gt;::value &amp;&amp;(std::is_same&lt; CharT, char32_t &gt;::value||(!std::is_same&lt; CharT, char16_t &gt;::value &amp;&amp;sizeof(uint32_t)==sizeof(CharT)))&gt;::type &gt;">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,225,251"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="64,5,166,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,48,118,80,112,80,112,48"/>
-</map>

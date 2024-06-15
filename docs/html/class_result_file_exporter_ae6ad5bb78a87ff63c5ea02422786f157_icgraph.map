@@ -1,5 +1,0 @@
-<map id="ResultFileExporter::PushSimulationResult" name="ResultFileExporter::PushSimulationResult">
-<area shape="rect" id="Node000001" title="シミュレーション結果を追加する．" alt="" coords="209,5,366,48"/>
-<area shape="rect" id="Node000002" href="$class_system_main_simulation.html#a707546a7a9971ede2a1ba39cdc7ace71" title="いままでint mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="5,5,161,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,29,161,29,161,24,193,24"/>
-</map>

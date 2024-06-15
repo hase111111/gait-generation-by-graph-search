@@ -1,5 +1,0 @@
-<map id="PhantomXMkII::ConvertLegToGlobalCoordinate" name="PhantomXMkII::ConvertLegToGlobalCoordinate">
-<area shape="rect" id="Node000001" title="脚座標系で表現されている座標を，グローバル座標系に変換する．" alt="" coords="262,5,438,48"/>
-<area shape="rect" id="Node000002" href="$class_phantom_x_mk_i_i.html#ac333dee5b46e1b63fdca6202b91a2834" title="胴体が地面と干渉しているかどうかを判定する．" alt="" coords="5,5,214,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="246,29,214,29,214,24,246,24"/>
-</map>

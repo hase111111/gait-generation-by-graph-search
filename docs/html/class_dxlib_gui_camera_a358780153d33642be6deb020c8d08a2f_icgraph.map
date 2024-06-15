@@ -1,5 +1,0 @@
-<map id="DxlibGuiCamera::CursorOnGui" name="DxlibGuiCamera::CursorOnGui">
-<area shape="rect" id="Node000001" title="GUIの上にカーソルがあるかどうかを返す．" alt="" coords="245,5,443,32"/>
-<area shape="rect" id="Node000002" href="$class_dxlib_gui_camera.html#ada96b10a50f55f554c0a08fbd928aa4a" title="ドラッグ可能な位置にあるかを判定する．" alt="" coords="5,5,197,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,21,197,21,197,16,229,16"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="GaitPatternGraphTree::GetParentNode" name="GaitPatternGraphTree::GetParentNode">
-<area shape="rect" id="Node000001" title="指定したノードの親ノードの参照を返す．depthは親ノードの深さを指定する．" alt="" coords="197,5,344,48"/>
-<area shape="rect" id="Node000002" href="$class_graph_searcher_hato.html#aeb50970920b0aa1939268e79de7098b7" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="5,5,149,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,29,149,29,149,24,181,24"/>
-</map>

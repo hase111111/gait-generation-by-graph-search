@@ -1,5 +1,0 @@
-<map id="BootModeSelecter::SelectBootMode" name="BootModeSelecter::SelectBootMode">
-<area shape="rect" id="Node000001" title="起動モードを選択する &#160;&#160;BootModeがint型をもとにしているかつ，0から始まることを前提にしているので，うまく動作しない場合は &#160;&#160;BootModeの定義を見直すこと" alt="" coords="5,5,179,48"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1cmdio.html#a38240b12de09622fec60b69636218237" title="整数を入力する関数． &#160;&#160;必ず，OutputDetailがkSystemで出力される．" alt="" coords="227,13,396,40"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,24,211,24,211,29,179,29"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="designlab::leg_func::GetLegGroundedBit" name="designlab::leg_func::GetLegGroundedBit">
-<area shape="rect" id="Node000001" title="脚が接地しているなら1，遊脚を0としたbitで遊脚・接地脚の状態を返す． &#160;&#160;例えば 0 番脚のみが遊脚しているなら 0b111 110 を返す．" alt="" coords="5,5,149,48"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 〜 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="197,5,329,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,24,181,24,181,29,149,29"/>
-</map>

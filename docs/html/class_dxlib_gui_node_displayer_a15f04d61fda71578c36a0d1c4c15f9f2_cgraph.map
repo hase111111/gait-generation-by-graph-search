@@ -1,5 +1,0 @@
-<map id="DxlibGuiNodeDisplayer::Update" name="DxlibGuiNodeDisplayer::Update">
-<area shape="rect" id="Node000001" title="GUIの更新，毎フレーム実行すること．" alt="" coords="5,5,160,48"/>
-<area shape="rect" id="Node000002" href="$class_dxlib_gui_node_displayer.html#a7b7496846a710a50d49a46725c2e0cb0" title="GUIの表示を行うかどうかを設定する．" alt="" coords="208,5,362,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,24,192,24,192,29,160,29"/>
-</map>

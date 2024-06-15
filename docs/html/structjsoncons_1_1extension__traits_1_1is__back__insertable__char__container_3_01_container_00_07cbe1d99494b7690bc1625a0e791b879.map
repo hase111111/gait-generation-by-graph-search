@@ -1,5 +1,0 @@
-<map id="jsoncons::extension_traits::is_back_insertable_char_container&lt; Container, typename std::enable_if&lt; is_back_insertable&lt; Container &gt;::value &amp;&amp;is_character&lt; typename Container::value_type &gt;::value &gt;::type &gt;" name="jsoncons::extension_traits::is_back_insertable_char_container&lt; Container, typename std::enable_if&lt; is_back_insertable&lt; Container &gt;::value &amp;&amp;is_character&lt; typename Container::value_type &gt;::value &gt;::type &gt;">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,261,203"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="82,5,184,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,48,136,79,130,79,130,48"/>
-</map>

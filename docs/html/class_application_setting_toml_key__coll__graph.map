@@ -1,7 +1,0 @@
-<map id="ApplicationSettingTomlKey" name="ApplicationSettingTomlKey">
-<area shape="rect" id="Node000001" title="toml形式の設定ファイルのキーをまとめた定数クラス" alt="" coords="83,256,260,283"/>
-<area shape="rect" id="Node000002" href="$struct_toml_setting_key_data.html" title="設定ファイルのデータのキーをまとめた構造体" alt="" coords="5,5,146,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="70,47,61,86,56,135,60,185,68,209,80,230,93,244,109,253,106,258,89,248,75,234,63,211,55,186,50,135,55,86,64,46"/>
-<area shape="rect" id="Node000003" href="$struct_toml_setting_table_data.html" title="設定ファイルのテーブルのデータをまとめた構造体" alt="" coords="195,5,343,32"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="275,47,277,86,275,135,264,186,255,211,242,234,228,248,211,258,209,253,225,243,237,230,250,209,259,185,270,134,272,86,270,47"/>
-</map>

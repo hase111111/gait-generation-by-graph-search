@@ -1,7 +1,0 @@
-<map id="jsoncons::bson::basic_bson_encoder&lt; Sink, Allocator &gt;" name="jsoncons::bson::basic_bson_encoder&lt; Sink, Allocator &gt;">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,188,157,247"/>
-<area shape="rect" id="Node000002" href="$classjsoncons_1_1basic__json__visitor.html" title=" " alt="" coords="9,96,153,139"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,154,84,188,78,188,78,154"/>
-<area shape="rect" id="Node000003" href="$classjsoncons_1_1ser__context.html" title=" " alt="" coords="6,5,156,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="84,48,84,95,78,95,78,48"/>
-</map>

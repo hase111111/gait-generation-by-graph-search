@@ -1,5 +1,0 @@
-<map id="jsoncons::extension_traits::is_u8_u16_u32_or_u64&lt; T, typename std::enable_if&lt; std::is_same&lt; T, uint8_t &gt;::value||std::is_same&lt; T, uint16_t &gt;::value||std::is_same&lt; T, uint32_t &gt;::value||std::is_same&lt; T, uint64_t &gt;::value &gt;::type &gt;" name="jsoncons::extension_traits::is_u8_u16_u32_or_u64&lt; T, typename std::enable_if&lt; std::is_same&lt; T, uint8_t &gt;::value||std::is_same&lt; T, uint16_t &gt;::value||std::is_same&lt; T, uint32_t &gt;::value||std::is_same&lt; T, uint64_t &gt;::value &gt;::type &gt;">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,209,235"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="56,5,158,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,48,110,80,104,80,104,48"/>
-</map>

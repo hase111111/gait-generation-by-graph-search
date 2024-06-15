@@ -1,5 +1,0 @@
-<map id="IHexapodVaildChecker" name="IHexapodVaildChecker">
-<area shape="rect" id="Node000001" title="6脚ロボットが有効な姿勢をとっているかをチェックするクラス" alt="" coords="5,5,158,32"/>
-<area shape="rect" id="Node000002" href="$class_phantom_x_mk_i_i.html" title="PhantomX mk&#45;2 の状態を計算するクラス．" alt="" coords="29,80,134,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,48,84,80,79,80,79,48"/>
-</map>

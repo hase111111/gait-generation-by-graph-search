@@ -1,5 +1,0 @@
-<map id="Stopwatch::GetElapsedMicroSecond" name="Stopwatch::GetElapsedMicroSecond">
-<area shape="rect" id="Node000001" title="計測結果をマイクロ秒で取得． &#160;&#160;start()とend()を呼び出してからこの関数を呼ぶ． &#160;&#160;(このレベルのオーダーで精度出せるのか...?)．" alt="" coords="244,5,434,48"/>
-<area shape="rect" id="Node000002" href="$class_stopwatch.html#aceb0aa29ce5b68bd9a6af75e523ffd1d" title="経過時間をマイクロ秒で表した文字列を取得する．" alt="" coords="5,5,196,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="228,29,196,29,196,24,228,24"/>
-</map>

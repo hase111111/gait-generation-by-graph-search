@@ -1,5 +1,0 @@
-<map id="SystemMainResultViewer" name="SystemMainResultViewer">
-<area shape="rect" id="Node000001" title="結果を表示するシステムのクラス．" alt="" coords="5,80,176,107"/>
-<area shape="rect" id="Node000002" href="$class_i_system_main.html" title="システムのインターフェース．" alt="" coords="42,5,139,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,48,93,80,88,80,88,48"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="MapRenderer::Draw" name="MapRenderer::Draw">
-<area shape="rect" id="Node000001" title="マップの描画を行う．" alt="" coords="218,31,353,57"/>
-<area shape="rect" id="Node000002" href="$class_graphic_main_basic.html#a1e698ba2d3c8d10a78d37f1be466b061" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="5,5,170,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,36,170,32,170,27,203,31"/>
-<area shape="rect" id="Node000003" href="$class_graphic_main_test.html#a89739811751658e7ad119ceb81eba60d" title="描画を行う．ここでは描画系の処理のみを行い内部のデータを更新しないためconstを付けている．純粋仮想関数．" alt="" coords="9,56,166,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="203,57,167,62,166,57,202,52"/>
-</map>

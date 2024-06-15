@@ -1,5 +1,0 @@
-<map id="ApplicationSettingImporterForToml" name="ApplicationSettingImporterForToml">
-<area shape="rect" id="Node000001" title="toml形式のアプリケーション設定ファイルを読み込むクラス" alt="" coords="7,80,180,123"/>
-<area shape="rect" id="Node000002" href="$class_i_application_setting_importer.html" title="設定ファイルを読み込むクラスのインターフェース． &#160;&#160;現在思い付きでtomlファイルで読み込みをしているが，後々変更する可能性があるので，このインターフェースを用意している． &#160;&#160;jsonとかに変えたら..." alt="" coords="5,5,182,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,48,96,80,91,80,91,48"/>
-</map>

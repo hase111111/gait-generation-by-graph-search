@@ -1,7 +1,0 @@
-<map id="GuiUpdater::Activate" name="GuiUpdater::Activate">
-<area shape="rect" id="Node000001" title="クリック判定を行う． &#160;&#160;優先度の高いものから順にクリック判定を行う． &#160;&#160;クリックされたら，そのGUIのActivate関数を実行する． &#160;&#160;一度Activateされたら，それ以降のGUIのActiv..." alt="" coords="230,35,370,61"/>
-<area shape="rect" id="Node000002" href="$class_graphic_main_basic.html#a281c12f1a5df1d5dfce7aefad5057985" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="5,5,182,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,39,182,34,183,29,215,33"/>
-<area shape="rect" id="Node000003" href="$class_graphic_main_graph_viewer.html#ac77d5fa3c4596eda65ae4bb4884134b0" title="描画画面の更新を行う．純粋仮想関数のため，継承先では必ずoverrideする必要がある．" alt="" coords="9,56,178,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,63,179,68,178,63,214,57"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="designlab::SystemMainSimulation::SystemMainSimulation" name="designlab::SystemMainSimulation::SystemMainSimulation">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,224,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_result_file_exporter.html#aebd436670aeba9f2dc021961a2c321f8" title="resultフォルダがなければ作成する．また，フォルダ名を指定する．" alt="" coords="272,5,463,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="224,24,256,24,256,29,224,29"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_stopwatch.html#ac0f9af8d26f0183f30828a63488e14bc" title="現在の日時をYYYY/MM/DD HH:MM形式の文字列で取得する．" alt="" coords="511,5,656,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="464,24,496,24,496,29,464,29"/>
-</map>

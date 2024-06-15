@@ -1,7 +1,0 @@
-<map id="designlab::cmdio::InputInt" name="designlab::cmdio::InputInt">
-<area shape="rect" id="Node000001" title="整数を入力する関数． &#160;&#160;必ず，OutputDetailがkSystemで出力される．" alt="" coords="426,13,595,40"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_file_tree.html#a733878741b1e145e088254478a06d6e5" title="ディレクトリの中から，ファイルを一つ選択する．" alt="" coords="248,5,378,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="410,29,379,29,379,24,410,24"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_system_main_result_viewer.html#a7140a7e2d4cb4c62f7ff84f828afcdd2" title="主要な処理を行う関数．" alt="" coords="5,5,200,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="232,29,200,29,200,24,232,24"/>
-</map>

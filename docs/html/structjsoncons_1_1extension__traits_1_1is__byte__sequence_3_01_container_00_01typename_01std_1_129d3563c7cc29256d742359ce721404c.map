@@ -1,5 +1,0 @@
-<map id="jsoncons::extension_traits::is_byte_sequence&lt; Container, typename std::enable_if&lt; has_data_exact&lt; const typename Container::value_type *, const Container &gt;::value &amp;&amp;has_size&lt; Container &gt;::value &amp;&amp;is_byte&lt; typename Container::value_type &gt;::value &gt;::type &gt;" name="jsoncons::extension_traits::is_byte_sequence&lt; Container, typename std::enable_if&lt; has_data_exact&lt; const typename Container::value_type *, const Container &gt;::value &amp;&amp;has_size&lt; Container &gt;::value &amp;&amp;is_byte&lt; typename Container::value_type &gt;::value &gt;::type &gt;">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,268,235"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="86,5,187,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,48,139,80,134,80,134,48"/>
-</map>

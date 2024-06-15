@@ -1,5 +1,0 @@
-<map id="IHexapodStatePresenter" name="IHexapodStatePresenter">
-<area shape="rect" id="Node000001" title="6脚ロボットの状態を表示するクラス" alt="" coords="5,5,168,32"/>
-<area shape="rect" id="Node000002" href="$class_phantom_x_mk_i_i.html" title="PhantomX mk&#45;2 の状態を計算するクラス．" alt="" coords="34,80,139,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,48,89,80,84,80,84,48"/>
-</map>

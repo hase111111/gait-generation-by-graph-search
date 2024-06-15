@@ -1,5 +1,0 @@
-<map id="PassFinderBasic" name="PassFinderBasic">
-<area shape="rect" id="Node000001" title="普通にグラフ探索を行い，歩容パターン生成を行うクラス" alt="" coords="5,80,126,107"/>
-<area shape="rect" id="Node000002" href="$class_i_pass_finder.html" title="グラフ探索による歩容パターン生成を行うクラスのインターフェース．" alt="" coords="20,5,111,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="68,48,68,80,63,80,63,48"/>
-</map>

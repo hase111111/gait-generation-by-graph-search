@@ -1,5 +1,0 @@
-<map id="GaitPatternGeneratorSwitchMove" name="GaitPatternGeneratorSwitchMove">
-<area shape="rect" id="Node000001" title="複数の種類の歩容パターンの生成方法を切り替えるためのクラス．" alt="" coords="5,80,219,107"/>
-<area shape="rect" id="Node000002" href="$class_i_gait_pattern_generator.html" title="グラフ探索による歩容パターン生成を行うクラスのインターフェース．" alt="" coords="38,5,186,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,48,115,80,109,80,109,48"/>
-</map>

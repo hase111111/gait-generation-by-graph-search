@@ -1,7 +1,0 @@
-<map id="StabilityMarginRenderer" name="StabilityMarginRenderer">
-<area shape="rect" id="Node000001" title="ロボットの静的安定余裕(支持脚多角形)を描画するクラス． &#160;&#160;接地点を投影した多角形の内部に，重心が入っているかどうかで安定性を判定する．Stability Margin でググると詳しい説明が出てくる..." alt="" coords="56,80,215,107"/>
-<area shape="rect" id="Node000002" href="$class_i_dxlib3d_renderer.html" title="DxLibの描画処理を行うクラスのインターフェース．" alt="" coords="5,5,125,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,41,125,78,122,81,86,45"/>
-<area shape="rect" id="Node000003" href="$class_i_dxlib_node_setter.html" title="DxLibのGuiやRendererでノードのセットを行うためのインターフェース．" alt="" coords="149,5,267,32"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="186,45,150,81,146,78,183,41"/>
-</map>

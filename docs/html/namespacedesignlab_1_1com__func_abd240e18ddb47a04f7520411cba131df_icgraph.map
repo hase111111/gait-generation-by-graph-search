@@ -1,7 +1,0 @@
-<map id="designlab::com_func::RemoveLegGroundPatternFromCom" name="designlab::com_func::RemoveLegGroundPatternFromCom">
-<area shape="rect" id="Node000001" title="離散化された重心位置から，その重心位置では取り得ない脚接地パターンをfalseにする．" alt="" coords="230,39,467,81"/>
-<area shape="rect" id="Node000002" href="$class_node_creator_leg_up_down.html#ac75763b1e845d6b1e9e804c790f834ac" title="現在のノードから次のノード群を生成する" alt="" coords="12,5,175,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,45,175,40,176,35,214,40"/>
-<area shape="rect" id="Node000003" href="$class_node_creator_leg_up_down2d.html#a184621ec6b94c2d766586317b0510e55" title="現在のノードから次のノード群を生成する" alt="" coords="5,72,182,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,80,183,84,182,79,214,75"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="designlab::GraphSearchResultRecoder::GetCsvHeader" name="designlab::GraphSearchResultRecoder::GetCsvHeader">
-<area shape="rect" id="Node000001" title="CSV形式のヘッダを返す．" alt="" coords="236,5,433,48"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_simulation_result_recorder.html#acf1b40cf60810718d5fa9c1fc0dce25c" title="このクラスのデータをcsvファイルに出力する用の形式で文字列に変換する．" alt="" coords="5,5,188,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,29,188,29,188,24,220,24"/>
-</map>

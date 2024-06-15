@@ -1,7 +1,0 @@
-<map id="designlab::DxlibGuiCamera::SetVisible" name="designlab::DxlibGuiCamera::SetVisible">
-<area shape="rect" id="Node000001" title="GUIの表示を行うかどうかを設定する．" alt="" coords="232,39,410,81"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib_gui_camera.html#a46bdd002d3a9125539708f9146ec7268" title="コンストラクタでWindowのサイズと，カメラの管理を行うクラスを受け取る．" alt="" coords="5,5,184,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,47,184,42,185,37,217,42"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_dxlib_gui_camera.html#a236116169c9cc6862c82aca675742c06" title="GUIの更新，毎フレーム実行すること．" alt="" coords="5,72,184,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="217,78,185,83,184,78,216,73"/>
-</map>

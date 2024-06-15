@@ -1,5 +1,0 @@
-<map id="designlab::CmdIOUtil::InputYesNo" name="designlab::CmdIOUtil::InputYesNo">
-<area shape="rect" id="Node000001" title="yesかnoを入力させる関数．返り値で yes なら true，noなら falseを返す． &#160;&#160;出力される文字列は，必ず enums::OutputDetail::kSystem で出力される．" alt="" coords="5,5,149,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_cmd_i_o_util.html#a23bb4ec24b505bbe87e4125d5fb01d69" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="197,5,340,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,24,181,24,181,29,149,29"/>
-</map>

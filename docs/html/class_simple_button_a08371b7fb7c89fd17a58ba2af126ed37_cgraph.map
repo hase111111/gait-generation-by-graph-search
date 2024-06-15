@@ -1,5 +1,0 @@
-<map id="SimpleButton::Update" name="SimpleButton::Update">
-<area shape="rect" id="Node000001" title="GUIの更新，毎フレーム実行すること．" alt="" coords="5,13,154,40"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a0bb65d79aff7212b0ea64882f22b9b1b" title="目標値に値を近づける関数． &#160;&#160;適当に作っている，線形でもない，描画用なので計算に使いたいなら作り直すこと" alt="" coords="202,5,339,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,24,186,24,186,29,154,29"/>
-</map>

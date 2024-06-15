@@ -1,5 +1,0 @@
-<map id="ApplicationSettingRecordVaildator" name="ApplicationSettingRecordVaildator">
-<area shape="rect" id="Node000001" title="設定ファイルの内容を検証するクラス．" alt="" coords="17,96,185,139"/>
-<area shape="rect" id="Node000002" href="$class_i_toml_data_validator.html" title=" " alt="" coords="5,5,197,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,64,104,96,98,96,98,64"/>
-</map>

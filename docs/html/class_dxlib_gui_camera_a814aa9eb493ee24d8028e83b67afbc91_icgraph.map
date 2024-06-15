@@ -1,7 +1,0 @@
-<map id="DxlibGuiCamera::SetVisible" name="DxlibGuiCamera::SetVisible">
-<area shape="rect" id="Node000001" title="GUIの表示を行うかどうかを設定する．" alt="" coords="226,43,408,69"/>
-<area shape="rect" id="Node000002" href="$class_dxlib_gui_camera.html#ab334ee26edbcb9d0e1daa2dec74b552e" title="コンストラクタでカメラの管理を行うクラスを受け取る．" alt="" coords="5,5,178,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="210,45,178,41,178,35,211,40"/>
-<area shape="rect" id="Node000003" href="$class_dxlib_gui_camera.html#aedde2ed75ebfbd1a4c4e64b8f810ac10" title="GUIの更新，毎フレーム実行すること．" alt="" coords="9,72,174,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="211,72,174,77,174,72,210,67"/>
-</map>

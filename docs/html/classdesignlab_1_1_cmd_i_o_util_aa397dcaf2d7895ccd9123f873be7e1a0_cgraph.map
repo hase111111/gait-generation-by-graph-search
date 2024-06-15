@@ -1,8 +1,0 @@
-<map id="designlab::CmdIOUtil::SpacedOutput" name="designlab::CmdIOUtil::SpacedOutput">
-<area shape="rect" id="Node000001" title="コマンドラインに文字を出力する関数． &#160;&#160;前と後ろに改行を挿入する．" alt="" coords="5,5,149,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_cmd_i_o_util.html#a23bb4ec24b505bbe87e4125d5fb01d69" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="388,5,531,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,21,197,20,340,20,372,21,372,26,340,25,197,25,149,27"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_cmd_i_o_util.html#a97c5fef9accaf4506184222db3c0b6c6" title="コマンドラインで改行をする関数．" alt="" coords="197,35,340,77"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="150,35,182,40,181,45,149,40"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="340,42,372,37,373,43,341,48"/>
-</map>

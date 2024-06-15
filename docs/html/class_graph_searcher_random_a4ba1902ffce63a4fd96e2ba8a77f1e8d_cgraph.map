@@ -1,5 +1,0 @@
-<map id="GraphSearcherRandom::SearchGraphTree" name="GraphSearcherRandom::SearchGraphTree">
-<area shape="rect" id="Node000001" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="5,5,162,48"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#ac99502fcbcdd8d97f727f1d488b707a3" title="指定した範囲内の乱数を生成する．" alt="" coords="210,5,385,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,24,194,24,194,29,162,29"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="designlab::ToRotationMatrix" name="designlab::ToRotationMatrix">
-<area shape="rect" id="Node000001" title="クォータニオンから回転角行列への変換" alt="" coords="5,13,188,40"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_quaternion.html#a22fd9f4f5c3a4c600e859ebd1891c45a" title="正規化したクォータニオンを返す &#160;&#160;クォータニオンの正規化とは，ノルムを1にすること． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる" alt="" coords="236,5,383,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,24,220,24,220,29,188,29"/>
-<area shape="rect" id="Node000003" href="$structdesignlab_1_1_quaternion.html#a56bbbd522805450144f54aae7dbd117e" title="クォータニオンのノルムを返す &#160;&#160;ノルムとは，ベクトルの大きさのこと．クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 で求められる" alt="" coords="431,5,578,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="384,24,415,24,415,29,384,29"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaternion.html#a24ad10137dd081de9002ac270cdce9f9" title="クォータニオンの長さの2乗を返す(ノルムの2乗)． &#160;&#160;クォータニオンの長さの2乗は，w^2 + x^2 + y^2 + z^2 で求められる" alt="" coords="626,5,774,48"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="579,24,610,24,610,29,579,29"/>
-</map>

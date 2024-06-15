@@ -1,5 +1,0 @@
-<map id="jsoncons::extension_traits::is_primitive&lt; T, typename std::enable_if&lt; is_integer&lt; T &gt;::value||is_bool&lt; T &gt;::value||std::is_floating_point&lt; T &gt;::value &gt;::type &gt;" name="jsoncons::extension_traits::is_primitive&lt; T, typename std::enable_if&lt; is_integer&lt; T &gt;::value||is_bool&lt; T &gt;::value||std::is_floating_point&lt; T &gt;::value &gt;::type &gt;">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,188,203"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="46,5,147,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,48,99,79,94,79,94,48"/>
-</map>

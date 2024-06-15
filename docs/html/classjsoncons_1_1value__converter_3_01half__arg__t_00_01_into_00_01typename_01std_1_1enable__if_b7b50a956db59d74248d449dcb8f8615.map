@@ -1,5 +1,0 @@
-<map id="jsoncons::value_converter&lt; half_arg_t, Into, typename std::enable_if&lt; extension_traits::is_string&lt; Into &gt;::value &gt;::type &gt;" name="jsoncons::value_converter&lt; half_arg_t, Into, typename std::enable_if&lt; extension_traits::is_string&lt; Into &gt;::value &gt;::type &gt;">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,96,189,187"/>
-<area shape="rect" id="Node000002" href="$classjsoncons_1_1value__converter__base.html" title=" " alt="" coords="12,5,182,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,64,100,95,94,95,94,64"/>
-</map>

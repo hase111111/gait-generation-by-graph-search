@@ -1,5 +1,0 @@
-<map id="DxlibGuiDisplayNodeSwitcher::SetVisible" name="DxlibGuiDisplayNodeSwitcher::SetVisible">
-<area shape="rect" id="Node000001" title="GUIの表示を行うかどうかを設定する．" alt="" coords="247,5,440,48"/>
-<area shape="rect" id="Node000002" href="$class_dxlib_gui_display_node_switcher.html#a770906255fe8ab0b14d06d87620b5a75" title="GUIの更新，毎フレーム実行すること．" alt="" coords="5,5,199,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="231,29,199,29,199,24,231,24"/>
-</map>
