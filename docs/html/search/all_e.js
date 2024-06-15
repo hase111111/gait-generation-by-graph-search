@@ -24,12 +24,12 @@ var searchData=
   ['nodecreatorcommove_21',['NodeCreatorComMove',['../classdesignlab_1_1_node_creator_com_move.html',1,'designlab']]],
   ['nodecreatorcommovestraight_22',['NodeCreatorComMoveStraight',['../classdesignlab_1_1_node_creator_com_move_straight.html',1,'designlab']]],
   ['nodecreatorcomupdown_23',['NodeCreatorComUpDown',['../classdesignlab_1_1_node_creator_com_up_down.html',1,'designlab']]],
-  ['nodecreatorleghierarchy_24',['NodeCreatorLegHierarchy',['../classdesignlab_1_1_node_creator_leg_hierarchy.html',1,'designlab::NodeCreatorLegHierarchy'],['../classdesignlab_1_1_node_creator_leg_hierarchy.html#a91be54c4da3c895f16a59b5ffd24e37f',1,'designlab::NodeCreatorLegHierarchy::NodeCreatorLegHierarchy()']]],
+  ['nodecreatorleghierarchy_24',['nodecreatorleghierarchy',['../classdesignlab_1_1_node_creator_leg_hierarchy.html',1,'designlab::NodeCreatorLegHierarchy'],['../classdesignlab_1_1_node_creator_leg_hierarchy.html#a91be54c4da3c895f16a59b5ffd24e37f',1,'designlab::NodeCreatorLegHierarchy::NodeCreatorLegHierarchy()']]],
   ['nodecreatorlegupdown_25',['NodeCreatorLegUpDown',['../classdesignlab_1_1_node_creator_leg_up_down.html',1,'designlab']]],
   ['nodecreatorlegupdown2d_26',['NodeCreatorLegUpDown2d',['../classdesignlab_1_1_node_creator_leg_up_down2d.html',1,'designlab']]],
   ['nodecreatorlegupdownradius_27',['NodeCreatorLegUpDownRadius',['../classdesignlab_1_1_node_creator_leg_up_down_radius.html',1,'designlab']]],
   ['nodeinitializer_28',['NodeInitializer',['../classdesignlab_1_1_node_initializer.html',1,'designlab']]],
   ['noextension_29',['NoExtension',['../classcpplint_1_1_file_info.html#a6463961c468cbc54f7f8551b96ac531f',1,'cpplint::FileInfo']]],
-  ['normalize_30',['Normalize',['../structdesignlab_1_1_quaternion.html#a45dfcf48edea7b439e7d189d0d105bfa',1,'designlab::Quaternion::Normalize()'],['../structdesignlab_1_1_vector2.html#ac75623bf80d61ccba4a26c6810eddd3c',1,'designlab::Vector2::Normalize()'],['../structdesignlab_1_1_vector3.html#ac5187e0ab8d45cda4a36dd38f34884e8',1,'designlab::Vector3::Normalize()']]],
+  ['normalize_30',['normalize',['../structdesignlab_1_1_quaternion.html#a45dfcf48edea7b439e7d189d0d105bfa',1,'designlab::Quaternion::Normalize()'],['../structdesignlab_1_1_vector2.html#ac75623bf80d61ccba4a26c6810eddd3c',1,'designlab::Vector2::Normalize()'],['../structdesignlab_1_1_vector3.html#ac5187e0ab8d45cda4a36dd38f34884e8',1,'designlab::Vector3::Normalize()']]],
   ['numlines_31',['NumLines',['../classcpplint_1_1_cleansed_lines.html#adfe2b45fdf2e0088c726437f67bb3328',1,'cpplint::CleansedLines']]]
 ];

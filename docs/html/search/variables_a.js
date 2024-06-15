@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['kallowableerror_0',['kAllowableError',['../structdesignlab_1_1_math_const_3_01float_01_4.html#a22ab1d3bed0bdba5c7da9afdc423af83',1,'designlab::MathConst&lt; float &gt;::kAllowableError'],['../structdesignlab_1_1_math_const_3_01double_01_4.html#a42449539abbd8938ec409175c63cc683',1,'designlab::MathConst&lt; double &gt;::kAllowableError']]],
+  ['kallowableerror_0',['kallowableerror',['../structdesignlab_1_1_math_const_3_01float_01_4.html#a22ab1d3bed0bdba5c7da9afdc423af83',1,'designlab::MathConst&lt; float &gt;::kAllowableError'],['../structdesignlab_1_1_math_const_3_01double_01_4.html#a42449539abbd8938ec409175c63cc683',1,'designlab::MathConst&lt; double &gt;::kAllowableError']]],
   ['kbackcolorblue_1',['kBackColorBlue',['../classdesignlab_1_1_graphic_const.html#a50504ca66c194f53ea3e3dfdcb4066ea',1,'designlab::GraphicConst']]],
   ['kbackcolorgreen_2',['kBackColorGreen',['../classdesignlab_1_1_graphic_const.html#a6a8aecbde77a9344742ddfb26c112db9',1,'designlab::GraphicConst']]],
   ['kbackcolorred_3',['kBackColorRed',['../classdesignlab_1_1_graphic_const.html#a83224efb792e821180b9a0d9c8adf0da',1,'designlab::GraphicConst']]],
@@ -42,7 +42,7 @@ var searchData=
   ['knodelistname_39',['kNodeListName',['../classdesignlab_1_1_result_file_const.html#a5666c032326667298462eea583730e78',1,'designlab::ResultFileConst']]],
   ['knoparentindex_40',['kNoParentIndex',['../structdesignlab_1_1_robot_state_node.html#aa7544548abb588657ebbdc058a66bea1',1,'designlab::RobotStateNode']]],
   ['knotable_41',['kNoTable',['../structdesignlab_1_1toml__func_1_1_toml11_description.html#a7212008e9103ff5ef65a79e0a17e8c36',1,'designlab::toml_func::Toml11Description']]],
-  ['kroundangle_42',['kRoundAngle',['../structdesignlab_1_1_math_const_3_01float_01_4.html#aff598df3b409bc6512321b5359c4835b',1,'designlab::MathConst&lt; float &gt;::kRoundAngle'],['../structdesignlab_1_1_math_const_3_01double_01_4.html#ad04366b862f0452fc6a110302d6367c2',1,'designlab::MathConst&lt; double &gt;::kRoundAngle']]],
+  ['kroundangle_42',['kroundangle',['../structdesignlab_1_1_math_const_3_01float_01_4.html#aff598df3b409bc6512321b5359c4835b',1,'designlab::MathConst&lt; float &gt;::kRoundAngle'],['../structdesignlab_1_1_math_const_3_01double_01_4.html#ad04366b862f0452fc6a110302d6367c2',1,'designlab::MathConst&lt; double &gt;::kRoundAngle']]],
   ['kshifttocomnum_43',['kShiftToComNum',['../namespacedesignlab_1_1leg__func.html#a70663ed1f016df2602e960f07056ca30',1,'designlab::leg_func']]],
   ['ksuccessfulcount_44',['kSuccessfulCount',['../classdesignlab_1_1_result_file_const.html#aab54d0443a24697a1c0e51fc0b2fdae3',1,'designlab::ResultFileConst']]],
   ['ktibiaanglemin_45',['kTibiaAngleMin',['../classdesignlab_1_1_phantom_x_mk_i_i_const.html#a4d291640a9d086a339310fe27af4b677',1,'designlab::PhantomXMkIIConst']]],
