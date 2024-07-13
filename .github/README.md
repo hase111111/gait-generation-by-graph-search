@@ -75,10 +75,10 @@ git clone https://github.com/hase111111/gait-generation-by-graph-search.git
 
 ##### 2. ライブラリの導入
 
-ライブラリとは，プログラムを実行するために必要なファイルのことです．
+ライブラリとは，特定のプログラムを他のプログラムから引用できる状態にして集めたファイルのことです．
 このプロジェクトは前項で述べたライブラリに依存しているため，それらのライブラリを導入する必要があります．
-ヘッダオンリーライブラリであるmagic_enum，toml11，strconv，doctestは，本プロジェクト内にソースコードが含まれているため，新たにインストールする必要はありません．
-そのため，[DxLib，Boostの導入方法](../docs/mark_down/how_to_install_library.md)にしたがって，DxLibとBoostを導入してください．
+[DxLib，Boostの導入方法](../docs/mark_down/how_to_install_library.md)にしたがって，DxLibとBoostを導入してください．
+なお，ヘッダオンリーライブラリであるmagic_enum，toml11，strconv，doctestは，本プロジェクト内にソースコードが含まれているため，新たにインストールする必要はありません．
 
 ##### 3. プロジェクトのビルド
 
