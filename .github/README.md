@@ -6,7 +6,13 @@ Visual Studioで開発した，グラフ探索を用いた6脚ロボットの歩
 
 ## 概要
 
-Doxygenによるドキュメントは[こちら](https://hase111111.github.io/gait-generation-by-graph-search/)にあります．
+グラフ探索による4脚ロボットの自由歩容生成を行う研究[^1]を拡張した，6脚ロボットの自由歩容生成を行うプログラムです．
+グラフ探索による歩容生成の結果を，グラフィカルに表示するシミュレータの機能を持っています．
+また，歩容生成の結果やマップの状態を保存し，後から読み込むことができます．
+
+ソースコードについての，Doxygenによるドキュメントは[こちら](https://hase111111.github.io/gait-generation-by-graph-search/)にあります．
+
+[^1]: Pal, Prabir K., and K. Jayarajan, “Generation of Free Gait-A Graph Search Approach”, IEEE Transactions on Robotics and Automation, Vol.7,No.3,pp.299-305, 1991.  
 
 ## 開発環境
 
@@ -17,12 +23,15 @@ Doxygenによるドキュメントは[こちら](https://hase111111.github.io/ga
 - DxLib: 3.24b
 - Boost: 1.82.0
 - magic_enum: 0.9.6
-- toml11: 4.0.3
+- toml11: 3.7.1
 - strconv: 1.8.10
 - doctest: 2.4.11
 
 C++はVisual Studio 2022のコンパイラを使用してコンパイルしています．
 また，バージョンはC++20を使用しています．
+
+なお，命名規則は[Google C++ スタイルガイド](https://google.github.io/styleguide/cppguide.html)にしたがっています．
+加えて，一貫性のあるコーディングのため，cpplint.pyによるコードの静的解析を行っています．
 
 ## 依存するライブラリ
 
@@ -43,16 +52,46 @@ DxLibとBoostについては，[DxLib，Boostの導入方法](../docs/mark_down/
 
 導入のためには，以下の手順を実行してください．
 
-1. レポジトリのクローン
-   ライブラリのインストール
-2. 以下のコマンドを実行して，必要なライブラリをインストールしてください．
+##### 1. レポジトリのクローン
+
+まずは，本レポジトリをクローンする必要があります．（レポジトリのクローンとは，GitHub上のファイルを自分のPCにダウンロードすることだと思ってください．）
+そのためには，「git」をインストールしている必要があります．gitをインストールしていない場合は，[こちら](https://git-scm.com/)からインストーラをダウンロードして，実行してください．
+gitのインストールが完了したら，コマンドプロンプトを開いてください（Windowsキー+Rで検索窓を開き，cmdと入力してEnterを押すとコマンドプロンプトが実行されます）．
+そして，以下のコマンドを実行してください．
+
+```bash
+cd <クローンしたいフォルダへのパス>
+git clone https://github.com/hase111111/gait-generation-by-graph-search.git
+```
+
+たとえば，デスクトップ直下にある「Project」フォルダにクローンしたい場合は，以下のように入力してください．
+
+```bash
+cd C:\Users\<ユーザ名>\Desktop\Project
+git clone https://github.com/hase111111/gait-generation-by-graph-search.git
+```
+
+これで，レポジトリがクローンされました．
+
+##### 2. ライブラリの導入
+
+ライブラリとは，プログラムを実行するために必要なファイルのことです．
+このプロジェクトは前項で述べたライブラリに依存しているため，それらのライブラリを導入する必要があります．
+ヘッダオンリーライブラリであるmagic_enum，toml11，strconv，doctestは，本プロジェクト内にソースコードが含まれているため，新たにインストールする必要はありません．
+そのため，[DxLib，Boostの導入方法](../docs/mark_down/how_to_install_library.md)にしたがって，DxLibとBoostを導入してください．
+
+##### 3. プロジェクトのビルド
+
+プロジェクトをビルドするためには，Visual Studioが必要です．
+まずは[Visual Studioの公式サイト](https://visualstudio.microsoft.com/ja/)からインストールしてください．
+Visual Studioをインストールしたら，ソリューションファイル（拡張子が「.sln」のファイル）を開いてください．
+ソリューションファイルは，クローンしたフォルダ内にあります．
+
+Visual StudioではCtrl+F5を押すことで，プログラムがコンパイル / ビルドされます．
+プロジェクトの構成が「Release」「x64」になっていることを確認してから，Ctrl+F5を押してください．
 
 ## 使い方
 
-実行にはVisual Studioが必要です．まずは[Visual Studioの公式サイト](https://visualstudio.microsoft.com/ja/)からインストールしてください．
-Visual Studioを用いて，プログラムを実行してください．Visual StudioではCtrl+F5を押すことで，プログラムが実行されます．
-実行にあたって，プロジェクトの構成が「Release」「x64」になっていることを確認してください．
+プログラムの使い方については，[使い方](../docs/mark_down/how_to_use.md)を参照してください．
 
 ## 実行・コンパイルすることができない場合
-
-
