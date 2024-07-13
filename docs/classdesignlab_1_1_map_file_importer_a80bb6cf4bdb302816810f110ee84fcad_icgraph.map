@@ -1,5 +1,5 @@
 <map id="designlab::MapFileImporter::ImportMap" name="designlab::MapFileImporter::ImportMap">
 <area shape="rect" id="Node000001" title="マップを csv に出力したものを読み込む．" alt="" coords="242,5,419,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_map_creator_by_csv.html#af3bf4a09c3c59bef540ff2a540dbab6c" title="マップの初期化を行う．" alt="" coords="5,5,194,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_map_creator_by_csvdocs#af3bf4a09c3c59bef540ff2a540dbab6c" title="マップの初期化を行う．" alt="" coords="5,5,194,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,29,194,29,194,24,226,24"/>
 </map>

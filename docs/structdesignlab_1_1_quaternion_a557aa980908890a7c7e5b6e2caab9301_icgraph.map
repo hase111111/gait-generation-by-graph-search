@@ -1,5 +1,5 @@
 <map id="designlab::Quaternion::MakeByAngleAxis" name="designlab::Quaternion::MakeByAngleAxis">
 <area shape="rect" id="Node000001" title="回転軸と回転角からクォータニオンを作成する． &#160;&#160;q = cos(θ/2) * w + sin(θ/2) * { v.x + v.y + v.z } となる． ノルムは必ず1になる．" alt="" coords="228,5,375,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_camera_dragger.html#ad9f9da3070ea76a8ae205590e5599d10" title="ドラッグ中の処理を行う． &#160;&#160;カーソルは上にあるけど，ドラッグ中ではない場合でも呼び出される．" alt="" coords="5,5,180,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_camera_draggerdocs#ad9f9da3070ea76a8ae205590e5599d10" title="ドラッグ中の処理を行う． &#160;&#160;カーソルは上にあるけど，ドラッグ中ではない場合でも呼び出される．" alt="" coords="5,5,180,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="212,29,180,29,180,24,212,24"/>
 </map>

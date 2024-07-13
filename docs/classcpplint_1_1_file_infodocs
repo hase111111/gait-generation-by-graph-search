@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: cpplint.FileInfo クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'docs');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classcpplint_1_1_file_infodocs',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pro-attribs">限定公開変数類</a> &#124;
+<a href="classcpplint_1_1_file_info-membersdocs">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">cpplint.FileInfo クラス</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+cpplint.FileInfo の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="classcpplint_1_1_file_info__inherit__graph.png" border="0" usemap="#acpplint_8_file_info_inherit__map" alt="Inheritance graph"/></div>
+<map name="acpplint_8_file_info_inherit__map" id="acpplint_8_file_info_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,80,110,107"/>
+<area shape="rect" title=" " alt="" coords="29,5,86,32"/>
+<area shape="poly" title=" " alt="" coords="60,48,60,80,55,80,55,48"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legenddocs">凡例</a>]</span></center></div>
+<div class="dynheader">
+cpplint.FileInfo 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="classcpplint_1_1_file_info__coll__graph.png" border="0" usemap="#acpplint_8_file_info_coll__map" alt="Collaboration graph"/></div>
+<map name="acpplint_8_file_info_coll__map" id="acpplint_8_file_info_coll__map">
+<area shape="rect" title=" " alt="" coords="5,80,110,107"/>
+<area shape="rect" title=" " alt="" coords="29,5,86,32"/>
+<area shape="poly" title=" " alt="" coords="60,48,60,80,55,80,55,48"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legenddocs">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a3f7472437ec78e0b6da4999829151ecd" id="r_a3f7472437ec78e0b6da4999829151ecd"><td class="memItemLeft" align="right" valign="top"><a id="a3f7472437ec78e0b6da4999829151ecd" name="a3f7472437ec78e0b6da4999829151ecd"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self, filename)</td></tr>
+<tr class="separator:a3f7472437ec78e0b6da4999829151ecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e597152c0e09063f61a9fd82691991d" id="r_a3e597152c0e09063f61a9fd82691991d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpplint_1_1_file_infodocs#a3e597152c0e09063f61a9fd82691991d">FullName</a> (self)</td></tr>
+<tr class="separator:a3e597152c0e09063f61a9fd82691991d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a714480dc56e24fd965f3273edfb1b268" id="r_a714480dc56e24fd965f3273edfb1b268"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpplint_1_1_file_infodocs#a714480dc56e24fd965f3273edfb1b268">RepositoryName</a> (self)</td></tr>
+<tr class="separator:a714480dc56e24fd965f3273edfb1b268"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e303a91249d059740177b183888e89a" id="r_a5e303a91249d059740177b183888e89a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpplint_1_1_file_infodocs#a5e303a91249d059740177b183888e89a">Split</a> (self)</td></tr>
+<tr class="separator:a5e303a91249d059740177b183888e89a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53c9c65b587cd00d861147a1045c1d02" id="r_a53c9c65b587cd00d861147a1045c1d02"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpplint_1_1_file_infodocs#a53c9c65b587cd00d861147a1045c1d02">BaseName</a> (self)</td></tr>
+<tr class="separator:a53c9c65b587cd00d861147a1045c1d02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f914f9343ddc32a191e4755417b1d12" id="r_a3f914f9343ddc32a191e4755417b1d12"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpplint_1_1_file_infodocs#a3f914f9343ddc32a191e4755417b1d12">Extension</a> (self)</td></tr>
+<tr class="separator:a3f914f9343ddc32a191e4755417b1d12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6463961c468cbc54f7f8551b96ac531f" id="r_a6463961c468cbc54f7f8551b96ac531f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpplint_1_1_file_infodocs#a6463961c468cbc54f7f8551b96ac531f">NoExtension</a> (self)</td></tr>
+<tr class="separator:a6463961c468cbc54f7f8551b96ac531f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae288e2bd0b20855787597e3491168071" id="r_ae288e2bd0b20855787597e3491168071"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpplint_1_1_file_infodocs#ae288e2bd0b20855787597e3491168071">IsSource</a> (self)</td></tr>
+<tr class="separator:ae288e2bd0b20855787597e3491168071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+限定公開変数類</h2></td></tr>
+<tr class="memitem:a6c6c677b6b730b37fc5f198aaa18ab40" id="r_a6c6c677b6b730b37fc5f198aaa18ab40"><td class="memItemLeft" align="right" valign="top"><a id="a6c6c677b6b730b37fc5f198aaa18ab40" name="a6c6c677b6b730b37fc5f198aaa18ab40"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>_filename</b></td></tr>
+<tr class="separator:a6c6c677b6b730b37fc5f198aaa18ab40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><pre class="fragment">Provides utility functions for filenames.
+
+FileInfo provides easy access to the components of a file's path
+relative to the project root.
+</pre> </div><h2 class="groupheader">関数詳解</h2>
+<a id="a53c9c65b587cd00d861147a1045c1d02" name="a53c9c65b587cd00d861147a1045c1d02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53c9c65b587cd00d861147a1045c1d02">&#9670;&#160;</a></span>BaseName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cpplint.FileInfo.BaseName </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">File base name - text after the final slash, before the final period.</pre> <div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcpplint_1_1_file_info_a53c9c65b587cd00d861147a1045c1d02_cgraph.png" border="0" usemap="#aclasscpplint_1_1_file_info_a53c9c65b587cd00d861147a1045c1d02_cgraph" alt=""/></div>
+<map name="aclasscpplint_1_1_file_info_a53c9c65b587cd00d861147a1045c1d02_cgraph" id="aclasscpplint_1_1_file_info_a53c9c65b587cd00d861147a1045c1d02_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,178,32"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a5e303a91249d059740177b183888e89a" title=" " alt="" coords="226,5,360,32"/>
+<area shape="poly" title=" " alt="" coords="178,16,210,16,210,21,178,21"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a714480dc56e24fd965f3273edfb1b268" title=" " alt="" coords="408,5,612,32"/>
+<area shape="poly" title=" " alt="" coords="360,16,392,16,392,21,360,21"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a3e597152c0e09063f61a9fd82691991d" title=" " alt="" coords="660,5,824,32"/>
+<area shape="poly" title=" " alt="" coords="613,16,645,16,645,21,613,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3f914f9343ddc32a191e4755417b1d12" name="a3f914f9343ddc32a191e4755417b1d12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f914f9343ddc32a191e4755417b1d12">&#9670;&#160;</a></span>Extension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cpplint.FileInfo.Extension </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">File extension - text following the final period.</pre> <div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcpplint_1_1_file_info_a3f914f9343ddc32a191e4755417b1d12_cgraph.png" border="0" usemap="#aclasscpplint_1_1_file_info_a3f914f9343ddc32a191e4755417b1d12_cgraph" alt=""/></div>
+<map name="aclasscpplint_1_1_file_info_a3f914f9343ddc32a191e4755417b1d12_cgraph" id="aclasscpplint_1_1_file_info_a3f914f9343ddc32a191e4755417b1d12_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,172,32"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a5e303a91249d059740177b183888e89a" title=" " alt="" coords="220,5,354,32"/>
+<area shape="poly" title=" " alt="" coords="172,16,204,16,204,21,172,21"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a714480dc56e24fd965f3273edfb1b268" title=" " alt="" coords="402,5,606,32"/>
+<area shape="poly" title=" " alt="" coords="354,16,386,16,386,21,354,21"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a3e597152c0e09063f61a9fd82691991d" title=" " alt="" coords="654,5,818,32"/>
+<area shape="poly" title=" " alt="" coords="607,16,639,16,639,21,607,21"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcpplint_1_1_file_info_a3f914f9343ddc32a191e4755417b1d12_icgraph.png" border="0" usemap="#aclasscpplint_1_1_file_info_a3f914f9343ddc32a191e4755417b1d12_icgraph" alt=""/></div>
+<map name="aclasscpplint_1_1_file_info_a3f914f9343ddc32a191e4755417b1d12_icgraph" id="aclasscpplint_1_1_file_info_a3f914f9343ddc32a191e4755417b1d12_icgraph">
+<area shape="rect" title=" " alt="" coords="213,5,379,32"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#ae288e2bd0b20855787597e3491168071" title=" " alt="" coords="5,5,165,32"/>
+<area shape="poly" title=" " alt="" coords="197,21,165,21,165,16,197,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3e597152c0e09063f61a9fd82691991d" name="a3e597152c0e09063f61a9fd82691991d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e597152c0e09063f61a9fd82691991d">&#9670;&#160;</a></span>FullName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cpplint.FileInfo.FullName </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Make Windows paths like Unix.</pre> <div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcpplint_1_1_file_info_a3e597152c0e09063f61a9fd82691991d_icgraph.png" border="0" usemap="#aclasscpplint_1_1_file_info_a3e597152c0e09063f61a9fd82691991d_icgraph" alt=""/></div>
+<map name="aclasscpplint_1_1_file_info_a3e597152c0e09063f61a9fd82691991d_icgraph" id="aclasscpplint_1_1_file_info_a3e597152c0e09063f61a9fd82691991d_icgraph">
+<area shape="rect" title=" " alt="" coords="670,56,834,83"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a714480dc56e24fd965f3273edfb1b268" title=" " alt="" coords="418,56,622,83"/>
+<area shape="poly" title=" " alt="" coords="655,72,623,72,623,67,655,67"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a5e303a91249d059740177b183888e89a" title=" " alt="" coords="236,56,370,83"/>
+<area shape="poly" title=" " alt="" coords="403,72,370,72,370,67,403,67"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a53c9c65b587cd00d861147a1045c1d02" title=" " alt="" coords="10,5,183,32"/>
+<area shape="poly" title=" " alt="" coords="230,54,153,35,154,30,231,49"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a3f914f9343ddc32a191e4755417b1d12" title=" " alt="" coords="13,56,180,83"/>
+<area shape="poly" title=" " alt="" coords="220,72,180,72,180,67,220,67"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a6463961c468cbc54f7f8551b96ac531f" title=" " alt="" coords="5,107,188,133"/>
+<area shape="poly" title=" " alt="" coords="231,90,154,109,153,103,230,84"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae288e2bd0b20855787597e3491168071" name="ae288e2bd0b20855787597e3491168071"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae288e2bd0b20855787597e3491168071">&#9670;&#160;</a></span>IsSource()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cpplint.FileInfo.IsSource </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">File has a source file extension.</pre> <div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcpplint_1_1_file_info_ae288e2bd0b20855787597e3491168071_cgraph.png" border="0" usemap="#aclasscpplint_1_1_file_info_ae288e2bd0b20855787597e3491168071_cgraph" alt=""/></div>
+<map name="aclasscpplint_1_1_file_info_ae288e2bd0b20855787597e3491168071_cgraph" id="aclasscpplint_1_1_file_info_ae288e2bd0b20855787597e3491168071_cgraph">
+<area shape="rect" title=" " alt="" coords="5,31,165,57"/>
+<area shape="rect" href="namespacecpplintdocs#aa418f429ad1c4cbe4a3fcaf4d308d1a9" title=" " alt="" coords="213,5,392,32"/>
+<area shape="poly" title=" " alt="" coords="165,32,197,28,197,34,165,37"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a3f914f9343ddc32a191e4755417b1d12" title=" " alt="" coords="219,56,386,83"/>
+<area shape="poly" title=" " alt="" coords="165,51,204,55,203,60,165,56"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a5e303a91249d059740177b183888e89a" title=" " alt="" coords="440,56,574,83"/>
+<area shape="poly" title=" " alt="" coords="386,67,425,67,425,72,386,72"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a714480dc56e24fd965f3273edfb1b268" title=" " alt="" coords="622,56,827,83"/>
+<area shape="poly" title=" " alt="" coords="575,67,607,67,607,72,575,72"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6463961c468cbc54f7f8551b96ac531f" name="a6463961c468cbc54f7f8551b96ac531f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6463961c468cbc54f7f8551b96ac531f">&#9670;&#160;</a></span>NoExtension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cpplint.FileInfo.NoExtension </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">File has no source file extension.</pre> <div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcpplint_1_1_file_info_a6463961c468cbc54f7f8551b96ac531f_cgraph.png" border="0" usemap="#aclasscpplint_1_1_file_info_a6463961c468cbc54f7f8551b96ac531f_cgraph" alt=""/></div>
+<map name="aclasscpplint_1_1_file_info_a6463961c468cbc54f7f8551b96ac531f_cgraph" id="aclasscpplint_1_1_file_info_a6463961c468cbc54f7f8551b96ac531f_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,188,32"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a5e303a91249d059740177b183888e89a" title=" " alt="" coords="236,5,370,32"/>
+<area shape="poly" title=" " alt="" coords="188,16,220,16,220,21,188,21"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a714480dc56e24fd965f3273edfb1b268" title=" " alt="" coords="418,5,622,32"/>
+<area shape="poly" title=" " alt="" coords="370,16,402,16,402,21,370,21"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a3e597152c0e09063f61a9fd82691991d" title=" " alt="" coords="670,5,834,32"/>
+<area shape="poly" title=" " alt="" coords="623,16,655,16,655,21,623,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a714480dc56e24fd965f3273edfb1b268" name="a714480dc56e24fd965f3273edfb1b268"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a714480dc56e24fd965f3273edfb1b268">&#9670;&#160;</a></span>RepositoryName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cpplint.FileInfo.RepositoryName </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">FullName after removing the local path to the repository.
+
+If we have a real absolute path name here we can try to do something smart:
+detecting the root of the checkout and truncating /path/to/checkout from
+the name so that we get header guards that don't include things like
+"C:\Documents and Settings\..." or "/home/username/..." in them and thus
+people on different computers who have checked the source out to different
+locations won't see bogus errors.
+</pre> <div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcpplint_1_1_file_info_a714480dc56e24fd965f3273edfb1b268_cgraph.png" border="0" usemap="#aclasscpplint_1_1_file_info_a714480dc56e24fd965f3273edfb1b268_cgraph" alt=""/></div>
+<map name="aclasscpplint_1_1_file_info_a714480dc56e24fd965f3273edfb1b268_cgraph" id="aclasscpplint_1_1_file_info_a714480dc56e24fd965f3273edfb1b268_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,210,32"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a3e597152c0e09063f61a9fd82691991d" title=" " alt="" coords="258,5,421,32"/>
+<area shape="poly" title=" " alt="" coords="210,16,242,16,242,21,210,21"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcpplint_1_1_file_info_a714480dc56e24fd965f3273edfb1b268_icgraph.png" border="0" usemap="#aclasscpplint_1_1_file_info_a714480dc56e24fd965f3273edfb1b268_icgraph" alt=""/></div>
+<map name="aclasscpplint_1_1_file_info_a714480dc56e24fd965f3273edfb1b268_icgraph" id="aclasscpplint_1_1_file_info_a714480dc56e24fd965f3273edfb1b268_icgraph">
+<area shape="rect" title=" " alt="" coords="625,56,830,83"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a5e303a91249d059740177b183888e89a" title=" " alt="" coords="443,56,577,83"/>
+<area shape="poly" title=" " alt="" coords="610,72,578,72,578,67,610,67"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a53c9c65b587cd00d861147a1045c1d02" title=" " alt="" coords="218,5,390,32"/>
+<area shape="poly" title=" " alt="" coords="437,54,361,35,362,30,438,49"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a3f914f9343ddc32a191e4755417b1d12" title=" " alt="" coords="221,56,387,83"/>
+<area shape="poly" title=" " alt="" coords="427,72,387,72,387,67,427,67"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a6463961c468cbc54f7f8551b96ac531f" title=" " alt="" coords="213,107,395,133"/>
+<area shape="poly" title=" " alt="" coords="438,90,362,109,361,103,437,84"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#ae288e2bd0b20855787597e3491168071" title=" " alt="" coords="5,56,165,83"/>
+<area shape="poly" title=" " alt="" coords="205,72,165,72,165,67,205,67"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5e303a91249d059740177b183888e89a" name="a5e303a91249d059740177b183888e89a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e303a91249d059740177b183888e89a">&#9670;&#160;</a></span>Split()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cpplint.FileInfo.Split </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Splits the file into the directory, basename, and extension.
+
+For 'chrome/browser/browser.cc', Split() would
+return ('chrome/browser', 'browser', '.cc')
+
+Returns:
+  A tuple of (directory, basename, extension).
+</pre> <div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcpplint_1_1_file_info_a5e303a91249d059740177b183888e89a_cgraph.png" border="0" usemap="#aclasscpplint_1_1_file_info_a5e303a91249d059740177b183888e89a_cgraph" alt=""/></div>
+<map name="aclasscpplint_1_1_file_info_a5e303a91249d059740177b183888e89a_cgraph" id="aclasscpplint_1_1_file_info_a5e303a91249d059740177b183888e89a_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,140,32"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a714480dc56e24fd965f3273edfb1b268" title=" " alt="" coords="188,5,392,32"/>
+<area shape="poly" title=" " alt="" coords="140,16,172,16,172,21,140,21"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a3e597152c0e09063f61a9fd82691991d" title=" " alt="" coords="440,5,603,32"/>
+<area shape="poly" title=" " alt="" coords="392,16,424,16,424,21,392,21"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcpplint_1_1_file_info_a5e303a91249d059740177b183888e89a_icgraph.png" border="0" usemap="#aclasscpplint_1_1_file_info_a5e303a91249d059740177b183888e89a_icgraph" alt=""/></div>
+<map name="aclasscpplint_1_1_file_info_a5e303a91249d059740177b183888e89a_icgraph" id="aclasscpplint_1_1_file_info_a5e303a91249d059740177b183888e89a_icgraph">
+<area shape="rect" title=" " alt="" coords="443,56,577,83"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a53c9c65b587cd00d861147a1045c1d02" title=" " alt="" coords="218,5,390,32"/>
+<area shape="poly" title=" " alt="" coords="437,54,361,35,362,30,438,49"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a3f914f9343ddc32a191e4755417b1d12" title=" " alt="" coords="221,56,387,83"/>
+<area shape="poly" title=" " alt="" coords="427,72,387,72,387,67,427,67"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#a6463961c468cbc54f7f8551b96ac531f" title=" " alt="" coords="213,107,395,133"/>
+<area shape="poly" title=" " alt="" coords="438,90,362,109,361,103,437,84"/>
+<area shape="rect" href="classcpplint_1_1_file_infodocs#ae288e2bd0b20855787597e3491168071" title=" " alt="" coords="5,56,165,83"/>
+<area shape="poly" title=" " alt="" coords="205,72,165,72,165,67,205,67"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/util/<b>cpplint.py</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacecpplintdocs">cpplint</a></li><li class="navelem"><a class="el" href="classcpplint_1_1_file_infodocs">FileInfo</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

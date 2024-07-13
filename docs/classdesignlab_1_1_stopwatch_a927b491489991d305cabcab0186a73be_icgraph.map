@@ -1,5 +1,5 @@
 <map id="designlab::Stopwatch::GetElapsedSeconds" name="designlab::Stopwatch::GetElapsedSeconds">
 <area shape="rect" id="Node000001" title="経過時間を秒で取得． &#160;&#160;start()と end()を呼び出してからこの関数を呼ぶ．" alt="" coords="236,5,384,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_stopwatch.html#a99e76970be9ab89db59d108f2318e554" title="経過時間を秒で表した文字列を取得する．" alt="" coords="5,5,188,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_stopwatchdocs#a99e76970be9ab89db59d108f2318e554" title="経過時間を秒で表した文字列を取得する．" alt="" coords="5,5,188,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,29,188,29,188,24,220,24"/>
 </map>

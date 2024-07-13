@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/DesignLab/math_polygon2.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'docs');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('math__polygon2_8h_sourcedocs',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">math_polygon2.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="math__polygon2_8hdocs">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef DESIGNLAB_MATH_POLYGON2_H_</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define DESIGNLAB_MATH_POLYGON2_H_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="cassert__define_8hdocs">cassert_define.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="math__vector2_8hdocs">math_vector2.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlabdocs">designlab</a></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespacedesignlabdocs#a5207cad34c817e504ecc4e8f9063c209">   37</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1_polygon2docs">Polygon2</a> final</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">constexpr</span> <a class="code hl_struct" href="structdesignlab_1_1_polygon2docs">Polygon2</a>() : vertex_num(0)</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">explicit</span> <a class="code hl_struct" href="structdesignlab_1_1_polygon2docs">Polygon2</a>(<span class="keyword">const</span> std::vector&lt;Vector2&gt;&amp; vertex);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_polygon2docs#a3a86701c31b1eefd1089183db2d5846c">   49</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structdesignlab_1_1_polygon2docs#a3a86701c31b1eefd1089183db2d5846c">AddVertex</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector2docs">Vector2</a>&amp; v)</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    {</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        vertex[<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(vertex_num)] = v;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        ++vertex_num;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        assert(vertex_num &lt;= kMaxVertexNum);  <span class="comment">// 頂点数は最大値を超えてはいけない．</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
+</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="structdesignlab_1_1_polygon2docs#a3d07388abe43272f11c2abc984fd0cac">AddVertexCheckForDuplicates</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector2docs">Vector2</a>&amp; v);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structdesignlab_1_1_polygon2docs#a62d2b537b5e86833c9854f4a7e760890">RemoveVertex</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> index);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="foldopen" id="foldopen00074" data-start="{" data-end="}">
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_polygon2docs#a5b6f043cf73c65340c3ba3e9d95d5003">   74</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structdesignlab_1_1_polygon2docs#a5b6f043cf73c65340c3ba3e9d95d5003">RemoveLastVertex</a>()</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="structdesignlab_1_1_polygon2docs#a5325a59337947d2b61e055431f2ce3f3">GetVertexNum</a>() == 0)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        --vertex_num;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    }</div>
+</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="foldopen" id="foldopen00086" data-start="{" data-end="}">
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_polygon2docs#ae0b63029c66e5f53d274b66d064381fc">   86</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structdesignlab_1_1_polygon2docs#ae0b63029c66e5f53d274b66d064381fc">Reset</a>()</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        vertex_num = 0;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    }</div>
+</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="foldopen" id="foldopen00093" data-start="{" data-end="}">
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_polygon2docs#a5325a59337947d2b61e055431f2ce3f3">   93</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_function" href="structdesignlab_1_1_polygon2docs#a5325a59337947d2b61e055431f2ce3f3">GetVertexNum</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keywordflow">return</span> vertex_num;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    }</div>
+</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="foldopen" id="foldopen00102" data-start="{" data-end="}">
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_polygon2docs#a69f7aa8caa2158c440b5bb8f1416a6bf">  102</a></span>    <span class="keyword">constexpr</span> <a class="code hl_struct" href="structdesignlab_1_1_vector2docs">Vector2</a> <a class="code hl_function" href="structdesignlab_1_1_polygon2docs#a69f7aa8caa2158c440b5bb8f1416a6bf">GetVertex</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> i)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keywordflow">if</span> (i &lt; 0 || i &gt;= <a class="code hl_function" href="structdesignlab_1_1_polygon2docs#a5325a59337947d2b61e055431f2ce3f3">GetVertexNum</a>())</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        {</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            <span class="keywordflow">return</span> <a class="code hl_struct" href="structdesignlab_1_1_vector2docs">Vector2</a>{ 0, 0 };</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keywordflow">return</span> vertex[<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(i)];</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    }</div>
+</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="foldopen" id="foldopen00116" data-start="{" data-end="}">
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_polygon2docs#a3990c964dcbef55e7ba830af275f7c23">  116</a></span>    <span class="keyword">constexpr</span> std::optional&lt;Vector2&gt; <a class="code hl_function" href="structdesignlab_1_1_polygon2docs#a3990c964dcbef55e7ba830af275f7c23">GetVertexOpt</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> i)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keywordflow">if</span> (i &lt; 0 || i &gt;= <a class="code hl_function" href="structdesignlab_1_1_polygon2docs#a5325a59337947d2b61e055431f2ce3f3">GetVertexNum</a>())</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        {</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            <span class="keywordflow">return</span> std::nullopt;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        }</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keywordflow">return</span> vertex[<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(i)];</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    }</div>
+</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="foldopen" id="foldopen00128" data-start="{" data-end="}">
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_polygon2docs#a2740a8acdd671456113e1f0314a5c5d9">  128</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">float</span> <a class="code hl_function" href="structdesignlab_1_1_polygon2docs#a2740a8acdd671456113e1f0314a5c5d9">GetMaxX</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordtype">float</span> max_x = vertex[0].x;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; <a class="code hl_function" href="structdesignlab_1_1_polygon2docs#a5325a59337947d2b61e055431f2ce3f3">GetVertexNum</a>(); ++i)</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        {</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            max_x = (std::max)(max_x, vertex[<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(i)].x);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        }</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keywordflow">return</span> max_x;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    }</div>
+</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="foldopen" id="foldopen00142" data-start="{" data-end="}">
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_polygon2docs#a7cfe7131083e35fadf9c64829113c2d5">  142</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">float</span> <a class="code hl_function" href="structdesignlab_1_1_polygon2docs#a7cfe7131083e35fadf9c64829113c2d5">GetMinX</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="keywordtype">float</span> min_x = vertex[0].x;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; <a class="code hl_function" href="structdesignlab_1_1_polygon2docs#a5325a59337947d2b61e055431f2ce3f3">GetVertexNum</a>(); ++i)</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        {</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            min_x = (std::min)(min_x, vertex[<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(i)].x);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        }</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <span class="keywordflow">return</span> min_x;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    }</div>
+</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="foldopen" id="foldopen00156" data-start="{" data-end="}">
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_polygon2docs#a5394dc8c3ebc6894eb801464454d85b8">  156</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">float</span> <a class="code hl_function" href="structdesignlab_1_1_polygon2docs#a5394dc8c3ebc6894eb801464454d85b8">GetMaxY</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        <span class="keywordtype">float</span> max_y = vertex[0].y;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; <a class="code hl_function" href="structdesignlab_1_1_polygon2docs#a5325a59337947d2b61e055431f2ce3f3">GetVertexNum</a>(); ++i)</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            max_y = (std::max)(max_y, vertex[<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(i)].y);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        }</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="keywordflow">return</span> max_y;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    }</div>
+</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="foldopen" id="foldopen00170" data-start="{" data-end="}">
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_polygon2docs#a365ed85e44b4cd9654793b1b9e26c5c0">  170</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">float</span> <a class="code hl_function" href="structdesignlab_1_1_polygon2docs#a365ed85e44b4cd9654793b1b9e26c5c0">GetMinY</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <span class="keywordtype">float</span> min_y = vertex[0].y;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; <a class="code hl_function" href="structdesignlab_1_1_polygon2docs#a5325a59337947d2b61e055431f2ce3f3">GetVertexNum</a>(); ++i)</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        {</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            min_y = (std::min)(min_y, vertex[<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(i)].y);</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        }</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <span class="keywordflow">return</span> min_y;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    }</div>
+</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="structdesignlab_1_1_polygon2docs#ac59c9ef538b543cd14b6b8ff84c472b3">IsConvex</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="structdesignlab_1_1_polygon2docs#a3965642438156b1b86dfea1d76beaa53">IsInside</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector2docs">Vector2</a>&amp; point) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    std::string <a class="code hl_function" href="structdesignlab_1_1_polygon2docs#a310bb9599a9ef2b23581bafa7ede4327">ToString</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> kMaxVertexNum = 6;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    std::array&lt;Vector2, kMaxVertexNum&gt; vertex;  </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="keywordtype">int</span> vertex_num;  </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>};</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> Char&gt;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="keyword">inline</span> std::basic_ostream&lt;Char&gt;&amp; <a class="code hl_function" href="namespacedesignlabdocs#ad72e69d1733944ac21af3b646beed735">operator &lt;&lt;</a>(</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    std::basic_ostream&lt;Char&gt;&amp; os, <span class="keyword">const</span> Polygon2&amp; poly)</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>{</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    os &lt;&lt; poly.ToString();</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    <span class="keywordflow">return</span> os;</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>}</div>
+</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>}  <span class="comment">// namespace designlab</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_MATH_POLYGON2_H_</span></div>
+<div class="ttc" id="acassert__define_8hdocs"><div class="ttname"><a href="cassert__define_8hdocs">cassert_define.h</a></div><div class="ttdoc">デバッグモードとリリースモードでアサートを有効化・無効化するためのヘッダファイル．</div></div>
+<div class="ttc" id="amath__vector2_8hdocs"><div class="ttname"><a href="math__vector2_8hdocs">math_vector2.h</a></div></div>
+<div class="ttc" id="anamespacedesignlabdocs"><div class="ttname"><a href="namespacedesignlabdocs">designlab</a></div><div class="ttdef"><b>Definition</b> abstract_dxlib_gui.cpp:16</div></div>
+<div class="ttc" id="anamespacedesignlabdocs_ad72e69d1733944ac21af3b646beed735"><div class="ttname"><a href="namespacedesignlabdocs#ad72e69d1733944ac21af3b646beed735">designlab::operator&lt;&lt;</a></div><div class="ttdeci">std::basic_ostream&lt; Char &gt; &amp; operator&lt;&lt;(std::basic_ostream&lt; Char &gt; &amp;os, const EulerXYZ &amp;r)</div><div class="ttdoc">出力ストリーム．Csv形式で出力する．カンマ区切り．単位は [rad]．</div><div class="ttdef"><b>Definition</b> math_euler.h:115</div></div>
+<div class="ttc" id="astructdesignlab_1_1_polygon2docs"><div class="ttname"><a href="structdesignlab_1_1_polygon2docs">designlab::Polygon2</a></div><div class="ttdoc">2次元の多角形を表す構造体．</div><div class="ttdef"><b>Definition</b> math_polygon2.h:38</div></div>
+<div class="ttc" id="astructdesignlab_1_1_polygon2docs_a2740a8acdd671456113e1f0314a5c5d9"><div class="ttname"><a href="structdesignlab_1_1_polygon2docs#a2740a8acdd671456113e1f0314a5c5d9">designlab::Polygon2::GetMaxX</a></div><div class="ttdeci">constexpr float GetMaxX() const</div><div class="ttdoc">頂点の中で最大のx座標を返す関数．</div><div class="ttdef"><b>Definition</b> math_polygon2.h:128</div></div>
+<div class="ttc" id="astructdesignlab_1_1_polygon2docs_a310bb9599a9ef2b23581bafa7ede4327"><div class="ttname"><a href="structdesignlab_1_1_polygon2docs#a310bb9599a9ef2b23581bafa7ede4327">designlab::Polygon2::ToString</a></div><div class="ttdeci">std::string ToString() const</div><div class="ttdoc">多角形のデータを文字列で出力する</div><div class="ttdef"><b>Definition</b> math_polygon2.cpp:170</div></div>
+<div class="ttc" id="astructdesignlab_1_1_polygon2docs_a365ed85e44b4cd9654793b1b9e26c5c0"><div class="ttname"><a href="structdesignlab_1_1_polygon2docs#a365ed85e44b4cd9654793b1b9e26c5c0">designlab::Polygon2::GetMinY</a></div><div class="ttdeci">constexpr float GetMinY() const</div><div class="ttdoc">頂点の中で最小のy座標を返す関数．</div><div class="ttdef"><b>Definition</b> math_polygon2.h:170</div></div>
+<div class="ttc" id="astructdesignlab_1_1_polygon2docs_a3965642438156b1b86dfea1d76beaa53"><div class="ttname"><a href="structdesignlab_1_1_polygon2docs#a3965642438156b1b86dfea1d76beaa53">designlab::Polygon2::IsInside</a></div><div class="ttdeci">bool IsInside(const Vector2 &amp;point) const</div><div class="ttdoc">点が多角形の内部にあるかどうか調べる関数． 多角形が凸でない場合は正しく判定できない．</div><div class="ttdef"><b>Definition</b> math_polygon2.cpp:95</div></div>
+<div class="ttc" id="astructdesignlab_1_1_polygon2docs_a3990c964dcbef55e7ba830af275f7c23"><div class="ttname"><a href="structdesignlab_1_1_polygon2docs#a3990c964dcbef55e7ba830af275f7c23">designlab::Polygon2::GetVertexOpt</a></div><div class="ttdeci">constexpr std::optional&lt; Vector2 &gt; GetVertexOpt(const int i) const</div><div class="ttdoc">頂点の座標を返す関数．std::optional を使っているので， 存在しない頂点を指定した場合は std::nullopt を返す．</div><div class="ttdef"><b>Definition</b> math_polygon2.h:116</div></div>
+<div class="ttc" id="astructdesignlab_1_1_polygon2docs_a3a86701c31b1eefd1089183db2d5846c"><div class="ttname"><a href="structdesignlab_1_1_polygon2docs#a3a86701c31b1eefd1089183db2d5846c">designlab::Polygon2::AddVertex</a></div><div class="ttdeci">constexpr void AddVertex(const Vector2 &amp;v)</div><div class="ttdoc">頂点を追加する関数．</div><div class="ttdef"><b>Definition</b> math_polygon2.h:49</div></div>
+<div class="ttc" id="astructdesignlab_1_1_polygon2docs_a3d07388abe43272f11c2abc984fd0cac"><div class="ttname"><a href="structdesignlab_1_1_polygon2docs#a3d07388abe43272f11c2abc984fd0cac">designlab::Polygon2::AddVertexCheckForDuplicates</a></div><div class="ttdeci">bool AddVertexCheckForDuplicates(const Vector2 &amp;v)</div><div class="ttdoc">頂点を追加する関数．他の頂点と重なっている場合は追加しない．</div><div class="ttdef"><b>Definition</b> math_polygon2.cpp:25</div></div>
+<div class="ttc" id="astructdesignlab_1_1_polygon2docs_a5325a59337947d2b61e055431f2ce3f3"><div class="ttname"><a href="structdesignlab_1_1_polygon2docs#a5325a59337947d2b61e055431f2ce3f3">designlab::Polygon2::GetVertexNum</a></div><div class="ttdeci">constexpr int GetVertexNum() const</div><div class="ttdoc">多角形の頂点数を返す関数．</div><div class="ttdef"><b>Definition</b> math_polygon2.h:93</div></div>
+<div class="ttc" id="astructdesignlab_1_1_polygon2docs_a5394dc8c3ebc6894eb801464454d85b8"><div class="ttname"><a href="structdesignlab_1_1_polygon2docs#a5394dc8c3ebc6894eb801464454d85b8">designlab::Polygon2::GetMaxY</a></div><div class="ttdeci">constexpr float GetMaxY() const</div><div class="ttdoc">頂点の中で最大のy座標を返す関数．</div><div class="ttdef"><b>Definition</b> math_polygon2.h:156</div></div>
+<div class="ttc" id="astructdesignlab_1_1_polygon2docs_a5b6f043cf73c65340c3ba3e9d95d5003"><div class="ttname"><a href="structdesignlab_1_1_polygon2docs#a5b6f043cf73c65340c3ba3e9d95d5003">designlab::Polygon2::RemoveLastVertex</a></div><div class="ttdeci">constexpr void RemoveLastVertex()</div><div class="ttdoc">1番最後の頂点を削除する関数．</div><div class="ttdef"><b>Definition</b> math_polygon2.h:74</div></div>
+<div class="ttc" id="astructdesignlab_1_1_polygon2docs_a62d2b537b5e86833c9854f4a7e760890"><div class="ttname"><a href="structdesignlab_1_1_polygon2docs#a62d2b537b5e86833c9854f4a7e760890">designlab::Polygon2::RemoveVertex</a></div><div class="ttdeci">void RemoveVertex(const int index)</div><div class="ttdoc">頂点を削除する関数．遅いので多用するべきではない．</div><div class="ttdef"><b>Definition</b> math_polygon2.cpp:43</div></div>
+<div class="ttc" id="astructdesignlab_1_1_polygon2docs_a69f7aa8caa2158c440b5bb8f1416a6bf"><div class="ttname"><a href="structdesignlab_1_1_polygon2docs#a69f7aa8caa2158c440b5bb8f1416a6bf">designlab::Polygon2::GetVertex</a></div><div class="ttdeci">constexpr Vector2 GetVertex(const int i) const</div><div class="ttdoc">頂点の座標を返す関数．</div><div class="ttdef"><b>Definition</b> math_polygon2.h:102</div></div>
+<div class="ttc" id="astructdesignlab_1_1_polygon2docs_a7cfe7131083e35fadf9c64829113c2d5"><div class="ttname"><a href="structdesignlab_1_1_polygon2docs#a7cfe7131083e35fadf9c64829113c2d5">designlab::Polygon2::GetMinX</a></div><div class="ttdeci">constexpr float GetMinX() const</div><div class="ttdoc">頂点の中で最小のx座標を返す関数．</div><div class="ttdef"><b>Definition</b> math_polygon2.h:142</div></div>
+<div class="ttc" id="astructdesignlab_1_1_polygon2docs_ac59c9ef538b543cd14b6b8ff84c472b3"><div class="ttname"><a href="structdesignlab_1_1_polygon2docs#ac59c9ef538b543cd14b6b8ff84c472b3">designlab::Polygon2::IsConvex</a></div><div class="ttdeci">bool IsConvex() const</div><div class="ttdoc">多角形が凸かどうか調べる関数．</div><div class="ttdef"><b>Definition</b> math_polygon2.cpp:61</div></div>
+<div class="ttc" id="astructdesignlab_1_1_polygon2docs_ae0b63029c66e5f53d274b66d064381fc"><div class="ttname"><a href="structdesignlab_1_1_polygon2docs#ae0b63029c66e5f53d274b66d064381fc">designlab::Polygon2::Reset</a></div><div class="ttdeci">constexpr void Reset()</div><div class="ttdoc">多角形をリセットする関数．   頂点を削除して，頂点数を0にする．</div><div class="ttdef"><b>Definition</b> math_polygon2.h:86</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector2docs"><div class="ttname"><a href="structdesignlab_1_1_vector2docs">designlab::Vector2</a></div><div class="ttdoc">2次元の位置ベクトルを表す構造体．</div><div class="ttdef"><b>Definition</b> math_vector2.h:30</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_65b03a49640d0599dba701447d580643docs">hasegawa</a></li><li class="navelem"><a class="el" href="dir_2854940d141de6d3c7cee6483e7afda9docs">Desktop</a></li><li class="navelem"><a class="el" href="dir_fad4873fd0f485db7102df865d883d5cdocs">main</a></li><li class="navelem"><a class="el" href="dir_227eda1db808a252df8518c263632a71docs">program</a></li><li class="navelem"><a class="el" href="dir_c48eef75fce7d1d05a2392783bd08b15docs">gait-generation-by-graph-search</a></li><li class="navelem"><a class="el" href="dir_6970d783dbb606469f8f14a039e83820docs">DesignLab</a></li><li class="navelem"><a class="el" href="math__polygon2_8hdocs">math_polygon2.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

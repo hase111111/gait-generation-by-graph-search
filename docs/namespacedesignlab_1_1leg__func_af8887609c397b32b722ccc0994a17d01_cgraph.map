@@ -1,9 +1,9 @@
 <map id="designlab::leg_func::ChangeLegState" name="designlab::leg_func::ChangeLegState">
 <area shape="rect" id="Node000001" title="脚の情報を変更する．" alt="" coords="5,39,138,81"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480" title="脚の状態を変更する．遊脚を表すビットはそのまま．" alt="" coords="186,5,351,48"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__funcdocs#a3e2c16048416541b45cfb82f8eac0480" title="脚の状態を変更する．遊脚を表すビットはそのまま．" alt="" coords="186,5,351,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,46,170,41,171,46,138,51"/>
-<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1leg__func.html#aaa0778536285e1ec0fa1b7a1470e6186" title="脚の接地・遊脚情報を変更する．" alt="" coords="202,72,335,115"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1leg__funcdocs#aaa0778536285e1ec0fa1b7a1470e6186" title="脚の接地・遊脚情報を変更する．" alt="" coords="202,72,335,115"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="138,69,187,77,186,82,138,74"/>
-<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1leg__func.html#a0638b32b8b228a6e927f6de16e2f3441" title="脚位置は4bitの下位三桁で管理されるので，そこをマスクする．" alt="" coords="399,5,531,48"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1leg__funcdocs#a0638b32b8b228a6e927f6de16e2f3441" title="脚位置は4bitの下位三桁で管理されるので，そこをマスクする．" alt="" coords="399,5,531,48"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="351,24,383,24,383,29,351,29"/>
 </map>

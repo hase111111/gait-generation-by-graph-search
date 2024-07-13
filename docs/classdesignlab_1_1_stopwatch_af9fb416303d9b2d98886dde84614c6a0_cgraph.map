@@ -1,7 +1,7 @@
 <map id="designlab::Stopwatch::GetElapsedMicroSecondString" name="designlab::Stopwatch::GetElapsedMicroSecondString">
 <area shape="rect" id="Node000001" title="経過時間をマイクロ秒で表した文字列を取得する．" alt="" coords="5,39,213,81"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a45276ca396d3aa1331b5bb5a4c849bbe" title="小数を文字列に変換する関数． &#160;&#160;C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する．" alt="" coords="261,5,441,48"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__utildocs#a45276ca396d3aa1331b5bb5a4c849bbe" title="小数を文字列に変換する関数． &#160;&#160;C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する．" alt="" coords="261,5,441,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,43,245,39,246,44,214,48"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_stopwatch.html#ab8f6c99fd2b8d9b41cfbdb37116274df" title="計測結果をマイクロ秒で取得． &#160;&#160;start()と end()を呼び出してからこの関数を呼ぶ．" alt="" coords="264,72,438,115"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_stopwatchdocs#ab8f6c99fd2b8d9b41cfbdb37116274df" title="計測結果をマイクロ秒で取得． &#160;&#160;start()と end()を呼び出してからこの関数を呼ぶ．" alt="" coords="264,72,438,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="214,72,249,77,248,82,213,77"/>
 </map>

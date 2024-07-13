@@ -1,13 +1,13 @@
 <map id="designlab::PhantomXMkII::CalculateStabilityMargin" name="designlab::PhantomXMkII::CalculateStabilityMargin">
 <area shape="rect" id="Node000001" title="安定余裕(Stability Margin)を計算する． 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい． &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計..." alt="" coords="5,39,175,81"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector2.html#ab3002b222969339234b908a42a735f44" title="自分×引数 の外積の結果を返す．" alt="" coords="223,5,352,48"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector2docs#ab3002b222969339234b908a42a735f44" title="自分×引数 の外積の結果を返す．" alt="" coords="223,5,352,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,43,207,37,208,43,175,48"/>
-<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector2.html#a5b486befcef8a9c50ff78137783c3ba9" title="このベクトルを正規化したベクトルを返す．" alt="" coords="223,72,352,115"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector2docs#a5b486befcef8a9c50ff78137783c3ba9" title="このベクトルを正規化したベクトルを返す．" alt="" coords="223,72,352,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="175,72,208,77,207,83,175,77"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector2.html#ab62323b441e66a37e41668fb0ac7ae99" title="このベクトルの長さを返す．" alt="" coords="404,39,533,81"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector2docs#ab62323b441e66a37e41668fb0ac7ae99" title="このベクトルの長さを返す．" alt="" coords="404,39,533,81"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="352,79,388,72,389,77,353,84"/>
-<area shape="rect" id="Node000007" href="$namespacedesignlab_1_1math__util.html#a92c055e0799991e88871e2a5d4f09280" title="C++において，小数同士の計算は誤差が出てしまう． 誤差込みで値が等しいか調べる．" alt="" coords="400,105,537,148"/>
+<area shape="rect" id="Node000007" href="$namespacedesignlab_1_1math__utildocs#a92c055e0799991e88871e2a5d4f09280" title="C++において，小数同士の計算は誤差が出てしまう． 誤差込みで値が等しいか調べる．" alt="" coords="400,105,537,148"/>
 <area shape="poly" id="edge5_Node000003_Node000007" title=" " alt="" coords="353,103,385,109,384,114,352,108"/>
-<area shape="rect" id="Node000005" href="$structdesignlab_1_1_vector2.html#a80b722825f1793105702da0677867a08" title="このベクトルの長さの2乗を返す．" alt="" coords="585,39,723,81"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_vector2docs#a80b722825f1793105702da0677867a08" title="このベクトルの長さの2乗を返す．" alt="" coords="585,39,723,81"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="534,57,570,57,570,63,534,63"/>
 </map>

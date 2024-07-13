@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: designlab::toml_func::Toml11Description 構造体</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'docs');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('structdesignlab_1_1toml__func_1_1_toml11_descriptiondocs',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-attribs">公開変数類</a> &#124;
+<a href="#pub-static-attribs">静的公開変数類</a> &#124;
+<a href="structdesignlab_1_1toml__func_1_1_toml11_description-membersdocs">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">designlab::toml_func::Toml11Description 構造体<span class="mlabels"><span class="mlabel">final</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>tomlファイルに追加する変数の説明を追加するための構造体．  
+ <a href="structdesignlab_1_1toml__func_1_1_toml11_descriptiondocs#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="toml__serialize__macro_8h_sourcedocs">toml_serialize_macro.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a6f58ea58c5e606780e28328a1e1bd118" id="r_a6f58ea58c5e606780e28328a1e1bd118"><td class="memItemLeft" align="right" valign="top"><a id="a6f58ea58c5e606780e28328a1e1bd118" name="a6f58ea58c5e606780e28328a1e1bd118"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Toml11Description</b> (const std::string &amp;t, const std::string &amp;d)</td></tr>
+<tr class="separator:a6f58ea58c5e606780e28328a1e1bd118"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+公開変数類</h2></td></tr>
+<tr class="memitem:ab09e69de8c224b40fd41584638691063" id="r_ab09e69de8c224b40fd41584638691063"><td class="memItemLeft" align="right" valign="top"><a id="ab09e69de8c224b40fd41584638691063" name="ab09e69de8c224b40fd41584638691063"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>table_name</b></td></tr>
+<tr class="memdesc:ab09e69de8c224b40fd41584638691063"><td class="mdescLeft">&#160;</td><td class="mdescRight">テーブル名． <br /></td></tr>
+<tr class="separator:ab09e69de8c224b40fd41584638691063"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fa90dcbef75cf2951a3392be3ee303b" id="r_a1fa90dcbef75cf2951a3392be3ee303b"><td class="memItemLeft" align="right" valign="top"><a id="a1fa90dcbef75cf2951a3392be3ee303b" name="a1fa90dcbef75cf2951a3392be3ee303b"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>description</b></td></tr>
+<tr class="memdesc:a1fa90dcbef75cf2951a3392be3ee303b"><td class="mdescLeft">&#160;</td><td class="mdescRight">説明，tomlファイルにはコメントとして追加される． <br /></td></tr>
+<tr class="separator:a1fa90dcbef75cf2951a3392be3ee303b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+静的公開変数類</h2></td></tr>
+<tr class="memitem:a7212008e9103ff5ef65a79e0a17e8c36" id="r_a7212008e9103ff5ef65a79e0a17e8c36"><td class="memItemLeft" align="right" valign="top"><a id="a7212008e9103ff5ef65a79e0a17e8c36" name="a7212008e9103ff5ef65a79e0a17e8c36"></a>
+static const char&#160;</td><td class="memItemRight" valign="bottom"><b>kNoTable</b> [] = &quot;no_table_value&quot;</td></tr>
+<tr class="memdesc:a7212008e9103ff5ef65a79e0a17e8c36"><td class="mdescLeft">&#160;</td><td class="mdescRight">テーブルがない場合に指定する文字列． <br /></td></tr>
+<tr class="separator:a7212008e9103ff5ef65a79e0a17e8c36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>tomlファイルに追加する変数の説明を追加するための構造体． </p>
+</div><hr/>この構造体詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/DesignLab/<a class="el" href="toml__serialize__macro_8h_sourcedocs">toml_serialize_macro.h</a></li>
+<li>C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/DesignLab/<b>toml_serialize_macro.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacedesignlabdocs">designlab</a></li><li class="navelem"><a class="el" href="namespacedesignlab_1_1toml__funcdocs">toml_func</a></li><li class="navelem"><a class="el" href="structdesignlab_1_1toml__func_1_1_toml11_descriptiondocs">Toml11Description</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

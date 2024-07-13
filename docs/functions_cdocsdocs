@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: クラスメンバ</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'docs');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('functions_cdocs',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="contents">
+<div class="textblock">詳解ありクラスメンバの一覧です。各クラスメンバ詳解へのリンクがあります。</div>
+
+<h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
+<li>Calculate()&#160;:&#160;<a class="el" href="classdesignlab_1_1_average_calculatordocs#a350882df2cb3320e3d6bac60c54cfb43">designlab::AverageCalculator&lt; T, typename &gt;</a></li>
+<li>CalculateAllJointState()&#160;:&#160;<a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculatordocs#a71c57b0148f940a472830c618ded593b">designlab::IHexapodJointCalculator</a></li>
+<li>CalculateJointState()&#160;:&#160;<a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculatordocs#a263785f20728be6e2226eb0cb01fd169">designlab::IHexapodJointCalculator</a>, <a class="el" href="classdesignlab_1_1_phantom_x_mk_i_idocs#ac027dc121a54e00da42ffcbab0028561">designlab::PhantomXMkII</a></li>
+<li>CalculateStabilityMargin()&#160;:&#160;<a class="el" href="classdesignlab_1_1_i_hexapod_posture_validatordocs#a0580e1f2da44b91fc37cf436fa0e92c2">designlab::IHexapodPostureValidator</a>, <a class="el" href="classdesignlab_1_1_phantom_x_mk_i_idocs#a688e8dd6b7f92d5b1a4fa8d4fbcc2714">designlab::PhantomXMkII</a></li>
+<li>CameraDragger()&#160;:&#160;<a class="el" href="classdesignlab_1_1_camera_draggerdocs#a012b8429c3088b6ea81860f8966d10b1">designlab::CameraDragger</a></li>
+<li>CanHandleWheel()&#160;:&#160;<a class="el" href="classdesignlab_1_1_camera_draggerdocs#a92cdcb1b66b3abb720a8577675ebcb2a">designlab::CameraDragger</a>, <a class="el" href="classdesignlab_1_1_i_dxlib_wheel_handlerdocs#a7af066e4e7e35b50171bb99af5c6e7a7">designlab::IDxlibWheelHandler</a></li>
+<li>CanonicalizeAlphabeticalOrder()&#160;:&#160;<a class="el" href="classcpplint_1_1___include_statedocs#aac9cac7998bc80fb59f4caaf4e777ffe">cpplint._IncludeState</a></li>
+<li>center_of_mass_global_coord&#160;:&#160;<a class="el" href="structdesignlab_1_1_robot_state_nodedocs#a7f0441441995f133038743750bdc4eaa">designlab::RobotStateNode</a></li>
+<li>ChangeGlobalCenterOfMass()&#160;:&#160;<a class="el" href="structdesignlab_1_1_robot_state_nodedocs#a28bedf0298ebf8f315a21294dd111f45">designlab::RobotStateNode</a></li>
+<li>ChangeGraphicMain()&#160;:&#160;<a class="el" href="classdesignlab_1_1_graphic_systemdocs#ab1c52ef330ffade157f8cb5f56bff10e">designlab::GraphicSystem</a></li>
+<li>ChangeLootNode()&#160;:&#160;<a class="el" href="structdesignlab_1_1_robot_state_nodedocs#a58600c23d1383094c7f880a487ab61fb">designlab::RobotStateNode</a></li>
+<li>ChangePosture()&#160;:&#160;<a class="el" href="structdesignlab_1_1_robot_state_nodedocs#a73efce324f3ffd5ead5fbc663acd96a2">designlab::RobotStateNode</a></li>
+<li>ChangeToNextNode()&#160;:&#160;<a class="el" href="structdesignlab_1_1_robot_state_nodedocs#a6b3997cbc4ff0c8a48582608a12fca8e">designlab::RobotStateNode</a></li>
+<li>Check()&#160;:&#160;<a class="el" href="classcpplint_1_1___function_statedocs#a4e5216b1ab48431e1313390d47628029">cpplint._FunctionState</a></li>
+<li>CheckAndGetIntersection()&#160;:&#160;<a class="el" href="structdesignlab_1_1_line_segment2docs#a334682a88e452a95429edf15593d1846">designlab::LineSegment2</a></li>
+<li>CheckBegin()&#160;:&#160;<a class="el" href="classcpplint_1_1___block_infodocs#ab647f3776f8ea0cddce48df16866c22b">cpplint._BlockInfo</a>, <a class="el" href="classcpplint_1_1___class_infodocs#ac6f8b3209ba2297ce81d63116ddb6c31">cpplint._ClassInfo</a></li>
+<li>CheckCompletedBlocks()&#160;:&#160;<a class="el" href="classcpplint_1_1_nesting_statedocs#a2fe9e879b4fd6054142659f99583b46e">cpplint.NestingState</a></li>
+<li>CheckEnd()&#160;:&#160;<a class="el" href="classcpplint_1_1___block_infodocs#a8aa346eb67ebeca1794b4b0d49ce1710">cpplint._BlockInfo</a>, <a class="el" href="classcpplint_1_1___class_infodocs#af46c33e69478b0b71a84cde0cbf70984">cpplint._ClassInfo</a>, <a class="el" href="classcpplint_1_1___namespace_infodocs#acb5ed6c0be2970b1045eacc18f08e797">cpplint._NamespaceInfo</a></li>
+<li>CheckNextIncludeOrder()&#160;:&#160;<a class="el" href="classcpplint_1_1___include_statedocs#a6ab1ae614e035fdee2b2219dcc6a5d57">cpplint._IncludeState</a></li>
+<li>circle_center&#160;:&#160;<a class="el" href="structdesignlab_1_1_simulation_map_parameterdocs#aea2f4e1bd7f9f195d925b735a4ca3dfb">designlab::SimulationMapParameter</a></li>
+<li>circle_radius&#160;:&#160;<a class="el" href="structdesignlab_1_1_simulation_map_parameterdocs#a959b92afbe65a5b562b3c311e6aeee4d">designlab::SimulationMapParameter</a></li>
+<li>ClampDividedMapIndex()&#160;:&#160;<a class="el" href="classdesignlab_1_1_divided_map_statedocs#ab52eb66d4bffe0cd576b80a2cb3fb42a">designlab::DividedMapState</a></li>
+<li>Clean()&#160;:&#160;<a class="el" href="classdesignlab_1_1_asyncable_data_3_01std_1_1vector_3_01_t_01_4_01_4docs#a6ef476f681c7b7f1a367727c8a2129ef">designlab::AsyncableData&lt; std::vector&lt; T &gt; &gt;</a></li>
+<li>Clear()&#160;:&#160;<a class="el" href="classdesignlab_1_1_average_calculatordocs#a5b718d3a66b3371305fa55d3a73291af">designlab::AverageCalculator&lt; T, typename &gt;</a>, <a class="el" href="classdesignlab_1_1_divided_map_statedocs#a726a21449619c1d6980ed867c141992f">designlab::DividedMapState</a></li>
+<li>ClearMapPoint()&#160;:&#160;<a class="el" href="classdesignlab_1_1_map_statedocs#a22fab576ced9d636de04bb88c8e7ae4d">designlab::MapState</a></li>
+<li>ClickedAction()&#160;:&#160;<a class="el" href="classdesignlab_1_1_abstract_dxlib_guidocs#af210c5bf25afc550c652010b9172449f">designlab::AbstractDxlibGui</a>, <a class="el" href="classdesignlab_1_1_dxlib_gui_terminaldocs#af07ff5bb007976ca91adcecf5e4de3f6">designlab::DxlibGuiTerminal</a>, <a class="el" href="classdesignlab_1_1_i_dxlib_clickabledocs#ae9169022c76444f5b43e705620bd0a11">designlab::IDxlibClickable</a>, <a class="el" href="classdesignlab_1_1_simple_buttondocs#ae02c78ddebd16c746b046c9df210e000">designlab::SimpleButton</a></li>
+<li>cmd_output_detail&#160;:&#160;<a class="el" href="structdesignlab_1_1_application_setting_recorddocs#aaa244b0031a8ebc879425e7ba0df1a84">designlab::ApplicationSettingRecord</a></li>
+<li>CmdIOUtil()&#160;:&#160;<a class="el" href="classdesignlab_1_1_cmd_i_o_utildocs#aab57364355e93ab5d243f042962b1937">designlab::CmdIOUtil</a></li>
+<li>com_pos&#160;:&#160;<a class="el" href="structdesignlab_1_1_com_pos_and_polygondocs#af7720f1353a8af4925826379dff761c3">designlab::ComPosAndPolygon</a></li>
+<li>computation_time&#160;:&#160;<a class="el" href="structdesignlab_1_1_graph_search_result_recorddocs#ab48d90afc41caa38fdc73b234b26dfa3">designlab::GraphSearchResultRecord</a></li>
+<li>ConvertGlobalToLegCoordinate()&#160;:&#160;<a class="el" href="classdesignlab_1_1_i_hexapod_coordinate_converterdocs#a8295b3c4d51d1c48dbe01b37b23d94f4">designlab::IHexapodCoordinateConverter</a>, <a class="el" href="classdesignlab_1_1_phantom_x_mk_i_idocs#a0630fa1d537f7e00aa422a83c98ebdda">designlab::PhantomXMkII</a></li>
+<li>ConvertLegToGlobalCoordinate()&#160;:&#160;<a class="el" href="classdesignlab_1_1_i_hexapod_coordinate_converterdocs#aadbc8561508541269270a9a0e841272b">designlab::IHexapodCoordinateConverter</a>, <a class="el" href="classdesignlab_1_1_phantom_x_mk_i_idocs#a028f4e024ebebca50325beef3444bfc5">designlab::PhantomXMkII</a></li>
+<li>ConvertLegToRobotCoordinate()&#160;:&#160;<a class="el" href="classdesignlab_1_1_i_hexapod_coordinate_converterdocs#a0bf6ddf64f65e05ad33345e83cf60fca">designlab::IHexapodCoordinateConverter</a>, <a class="el" href="classdesignlab_1_1_phantom_x_mk_i_idocs#a27befb91ff5b1954cd31a3a46d70e995">designlab::PhantomXMkII</a></li>
+<li>ConvertRobotToGlobalCoordinate()&#160;:&#160;<a class="el" href="classdesignlab_1_1_i_hexapod_coordinate_converterdocs#ab50a98d841ca5b49871f0db44849ea80">designlab::IHexapodCoordinateConverter</a>, <a class="el" href="classdesignlab_1_1_phantom_x_mk_i_idocs#ae4b923566d06eef5f765b1e7afdd57ae">designlab::PhantomXMkII</a></li>
+<li>ConvertRobotToLegCoordinate()&#160;:&#160;<a class="el" href="classdesignlab_1_1_i_hexapod_coordinate_converterdocs#a3b5ef449c5ee14689db1e4346281aabb">designlab::IHexapodCoordinateConverter</a>, <a class="el" href="classdesignlab_1_1_phantom_x_mk_i_idocs#a23f271c79b8151dbb64c4e441b19e1d6">designlab::PhantomXMkII</a></li>
+<li>Count()&#160;:&#160;<a class="el" href="classcpplint_1_1___function_statedocs#ac94f884412b6562e18bc2675f43d0fc3">cpplint._FunctionState</a></li>
+<li>Create()&#160;:&#160;<a class="el" href="classdesignlab_1_1_i_node_creatordocs#aa89005f20ac2aba751e7de64f7eafdd9">designlab::INodeCreator</a>, <a class="el" href="classdesignlab_1_1_map_creator_factorydocs#abaa5ea7c6bf775eca630b90d2140534c">designlab::MapCreatorFactory</a>, <a class="el" href="classdesignlab_1_1_node_creator_body_rotdocs#a162277203f0422a351c4d24e8167d43d">designlab::NodeCreatorBodyRot</a>, <a class="el" href="classdesignlab_1_1_node_creator_com_movedocs#a3fc5ccbce7199f0c7a7ce9ca5f4c221a">designlab::NodeCreatorComMove</a>, <a class="el" href="classdesignlab_1_1_node_creator_com_move_straightdocs#a3e2fd67280dd581a695a09cea4f816a4">designlab::NodeCreatorComMoveStraight</a>, <a class="el" href="classdesignlab_1_1_node_creator_com_up_downdocs#af55c8483f820c4a5d31a76ebcdf6785a">designlab::NodeCreatorComUpDown</a>, <a class="el" href="classdesignlab_1_1_node_creator_leg_hierarchydocs#ade5f7af05493084aaca057a4f543ebb7">designlab::NodeCreatorLegHierarchy</a>, <a class="el" href="classdesignlab_1_1_node_creator_leg_up_down2ddocs#a06c92f273cd957c7108ae2632bcd8339">designlab::NodeCreatorLegUpDown2d</a>, <a class="el" href="classdesignlab_1_1_node_creator_leg_up_downdocs#a861b8e2c2efd6673f70c53881848d442">designlab::NodeCreatorLegUpDown</a>, <a class="el" href="classdesignlab_1_1_node_creator_leg_up_down_radiusdocs#a4d2c69510f3b456ce4cb21c2a58e9b45">designlab::NodeCreatorLegUpDownRadius</a>, <a class="el" href="classdesignlab_1_1_robot_operator_factorydocs#ac4216aad634bb9cbab1202a055b43975">designlab::RobotOperatorFactory</a>, <a class="el" href="classdesignlab_1_1_simulation_end_checker_factorydocs#a5efe7f1b9b7701783fa8245758d57daa">designlab::SimulationEndCheckerFactory</a></li>
+<li>CreateGraphTree()&#160;:&#160;<a class="el" href="classdesignlab_1_1_graph_tree_creatordocs#a9a8a2cff8af6b99342e88c5cb1cd52ab">designlab::GraphTreeCreator</a></li>
+<li>CreateInterpolatedNode()&#160;:&#160;<a class="el" href="classdesignlab_1_1_interpolated_node_creatordocs#abbad675a18b50fca198d14fc12ecea75">designlab::InterpolatedNodeCreator</a></li>
+<li>CreateRootDirectory()&#160;:&#160;<a class="el" href="classdesignlab_1_1_result_file_exporterdocs#abdec2e0ea262c131c22f9570ff7d97c6">designlab::ResultFileExporter</a></li>
+<li>CreateRotationMatrixX()&#160;:&#160;<a class="el" href="structdesignlab_1_1_rotation_matrix3x3docs#abc3bdb68d606ea4d724a92425188f9fa">designlab::RotationMatrix3x3</a></li>
+<li>CreateRotationMatrixY()&#160;:&#160;<a class="el" href="structdesignlab_1_1_rotation_matrix3x3docs#a4f375cd58fd5ae559e9881c0a0f9aed7">designlab::RotationMatrix3x3</a></li>
+<li>CreateRotationMatrixZ()&#160;:&#160;<a class="el" href="structdesignlab_1_1_rotation_matrix3x3docs#a39d99d8f9cce41de693228739ad69161">designlab::RotationMatrix3x3</a></li>
+<li>Cross()&#160;:&#160;<a class="el" href="structdesignlab_1_1_vector2docs#ab3002b222969339234b908a42a735f44">designlab::Vector2</a>, <a class="el" href="structdesignlab_1_1_vector3docs#a29671be58ff1cc4f073470214a5ae283">designlab::Vector3</a></li>
+<li>cursor_x&#160;:&#160;<a class="el" href="structdesignlab_1_1_dxlib_mouse_statedocs#ae248318bf8912fbe492349641233ee94">designlab::DxlibMouseState</a></li>
+<li>cursor_y&#160;:&#160;<a class="el" href="structdesignlab_1_1_dxlib_mouse_statedocs#a6caf8c7f665dea391d93f4cdc32c1e5b">designlab::DxlibMouseState</a></li>
+<li>CursorOnGui()&#160;:&#160;<a class="el" href="classdesignlab_1_1_abstract_dxlib_guidocs#adbaa209e897fac58b5bc465c71a35eec">designlab::AbstractDxlibGui</a>, <a class="el" href="classdesignlab_1_1_dxlib_gui_terminaldocs#a521d869f02eeeea0625a521b1f2d4a52">designlab::DxlibGuiTerminal</a>, <a class="el" href="classdesignlab_1_1_i_dxlib_clickabledocs#a2c1f490c09042032d431f0f726d1697f">designlab::IDxlibClickable</a>, <a class="el" href="classdesignlab_1_1_simple_buttondocs#a9276d574483a456e85347626610ed6b0">designlab::SimpleButton</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,7 +1,7 @@
 <map id="designlab::PhantomXMkIIRendererModel" name="designlab::PhantomXMkIIRendererModel">
 <area shape="rect" id="Node000001" title="3Dモデルを使用して PhantomX の描画を行うクラス．" alt="" coords="90,80,309,123"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_dxlib3d_renderer.html" title="DxLibの描画処理を行うクラスのインターフェース．" alt="" coords="5,5,188,32"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_dxlib3d_rendererdocs" title="DxLibの描画処理を行うクラスのインターフェース．" alt="" coords="5,5,188,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,40,174,77,171,82,123,44"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_i_dxlib_node_setter.html" title="DxLibのGuiやRendererでノードのセットを行うためのインターフェース．" alt="" coords="211,5,393,32"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_i_dxlib_node_setterdocs" title="DxLibのGuiやRendererでノードのセットを行うためのインターフェース．" alt="" coords="211,5,393,32"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="276,44,227,82,224,77,272,40"/>
 </map>

@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/DesignLab/dxlib_gui_updater.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'docs');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('dxlib__gui__updater_8h_sourcedocs',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">dxlib_gui_updater.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="dxlib__gui__updater_8hdocs">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef DESIGNLAB_DXLIB_GUI_UPDATER_H_</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define DESIGNLAB_DXLIB_GUI_UPDATER_H_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="cassert__define_8hdocs">cassert_define.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="interface__dxlib__clickable_8hdocs">interface_dxlib_clickable.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="interface__dxlib__draggable_8hdocs">interface_dxlib_draggable.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="interface__dxlib__gui_8hdocs">interface_dxlib_gui.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="interface__dxlib__wheel__handler_8hdocs">interface_dxlib_wheel_handler.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="mouse_8hdocs">mouse.h</a>&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlabdocs">designlab</a></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="conceptdesignlab_1_1_is_dxlib_guidocs">   27</a></span><span class="keyword">concept </span><a class="code hl_concept" href="conceptdesignlab_1_1_is_dxlib_guidocs">IsDxlibGui</a> = std::is_base_of&lt;IDxlibGui, T&gt;::value;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="conceptdesignlab_1_1_is_dxlib_clickabledocs">   31</a></span><span class="keyword">concept </span><a class="code hl_concept" href="conceptdesignlab_1_1_is_dxlib_clickabledocs">IsDxlibClickable</a> = std::is_base_of&lt;IDxlibClickable, T&gt;::value;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="conceptdesignlab_1_1_is_dxlib_draggabledocs">   35</a></span><span class="keyword">concept </span><a class="code hl_concept" href="conceptdesignlab_1_1_is_dxlib_draggabledocs">IsDxlibDraggable</a> = std::is_base_of&lt;IDxlibDraggable, T&gt;::value;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="conceptdesignlab_1_1_is_dxlib_wheel_handlerdocs">   39</a></span><span class="keyword">concept </span><a class="code hl_concept" href="conceptdesignlab_1_1_is_dxlib_wheel_handlerdocs">IsDxlibWheelHandler</a> = std::is_base_of&lt;IDxlibWheelHandler, T&gt;::value;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="conceptdesignlab_1_1_is_dxlib_updatabledocs">   44</a></span><span class="keyword">concept </span><a class="code hl_concept" href="conceptdesignlab_1_1_is_dxlib_updatabledocs">IsDxlibUpdatable</a> = (<a class="code hl_concept" href="conceptdesignlab_1_1_is_dxlib_guidocs">IsDxlibGui&lt;T&gt;</a> || <a class="code hl_concept" href="conceptdesignlab_1_1_is_dxlib_clickabledocs">IsDxlibClickable&lt;T&gt;</a> ||</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_concept" href="conceptdesignlab_1_1_is_dxlib_draggabledocs">IsDxlibDraggable&lt;T&gt;</a> || <a class="code hl_concept" href="conceptdesignlab_1_1_is_dxlib_wheel_handlerdocs">IsDxlibWheelHandler&lt;T&gt;</a>);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="};">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_dxlib_gui_updaterdocs">   55</a></span><span class="keyword">class </span><a class="code hl_class" href="classdesignlab_1_1_dxlib_gui_updaterdocs">DxlibGuiUpdater</a> final</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>{</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_dxlib_gui_updaterdocs#a4242e72bd3dc5ea48a29e95d27993031">   58</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="classdesignlab_1_1_dxlib_gui_updaterdocs#a4242e72bd3dc5ea48a29e95d27993031">kBottomPriority</a>{ 0 };      </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_dxlib_gui_updaterdocs#a8eb942512ff4ab65cef9d889123ea114">   59</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="classdesignlab_1_1_dxlib_gui_updaterdocs#a8eb942512ff4ab65cef9d889123ea114">kTopPriority</a>{ 1000000 };   </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keyword">template</span> &lt;IsDxlibUpdatable T&gt;</div>
+<div class="foldopen" id="foldopen00069" data-start="{" data-end="}">
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_dxlib_gui_updaterdocs#a1857f9c279951c3b92d823e9724839b9">   69</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_dxlib_gui_updaterdocs#a1857f9c279951c3b92d823e9724839b9">Register</a>(<span class="keyword">const</span> std::shared_ptr&lt;T&gt;&amp; gui_ptr, <span class="keywordtype">int</span> priority)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        assert(<a class="code hl_variable" href="classdesignlab_1_1_dxlib_gui_updaterdocs#a4242e72bd3dc5ea48a29e95d27993031">kBottomPriority</a> &lt;= priority);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        assert(priority &lt;= <a class="code hl_variable" href="classdesignlab_1_1_dxlib_gui_updaterdocs#a8eb942512ff4ab65cef9d889123ea114">kTopPriority</a>);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (<a class="code hl_concept" href="conceptdesignlab_1_1_is_dxlib_guidocs">IsDxlibGui&lt;T&gt;</a>)</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            RegisterGui(gui_ptr, priority);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        }</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (<a class="code hl_concept" href="conceptdesignlab_1_1_is_dxlib_clickabledocs">IsDxlibClickable&lt;T&gt;</a>)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            RegisterClickable(gui_ptr, priority);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (<a class="code hl_concept" href="conceptdesignlab_1_1_is_dxlib_draggabledocs">IsDxlibDraggable&lt;T&gt;</a>)</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            RegisterDraggable(gui_ptr, priority);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        }</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (<a class="code hl_concept" href="conceptdesignlab_1_1_is_dxlib_wheel_handlerdocs">IsDxlibWheelHandler&lt;T&gt;</a>)</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            RegisterWheelHandler(gui_ptr, priority);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        }</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    }</div>
+</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_dxlib_gui_updaterdocs#a3778e8571c86de255812192002c2109d">OpenTerminal</a>();</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_dxlib_gui_updaterdocs#a8330d413e80271485c00caaf64c36841">Activate</a>(<span class="keyword">const</span> std::shared_ptr&lt;const Mouse&gt;&amp; mouse_ptr);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_dxlib_gui_updaterdocs#a6f381c10ed8d90a143acc33065d1a0fe">Draw</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">struct </span>Priority final</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="keyword">constexpr</span> Priority(<span class="keyword">const</span> <span class="keywordtype">int</span> p, <span class="keyword">const</span> <span class="keywordtype">int</span> o) noexcept :</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            priority(p),</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            order(o)</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        }</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> Priority&amp; other) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        {</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            <span class="keywordflow">if</span> (priority == other.priority)</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            {</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                <span class="keywordflow">return</span> order &lt; other.order;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            {</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                <span class="keywordflow">return</span> priority &lt; other.priority;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            }</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <span class="keywordtype">int</span> priority{ 0 };  </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="keywordtype">int</span> order{ 0 };     </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    };</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keywordtype">void</span> RegisterGui(<span class="keyword">const</span> std::shared_ptr&lt;IDxlibGui&gt; gui_ptr, <span class="keywordtype">int</span> priority);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordtype">void</span> RegisterClickable(</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keyword">const</span> std::shared_ptr&lt;IDxlibClickable&gt; clickable_ptr, <span class="keywordtype">int</span> priority);</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordtype">void</span> RegisterDraggable(</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        <span class="keyword">const</span> std::shared_ptr&lt;IDxlibDraggable&gt; draggable_ptr, <span class="keywordtype">int</span> priority);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="keywordtype">void</span> RegisterWheelHandler(</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="keyword">const</span> std::shared_ptr&lt;IDxlibWheelHandler&gt; wheel_handler_ptr, <span class="keywordtype">int</span> priority);</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keywordtype">void</span> UpdateGui();</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordtype">void</span> ActivateClickable(<span class="keyword">const</span> std::shared_ptr&lt;const Mouse&gt; mouse_ptr);</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keywordtype">void</span> ActivateDraggable(<span class="keyword">const</span> std::shared_ptr&lt;const Mouse&gt; mouse_ptr);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="keywordtype">void</span> ActivateWheelHandler(<span class="keyword">const</span> std::shared_ptr&lt;const Mouse&gt; mouse_ptr);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    std::map&lt;Priority, std::shared_ptr&lt;IDxlibGui&gt; &gt; gui_ptrs_;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    std::map&lt;Priority, std::shared_ptr&lt;IDxlibClickable&gt; &gt; clickable_ptrs_;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    std::map&lt;Priority, std::shared_ptr&lt;IDxlibDraggable&gt; &gt; draggable_ptrs_;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    std::map&lt;Priority, std::shared_ptr&lt;IDxlibWheelHandler&gt; &gt; wheel_handler_ptrs_;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    std::optional&lt;Priority&gt; now_dragging_gui_key_{ std::nullopt };</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keywordtype">bool</span> is_terminal_opened_{ <span class="keyword">false</span> };  </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>};</div>
+</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>}  <span class="comment">// namespace designlab</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_DXLIB_GUI_UPDATER_H_</span></div>
+<div class="ttc" id="acassert__define_8hdocs"><div class="ttname"><a href="cassert__define_8hdocs">cassert_define.h</a></div><div class="ttdoc">デバッグモードとリリースモードでアサートを有効化・無効化するためのヘッダファイル．</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_dxlib_gui_updaterdocs"><div class="ttname"><a href="classdesignlab_1_1_dxlib_gui_updaterdocs">designlab::DxlibGuiUpdater</a></div><div class="ttdoc">クリック判定を行うクラス．</div><div class="ttdef"><b>Definition</b> dxlib_gui_updater.h:56</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_dxlib_gui_updaterdocs_a1857f9c279951c3b92d823e9724839b9"><div class="ttname"><a href="classdesignlab_1_1_dxlib_gui_updaterdocs#a1857f9c279951c3b92d823e9724839b9">designlab::DxlibGuiUpdater::Register</a></div><div class="ttdeci">void Register(const std::shared_ptr&lt; T &gt; &amp;gui_ptr, int priority)</div><div class="ttdoc">UpdateとDrawを行うGUIを登録する．   IDxlibClickableまたは，IDxlibDraggable, IDxlibWheelHandlerを継承している場合は，それらも同時に登録す...</div><div class="ttdef"><b>Definition</b> dxlib_gui_updater.h:69</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_dxlib_gui_updaterdocs_a3778e8571c86de255812192002c2109d"><div class="ttname"><a href="classdesignlab_1_1_dxlib_gui_updaterdocs#a3778e8571c86de255812192002c2109d">designlab::DxlibGuiUpdater::OpenTerminal</a></div><div class="ttdeci">void OpenTerminal()</div><div class="ttdoc">Terminalを開く.   他のGUIをRegisterした後に呼び出すこと．   2回目以降の呼び出しは無視される．   また，Terminalは最も優先度が高い．</div><div class="ttdef"><b>Definition</b> dxlib_gui_updater.cpp:19</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_dxlib_gui_updaterdocs_a4242e72bd3dc5ea48a29e95d27993031"><div class="ttname"><a href="classdesignlab_1_1_dxlib_gui_updaterdocs#a4242e72bd3dc5ea48a29e95d27993031">designlab::DxlibGuiUpdater::kBottomPriority</a></div><div class="ttdeci">static constexpr int kBottomPriority</div><div class="ttdoc">最も優先度が低い．</div><div class="ttdef"><b>Definition</b> dxlib_gui_updater.h:58</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_dxlib_gui_updaterdocs_a6f381c10ed8d90a143acc33065d1a0fe"><div class="ttname"><a href="classdesignlab_1_1_dxlib_gui_updaterdocs#a6f381c10ed8d90a143acc33065d1a0fe">designlab::DxlibGuiUpdater::Draw</a></div><div class="ttdeci">void Draw() const</div><div class="ttdoc">登録済みのGUIのDraw関数を実行する．</div><div class="ttdef"><b>Definition</b> dxlib_gui_updater.cpp:55</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_dxlib_gui_updaterdocs_a8330d413e80271485c00caaf64c36841"><div class="ttname"><a href="classdesignlab_1_1_dxlib_gui_updaterdocs#a8330d413e80271485c00caaf64c36841">designlab::DxlibGuiUpdater::Activate</a></div><div class="ttdeci">void Activate(const std::shared_ptr&lt; const Mouse &gt; &amp;mouse_ptr)</div><div class="ttdoc">GUIのUpdate関数を実行し，クリック，ドラッグなどの判定を行う．   優先度の高いものから順に各種判定を行う．</div><div class="ttdef"><b>Definition</b> dxlib_gui_updater.cpp:45</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_dxlib_gui_updaterdocs_a8eb942512ff4ab65cef9d889123ea114"><div class="ttname"><a href="classdesignlab_1_1_dxlib_gui_updaterdocs#a8eb942512ff4ab65cef9d889123ea114">designlab::DxlibGuiUpdater::kTopPriority</a></div><div class="ttdeci">static constexpr int kTopPriority</div><div class="ttdoc">最も優先的に処理される．</div><div class="ttdef"><b>Definition</b> dxlib_gui_updater.h:59</div></div>
+<div class="ttc" id="aconceptdesignlab_1_1_is_dxlib_clickabledocs"><div class="ttname"><a href="conceptdesignlab_1_1_is_dxlib_clickabledocs">designlab::IsDxlibClickable</a></div><div class="ttdoc">IDxlibClickableを継承しているかどうかを判定する．</div><div class="ttdef"><b>Definition</b> dxlib_gui_updater.h:31</div></div>
+<div class="ttc" id="aconceptdesignlab_1_1_is_dxlib_draggabledocs"><div class="ttname"><a href="conceptdesignlab_1_1_is_dxlib_draggabledocs">designlab::IsDxlibDraggable</a></div><div class="ttdoc">IDxlibDraggableを継承しているかどうかを判定する．</div><div class="ttdef"><b>Definition</b> dxlib_gui_updater.h:35</div></div>
+<div class="ttc" id="aconceptdesignlab_1_1_is_dxlib_guidocs"><div class="ttname"><a href="conceptdesignlab_1_1_is_dxlib_guidocs">designlab::IsDxlibGui</a></div><div class="ttdoc">IDxlibGuiを継承しているかどうかを判定する．</div><div class="ttdef"><b>Definition</b> dxlib_gui_updater.h:27</div></div>
+<div class="ttc" id="aconceptdesignlab_1_1_is_dxlib_updatabledocs"><div class="ttname"><a href="conceptdesignlab_1_1_is_dxlib_updatabledocs">designlab::IsDxlibUpdatable</a></div><div class="ttdoc">IDxlibGui, IDxlibClickable, IDxlibDraggable, IDxlibWheelHandlerのうちいずれかを継承しているかどうかを判定する．</div><div class="ttdef"><b>Definition</b> dxlib_gui_updater.h:44</div></div>
+<div class="ttc" id="aconceptdesignlab_1_1_is_dxlib_wheel_handlerdocs"><div class="ttname"><a href="conceptdesignlab_1_1_is_dxlib_wheel_handlerdocs">designlab::IsDxlibWheelHandler</a></div><div class="ttdoc">IDxlibWheelHandlerを継承しているかどうかを判定する．</div><div class="ttdef"><b>Definition</b> dxlib_gui_updater.h:39</div></div>
+<div class="ttc" id="ainterface__dxlib__clickable_8hdocs"><div class="ttname"><a href="interface__dxlib__clickable_8hdocs">interface_dxlib_clickable.h</a></div></div>
+<div class="ttc" id="ainterface__dxlib__draggable_8hdocs"><div class="ttname"><a href="interface__dxlib__draggable_8hdocs">interface_dxlib_draggable.h</a></div></div>
+<div class="ttc" id="ainterface__dxlib__gui_8hdocs"><div class="ttname"><a href="interface__dxlib__gui_8hdocs">interface_dxlib_gui.h</a></div></div>
+<div class="ttc" id="ainterface__dxlib__wheel__handler_8hdocs"><div class="ttname"><a href="interface__dxlib__wheel__handler_8hdocs">interface_dxlib_wheel_handler.h</a></div></div>
+<div class="ttc" id="amouse_8hdocs"><div class="ttname"><a href="mouse_8hdocs">mouse.h</a></div></div>
+<div class="ttc" id="anamespacedesignlabdocs"><div class="ttname"><a href="namespacedesignlabdocs">designlab</a></div><div class="ttdef"><b>Definition</b> abstract_dxlib_gui.cpp:16</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_65b03a49640d0599dba701447d580643docs">hasegawa</a></li><li class="navelem"><a class="el" href="dir_2854940d141de6d3c7cee6483e7afda9docs">Desktop</a></li><li class="navelem"><a class="el" href="dir_fad4873fd0f485db7102df865d883d5cdocs">main</a></li><li class="navelem"><a class="el" href="dir_227eda1db808a252df8518c263632a71docs">program</a></li><li class="navelem"><a class="el" href="dir_c48eef75fce7d1d05a2392783bd08b15docs">gait-generation-by-graph-search</a></li><li class="navelem"><a class="el" href="dir_6970d783dbb606469f8f14a039e83820docs">DesignLab</a></li><li class="navelem"><a class="el" href="dxlib__gui__updater_8hdocs">dxlib_gui_updater.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

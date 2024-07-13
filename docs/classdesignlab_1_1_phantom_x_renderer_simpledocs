@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: designlab::PhantomXRendererSimple クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'docs');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classdesignlab_1_1_phantom_x_renderer_simpledocs',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="classdesignlab_1_1_phantom_x_renderer_simple-membersdocs">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">designlab::PhantomXRendererSimple クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>3Dモデルを使用せず，多角形を組み合わせてPhantomXの描画を行うクラス．  
+ <a href="classdesignlab_1_1_phantom_x_renderer_simpledocs#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="phantomx__renderer__simple_8h_sourcedocs">phantomx_renderer_simple.h</a>&gt;</code></p>
+<div class="dynheader">
+designlab::PhantomXRendererSimple の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1_phantom_x_renderer_simple__inherit__graph.png" border="0" usemap="#adesignlab_1_1_phantom_x_renderer_simple_inherit__map" alt="Inheritance graph"/></div>
+<map name="adesignlab_1_1_phantom_x_renderer_simple_inherit__map" id="adesignlab_1_1_phantom_x_renderer_simple_inherit__map">
+<area shape="rect" title="3Dモデルを使用せず，多角形を組み合わせてPhantomXの描画を行うクラス．" alt="" coords="102,80,297,123"/>
+<area shape="rect" href="classdesignlab_1_1_i_dxlib3d_rendererdocs" title="DxLibの描画処理を行うクラスのインターフェース．" alt="" coords="5,5,188,32"/>
+<area shape="poly" title=" " alt="" coords="126,40,174,77,171,82,123,44"/>
+<area shape="rect" href="classdesignlab_1_1_i_dxlib_node_setterdocs" title="DxLibのGuiやRendererでノードのセットを行うためのインターフェース．" alt="" coords="211,5,393,32"/>
+<area shape="poly" title=" " alt="" coords="276,44,227,82,224,77,272,40"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legenddocs">凡例</a>]</span></center></div>
+<div class="dynheader">
+designlab::PhantomXRendererSimple 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1_phantom_x_renderer_simple__coll__graph.png" border="0" usemap="#adesignlab_1_1_phantom_x_renderer_simple_coll__map" alt="Collaboration graph"/></div>
+<map name="adesignlab_1_1_phantom_x_renderer_simple_coll__map" id="adesignlab_1_1_phantom_x_renderer_simple_coll__map">
+<area shape="rect" title="3Dモデルを使用せず，多角形を組み合わせてPhantomXの描画を行うクラス．" alt="" coords="102,80,297,123"/>
+<area shape="rect" href="classdesignlab_1_1_i_dxlib3d_rendererdocs" title="DxLibの描画処理を行うクラスのインターフェース．" alt="" coords="5,5,188,32"/>
+<area shape="poly" title=" " alt="" coords="126,40,174,77,171,82,123,44"/>
+<area shape="rect" href="classdesignlab_1_1_i_dxlib_node_setterdocs" title="DxLibのGuiやRendererでノードのセットを行うためのインターフェース．" alt="" coords="211,5,393,32"/>
+<area shape="poly" title=" " alt="" coords="276,44,227,82,224,77,272,40"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legenddocs">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a3ab456e1105c07dd113df2790d06a434" id="r_a3ab456e1105c07dd113df2790d06a434"><td class="memItemLeft" align="right" valign="top"><a id="a3ab456e1105c07dd113df2790d06a434" name="a3ab456e1105c07dd113df2790d06a434"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PhantomXRendererSimple</b> (const std::shared_ptr&lt; const <a class="el" href="classdesignlab_1_1_i_hexapod_coordinate_converterdocs">IHexapodCoordinateConverter</a> &gt; &amp;converter_ptr, const std::shared_ptr&lt; const <a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculatordocs">IHexapodJointCalculator</a> &gt; &amp;calculator_ptr, <a class="el" href="namespacedesignlabdocs#a53323f0d14b3c1aef6879f5b9ceffc3d">DisplayQuality</a> display_quality)</td></tr>
+<tr class="separator:a3ab456e1105c07dd113df2790d06a434"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef9bbb90026f5c272bd3df4c71e39bfd" id="r_aef9bbb90026f5c272bd3df4c71e39bfd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_phantom_x_renderer_simpledocs#aef9bbb90026f5c272bd3df4c71e39bfd">SetNode</a> (const <a class="el" href="structdesignlab_1_1_robot_state_nodedocs">RobotStateNode</a> &amp;node) override</td></tr>
+<tr class="memdesc:aef9bbb90026f5c272bd3df4c71e39bfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">ノードをセットする．  <br /></td></tr>
+<tr class="separator:aef9bbb90026f5c272bd3df4c71e39bfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85e2369b6cee7ae55518277f6e8a7b1c" id="r_a85e2369b6cee7ae55518277f6e8a7b1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_phantom_x_renderer_simpledocs#a85e2369b6cee7ae55518277f6e8a7b1c">Draw</a> () const override</td></tr>
+<tr class="memdesc:a85e2369b6cee7ae55518277f6e8a7b1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画処理を行う． const 関数にしているのは， 描画処理の中でメンバ変数を変更しないようにするため．  <br /></td></tr>
+<tr class="separator:a85e2369b6cee7ae55518277f6e8a7b1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>3Dモデルを使用せず，多角形を組み合わせてPhantomXの描画を行うクラス． </p>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="a85e2369b6cee7ae55518277f6e8a7b1c" name="a85e2369b6cee7ae55518277f6e8a7b1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85e2369b6cee7ae55518277f6e8a7b1c">&#9670;&#160;</a></span>Draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::PhantomXRendererSimple::Draw </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>描画処理を行う． const 関数にしているのは， 描画処理の中でメンバ変数を変更しないようにするため． </p>
+
+<p><a class="el" href="classdesignlab_1_1_i_dxlib3d_rendererdocs#a23c9dd32ccffa163ed5f045f0dece621">designlab::IDxlib3dRenderer</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="aef9bbb90026f5c272bd3df4c71e39bfd" name="aef9bbb90026f5c272bd3df4c71e39bfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef9bbb90026f5c272bd3df4c71e39bfd">&#9670;&#160;</a></span>SetNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::PhantomXRendererSimple::SetNode </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdesignlab_1_1_robot_state_nodedocs">RobotStateNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ノードをセットする． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>ノード番号． </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><a class="el" href="classdesignlab_1_1_i_dxlib_node_setterdocs#a024ed26186f7a15497b14fdd742aee7b">designlab::IDxlibNodeSetter</a>を実装しています。</p>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/DesignLab/<a class="el" href="phantomx__renderer__simple_8h_sourcedocs">phantomx_renderer_simple.h</a></li>
+<li>C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/DesignLab/<b>phantomx_renderer_simple.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacedesignlabdocs">designlab</a></li><li class="navelem"><a class="el" href="classdesignlab_1_1_phantom_x_renderer_simpledocs">PhantomXRendererSimple</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

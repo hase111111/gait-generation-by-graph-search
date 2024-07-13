@@ -1,13 +1,13 @@
 <map id="クラス階層図" name="クラス階層図">
 <area shape="rect" id="Node000000" title=" " alt="" coords="5,243,107,269"/>
-<area shape="rect" id="Node000001" href="$structdesignlab_1_1impl_1_1has__from__toml_3_01_t_00_01std_1_1void__t_3_01decltype_07toml_1_1from_3_01_t_01_4_07_08_08_4_01_4.html" title="toml::from&lt;T&gt;()が存在するかどうかを判定するメタ関数．" alt="" coords="168,5,328,80"/>
+<area shape="rect" id="Node000001" href="$structdesignlab_1_1impl_1_1has__from__toml_3_01_t_00_01std_1_1void__t_3_01decltype_07toml_1_1from_3_01_t_01_4_07_08_08_4_01_4docs" title="toml::from&lt;T&gt;()が存在するかどうかを判定するメタ関数．" alt="" coords="168,5,328,80"/>
 <area shape="poly" id="edge101_Node000000_Node000001" title=" " alt="" coords="66,227,99,160,124,123,153,90,167,78,170,82,157,94,128,127,104,163,71,229"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1impl_1_1has__input__operator_3_01_t_00_01decltype_07std_1_1declval_3_01std_1_60b7592f7ed55b6e64b0a9fbd1e13724.html" title="入力ストリームが実装されているか判断するメタ関数．" alt="" coords="155,104,341,195"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1impl_1_1has__input__operator_3_01_t_00_01decltype_07std_1_1declval_3_01std_1_60b7592f7ed55b6e64b0a9fbd1e13724docs" title="入力ストリームが実装されているか判断するメタ関数．" alt="" coords="155,104,341,195"/>
 <area shape="poly" id="edge102_Node000000_Node000002" title=" " alt="" coords="94,232,164,193,166,198,96,237"/>
-<area shape="rect" id="Node000003" href="$structdesignlab_1_1impl_1_1has__into__toml_3_01_t_00_01std_1_1void__t_3_01decltype_07toml_1_1into_3_01_t_01_4_07_08_08_4_01_4.html" title="toml::into&lt;T&gt;()が存在するかどうかを判定するメタ関数．" alt="" coords="170,219,326,293"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1impl_1_1has__into__toml_3_01_t_00_01std_1_1void__t_3_01decltype_07toml_1_1into_3_01_t_01_4_07_08_08_4_01_4docs" title="toml::into&lt;T&gt;()が存在するかどうかを判定するメタ関数．" alt="" coords="170,219,326,293"/>
 <area shape="poly" id="edge103_Node000000_Node000003" title=" " alt="" coords="122,253,169,253,169,259,122,259"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1impl_1_1has__output__operator_3_01_t_00_01decltype_07std_1_1declval_3_01std_16aa2661056f7ad96d6591b9b360fa568.html" title="出力ストリームが実装されているか判断するメタ関数．" alt="" coords="170,317,326,424"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1impl_1_1has__output__operator_3_01_t_00_01decltype_07std_1_1declval_3_01std_16aa2661056f7ad96d6591b9b360fa568docs" title="出力ストリームが実装されているか判断するメタ関数．" alt="" coords="170,317,326,424"/>
 <area shape="poly" id="edge104_Node000000_Node000004" title=" " alt="" coords="95,275,171,321,168,326,92,280"/>
-<area shape="rect" id="Node000005" href="$structdesignlab_1_1impl_1_1is__vector_3_01std_1_1vector_3_01_t_01_4_01_4.html" title="vector型かどうかを判定するメタ関数．" alt="" coords="181,448,315,507"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1impl_1_1is__vector_3_01std_1_1vector_3_01_t_01_4_01_4docs" title="vector型かどうかを判定するメタ関数．" alt="" coords="181,448,315,507"/>
 <area shape="poly" id="edge105_Node000000_Node000005" title=" " alt="" coords="69,283,100,357,125,398,156,434,182,452,178,456,153,438,121,401,96,360,64,285"/>
 </map>

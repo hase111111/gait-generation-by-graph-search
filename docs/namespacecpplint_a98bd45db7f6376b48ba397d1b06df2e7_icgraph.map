@@ -1,20 +1,20 @@
 <map id="cpplint.IsBlankLine" name="cpplint.IsBlankLine">
 <area shape="rect" id="Node000001" title=" " alt="" coords="879,56,1009,83"/>
-<area shape="rect" id="Node000002" href="$namespacecpplint.html#ad02e7ecfbf3d754163caa2c9f48c6746" title=" " alt="" coords="628,5,820,32"/>
+<area shape="rect" id="Node000002" href="$namespacecpplintdocs#ad02e7ecfbf3d754163caa2c9f48c6746" title=" " alt="" coords="628,5,820,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="867,55,784,35,786,30,869,49"/>
-<area shape="rect" id="Node000008" href="$namespacecpplint.html#a92ea46979dfe7a731eedfc00f98e6908" title=" " alt="" coords="395,56,542,83"/>
+<area shape="rect" id="Node000008" href="$namespacecpplintdocs#a92ea46979dfe7a731eedfc00f98e6908" title=" " alt="" coords="395,56,542,83"/>
 <area shape="poly" id="edge4_Node000001_Node000008" title=" " alt="" coords="863,72,542,72,542,67,863,67"/>
-<area shape="rect" id="Node000009" href="$namespacecpplint.html#a42b46bcf4926559c5b946a0bccef5bf3" title=" " alt="" coords="617,132,831,159"/>
+<area shape="rect" id="Node000009" href="$namespacecpplintdocs#a42b46bcf4926559c5b946a0bccef5bf3" title=" " alt="" coords="617,132,831,159"/>
 <area shape="poly" id="edge6_Node000001_Node000009" title=" " alt="" coords="890,91,766,134,764,129,888,86"/>
-<area shape="rect" id="Node000003" href="$namespacecpplint.html#a2ce48db291ac037321d21b3ba3f70066" title=" " alt="" coords="189,107,319,133"/>
+<area shape="rect" id="Node000003" href="$namespacecpplintdocs#a2ce48db291ac037321d21b3ba3f70066" title=" " alt="" coords="189,107,319,133"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="613,15,555,15,493,20,429,30,368,47,340,59,313,76,272,108,268,104,310,71,337,54,366,41,428,25,492,15,555,10,613,9"/>
-<area shape="rect" id="Node000004" href="$namespacecpplint.html#a60ab7d00cbd976925382b70bbf1fb2cf" title=" " alt="" coords="5,107,141,133"/>
+<area shape="rect" id="Node000004" href="$namespacecpplintdocs#a60ab7d00cbd976925382b70bbf1fb2cf" title=" " alt="" coords="5,107,141,133"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="173,123,141,123,141,117,173,117"/>
 <area shape="poly" id="edge5_Node000008_Node000003" title=" " alt="" coords="394,89,314,109,313,103,393,84"/>
 <area shape="poly" id="edge9_Node000009_Node000003" title=" " alt="" coords="602,141,319,126,320,121,602,136"/>
-<area shape="rect" id="Node000010" href="$namespacecpplint.html#aafc4fb5ea490272ca6a006b9e9a1b21f" title=" " alt="" coords="398,157,539,184"/>
+<area shape="rect" id="Node000010" href="$namespacecpplintdocs#aafc4fb5ea490272ca6a006b9e9a1b21f" title=" " alt="" coords="398,157,539,184"/>
 <area shape="poly" id="edge7_Node000009_Node000010" title=" " alt="" coords="602,160,540,166,539,161,602,155"/>
-<area shape="rect" id="Node000011" href="$namespacecpplint.html#a2b9c6e28290cdb4f61d1752214e47588" title=" " alt="" coords="367,208,569,235"/>
+<area shape="rect" id="Node000011" href="$namespacecpplintdocs#a2b9c6e28290cdb4f61d1752214e47588" title=" " alt="" coords="367,208,569,235"/>
 <area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="670,167,570,199,528,210,527,205,569,193,668,162"/>
 <area shape="poly" id="edge8_Node000010_Node000003" title=" " alt="" coords="393,156,313,137,314,131,394,151"/>
 <area shape="poly" id="edge11_Node000011_Node000003" title=" " alt="" coords="384,205,366,198,312,167,270,136,273,132,315,163,368,194,385,200"/>

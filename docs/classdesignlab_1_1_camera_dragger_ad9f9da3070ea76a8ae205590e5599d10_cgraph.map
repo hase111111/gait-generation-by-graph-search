@@ -1,19 +1,19 @@
 <map id="designlab::CameraDragger::DraggedAction" name="designlab::CameraDragger::DraggedAction">
 <area shape="rect" id="Node000001" title="ドラッグ中の処理を行う． &#160;&#160;カーソルは上にあるけど，ドラッグ中ではない場合でも呼び出される．" alt="" coords="5,77,180,119"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="673,47,821,90"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_quaterniondocs#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="673,47,821,90"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,74,169,44,197,31,227,21,284,9,342,4,401,3,459,6,568,21,658,41,657,46,567,26,459,12,401,8,343,9,285,15,228,26,199,36,172,49,124,78"/>
-<area shape="rect" id="Node000006" href="$structdesignlab_1_1_quaternion.html#a557aa980908890a7c7e5b6e2caab9301" title="回転軸と回転角からクォータニオンを作成する． &#160;&#160;q = cos(θ/2) * w + sin(θ/2) * { v.x + v.y + v.z } となる． ノルムは必ず1になる．" alt="" coords="238,35,385,78"/>
+<area shape="rect" id="Node000006" href="$structdesignlab_1_1_quaterniondocs#a557aa980908890a7c7e5b6e2caab9301" title="回転軸と回転角からクォータニオンを作成する． &#160;&#160;q = cos(θ/2) * w + sin(θ/2) * { v.x + v.y + v.z } となる． ノルムは必ず1になる．" alt="" coords="238,35,385,78"/>
 <area shape="poly" id="edge4_Node000001_Node000006" title=" " alt="" coords="179,79,222,71,223,76,180,84"/>
-<area shape="rect" id="Node000007" href="$namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="228,126,395,153"/>
+<area shape="rect" id="Node000007" href="$namespacedesignlabdocs#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="228,126,395,153"/>
 <area shape="poly" id="edge5_Node000001_Node000007" title=" " alt="" coords="180,112,223,120,222,125,179,117"/>
-<area shape="rect" id="Node000009" href="$namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5" title="2乗した値を返す関数．" alt="" coords="243,177,380,219"/>
+<area shape="rect" id="Node000009" href="$namespacedesignlab_1_1math__utildocs#ac1263c8ff431181d677fad31e8c96db5" title="2乗した値を返す関数．" alt="" coords="243,177,380,219"/>
 <area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="137,117,229,162,242,168,239,173,227,167,134,122"/>
-<area shape="rect" id="Node000003" href="$structdesignlab_1_1_quaternion.html#a56bbbd522805450144f54aae7dbd117e" title="クォータニオンのノルムを返す． &#160;&#160;ノルムとは，ベクトルの大きさのこと． クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 の平方根で求められる．" alt="" coords="869,47,1016,90"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_quaterniondocs#a56bbbd522805450144f54aae7dbd117e" title="クォータニオンのノルムを返す． &#160;&#160;ノルムとは，ベクトルの大きさのこと． クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 の平方根で求められる．" alt="" coords="869,47,1016,90"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="821,66,853,66,853,71,821,71"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaternion.html#a24ad10137dd081de9002ac270cdce9f9" title="クォータニオンの長さの2乗を返す(ノルムの2乗)． &#160;&#160;クォータニオンの長さの2乗は，w^2 + x^2 + y^2 + z^2 で求められる．" alt="" coords="1064,47,1211,90"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaterniondocs#a24ad10137dd081de9002ac270cdce9f9" title="クォータニオンの長さの2乗を返す(ノルムの2乗)． &#160;&#160;クォータニオンの長さの2乗は，w^2 + x^2 + y^2 + z^2 で求められる．" alt="" coords="1064,47,1211,90"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="1017,66,1048,66,1048,71,1017,71"/>
 <area shape="poly" id="edge6_Node000007_Node000007" title=" " alt="" coords="274,127,268,117,272,107,287,101,311,99,337,102,351,108,349,113,336,107,311,105,288,107,276,111,273,117,279,124"/>
-<area shape="rect" id="Node000008" href="$namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換．" alt="" coords="443,81,625,107"/>
+<area shape="rect" id="Node000008" href="$namespacedesignlabdocs#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換．" alt="" coords="443,81,625,107"/>
 <area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="380,123,450,108,451,114,381,128"/>
 <area shape="poly" id="edge8_Node000008_Node000002" title=" " alt="" coords="626,80,658,77,659,82,626,86"/>
 </map>

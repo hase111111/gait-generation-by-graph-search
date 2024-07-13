@@ -1,4 +1,4 @@
 var dir_227eda1db808a252df8518c263632a71 =
 [
-    [ "DesignLab", "dir_136482520f873a40e541bfb5e9b2bb76.html", "dir_136482520f873a40e541bfb5e9b2bb76" ]
+    [ "gait-generation-by-graph-search", "dir_c48eef75fce7d1d05a2392783bd08b15docs", "dir_c48eef75fce7d1d05a2392783bd08b15" ]
 ];

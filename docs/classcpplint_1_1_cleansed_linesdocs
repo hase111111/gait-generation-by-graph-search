@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: cpplint.CleansedLines クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'docs');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classcpplint_1_1_cleansed_linesdocs',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-attribs">公開変数類</a> &#124;
+<a href="#pro-static-methods">静的限定公開メンバ関数</a> &#124;
+<a href="classcpplint_1_1_cleansed_lines-membersdocs">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">cpplint.CleansedLines クラス</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+cpplint.CleansedLines の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="classcpplint_1_1_cleansed_lines__inherit__graph.png" border="0" usemap="#acpplint_8_cleansed_lines_inherit__map" alt="Inheritance graph"/></div>
+<map name="acpplint_8_cleansed_lines_inherit__map" id="acpplint_8_cleansed_lines_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,80,154,107"/>
+<area shape="rect" title=" " alt="" coords="51,5,108,32"/>
+<area shape="poly" title=" " alt="" coords="82,48,82,80,77,80,77,48"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legenddocs">凡例</a>]</span></center></div>
+<div class="dynheader">
+cpplint.CleansedLines 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="classcpplint_1_1_cleansed_lines__coll__graph.png" border="0" usemap="#acpplint_8_cleansed_lines_coll__map" alt="Collaboration graph"/></div>
+<map name="acpplint_8_cleansed_lines_coll__map" id="acpplint_8_cleansed_lines_coll__map">
+<area shape="rect" title=" " alt="" coords="5,80,154,107"/>
+<area shape="rect" title=" " alt="" coords="51,5,108,32"/>
+<area shape="poly" title=" " alt="" coords="82,48,82,80,77,80,77,48"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legenddocs">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:abcd3544d4c0343bfafaae30ab87d5a4c" id="r_abcd3544d4c0343bfafaae30ab87d5a4c"><td class="memItemLeft" align="right" valign="top"><a id="abcd3544d4c0343bfafaae30ab87d5a4c" name="abcd3544d4c0343bfafaae30ab87d5a4c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self, lines)</td></tr>
+<tr class="separator:abcd3544d4c0343bfafaae30ab87d5a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfe2b45fdf2e0088c726437f67bb3328" id="r_adfe2b45fdf2e0088c726437f67bb3328"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpplint_1_1_cleansed_linesdocs#adfe2b45fdf2e0088c726437f67bb3328">NumLines</a> (self)</td></tr>
+<tr class="separator:adfe2b45fdf2e0088c726437f67bb3328"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+公開変数類</h2></td></tr>
+<tr class="memitem:aa4d0a4d5081675c01656a5d86d99e8bd" id="r_aa4d0a4d5081675c01656a5d86d99e8bd"><td class="memItemLeft" align="right" valign="top"><a id="aa4d0a4d5081675c01656a5d86d99e8bd" name="aa4d0a4d5081675c01656a5d86d99e8bd"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>elided</b></td></tr>
+<tr class="separator:aa4d0a4d5081675c01656a5d86d99e8bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cd74bd010da1610a46322d6821bd06a" id="r_a9cd74bd010da1610a46322d6821bd06a"><td class="memItemLeft" align="right" valign="top"><a id="a9cd74bd010da1610a46322d6821bd06a" name="a9cd74bd010da1610a46322d6821bd06a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>lines</b></td></tr>
+<tr class="separator:a9cd74bd010da1610a46322d6821bd06a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e94ce9e4f682be33c04fe82429c4dfd" id="r_a9e94ce9e4f682be33c04fe82429c4dfd"><td class="memItemLeft" align="right" valign="top"><a id="a9e94ce9e4f682be33c04fe82429c4dfd" name="a9e94ce9e4f682be33c04fe82429c4dfd"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>raw_lines</b></td></tr>
+<tr class="separator:a9e94ce9e4f682be33c04fe82429c4dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b42ab48659954fb6e0a4e4eb483a45a" id="r_a4b42ab48659954fb6e0a4e4eb483a45a"><td class="memItemLeft" align="right" valign="top"><a id="a4b42ab48659954fb6e0a4e4eb483a45a" name="a4b42ab48659954fb6e0a4e4eb483a45a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>num_lines</b></td></tr>
+<tr class="separator:a4b42ab48659954fb6e0a4e4eb483a45a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cc228ba3c00ba590b27a759cf8023ce" id="r_a0cc228ba3c00ba590b27a759cf8023ce"><td class="memItemLeft" align="right" valign="top"><a id="a0cc228ba3c00ba590b27a759cf8023ce" name="a0cc228ba3c00ba590b27a759cf8023ce"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>lines_without_raw_strings</b></td></tr>
+<tr class="separator:a0cc228ba3c00ba590b27a759cf8023ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
+静的限定公開メンバ関数</h2></td></tr>
+<tr class="memitem:a4b8c6a68641def9a2d39c44f2f4d0bb1" id="r_a4b8c6a68641def9a2d39c44f2f4d0bb1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcpplint_1_1_cleansed_linesdocs#a4b8c6a68641def9a2d39c44f2f4d0bb1">_CollapseStrings</a> (elided)</td></tr>
+<tr class="separator:a4b8c6a68641def9a2d39c44f2f4d0bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><pre class="fragment">Holds 4 copies of all lines with different preprocessing applied to them.
+
+1) elided member contains lines without strings and comments.
+2) lines member contains lines without comments.
+3) raw_lines member contains all the lines without processing.
+4) lines_without_raw_strings member is same as raw_lines, but with C++11 raw
+   strings removed.
+All these members are of &lt;type 'list'&gt;, and of the same length.
+</pre> </div><h2 class="groupheader">関数詳解</h2>
+<a id="a4b8c6a68641def9a2d39c44f2f4d0bb1" name="a4b8c6a68641def9a2d39c44f2f4d0bb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b8c6a68641def9a2d39c44f2f4d0bb1">&#9670;&#160;</a></span>_CollapseStrings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">cpplint.CleansedLines._CollapseStrings </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>elided</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">Collapses strings and chars on a line to simple "" or '' blocks.
+
+We nix strings first so we're not fooled by text like '"http://"'
+
+Args:
+  elided: The line being processed.
+
+Returns:
+  The line with collapsed strings.
+</pre> <div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classcpplint_1_1_cleansed_lines_a4b8c6a68641def9a2d39c44f2f4d0bb1_cgraph.png" border="0" usemap="#aclasscpplint_1_1_cleansed_lines_a4b8c6a68641def9a2d39c44f2f4d0bb1_cgraph" alt=""/></div>
+<map name="aclasscpplint_1_1_cleansed_lines_a4b8c6a68641def9a2d39c44f2f4d0bb1_cgraph" id="aclasscpplint_1_1_cleansed_lines_a4b8c6a68641def9a2d39c44f2f4d0bb1_cgraph">
+<area shape="rect" title=" " alt="" coords="5,23,158,65"/>
+<area shape="rect" href="namespacecpplintdocs#aa0db7290fc6bd23f44b6602a6ae22738" title=" " alt="" coords="208,5,308,32"/>
+<area shape="poly" title=" " alt="" coords="158,30,192,25,193,31,158,36"/>
+<area shape="rect" href="namespacecpplintdocs#a515e256f8ccda50d15b9b7401f5264f7" title=" " alt="" coords="206,56,310,83"/>
+<area shape="poly" title=" " alt="" coords="158,52,191,57,190,62,158,58"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="adfe2b45fdf2e0088c726437f67bb3328" name="adfe2b45fdf2e0088c726437f67bb3328"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfe2b45fdf2e0088c726437f67bb3328">&#9670;&#160;</a></span>NumLines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cpplint.CleansedLines.NumLines </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Returns the number of lines represented.</pre> 
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/util/<b>cpplint.py</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacecpplintdocs">cpplint</a></li><li class="navelem"><a class="el" href="classcpplint_1_1_cleansed_linesdocs">CleansedLines</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

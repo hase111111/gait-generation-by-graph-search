@@ -1,5 +1,5 @@
 <map id="designlab::SimpleButton::Update" name="designlab::SimpleButton::Update">
 <area shape="rect" id="Node000001" title="GUIの更新，毎フレーム実行すること．" alt="" coords="5,5,168,48"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a0bb65d79aff7212b0ea64882f22b9b1b" title="目標値に値を近づける関数． 描画用なので，線形でなく，適当に値を近づける． そのため，計算に使いたいなら作り直すこと．" alt="" coords="216,5,353,48"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__utildocs#a0bb65d79aff7212b0ea64882f22b9b1b" title="目標値に値を近づける関数． 描画用なので，線形でなく，適当に値を近づける． そのため，計算に使いたいなら作り直すこと．" alt="" coords="216,5,353,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,24,200,24,200,29,168,29"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="designlab::Quaternion" name="designlab::Quaternion">
 <area shape="rect" id="Node000001" title="クォータニオンを表す構造体．" alt="" coords="5,96,153,123"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector3.html" title="3次元の位置ベクトルを表す構造体．" alt="" coords="14,5,144,32"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector3docs" title="3次元の位置ベクトルを表す構造体．" alt="" coords="14,5,144,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="82,48,82,95,76,95,76,48"/>
 </map>

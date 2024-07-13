@@ -1,11 +1,11 @@
 <map id="designlab::LineSegment2::IsParallel" name="designlab::LineSegment2::IsParallel">
 <area shape="rect" id="Node000001" title="引数の線分と自身が平行かどうか調べる関数． 全て constexpr 関数で処理できるため非常に高速．" alt="" coords="446,72,613,115"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_line_segment2.html#a334682a88e452a95429edf15593d1846" title="他の線分と交点が存在しているかどうか調べ，交点を返す関数．" alt="" coords="221,5,398,48"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_line_segment2docs#a334682a88e452a95429edf15593d1846" title="他の線分と交点が存在しているかどうか調べ，交点を返す関数．" alt="" coords="221,5,398,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="442,70,382,51,383,46,444,65"/>
-<area shape="rect" id="Node000003" href="$structdesignlab_1_1_line_segment2.html#a29ea137970fa696c5789085591e8c2f9" title="他の線分との交点を求める．" alt="" coords="226,72,393,115"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_line_segment2docs#a29ea137970fa696c5789085591e8c2f9" title="他の線分との交点を求める．" alt="" coords="226,72,393,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="430,96,393,96,393,91,430,91"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_line_segment2.html#a8e2bdbc5c825c119d1801aa07bf3555e" title="他の線分と交点が存在しているかどうか調べる関数．" alt="" coords="226,139,393,181"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_line_segment2docs#a8e2bdbc5c825c119d1801aa07bf3555e" title="他の線分と交点が存在しているかどうか調べる関数．" alt="" coords="226,139,393,181"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="444,122,383,141,382,135,442,117"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#aeed1296b4886eb07bc095ca2b5e8c333" title="脚が他の脚と干渉しているかどうかを判定する．" alt="" coords="5,139,173,181"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_phantom_x_mk_i_idocs#aeed1296b4886eb07bc095ca2b5e8c333" title="脚が他の脚と干渉しているかどうかを判定する．" alt="" coords="5,139,173,181"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="210,163,173,163,173,157,210,157"/>
 </map>

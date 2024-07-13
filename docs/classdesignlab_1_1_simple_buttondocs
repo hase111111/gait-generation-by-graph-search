@@ -1,0 +1,617 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: designlab::SimpleButton クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'docs');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classdesignlab_1_1_simple_buttondocs',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="classdesignlab_1_1_simple_button-membersdocs">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">designlab::SimpleButton クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Dxlibのウィンドウのボタンの処理・描画を管理するクラス．  
+ <a href="classdesignlab_1_1_simple_buttondocs#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="simple__button_8h_sourcedocs">simple_button.h</a>&gt;</code></p>
+<div class="dynheader">
+designlab::SimpleButton の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1_simple_button__inherit__graph.png" border="0" usemap="#adesignlab_1_1_simple_button_inherit__map" alt="Inheritance graph"/></div>
+<map name="adesignlab_1_1_simple_button_inherit__map" id="adesignlab_1_1_simple_button_inherit__map">
+<area shape="rect" title="Dxlibのウィンドウのボタンの処理・描画を管理するクラス．" alt="" coords="80,80,243,107"/>
+<area shape="rect" href="classdesignlab_1_1_i_dxlib_guidocs" title="Dxlibの画面に表示するGUIのインターフェース．" alt="" coords="5,5,142,32"/>
+<area shape="poly" title=" " alt="" coords="102,40,148,78,145,82,99,44"/>
+<area shape="rect" href="classdesignlab_1_1_i_dxlib_clickabledocs" title="クリック可能なGUIのインターフェース．" alt="" coords="166,5,336,32"/>
+<area shape="poly" title=" " alt="" coords="225,44,179,82,175,78,222,40"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legenddocs">凡例</a>]</span></center></div>
+<div class="dynheader">
+designlab::SimpleButton 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1_simple_button__coll__graph.png" border="0" usemap="#adesignlab_1_1_simple_button_coll__map" alt="Collaboration graph"/></div>
+<map name="adesignlab_1_1_simple_button_coll__map" id="adesignlab_1_1_simple_button_coll__map">
+<area shape="rect" title="Dxlibのウィンドウのボタンの処理・描画を管理するクラス．" alt="" coords="80,80,243,107"/>
+<area shape="rect" href="classdesignlab_1_1_i_dxlib_guidocs" title="Dxlibの画面に表示するGUIのインターフェース．" alt="" coords="5,5,142,32"/>
+<area shape="poly" title=" " alt="" coords="102,40,148,78,145,82,99,44"/>
+<area shape="rect" href="classdesignlab_1_1_i_dxlib_clickabledocs" title="クリック可能なGUIのインターフェース．" alt="" coords="166,5,336,32"/>
+<area shape="poly" title=" " alt="" coords="225,44,179,82,175,78,222,40"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legenddocs">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:ab21c14244970b81a212e8c500be0c5d6" id="r_ab21c14244970b81a212e8c500be0c5d6"><td class="memItemLeft" align="right" valign="top"><a id="ab21c14244970b81a212e8c500be0c5d6" name="ab21c14244970b81a212e8c500be0c5d6"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>SimpleButton</b> ()=delete</td></tr>
+<tr class="memdesc:ab21c14244970b81a212e8c500be0c5d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">デフォルトコンストラクタは生成できない． <br /></td></tr>
+<tr class="separator:ab21c14244970b81a212e8c500be0c5d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ab178942dc6c0d5fd5bd5919ba0c7ee" id="r_a0ab178942dc6c0d5fd5bd5919ba0c7ee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_simple_buttondocs#a0ab178942dc6c0d5fd5bd5919ba0c7ee">SimpleButton</a> (const std::string &amp;text, int x_pos, int y_pos, int x_size, int y_size, bool fit_size=false)</td></tr>
+<tr class="memdesc:a0ab178942dc6c0d5fd5bd5919ba0c7ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタでボタンのテキスト，座標，サイズを受け取る．  <br /></td></tr>
+<tr class="separator:a0ab178942dc6c0d5fd5bd5919ba0c7ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdcb4693b72520e74ac24f2eb81641a3" id="r_abdcb4693b72520e74ac24f2eb81641a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_simple_buttondocs#abdcb4693b72520e74ac24f2eb81641a3">SetActivateFunction</a> (const std::function&lt; void()&gt; &amp;func)</td></tr>
+<tr class="memdesc:abdcb4693b72520e74ac24f2eb81641a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">ボタンがクリックされたときに実行される関数を設定する．  <br /></td></tr>
+<tr class="separator:abdcb4693b72520e74ac24f2eb81641a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2172c4fc4df4e4d283550131b1e0eca3" id="r_a2172c4fc4df4e4d283550131b1e0eca3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_simple_buttondocs#a2172c4fc4df4e4d283550131b1e0eca3">SetPos</a> (int pos_x, int pos_y, unsigned int option=kDxlibGuiAnchorLeftTop)</td></tr>
+<tr class="memdesc:a2172c4fc4df4e4d283550131b1e0eca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">ボタンの座標を設定する．  <br /></td></tr>
+<tr class="separator:a2172c4fc4df4e4d283550131b1e0eca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03ff0c723b8f80b156d8a4490c1b931c" id="r_a03ff0c723b8f80b156d8a4490c1b931c"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_simple_buttondocs#a03ff0c723b8f80b156d8a4490c1b931c">GetPosMiddleX</a> () const noexcept</td></tr>
+<tr class="memdesc:a03ff0c723b8f80b156d8a4490c1b931c"><td class="mdescLeft">&#160;</td><td class="mdescRight">ボタンのx座標を取得する．  <br /></td></tr>
+<tr class="separator:a03ff0c723b8f80b156d8a4490c1b931c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a791c43ee053a9f4ddf57af33c9e459" id="r_a2a791c43ee053a9f4ddf57af33c9e459"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_simple_buttondocs#a2a791c43ee053a9f4ddf57af33c9e459">GetPosMiddleY</a> () const noexcept</td></tr>
+<tr class="memdesc:a2a791c43ee053a9f4ddf57af33c9e459"><td class="mdescLeft">&#160;</td><td class="mdescRight">ボタンのy座標を取得する．  <br /></td></tr>
+<tr class="separator:a2a791c43ee053a9f4ddf57af33c9e459"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a457f013b6ca3c46f96c23a2946aeb2fa" id="r_a457f013b6ca3c46f96c23a2946aeb2fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_simple_buttondocs#a457f013b6ca3c46f96c23a2946aeb2fa">Update</a> () override</td></tr>
+<tr class="memdesc:a457f013b6ca3c46f96c23a2946aeb2fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIの更新，毎フレーム実行すること．  <br /></td></tr>
+<tr class="separator:a457f013b6ca3c46f96c23a2946aeb2fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2eef161f2499afff52e80f6c7254954e" id="r_a2eef161f2499afff52e80f6c7254954e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_simple_buttondocs#a2eef161f2499afff52e80f6c7254954e">Draw</a> () const override</td></tr>
+<tr class="memdesc:a2eef161f2499afff52e80f6c7254954e"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIの描画．  <br /></td></tr>
+<tr class="separator:a2eef161f2499afff52e80f6c7254954e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac391cc64d0e2b1674f459a289a0c8fd" id="r_aac391cc64d0e2b1674f459a289a0c8fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_simple_buttondocs#aac391cc64d0e2b1674f459a289a0c8fd">SetVisible</a> (bool visible) override</td></tr>
+<tr class="memdesc:aac391cc64d0e2b1674f459a289a0c8fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIの表示を行うかどうかを設定する．  <br /></td></tr>
+<tr class="separator:aac391cc64d0e2b1674f459a289a0c8fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a168dcfba5fe26291c1961f077da42f6b" id="r_a168dcfba5fe26291c1961f077da42f6b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_simple_buttondocs#a168dcfba5fe26291c1961f077da42f6b">IsVisible</a> () const override</td></tr>
+<tr class="memdesc:a168dcfba5fe26291c1961f077da42f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIの表示を行うかどうかを返す．  <br /></td></tr>
+<tr class="separator:a168dcfba5fe26291c1961f077da42f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae02c78ddebd16c746b046c9df210e000" id="r_ae02c78ddebd16c746b046c9df210e000"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_simple_buttondocs#ae02c78ddebd16c746b046c9df210e000">ClickedAction</a> (const <a class="el" href="structdesignlab_1_1_dxlib_mouse_statedocs">DxlibMouseState</a> &amp;state) override</td></tr>
+<tr class="memdesc:ae02c78ddebd16c746b046c9df210e000"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIがクリックされたときに実行される関数． <br  />
+ CursorOnGuiが true を返すときに呼び出される． 複数のGUIが重なっている場合は，優先度の高いものから順に呼び出される．  <br /></td></tr>
+<tr class="separator:ae02c78ddebd16c746b046c9df210e000"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9276d574483a456e85347626610ed6b0" id="r_a9276d574483a456e85347626610ed6b0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_simple_buttondocs#a9276d574483a456e85347626610ed6b0">CursorOnGui</a> (int cursor_x, int cursor_y) const noexcept override</td></tr>
+<tr class="memdesc:a9276d574483a456e85347626610ed6b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIの上にカーソルがあるかどうかを返す．  <br /></td></tr>
+<tr class="separator:a9276d574483a456e85347626610ed6b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>Dxlibのウィンドウのボタンの処理・描画を管理するクラス． </p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="a0ab178942dc6c0d5fd5bd5919ba0c7ee" name="a0ab178942dc6c0d5fd5bd5919ba0c7ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ab178942dc6c0d5fd5bd5919ba0c7ee">&#9670;&#160;</a></span>SimpleButton()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">designlab::SimpleButton::SimpleButton </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x_pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y_pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>fit_size</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コンストラクタでボタンのテキスト，座標，サイズを受け取る． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">text</td><td>ボタンに書かれるテキスト． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x_pos</td><td>ボタンのx座標．ボタンの中心座標． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y_pos</td><td>ボタンのy座標．ボタンの中心座標． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x_size</td><td>ボタンの横幅． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y_size</td><td>ボタンの縦幅． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fit_size</td><td>ボタンのサイズをテキストに合わせるかどうか． defaultでは false． </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="ae02c78ddebd16c746b046c9df210e000" name="ae02c78ddebd16c746b046c9df210e000"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae02c78ddebd16c746b046c9df210e000">&#9670;&#160;</a></span>ClickedAction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::SimpleButton::ClickedAction </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdesignlab_1_1_dxlib_mouse_statedocs">DxlibMouseState</a> &amp;&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GUIがクリックされたときに実行される関数． <br  />
+ CursorOnGuiが true を返すときに呼び出される． 複数のGUIが重なっている場合は，優先度の高いものから順に呼び出される． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">state</td><td>マウスの状態． </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><a class="el" href="classdesignlab_1_1_i_dxlib_clickabledocs#ae9169022c76444f5b43e705620bd0a11">designlab::IDxlibClickable</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="a9276d574483a456e85347626610ed6b0" name="a9276d574483a456e85347626610ed6b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9276d574483a456e85347626610ed6b0">&#9670;&#160;</a></span>CursorOnGui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool designlab::SimpleButton::CursorOnGui </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cursor_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cursor_y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GUIの上にカーソルがあるかどうかを返す． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cursor_x</td><td>マウスカーソルのX座標．左端を0とし，右に正の値をとる． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cursor_y</td><td>マウスカーソルのY座標．上端を0とし，下に正の値をとる． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>GUIの上にカーソルがあるならば trueを返す． </dd></dl>
+
+<p><a class="el" href="classdesignlab_1_1_i_dxlib_clickabledocs#a2c1f490c09042032d431f0f726d1697f">designlab::IDxlibClickable</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="a2eef161f2499afff52e80f6c7254954e" name="a2eef161f2499afff52e80f6c7254954e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eef161f2499afff52e80f6c7254954e">&#9670;&#160;</a></span>Draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::SimpleButton::Draw </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GUIの描画． </p>
+
+<p><a class="el" href="classdesignlab_1_1_i_dxlib_guidocs#a52cacc8bd0ac00f8a548e01838525c80">designlab::IDxlibGui</a>を実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1_simple_button_a2eef161f2499afff52e80f6c7254954e_cgraph.png" border="0" usemap="#aclassdesignlab_1_1_simple_button_a2eef161f2499afff52e80f6c7254954e_cgraph" alt=""/></div>
+<map name="aclassdesignlab_1_1_simple_button_a2eef161f2499afff52e80f6c7254954e_cgraph" id="aclassdesignlab_1_1_simple_button_a2eef161f2499afff52e80f6c7254954e_cgraph">
+<area shape="rect" title="GUIの描画．" alt="" coords="5,39,168,81"/>
+<area shape="rect" href="classdesignlab_1_1_font_loaderdocs#a4a3466a84bcce2086502a0bd4e3c5f61" title="Dxlibでは特定のフォントで描画する際に，フォントのハンドルを指定する． &#160;&#160;この関数では，フォントのファイルパスを指定すると， フォントのハンドル番号を返す． &#160;&#160;フォントがまだ読み込まれていない場..." alt="" coords="219,5,369,48"/>
+<area shape="poly" title=" " alt="" coords="168,44,204,38,205,44,169,50"/>
+<area shape="rect" href="classdesignlab_1_1_singletondocs#a1f95c7ccffdb673174f681e9c0d7dde0" title="インスタンスを取得する． &#160;&#160;このクラスを継承したクラスは クラス名::getIns()&#45;&gt; の形式でメンバ関数を呼び出す．" alt="" coords="216,72,372,115"/>
+<area shape="poly" title=" " alt="" coords="169,70,201,76,200,81,168,76"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a03ff0c723b8f80b156d8a4490c1b931c" name="a03ff0c723b8f80b156d8a4490c1b931c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03ff0c723b8f80b156d8a4490c1b931c">&#9670;&#160;</a></span>GetPosMiddleX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int designlab::SimpleButton::GetPosMiddleX </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ボタンのx座標を取得する． </p>
+<dl class="section return"><dt>戻り値</dt><dd>ボタンのx座標．ボタンの中心座標． </dd></dl>
+
+</div>
+</div>
+<a id="a2a791c43ee053a9f4ddf57af33c9e459" name="a2a791c43ee053a9f4ddf57af33c9e459"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a791c43ee053a9f4ddf57af33c9e459">&#9670;&#160;</a></span>GetPosMiddleY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int designlab::SimpleButton::GetPosMiddleY </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ボタンのy座標を取得する． </p>
+<dl class="section return"><dt>戻り値</dt><dd>ボタンのy座標．ボタンの中心座標． </dd></dl>
+
+</div>
+</div>
+<a id="a168dcfba5fe26291c1961f077da42f6b" name="a168dcfba5fe26291c1961f077da42f6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a168dcfba5fe26291c1961f077da42f6b">&#9670;&#160;</a></span>IsVisible()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool designlab::SimpleButton::IsVisible </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GUIの表示を行うかどうかを返す． </p>
+<dl class="section return"><dt>戻り値</dt><dd>GUIの表示を行うかどうか． </dd></dl>
+
+<p><a class="el" href="classdesignlab_1_1_i_dxlib_guidocs#aec021733be993280162e8f0648eb5cdc">designlab::IDxlibGui</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="abdcb4693b72520e74ac24f2eb81641a3" name="abdcb4693b72520e74ac24f2eb81641a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdcb4693b72520e74ac24f2eb81641a3">&#9670;&#160;</a></span>SetActivateFunction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::SimpleButton::SetActivateFunction </td>
+          <td>(</td>
+          <td class="paramtype">const std::function&lt; void()&gt; &amp;&#160;</td>
+          <td class="paramname"><em>func</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ボタンがクリックされたときに実行される関数を設定する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>ボタンがクリックされたときに実行される関数． </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2172c4fc4df4e4d283550131b1e0eca3" name="a2172c4fc4df4e4d283550131b1e0eca3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2172c4fc4df4e4d283550131b1e0eca3">&#9670;&#160;</a></span>SetPos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::SimpleButton::SetPos </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pos_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pos_y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>option</em> = <code>kDxlibGuiAnchorLeftTop</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ボタンの座標を設定する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pos_x</td><td>ボタンのx座標． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pos_y</td><td>ボタンのy座標． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">option</td><td>ボタンのどの地点を起点に座標を設定するかを指定する． defaultでは左上を起点とする． </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aac391cc64d0e2b1674f459a289a0c8fd" name="aac391cc64d0e2b1674f459a289a0c8fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac391cc64d0e2b1674f459a289a0c8fd">&#9670;&#160;</a></span>SetVisible()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::SimpleButton::SetVisible </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>visible</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GUIの表示を行うかどうかを設定する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">visible</td><td>GUIの表示を行うかどうか． </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><a class="el" href="classdesignlab_1_1_i_dxlib_guidocs#a8b72d49c53a21e5bce60847c96e8e443">designlab::IDxlibGui</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="a457f013b6ca3c46f96c23a2946aeb2fa" name="a457f013b6ca3c46f96c23a2946aeb2fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a457f013b6ca3c46f96c23a2946aeb2fa">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::SimpleButton::Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GUIの更新，毎フレーム実行すること． </p>
+
+<p><a class="el" href="classdesignlab_1_1_i_dxlib_guidocs#ae40a0470d3022b23f8967f973d290953">designlab::IDxlibGui</a>を実装しています。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1_simple_button_a457f013b6ca3c46f96c23a2946aeb2fa_cgraph.png" border="0" usemap="#aclassdesignlab_1_1_simple_button_a457f013b6ca3c46f96c23a2946aeb2fa_cgraph" alt=""/></div>
+<map name="aclassdesignlab_1_1_simple_button_a457f013b6ca3c46f96c23a2946aeb2fa_cgraph" id="aclassdesignlab_1_1_simple_button_a457f013b6ca3c46f96c23a2946aeb2fa_cgraph">
+<area shape="rect" title="GUIの更新，毎フレーム実行すること．" alt="" coords="5,5,168,48"/>
+<area shape="rect" href="namespacedesignlab_1_1math__utildocs#a0bb65d79aff7212b0ea64882f22b9b1b" title="目標値に値を近づける関数． 描画用なので，線形でなく，適当に値を近づける． そのため，計算に使いたいなら作り直すこと．" alt="" coords="216,5,353,48"/>
+<area shape="poly" title=" " alt="" coords="168,24,200,24,200,29,168,29"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/DesignLab/<a class="el" href="simple__button_8h_sourcedocs">simple_button.h</a></li>
+<li>C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/DesignLab/<b>simple_button.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacedesignlabdocs">designlab</a></li><li class="navelem"><a class="el" href="classdesignlab_1_1_simple_buttondocs">SimpleButton</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

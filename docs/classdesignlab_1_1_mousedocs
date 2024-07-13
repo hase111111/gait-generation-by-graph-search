@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: designlab::Mouse クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'docs');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classdesignlab_1_1_mousedocs',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="classdesignlab_1_1_mouse-membersdocs">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">designlab::Mouse クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Dxlibでマウス入力を取得するクラス．  
+ <a href="classdesignlab_1_1_mousedocs#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="mouse_8h_sourcedocs">mouse.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a6168c87684c1d827824bb33187a2bc16" id="r_a6168c87684c1d827824bb33187a2bc16"><td class="memItemLeft" align="right" valign="top"><a id="a6168c87684c1d827824bb33187a2bc16" name="a6168c87684c1d827824bb33187a2bc16"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></tr>
+<tr class="memdesc:a6168c87684c1d827824bb33187a2bc16"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウス入力を更新する．これを毎フレーム実行しないと， マウス入力を取得できない． <br /></td></tr>
+<tr class="separator:a6168c87684c1d827824bb33187a2bc16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d743cdb60f507974f6a1a771b77fef4" id="r_a2d743cdb60f507974f6a1a771b77fef4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_mousedocs#a2d743cdb60f507974f6a1a771b77fef4">GetPressingCount</a> (int mouse_code) const</td></tr>
+<tr class="memdesc:a2d743cdb60f507974f6a1a771b77fef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">ボタンが押されているフレーム数を取得する．  <br /></td></tr>
+<tr class="separator:a2d743cdb60f507974f6a1a771b77fef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a497b0f0ffbaade89343ec1c457c6c0d3" id="r_a497b0f0ffbaade89343ec1c457c6c0d3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_mousedocs#a497b0f0ffbaade89343ec1c457c6c0d3">GetReleasingCount</a> (int mouse_code) const</td></tr>
+<tr class="memdesc:a497b0f0ffbaade89343ec1c457c6c0d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">ボタンが離されているフレーム数を取得する．  <br /></td></tr>
+<tr class="separator:a497b0f0ffbaade89343ec1c457c6c0d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a808018ba268fcb50f56d69762dd643f9" id="r_a808018ba268fcb50f56d69762dd643f9"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_mousedocs#a808018ba268fcb50f56d69762dd643f9">GetCursorPosX</a> () const noexcept</td></tr>
+<tr class="memdesc:a808018ba268fcb50f56d69762dd643f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスカーソルの位置を取得する． X座標は画面の左端を0として，右向きが正． これは Dxlib の仕様なので変更不能．  <br /></td></tr>
+<tr class="separator:a808018ba268fcb50f56d69762dd643f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d0b65b6e6652c690211860b39a80da5" id="r_a2d0b65b6e6652c690211860b39a80da5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_mousedocs#a2d0b65b6e6652c690211860b39a80da5">GetDiffPosX</a> () const</td></tr>
+<tr class="memdesc:a2d0b65b6e6652c690211860b39a80da5"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスカーソルの移動量を取得する． X座標は画面の左端を0として，右向きが正． これは Dxlib の仕様なので変更不能．  <br /></td></tr>
+<tr class="separator:a2d0b65b6e6652c690211860b39a80da5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa52f645786a745fad616baae1115feae" id="r_aa52f645786a745fad616baae1115feae"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_mousedocs#aa52f645786a745fad616baae1115feae">GetCursorPosY</a> () const noexcept</td></tr>
+<tr class="memdesc:aa52f645786a745fad616baae1115feae"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスカーソルの位置を取得する． Y座標は画面の上端を0として，下向きが正． これは Dxlib の仕様なので変更不能．  <br /></td></tr>
+<tr class="separator:aa52f645786a745fad616baae1115feae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a871bbb03d9b5f2b4159725f76dcd7e9a" id="r_a871bbb03d9b5f2b4159725f76dcd7e9a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_mousedocs#a871bbb03d9b5f2b4159725f76dcd7e9a">GetDiffPosY</a> () const</td></tr>
+<tr class="memdesc:a871bbb03d9b5f2b4159725f76dcd7e9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスカーソルの移動量を取得する． Y座標は画面の上端を0として，下向きが正． これは Dxlib の仕様なので変更不能．  <br /></td></tr>
+<tr class="separator:a871bbb03d9b5f2b4159725f76dcd7e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9a3594d08805c288bb7daabd35e9749" id="r_ab9a3594d08805c288bb7daabd35e9749"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_mousedocs#ab9a3594d08805c288bb7daabd35e9749">GetDiffPos</a> () const</td></tr>
+<tr class="memdesc:ab9a3594d08805c288bb7daabd35e9749"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスカーソルの移動量を取得する．  <br /></td></tr>
+<tr class="separator:ab9a3594d08805c288bb7daabd35e9749"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b107e82eb18fac64141f30dc41f8888" id="r_a5b107e82eb18fac64141f30dc41f8888"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_mousedocs#a5b107e82eb18fac64141f30dc41f8888">GetWheelRot</a> () const noexcept</td></tr>
+<tr class="memdesc:a5b107e82eb18fac64141f30dc41f8888"><td class="mdescLeft">&#160;</td><td class="mdescRight">マウスのホイールの回転量を取得する． <br  />
+ 1フレームで回転した量を取得する． <br  />
+ 手前に回した分はマイナスの値として、 奥に回した分はプラスの値として返る  <br /></td></tr>
+<tr class="separator:a5b107e82eb18fac64141f30dc41f8888"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>Dxlibでマウス入力を取得するクラス． </p>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="a808018ba268fcb50f56d69762dd643f9" name="a808018ba268fcb50f56d69762dd643f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a808018ba268fcb50f56d69762dd643f9">&#9670;&#160;</a></span>GetCursorPosX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int designlab::Mouse::GetCursorPosX </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>マウスカーソルの位置を取得する． X座標は画面の左端を0として，右向きが正． これは Dxlib の仕様なので変更不能． </p>
+<dl class="section return"><dt>戻り値</dt><dd>マウスカーソルのX座標． </dd></dl>
+
+</div>
+</div>
+<a id="aa52f645786a745fad616baae1115feae" name="aa52f645786a745fad616baae1115feae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa52f645786a745fad616baae1115feae">&#9670;&#160;</a></span>GetCursorPosY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int designlab::Mouse::GetCursorPosY </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>マウスカーソルの位置を取得する． Y座標は画面の上端を0として，下向きが正． これは Dxlib の仕様なので変更不能． </p>
+<dl class="section return"><dt>戻り値</dt><dd>マウスカーソルのY座標． </dd></dl>
+
+</div>
+</div>
+<a id="ab9a3594d08805c288bb7daabd35e9749" name="ab9a3594d08805c288bb7daabd35e9749"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9a3594d08805c288bb7daabd35e9749">&#9670;&#160;</a></span>GetDiffPos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double designlab::Mouse::GetDiffPos </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>マウスカーソルの移動量を取得する． </p>
+<dl class="section return"><dt>戻り値</dt><dd>double マウスカーソルの移動量． </dd></dl>
+
+</div>
+</div>
+<a id="a2d0b65b6e6652c690211860b39a80da5" name="a2d0b65b6e6652c690211860b39a80da5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d0b65b6e6652c690211860b39a80da5">&#9670;&#160;</a></span>GetDiffPosX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int designlab::Mouse::GetDiffPosX </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>マウスカーソルの移動量を取得する． X座標は画面の左端を0として，右向きが正． これは Dxlib の仕様なので変更不能． </p>
+<dl class="section return"><dt>戻り値</dt><dd>マウスカーソルのX方向の移動量． </dd></dl>
+
+</div>
+</div>
+<a id="a871bbb03d9b5f2b4159725f76dcd7e9a" name="a871bbb03d9b5f2b4159725f76dcd7e9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a871bbb03d9b5f2b4159725f76dcd7e9a">&#9670;&#160;</a></span>GetDiffPosY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int designlab::Mouse::GetDiffPosY </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>マウスカーソルの移動量を取得する． Y座標は画面の上端を0として，下向きが正． これは Dxlib の仕様なので変更不能． </p>
+<dl class="section return"><dt>戻り値</dt><dd>マウスカーソルのY方向の移動量． </dd></dl>
+
+</div>
+</div>
+<a id="a2d743cdb60f507974f6a1a771b77fef4" name="a2d743cdb60f507974f6a1a771b77fef4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d743cdb60f507974f6a1a771b77fef4">&#9670;&#160;</a></span>GetPressingCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int designlab::Mouse::GetPressingCount </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mouse_code</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ボタンが押されているフレーム数を取得する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mouseCode</td><td>どのボタンを調べたいか． <br  />
+ 例えば右クリックだったら，MOUSE_INPUT_RIGHTとなる． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>押されているフレーム数． 異常な mouse_code が渡された場合は - 1を返す． </dd></dl>
+
+</div>
+</div>
+<a id="a497b0f0ffbaade89343ec1c457c6c0d3" name="a497b0f0ffbaade89343ec1c457c6c0d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a497b0f0ffbaade89343ec1c457c6c0d3">&#9670;&#160;</a></span>GetReleasingCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int designlab::Mouse::GetReleasingCount </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mouse_code</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ボタンが離されているフレーム数を取得する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mouseCode</td><td>どのボタンを調べたいか． <br  />
+ 例えば右クリックだったら，MOUSE_INPUT_RIGHT となる． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>離されているフレーム数． 異常な mouse_code が渡された場合は-1を返す． </dd></dl>
+
+</div>
+</div>
+<a id="a5b107e82eb18fac64141f30dc41f8888" name="a5b107e82eb18fac64141f30dc41f8888"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b107e82eb18fac64141f30dc41f8888">&#9670;&#160;</a></span>GetWheelRot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int designlab::Mouse::GetWheelRot </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>マウスのホイールの回転量を取得する． <br  />
+ 1フレームで回転した量を取得する． <br  />
+ 手前に回した分はマイナスの値として、 奥に回した分はプラスの値として返る </p>
+<dl class="section return"><dt>戻り値</dt><dd>int マウスホイールの回転量． </dd></dl>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/DesignLab/<a class="el" href="mouse_8h_sourcedocs">mouse.h</a></li>
+<li>C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/DesignLab/<b>mouse.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacedesignlabdocs">designlab</a></li><li class="navelem"><a class="el" href="classdesignlab_1_1_mousedocs">Mouse</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,5 +1,5 @@
 <map id="designlab::leg_func::ChangeAllLegGround" name="designlab::leg_func::ChangeAllLegGround">
 <area shape="rect" id="Node000001" title="全ての脚の接地・遊脚情報を変更する．" alt="" coords="5,5,157,48"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__func.html#aaa0778536285e1ec0fa1b7a1470e6186" title="脚の接地・遊脚情報を変更する．" alt="" coords="205,5,337,48"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__funcdocs#aaa0778536285e1ec0fa1b7a1470e6186" title="脚の接地・遊脚情報を変更する．" alt="" coords="205,5,337,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,24,189,24,189,29,157,29"/>
 </map>

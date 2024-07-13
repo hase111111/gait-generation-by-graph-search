@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: designlab::DxlibGuiTerminal クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'docs');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classdesignlab_1_1_dxlib_gui_terminaldocs',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="classdesignlab_1_1_dxlib_gui_terminal-membersdocs">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">designlab::DxlibGuiTerminal クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>×ボタンを押して消えたGUIを復活させるためのクラス．  
+ <a href="classdesignlab_1_1_dxlib_gui_terminaldocs#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="dxlib__gui__terminal_8h_sourcedocs">dxlib_gui_terminal.h</a>&gt;</code></p>
+<div class="dynheader">
+designlab::DxlibGuiTerminal の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1_dxlib_gui_terminal__inherit__graph.png" border="0" usemap="#adesignlab_1_1_dxlib_gui_terminal_inherit__map" alt="Inheritance graph"/></div>
+<map name="adesignlab_1_1_dxlib_gui_terminal_inherit__map" id="adesignlab_1_1_dxlib_gui_terminal_inherit__map">
+<area shape="rect" title="×ボタンを押して消えたGUIを復活させるためのクラス．" alt="" coords="70,80,253,107"/>
+<area shape="rect" href="classdesignlab_1_1_i_dxlib_guidocs" title="Dxlibの画面に表示するGUIのインターフェース．" alt="" coords="5,5,142,32"/>
+<area shape="poly" title=" " alt="" coords="102,40,148,78,145,82,99,44"/>
+<area shape="rect" href="classdesignlab_1_1_i_dxlib_clickabledocs" title="クリック可能なGUIのインターフェース．" alt="" coords="166,5,336,32"/>
+<area shape="poly" title=" " alt="" coords="225,44,179,82,175,78,222,40"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legenddocs">凡例</a>]</span></center></div>
+<div class="dynheader">
+designlab::DxlibGuiTerminal 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1_dxlib_gui_terminal__coll__graph.png" border="0" usemap="#adesignlab_1_1_dxlib_gui_terminal_coll__map" alt="Collaboration graph"/></div>
+<map name="adesignlab_1_1_dxlib_gui_terminal_coll__map" id="adesignlab_1_1_dxlib_gui_terminal_coll__map">
+<area shape="rect" title="×ボタンを押して消えたGUIを復活させるためのクラス．" alt="" coords="70,80,253,107"/>
+<area shape="rect" href="classdesignlab_1_1_i_dxlib_guidocs" title="Dxlibの画面に表示するGUIのインターフェース．" alt="" coords="5,5,142,32"/>
+<area shape="poly" title=" " alt="" coords="102,40,148,78,145,82,99,44"/>
+<area shape="rect" href="classdesignlab_1_1_i_dxlib_clickabledocs" title="クリック可能なGUIのインターフェース．" alt="" coords="166,5,336,32"/>
+<area shape="poly" title=" " alt="" coords="225,44,179,82,175,78,222,40"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legenddocs">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:ae9427d4a42e594d1b4e0f3984dc6f353" id="r_ae9427d4a42e594d1b4e0f3984dc6f353"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_dxlib_gui_terminaldocs#ae9427d4a42e594d1b4e0f3984dc6f353">DxlibGuiTerminal</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="classdesignlab_1_1_i_dxlib_guidocs">IDxlibGui</a> &gt; &gt; gui_list)</td></tr>
+<tr class="separator:ae9427d4a42e594d1b4e0f3984dc6f353"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade2d05589985d457462215a7897a0af2" id="r_ade2d05589985d457462215a7897a0af2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_dxlib_gui_terminaldocs#ade2d05589985d457462215a7897a0af2">Update</a> () override</td></tr>
+<tr class="memdesc:ade2d05589985d457462215a7897a0af2"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIの更新，毎フレーム実行すること．  <br /></td></tr>
+<tr class="separator:ade2d05589985d457462215a7897a0af2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab99afa1131e374cfb2ac202b172e4b86" id="r_ab99afa1131e374cfb2ac202b172e4b86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_dxlib_gui_terminaldocs#ab99afa1131e374cfb2ac202b172e4b86">Draw</a> () const override</td></tr>
+<tr class="memdesc:ab99afa1131e374cfb2ac202b172e4b86"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIの描画．  <br /></td></tr>
+<tr class="separator:ab99afa1131e374cfb2ac202b172e4b86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace5dfb8e0f0a4472532d94766b854517" id="r_ace5dfb8e0f0a4472532d94766b854517"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_dxlib_gui_terminaldocs#ace5dfb8e0f0a4472532d94766b854517">SetVisible</a> (bool visible)</td></tr>
+<tr class="memdesc:ace5dfb8e0f0a4472532d94766b854517"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIの表示を行うかどうかを設定する．  <br /></td></tr>
+<tr class="separator:ace5dfb8e0f0a4472532d94766b854517"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef24adb3b9eb5454e7db75352a423595" id="r_aef24adb3b9eb5454e7db75352a423595"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_dxlib_gui_terminaldocs#aef24adb3b9eb5454e7db75352a423595">IsVisible</a> () const</td></tr>
+<tr class="memdesc:aef24adb3b9eb5454e7db75352a423595"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIの表示を行うかどうかを返す．  <br /></td></tr>
+<tr class="separator:aef24adb3b9eb5454e7db75352a423595"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af07ff5bb007976ca91adcecf5e4de3f6" id="r_af07ff5bb007976ca91adcecf5e4de3f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_dxlib_gui_terminaldocs#af07ff5bb007976ca91adcecf5e4de3f6">ClickedAction</a> (const <a class="el" href="structdesignlab_1_1_dxlib_mouse_statedocs">DxlibMouseState</a> &amp;state)</td></tr>
+<tr class="memdesc:af07ff5bb007976ca91adcecf5e4de3f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIがクリックされたときに実行される関数． <br  />
+ CursorOnGuiが true を返すときに呼び出される． 複数のGUIが重なっている場合は，優先度の高いものから順に呼び出される．  <br /></td></tr>
+<tr class="separator:af07ff5bb007976ca91adcecf5e4de3f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a521d869f02eeeea0625a521b1f2d4a52" id="r_a521d869f02eeeea0625a521b1f2d4a52"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_dxlib_gui_terminaldocs#a521d869f02eeeea0625a521b1f2d4a52">CursorOnGui</a> (int cursor_x, int cursor_y) const noexcept</td></tr>
+<tr class="memdesc:a521d869f02eeeea0625a521b1f2d4a52"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIの上にカーソルがあるかどうかを返す．  <br /></td></tr>
+<tr class="separator:a521d869f02eeeea0625a521b1f2d4a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>×ボタンを押して消えたGUIを復活させるためのクラス． </p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="ae9427d4a42e594d1b4e0f3984dc6f353" name="ae9427d4a42e594d1b4e0f3984dc6f353"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9427d4a42e594d1b4e0f3984dc6f353">&#9670;&#160;</a></span>DxlibGuiTerminal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">designlab::DxlibGuiTerminal::DxlibGuiTerminal </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classdesignlab_1_1_i_dxlib_guidocs">IDxlibGui</a> &gt; &gt;&#160;</td>
+          <td class="paramname"><em>gui_list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="todo"><dt><b><a class="el" href="tododocs#_todo000004">todo:</a></b></dt><dd>処理をまとめる． </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="af07ff5bb007976ca91adcecf5e4de3f6" name="af07ff5bb007976ca91adcecf5e4de3f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af07ff5bb007976ca91adcecf5e4de3f6">&#9670;&#160;</a></span>ClickedAction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::DxlibGuiTerminal::ClickedAction </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdesignlab_1_1_dxlib_mouse_statedocs">DxlibMouseState</a> &amp;&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GUIがクリックされたときに実行される関数． <br  />
+ CursorOnGuiが true を返すときに呼び出される． 複数のGUIが重なっている場合は，優先度の高いものから順に呼び出される． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">state</td><td>マウスの状態． </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><a class="el" href="classdesignlab_1_1_i_dxlib_clickabledocs#ae9169022c76444f5b43e705620bd0a11">designlab::IDxlibClickable</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="a521d869f02eeeea0625a521b1f2d4a52" name="a521d869f02eeeea0625a521b1f2d4a52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a521d869f02eeeea0625a521b1f2d4a52">&#9670;&#160;</a></span>CursorOnGui()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool designlab::DxlibGuiTerminal::CursorOnGui </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cursor_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cursor_y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GUIの上にカーソルがあるかどうかを返す． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cursor_x</td><td>マウスカーソルのX座標．左端を0とし，右に正の値をとる． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cursor_y</td><td>マウスカーソルのY座標．上端を0とし，下に正の値をとる． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>GUIの上にカーソルがあるならば trueを返す． </dd></dl>
+
+<p><a class="el" href="classdesignlab_1_1_i_dxlib_clickabledocs#a2c1f490c09042032d431f0f726d1697f">designlab::IDxlibClickable</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="ab99afa1131e374cfb2ac202b172e4b86" name="ab99afa1131e374cfb2ac202b172e4b86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab99afa1131e374cfb2ac202b172e4b86">&#9670;&#160;</a></span>Draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::DxlibGuiTerminal::Draw </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GUIの描画． </p>
+
+<p><a class="el" href="classdesignlab_1_1_i_dxlib_guidocs#a52cacc8bd0ac00f8a548e01838525c80">designlab::IDxlibGui</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="aef24adb3b9eb5454e7db75352a423595" name="aef24adb3b9eb5454e7db75352a423595"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef24adb3b9eb5454e7db75352a423595">&#9670;&#160;</a></span>IsVisible()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool designlab::DxlibGuiTerminal::IsVisible </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GUIの表示を行うかどうかを返す． </p>
+<dl class="section return"><dt>戻り値</dt><dd>GUIの表示を行うかどうか． </dd></dl>
+
+<p><a class="el" href="classdesignlab_1_1_i_dxlib_guidocs#aec021733be993280162e8f0648eb5cdc">designlab::IDxlibGui</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="ace5dfb8e0f0a4472532d94766b854517" name="ace5dfb8e0f0a4472532d94766b854517"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace5dfb8e0f0a4472532d94766b854517">&#9670;&#160;</a></span>SetVisible()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::DxlibGuiTerminal::SetVisible </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>visible</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GUIの表示を行うかどうかを設定する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">visible</td><td>GUIの表示を行うかどうか． </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><a class="el" href="classdesignlab_1_1_i_dxlib_guidocs#a8b72d49c53a21e5bce60847c96e8e443">designlab::IDxlibGui</a>を実装しています。</p>
+
+</div>
+</div>
+<a id="ade2d05589985d457462215a7897a0af2" name="ade2d05589985d457462215a7897a0af2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade2d05589985d457462215a7897a0af2">&#9670;&#160;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::DxlibGuiTerminal::Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GUIの更新，毎フレーム実行すること． </p>
+
+<p><a class="el" href="classdesignlab_1_1_i_dxlib_guidocs#ae40a0470d3022b23f8967f973d290953">designlab::IDxlibGui</a>を実装しています。</p>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/DesignLab/<a class="el" href="dxlib__gui__terminal_8h_sourcedocs">dxlib_gui_terminal.h</a></li>
+<li>C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/DesignLab/<b>dxlib_gui_terminal.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacedesignlabdocs">designlab</a></li><li class="navelem"><a class="el" href="classdesignlab_1_1_dxlib_gui_terminaldocs">DxlibGuiTerminal</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

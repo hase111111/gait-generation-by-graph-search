@@ -1,5 +1,5 @@
 <map id="designlab::RotationMatrix3x3::CreateRotationMatrixX" name="designlab::RotationMatrix3x3::CreateRotationMatrixX">
 <area shape="rect" id="Node000001" title="x軸周りに回転する回転行列を生成する．" alt="" coords="236,5,425,48"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab.html#a3aa3e315aa55ffe66c5cc4fef3c1b04f" title="XYZオイラー角から回転角行列への変換．" alt="" coords="5,13,188,40"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlabdocs#a3aa3e315aa55ffe66c5cc4fef3c1b04f" title="XYZオイラー角から回転角行列への変換．" alt="" coords="5,13,188,40"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,29,188,29,188,24,220,24"/>
 </map>

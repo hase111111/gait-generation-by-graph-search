@@ -1,5 +1,5 @@
 <map id="designlab::Vector2::IsZero" name="designlab::Vector2::IsZero">
 <area shape="rect" id="Node000001" title="このベクトルが0ならば true．" alt="" coords="5,5,135,48"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a92c055e0799991e88871e2a5d4f09280" title="C++において，小数同士の計算は誤差が出てしまう． 誤差込みで値が等しいか調べる．" alt="" coords="183,5,320,48"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__utildocs#a92c055e0799991e88871e2a5d4f09280" title="C++において，小数同士の計算は誤差が出てしまう． 誤差込みで値が等しいか調べる．" alt="" coords="183,5,320,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,24,167,24,167,29,135,29"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="designlab::GaitPatternGeneratorBasic" name="designlab::GaitPatternGeneratorBasic">
 <area shape="rect" id="Node000001" title="普通にグラフ探索を行い，歩容パターン生成を行うクラス．" alt="" coords="7,80,214,123"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_gait_pattern_generator.html" title="グラフ探索による歩容パターン生成を行うクラスのインターフェース．" alt="" coords="5,5,216,32"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_gait_pattern_generatordocs" title="グラフ探索による歩容パターン生成を行うクラスのインターフェース．" alt="" coords="5,5,216,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,48,113,80,108,80,108,48"/>
 </map>

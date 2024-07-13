@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['designlabdoxygen_0',['DesignLabDoxygen',['../index.html',1,'']]]
+  ['by_20graph_20search_0',['GaitGeneration by Graph Search',['../indexdocs',1,'']]]
 ];

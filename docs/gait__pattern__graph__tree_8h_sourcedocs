@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/DesignLab/gait_pattern_graph_tree.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'docs');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('gait__pattern__graph__tree_8h_sourcedocs',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">gait_pattern_graph_tree.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="gait__pattern__graph__tree_8hdocs">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef DESIGNLAB_GAIT_PATTERN_GRAPH_TREE_H_</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define DESIGNLAB_GAIT_PATTERN_GRAPH_TREE_H_</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="cassert__define_8hdocs">cassert_define.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="robot__state__node_8hdocs">robot_state_node.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlabdocs">designlab</a></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_gait_pattern_graph_treedocs">   21</a></span><span class="keyword">class </span><a class="code hl_class" href="classdesignlab_1_1_gait_pattern_graph_treedocs">GaitPatternGraphTree</a> final</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_class" href="classdesignlab_1_1_gait_pattern_graph_treedocs">GaitPatternGraphTree</a>() = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="}">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_gait_pattern_graph_treedocs#a949f0a8b3ffbb4b560008055c30436e0">   29</a></span>    <span class="keyword">explicit</span> <span class="keyword">inline</span> <a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_treedocs#a949f0a8b3ffbb4b560008055c30436e0">GaitPatternGraphTree</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> graph_max_size) :</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        graph_size_(0),</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        kGraphMaxSize(graph_max_size)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        nodes_.resize(graph_max_size);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    }</div>
+</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_gait_pattern_graph_treedocs#af2594414411d9eb5e9103d30dffe9714">   38</a></span>    [[nodiscard]] <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_treedocs#af2594414411d9eb5e9103d30dffe9714">GetGraphSize</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> graph_size_; }</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_gait_pattern_graph_treedocs#a5880ef9bfbc41d440c38982aefb08070">   43</a></span>    [[nodiscard]] <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_treedocs#a5880ef9bfbc41d440c38982aefb08070">IsEmpty</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> graph_size_ == 0; }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="foldopen" id="foldopen00051" data-start="{" data-end="}">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_gait_pattern_graph_treedocs#adfa3cd34663f368fe3e9e76962b38898">   51</a></span>    [[nodiscard]] <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_treedocs#adfa3cd34663f368fe3e9e76962b38898">HasRoot</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordflow">return</span> graph_size_ != 0;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    }</div>
+</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="foldopen" id="foldopen00062" data-start="{" data-end="}">
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_gait_pattern_graph_treedocs#a73bf65cc639ab02f0356f1ee6b1c6f10">   62</a></span>    [[nodiscard]] <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_treedocs#a73bf65cc639ab02f0356f1ee6b1c6f10">GetRootIndex</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
+</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="foldopen" id="foldopen00069" data-start="{" data-end="}">
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_gait_pattern_graph_treedocs#a58dc796c0ec1334efff0cbcaee77eb6e">   69</a></span>    [[nodiscard]] <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_robot_state_nodedocs">RobotStateNode</a>&amp; <a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_treedocs#a58dc796c0ec1334efff0cbcaee77eb6e">GetRootNode</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">return</span> nodes_[0];</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
+</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="foldopen" id="foldopen00078" data-start="{" data-end="}">
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_gait_pattern_graph_treedocs#ac9d24a79c7d5e3db0eb943cd9ecd446d">   78</a></span>    [[nodiscard]] <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_robot_state_nodedocs">RobotStateNode</a>&amp; <a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_treedocs#ac9d24a79c7d5e3db0eb943cd9ecd446d">GetNode</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> index)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        assert(0 &lt;= index);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        assert(index &lt; graph_size_);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keywordflow">return</span> nodes_[index];</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    }</div>
+</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    [[nodiscard]] <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_robot_state_nodedocs">RobotStateNode</a>&amp; <a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_treedocs#a7d5f0968cb4718d9baf449222e0ec7d8">GetParentNode</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> index, <span class="keyword">const</span> <span class="keywordtype">int</span> depth) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    [[nodiscard]] <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_treedocs#a69eaf1ffd9772f8ea1063c36ee7bbcaa">GetParentNodeIndex</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> index, <span class="keyword">const</span> <span class="keywordtype">int</span> depth) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="foldopen" id="foldopen00105" data-start="{" data-end="}">
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_gait_pattern_graph_treedocs#ac0d2e4ec3bd05e0092f8f27b34e88908">  105</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_treedocs#ac0d2e4ec3bd05e0092f8f27b34e88908">AddNode</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_robot_state_nodedocs">RobotStateNode</a>&amp; node)</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    {</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        assert(graph_size_ &lt; kGraphMaxSize);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        nodes_[graph_size_++] = node;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        assert(nodes_[graph_size_ - 1].IsLootNode() ||</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>               0 &lt;= nodes_[graph_size_ - 1].parent_index);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        assert(nodes_[graph_size_ - 1].parent_index &lt; graph_size_);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        assert(nodes_[graph_size_ - 1].IsLootNode() ||</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>          nodes_[graph_size_ - 1].depth - 1 == nodes_[nodes_[graph_size_ - 1].parent_index].depth);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    }</div>
+</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_gait_pattern_graph_treedocs#a3a2e1f65d243cc24527387bc52a651ae">  121</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_treedocs#a3a2e1f65d243cc24527387bc52a651ae">Reset</a>() { graph_size_ = 0; }</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    [[nodiscard]]</div>
+<div class="foldopen" id="foldopen00128" data-start="{" data-end="}">
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_gait_pattern_graph_treedocs#a7d02defb2f3e78885277442fb32282d7">  128</a></span>    std::vector&lt;float&gt; <a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_treedocs#a7d02defb2f3e78885277442fb32282d7">GetCoMVerticalTrajectory</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> index)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        assert(0 &lt;= index);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        assert(index &lt; graph_size_);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        std::vector&lt;float&gt; com_vertical_trajectory_reverse;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="comment">// 現在のノードから根ノードまでの重心の上下移動軌跡を取得する．</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = index; i != -1; i = nodes_[i].parent_index)</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        {</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            <span class="keywordflow">if</span> (com_vertical_trajectory_reverse.empty() ||</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>                com_vertical_trajectory_reverse.back() != nodes_[i].center_of_mass_global_coord.z)</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            {</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                com_vertical_trajectory_reverse.push_back(nodes_[i].center_of_mass_global_coord.z);</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            }</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        }</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="comment">// 根ノードから現在のノードまでの重心の上下移動軌跡を取得する．</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        std::vector&lt;float&gt; com_vertical_trajectory(com_vertical_trajectory_reverse.size());</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; com_vertical_trajectory_reverse.size(); ++i)</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        {</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            com_vertical_trajectory[i] = com_vertical_trajectory_reverse[com_vertical_trajectory_reverse.size() - 1 - i];</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        }</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <span class="keywordflow">return</span> com_vertical_trajectory;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    }</div>
+</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    std::vector&lt;RobotStateNode&gt; nodes_;  </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordtype">int</span> graph_size_;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> kGraphMaxSize;    </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>};</div>
+</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>}  <span class="comment">// namespace designlab</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_GAIT_PATTERN_GRAPH_TREE_H_</span></div>
+<div class="ttc" id="acassert__define_8hdocs"><div class="ttname"><a href="cassert__define_8hdocs">cassert_define.h</a></div><div class="ttdoc">デバッグモードとリリースモードでアサートを有効化・無効化するためのヘッダファイル．</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_graph_treedocs"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_graph_treedocs">designlab::GaitPatternGraphTree</a></div><div class="ttdoc">RobotStateNode 構造体をノードとする木構造のグラフのクラス．</div><div class="ttdef"><b>Definition</b> gait_pattern_graph_tree.h:22</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_graph_treedocs_a3a2e1f65d243cc24527387bc52a651ae"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_graph_treedocs#a3a2e1f65d243cc24527387bc52a651ae">designlab::GaitPatternGraphTree::Reset</a></div><div class="ttdeci">constexpr void Reset()</div><div class="ttdoc">グラフをリセットする．</div><div class="ttdef"><b>Definition</b> gait_pattern_graph_tree.h:121</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_graph_treedocs_a5880ef9bfbc41d440c38982aefb08070"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_graph_treedocs#a5880ef9bfbc41d440c38982aefb08070">designlab::GaitPatternGraphTree::IsEmpty</a></div><div class="ttdeci">constexpr bool IsEmpty() const</div><div class="ttdoc">グラフが空かどうかを返す．</div><div class="ttdef"><b>Definition</b> gait_pattern_graph_tree.h:43</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_graph_treedocs_a58dc796c0ec1334efff0cbcaee77eb6e"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_graph_treedocs#a58dc796c0ec1334efff0cbcaee77eb6e">designlab::GaitPatternGraphTree::GetRootNode</a></div><div class="ttdeci">const RobotStateNode &amp; GetRootNode() const</div><div class="ttdoc">グラフの根ノードの参照を返す．</div><div class="ttdef"><b>Definition</b> gait_pattern_graph_tree.h:69</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_graph_treedocs_a69eaf1ffd9772f8ea1063c36ee7bbcaa"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_graph_treedocs#a69eaf1ffd9772f8ea1063c36ee7bbcaa">designlab::GaitPatternGraphTree::GetParentNodeIndex</a></div><div class="ttdeci">const int GetParentNodeIndex(const int index, const int depth) const</div><div class="ttdoc">指定したノードの親ノードの参照を返す．depthは親ノードの深さを指定する．</div><div class="ttdef"><b>Definition</b> gait_pattern_graph_tree.cpp:33</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_graph_treedocs_a73bf65cc639ab02f0356f1ee6b1c6f10"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_graph_treedocs#a73bf65cc639ab02f0356f1ee6b1c6f10">designlab::GaitPatternGraphTree::GetRootIndex</a></div><div class="ttdeci">constexpr int GetRootIndex() const</div><div class="ttdoc">グラフの根ノードのインデックスを返す．   ノードがない場合を考慮していないため， HasRoot()で根ノードを持つかどうかを確認すること．   一番最初に追加されたノードは必ず根ノードになるため， ...</div><div class="ttdef"><b>Definition</b> gait_pattern_graph_tree.h:62</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_graph_treedocs_a7d02defb2f3e78885277442fb32282d7"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_graph_treedocs#a7d02defb2f3e78885277442fb32282d7">designlab::GaitPatternGraphTree::GetCoMVerticalTrajectory</a></div><div class="ttdeci">std::vector&lt; float &gt; GetCoMVerticalTrajectory(const int index) const</div><div class="ttdoc">指定したノードの重心の上下移動軌跡を返す．</div><div class="ttdef"><b>Definition</b> gait_pattern_graph_tree.h:128</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_graph_treedocs_a7d5f0968cb4718d9baf449222e0ec7d8"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_graph_treedocs#a7d5f0968cb4718d9baf449222e0ec7d8">designlab::GaitPatternGraphTree::GetParentNode</a></div><div class="ttdeci">const RobotStateNode &amp; GetParentNode(const int index, const int depth) const</div><div class="ttdoc">指定したノードの親ノードの参照を返す．depthは親ノードの深さを指定する．</div><div class="ttdef"><b>Definition</b> gait_pattern_graph_tree.cpp:11</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_graph_treedocs_a949f0a8b3ffbb4b560008055c30436e0"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_graph_treedocs#a949f0a8b3ffbb4b560008055c30436e0">designlab::GaitPatternGraphTree::GaitPatternGraphTree</a></div><div class="ttdeci">GaitPatternGraphTree(const int graph_max_size)</div><div class="ttdoc">コンストラクタ．   ノード数の最大値を指定する．</div><div class="ttdef"><b>Definition</b> gait_pattern_graph_tree.h:29</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_graph_treedocs_ac0d2e4ec3bd05e0092f8f27b34e88908"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_graph_treedocs#ac0d2e4ec3bd05e0092f8f27b34e88908">designlab::GaitPatternGraphTree::AddNode</a></div><div class="ttdeci">void AddNode(const RobotStateNode &amp;node)</div><div class="ttdoc">ノードを追加する．   追加するノードは親ノードのインデックスと，depthの指定が適切にされている必要がある．   これらが適切にされていない場合，アサーションに引っかかる．   また，あらかじめ確保...</div><div class="ttdef"><b>Definition</b> gait_pattern_graph_tree.h:105</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_graph_treedocs_ac9d24a79c7d5e3db0eb943cd9ecd446d"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_graph_treedocs#ac9d24a79c7d5e3db0eb943cd9ecd446d">designlab::GaitPatternGraphTree::GetNode</a></div><div class="ttdeci">const RobotStateNode &amp; GetNode(const int index) const</div><div class="ttdoc">グラフのノードの参照を返す．</div><div class="ttdef"><b>Definition</b> gait_pattern_graph_tree.h:78</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_graph_treedocs_adfa3cd34663f368fe3e9e76962b38898"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_graph_treedocs#adfa3cd34663f368fe3e9e76962b38898">designlab::GaitPatternGraphTree::HasRoot</a></div><div class="ttdeci">constexpr bool HasRoot() const</div><div class="ttdoc">グラフが根ノードを持つかどうかを返す．   根ノードとは，親を持たないノードのこと．   一番最初に追加するノードは必ず根になるため， 根を持つかどうかはノードの総数が0でないかどうかで判定できる．</div><div class="ttdef"><b>Definition</b> gait_pattern_graph_tree.h:51</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_graph_treedocs_af2594414411d9eb5e9103d30dffe9714"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_graph_treedocs#af2594414411d9eb5e9103d30dffe9714">designlab::GaitPatternGraphTree::GetGraphSize</a></div><div class="ttdeci">constexpr int GetGraphSize() const</div><div class="ttdoc">グラフのノードの総数を返す．</div><div class="ttdef"><b>Definition</b> gait_pattern_graph_tree.h:38</div></div>
+<div class="ttc" id="anamespacedesignlabdocs"><div class="ttname"><a href="namespacedesignlabdocs">designlab</a></div><div class="ttdef"><b>Definition</b> abstract_dxlib_gui.cpp:16</div></div>
+<div class="ttc" id="arobot__state__node_8hdocs"><div class="ttname"><a href="robot__state__node_8hdocs">robot_state_node.h</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_robot_state_nodedocs"><div class="ttname"><a href="structdesignlab_1_1_robot_state_nodedocs">designlab::RobotStateNode</a></div><div class="ttdoc">グラフ構造のためのノード(頂点)．旧名 LNODE</div><div class="ttdef"><b>Definition</b> robot_state_node.h:46</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_65b03a49640d0599dba701447d580643docs">hasegawa</a></li><li class="navelem"><a class="el" href="dir_2854940d141de6d3c7cee6483e7afda9docs">Desktop</a></li><li class="navelem"><a class="el" href="dir_fad4873fd0f485db7102df865d883d5cdocs">main</a></li><li class="navelem"><a class="el" href="dir_227eda1db808a252df8518c263632a71docs">program</a></li><li class="navelem"><a class="el" href="dir_c48eef75fce7d1d05a2392783bd08b15docs">gait-generation-by-graph-search</a></li><li class="navelem"><a class="el" href="dir_6970d783dbb606469f8f14a039e83820docs">DesignLab</a></li><li class="navelem"><a class="el" href="gait__pattern__graph__tree_8hdocs">gait_pattern_graph_tree.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

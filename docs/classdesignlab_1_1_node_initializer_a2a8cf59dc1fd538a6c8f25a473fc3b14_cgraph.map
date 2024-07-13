@@ -1,9 +1,9 @@
 <map id="designlab::NodeInitializer::InitNode" name="designlab::NodeInitializer::InitNode">
 <area shape="rect" id="Node000001" title="ノードの初期化を行う．" alt="" coords="5,5,171,48"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab.html#aa1c6fabbe9cbddd910f4578751c0ec86" title="回転角行列からクォータニオンへの変換．" alt="" coords="219,13,380,40"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlabdocs#aa1c6fabbe9cbddd910f4578751c0ec86" title="回転角行列からクォータニオンへの変換．" alt="" coords="219,13,380,40"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,24,203,24,203,29,171,29"/>
-<area shape="rect" id="Node000003" href="$structdesignlab_1_1_quaternion.html#a45dfcf48edea7b439e7d189d0d105bfa" title="自身を正規化する．ノルムが１になる．" alt="" coords="428,5,575,48"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_quaterniondocs#a45dfcf48edea7b439e7d189d0d105bfa" title="自身を正規化する．ノルムが１になる．" alt="" coords="428,5,575,48"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="380,24,413,24,413,29,380,29"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="623,5,771,48"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaterniondocs#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="623,5,771,48"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="576,24,607,24,607,29,576,29"/>
 </map>

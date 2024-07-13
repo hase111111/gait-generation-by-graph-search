@@ -1,7 +1,7 @@
 <map id="designlab::RobotOperatorForPath::Update" name="designlab::RobotOperatorForPath::Update">
 <area shape="rect" id="Node000001" title="ロボットの動作を更新する．" alt="" coords="5,35,174,77"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector3.html#aaf3651416f231824ffd780b72f5bba27" title="XY平面に射影したベクトルを返す．" alt="" coords="233,5,362,48"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector3docs#aaf3651416f231824ffd780b72f5bba27" title="XY平面に射影したベクトルを返す．" alt="" coords="233,5,362,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,41,217,35,218,41,175,47"/>
-<area shape="rect" id="Node000003" href="$namespacedesignlab.html#a78f534befd80ba94ea6c6058487d2596" title="回転角行列からXYZオイラー角への変換．" alt="" coords="222,72,373,99"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlabdocs#a78f534befd80ba94ea6c6058487d2596" title="回転角行列からXYZオイラー角への変換．" alt="" coords="222,72,373,99"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="175,65,207,70,206,75,174,71"/>
 </map>

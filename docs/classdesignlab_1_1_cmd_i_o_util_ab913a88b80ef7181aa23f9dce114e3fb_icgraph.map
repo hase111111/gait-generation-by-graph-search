@@ -1,5 +1,5 @@
 <map id="designlab::CmdIOUtil::InfoOutput" name="designlab::CmdIOUtil::InfoOutput">
 <area shape="rect" id="Node000001" title="コマンドラインに文字を出力する関数．Info用の出力．" alt="" coords="244,5,387,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_toml_data_validator_always_true.html#a05d04f289f552a9aca3973b0f002667c" title="TOMLファイルのデータの検証を行う．" alt="" coords="5,5,196,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_toml_data_validator_always_truedocs#a05d04f289f552a9aca3973b0f002667c" title="TOMLファイルのデータの検証を行う．" alt="" coords="5,5,196,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="228,29,196,29,196,24,228,24"/>
 </map>

@@ -1,6 +1,6 @@
 ﻿
 //! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
+//! @copyright (C) 2024 Design Engineering Laboratory,
 //! Saitama University All right reserved.
 
 #include "gait_pattern_generator_basic.h"

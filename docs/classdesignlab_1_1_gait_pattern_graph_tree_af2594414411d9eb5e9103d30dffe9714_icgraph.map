@@ -1,14 +1,14 @@
 <map id="designlab::GaitPatternGraphTree::GetGraphSize" name="designlab::GaitPatternGraphTree::GetGraphSize">
 <area shape="rect" id="Node000001" title="グラフのノードの総数を返す．" alt="" coords="545,123,730,165"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graph_tree_creator.html#a9a8a2cff8af6b99342e88c5cb1cd52ab" title="歩容パターングラフを作成する．" alt="" coords="301,5,488,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graph_tree_creatordocs#a9a8a2cff8af6b99342e88c5cb1cd52ab" title="歩容パターングラフを作成する．" alt="" coords="301,5,488,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="586,117,496,69,454,51,456,46,498,64,589,112"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_gait_pattern_generator_thread.html#af6729bdafbd310f762733e7fa10f8df5" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,35,244,77"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_gait_pattern_generator_threaddocs#af6729bdafbd310f762733e7fa10f8df5" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,35,244,77"/>
 <area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="534,121,497,113,366,91,244,73,245,68,367,86,497,108,535,116"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_graph_searcher_spot_turn.html#a14d0f85dce3acf5c7715e52f03cb4701" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="303,123,486,165"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_graph_searcher_spot_turndocs#a14d0f85dce3acf5c7715e52f03cb4701" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="303,123,486,165"/>
 <area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="530,147,486,147,486,141,530,141"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_graph_searcher_straight_move.html#a64643a2293909dc6b0166a916c5b26ee" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="292,189,497,232"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_graph_searcher_straight_movedocs#a64643a2293909dc6b0166a916c5b26ee" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="292,189,497,232"/>
 <area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="543,173,476,191,474,186,542,167"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_graph_searcher_turn.html#ac22fbad22f153e4d367575fe6cc55197" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="309,256,480,299"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_graph_searcher_turndocs#ac22fbad22f153e4d367575fe6cc55197" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="309,256,480,299"/>
 <area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="601,177,554,213,498,246,472,258,470,253,496,242,551,208,598,173"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="286,41,244,46,244,40,285,36"/>
 </map>

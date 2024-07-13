@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: designlab::IHexapodPostureValidator クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'docs');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classdesignlab_1_1_i_hexapod_posture_validatordocs',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="classdesignlab_1_1_i_hexapod_posture_validator-membersdocs">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">designlab::IHexapodPostureValidator クラス<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>6脚ロボットが有効な姿勢をとっているかを チェックする処理のインターフェース．  
+ <a href="classdesignlab_1_1_i_hexapod_posture_validatordocs#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="interface__hexapod__posture__validator_8h_sourcedocs">interface_hexapod_posture_validator.h</a>&gt;</code></p>
+<div class="dynheader">
+designlab::IHexapodPostureValidator の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1_i_hexapod_posture_validator__inherit__graph.png" border="0" usemap="#adesignlab_1_1_i_hexapod_posture_validator_inherit__map" alt="Inheritance graph"/></div>
+<map name="adesignlab_1_1_i_hexapod_posture_validator_inherit__map" id="adesignlab_1_1_i_hexapod_posture_validator_inherit__map">
+<area shape="rect" title="6脚ロボットが有効な姿勢をとっているかを チェックする処理のインターフェース．" alt="" coords="5,5,189,48"/>
+<area shape="rect" href="classdesignlab_1_1_phantom_x_mk_i_idocs" title="PhantomX mk&#45;2 の状態を計算するクラス．" alt="" coords="13,96,181,123"/>
+<area shape="poly" title=" " alt="" coords="100,64,100,95,94,95,94,64"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legenddocs">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:acbe4959b1131c73725f1b285d6d3e5f4" id="r_acbe4959b1131c73725f1b285d6d3e5f4"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_posture_validatordocs#acbe4959b1131c73725f1b285d6d3e5f4">IsLegInRange</a> (const int leg_index, const <a class="el" href="structdesignlab_1_1_vector3docs">Vector3</a> &amp;leg_pos) const =0</td></tr>
+<tr class="memdesc:acbe4959b1131c73725f1b285d6d3e5f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚が可動範囲内にあるかどうかを判定する．  <br /></td></tr>
+<tr class="separator:acbe4959b1131c73725f1b285d6d3e5f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3abb48c6d7bfe266598759a9852268a2" id="r_a3abb48c6d7bfe266598759a9852268a2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_posture_validatordocs#a3abb48c6d7bfe266598759a9852268a2">IsAllLegInRange</a> (const <a class="el" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">leg_func::LegStateBit</a> leg_state, const std::array&lt; <a class="el" href="structdesignlab_1_1_vector3docs">Vector3</a>, <a class="el" href="classdesignlab_1_1_hexapod_constdocs#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> &gt; &amp;leg_pos) const</td></tr>
+<tr class="memdesc:a3abb48c6d7bfe266598759a9852268a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">全ての脚が可動範囲内にあるかどうかを判定する．  <br /></td></tr>
+<tr class="separator:a3abb48c6d7bfe266598759a9852268a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8b657b1f43281885769919dbe8e144d" id="r_ac8b657b1f43281885769919dbe8e144d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_posture_validatordocs#ac8b657b1f43281885769919dbe8e144d">IsLegInterfering</a> (const std::array&lt; <a class="el" href="structdesignlab_1_1_vector3docs">Vector3</a>, <a class="el" href="classdesignlab_1_1_hexapod_constdocs#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> &gt; &amp;leg_pos) const =0</td></tr>
+<tr class="memdesc:ac8b657b1f43281885769919dbe8e144d"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚が他の脚と干渉しているかどうかを判定する．  <br /></td></tr>
+<tr class="separator:ac8b657b1f43281885769919dbe8e144d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0580e1f2da44b91fc37cf436fa0e92c2" id="r_a0580e1f2da44b91fc37cf436fa0e92c2"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_posture_validatordocs#a0580e1f2da44b91fc37cf436fa0e92c2">CalculateStabilityMargin</a> (const <a class="el" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">leg_func::LegStateBit</a> &amp;leg_state, const std::array&lt; <a class="el" href="structdesignlab_1_1_vector3docs">Vector3</a>, <a class="el" href="classdesignlab_1_1_hexapod_constdocs#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> &gt; &amp;leg_pos) const =0</td></tr>
+<tr class="memdesc:a0580e1f2da44b91fc37cf436fa0e92c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">安定余裕(Stability Margin)を計算する． 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい． <br  />
+ 接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算する．  <br /></td></tr>
+<tr class="separator:a0580e1f2da44b91fc37cf436fa0e92c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad636b14a850cccbf8e8a52c79db272b6" id="r_ad636b14a850cccbf8e8a52c79db272b6"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_posture_validatordocs#ad636b14a850cccbf8e8a52c79db272b6">IsStable</a> (const <a class="el" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">leg_func::LegStateBit</a> &amp;leg_state, const std::array&lt; <a class="el" href="structdesignlab_1_1_vector3docs">Vector3</a>, <a class="el" href="classdesignlab_1_1_hexapod_constdocs#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> &gt; &amp;leg_pos) const =0</td></tr>
+<tr class="memdesc:ad636b14a850cccbf8e8a52c79db272b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">安定余裕を用いて，静的に安定しているかどうかを判定する．  <br /></td></tr>
+<tr class="separator:ad636b14a850cccbf8e8a52c79db272b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad27f5c7d645036eb0ae0a5c1b769fc26" id="r_ad27f5c7d645036eb0ae0a5c1b769fc26"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_posture_validatordocs#ad27f5c7d645036eb0ae0a5c1b769fc26">IsBodyInterferingWithGround</a> (const <a class="el" href="structdesignlab_1_1_robot_state_nodedocs">RobotStateNode</a> &amp;node, const <a class="el" href="classdesignlab_1_1_divided_map_statedocs">DividedMapState</a> &amp;divided_map) const =0</td></tr>
+<tr class="memdesc:ad27f5c7d645036eb0ae0a5c1b769fc26"><td class="mdescLeft">&#160;</td><td class="mdescRight">胴体が地面と干渉しているかどうかを判定する．  <br /></td></tr>
+<tr class="separator:ad27f5c7d645036eb0ae0a5c1b769fc26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>6脚ロボットが有効な姿勢をとっているかを チェックする処理のインターフェース． </p>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="a0580e1f2da44b91fc37cf436fa0e92c2" name="a0580e1f2da44b91fc37cf436fa0e92c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0580e1f2da44b91fc37cf436fa0e92c2">&#9670;&#160;</a></span>CalculateStabilityMargin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual float designlab::IHexapodPostureValidator::CalculateStabilityMargin </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">leg_func::LegStateBit</a> &amp;&#160;</td>
+          <td class="paramname"><em>leg_state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::array&lt; <a class="el" href="structdesignlab_1_1_vector3docs">Vector3</a>, <a class="el" href="classdesignlab_1_1_hexapod_constdocs#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>leg_pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>安定余裕(Stability Margin)を計算する． 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい． <br  />
+ 接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計算する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_state</td><td>脚の状態．bitで表現される，遊脚・接地脚の情報を持つ． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_pos</td><td>脚座標系における脚先の座標の配列． 脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>安定余裕．大きい方が安定となる，またこの値が0以下なら転倒する． </dd></dl>
+
+<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_idocs#a688e8dd6b7f92d5b1a4fa8d4fbcc2714">designlab::PhantomXMkII</a>で実装されています。</p>
+
+</div>
+</div>
+<a id="a3abb48c6d7bfe266598759a9852268a2" name="a3abb48c6d7bfe266598759a9852268a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3abb48c6d7bfe266598759a9852268a2">&#9670;&#160;</a></span>IsAllLegInRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool designlab::IHexapodPostureValidator::IsAllLegInRange </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">leg_func::LegStateBit</a>&#160;</td>
+          <td class="paramname"><em>leg_state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::array&lt; <a class="el" href="structdesignlab_1_1_vector3docs">Vector3</a>, <a class="el" href="classdesignlab_1_1_hexapod_constdocs#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>leg_pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>全ての脚が可動範囲内にあるかどうかを判定する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_state</td><td>脚の状態．bitで表現される，遊脚・接地脚の情報を持つ． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_pos</td><td>脚座標系における脚先の座標の配列． 脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>全ての脚が可動範囲内にあれば true．可動範囲外にあれば false． </dd></dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1_i_hexapod_posture_validator_a3abb48c6d7bfe266598759a9852268a2_cgraph.png" border="0" usemap="#aclassdesignlab_1_1_i_hexapod_posture_validator_a3abb48c6d7bfe266598759a9852268a2_cgraph" alt=""/></div>
+<map name="aclassdesignlab_1_1_i_hexapod_posture_validator_a3abb48c6d7bfe266598759a9852268a2_cgraph" id="aclassdesignlab_1_1_i_hexapod_posture_validator_a3abb48c6d7bfe266598759a9852268a2_cgraph">
+<area shape="rect" title="全ての脚が可動範囲内にあるかどうかを判定する．" alt="" coords="5,39,189,81"/>
+<area shape="rect" href="namespacedesignlab_1_1leg__funcdocs#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="262,5,395,48"/>
+<area shape="poly" title=" " alt="" coords="188,44,246,36,247,41,189,49"/>
+<area shape="rect" href="classdesignlab_1_1_i_hexapod_posture_validatordocs#acbe4959b1131c73725f1b285d6d3e5f4" title="脚が可動範囲内にあるかどうかを判定する．" alt="" coords="237,72,420,115"/>
+<area shape="poly" title=" " alt="" coords="189,71,221,75,221,81,188,76"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad27f5c7d645036eb0ae0a5c1b769fc26" name="ad27f5c7d645036eb0ae0a5c1b769fc26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad27f5c7d645036eb0ae0a5c1b769fc26">&#9670;&#160;</a></span>IsBodyInterferingWithGround()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool designlab::IHexapodPostureValidator::IsBodyInterferingWithGround </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdesignlab_1_1_robot_state_nodedocs">RobotStateNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classdesignlab_1_1_divided_map_statedocs">DividedMapState</a> &amp;&#160;</td>
+          <td class="paramname"><em>divided_map</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>胴体が地面と干渉しているかどうかを判定する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">node</td><td>ロボットの状態． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">divided_map</td><td>地面の状態． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>胴体が地面と干渉していれば true．干渉していなければ false． </dd></dl>
+
+<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_idocs#a2d84fda12ddad344e7de4c0e023ffd4f">designlab::PhantomXMkII</a>で実装されています。</p>
+
+</div>
+</div>
+<a id="acbe4959b1131c73725f1b285d6d3e5f4" name="acbe4959b1131c73725f1b285d6d3e5f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbe4959b1131c73725f1b285d6d3e5f4">&#9670;&#160;</a></span>IsLegInRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool designlab::IHexapodPostureValidator::IsLegInRange </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>leg_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structdesignlab_1_1_vector3docs">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>leg_pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>脚が可動範囲内にあるかどうかを判定する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_index</td><td>脚番号． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_pos</td><td>脚座標系における脚先の座標． 脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>脚が可動範囲内にあれば true．可動範囲外にあれば false． </dd></dl>
+
+<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_idocs#aab0677aba41eed4d1138c6adacc27fa1">designlab::PhantomXMkII</a>で実装されています。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1_i_hexapod_posture_validator_acbe4959b1131c73725f1b285d6d3e5f4_icgraph.png" border="0" usemap="#aclassdesignlab_1_1_i_hexapod_posture_validator_acbe4959b1131c73725f1b285d6d3e5f4_icgraph" alt=""/></div>
+<map name="aclassdesignlab_1_1_i_hexapod_posture_validator_acbe4959b1131c73725f1b285d6d3e5f4_icgraph" id="aclassdesignlab_1_1_i_hexapod_posture_validator_acbe4959b1131c73725f1b285d6d3e5f4_icgraph">
+<area shape="rect" title="脚が可動範囲内にあるかどうかを判定する．" alt="" coords="237,5,420,48"/>
+<area shape="rect" href="classdesignlab_1_1_i_hexapod_posture_validatordocs#a3abb48c6d7bfe266598759a9852268a2" title="全ての脚が可動範囲内にあるかどうかを判定する．" alt="" coords="5,5,189,48"/>
+<area shape="poly" title=" " alt="" coords="221,29,189,29,189,24,221,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac8b657b1f43281885769919dbe8e144d" name="ac8b657b1f43281885769919dbe8e144d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8b657b1f43281885769919dbe8e144d">&#9670;&#160;</a></span>IsLegInterfering()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool designlab::IHexapodPostureValidator::IsLegInterfering </td>
+          <td>(</td>
+          <td class="paramtype">const std::array&lt; <a class="el" href="structdesignlab_1_1_vector3docs">Vector3</a>, <a class="el" href="classdesignlab_1_1_hexapod_constdocs#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>leg_pos</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>脚が他の脚と干渉しているかどうかを判定する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_pos</td><td>脚座標系における脚先の座標の配列． 脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>脚が他の脚と干渉していれば true．干渉していなければ false． </dd></dl>
+
+<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_idocs#aeed1296b4886eb07bc095ca2b5e8c333">designlab::PhantomXMkII</a>で実装されています。</p>
+
+</div>
+</div>
+<a id="ad636b14a850cccbf8e8a52c79db272b6" name="ad636b14a850cccbf8e8a52c79db272b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad636b14a850cccbf8e8a52c79db272b6">&#9670;&#160;</a></span>IsStable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool designlab::IHexapodPostureValidator::IsStable </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">leg_func::LegStateBit</a> &amp;&#160;</td>
+          <td class="paramname"><em>leg_state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::array&lt; <a class="el" href="structdesignlab_1_1_vector3docs">Vector3</a>, <a class="el" href="classdesignlab_1_1_hexapod_constdocs#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>leg_pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>安定余裕を用いて，静的に安定しているかどうかを判定する． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_state</td><td>脚の状態．bitで表現される，遊脚・接地脚の情報を持つ． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_pos</td><td>脚座標系における脚先の座標の配列． 脚先座標系とは脚の付け根を原点とし，軸はロボット座標系と同様な座標系． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>静的に安定していれば true．そうでなければ false． </dd></dl>
+
+<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_idocs#aea0eea059d621c567e8c0a704d7f79c8">designlab::PhantomXMkII</a>で実装されています。</p>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/DesignLab/<a class="el" href="interface__hexapod__posture__validator_8h_sourcedocs">interface_hexapod_posture_validator.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacedesignlabdocs">designlab</a></li><li class="navelem"><a class="el" href="classdesignlab_1_1_i_hexapod_posture_validatordocs">IHexapodPostureValidator</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

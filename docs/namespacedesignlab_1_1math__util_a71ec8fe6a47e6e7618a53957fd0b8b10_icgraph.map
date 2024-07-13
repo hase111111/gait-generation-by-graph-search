@@ -1,9 +1,9 @@
 <map id="designlab::math_util::ConvertDegToRad" name="designlab::math_util::ConvertDegToRad">
 <area shape="rect" id="Node000001" title="角度を [deg] から [rad] に変換する関数．" alt="" coords="222,72,359,115"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_simulation_end_checker_factory.html#a5efe7f1b9b7701783fa8245758d57daa" title="シミュレーションの終了を判定するクラスを生成する．" alt="" coords="5,5,174,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_simulation_end_checker_factorydocs#a5efe7f1b9b7701783fa8245758d57daa" title="シミュレーションの終了を判定するクラスを生成する．" alt="" coords="5,5,174,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,69,155,51,157,46,211,64"/>
-<area shape="rect" id="Node000003" href="$structdesignlab_1_1_euler_x_y_z.html#a09e8c53ff0cea3cda90de0ff2140d7db" title="オイラー角を 単位[deg] で作成する．" alt="" coords="21,72,158,115"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_euler_x_y_zdocs#a09e8c53ff0cea3cda90de0ff2140d7db" title="オイラー角を 単位[deg] で作成する．" alt="" coords="21,72,158,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="206,96,159,96,159,91,206,91"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_euler_x_y_z.html#ae220f2dcab4743783a5e1436ff19d9e5" title="オイラー角を 単位 度 [deg] で初期化する．" alt="" coords="21,139,158,181"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_euler_x_y_zdocs#ae220f2dcab4743783a5e1436ff19d9e5" title="オイラー角を 単位 度 [deg] で初期化する．" alt="" coords="21,139,158,181"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="211,122,157,141,155,135,209,117"/>
 </map>

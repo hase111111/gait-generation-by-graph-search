@@ -1,5 +1,5 @@
 <map id="designlab::leg_func::ChangeDiscreteLegPos" name="designlab::leg_func::ChangeDiscreteLegPos">
 <area shape="rect" id="Node000001" title="脚の状態を変更する．遊脚を表すビットはそのまま．" alt="" coords="5,5,171,48"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__func.html#a0638b32b8b228a6e927f6de16e2f3441" title="脚位置は4bitの下位三桁で管理されるので，そこをマスクする．" alt="" coords="219,5,351,48"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__funcdocs#a0638b32b8b228a6e927f6de16e2f3441" title="脚位置は4bitの下位三桁で管理されるので，そこをマスクする．" alt="" coords="219,5,351,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,24,203,24,203,29,171,29"/>
 </map>

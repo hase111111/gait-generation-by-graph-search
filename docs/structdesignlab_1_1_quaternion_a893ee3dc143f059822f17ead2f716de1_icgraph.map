@@ -1,23 +1,23 @@
 <map id="designlab::Quaternion::GetConjugate" name="designlab::Quaternion::GetConjugate">
 <area shape="rect" id="Node000001" title="クォータニオンの共役を返す． 共役なクォータニオンとは，ベクトル成分の符号を反転させたもの &#160;&#160;q = w + xi + yj + zk とすると， qの共役は w &#45; xi &#45; yj &#45; zk となる..." alt="" coords="494,288,641,331"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_robot_state_node.html#a28bedf0298ebf8f315a21294dd111f45" title="重心位置を変更する関数．" alt="" coords="246,105,440,148"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_robot_state_nodedocs#a28bedf0298ebf8f315a21294dd111f45" title="重心位置を変更する関数．" alt="" coords="246,105,440,148"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="540,277,498,227,444,178,398,151,401,146,448,174,502,224,544,274"/>
-<area shape="rect" id="Node000006" href="$structdesignlab_1_1_robot_state_node.html#a73efce324f3ffd5ead5fbc663acd96a2" title="クォータニオンを変更し，胴体を回転させる関数．" alt="" coords="253,188,433,231"/>
+<area shape="rect" id="Node000006" href="$structdesignlab_1_1_robot_state_nodedocs#a73efce324f3ffd5ead5fbc663acd96a2" title="クォータニオンを変更し，胴体を回転させる関数．" alt="" coords="253,188,433,231"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="517,282,445,245,416,234,418,229,447,240,519,277"/>
-<area shape="rect" id="Node000008" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a0630fa1d537f7e00aa422a83c98ebdda" title="グローバル座標系で表現されている座標を，脚座標系に変換する．" alt="" coords="240,255,446,297"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_phantom_x_mk_i_idocs#a0630fa1d537f7e00aa422a83c98ebdda" title="グローバル座標系で表現されている座標を，脚座標系に変換する．" alt="" coords="240,255,446,297"/>
 <area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="478,299,446,294,447,289,479,294"/>
-<area shape="rect" id="Node000009" href="$classdesignlab_1_1_com_selector.html#afe154bc35f0971d6c2c2a649299b23c3" title="重心を求める．" alt="" coords="263,321,423,364"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_com_selectordocs#afe154bc35f0971d6c2c2a649299b23c3" title="重心を求める．" alt="" coords="263,321,423,364"/>
 <area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="479,325,423,334,422,328,478,320"/>
-<area shape="rect" id="Node000010" href="$structdesignlab_1_1_quaternion.html#ad164e180a90ff6e7e1df3f5b57cb8b3b" title="クォータニオンの逆数を返す． &#160;&#160;クォータニオンqの逆数q^&#45;1は，qの共役をノルムで割ったもの． &#160;&#160;q^&#45;1 = q* / |q|^2" alt="" coords="269,388,417,431"/>
+<area shape="rect" id="Node000010" href="$structdesignlab_1_1_quaterniondocs#ad164e180a90ff6e7e1df3f5b57cb8b3b" title="クォータニオンの逆数を返す． &#160;&#160;クォータニオンqの逆数q^&#45;1は，qの共役をノルムで割ったもの． &#160;&#160;q^&#45;1 = q* / |q|^2" alt="" coords="269,388,417,431"/>
 <area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="519,341,447,378,418,390,416,385,445,374,517,336"/>
-<area shape="rect" id="Node000011" href="$namespacedesignlab.html#a60f10cf89b782d822987acc6e655a2a7" title="3次元の位置ベクトルを回転させる．必ず正規化クォータニオンを用いること．" alt="" coords="259,455,427,481"/>
+<area shape="rect" id="Node000011" href="$namespacedesignlabdocs#a60f10cf89b782d822987acc6e655a2a7" title="3次元の位置ベクトルを回転させる．必ず正規化クォータニオンを用いること．" alt="" coords="259,455,427,481"/>
 <area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="546,345,505,397,478,423,447,445,422,457,420,452,445,440,474,419,501,393,542,342"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_node_creator_com_move.html#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する．" alt="" coords="7,5,190,48"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_node_creator_com_movedocs#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する．" alt="" coords="7,5,190,48"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="280,101,191,62,161,51,163,46,193,58,282,96"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_node_creator_com_move_straight.html#a3e2fd67280dd581a695a09cea4f816a4" title="現在のノードから次のノード群を生成する．" alt="" coords="7,72,190,115"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_node_creator_com_move_straightdocs#a3e2fd67280dd581a695a09cea4f816a4" title="現在のノードから次のノード群を生成する．" alt="" coords="7,72,190,115"/>
 <area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="230,114,190,108,191,103,231,109"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_node_initializer.html#a717aea9fc00fcb51c5ba3518fac717fc" title="地形に適した初期姿勢を設定する．" alt="" coords="16,139,181,181"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_node_initializerdocs#a717aea9fc00fcb51c5ba3518fac717fc" title="地形に適した初期姿勢を設定する．" alt="" coords="16,139,181,181"/>
 <area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="231,145,182,151,181,146,230,139"/>
-<area shape="rect" id="Node000007" href="$classdesignlab_1_1_node_creator_body_rot.html#a162277203f0422a351c4d24e8167d43d" title="現在のノードから次のノード群を生成する．" alt="" coords="5,205,192,248"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_node_creator_body_rotdocs#a162277203f0422a351c4d24e8167d43d" title="現在のノードから次のノード群を生成する．" alt="" coords="5,205,192,248"/>
 <area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="238,219,192,223,192,217,237,214"/>
 </map>

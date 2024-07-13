@@ -1,5 +1,5 @@
 <map id="designlab::CmdIOUtil::ErrorOutput" name="designlab::CmdIOUtil::ErrorOutput">
 <area shape="rect" id="Node000001" title="コマンドラインに文字を出力する関数．Error用の出力．" alt="" coords="249,5,392,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_result_file_importer.html#a6d2660954a38564ea358b2fb6da71036" title="ノードリストとマップの状態をファイルから読み込む．" alt="" coords="5,5,201,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_result_file_importerdocs#a6d2660954a38564ea358b2fb6da71036" title="ノードリストとマップの状態をファイルから読み込む．" alt="" coords="5,5,201,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="233,29,201,29,201,24,233,24"/>
 </map>

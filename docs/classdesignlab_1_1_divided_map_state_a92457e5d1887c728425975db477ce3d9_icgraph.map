@@ -1,7 +1,7 @@
 <map id="designlab::DividedMapState::GetTopZ" name="designlab::DividedMapState::GetTopZ">
 <area shape="rect" id="Node000001" title="格子状に切り分けられたマップから，最も高いZ座標を返す．" alt="" coords="248,39,429,81"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_node_initializer.html#a717aea9fc00fcb51c5ba3518fac717fc" title="地形に適した初期姿勢を設定する．" alt="" coords="20,5,185,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_node_initializerdocs#a717aea9fc00fcb51c5ba3518fac717fc" title="地形に適した初期姿勢を設定する．" alt="" coords="20,5,185,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,48,185,41,186,36,233,42"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a2d84fda12ddad344e7de4c0e023ffd4f" title="胴体が地面と干渉しているかどうかを判定する．" alt="" coords="5,72,200,115"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_phantom_x_mk_i_idocs#a2d84fda12ddad344e7de4c0e023ffd4f" title="胴体が地面と干渉しているかどうかを判定する．" alt="" coords="5,72,200,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="233,78,201,82,200,77,232,72"/>
 </map>

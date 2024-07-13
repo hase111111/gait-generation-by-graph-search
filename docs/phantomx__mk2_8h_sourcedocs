@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/DesignLab/phantomx_mk2.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'docs');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('phantomx__mk2_8h_sourcedocs',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">phantomx_mk2.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="phantomx__mk2_8hdocs">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef DESIGNLAB_PHANTOMX_MK2_H_</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define DESIGNLAB_PHANTOMX_MK2_H_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="interface__hexapod__coordinate__converter_8hdocs">interface_hexapod_coordinate_converter.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="interface__hexapod__joint__calculator_8hdocs">interface_hexapod_joint_calculator.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="interface__hexapod__state__presenter_8hdocs">interface_hexapod_state_presenter.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="interface__hexapod__posture__validator_8hdocs">interface_hexapod_posture_validator.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="phantomx__mk2__parameter__record_8hdocs">phantomx_mk2_parameter_record.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlabdocs">designlab</a></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_phantom_x_mk_i_idocs">   22</a></span><span class="keyword">class </span><a class="code hl_class" href="classdesignlab_1_1_phantom_x_mk_i_idocs">PhantomXMkII</a> :</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">public</span> <a class="code hl_class" href="classdesignlab_1_1_i_hexapod_coordinate_converterdocs">IHexapodCoordinateConverter</a>,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">public</span> <a class="code hl_class" href="classdesignlab_1_1_i_hexapod_joint_calculatordocs">IHexapodJointCalculator</a>,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">public</span> <a class="code hl_class" href="classdesignlab_1_1_i_hexapod_state_presenterdocs">IHexapodStatePresenter</a>,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">public</span> <a class="code hl_class" href="classdesignlab_1_1_i_hexapod_posture_validatordocs">IHexapodPostureValidator</a></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>{</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classdesignlab_1_1_phantom_x_mk_i_idocs">PhantomXMkII</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_phantom_x_mk_i_i_parameter_recorddocs">PhantomXMkIIParameterRecord</a>&amp; parameter_record);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_struct" href="structdesignlab_1_1_hexapod_joint_statedocs">HexapodJointState</a> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_idocs#ac027dc121a54e00da42ffcbab0028561">CalculateJointState</a>(</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keyword">const</span> <span class="keywordtype">int</span> leg_index, <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>&amp; leg_pos) <span class="keyword">const</span> <span class="keyword">noexcept</span> <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_idocs#acd4f0edc022211d1ddd42cc7308e4ffd">IsValidJointState</a>(</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keyword">const</span> <span class="keywordtype">int</span> leg_index, <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>&amp; leg_pos,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_hexapod_joint_statedocs">HexapodJointState</a>&amp; joint_state) <span class="keyword">const</span> <span class="keyword">noexcept</span> <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_idocs#a0630fa1d537f7e00aa422a83c98ebdda">ConvertGlobalToLegCoordinate</a>(</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>&amp; converted_position, <span class="keywordtype">int</span> leg_index,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>&amp; center_of_mass_global, <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_quaterniondocs">Quaternion</a>&amp; robot_quat,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keyword">const</span> <span class="keywordtype">bool</span> consider_rot) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_idocs#a028f4e024ebebca50325beef3444bfc5">ConvertLegToGlobalCoordinate</a>(</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>&amp; converted_position, <span class="keywordtype">int</span> leg_index,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>&amp; center_of_mass_global, <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_quaterniondocs">Quaternion</a>&amp; robot_quat,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keyword">const</span> <span class="keywordtype">bool</span> consider_rot) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_idocs#ae4b923566d06eef5f765b1e7afdd57ae">ConvertRobotToGlobalCoordinate</a>(</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>&amp; converted_position,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>&amp; center_of_mass_global, <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_quaterniondocs">Quaternion</a>&amp; robot_quat,</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keyword">const</span> <span class="keywordtype">bool</span> consider_rot) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_idocs#a23f271c79b8151dbb64c4e441b19e1d6">ConvertRobotToLegCoordinate</a>(</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>&amp; converted_position, <span class="keywordtype">int</span> leg_index) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_idocs#a27befb91ff5b1954cd31a3a46d70e995">ConvertLegToRobotCoordinate</a>(</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>&amp; converted_position, <span class="keywordtype">int</span> leg_index) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_idocs#ac284a810420fd8f69883cdb22d611704">GetFreeLegPosLegCoordinate</a>(<span class="keywordtype">int</span> leg_index) <span class="keyword">const</span> <span class="keyword">noexcept</span> <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_idocs#afb11bfbb9551917334442fa9a9e38ffd">GetLegBasePosRobotCoordinate</a>(<span class="keywordtype">int</span> leg_index) <span class="keyword">const</span> <span class="keyword">noexcept</span> <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_idocs#a52a929d7f1610aa2f074d6b84c386bdf">GetGroundHeightMarginMin</a>() <span class="keyword">const</span> <span class="keyword">noexcept</span> <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_idocs#a346bba4678638b033dcc6f07b3a5389f">GetGroundHeightMarginMax</a>() <span class="keyword">const</span> <span class="keyword">noexcept</span> <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_idocs#aab0677aba41eed4d1138c6adacc27fa1">IsLegInRange</a>(<span class="keywordtype">int</span> leg_index, <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>&amp; leg_pos) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_idocs#aeed1296b4886eb07bc095ca2b5e8c333">IsLegInterfering</a>(</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keyword">const</span> std::array&lt;Vector3, HexapodConst::kLegNum&gt;&amp; leg_pos) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_idocs#a688e8dd6b7f92d5b1a4fa8d4fbcc2714">CalculateStabilityMargin</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">leg_func::LegStateBit</a>&amp; leg_state,</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>      <span class="keyword">const</span> std::array&lt;Vector3, HexapodConst::kLegNum&gt;&amp; leg_pos) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_idocs#aea0eea059d621c567e8c0a704d7f79c8">IsStable</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">leg_func::LegStateBit</a>&amp; leg_state,</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>      <span class="keyword">const</span> std::array&lt;Vector3, HexapodConst::kLegNum&gt;&amp; leg_pos) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_idocs#a2d84fda12ddad344e7de4c0e023ffd4f">IsBodyInterferingWithGround</a>(</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_robot_state_nodedocs">RobotStateNode</a>&amp; node,</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="keyword">const</span> <a class="code hl_class" href="classdesignlab_1_1_divided_map_statedocs">DividedMapState</a>&amp; devide_map) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> kMaxLegRSize{ 200 };   </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    std::array&lt;float, kMaxLegRSize&gt; InitMaxLegR() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    std::array&lt;Vector2, HexapodConst::kLegNum&gt; InitMinLegPosXY() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    std::array&lt;Vector2, HexapodConst::kLegNum&gt; InitMaxLegPosXY() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> kBodyLiftingHeightMin;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> kBodyLiftingHeightMax;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> kMovableCoxaAngleMin;   </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> kMovableCoxaAngleMax;   </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> kMinLegR;   </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> kMaxLegR;   </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> kFreeLegHeight;  </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> kStableMargin;   </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> kMinLegDistance;  </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    std::array&lt;float, kMaxLegRSize&gt; kMaxLegRArray;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    std::array&lt;Vector2, HexapodConst::kLegNum&gt; kMinLegPosXY;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    std::array&lt;Vector2, HexapodConst::kLegNum&gt; kMaxLegPosXY;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keyword">const</span> std::array&lt;Vector3, HexapodConst::kLegNum&gt; leg_base_pos_robot_coordinate_;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keyword">const</span> std::array&lt;Vector3, HexapodConst::kLegNum&gt; free_leg_pos_leg_coordinate_;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>};</div>
+</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>}  <span class="comment">// namespace designlab</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_PHANTOMX_MK2_H_</span></div>
+<div class="ttc" id="aclassdesignlab_1_1_divided_map_statedocs"><div class="ttname"><a href="classdesignlab_1_1_divided_map_statedocs">designlab::DividedMapState</a></div><div class="ttdoc">マップを格子状に分割して管理するクラス．</div><div class="ttdef"><b>Definition</b> divided_map_state.h:30</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_i_hexapod_coordinate_converterdocs"><div class="ttname"><a href="classdesignlab_1_1_i_hexapod_coordinate_converterdocs">designlab::IHexapodCoordinateConverter</a></div><div class="ttdoc">ロボットは重心位置・アクチュエータなど様々な点を基準とする座標系を持つ． これらを相互に変換する処理のインターフェース．</div><div class="ttdef"><b>Definition</b> interface_hexapod_coordinate_converter.h:33</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_i_hexapod_joint_calculatordocs"><div class="ttname"><a href="classdesignlab_1_1_i_hexapod_joint_calculatordocs">designlab::IHexapodJointCalculator</a></div><div class="ttdoc">間接角度や角速度を計算する処理のインターフェース．</div><div class="ttdef"><b>Definition</b> interface_hexapod_joint_calculator.h:43</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_i_hexapod_posture_validatordocs"><div class="ttname"><a href="classdesignlab_1_1_i_hexapod_posture_validatordocs">designlab::IHexapodPostureValidator</a></div><div class="ttdoc">6脚ロボットが有効な姿勢をとっているかを チェックする処理のインターフェース．</div><div class="ttdef"><b>Definition</b> interface_hexapod_posture_validator.h:26</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_i_hexapod_state_presenterdocs"><div class="ttname"><a href="classdesignlab_1_1_i_hexapod_state_presenterdocs">designlab::IHexapodStatePresenter</a></div><div class="ttdoc">6脚ロボットの状態を表示するクラス．</div><div class="ttdef"><b>Definition</b> interface_hexapod_state_presenter.h:19</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_phantom_x_mk_i_idocs"><div class="ttname"><a href="classdesignlab_1_1_phantom_x_mk_i_idocs">designlab::PhantomXMkII</a></div><div class="ttdoc">PhantomX mk-2 の状態を計算するクラス．</div><div class="ttdef"><b>Definition</b> phantomx_mk2.h:27</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_phantom_x_mk_i_idocs_a028f4e024ebebca50325beef3444bfc5"><div class="ttname"><a href="classdesignlab_1_1_phantom_x_mk_i_idocs#a028f4e024ebebca50325beef3444bfc5">designlab::PhantomXMkII::ConvertLegToGlobalCoordinate</a></div><div class="ttdeci">Vector3 ConvertLegToGlobalCoordinate(const Vector3 &amp;converted_position, int leg_index, const Vector3 &amp;center_of_mass_global, const Quaternion &amp;robot_quat, const bool consider_rot) const override</div><div class="ttdoc">脚座標系で表現されている座標を，グローバル座標系に変換する．</div><div class="ttdef"><b>Definition</b> phantomx_mk2.cpp:344</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_phantom_x_mk_i_idocs_a0630fa1d537f7e00aa422a83c98ebdda"><div class="ttname"><a href="classdesignlab_1_1_phantom_x_mk_i_idocs#a0630fa1d537f7e00aa422a83c98ebdda">designlab::PhantomXMkII::ConvertGlobalToLegCoordinate</a></div><div class="ttdeci">Vector3 ConvertGlobalToLegCoordinate(const Vector3 &amp;converted_position, int leg_index, const Vector3 &amp;center_of_mass_global, const Quaternion &amp;robot_quat, const bool consider_rot) const override</div><div class="ttdoc">グローバル座標系で表現されている座標を，脚座標系に変換する．</div><div class="ttdef"><b>Definition</b> phantomx_mk2.cpp:319</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_phantom_x_mk_i_idocs_a23f271c79b8151dbb64c4e441b19e1d6"><div class="ttname"><a href="classdesignlab_1_1_phantom_x_mk_i_idocs#a23f271c79b8151dbb64c4e441b19e1d6">designlab::PhantomXMkII::ConvertRobotToLegCoordinate</a></div><div class="ttdeci">Vector3 ConvertRobotToLegCoordinate(const Vector3 &amp;converted_position, int leg_index) const</div><div class="ttdoc">ロボット座標系で表現されている座標を，脚座標系に変換する．</div><div class="ttdef"><b>Definition</b> phantomx_mk2.cpp:383</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_phantom_x_mk_i_idocs_a27befb91ff5b1954cd31a3a46d70e995"><div class="ttname"><a href="classdesignlab_1_1_phantom_x_mk_i_idocs#a27befb91ff5b1954cd31a3a46d70e995">designlab::PhantomXMkII::ConvertLegToRobotCoordinate</a></div><div class="ttdeci">Vector3 ConvertLegToRobotCoordinate(const Vector3 &amp;converted_position, int leg_index) const</div><div class="ttdoc">脚座標系で表現されている座標を，ロボット座標系に変換する．</div><div class="ttdef"><b>Definition</b> phantomx_mk2.cpp:389</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_phantom_x_mk_i_idocs_a2d84fda12ddad344e7de4c0e023ffd4f"><div class="ttname"><a href="classdesignlab_1_1_phantom_x_mk_i_idocs#a2d84fda12ddad344e7de4c0e023ffd4f">designlab::PhantomXMkII::IsBodyInterferingWithGround</a></div><div class="ttdeci">bool IsBodyInterferingWithGround(const RobotStateNode &amp;node, const DividedMapState &amp;devide_map) const override</div><div class="ttdoc">胴体が地面と干渉しているかどうかを判定する．</div><div class="ttdef"><b>Definition</b> phantomx_mk2.cpp:570</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_phantom_x_mk_i_idocs_a346bba4678638b033dcc6f07b3a5389f"><div class="ttname"><a href="classdesignlab_1_1_phantom_x_mk_i_idocs#a346bba4678638b033dcc6f07b3a5389f">designlab::PhantomXMkII::GetGroundHeightMarginMax</a></div><div class="ttdeci">float GetGroundHeightMarginMax() const noexcept override</div><div class="ttdoc">地面の最大高さと重心位置を最大どれだけ離すかを返す．</div><div class="ttdef"><b>Definition</b> phantomx_mk2.cpp:505</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_phantom_x_mk_i_idocs_a52a929d7f1610aa2f074d6b84c386bdf"><div class="ttname"><a href="classdesignlab_1_1_phantom_x_mk_i_idocs#a52a929d7f1610aa2f074d6b84c386bdf">designlab::PhantomXMkII::GetGroundHeightMarginMin</a></div><div class="ttdeci">float GetGroundHeightMarginMin() const noexcept override</div><div class="ttdoc">地面の最大高さと重心位置を最小どれだけ離すかを返す．</div><div class="ttdef"><b>Definition</b> phantomx_mk2.cpp:500</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_phantom_x_mk_i_idocs_a688e8dd6b7f92d5b1a4fa8d4fbcc2714"><div class="ttname"><a href="classdesignlab_1_1_phantom_x_mk_i_idocs#a688e8dd6b7f92d5b1a4fa8d4fbcc2714">designlab::PhantomXMkII::CalculateStabilityMargin</a></div><div class="ttdeci">float CalculateStabilityMargin(const leg_func::LegStateBit &amp;leg_state, const std::array&lt; Vector3, HexapodConst::kLegNum &gt; &amp;leg_pos) const override</div><div class="ttdoc">安定余裕(Stability Margin)を計算する． 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい．   接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計...</div><div class="ttdef"><b>Definition</b> phantomx_mk2.cpp:510</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_phantom_x_mk_i_idocs_aab0677aba41eed4d1138c6adacc27fa1"><div class="ttname"><a href="classdesignlab_1_1_phantom_x_mk_i_idocs#aab0677aba41eed4d1138c6adacc27fa1">designlab::PhantomXMkII::IsLegInRange</a></div><div class="ttdeci">bool IsLegInRange(int leg_index, const Vector3 &amp;leg_pos) const override</div><div class="ttdoc">脚が可動範囲内にあるかどうかを判定する．</div><div class="ttdef"><b>Definition</b> phantomx_mk2.cpp:415</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_phantom_x_mk_i_idocs_ac027dc121a54e00da42ffcbab0028561"><div class="ttname"><a href="classdesignlab_1_1_phantom_x_mk_i_idocs#ac027dc121a54e00da42ffcbab0028561">designlab::PhantomXMkII::CalculateJointState</a></div><div class="ttdeci">HexapodJointState CalculateJointState(const int leg_index, const Vector3 &amp;leg_pos) const noexcept override</div><div class="ttdoc">指定した脚の関節のグローバル座標と，角度を計算する．   重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない．   間接の可動範囲外まで動いてしまう場合でも，答えを返す．   目標座標...</div><div class="ttdef"><b>Definition</b> phantomx_mk2.cpp:54</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_phantom_x_mk_i_idocs_ac284a810420fd8f69883cdb22d611704"><div class="ttname"><a href="classdesignlab_1_1_phantom_x_mk_i_idocs#ac284a810420fd8f69883cdb22d611704">designlab::PhantomXMkII::GetFreeLegPosLegCoordinate</a></div><div class="ttdeci">Vector3 GetFreeLegPosLegCoordinate(int leg_index) const noexcept override</div><div class="ttdoc">遊脚する位置を返す，脚座標系．</div><div class="ttdef"><b>Definition</b> phantomx_mk2.cpp:396</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_phantom_x_mk_i_idocs_acd4f0edc022211d1ddd42cc7308e4ffd"><div class="ttname"><a href="classdesignlab_1_1_phantom_x_mk_i_idocs#acd4f0edc022211d1ddd42cc7308e4ffd">designlab::PhantomXMkII::IsValidJointState</a></div><div class="ttdeci">bool IsValidJointState(const int leg_index, const Vector3 &amp;leg_pos, const HexapodJointState &amp;joint_state) const noexcept override</div><div class="ttdoc">指定した脚のHexapodJointStateが正しく計算できているかを調べる．   目標座標に届かない場合や，間接の可動範囲外まで動いてしまう場合， 戻り値は false になる．</div><div class="ttdef"><b>Definition</b> phantomx_mk2.cpp:268</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_phantom_x_mk_i_idocs_ae4b923566d06eef5f765b1e7afdd57ae"><div class="ttname"><a href="classdesignlab_1_1_phantom_x_mk_i_idocs#ae4b923566d06eef5f765b1e7afdd57ae">designlab::PhantomXMkII::ConvertRobotToGlobalCoordinate</a></div><div class="ttdeci">Vector3 ConvertRobotToGlobalCoordinate(const Vector3 &amp;converted_position, const Vector3 &amp;center_of_mass_global, const Quaternion &amp;robot_quat, const bool consider_rot) const override</div><div class="ttdoc">ロボット座標系で表現されている座標を，グローバル座標系に変換する．</div><div class="ttdef"><b>Definition</b> phantomx_mk2.cpp:367</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_phantom_x_mk_i_idocs_aea0eea059d621c567e8c0a704d7f79c8"><div class="ttname"><a href="classdesignlab_1_1_phantom_x_mk_i_idocs#aea0eea059d621c567e8c0a704d7f79c8">designlab::PhantomXMkII::IsStable</a></div><div class="ttdeci">bool IsStable(const leg_func::LegStateBit &amp;leg_state, const std::array&lt; Vector3, HexapodConst::kLegNum &gt; &amp;leg_pos) const override</div><div class="ttdoc">安定余裕を用いて，静的に安定しているかどうかを判定する．</div><div class="ttdef"><b>Definition</b> phantomx_mk2.cpp:563</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_phantom_x_mk_i_idocs_aeed1296b4886eb07bc095ca2b5e8c333"><div class="ttname"><a href="classdesignlab_1_1_phantom_x_mk_i_idocs#aeed1296b4886eb07bc095ca2b5e8c333">designlab::PhantomXMkII::IsLegInterfering</a></div><div class="ttdeci">bool IsLegInterfering(const std::array&lt; Vector3, HexapodConst::kLegNum &gt; &amp;leg_pos) const override</div><div class="ttdoc">脚が他の脚と干渉しているかどうかを判定する．</div><div class="ttdef"><b>Definition</b> phantomx_mk2.cpp:464</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_phantom_x_mk_i_idocs_afb11bfbb9551917334442fa9a9e38ffd"><div class="ttname"><a href="classdesignlab_1_1_phantom_x_mk_i_idocs#afb11bfbb9551917334442fa9a9e38ffd">designlab::PhantomXMkII::GetLegBasePosRobotCoordinate</a></div><div class="ttdeci">Vector3 GetLegBasePosRobotCoordinate(int leg_index) const noexcept override</div><div class="ttdoc">脚の付け根の座標(leg base position )を取得する．ロボット座標系．</div><div class="ttdef"><b>Definition</b> phantomx_mk2.cpp:405</div></div>
+<div class="ttc" id="ainterface__hexapod__coordinate__converter_8hdocs"><div class="ttname"><a href="interface__hexapod__coordinate__converter_8hdocs">interface_hexapod_coordinate_converter.h</a></div></div>
+<div class="ttc" id="ainterface__hexapod__joint__calculator_8hdocs"><div class="ttname"><a href="interface__hexapod__joint__calculator_8hdocs">interface_hexapod_joint_calculator.h</a></div></div>
+<div class="ttc" id="ainterface__hexapod__posture__validator_8hdocs"><div class="ttname"><a href="interface__hexapod__posture__validator_8hdocs">interface_hexapod_posture_validator.h</a></div></div>
+<div class="ttc" id="ainterface__hexapod__state__presenter_8hdocs"><div class="ttname"><a href="interface__hexapod__state__presenter_8hdocs">interface_hexapod_state_presenter.h</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_aeed0147f934052f177c0761b75bacc65"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">designlab::leg_func::LegStateBit</a></div><div class="ttdeci">std::bitset&lt; kLegStateBitNum &gt; LegStateBit</div><div class="ttdoc">脚状態を保存する型．28bitのビット型．</div><div class="ttdef"><b>Definition</b> leg_state.h:54</div></div>
+<div class="ttc" id="anamespacedesignlabdocs"><div class="ttname"><a href="namespacedesignlabdocs">designlab</a></div><div class="ttdef"><b>Definition</b> abstract_dxlib_gui.cpp:16</div></div>
+<div class="ttc" id="aphantomx__mk2__parameter__record_8hdocs"><div class="ttname"><a href="phantomx__mk2__parameter__record_8hdocs">phantomx_mk2_parameter_record.h</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_hexapod_joint_statedocs"><div class="ttname"><a href="structdesignlab_1_1_hexapod_joint_statedocs">designlab::HexapodJointState</a></div><div class="ttdoc">ロボットの関節の状態を表す構造体．</div><div class="ttdef"><b>Definition</b> interface_hexapod_joint_calculator.h:23</div></div>
+<div class="ttc" id="astructdesignlab_1_1_phantom_x_mk_i_i_parameter_recorddocs"><div class="ttname"><a href="structdesignlab_1_1_phantom_x_mk_i_i_parameter_recorddocs">designlab::PhantomXMkIIParameterRecord</a></div><div class="ttdef"><b>Definition</b> phantomx_mk2_parameter_record.h:17</div></div>
+<div class="ttc" id="astructdesignlab_1_1_quaterniondocs"><div class="ttname"><a href="structdesignlab_1_1_quaterniondocs">designlab::Quaternion</a></div><div class="ttdoc">クォータニオンを表す構造体．</div><div class="ttdef"><b>Definition</b> math_quaternion.h:37</div></div>
+<div class="ttc" id="astructdesignlab_1_1_robot_state_nodedocs"><div class="ttname"><a href="structdesignlab_1_1_robot_state_nodedocs">designlab::RobotStateNode</a></div><div class="ttdoc">グラフ構造のためのノード(頂点)．旧名 LNODE</div><div class="ttdef"><b>Definition</b> robot_state_node.h:46</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs"><div class="ttname"><a href="structdesignlab_1_1_vector3docs">designlab::Vector3</a></div><div class="ttdoc">3次元の位置ベクトルを表す構造体．</div><div class="ttdef"><b>Definition</b> math_vector3.h:39</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_65b03a49640d0599dba701447d580643docs">hasegawa</a></li><li class="navelem"><a class="el" href="dir_2854940d141de6d3c7cee6483e7afda9docs">Desktop</a></li><li class="navelem"><a class="el" href="dir_fad4873fd0f485db7102df865d883d5cdocs">main</a></li><li class="navelem"><a class="el" href="dir_227eda1db808a252df8518c263632a71docs">program</a></li><li class="navelem"><a class="el" href="dir_c48eef75fce7d1d05a2392783bd08b15docs">gait-generation-by-graph-search</a></li><li class="navelem"><a class="el" href="dir_6970d783dbb606469f8f14a039e83820docs">DesignLab</a></li><li class="navelem"><a class="el" href="phantomx__mk2_8hdocs">phantomx_mk2.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

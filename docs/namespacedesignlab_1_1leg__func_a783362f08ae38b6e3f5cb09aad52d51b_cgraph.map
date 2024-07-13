@@ -1,7 +1,7 @@
 <map id="designlab::leg_func::GetLiftedLegNum" name="designlab::leg_func::GetLiftedLegNum">
 <area shape="rect" id="Node000001" title="遊脚している脚の本数を返す関数．" alt="" coords="5,5,138,48"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__func.html#a410e98538abd3a3346c5223e32100355" title="接地している脚の本数を返す関数．" alt="" coords="186,5,340,48"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__funcdocs#a410e98538abd3a3346c5223e32100355" title="接地している脚の本数を返す関数．" alt="" coords="186,5,340,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,24,170,24,170,29,138,29"/>
-<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="388,5,520,48"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1leg__funcdocs#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="388,5,520,48"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="340,24,373,24,373,29,340,29"/>
 </map>

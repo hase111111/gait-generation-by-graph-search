@@ -1,5 +1,5 @@
 <map id="designlab::DividedMapState::GetPointPos" name="designlab::DividedMapState::GetPointPos">
 <area shape="rect" id="Node000001" title="格子状に切り分けられたマップから，脚設置可能点の実際の座標を取得する． &#160;&#160;範囲外の値を指定した場合は，(0,0,0)を返す．" alt="" coords="5,5,187,48"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector3.html#adb4d141dbd87c98d1006151956566f13" title="零ベクトルを返す． 静的な関数なので，Vector3::GetZeroVec() と呼び出せる．" alt="" coords="235,5,364,48"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector3docs#adb4d141dbd87c98d1006151956566f13" title="零ベクトルを返す． 静的な関数なので，Vector3::GetZeroVec() と呼び出せる．" alt="" coords="235,5,364,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,24,219,24,219,29,187,29"/>
 </map>

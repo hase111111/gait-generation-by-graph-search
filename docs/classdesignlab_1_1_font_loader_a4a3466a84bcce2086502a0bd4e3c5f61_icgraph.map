@@ -1,5 +1,5 @@
 <map id="designlab::FontLoader::GetFontHandle" name="designlab::FontLoader::GetFontHandle">
 <area shape="rect" id="Node000001" title="Dxlibでは特定のフォントで描画する際に，フォントのハンドルを指定する． &#160;&#160;この関数では，フォントのファイルパスを指定すると， フォントのハンドル番号を返す． &#160;&#160;フォントがまだ読み込まれていない場..." alt="" coords="216,5,365,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_simple_button.html#a2eef161f2499afff52e80f6c7254954e" title="GUIの描画．" alt="" coords="5,5,168,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_simple_buttondocs#a2eef161f2499afff52e80f6c7254954e" title="GUIの描画．" alt="" coords="5,5,168,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,29,168,29,168,24,200,24"/>
 </map>

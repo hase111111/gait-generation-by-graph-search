@@ -1,12 +1,12 @@
 <map id="designlab::ToRotationMatrix" name="designlab::ToRotationMatrix">
 <area shape="rect" id="Node000001" title="XYZオイラー角から回転角行列への変換．" alt="" coords="5,80,188,107"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_rotation_matrix3x3.html#abc3bdb68d606ea4d724a92425188f9fa" title="x軸周りに回転する回転行列を生成する．" alt="" coords="236,5,425,48"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_rotation_matrix3x3docs#abc3bdb68d606ea4d724a92425188f9fa" title="x軸周りに回転する回転行列を生成する．" alt="" coords="236,5,425,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,77,237,50,239,55,147,82"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_rotation_matrix3x3.html#a4f375cd58fd5ae559e9881c0a0f9aed7" title="y軸周りに回転する回転行列を生成する．" alt="" coords="236,72,425,115"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_rotation_matrix3x3docs#a4f375cd58fd5ae559e9881c0a0f9aed7" title="y軸周りに回転する回転行列を生成する．" alt="" coords="236,72,425,115"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="188,91,220,91,220,96,188,96"/>
-<area shape="rect" id="Node000005" href="$structdesignlab_1_1_rotation_matrix3x3.html#a39d99d8f9cce41de693228739ad69161" title="z軸周りに回転する回転行列を生成する．" alt="" coords="236,139,425,181"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_rotation_matrix3x3docs#a39d99d8f9cce41de693228739ad69161" title="z軸周りに回転する回転行列を生成する．" alt="" coords="236,139,425,181"/>
 <area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="147,105,239,131,237,136,146,110"/>
-<area shape="rect" id="Node000003" href="$structdesignlab_1_1_rotation_matrix3x3.html#a075763d1c57c77721d513dabd0466875" title="単位行列を生成する．" alt="" coords="473,72,662,115"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_rotation_matrix3x3docs#a075763d1c57c77721d513dabd0466875" title="単位行列を生成する．" alt="" coords="473,72,662,115"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="409,46,475,65,474,70,408,51"/>
 <area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="425,91,457,91,457,96,425,96"/>
 <area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="408,136,474,117,475,122,409,141"/>

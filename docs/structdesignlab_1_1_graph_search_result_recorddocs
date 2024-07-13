@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: designlab::GraphSearchResultRecord 構造体</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'docs');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('structdesignlab_1_1_graph_search_result_recorddocs',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-static-methods">静的公開メンバ関数</a> &#124;
+<a href="#pub-attribs">公開変数類</a> &#124;
+<a href="structdesignlab_1_1_graph_search_result_record-membersdocs">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">designlab::GraphSearchResultRecord 構造体<span class="mlabels"><span class="mlabel">final</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>グラフ探索の結果を格納する構造体．  
+ <a href="structdesignlab_1_1_graph_search_result_recorddocs#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="graph__search__result__record_8h_sourcedocs">graph_search_result_record.h</a>&gt;</code></p>
+<div class="dynheader">
+designlab::GraphSearchResultRecord 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="structdesignlab_1_1_graph_search_result_record__coll__graph.png" border="0" usemap="#adesignlab_1_1_graph_search_result_record_coll__map" alt="Collaboration graph"/></div>
+<map name="adesignlab_1_1_graph_search_result_record_coll__map" id="adesignlab_1_1_graph_search_result_record_coll__map">
+<area shape="rect" title="グラフ探索の結果を格納する構造体．" alt="" coords="155,283,352,325"/>
+<area shape="rect" href="structdesignlab_1_1_robot_state_nodedocs" title="グラフ構造のためのノード(頂点)．旧名 LNODE" alt="" coords="5,192,185,219"/>
+<area shape="poly" title=" " alt="" coords="130,225,221,280,218,284,127,229"/>
+<area shape="rect" href="structdesignlab_1_1_vector3docs" title="3次元の位置ベクトルを表す構造体．" alt="" coords="30,5,160,32"/>
+<area shape="poly" title=" " alt="" coords="94,48,89,96,90,149,95,191,90,192,85,149,83,96,88,47"/>
+<area shape="rect" href="structdesignlab_1_1_quaterniondocs" title="クォータニオンを表す構造体．" alt="" coords="235,99,382,125"/>
+<area shape="poly" title=" " alt="" coords="140,36,280,96,278,100,137,41"/>
+<area shape="poly" title=" " alt="" coords="266,134,126,194,124,189,264,129"/>
+<area shape="rect" href="structdesignlab_1_1_graph_search_resultdocs" title="グラフ探索の評価値を評価するクラス．" alt="" coords="208,192,406,219"/>
+<area shape="poly" title=" " alt="" coords="295,234,267,283,263,281,290,231"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legenddocs">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:aa458a4b33e39706e69f9e932a51bd9cf" id="r_aa458a4b33e39706e69f9e932a51bd9cf"><td class="memItemLeft" align="right" valign="top"><a id="aa458a4b33e39706e69f9e932a51bd9cf" name="aa458a4b33e39706e69f9e932a51bd9cf"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>GraphSearchResultRecord</b> (const <a class="el" href="structdesignlab_1_1_robot_state_nodedocs">RobotStateNode</a> &amp;node, const double time, const <a class="el" href="structdesignlab_1_1_graph_search_resultdocs">GraphSearchResult</a> result)</td></tr>
+<tr class="separator:aa458a4b33e39706e69f9e932a51bd9cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab817d6534ee46d02492002e1966801e4" id="r_ab817d6534ee46d02492002e1966801e4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_graph_search_result_recorddocs#ab817d6534ee46d02492002e1966801e4">ToCsvString</a> () const</td></tr>
+<tr class="memdesc:ab817d6534ee46d02492002e1966801e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">構造体の内容をCSV形式の文字列にして返す． , (カンマ) で区切られる．  <br /></td></tr>
+<tr class="separator:ab817d6534ee46d02492002e1966801e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静的公開メンバ関数</h2></td></tr>
+<tr class="memitem:a5c544b05fea97002cd283a22d3e5edf5" id="r_a5c544b05fea97002cd283a22d3e5edf5"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_graph_search_result_recorddocs#a5c544b05fea97002cd283a22d3e5edf5">GetCsvHeader</a> ()</td></tr>
+<tr class="memdesc:a5c544b05fea97002cd283a22d3e5edf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">CSV形式のヘッダを返す．  <br /></td></tr>
+<tr class="separator:a5c544b05fea97002cd283a22d3e5edf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+公開変数類</h2></td></tr>
+<tr class="memitem:ac182423fd0d1ef821abbb0d4e4f583be" id="r_ac182423fd0d1ef821abbb0d4e4f583be"><td class="memItemLeft" align="right" valign="top"><a id="ac182423fd0d1ef821abbb0d4e4f583be" name="ac182423fd0d1ef821abbb0d4e4f583be"></a>
+<a class="el" href="structdesignlab_1_1_robot_state_nodedocs">RobotStateNode</a>&#160;</td><td class="memItemRight" valign="bottom"><b>result_node</b></td></tr>
+<tr class="memdesc:ac182423fd0d1ef821abbb0d4e4f583be"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ探索によって選択されたノード. <br /></td></tr>
+<tr class="separator:ac182423fd0d1ef821abbb0d4e4f583be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab48d90afc41caa38fdc73b234b26dfa3" id="r_ab48d90afc41caa38fdc73b234b26dfa3"><td class="memItemLeft" align="right" valign="top"><a id="ab48d90afc41caa38fdc73b234b26dfa3" name="ab48d90afc41caa38fdc73b234b26dfa3"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>computation_time</b></td></tr>
+<tr class="memdesc:ab48d90afc41caa38fdc73b234b26dfa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ探索にかかった計算時間 [milli sec] <br /></td></tr>
+<tr class="separator:ab48d90afc41caa38fdc73b234b26dfa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac05071a86f97c9477bd091bd1050024" id="r_aac05071a86f97c9477bd091bd1050024"><td class="memItemLeft" align="right" valign="top"><a id="aac05071a86f97c9477bd091bd1050024" name="aac05071a86f97c9477bd091bd1050024"></a>
+<a class="el" href="structdesignlab_1_1_graph_search_resultdocs">GraphSearchResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>graph_search_result</b></td></tr>
+<tr class="memdesc:aac05071a86f97c9477bd091bd1050024"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ探索の結果，成功か失敗か． <br /></td></tr>
+<tr class="separator:aac05071a86f97c9477bd091bd1050024"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>グラフ探索の結果を格納する構造体． </p>
+<dl class="section note"><dt>覚え書き</dt><dd>変数をごちゃごちゃさせたくないので作成した． </dd></dl>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="a5c544b05fea97002cd283a22d3e5edf5" name="a5c544b05fea97002cd283a22d3e5edf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c544b05fea97002cd283a22d3e5edf5">&#9670;&#160;</a></span>GetCsvHeader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string designlab::GraphSearchResultRecord::GetCsvHeader </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>CSV形式のヘッダを返す． </p>
+<dl class="section return"><dt>戻り値</dt><dd>CSV形式のヘッダ． </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="tododocs#_todo000007">todo:</a></b></dt><dd>処理を一般化する． </dd></dl>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdesignlab_1_1_graph_search_result_record_a5c544b05fea97002cd283a22d3e5edf5_icgraph.png" border="0" usemap="#astructdesignlab_1_1_graph_search_result_record_a5c544b05fea97002cd283a22d3e5edf5_icgraph" alt=""/></div>
+<map name="astructdesignlab_1_1_graph_search_result_record_a5c544b05fea97002cd283a22d3e5edf5_icgraph" id="astructdesignlab_1_1_graph_search_result_record_a5c544b05fea97002cd283a22d3e5edf5_icgraph">
+<area shape="rect" title="CSV形式のヘッダを返す．" alt="" coords="236,5,433,48"/>
+<area shape="rect" href="structdesignlab_1_1_simulation_result_recorddocs#a8db5c589b0af353a492872768c38ad57" title="このクラスのデータを， csvファイルに出力する用の形式で文字列に変換する．" alt="" coords="5,5,188,48"/>
+<area shape="poly" title=" " alt="" coords="220,29,188,29,188,24,220,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab817d6534ee46d02492002e1966801e4" name="ab817d6534ee46d02492002e1966801e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab817d6534ee46d02492002e1966801e4">&#9670;&#160;</a></span>ToCsvString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string designlab::GraphSearchResultRecord::ToCsvString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>構造体の内容をCSV形式の文字列にして返す． , (カンマ) で区切られる． </p>
+<dl class="section return"><dt>戻り値</dt><dd>構造体の内容をCSV形式の文字列にしたもの． </dd></dl>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="structdesignlab_1_1_graph_search_result_record_ab817d6534ee46d02492002e1966801e4_cgraph.png" border="0" usemap="#astructdesignlab_1_1_graph_search_result_record_ab817d6534ee46d02492002e1966801e4_cgraph" alt=""/></div>
+<map name="astructdesignlab_1_1_graph_search_result_record_ab817d6534ee46d02492002e1966801e4_cgraph" id="astructdesignlab_1_1_graph_search_result_record_ab817d6534ee46d02492002e1966801e4_cgraph">
+<area shape="rect" title="構造体の内容をCSV形式の文字列にして返す． , (カンマ) で区切られる．" alt="" coords="5,105,203,148"/>
+<area shape="rect" href="namespacedesignlab_1_1math__utildocs#a45276ca396d3aa1331b5bb5a4c849bbe" title="小数を文字列に変換する関数． &#160;&#160;C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する．" alt="" coords="251,5,431,48"/>
+<area shape="poly" title=" " alt="" coords="150,102,250,58,264,52,266,56,252,62,152,107"/>
+<area shape="rect" href="namespacedesignlab_1_1leg__funcdocs#a97269d1d2e67a17e729889089a859b78" title="現在の脚状態から重心パターンを取得する．" alt="" coords="267,72,415,115"/>
+<area shape="poly" title=" " alt="" coords="203,110,251,103,252,109,204,115"/>
+<area shape="rect" href="namespacedesignlab_1_1leg__funcdocs#ab7617bec21b4f953dc3b4641f58a0e2e" title="脚状態を取得する．" alt="" coords="270,139,412,181"/>
+<area shape="poly" title=" " alt="" coords="204,138,255,145,254,150,203,143"/>
+<area shape="rect" href="namespacedesignlab_1_1leg__funcdocs#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="275,205,407,248"/>
+<area shape="poly" title=" " alt="" coords="152,146,252,191,266,197,264,202,250,196,150,151"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>この構造体詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/DesignLab/<a class="el" href="graph__search__result__record_8h_sourcedocs">graph_search_result_record.h</a></li>
+<li>C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/DesignLab/<b>graph_search_result_record.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacedesignlabdocs">designlab</a></li><li class="navelem"><a class="el" href="structdesignlab_1_1_graph_search_result_recorddocs">GraphSearchResultRecord</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

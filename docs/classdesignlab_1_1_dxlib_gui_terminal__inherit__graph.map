@@ -1,7 +1,7 @@
 <map id="designlab::DxlibGuiTerminal" name="designlab::DxlibGuiTerminal">
 <area shape="rect" id="Node000001" title="×ボタンを押して消えたGUIを復活させるためのクラス．" alt="" coords="70,80,253,107"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_dxlib_gui.html" title="Dxlibの画面に表示するGUIのインターフェース．" alt="" coords="5,5,142,32"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_dxlib_guidocs" title="Dxlibの画面に表示するGUIのインターフェース．" alt="" coords="5,5,142,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,40,148,78,145,82,99,44"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_i_dxlib_clickable.html" title="クリック可能なGUIのインターフェース．" alt="" coords="166,5,336,32"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_i_dxlib_clickabledocs" title="クリック可能なGUIのインターフェース．" alt="" coords="166,5,336,32"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="225,44,179,82,175,78,222,40"/>
 </map>

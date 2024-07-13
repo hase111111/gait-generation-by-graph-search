@@ -1,5 +1,5 @@
 <map id="designlab::GraphTreeCreator::CreateGraphTree" name="designlab::GraphTreeCreator::CreateGraphTree">
 <area shape="rect" id="Node000001" title="歩容パターングラフを作成する．" alt="" coords="292,5,478,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_gait_pattern_generator_thread.html#af6729bdafbd310f762733e7fa10f8df5" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,5,244,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_gait_pattern_generator_threaddocs#af6729bdafbd310f762733e7fa10f8df5" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,5,244,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="276,29,244,29,244,24,276,24"/>
 </map>

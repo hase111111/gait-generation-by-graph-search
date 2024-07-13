@@ -1,18 +1,18 @@
 <map id="designlab::SystemMainRobotControl::Main" name="designlab::SystemMainRobotControl::Main">
 <area shape="rect" id="Node000001" title="主要な処理を行う関数．" alt="" coords="5,89,197,132"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_file_tree.html#a733878741b1e145e088254478a06d6e5" title="ディレクトリの中から，ファイルを一つ選択する．" alt="" coords="245,89,375,132"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_file_treedocs#a733878741b1e145e088254478a06d6e5" title="ディレクトリの中から，ファイルを一つ選択する．" alt="" coords="245,89,375,132"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,108,229,108,229,113,197,113"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_cmd_i_o_util.html#a46968822c14aa0afa22c346a06afe753" title="整数を入力させる関数． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="423,23,566,65"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_cmd_i_o_utildocs#a46968822c14aa0afa22c346a06afe753" title="整数を入力させる関数． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="423,23,566,65"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="370,86,419,69,420,74,372,91"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="813,85,956,128"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_cmd_i_o_utildocs#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="813,85,956,128"/>
 <area shape="poly" id="edge8_Node000002_Node000005" title=" " alt="" coords="325,87,365,45,392,24,422,8,485,3,596,3,706,7,765,12,791,24,815,39,854,72,851,76,812,43,788,29,764,17,706,12,596,9,485,9,424,13,395,28,369,49,329,91"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_cmd_i_o_util.html#aa27aa18b11d6199f27f82cfe97241336" title="yesかnoを入力させる関数．返り値で yes なら true，noなら falseを返す． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="423,89,566,132"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_cmd_i_o_utildocs#aa27aa18b11d6199f27f82cfe97241336" title="yesかnoを入力させる関数．返り値で yes なら true，noなら falseを返す． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="423,89,566,132"/>
 <area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="375,108,408,108,408,113,375,113"/>
-<area shape="rect" id="Node000007" href="$classdesignlab_1_1_cmd_i_o_util.html#a6f864d04e44ac8b10262c9dcdb23fcbd" title="コマンドラインに水平線を出力する関数．" alt="" coords="614,144,765,187"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_cmd_i_o_utildocs#a6f864d04e44ac8b10262c9dcdb23fcbd" title="コマンドラインに水平線を出力する関数．" alt="" coords="614,144,765,187"/>
 <area shape="poly" id="edge9_Node000002_Node000007" title=" " alt="" coords="376,130,424,141,514,154,599,160,599,166,513,159,422,147,375,135"/>
-<area shape="rect" id="Node000008" href="$classdesignlab_1_1_cmd_i_o_util.html#a563e04e0ce3cf7b6c988a94b887a74b9" title="コマンドラインで改行をする関数．" alt="" coords="618,211,761,253"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_cmd_i_o_utildocs#a563e04e0ce3cf7b6c988a94b887a74b9" title="コマンドラインで改行をする関数．" alt="" coords="618,211,761,253"/>
 <area shape="poly" id="edge11_Node000002_Node000008" title=" " alt="" coords="351,130,424,164,516,193,604,214,602,219,514,198,422,169,348,135"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="618,27,761,69"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_cmd_i_o_utildocs#ac1e70caf5bcc19c4ab42106c3e1dc9ab" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="618,27,761,69"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="567,43,603,44,603,49,566,48"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="762,67,799,78,797,83,761,72"/>
 <area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="562,86,606,72,608,77,564,91"/>

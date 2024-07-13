@@ -1,4 +1,4 @@
 var map__state_8h =
 [
-    [ "designlab::MapState", "classdesignlab_1_1_map_state.html", "classdesignlab_1_1_map_state" ]
+    [ "designlab::MapState", "classdesignlab_1_1_map_statedocs", "classdesignlab_1_1_map_state" ]
 ];

@@ -1,5 +1,5 @@
 <map id="designlab::SimulationEndCheckerByPosture::IsEnd" name="designlab::SimulationEndCheckerByPosture::IsEnd">
 <area shape="rect" id="Node000001" title="シミュレーションの終了を判定する．" alt="" coords="5,5,177,48"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab.html#a78f534befd80ba94ea6c6058487d2596" title="回転角行列からXYZオイラー角への変換．" alt="" coords="225,13,376,40"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlabdocs#a78f534befd80ba94ea6c6058487d2596" title="回転角行列からXYZオイラー角への変換．" alt="" coords="225,13,376,40"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,24,209,24,209,29,177,29"/>
 </map>

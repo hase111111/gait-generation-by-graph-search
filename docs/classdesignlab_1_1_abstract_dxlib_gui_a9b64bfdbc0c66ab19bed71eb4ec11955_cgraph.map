@@ -1,5 +1,5 @@
 <map id="designlab::AbstractDxlibGui::SetVisible" name="designlab::AbstractDxlibGui::SetVisible">
 <area shape="rect" id="Node000001" title="GUIの表示を行うかどうかを設定する．" alt="" coords="5,5,168,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_abstract_dxlib_gui.html#a0af50aac58a6b9e37be44a94870a0e0f" title="GUIの位置を設定する． &#160;&#160;Dxlibの画面の座標は左上を原点とし，右下に行くほど値が大きくなる． &#160;&#160;横方向にx軸，縦方向にy軸をとる．" alt="" coords="216,5,378,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_abstract_dxlib_guidocs#a0af50aac58a6b9e37be44a94870a0e0f" title="GUIの位置を設定する． &#160;&#160;Dxlibの画面の座標は左上を原点とし，右下に行くほど値が大きくなる． &#160;&#160;横方向にx軸，縦方向にy軸をとる．" alt="" coords="216,5,378,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,24,200,24,200,29,168,29"/>
 </map>

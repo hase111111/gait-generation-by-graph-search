@@ -1,14 +1,14 @@
 <map id="designlab::CmdIOUtil::OutputTitle" name="designlab::CmdIOUtil::OutputTitle">
 <area shape="rect" id="Node000001" title="コマンドラインにこのソフトのタイトルを出力する関数． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="5,105,149,148"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_cmd_i_o_util.html#ab32a7649e9c86ded7b337e6246247c57" title="中央に文字を出力する関数． 文字列が長すぎる場合は普通に左詰めで出力される．" alt="" coords="200,5,344,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_cmd_i_o_utildocs#ab32a7649e9c86ded7b337e6246247c57" title="中央に文字を出力する関数． 文字列が長すぎる場合は普通に左詰めで出力される．" alt="" coords="200,5,344,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,102,195,58,205,53,208,58,198,62,116,107"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_cmd_i_o_util.html#a6f864d04e44ac8b10262c9dcdb23fcbd" title="コマンドラインに水平線を出力する関数．" alt="" coords="197,72,347,115"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_cmd_i_o_utildocs#a6f864d04e44ac8b10262c9dcdb23fcbd" title="コマンドラインに水平線を出力する関数．" alt="" coords="197,72,347,115"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="148,112,181,106,182,111,149,117"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_cmd_i_o_util.html#a563e04e0ce3cf7b6c988a94b887a74b9" title="コマンドラインで改行をする関数．" alt="" coords="200,139,344,181"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_cmd_i_o_utildocs#a563e04e0ce3cf7b6c988a94b887a74b9" title="コマンドラインで改行をする関数．" alt="" coords="200,139,344,181"/>
 <area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="149,136,185,143,184,148,148,142"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_cmd_i_o_util.html#ac8d2ba7c9fd6850d56615a9fdaeddc2d" title="右端に文字を出力する関数． 文字列が長すぎる場合は普通に左詰めで出力される．" alt="" coords="200,205,344,248"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_cmd_i_o_utildocs#ac8d2ba7c9fd6850d56615a9fdaeddc2d" title="右端に文字を出力する関数． 文字列が長すぎる場合は普通に左詰めで出力される．" alt="" coords="200,205,344,248"/>
 <area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="116,146,198,191,208,196,205,201,195,196,114,151"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="395,105,538,148"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_cmd_i_o_utildocs#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="395,105,538,148"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="325,46,348,58,417,95,414,100,346,62,322,51"/>
 <area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="348,104,380,109,379,114,347,109"/>
 <area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="343,145,379,139,380,144,344,150"/>

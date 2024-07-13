@@ -1,11 +1,11 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$classdesignlab_1_1_i_gait_pattern_generator.html" title="グラフ探索による歩容パターン生成を行うクラスのインターフェース．" alt="" coords="5,113,216,140"/>
-<area shape="rect" id="Node000001" href="$classdesignlab_1_1_gait_pattern_generator_basic.html" title="普通にグラフ探索を行い，歩容パターン生成を行うクラス．" alt="" coords="264,5,471,48"/>
+<area shape="rect" id="Node000000" href="$classdesignlab_1_1_i_gait_pattern_generatordocs" title="グラフ探索による歩容パターン生成を行うクラスのインターフェース．" alt="" coords="5,113,216,140"/>
+<area shape="rect" id="Node000001" href="$classdesignlab_1_1_gait_pattern_generator_basicdocs" title="普通にグラフ探索を行い，歩容パターン生成を行うクラス．" alt="" coords="264,5,471,48"/>
 <area shape="poly" id="edge30_Node000000_Node000001" title=" " alt="" coords="154,104,263,58,295,46,297,51,265,62,156,109"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_gait_pattern_generator_revaluation.html" title="再評価手法を実装したクラス．" alt="" coords="264,72,471,115"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_gait_pattern_generator_revaluationdocs" title="再評価手法を実装したクラス．" alt="" coords="264,72,471,115"/>
 <area shape="poly" id="edge31_Node000000_Node000002" title=" " alt="" coords="231,108,263,104,264,109,232,114"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_gait_pattern_generator_switch_move.html" title="複数の種類の歩容パターンの生成方法を切り替えるためのクラス．" alt="" coords="264,139,471,181"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_gait_pattern_generator_switch_movedocs" title="複数の種類の歩容パターンの生成方法を切り替えるためのクラス．" alt="" coords="264,139,471,181"/>
 <area shape="poly" id="edge32_Node000000_Node000003" title=" " alt="" coords="232,140,264,144,263,149,231,145"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_gait_pattern_generator_thread.html" title="普通にグラフ探索を行い，歩容パターン生成を行うクラス．" alt="" coords="264,205,471,248"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_gait_pattern_generator_threaddocs" title="普通にグラフ探索を行い，歩容パターン生成を行うクラス．" alt="" coords="264,205,471,248"/>
 <area shape="poly" id="edge33_Node000000_Node000004" title=" " alt="" coords="156,145,265,191,297,202,295,207,263,196,154,149"/>
 </map>

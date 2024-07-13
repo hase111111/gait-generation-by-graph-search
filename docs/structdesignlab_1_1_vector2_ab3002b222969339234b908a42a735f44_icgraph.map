@@ -1,13 +1,13 @@
 <map id="designlab::Vector2::Cross" name="designlab::Vector2::Cross">
 <area shape="rect" id="Node000001" title="自分×引数 の外積の結果を返す．" alt="" coords="446,105,575,148"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a688e8dd6b7f92d5b1a4fa8d4fbcc2714" title="安定余裕(Stability Margin)を計算する． 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい． &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計..." alt="" coords="225,5,394,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_idocs#a688e8dd6b7f92d5b1a4fa8d4fbcc2714" title="安定余裕(Stability Margin)を計算する． 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい． &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計..." alt="" coords="225,5,394,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="462,99,397,62,371,51,373,46,399,58,465,94"/>
-<area shape="rect" id="Node000003" href="$structdesignlab_1_1_line_segment2.html#a334682a88e452a95429edf15593d1846" title="他の線分と交点が存在しているかどうか調べ，交点を返す関数．" alt="" coords="221,72,398,115"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_line_segment2docs#a334682a88e452a95429edf15593d1846" title="他の線分と交点が存在しているかどうか調べ，交点を返す関数．" alt="" coords="221,72,398,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="430,116,398,111,399,105,431,111"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_line_segment2.html#a29ea137970fa696c5789085591e8c2f9" title="他の線分との交点を求める．" alt="" coords="226,139,393,181"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_line_segment2docs#a29ea137970fa696c5789085591e8c2f9" title="他の線分との交点を求める．" alt="" coords="226,139,393,181"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="431,143,394,149,393,143,430,137"/>
-<area shape="rect" id="Node000005" href="$structdesignlab_1_1_line_segment2.html#a8e2bdbc5c825c119d1801aa07bf3555e" title="他の線分と交点が存在しているかどうか調べる関数．" alt="" coords="226,205,393,248"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_line_segment2docs#a8e2bdbc5c825c119d1801aa07bf3555e" title="他の線分と交点が存在しているかどうか調べる関数．" alt="" coords="226,205,393,248"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="465,159,399,196,373,207,371,202,397,191,462,154"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#aeed1296b4886eb07bc095ca2b5e8c333" title="脚が他の脚と干渉しているかどうかを判定する．" alt="" coords="5,205,173,248"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_phantom_x_mk_i_idocs#aeed1296b4886eb07bc095ca2b5e8c333" title="脚が他の脚と干渉しているかどうかを判定する．" alt="" coords="5,205,173,248"/>
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="210,229,173,229,173,224,210,224"/>
 </map>

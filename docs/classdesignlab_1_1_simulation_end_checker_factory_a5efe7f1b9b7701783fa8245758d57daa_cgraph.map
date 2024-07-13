@@ -1,11 +1,11 @@
 <map id="designlab::SimulationEndCheckerFactory::Create" name="designlab::SimulationEndCheckerFactory::Create">
 <area shape="rect" id="Node000001" title="シミュレーションの終了を判定するクラスを生成する．" alt="" coords="5,35,174,77"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a71ec8fe6a47e6e7618a53957fd0b8b10" title="角度を [deg] から [rad] に変換する関数．" alt="" coords="234,5,371,48"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__utildocs#a71ec8fe6a47e6e7618a53957fd0b8b10" title="角度を [deg] から [rad] に変換する関数．" alt="" coords="234,5,371,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,42,218,36,219,41,174,47"/>
-<area shape="rect" id="Node000003" href="$namespacedesignlab.html#aa1c6fabbe9cbddd910f4578751c0ec86" title="回転角行列からクォータニオンへの変換．" alt="" coords="222,72,383,99"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlabdocs#aa1c6fabbe9cbddd910f4578751c0ec86" title="回転角行列からクォータニオンへの変換．" alt="" coords="222,72,383,99"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="174,65,207,69,206,75,174,70"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaternion.html#a45dfcf48edea7b439e7d189d0d105bfa" title="自身を正規化する．ノルムが１になる．" alt="" coords="431,64,578,107"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaterniondocs#a45dfcf48edea7b439e7d189d0d105bfa" title="自身を正規化する．ノルムが１になる．" alt="" coords="431,64,578,107"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="383,83,416,83,416,88,383,88"/>
-<area shape="rect" id="Node000005" href="$structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="626,64,774,107"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_quaterniondocs#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="626,64,774,107"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="579,83,610,83,610,88,579,88"/>
 </map>

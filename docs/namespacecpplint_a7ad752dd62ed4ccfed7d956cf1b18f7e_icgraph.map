@@ -1,14 +1,14 @@
 <map id="cpplint.PathSplitToList" name="cpplint.PathSplitToList">
 <area shape="rect" id="Node000001" title=" " alt="" coords="917,31,1068,57"/>
-<area shape="rect" id="Node000002" href="$namespacecpplint.html#aceb05c1fabdb84a964be5853de8727c8" title=" " alt="" coords="634,31,869,57"/>
+<area shape="rect" id="Node000002" href="$namespacecpplintdocs#aceb05c1fabdb84a964be5853de8727c8" title=" " alt="" coords="634,31,869,57"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="901,47,869,47,869,41,901,41"/>
-<area shape="rect" id="Node000003" href="$namespacecpplint.html#a7c35b84495b8a833fbd59b95d73565d4" title=" " alt="" coords="213,5,408,32"/>
+<area shape="rect" id="Node000003" href="$namespacecpplintdocs#a7c35b84495b8a833fbd59b95d73565d4" title=" " alt="" coords="213,5,408,32"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="619,39,408,27,409,22,619,34"/>
-<area shape="rect" id="Node000007" href="$namespacecpplint.html#a2ce48db291ac037321d21b3ba3f70066" title=" " alt="" coords="456,56,586,83"/>
+<area shape="rect" id="Node000007" href="$namespacecpplintdocs#a2ce48db291ac037321d21b3ba3f70066" title=" " alt="" coords="456,56,586,83"/>
 <area shape="poly" id="edge4_Node000002_Node000007" title=" " alt="" coords="619,61,587,65,587,60,619,56"/>
-<area shape="rect" id="Node000004" href="$namespacecpplint.html#af49dbbca393312acfa3a46984665eaff" title=" " alt="" coords="5,31,165,57"/>
+<area shape="rect" id="Node000004" href="$namespacecpplintdocs#af49dbbca393312acfa3a46984665eaff" title=" " alt="" coords="5,31,165,57"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="198,34,165,38,165,32,197,29"/>
-<area shape="rect" id="Node000008" href="$namespacecpplint.html#a60ab7d00cbd976925382b70bbf1fb2cf" title=" " alt="" coords="243,56,378,83"/>
+<area shape="rect" id="Node000008" href="$namespacecpplintdocs#a60ab7d00cbd976925382b70bbf1fb2cf" title=" " alt="" coords="243,56,378,83"/>
 <area shape="poly" id="edge5_Node000007_Node000008" title=" " alt="" coords="440,72,378,72,378,67,440,67"/>
 <area shape="poly" id="edge6_Node000008_Node000004" title=" " alt="" coords="227,63,165,56,166,50,227,57"/>
 </map>

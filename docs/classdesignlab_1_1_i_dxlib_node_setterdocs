@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: designlab::IDxlibNodeSetter クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'docs');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classdesignlab_1_1_i_dxlib_node_setterdocs',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="classdesignlab_1_1_i_dxlib_node_setter-membersdocs">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">designlab::IDxlibNodeSetter クラス<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>DxLibのGuiやRendererでノードのセットを行うためのインターフェース．  
+ <a href="classdesignlab_1_1_i_dxlib_node_setterdocs#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="interface__dxlib__node__setter_8h_sourcedocs">interface_dxlib_node_setter.h</a>&gt;</code></p>
+<div class="dynheader">
+designlab::IDxlibNodeSetter の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1_i_dxlib_node_setter__inherit__graph.png" border="0" usemap="#adesignlab_1_1_i_dxlib_node_setter_inherit__map" alt="Inheritance graph"/></div>
+<map name="adesignlab_1_1_i_dxlib_node_setter_inherit__map" id="adesignlab_1_1_i_dxlib_node_setter_inherit__map">
+<area shape="rect" title="DxLibのGuiやRendererでノードのセットを行うためのインターフェース．" alt="" coords="5,211,187,237"/>
+<area shape="rect" href="classdesignlab_1_1_approximated_motion_range_renderdocs" title="6脚歩行ロボットの近似された脚の動作範囲を描画するクラス．" alt="" coords="243,5,446,48"/>
+<area shape="poly" title=" " alt="" coords="111,196,159,127,194,90,233,58,255,46,257,51,236,62,197,94,164,130,115,199"/>
+<area shape="rect" href="classdesignlab_1_1_dxlib_gui_cameradocs" title="カメラの操作・管理を行うGUIの処理・描画を行うクラス．" alt="" coords="255,72,434,99"/>
+<area shape="poly" title=" " alt="" coords="118,197,168,152,200,128,234,108,263,97,265,102,236,113,203,133,172,156,122,201"/>
+<area shape="rect" href="classdesignlab_1_1_dxlib_gui_node_displayerdocs" title="ノードの情報を表示するGUIのクラス．" alt="" coords="236,123,453,149"/>
+<area shape="poly" title=" " alt="" coords="136,201,182,179,234,159,273,147,275,152,236,164,184,184,138,206"/>
+<area shape="rect" href="classdesignlab_1_1_dxlib_gui_robot_controldocs" title="カメラの操作・管理を行うGUIの処理・描画を行うクラス．" alt="" coords="261,173,428,216"/>
+<area shape="poly" title=" " alt="" coords="201,209,260,202,260,207,202,214"/>
+<area shape="rect" href="classdesignlab_1_1_map_rendererdocs" title="マップの描画を行うクラス．" alt="" coords="264,240,425,267"/>
+<area shape="poly" title=" " alt="" coords="202,234,264,241,263,246,202,239"/>
+<area shape="rect" href="classdesignlab_1_1_phantom_x_mk_i_i_renderer_modeldocs" title="3Dモデルを使用して PhantomX の描画を行うクラス．" alt="" coords="235,291,454,333"/>
+<area shape="poly" title=" " alt="" coords="145,241,236,276,270,287,268,293,234,281,143,246"/>
+<area shape="rect" href="classdesignlab_1_1_phantom_x_renderer_simpledocs" title="3Dモデルを使用せず，多角形を組み合わせてPhantomXの描画を行うクラス．" alt="" coords="247,357,442,400"/>
+<area shape="poly" title=" " alt="" coords="121,247,171,296,202,321,236,343,260,354,258,359,233,348,199,325,168,300,118,251"/>
+<area shape="rect" href="classdesignlab_1_1_stability_margin_rendererdocs" title="ロボットの静的安定余裕(支持脚多角形)を描画するクラス．" alt="" coords="259,424,430,467"/>
+<area shape="poly" title=" " alt="" coords="113,250,132,287,160,330,195,373,236,410,260,423,257,428,233,414,191,377,156,333,128,289,108,253"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legenddocs">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a024ed26186f7a15497b14fdd742aee7b" id="r_a024ed26186f7a15497b14fdd742aee7b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_dxlib_node_setterdocs#a024ed26186f7a15497b14fdd742aee7b">SetNode</a> (const <a class="el" href="structdesignlab_1_1_robot_state_nodedocs">RobotStateNode</a> &amp;node)=0</td></tr>
+<tr class="memdesc:a024ed26186f7a15497b14fdd742aee7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">ノードをセットする．  <br /></td></tr>
+<tr class="separator:a024ed26186f7a15497b14fdd742aee7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>DxLibのGuiやRendererでノードのセットを行うためのインターフェース． </p>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="a024ed26186f7a15497b14fdd742aee7b" name="a024ed26186f7a15497b14fdd742aee7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a024ed26186f7a15497b14fdd742aee7b">&#9670;&#160;</a></span>SetNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void designlab::IDxlibNodeSetter::SetNode </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdesignlab_1_1_robot_state_nodedocs">RobotStateNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ノードをセットする． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>ノード番号． </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><a class="el" href="classdesignlab_1_1_approximated_motion_range_renderdocs#a881820eb3253d4b9167579c5722a7b1e">designlab::ApproximatedMotionRangeRender</a>, <a class="el" href="classdesignlab_1_1_dxlib_gui_cameradocs#a361cabe5ba6acb38b736e75a9e55a213">designlab::DxlibGuiCamera</a>, <a class="el" href="classdesignlab_1_1_dxlib_gui_node_displayerdocs#a5113c8390fb721755f5ee97bb8a9e475">designlab::DxlibGuiNodeDisplayer</a>, <a class="el" href="classdesignlab_1_1_dxlib_gui_robot_controldocs#a7ac413c0997d187513535800a0278f3f">designlab::DxlibGuiRobotControl</a>, <a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i_renderer_modeldocs#abee19d466a7765c7f0c5d4f989ee5105">designlab::PhantomXMkIIRendererModel</a>, <a class="el" href="classdesignlab_1_1_phantom_x_renderer_simpledocs#aef9bbb90026f5c272bd3df4c71e39bfd">designlab::PhantomXRendererSimple</a>, <a class="el" href="classdesignlab_1_1_stability_margin_rendererdocs#ad38a4c6c5476118e74fc4ed414255b1b">designlab::StabilityMarginRenderer</a>, <a class="el" href="classdesignlab_1_1_map_rendererdocs#a3580cb88f4e45a744548ab7923661029">designlab::MapRenderer</a>で実装されています。</p>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/DesignLab/<a class="el" href="interface__dxlib__node__setter_8h_sourcedocs">interface_dxlib_node_setter.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacedesignlabdocs">designlab</a></li><li class="navelem"><a class="el" href="classdesignlab_1_1_i_dxlib_node_setterdocs">IDxlibNodeSetter</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

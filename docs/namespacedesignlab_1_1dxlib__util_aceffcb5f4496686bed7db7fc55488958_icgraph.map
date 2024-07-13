@@ -1,5 +1,5 @@
 <map id="designlab::dxlib_util::ConvertToDxlibVec" name="designlab::dxlib_util::ConvertToDxlibVec">
 <area shape="rect" id="Node000001" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する． &#160;&#160;ロボット座標系は右手座標系， Dxlibは左手座標系（工学は右手・ゲームライブラリは左手が多い）なのでyを..." alt="" coords="189,5,327,48"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1dxlib__util.html#a817972c248c109584a567e959799b9e6" title="3D処理を行う上で必要な初期化処理をまとめたもの．" alt="" coords="5,5,141,48"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1dxlib__utildocs#a817972c248c109584a567e959799b9e6" title="3D処理を行う上で必要な初期化処理をまとめたもの．" alt="" coords="5,5,141,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,29,141,29,141,24,173,24"/>
 </map>

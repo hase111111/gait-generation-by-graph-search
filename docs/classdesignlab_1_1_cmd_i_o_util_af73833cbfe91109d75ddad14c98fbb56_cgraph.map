@@ -1,10 +1,10 @@
 <map id="designlab::CmdIOUtil::SpacedFormatOutput" name="designlab::CmdIOUtil::SpacedFormatOutput">
 <area shape="rect" id="Node000001" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="5,5,159,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_cmd_i_o_util.html#a2bd896161fb3d008d638cfc0736ed421" title="コマンドラインに文字を出力する関数． &#160;&#160;前と後ろに改行を挿入する．" alt="" coords="207,5,350,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_cmd_i_o_utildocs#a2bd896161fb3d008d638cfc0736ed421" title="コマンドラインに文字を出力する関数． &#160;&#160;前と後ろに改行を挿入する．" alt="" coords="207,5,350,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,24,191,24,191,29,159,29"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="589,5,733,48"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_cmd_i_o_utildocs#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="589,5,733,48"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="350,21,398,20,541,20,574,21,574,26,541,25,398,25,350,27"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_cmd_i_o_util.html#a563e04e0ce3cf7b6c988a94b887a74b9" title="コマンドラインで改行をする関数．" alt="" coords="398,35,541,77"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_cmd_i_o_utildocs#a563e04e0ce3cf7b6c988a94b887a74b9" title="コマンドラインで改行をする関数．" alt="" coords="398,35,541,77"/>
 <area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="351,35,383,40,382,45,350,40"/>
 <area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="541,42,574,37,574,43,542,48"/>
 </map>

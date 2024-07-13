@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: designlab::GaitPatternGeneratorSwitchMove クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'docs');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classdesignlab_1_1_gait_pattern_generator_switch_movedocs',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="classdesignlab_1_1_gait_pattern_generator_switch_move-membersdocs">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">designlab::GaitPatternGeneratorSwitchMove クラス<span class="mlabels"><span class="mlabel">final</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>複数の種類の歩容パターンの生成方法を切り替えるためのクラス．  
+ <a href="classdesignlab_1_1_gait_pattern_generator_switch_movedocs#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="gait__pattern__generator__switch__move_8h_sourcedocs">gait_pattern_generator_switch_move.h</a>&gt;</code></p>
+<div class="dynheader">
+designlab::GaitPatternGeneratorSwitchMove の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1_gait_pattern_generator_switch_move__inherit__graph.png" border="0" usemap="#adesignlab_1_1_gait_pattern_generator_switch_move_inherit__map" alt="Inheritance graph"/></div>
+<map name="adesignlab_1_1_gait_pattern_generator_switch_move_inherit__map" id="adesignlab_1_1_gait_pattern_generator_switch_move_inherit__map">
+<area shape="rect" title="複数の種類の歩容パターンの生成方法を切り替えるためのクラス．" alt="" coords="7,80,214,123"/>
+<area shape="rect" href="classdesignlab_1_1_i_gait_pattern_generatordocs" title="グラフ探索による歩容パターン生成を行うクラスのインターフェース．" alt="" coords="5,5,216,32"/>
+<area shape="poly" title=" " alt="" coords="113,48,113,80,108,80,108,48"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legenddocs">凡例</a>]</span></center></div>
+<div class="dynheader">
+designlab::GaitPatternGeneratorSwitchMove 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1_gait_pattern_generator_switch_move__coll__graph.png" border="0" usemap="#adesignlab_1_1_gait_pattern_generator_switch_move_coll__map" alt="Collaboration graph"/></div>
+<map name="adesignlab_1_1_gait_pattern_generator_switch_move_coll__map" id="adesignlab_1_1_gait_pattern_generator_switch_move_coll__map">
+<area shape="rect" title="複数の種類の歩容パターンの生成方法を切り替えるためのクラス．" alt="" coords="7,80,214,123"/>
+<area shape="rect" href="classdesignlab_1_1_i_gait_pattern_generatordocs" title="グラフ探索による歩容パターン生成を行うクラスのインターフェース．" alt="" coords="5,5,216,32"/>
+<area shape="poly" title=" " alt="" coords="113,48,113,80,108,80,108,48"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legenddocs">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a41e0632397f21c1b2ddf04cc8555b172" id="r_a41e0632397f21c1b2ddf04cc8555b172"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_gait_pattern_generator_switch_movedocs#a41e0632397f21c1b2ddf04cc8555b172">GaitPatternGeneratorSwitchMove</a> (std::unique_ptr&lt; <a class="el" href="classdesignlab_1_1_i_gait_pattern_generatordocs">IGaitPatternGenerator</a> &gt; &amp;&amp;gait_pattern_generator_for_straight, std::unique_ptr&lt; <a class="el" href="classdesignlab_1_1_i_gait_pattern_generatordocs">IGaitPatternGenerator</a> &gt; &amp;&amp;gait_pattern_generator_for_turn_spot)</td></tr>
+<tr class="separator:a41e0632397f21c1b2ddf04cc8555b172"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5cf888ba7c1857b7be7456d0b15b987" id="r_ab5cf888ba7c1857b7be7456d0b15b987"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdesignlab_1_1_graph_search_resultdocs">GraphSearchResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_gait_pattern_generator_switch_movedocs#ab5cf888ba7c1857b7be7456d0b15b987">GetNextNodeByGraphSearch</a> (const <a class="el" href="structdesignlab_1_1_robot_state_nodedocs">RobotStateNode</a> &amp;current_node, const <a class="el" href="classdesignlab_1_1_map_statedocs">MapState</a> &amp;map, const <a class="el" href="structdesignlab_1_1_robot_operationdocs">RobotOperation</a> &amp;operation, <a class="el" href="structdesignlab_1_1_robot_state_nodedocs">RobotStateNode</a> *output_node) override</td></tr>
+<tr class="memdesc:ab5cf888ba7c1857b7be7456d0b15b987"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフ探索を行い，次の動作として最適なノードを返す．  <br /></td></tr>
+<tr class="separator:ab5cf888ba7c1857b7be7456d0b15b987"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>複数の種類の歩容パターンの生成方法を切り替えるためのクラス． </p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="a41e0632397f21c1b2ddf04cc8555b172" name="a41e0632397f21c1b2ddf04cc8555b172"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41e0632397f21c1b2ddf04cc8555b172">&#9670;&#160;</a></span>GaitPatternGeneratorSwitchMove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">designlab::GaitPatternGeneratorSwitchMove::GaitPatternGeneratorSwitchMove </td>
+          <td>(</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classdesignlab_1_1_i_gait_pattern_generatordocs">IGaitPatternGenerator</a> &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>gait_pattern_generator_for_straight</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classdesignlab_1_1_i_gait_pattern_generatordocs">IGaitPatternGenerator</a> &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>gait_pattern_generator_for_turn_spot</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">gait_pattern_generator_for_straight</td><td>直進時に使用するもの． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">gait_pattern_generator_for_turn_spot</td><td>その場旋回時に使用するもの． </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="ab5cf888ba7c1857b7be7456d0b15b987" name="ab5cf888ba7c1857b7be7456d0b15b987"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5cf888ba7c1857b7be7456d0b15b987">&#9670;&#160;</a></span>GetNextNodeByGraphSearch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdesignlab_1_1_graph_search_resultdocs">GraphSearchResult</a> designlab::GaitPatternGeneratorSwitchMove::GetNextNodeByGraphSearch </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdesignlab_1_1_robot_state_nodedocs">RobotStateNode</a> &amp;&#160;</td>
+          <td class="paramname"><em>current_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classdesignlab_1_1_map_statedocs">MapState</a> &amp;&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structdesignlab_1_1_robot_operationdocs">RobotOperation</a> &amp;&#160;</td>
+          <td class="paramname"><em>operation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structdesignlab_1_1_robot_state_nodedocs">RobotStateNode</a> *&#160;</td>
+          <td class="paramname"><em>output_node_ptr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>グラフ探索を行い，次の動作として最適なノードを返す． </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">current_node</td><td>現在のロボットの状態を表すノード． 親ノードを渡す必要がある． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">map</td><td>現在のマップの状態． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">operation</td><td>ロボットの動作． </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">output_node_ptr</td><td>結果のノードを代入するポインタ． </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>グラフ探索の結果を返す．成功か失敗か． </dd></dl>
+
+<p><a class="el" href="classdesignlab_1_1_i_gait_pattern_generatordocs#a932417f18c472129d7bfc95c1e80a708">designlab::IGaitPatternGenerator</a>を実装しています。</p>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/DesignLab/<a class="el" href="gait__pattern__generator__switch__move_8h_sourcedocs">gait_pattern_generator_switch_move.h</a></li>
+<li>C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/DesignLab/<b>gait_pattern_generator_switch_move.cpp</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacedesignlabdocs">designlab</a></li><li class="navelem"><a class="el" href="classdesignlab_1_1_gait_pattern_generator_switch_movedocs">GaitPatternGeneratorSwitchMove</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/DesignLab/math_vector3.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'docs');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('math__vector3_8h_sourcedocs',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">math_vector3.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="math__vector3_8hdocs">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef DESIGNLAB_MATH_VECTOR3_H_</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define DESIGNLAB_MATH_VECTOR3_H_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="math__util_8hdocs">math_util.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="math__vector2_8hdocs">math_vector2.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlabdocs">designlab</a></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="};">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_vector3docs">   38</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a> final</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_vector3docs#a749e72a67a54aa80201a8b0cf589b30b">   41</a></span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a749e72a67a54aa80201a8b0cf589b30b">Vector3</a>() : <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a1173ed2dd31322b92dd4dae067177cbc">x</a>(0.f), <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#af2c9878342038c6a35c98e30dd532fae">y</a>(0.f), <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a71c4baaa6cf57587e5cdadc5558cb4fd">z</a>(0.f) {}</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a749e72a67a54aa80201a8b0cf589b30b">Vector3</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> x_pos, <span class="keyword">const</span> <span class="keywordtype">float</span> y_pos, <span class="keyword">const</span> <span class="keywordtype">float</span> z_pos) :</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a1173ed2dd31322b92dd4dae067177cbc">x</a>(x_pos),</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#af2c9878342038c6a35c98e30dd532fae">y</a>(y_pos),</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a71c4baaa6cf57587e5cdadc5558cb4fd">z</a>(z_pos)</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_vector3docs#a96238f81cb243be778b64afe8fbb03d8">   51</a></span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a96238f81cb243be778b64afe8fbb03d8">Vector3</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>&amp; other) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_vector3docs#ad6267e500198624fd2888aacc80e3413">   54</a></span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#ad6267e500198624fd2888aacc80e3413">Vector3</a>(<a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>&amp;&amp; other) <span class="keyword">noexcept</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_vector3docs#a9bafdc2ce5cbc6e15fd4479289c0060f">   57</a></span>    <span class="keyword">constexpr</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>&amp; <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a9bafdc2ce5cbc6e15fd4479289c0060f">operator = </a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>&amp; other) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">~Vector3</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_vector3docs#a1417e82d921393744bd0496590f078ff">   63</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a1417e82d921393744bd0496590f078ff">operator == </a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>&amp; v) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="namespacedesignlab_1_1math__utildocs#a92c055e0799991e88871e2a5d4f09280">math_util::IsEqual</a>(v.x, <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a1173ed2dd31322b92dd4dae067177cbc">x</a>) &amp;&amp; <a class="code hl_function" href="namespacedesignlab_1_1math__utildocs#a92c055e0799991e88871e2a5d4f09280">math_util::IsEqual</a>(v.y, <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#af2c9878342038c6a35c98e30dd532fae">y</a>) &amp;&amp; <a class="code hl_function" href="namespacedesignlab_1_1math__utildocs#a92c055e0799991e88871e2a5d4f09280">math_util::IsEqual</a>(v.z, <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a71c4baaa6cf57587e5cdadc5558cb4fd">z</a>))</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        }</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    }</div>
+</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> operator != (<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>&amp; other) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == other);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">bool</span> operator &lt; (<span class="keyword">const</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a749e72a67a54aa80201a8b0cf589b30b">Vector3</a>&amp; other) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="comment">// 長さで比較する．</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#aa36dbc9d5ec20bf4e1161e0f2593776c">GetLength</a>() &lt; other.<a class="code hl_function" href="structdesignlab_1_1_vector3docs#aa36dbc9d5ec20bf4e1161e0f2593776c">GetLength</a>();</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">bool</span> operator &gt; (<span class="keyword">const</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a749e72a67a54aa80201a8b0cf589b30b">Vector3</a>&amp; other) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    {</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordflow">return</span> other &lt; *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    }</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">bool</span> operator &lt;= (<span class="keyword">const</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a749e72a67a54aa80201a8b0cf589b30b">Vector3</a>&amp; other) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keywordflow">return</span> !(*<span class="keyword">this</span> &gt; other);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">bool</span> operator &gt;= (<span class="keyword">const</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a749e72a67a54aa80201a8b0cf589b30b">Vector3</a>&amp; other) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keywordflow">return</span> !(*<span class="keyword">this</span> &lt; other);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="comment">// 算術演算子，ベクトル同士の掛け算(内積・外積)はメンバ関数として実装する．</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a749e72a67a54aa80201a8b0cf589b30b">Vector3</a> operator +() const noexcept { <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a749e72a67a54aa80201a8b0cf589b30b">Vector3</a> operator -() const noexcept { <span class="keywordflow">return</span> { -<a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a1173ed2dd31322b92dd4dae067177cbc">x</a>, -<a class="code hl_variable" href="structdesignlab_1_1_vector3docs#af2c9878342038c6a35c98e30dd532fae">y</a>, -<a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a71c4baaa6cf57587e5cdadc5558cb4fd">z</a> }; }</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a749e72a67a54aa80201a8b0cf589b30b">Vector3</a> operator +(<span class="keyword">const</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a749e72a67a54aa80201a8b0cf589b30b">Vector3</a>&amp; other) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    {</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <span class="keywordflow">return</span> { <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a1173ed2dd31322b92dd4dae067177cbc">x</a> + other.x , <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#af2c9878342038c6a35c98e30dd532fae">y</a> + other.y, <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a71c4baaa6cf57587e5cdadc5558cb4fd">z</a> + other.z };</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a749e72a67a54aa80201a8b0cf589b30b">Vector3</a> operator -(<span class="keyword">const</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a749e72a67a54aa80201a8b0cf589b30b">Vector3</a>&amp; other) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="keywordflow">return</span> { <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a1173ed2dd31322b92dd4dae067177cbc">x</a> - other.x , <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#af2c9878342038c6a35c98e30dd532fae">y</a> - other.y, <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a71c4baaa6cf57587e5cdadc5558cb4fd">z</a> - other.z };</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    }</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a749e72a67a54aa80201a8b0cf589b30b">Vector3</a> operator *(<span class="keyword">const</span> <span class="keywordtype">float</span> num) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordflow">return</span> { <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a1173ed2dd31322b92dd4dae067177cbc">x</a> * num, <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#af2c9878342038c6a35c98e30dd532fae">y</a> * num, <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a71c4baaa6cf57587e5cdadc5558cb4fd">z</a> * num };</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a749e72a67a54aa80201a8b0cf589b30b">Vector3</a> operator /(<span class="keyword">const</span> <span class="keywordtype">float</span> num)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordflow">return</span> { <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a1173ed2dd31322b92dd4dae067177cbc">x</a> / num, <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#af2c9878342038c6a35c98e30dd532fae">y</a> / num, <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a71c4baaa6cf57587e5cdadc5558cb4fd">z</a> / num };</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    }</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a749e72a67a54aa80201a8b0cf589b30b">Vector3</a>&amp; operator += (<span class="keyword">const</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a749e72a67a54aa80201a8b0cf589b30b">Vector3</a>&amp; other) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a749e72a67a54aa80201a8b0cf589b30b">Vector3</a>&amp; operator -= (<span class="keyword">const</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a749e72a67a54aa80201a8b0cf589b30b">Vector3</a>&amp; other) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a749e72a67a54aa80201a8b0cf589b30b">Vector3</a>&amp; operator *= (<span class="keyword">const</span> <span class="keywordtype">float</span> num) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a749e72a67a54aa80201a8b0cf589b30b">Vector3</a>&amp; operator /= (<span class="keyword">const</span> <span class="keywordtype">float</span> num);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="foldopen" id="foldopen00133" data-start="{" data-end="}">
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_vector3docs#a3b3da21ea415ea86d6d409f2ad053897">  133</a></span>    [[nodiscard]] <span class="keyword">constexpr</span> <span class="keywordtype">float</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a3b3da21ea415ea86d6d409f2ad053897">GetSquaredLength</a>() const noexcept</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    {</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a1173ed2dd31322b92dd4dae067177cbc">x</a> * <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a1173ed2dd31322b92dd4dae067177cbc">x</a> + <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#af2c9878342038c6a35c98e30dd532fae">y</a> * <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#af2c9878342038c6a35c98e30dd532fae">y</a> + <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a71c4baaa6cf57587e5cdadc5558cb4fd">z</a> * <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a71c4baaa6cf57587e5cdadc5558cb4fd">z</a>;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    }</div>
+</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="foldopen" id="foldopen00142" data-start="{" data-end="}">
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_vector3docs#aa36dbc9d5ec20bf4e1161e0f2593776c">  142</a></span>    [[nodiscard]] <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#aa36dbc9d5ec20bf4e1161e0f2593776c">GetLength</a>() const noexcept</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    {</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="keywordflow">return</span> std::sqrt(<a class="code hl_function" href="structdesignlab_1_1_vector3docs#a3b3da21ea415ea86d6d409f2ad053897">GetSquaredLength</a>());</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    }</div>
+</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="foldopen" id="foldopen00150" data-start="{" data-end="}">
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_vector3docs#aa0a76dfe9dc375fd09561734cf782f63">  150</a></span>    [[nodiscard]] <span class="keyword">constexpr</span> <span class="keywordtype">float</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#aa0a76dfe9dc375fd09561734cf782f63">Dot</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>&amp; other) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    {</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a1173ed2dd31322b92dd4dae067177cbc">x</a> * other.x + <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#af2c9878342038c6a35c98e30dd532fae">y</a> * other.y + <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a71c4baaa6cf57587e5cdadc5558cb4fd">z</a> * other.z;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    }</div>
+</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="foldopen" id="foldopen00159" data-start="{" data-end="}">
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_vector3docs#a29671be58ff1cc4f073470214a5ae283">  159</a></span>    [[nodiscard]] <span class="keyword">constexpr</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a29671be58ff1cc4f073470214a5ae283">Cross</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>&amp; other) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    {</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordflow">return</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>{ <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#af2c9878342038c6a35c98e30dd532fae">y</a> * other.<a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a71c4baaa6cf57587e5cdadc5558cb4fd">z</a> - <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a71c4baaa6cf57587e5cdadc5558cb4fd">z</a> * other.y, <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a71c4baaa6cf57587e5cdadc5558cb4fd">z</a> * other.x - <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a1173ed2dd31322b92dd4dae067177cbc">x</a> * other.z, <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a1173ed2dd31322b92dd4dae067177cbc">x</a> * other.y - <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#af2c9878342038c6a35c98e30dd532fae">y</a> * other.x };</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    }</div>
+</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="foldopen" id="foldopen00167" data-start="{" data-end="}">
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_vector3docs#aaa13dfcc4ab31c0987b1e25845a2243e">  167</a></span>    [[nodiscard]] <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#aaa13dfcc4ab31c0987b1e25845a2243e">GetDistanceFrom</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>&amp; other) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    {</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        <span class="keywordflow">return</span> (*<span class="keyword">this</span> - other).GetLength();</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    }</div>
+</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    [[nodiscard]] <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a685643adba69e22d8f449434f1fce78b">GetNormalized</a>() const noexcept;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="foldopen" id="foldopen00181" data-start="{" data-end="}">
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_vector3docs#a6319bbea38d7b4dab6091fe28b99fc57">  181</a></span>    [[nodiscard]] constexpr <span class="keywordtype">bool</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a6319bbea38d7b4dab6091fe28b99fc57">IsZero</a>() const noexcept</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    {</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="namespacedesignlab_1_1math__utildocs#a92c055e0799991e88871e2a5d4f09280">math_util::IsEqual</a>(<a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a1173ed2dd31322b92dd4dae067177cbc">x</a>, 0.0f) &amp;&amp; <a class="code hl_function" href="namespacedesignlab_1_1math__utildocs#a92c055e0799991e88871e2a5d4f09280">math_util::IsEqual</a>(<a class="code hl_variable" href="structdesignlab_1_1_vector3docs#af2c9878342038c6a35c98e30dd532fae">y</a>, 0.0f) &amp;&amp; <a class="code hl_function" href="namespacedesignlab_1_1math__utildocs#a92c055e0799991e88871e2a5d4f09280">math_util::IsEqual</a>(<a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a71c4baaa6cf57587e5cdadc5558cb4fd">z</a>, 0.0f))</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        {</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        }</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    }</div>
+</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_vector3docs#ac5187e0ab8d45cda4a36dd38f34884e8">  196</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#ac5187e0ab8d45cda4a36dd38f34884e8">Normalize</a>() noexcept { *<span class="keyword">this</span> = <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a685643adba69e22d8f449434f1fce78b">GetNormalized</a>(); }</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    [[nodiscard]]</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_vector3docs#aaf3651416f231824ffd780b72f5bba27">  201</a></span>    <span class="keyword">constexpr</span> <a class="code hl_struct" href="structdesignlab_1_1_vector2docs">Vector2</a> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#aaf3651416f231824ffd780b72f5bba27">ProjectedXY</a>() const noexcept { <span class="keywordflow">return</span> { <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a1173ed2dd31322b92dd4dae067177cbc">x</a>, <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#af2c9878342038c6a35c98e30dd532fae">y</a> }; }</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    [[nodiscard]]</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_vector3docs#a891935bd4a3e01124107225f8d03f33c">  210</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a891935bd4a3e01124107225f8d03f33c">GetFrontVec</a>() noexcept { <span class="keywordflow">return</span> { 1, 0, 0 }; }</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    [[nodiscard]]</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_vector3docs#ac69e2400ddfbcb063008f8f92b3bd0b0">  216</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#ac69e2400ddfbcb063008f8f92b3bd0b0">GetLeftVec</a>() noexcept { <span class="keywordflow">return</span> { 0, 1, 0 }; }</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    [[nodiscard]]</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_vector3docs#a49ed064fabc10cd349d8f02e7f8d5bfd">  222</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a49ed064fabc10cd349d8f02e7f8d5bfd">GetUpVec</a>() noexcept { <span class="keywordflow">return</span> { 0, 0, 1 }; }</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    [[nodiscard]]</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_vector3docs#adb4d141dbd87c98d1006151956566f13">  228</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a> <a class="code hl_function" href="structdesignlab_1_1_vector3docs#adb4d141dbd87c98d1006151956566f13">GetZeroVec</a>() noexcept { <span class="keywordflow">return</span> { 0, 0, 0 }; }</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    [[nodiscard]] std::string <a class="code hl_function" href="structdesignlab_1_1_vector3docs#adced04a30051a7d7a5845a1d9a9d1c11">ToString</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    [[nodiscard]] std::string <a class="code hl_function" href="structdesignlab_1_1_vector3docs#a834e5d8c3c9f2701570fa22ffd4b4a00">ToCsvString</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_vector3docs#a1173ed2dd31322b92dd4dae067177cbc">  242</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a1173ed2dd31322b92dd4dae067177cbc">x</a>;  </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_vector3docs#af2c9878342038c6a35c98e30dd532fae">  243</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#af2c9878342038c6a35c98e30dd532fae">y</a>;  </div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_vector3docs#a71c4baaa6cf57587e5cdadc5558cb4fd">  244</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a71c4baaa6cf57587e5cdadc5558cb4fd">z</a>;  </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>};</div>
+</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="foldopen" id="foldopen00252" data-start="{" data-end="}">
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno"><a class="line" href="namespacedesignlabdocs#a4344242853579d856797b3b8c48bbe24">  252</a></span><span class="keyword">constexpr</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a> operator * (<span class="keyword">const</span> <span class="keywordtype">float</span> s, <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>&amp; vec) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>{</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    <span class="keywordflow">return</span> { s * vec.<a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a1173ed2dd31322b92dd4dae067177cbc">x</a>, s * vec.y, s * vec.z };</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>}</div>
+</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> Char&gt;</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>std::basic_ostream&lt;Char&gt;&amp; <a class="code hl_function" href="namespacedesignlabdocs#ad72e69d1733944ac21af3b646beed735">operator &lt;&lt;</a>(std::basic_ostream&lt;Char&gt;&amp; os, <span class="keyword">const</span> Vector3&amp; v)</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>{</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    <span class="keywordflow">return</span> os &lt;&lt; <a class="code hl_function" href="namespacedesignlab_1_1math__utildocs#a45276ca396d3aa1331b5bb5a4c849bbe">math_util::FloatingPointNumToString</a>(v.x) &lt;&lt; Char(<span class="charliteral">&#39;,&#39;</span>) &lt;&lt;</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        <a class="code hl_function" href="namespacedesignlab_1_1math__utildocs#a45276ca396d3aa1331b5bb5a4c849bbe">math_util::FloatingPointNumToString</a>(v.y) &lt;&lt; Char(<span class="charliteral">&#39;,&#39;</span>) &lt;&lt;</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        <a class="code hl_function" href="namespacedesignlab_1_1math__utildocs#a45276ca396d3aa1331b5bb5a4c849bbe">math_util::FloatingPointNumToString</a>(v.z);</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>}</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> Char&gt;</div>
+<div class="foldopen" id="foldopen00271" data-start="{" data-end="}">
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno"><a class="line" href="namespacedesignlabdocs#a135718838a3b93b4ad0d0e45bec98fff">  271</a></span><span class="keyword">inline</span> std::basic_istream&lt;Char&gt;&amp; <a class="code hl_function" href="namespacedesignlabdocs#a7d4ed47aac7769446f5267afd49ba4d3">operator &gt;&gt;</a>(std::basic_istream&lt;Char&gt;&amp; is, <a class="code hl_struct" href="structdesignlab_1_1_vector3docs">Vector3</a>&amp; v)</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>{</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    Char unused = 0;</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    <span class="keywordflow">return</span> is &gt;&gt; v.<a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a1173ed2dd31322b92dd4dae067177cbc">x</a> &gt;&gt; unused &gt;&gt; v.<a class="code hl_variable" href="structdesignlab_1_1_vector3docs#af2c9878342038c6a35c98e30dd532fae">y</a> &gt;&gt; unused &gt;&gt; v.<a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a71c4baaa6cf57587e5cdadc5558cb4fd">z</a>;</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>}</div>
+</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="comment">// 正規化直行座標系となっているか確認する，</span></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span><span class="comment">// 条件を満たさないならばコンパイルが通らない．</span></div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span><span class="keyword">static_assert</span>(<a class="code hl_function" href="namespacedesignlab_1_1math__utildocs#a92c055e0799991e88871e2a5d4f09280">math_util::IsEqual</a>(<a class="code hl_function" href="structdesignlab_1_1_vector3docs#a891935bd4a3e01124107225f8d03f33c">Vector3::GetFrontVec</a>().Dot(<a class="code hl_function" href="structdesignlab_1_1_vector3docs#ac69e2400ddfbcb063008f8f92b3bd0b0">Vector3::GetLeftVec</a>()), 0.f), <span class="stringliteral">&quot;The dot product of FrontVec and LeftVec is not zero.&quot;</span>);</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><span class="keyword">static_assert</span>(<a class="code hl_function" href="namespacedesignlab_1_1math__utildocs#a92c055e0799991e88871e2a5d4f09280">math_util::IsEqual</a>(<a class="code hl_function" href="structdesignlab_1_1_vector3docs#a891935bd4a3e01124107225f8d03f33c">Vector3::GetFrontVec</a>().Dot(<a class="code hl_function" href="structdesignlab_1_1_vector3docs#a49ed064fabc10cd349d8f02e7f8d5bfd">Vector3::GetUpVec</a>()), 0.f), <span class="stringliteral">&quot;The dot product of FrontVec and UpVec is not zero.&quot;</span>);</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span><span class="keyword">static_assert</span>(<a class="code hl_function" href="namespacedesignlab_1_1math__utildocs#a92c055e0799991e88871e2a5d4f09280">math_util::IsEqual</a>(<a class="code hl_function" href="structdesignlab_1_1_vector3docs#ac69e2400ddfbcb063008f8f92b3bd0b0">Vector3::GetLeftVec</a>().Dot(<a class="code hl_function" href="structdesignlab_1_1_vector3docs#a49ed064fabc10cd349d8f02e7f8d5bfd">Vector3::GetUpVec</a>()), 0.f), <span class="stringliteral">&quot;The dot product of LeftVec and UpVec is not zero.&quot;</span>);</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span><span class="keyword">static_assert</span>(<a class="code hl_function" href="namespacedesignlab_1_1math__utildocs#a92c055e0799991e88871e2a5d4f09280">math_util::IsEqual</a>(<a class="code hl_function" href="structdesignlab_1_1_vector3docs#a891935bd4a3e01124107225f8d03f33c">Vector3::GetFrontVec</a>().GetSquaredLength(), 1.f), <span class="stringliteral">&quot;FrontVec is not normalized.&quot;</span>);</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span><span class="keyword">static_assert</span>(<a class="code hl_function" href="namespacedesignlab_1_1math__utildocs#a92c055e0799991e88871e2a5d4f09280">math_util::IsEqual</a>(<a class="code hl_function" href="structdesignlab_1_1_vector3docs#ac69e2400ddfbcb063008f8f92b3bd0b0">Vector3::GetLeftVec</a>().GetSquaredLength(), 1.f), <span class="stringliteral">&quot;LeftVec is not normalized.&quot;</span>);</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="keyword">static_assert</span>(<a class="code hl_function" href="namespacedesignlab_1_1math__utildocs#a92c055e0799991e88871e2a5d4f09280">math_util::IsEqual</a>(<a class="code hl_function" href="structdesignlab_1_1_vector3docs#a49ed064fabc10cd349d8f02e7f8d5bfd">Vector3::GetUpVec</a>().GetSquaredLength(), 1.f), <span class="stringliteral">&quot;UpVec is not normalized.&quot;</span>);</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span> </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span><span class="comment">// 0ベクトルが返ってくるか確認する．</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span><span class="keyword">static_assert</span>(<a class="code hl_function" href="structdesignlab_1_1_vector3docs#adb4d141dbd87c98d1006151956566f13">Vector3::GetZeroVec</a>().<a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a1173ed2dd31322b92dd4dae067177cbc">x</a> == 0.f, <span class="stringliteral">&quot;It is not a 0 vector.&quot;</span>);</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span><span class="keyword">static_assert</span>(<a class="code hl_function" href="structdesignlab_1_1_vector3docs#adb4d141dbd87c98d1006151956566f13">Vector3::GetZeroVec</a>().<a class="code hl_variable" href="structdesignlab_1_1_vector3docs#af2c9878342038c6a35c98e30dd532fae">y</a> == 0.f, <span class="stringliteral">&quot;It is not a 0 vector.&quot;</span>);</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span><span class="keyword">static_assert</span>(<a class="code hl_function" href="structdesignlab_1_1_vector3docs#adb4d141dbd87c98d1006151956566f13">Vector3::GetZeroVec</a>().<a class="code hl_variable" href="structdesignlab_1_1_vector3docs#a71c4baaa6cf57587e5cdadc5558cb4fd">z</a> == 0.f, <span class="stringliteral">&quot;It is not a 0 vector.&quot;</span>);</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span> </div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>}  <span class="comment">// namespace designlab</span></div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span> </div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span> </div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_MATH_VECTOR3_H_</span></div>
+<div class="ttc" id="amath__util_8hdocs"><div class="ttname"><a href="math__util_8hdocs">math_util.h</a></div></div>
+<div class="ttc" id="amath__vector2_8hdocs"><div class="ttname"><a href="math__vector2_8hdocs">math_vector2.h</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1math__utildocs_a45276ca396d3aa1331b5bb5a4c849bbe"><div class="ttname"><a href="namespacedesignlab_1_1math__utildocs#a45276ca396d3aa1331b5bb5a4c849bbe">designlab::math_util::FloatingPointNumToString</a></div><div class="ttdeci">std::string FloatingPointNumToString(const T num, const int digit=kDigit, const int width=kWidth)</div><div class="ttdoc">小数を文字列に変換する関数．   C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する．</div><div class="ttdef"><b>Definition</b> math_util.h:160</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1math__utildocs_a92c055e0799991e88871e2a5d4f09280"><div class="ttname"><a href="namespacedesignlab_1_1math__utildocs#a92c055e0799991e88871e2a5d4f09280">designlab::math_util::IsEqual</a></div><div class="ttdeci">constexpr bool IsEqual(const T num1, const T num2) noexcept</div><div class="ttdoc">C++において，小数同士の計算は誤差が出てしまう． 誤差込みで値が等しいか調べる．</div><div class="ttdef"><b>Definition</b> math_util.h:44</div></div>
+<div class="ttc" id="anamespacedesignlabdocs"><div class="ttname"><a href="namespacedesignlabdocs">designlab</a></div><div class="ttdef"><b>Definition</b> abstract_dxlib_gui.cpp:16</div></div>
+<div class="ttc" id="anamespacedesignlabdocs_a7d4ed47aac7769446f5267afd49ba4d3"><div class="ttname"><a href="namespacedesignlabdocs#a7d4ed47aac7769446f5267afd49ba4d3">designlab::operator&gt;&gt;</a></div><div class="ttdeci">std::basic_istream&lt; Char &gt; &amp; operator&gt;&gt;(std::basic_istream&lt; Char &gt; &amp;is, EulerXYZ &amp;r)</div><div class="ttdoc">入力ストリーム</div><div class="ttdef"><b>Definition</b> math_euler.h:126</div></div>
+<div class="ttc" id="anamespacedesignlabdocs_ad72e69d1733944ac21af3b646beed735"><div class="ttname"><a href="namespacedesignlabdocs#ad72e69d1733944ac21af3b646beed735">designlab::operator&lt;&lt;</a></div><div class="ttdeci">std::basic_ostream&lt; Char &gt; &amp; operator&lt;&lt;(std::basic_ostream&lt; Char &gt; &amp;os, const EulerXYZ &amp;r)</div><div class="ttdoc">出力ストリーム．Csv形式で出力する．カンマ区切り．単位は [rad]．</div><div class="ttdef"><b>Definition</b> math_euler.h:115</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector2docs"><div class="ttname"><a href="structdesignlab_1_1_vector2docs">designlab::Vector2</a></div><div class="ttdoc">2次元の位置ベクトルを表す構造体．</div><div class="ttdef"><b>Definition</b> math_vector2.h:30</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs"><div class="ttname"><a href="structdesignlab_1_1_vector3docs">designlab::Vector3</a></div><div class="ttdoc">3次元の位置ベクトルを表す構造体．</div><div class="ttdef"><b>Definition</b> math_vector3.h:39</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_a1173ed2dd31322b92dd4dae067177cbc"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#a1173ed2dd31322b92dd4dae067177cbc">designlab::Vector3::x</a></div><div class="ttdeci">float x</div><div class="ttdoc">ロボットの正面方向に正．</div><div class="ttdef"><b>Definition</b> math_vector3.h:242</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_a1417e82d921393744bd0496590f078ff"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#a1417e82d921393744bd0496590f078ff">designlab::Vector3::operator==</a></div><div class="ttdeci">constexpr bool operator==(const Vector3 &amp;v) const noexcept</div><div class="ttdoc">2つのベクトルが等しいかどうかを返す．誤差を許容する．</div><div class="ttdef"><b>Definition</b> math_vector3.h:63</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_a29671be58ff1cc4f073470214a5ae283"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#a29671be58ff1cc4f073470214a5ae283">designlab::Vector3::Cross</a></div><div class="ttdeci">constexpr Vector3 Cross(const Vector3 &amp;other) const noexcept</div><div class="ttdoc">自分×引数 の外積の結果を返す．</div><div class="ttdef"><b>Definition</b> math_vector3.h:159</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_a3b3da21ea415ea86d6d409f2ad053897"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#a3b3da21ea415ea86d6d409f2ad053897">designlab::Vector3::GetSquaredLength</a></div><div class="ttdeci">constexpr float GetSquaredLength() const noexcept</div><div class="ttdoc">ベクトルの長さの2乗を返す．</div><div class="ttdef"><b>Definition</b> math_vector3.h:133</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_a49ed064fabc10cd349d8f02e7f8d5bfd"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#a49ed064fabc10cd349d8f02e7f8d5bfd">designlab::Vector3::GetUpVec</a></div><div class="ttdeci">static constexpr Vector3 GetUpVec() noexcept</div><div class="ttdoc">上に進む単位ベクトルを返す． 静的な関数なので，Vector3::GetUpVec() と呼び出せる．</div><div class="ttdef"><b>Definition</b> math_vector3.h:222</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_a6319bbea38d7b4dab6091fe28b99fc57"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#a6319bbea38d7b4dab6091fe28b99fc57">designlab::Vector3::IsZero</a></div><div class="ttdeci">constexpr bool IsZero() const noexcept</div><div class="ttdoc">x,y,zともに絶対値が0ならば true を返す．</div><div class="ttdef"><b>Definition</b> math_vector3.h:181</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_a685643adba69e22d8f449434f1fce78b"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#a685643adba69e22d8f449434f1fce78b">designlab::Vector3::GetNormalized</a></div><div class="ttdeci">Vector3 GetNormalized() const noexcept</div><div class="ttdoc">単位ベクトルを返す． normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す．   絶対値が0のベクトルの場合，そのまま0ベクトルを返す．</div><div class="ttdef"><b>Definition</b> math_vector3.cpp:17</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_a71c4baaa6cf57587e5cdadc5558cb4fd"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#a71c4baaa6cf57587e5cdadc5558cb4fd">designlab::Vector3::z</a></div><div class="ttdeci">float z</div><div class="ttdoc">ロボットの上向きに正．</div><div class="ttdef"><b>Definition</b> math_vector3.h:244</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_a749e72a67a54aa80201a8b0cf589b30b"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#a749e72a67a54aa80201a8b0cf589b30b">designlab::Vector3::Vector3</a></div><div class="ttdeci">constexpr Vector3()</div><div class="ttdoc">&lt; デフォルトコンストラクタ．(0,0,0)で初期化される．</div><div class="ttdef"><b>Definition</b> math_vector3.h:41</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_a834e5d8c3c9f2701570fa22ffd4b4a00"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#a834e5d8c3c9f2701570fa22ffd4b4a00">designlab::Vector3::ToCsvString</a></div><div class="ttdeci">std::string ToCsvString() const</div><div class="ttdoc">このベクトルをCSV形式の文字列にして返す．   x, y, z の形式，小数点以下3桁まで．</div><div class="ttdef"><b>Definition</b> math_vector3.cpp:39</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_a891935bd4a3e01124107225f8d03f33c"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#a891935bd4a3e01124107225f8d03f33c">designlab::Vector3::GetFrontVec</a></div><div class="ttdeci">static constexpr Vector3 GetFrontVec() noexcept</div><div class="ttdoc">正面に進む単位ベクトルを返す． 静的な関数なので，Vector3::GetFrontVec() と呼び出せる．</div><div class="ttdef"><b>Definition</b> math_vector3.h:210</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_a96238f81cb243be778b64afe8fbb03d8"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#a96238f81cb243be778b64afe8fbb03d8">designlab::Vector3::Vector3</a></div><div class="ttdeci">constexpr Vector3(const Vector3 &amp;other)=default</div><div class="ttdoc">コピーコンストラクタ．</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_a9bafdc2ce5cbc6e15fd4479289c0060f"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#a9bafdc2ce5cbc6e15fd4479289c0060f">designlab::Vector3::operator=</a></div><div class="ttdeci">constexpr Vector3 &amp; operator=(const Vector3 &amp;other)=default</div><div class="ttdoc">代入演算子．</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_aa0a76dfe9dc375fd09561734cf782f63"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#aa0a76dfe9dc375fd09561734cf782f63">designlab::Vector3::Dot</a></div><div class="ttdeci">constexpr float Dot(const Vector3 &amp;other) const noexcept</div><div class="ttdoc">自分・引数 の内積の結果を返す．</div><div class="ttdef"><b>Definition</b> math_vector3.h:150</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_aa36dbc9d5ec20bf4e1161e0f2593776c"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#aa36dbc9d5ec20bf4e1161e0f2593776c">designlab::Vector3::GetLength</a></div><div class="ttdeci">float GetLength() const noexcept</div><div class="ttdoc">ベクトルの長さを返す．</div><div class="ttdef"><b>Definition</b> math_vector3.h:142</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_aaa13dfcc4ab31c0987b1e25845a2243e"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#aaa13dfcc4ab31c0987b1e25845a2243e">designlab::Vector3::GetDistanceFrom</a></div><div class="ttdeci">float GetDistanceFrom(const Vector3 &amp;other) const noexcept</div><div class="ttdoc">別のベクトルと，このベクトルの距離を返す．</div><div class="ttdef"><b>Definition</b> math_vector3.h:167</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_aaf3651416f231824ffd780b72f5bba27"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#aaf3651416f231824ffd780b72f5bba27">designlab::Vector3::ProjectedXY</a></div><div class="ttdeci">constexpr Vector2 ProjectedXY() const noexcept</div><div class="ttdoc">XY平面に射影したベクトルを返す．</div><div class="ttdef"><b>Definition</b> math_vector3.h:201</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_ac5187e0ab8d45cda4a36dd38f34884e8"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#ac5187e0ab8d45cda4a36dd38f34884e8">designlab::Vector3::Normalize</a></div><div class="ttdeci">void Normalize() noexcept</div><div class="ttdoc">このベクトルを正規化する．   絶対値が0のベクトルの場合，そのまま0ベクトルになる．</div><div class="ttdef"><b>Definition</b> math_vector3.h:196</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_ac69e2400ddfbcb063008f8f92b3bd0b0"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#ac69e2400ddfbcb063008f8f92b3bd0b0">designlab::Vector3::GetLeftVec</a></div><div class="ttdeci">static constexpr Vector3 GetLeftVec() noexcept</div><div class="ttdoc">左に進む単位ベクトルを返す． 静的な関数なので，Vector3::GetLeftVec() と呼び出せる．</div><div class="ttdef"><b>Definition</b> math_vector3.h:216</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_ad6267e500198624fd2888aacc80e3413"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#ad6267e500198624fd2888aacc80e3413">designlab::Vector3::Vector3</a></div><div class="ttdeci">constexpr Vector3(Vector3 &amp;&amp;other) noexcept=default</div><div class="ttdoc">ムーブコンストラクタ．</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_adb4d141dbd87c98d1006151956566f13"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#adb4d141dbd87c98d1006151956566f13">designlab::Vector3::GetZeroVec</a></div><div class="ttdeci">static constexpr Vector3 GetZeroVec() noexcept</div><div class="ttdoc">零ベクトルを返す． 静的な関数なので，Vector3::GetZeroVec() と呼び出せる．</div><div class="ttdef"><b>Definition</b> math_vector3.h:228</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_adced04a30051a7d7a5845a1d9a9d1c11"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#adced04a30051a7d7a5845a1d9a9d1c11">designlab::Vector3::ToString</a></div><div class="ttdeci">std::string ToString() const</div><div class="ttdoc">このベクトルを文字列にして返す．   (x, y, z) の形式，小数点以下3桁まで．</div><div class="ttdef"><b>Definition</b> math_vector3.cpp:31</div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3docs_af2c9878342038c6a35c98e30dd532fae"><div class="ttname"><a href="structdesignlab_1_1_vector3docs#af2c9878342038c6a35c98e30dd532fae">designlab::Vector3::y</a></div><div class="ttdeci">float y</div><div class="ttdoc">ロボットの左向きに正．</div><div class="ttdef"><b>Definition</b> math_vector3.h:243</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_65b03a49640d0599dba701447d580643docs">hasegawa</a></li><li class="navelem"><a class="el" href="dir_2854940d141de6d3c7cee6483e7afda9docs">Desktop</a></li><li class="navelem"><a class="el" href="dir_fad4873fd0f485db7102df865d883d5cdocs">main</a></li><li class="navelem"><a class="el" href="dir_227eda1db808a252df8518c263632a71docs">program</a></li><li class="navelem"><a class="el" href="dir_c48eef75fce7d1d05a2392783bd08b15docs">gait-generation-by-graph-search</a></li><li class="navelem"><a class="el" href="dir_6970d783dbb606469f8f14a039e83820docs">DesignLab</a></li><li class="navelem"><a class="el" href="math__vector3_8hdocs">math_vector3.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

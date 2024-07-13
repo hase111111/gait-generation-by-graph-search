@@ -1,5 +1,5 @@
 <map id="designlab::ITomlDataValidator&lt; T &gt;" name="designlab::ITomlDataValidator&lt; T &gt;">
 <area shape="rect" id="Node000001" title="TOMLファイルのデータの検証を行う処理のインターフェース．" alt="" coords="5,5,230,32"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_toml_data_validator_always_true.html" title="常に trueを返す ITomlDataValidator の実装クラス．" alt="" coords="22,80,213,123"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_toml_data_validator_always_truedocs" title="常に trueを返す ITomlDataValidator の実装クラス．" alt="" coords="22,80,213,123"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="120,48,120,80,115,80,115,48"/>
 </map>

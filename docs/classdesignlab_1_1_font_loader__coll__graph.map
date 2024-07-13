@@ -1,5 +1,5 @@
 <map id="designlab::FontLoader" name="designlab::FontLoader">
 <area shape="rect" id="Node000001" title="Dxlibのフォントを読み込むクラス．" alt="" coords="5,96,155,123"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_singleton.html" title=" " alt="" coords="11,5,149,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_singletondocs" title=" " alt="" coords="11,5,149,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,64,83,95,77,95,77,64"/>
 </map>

@@ -1,10 +1,10 @@
 <map id="cpplint.RemoveMultiLineComments" name="cpplint.RemoveMultiLineComments">
 <area shape="rect" id="Node000001" title=" " alt="" coords="601,29,826,56"/>
-<area shape="rect" id="Node000002" href="$namespacecpplint.html#af49dbbca393312acfa3a46984665eaff" title=" " alt="" coords="394,29,553,56"/>
+<area shape="rect" id="Node000002" href="$namespacecpplintdocs#af49dbbca393312acfa3a46984665eaff" title=" " alt="" coords="394,29,553,56"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="586,45,554,45,554,40,586,40"/>
-<area shape="rect" id="Node000003" href="$namespacecpplint.html#acecb7a35ccd8dc94f7759b8740496f5f" title=" " alt="" coords="214,29,346,56"/>
+<area shape="rect" id="Node000003" href="$namespacecpplintdocs#acecb7a35ccd8dc94f7759b8740496f5f" title=" " alt="" coords="214,29,346,56"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="378,45,346,45,346,40,378,40"/>
-<area shape="rect" id="Node000004" href="$namespacecpplint.html#a3f8324de8f8a4138491fb973817322da" title=" " alt="" coords="5,29,166,56"/>
+<area shape="rect" id="Node000004" href="$namespacecpplintdocs#a3f8324de8f8a4138491fb973817322da" title=" " alt="" coords="5,29,166,56"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="198,45,166,45,166,40,198,40"/>
 <area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="119,16,107,10,85,8,65,10,54,15,52,20,57,27,52,30,46,21,51,11,64,5,86,3,109,5,121,12"/>
 </map>

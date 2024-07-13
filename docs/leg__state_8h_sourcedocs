@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: C:/Users/hasegawa/Desktop/main/program/gait-generation-by-graph-search/DesignLab/leg_state.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'docs');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('leg__state_8h_sourcedocs',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">leg_state.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="leg__state_8hdocs">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef DESIGNLAB_LEG_STATE_H_</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define DESIGNLAB_LEG_STATE_H_</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;bitset&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="discrete__com__pos_8hdocs">discrete_com_pos.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="discrete__leg__pos_8hdocs">discrete_leg_pos.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="hexapod__const_8hdocs">hexapod_const.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab_1_1leg__funcdocs">designlab::leg_func</a></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">// 使用する型の定義</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1leg__funcdocs#abe2f601b0f9390ddd56f6092ca9180a2">   46</a></span><span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="namespacedesignlab_1_1leg__funcdocs#abe2f601b0f9390ddd56f6092ca9180a2">kLegPosBitNum</a> = 4;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1leg__funcdocs#a4e8bbdedc13b0286e45fb4833b03470c">   48</a></span><span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="namespacedesignlab_1_1leg__funcdocs#a4e8bbdedc13b0286e45fb4833b03470c">kComPosBitNum</a> = 4;  </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1leg__funcdocs#a85b556a69a51c9e00ccae2383ae33052">   51</a></span><span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="namespacedesignlab_1_1leg__funcdocs#a85b556a69a51c9e00ccae2383ae33052">kLegStateBitNum</a> = <a class="code hl_variable" href="classdesignlab_1_1_hexapod_constdocs#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> * <a class="code hl_variable" href="namespacedesignlab_1_1leg__funcdocs#abe2f601b0f9390ddd56f6092ca9180a2">kLegPosBitNum</a> + <a class="code hl_variable" href="namespacedesignlab_1_1leg__funcdocs#a4e8bbdedc13b0286e45fb4833b03470c">kComPosBitNum</a>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">   54</a></span><span class="keyword">using </span><a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> = std::bitset&lt;kLegStateBitNum&gt;;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1leg__funcdocs#a412eba2f9bdfb755114f63da0545ac61">   57</a></span><span class="keyword">using </span><a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#a412eba2f9bdfb755114f63da0545ac61">LegGroundedBit</a> = std::bitset&lt;HexapodConst::kLegNum&gt;;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">// ビットをマスクするための定数</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1leg__funcdocs#a0638b32b8b228a6e927f6de16e2f3441">   64</a></span><span class="keyword">constexpr</span> <a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> <a class="code hl_function" href="namespacedesignlab_1_1leg__funcdocs#a0638b32b8b228a6e927f6de16e2f3441">kLegPosMaskBit</a>(0b0111);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1leg__funcdocs#a4324547428d4b166d210138ccfffc07e">   67</a></span><span class="keyword">constexpr</span> <a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> <a class="code hl_function" href="namespacedesignlab_1_1leg__funcdocs#a4324547428d4b166d210138ccfffc07e">kLegStateMaskBit</a>(0b1111);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1leg__funcdocs#a70663ed1f016df2602e960f07056ca30">   71</a></span><span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="namespacedesignlab_1_1leg__funcdocs#a70663ed1f016df2602e960f07056ca30">kShiftToComNum</a> = <a class="code hl_variable" href="classdesignlab_1_1_hexapod_constdocs#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> * 4;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1leg__funcdocs#a82a33fe81f59d131b4eac6540881a5a4">   74</a></span><span class="keyword">constexpr</span> <a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> <a class="code hl_variable" href="namespacedesignlab_1_1leg__funcdocs#a82a33fe81f59d131b4eac6540881a5a4">kComStateMaskBit</a> = (0b1111 &lt;&lt; <a class="code hl_variable" href="namespacedesignlab_1_1leg__funcdocs#a70663ed1f016df2602e960f07056ca30">kShiftToComNum</a>);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> <a class="code hl_function" href="namespacedesignlab_1_1leg__funcdocs#addb03f2c129476bc73065ee52708dcd5">MakeLegStateBit</a>(</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>  <a class="code hl_enumeration" href="discrete__com__pos_8hdocs#aae667c8a4db0938ece7d037c80ea858e">enums::DiscreteComPos</a> discrete_com_pos,</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  <span class="keyword">const</span> std::array&lt;bool, HexapodConst::kLegNum&gt;&amp; is_ground,</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  <span class="keyword">const</span> std::array&lt;enums::DiscreteLegPos, HexapodConst::kLegNum&gt;&amp; leg_pos);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keywordtype">bool</span> <a class="code hl_function" href="namespacedesignlab_1_1leg__funcdocs#a4b87ebe130ffec4a53e929bdb13c4ee3">IsGrounded</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">LegStateBit</a>&amp; leg_state_bit, <span class="keywordtype">int</span> leg_index);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#a412eba2f9bdfb755114f63da0545ac61">LegGroundedBit</a> <a class="code hl_function" href="namespacedesignlab_1_1leg__funcdocs#aba40fd16353e3566503af79fd3bff892">GetLegGroundedBit</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">LegStateBit</a>&amp; leg_state);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="keywordtype">int</span> <a class="code hl_function" href="namespacedesignlab_1_1leg__funcdocs#a410e98538abd3a3346c5223e32100355">GetGroundedLegNum</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">LegStateBit</a>&amp; leg_state);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="keywordtype">int</span> <a class="code hl_function" href="namespacedesignlab_1_1leg__funcdocs#a783362f08ae38b6e3f5cb09aad52d51b">GetLiftedLegNum</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">LegStateBit</a>&amp; leg_state);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1leg__funcdocs#ac79059fd4ea5194294609cd6f6834d93">GetGroundedLegIndexByVector</a>(</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">LegStateBit</a>&amp; leg_state, std::vector&lt;int&gt;* res_index);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1leg__funcdocs#ab008f25ef39dfb41ee4a76f3c9cc0529">GetLiftedLegIndexByVector</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">LegStateBit</a>&amp; leg_state, std::vector&lt;int&gt;* res_index);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><a class="code hl_enumeration" href="discrete__leg__pos_8hdocs#ab5710dabeacf5161415ee779fe947495">enums::DiscreteLegPos</a> <a class="code hl_function" href="namespacedesignlab_1_1leg__funcdocs#ab7617bec21b4f953dc3b4641f58a0e2e">GetDiscreteLegPos</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">LegStateBit</a>&amp; leg_state, <span class="keywordtype">int</span> leg_index);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><a class="code hl_enumeration" href="discrete__com__pos_8hdocs#aae667c8a4db0938ece7d037c80ea858e">enums::DiscreteComPos</a> <a class="code hl_function" href="namespacedesignlab_1_1leg__funcdocs#a97269d1d2e67a17e729889089a859b78">GetDiscreteComPos</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">LegStateBit</a>&amp; leg_state);</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1leg__funcdocs#af8887609c397b32b722ccc0994a17d01">ChangeLegState</a>(<span class="keywordtype">int</span> leg_index, <a class="code hl_enumeration" href="discrete__leg__pos_8hdocs#ab5710dabeacf5161415ee779fe947495">enums::DiscreteLegPos</a> new_discretized_leg_pos,</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                    <span class="keywordtype">bool</span> is_ground, <a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">LegStateBit</a>* leg_state);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1leg__funcdocs#a3e2c16048416541b45cfb82f8eac0480">ChangeDiscreteLegPos</a>(<span class="keywordtype">int</span> leg_index, <a class="code hl_enumeration" href="discrete__leg__pos_8hdocs#ab5710dabeacf5161415ee779fe947495">enums::DiscreteLegPos</a> new_discretized_leg_pos,</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                          <a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">LegStateBit</a>* leg_state);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1leg__funcdocs#aaa0778536285e1ec0fa1b7a1470e6186">ChangeGround</a>(<span class="keywordtype">int</span> leg_index, <span class="keywordtype">bool</span> is_ground, <a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">LegStateBit</a>* leg_state);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1leg__funcdocs#ad818e831df8eb0f0eb141e7fb62ad689">ChangeAllLegGround</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#a412eba2f9bdfb755114f63da0545ac61">LegGroundedBit</a>&amp; is_ground_list, <a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">LegStateBit</a>* leg_state);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1leg__funcdocs#a9a4626438aff7a077d8ee581b2917d3e">ChangeDiscreteComPos</a>(<a class="code hl_enumeration" href="discrete__com__pos_8hdocs#aae667c8a4db0938ece7d037c80ea858e">enums::DiscreteComPos</a> new_com_pattern, <a class="code hl_typedef" href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">LegStateBit</a>* leg_state);</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>}  <span class="comment">// namespace designlab::leg_func</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_LEG_STATE_H_</span></div>
+<div class="ttc" id="aclassdesignlab_1_1_hexapod_constdocs_a8441e7e101e967ded7c357feb9670812"><div class="ttname"><a href="classdesignlab_1_1_hexapod_constdocs#a8441e7e101e967ded7c357feb9670812">designlab::HexapodConst::kLegNum</a></div><div class="ttdeci">static constexpr int kLegNum</div><div class="ttdef"><b>Definition</b> hexapod_const.h:34</div></div>
+<div class="ttc" id="adiscrete__com__pos_8hdocs"><div class="ttname"><a href="discrete__com__pos_8hdocs">discrete_com_pos.h</a></div></div>
+<div class="ttc" id="adiscrete__com__pos_8hdocs_aae667c8a4db0938ece7d037c80ea858e"><div class="ttname"><a href="discrete__com__pos_8hdocs#aae667c8a4db0938ece7d037c80ea858e">designlab::enums::DiscreteComPos</a></div><div class="ttdeci">DiscreteComPos</div><div class="ttdef"><b>Definition</b> discrete_com_pos.h:16</div></div>
+<div class="ttc" id="adiscrete__leg__pos_8hdocs"><div class="ttname"><a href="discrete__leg__pos_8hdocs">discrete_leg_pos.h</a></div></div>
+<div class="ttc" id="adiscrete__leg__pos_8hdocs_ab5710dabeacf5161415ee779fe947495"><div class="ttname"><a href="discrete__leg__pos_8hdocs#ab5710dabeacf5161415ee779fe947495">designlab::enums::DiscreteLegPos</a></div><div class="ttdeci">DiscreteLegPos</div><div class="ttdoc">離散化された脚位置を表す列挙体．   先行研究では 1～7の int型の数値で表現されているが， 可読性を上げるために列挙体にした．   離散化された脚位置は 3bit (0 ～ 7)の範囲で表現される...</div><div class="ttdef"><b>Definition</b> discrete_leg_pos.h:20</div></div>
+<div class="ttc" id="ahexapod__const_8hdocs"><div class="ttname"><a href="hexapod__const_8hdocs">hexapod_const.h</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs">designlab::leg_func</a></div><div class="ttdoc">このプログラムでは脚状態をビット(28bit)の情報で表す． そのデータを処理するための関数．</div><div class="ttdef"><b>Definition</b> leg_state.cpp:10</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_a0638b32b8b228a6e927f6de16e2f3441"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#a0638b32b8b228a6e927f6de16e2f3441">designlab::leg_func::kLegPosMaskBit</a></div><div class="ttdeci">constexpr LegStateBit kLegPosMaskBit(0b0111)</div><div class="ttdoc">脚位置は4bitの下位三桁で管理されるので，そこをマスクする．</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_a3e2c16048416541b45cfb82f8eac0480"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#a3e2c16048416541b45cfb82f8eac0480">designlab::leg_func::ChangeDiscreteLegPos</a></div><div class="ttdeci">void ChangeDiscreteLegPos(const int leg_index, const enums::DiscreteLegPos new_discretized_leg_pos, LegStateBit *leg_state)</div><div class="ttdoc">脚の状態を変更する．遊脚を表すビットはそのまま．</div><div class="ttdef"><b>Definition</b> leg_state.cpp:175</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_a410e98538abd3a3346c5223e32100355"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#a410e98538abd3a3346c5223e32100355">designlab::leg_func::GetGroundedLegNum</a></div><div class="ttdeci">int GetGroundedLegNum(const LegStateBit &amp;leg_state)</div><div class="ttdoc">接地している脚の本数を返す関数．</div><div class="ttdef"><b>Definition</b> leg_state.cpp:78</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_a412eba2f9bdfb755114f63da0545ac61"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#a412eba2f9bdfb755114f63da0545ac61">designlab::leg_func::LegGroundedBit</a></div><div class="ttdeci">std::bitset&lt; HexapodConst::kLegNum &gt; LegGroundedBit</div><div class="ttdoc">脚の遊脚・接地を表す型．6bitのビット型．接地が 1 遊脚が 0．</div><div class="ttdef"><b>Definition</b> leg_state.h:57</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_a4324547428d4b166d210138ccfffc07e"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#a4324547428d4b166d210138ccfffc07e">designlab::leg_func::kLegStateMaskBit</a></div><div class="ttdeci">constexpr LegStateBit kLegStateMaskBit(0b1111)</div><div class="ttdoc">脚状態は4bitで管理されるので，そこをマスクする．</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_a4b87ebe130ffec4a53e929bdb13c4ee3"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#a4b87ebe130ffec4a53e929bdb13c4ee3">designlab::leg_func::IsGrounded</a></div><div class="ttdeci">bool IsGrounded(const LegStateBit &amp;leg_state, const int leg_index)</div><div class="ttdoc">脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる．   脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．</div><div class="ttdef"><b>Definition</b> leg_state.cpp:40</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_a4e8bbdedc13b0286e45fb4833b03470c"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#a4e8bbdedc13b0286e45fb4833b03470c">designlab::leg_func::kComPosBitNum</a></div><div class="ttdeci">constexpr int kComPosBitNum</div><div class="ttdoc">重心パターンを表すビット数．</div><div class="ttdef"><b>Definition</b> leg_state.h:48</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_a70663ed1f016df2602e960f07056ca30"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#a70663ed1f016df2602e960f07056ca30">designlab::leg_func::kShiftToComNum</a></div><div class="ttdeci">constexpr int kShiftToComNum</div><div class="ttdoc">重心パターンを保存するビットまで行くために，どれだけビットをシフトするか．</div><div class="ttdef"><b>Definition</b> leg_state.h:71</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_a783362f08ae38b6e3f5cb09aad52d51b"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#a783362f08ae38b6e3f5cb09aad52d51b">designlab::leg_func::GetLiftedLegNum</a></div><div class="ttdeci">int GetLiftedLegNum(const LegStateBit &amp;leg_state)</div><div class="ttdoc">遊脚している脚の本数を返す関数．</div><div class="ttdef"><b>Definition</b> leg_state.cpp:95</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_a82a33fe81f59d131b4eac6540881a5a4"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#a82a33fe81f59d131b4eac6540881a5a4">designlab::leg_func::kComStateMaskBit</a></div><div class="ttdeci">constexpr LegStateBit kComStateMaskBit</div><div class="ttdoc">重心パターンを保存するビットをマスクするビット．</div><div class="ttdef"><b>Definition</b> leg_state.h:74</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_a85b556a69a51c9e00ccae2383ae33052"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#a85b556a69a51c9e00ccae2383ae33052">designlab::leg_func::kLegStateBitNum</a></div><div class="ttdeci">constexpr int kLegStateBitNum</div><div class="ttdoc">脚状態を保存するビット数．28bit．</div><div class="ttdef"><b>Definition</b> leg_state.h:51</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_a97269d1d2e67a17e729889089a859b78"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#a97269d1d2e67a17e729889089a859b78">designlab::leg_func::GetDiscreteComPos</a></div><div class="ttdeci">enums::DiscreteComPos GetDiscreteComPos(const LegStateBit &amp;leg_state)</div><div class="ttdoc">現在の脚状態から重心パターンを取得する．</div><div class="ttdef"><b>Definition</b> leg_state.cpp:148</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_a9a4626438aff7a077d8ee581b2917d3e"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#a9a4626438aff7a077d8ee581b2917d3e">designlab::leg_func::ChangeDiscreteComPos</a></div><div class="ttdeci">void ChangeDiscreteComPos(const enums::DiscreteComPos new_com_pattern, LegStateBit *leg_state)</div><div class="ttdoc">重心のデータを変更する．</div><div class="ttdef"><b>Definition</b> leg_state.cpp:241</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_aaa0778536285e1ec0fa1b7a1470e6186"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#aaa0778536285e1ec0fa1b7a1470e6186">designlab::leg_func::ChangeGround</a></div><div class="ttdeci">void ChangeGround(const int leg_index, const bool is_ground, LegStateBit *leg_state)</div><div class="ttdoc">脚の接地・遊脚情報を変更する．</div><div class="ttdef"><b>Definition</b> leg_state.cpp:207</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_ab008f25ef39dfb41ee4a76f3c9cc0529"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#ab008f25ef39dfb41ee4a76f3c9cc0529">designlab::leg_func::GetLiftedLegIndexByVector</a></div><div class="ttdeci">void GetLiftedLegIndexByVector(const LegStateBit &amp;leg_state, std::vector&lt; int &gt; *res_index)</div><div class="ttdoc">遊脚している脚の脚番号0～5を，引数_res_numberで参照渡しする関数．</div><div class="ttdef"><b>Definition</b> leg_state.cpp:117</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_ab7617bec21b4f953dc3b4641f58a0e2e"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#ab7617bec21b4f953dc3b4641f58a0e2e">designlab::leg_func::GetDiscreteLegPos</a></div><div class="ttdeci">enums::DiscreteLegPos GetDiscreteLegPos(const LegStateBit &amp;leg_state, const int leg_index)</div><div class="ttdoc">脚状態を取得する．</div><div class="ttdef"><b>Definition</b> leg_state.cpp:134</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_aba40fd16353e3566503af79fd3bff892"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#aba40fd16353e3566503af79fd3bff892">designlab::leg_func::GetLegGroundedBit</a></div><div class="ttdeci">LegGroundedBit GetLegGroundedBit(const LegStateBit &amp;leg_state)</div><div class="ttdoc">脚が接地しているなら1，遊脚を0としたビット列で遊脚・接地脚の状態を返す．   例えば 0 番脚のみが遊脚しているなら 0b111 110 を返す．</div><div class="ttdef"><b>Definition</b> leg_state.cpp:59</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_abe2f601b0f9390ddd56f6092ca9180a2"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#abe2f601b0f9390ddd56f6092ca9180a2">designlab::leg_func::kLegPosBitNum</a></div><div class="ttdeci">constexpr int kLegPosBitNum</div><div class="ttdoc">脚位置を表すビット数．離散化された脚位置は3bit，遊脚・接地は1bit．あわせて4bit．</div><div class="ttdef"><b>Definition</b> leg_state.h:46</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_ac79059fd4ea5194294609cd6f6834d93"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#ac79059fd4ea5194294609cd6f6834d93">designlab::leg_func::GetGroundedLegIndexByVector</a></div><div class="ttdeci">void GetGroundedLegIndexByVector(const LegStateBit &amp;leg_state, std::vector&lt; int &gt; *res_index)</div><div class="ttdoc">接地している脚の脚番号0～5を，引数で参照渡しする関数．</div><div class="ttdef"><b>Definition</b> leg_state.cpp:100</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_ad818e831df8eb0f0eb141e7fb62ad689"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#ad818e831df8eb0f0eb141e7fb62ad689">designlab::leg_func::ChangeAllLegGround</a></div><div class="ttdeci">void ChangeAllLegGround(const LegGroundedBit &amp;is_ground_list, LegStateBit *leg_state)</div><div class="ttdoc">全ての脚の接地・遊脚情報を変更する．</div><div class="ttdef"><b>Definition</b> leg_state.cpp:230</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_addb03f2c129476bc73065ee52708dcd5"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#addb03f2c129476bc73065ee52708dcd5">designlab::leg_func::MakeLegStateBit</a></div><div class="ttdeci">LegStateBit MakeLegStateBit(const enums::DiscreteComPos discrete_com_pos, const std::array&lt; bool, HexapodConst::kLegNum &gt; &amp;is_ground, const std::array&lt; enums::DiscreteLegPos, HexapodConst::kLegNum &gt; &amp;discretized_leg_pos)</div><div class="ttdoc">脚状態を作成して返す関数．脚状態は重心パターン， 脚の接地・遊脚，離散化した脚位置のデータが含まれる．</div><div class="ttdef"><b>Definition</b> leg_state.cpp:12</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_aeed0147f934052f177c0761b75bacc65"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#aeed0147f934052f177c0761b75bacc65">designlab::leg_func::LegStateBit</a></div><div class="ttdeci">std::bitset&lt; kLegStateBitNum &gt; LegStateBit</div><div class="ttdoc">脚状態を保存する型．28bitのビット型．</div><div class="ttdef"><b>Definition</b> leg_state.h:54</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__funcdocs_af8887609c397b32b722ccc0994a17d01"><div class="ttname"><a href="namespacedesignlab_1_1leg__funcdocs#af8887609c397b32b722ccc0994a17d01">designlab::leg_func::ChangeLegState</a></div><div class="ttdeci">void ChangeLegState(const int leg_index, const enums::DiscreteLegPos new_discretized_leg_pos, const bool is_ground, LegStateBit *leg_state)</div><div class="ttdoc">脚の情報を変更する．</div><div class="ttdef"><b>Definition</b> leg_state.cpp:157</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_65b03a49640d0599dba701447d580643docs">hasegawa</a></li><li class="navelem"><a class="el" href="dir_2854940d141de6d3c7cee6483e7afda9docs">Desktop</a></li><li class="navelem"><a class="el" href="dir_fad4873fd0f485db7102df865d883d5cdocs">main</a></li><li class="navelem"><a class="el" href="dir_227eda1db808a252df8518c263632a71docs">program</a></li><li class="navelem"><a class="el" href="dir_c48eef75fce7d1d05a2392783bd08b15docs">gait-generation-by-graph-search</a></li><li class="navelem"><a class="el" href="dir_6970d783dbb606469f8f14a039e83820docs">DesignLab</a></li><li class="navelem"><a class="el" href="leg__state_8hdocs">leg_state.h</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>
