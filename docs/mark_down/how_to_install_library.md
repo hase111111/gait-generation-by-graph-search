@@ -98,23 +98,25 @@ C++言語は，標準ライブラリが少ないため，Boostを使用するこ
     .\b2 toolset=msvc-14.3 threading=multi variant=debug,release link=static runtime-link=static,shared -j6 --prefix=C:\Boost install
     ```
 
-    > [!Note]
-    > 各オプションの意味は以下の通りです．
-    > - `toolset=msvc-14.3`は，Visual Studio 2022の場合に指定します．
-    > - `threading=multi`は，スレッドセーフなBoostライブラリをビルドするために指定します．
-    > - `variant=debug,release`は，デバッグ用とリリース用のBoostライブラリをビルドするために指定します．
-    > - `link=static`は，静的リンクライブラリをビルドするために指定します．
-    > - `runtime-link=static,shared`は，静的リンクライブラリと動的リンクライブラリをビルドするために指定します．
-    > - `-j6`は，ビルド時に6つのスレッドを使用するために指定します．CPUのコア数に合わせて変更してください．よくわからない場合は-j4や-j2あたりの値を指定してください．
-    > - `--prefix=C:\Boost`は，ビルドしたBoostライブラリをCドライブ直下のBoostフォルダにインストールするために指定します．
-
     - ビルドが完了すると，Boostのライブラリが生成されます．なお，ビルドには1時間から数時間程度かかることがあります．以下のようなフォルダ構成になっていることを確認してください．
 
-    ``` plaintext
+    ``` bash plaintext
     C:\
     └─Boost
         ├─include
         └─lib
     ```
+
+> [!NOTE]
+> 各オプションの意味は以下の通りです．
+> - `toolset=msvc-14.3`は，Visual Studio 2022の場合に指定します．
+> - `threading=multi`は，スレッドセーフなBoostライブラリをビルドするために指定します．
+> - `variant=debug,release`は，デバッグ用とリリース用のBoostライブラリをビルドするために指定します．
+> - `link=static`は，静的リンクライブラリをビルドするために指定します．
+> - `runtime-link=static,shared`は，静的リンクライブラリと動的リンクライブラリをビルドするために指定します．
+> - `-j6`は，ビルド時に6つのスレッドを使用するために指定します．CPUのコア数に合わせて変更してください．よくわからない場合は-j4や-j2あたりの値を指定してください．
+> - `--prefix=C:\Boost`は，ビルドしたBoostライブラリをCドライブ直下のBoostフォルダにインストールするために指定します．
+
+
 
 以上で，Boostのインストールは完了です．
