@@ -106,7 +106,9 @@ Visual Studioでは「Ctrl + F5」を押すことで，プログラムがコン�
 
 ## 使い方
 
-プログラムの使い方については，[使い方](../docs/mark_down/how_to_use.md)を参照してください．
+使い方については，[使い方](../docs/mark_down/how_to_use.md)を参照してください．
+
+ビルド済みの実行ファイルは，[Release](./Release)から入手可能です．
 
 ## 実行/コンパイルすることができない場合
 
