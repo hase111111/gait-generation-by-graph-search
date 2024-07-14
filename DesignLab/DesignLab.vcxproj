@@ -383,7 +383,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)libraries\toml11-3.7.1;$(SolutionDir)libraries\magic_enum\include;$(SolutionDir)libraries\jsoncons\include;$(SolutionDir)libraries</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用_;C:\Boost\include\boost-1_82;$(SolutionDir)libraries\toml11-3.7.1;$(SolutionDir)libraries\magic_enum\include;$(SolutionDir)libraries\jsoncons\include;$(SolutionDir)libraries</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -417,7 +417,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)libraries\toml11-3.7.1;$(SolutionDir)libraries\magic_enum\include;$(SolutionDir)libraries\jsoncons\include;$(SolutionDir)libraries</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用_;C:\Boost\include\boost-1_82;$(SolutionDir)libraries\toml11-3.7.1;$(SolutionDir)libraries\magic_enum\include;$(SolutionDir)libraries\jsoncons\include;$(SolutionDir)libraries</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -449,12 +449,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)libraries\toml11-3.7.1;$(SolutionDir)libraries\magic_enum\include;$(SolutionDir)libraries\jsoncons\include;$(SolutionDir)libraries</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用_;C:\Boost\include\boost-1_82;$(SolutionDir)libraries\toml11-3.7.1;$(SolutionDir)libraries\magic_enum\include;$(SolutionDir)libraries\jsoncons\include;$(SolutionDir)libraries</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
       <DisableSpecificWarnings>4828;4514;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <TreatWarningAsError>true</TreatWarningAsError>
@@ -483,7 +483,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\Boost\include\boost-1_82;$(SolutionDir)libraries\toml11-3.7.1;$(SolutionDir)libraries\magic_enum\include;$(SolutionDir)libraries\jsoncons\include;$(SolutionDir)libraries</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用_;C:\Boost\include\boost-1_82;$(SolutionDir)libraries\toml11-3.7.1;$(SolutionDir)libraries\magic_enum\include;$(SolutionDir)libraries\jsoncons\include;$(SolutionDir)libraries</AdditionalIncludeDirectories>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>

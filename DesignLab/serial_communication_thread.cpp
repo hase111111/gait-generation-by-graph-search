@@ -15,7 +15,7 @@ namespace
 static constexpr int kBaudRate = 9600;  // ボーレート．Arduino側と合わせる．
 
 // COMポートの名前．
-static constexpr std::string kComName[] = { "", "COM1", "COM2", "COM3", "COM4",
+const std::string kComName[] = { "", "COM1", "COM2", "COM3", "COM4",
                                             "COM5", "COM6", "\\\\.\\COM7" , "COM8", "COM9",
                                             "\\\\.\\COM10", "\\\\.\\COM11", "\\\\.\\COM12", "\\\\.\\COM13" };
 }
