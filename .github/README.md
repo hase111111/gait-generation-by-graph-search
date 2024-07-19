@@ -31,6 +31,9 @@ Visual Studioで開発した，グラフ探索を用いた6脚ロボットの歩
 
 - Windows 10
 - Visual Studio 2022
+
+また，使用したライブラリのバージョンは以下の通りです．
+
 - DxLib: 3.24b
 - Boost: 1.82.0
 - magic_enum: 0.9.6
@@ -108,7 +111,7 @@ Visual Studioでは「Ctrl + F5」を押すことで，プログラムがコン�
 
 使い方については，[使い方](../docs/mark_down/how_to_use.md)を参照してください．
 
-ビルド済みの実行ファイルは，[Release](./Release)から入手可能です．
+ビルド済みの実行ファイルは，[Release](https://github.com/hase111111/gait-generation-by-graph-search/releases/tag/v1.0.0)から入手可能です．
 
 ## 実行/コンパイルすることができない場合
 
