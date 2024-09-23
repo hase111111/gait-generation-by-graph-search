@@ -184,7 +184,7 @@ FULL_PATH_NAMES        = YES
 # will be relative from the directory where doxygen is started.
 # This tag requires that the tag FULL_PATH_NAMES is set to YES.
 
-STRIP_FROM_PATH        = C:/Users/haseh/デスクトップ/main/program/DesignLab/HaseProject/DesignLab
+STRIP_FROM_PATH        = .
 
 # The STRIP_FROM_INC_PATH tag can be used to strip a user-defined part of the
 # path mentioned in the documentation of a class, which tells the reader which
@@ -518,7 +518,7 @@ TIMESTAMP              = NO
 # normally produced when WARNINGS is set to YES.
 # The default value is: NO.
 
-EXTRACT_ALL            = NO
+EXTRACT_ALL            = YES
 
 # If the EXTRACT_PRIVATE tag is set to YES, all private members of a class will
 # be included in the documentation.
@@ -1183,7 +1183,7 @@ FORTRAN_COMMENT_AFTER  = 72
 # also VERBATIM_HEADERS is set to NO.
 # The default value is: NO.
 
-SOURCE_BROWSER         = NO
+SOURCE_BROWSER         = YES
 
 # Setting the INLINE_SOURCES tag to YES will include the body of functions,
 # classes and enums directly into the documentation.
@@ -1340,7 +1340,7 @@ HTML_OUTPUT            = docs
 # The default value is: .html.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_FILE_EXTENSION    = docs
+HTML_FILE_EXTENSION    = .html
 
 # The HTML_HEADER tag can be used to specify a user-defined HTML header file for
 # each generated HTML page. If the tag is left blank doxygen will generate a
@@ -1724,7 +1724,7 @@ DISABLE_INDEX          = NO
 # The default value is: NO.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-GENERATE_TREEVIEW      = YES
+GENERATE_TREEVIEW      = NO
 
 # When both GENERATE_TREEVIEW and DISABLE_INDEX are set to YES, then the
 # FULL_SIDEBAR option determines if the side bar is limited to only the treeview
