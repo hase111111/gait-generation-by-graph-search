@@ -1,0 +1,5 @@
+<map id="designlab::math_util::GenerateRandomNumber" name="designlab::math_util::GenerateRandomNumber">
+<area shape="rect" id="Node000001" title="指定した範囲内の乱数を生成する．" alt="" coords="219,5,394,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_node_initializer.html#a2a8cf59dc1fd538a6c8f25a473fc3b14" title="ノードの初期化を行う．" alt="" coords="5,5,171,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,29,171,29,171,24,204,24"/>
+</map>

@@ -1,19 +1,19 @@
 <map id="designlab::IDxlibGui" name="designlab::IDxlibGui">
 <area shape="rect" id="Node000001" title="Dxlibの画面に表示するGUIのインターフェース．" alt="" coords="5,181,142,208"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_abstract_dxlib_guidocs" title="Dxlibを使ったGUIの抽象クラス．" alt="" coords="190,131,372,157"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,174,223,155,224,161,147,180"/>
-<area shape="rect" id="Node000008" href="$classdesignlab_1_1_dxlib_gui_terminaldocs" title="×ボタンを押して消えたGUIを復活させるためのクラス．" alt="" coords="190,181,372,208"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="157,192,189,192,189,197,157,197"/>
-<area shape="rect" id="Node000009" href="$classdesignlab_1_1_simple_buttondocs" title="Dxlibのウィンドウのボタンの処理・描画を管理するクラス．" alt="" coords="200,232,362,259"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="147,210,224,229,223,234,146,215"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_dxlib_gui_cameradocs" title="カメラの操作・管理を行うGUIの処理・描画を行うクラス．" alt="" coords="440,5,618,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="307,118,356,79,419,42,451,30,452,35,421,46,359,83,310,122"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_dxlib_gui_camera_parameter_displayerdocs" title="カメラの情報を表示するGUIの処理・描画を行うクラス．" alt="" coords="440,56,618,99"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="348,123,446,97,447,102,349,129"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_dxlib_gui_display_node_switcherdocs" title="ノードの表示・切り替えを行うGUIのクラス．" alt="" coords="441,123,617,165"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="388,141,440,141,440,147,388,147"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_dxlib_gui_node_displayerdocs" title="ノードの情報を表示するGUIのクラス．" alt="" coords="420,189,637,216"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_abstract_dxlib_gui.html" title="Dxlibを使ったGUIの抽象クラス．" alt="" coords="190,131,372,157"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,175,223,155,224,161,146,180"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_dxlib_gui_terminal.html" title="×ボタンを押して消えたGUIを復活させるためのクラス．" alt="" coords="190,181,372,208"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="156,192,189,192,189,197,156,197"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_simple_button.html" title="Dxlibのウィンドウのボタンの処理・描画を管理するクラス．" alt="" coords="200,232,362,259"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="146,210,224,229,223,234,145,215"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_dxlib_gui_camera.html" title="カメラの操作・管理を行うGUIの処理・描画を行うクラス．" alt="" coords="440,5,618,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="306,118,356,79,419,42,451,30,452,35,421,46,359,83,310,123"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_dxlib_gui_camera_parameter_displayer.html" title="カメラの情報を表示するGUIの処理・描画を行うクラス．" alt="" coords="440,56,618,99"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="347,124,446,97,447,102,348,129"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_dxlib_gui_display_node_switcher.html" title="ノードの表示・切り替えを行うGUIのクラス．" alt="" coords="441,123,617,165"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="387,141,440,141,440,147,387,147"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_dxlib_gui_node_displayer.html" title="ノードの情報を表示するGUIのクラス．" alt="" coords="420,189,637,216"/>
 <area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="354,159,421,175,469,186,468,191,419,180,353,164"/>
-<area shape="rect" id="Node000007" href="$classdesignlab_1_1_dxlib_gui_robot_controldocs" title="カメラの操作・管理を行うGUIの処理・描画を行うクラス．" alt="" coords="445,240,612,283"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="364,162,374,167,390,182,398,197,407,212,422,226,446,239,443,244,418,230,403,215,394,200,385,185,370,171,361,166"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_dxlib_gui_robot_control.html" title="カメラの操作・管理を行うGUIの処理・描画を行うクラス．" alt="" coords="445,240,612,283"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="364,161,374,167,390,182,398,197,407,212,422,226,446,239,443,244,418,230,403,215,394,200,385,185,370,171,361,166"/>
 </map>

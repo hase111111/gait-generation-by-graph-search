@@ -1,5 +1,11 @@
 <map id="designlab::dxlib_util::DrawCube3D" name="designlab::dxlib_util::DrawCube3D">
-<area shape="rect" id="Node000001" title="3D空間に立方体を描画する．" alt="" coords="229,5,364,48"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1dxlib__utildocs#a170cac2fc964414af49c550aee6583c8" title="3D空間に立方体を描画する．立方体の上面の中心の座標から描画する．" alt="" coords="5,5,181,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,29,181,29,181,24,213,24"/>
+<area shape="rect" id="Node000001" title="3D空間に立方体を描画する．" alt="" coords="495,39,630,81"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_approximated_motion_range_render.html#a8dc666d282df1c7ff08be1b5fd8ac6dc" title="描画処理を行う． const 関数にしているのは， 描画処理の中でメンバ変数を変更しないようにするため．" alt="" coords="244,5,447,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="480,50,447,45,448,40,481,45"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1dxlib__util.html#a170cac2fc964414af49c550aee6583c8" title="3D空間に立方体を描画する．立方体の上面の中心の座標から描画する．" alt="" coords="258,72,433,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="481,75,434,82,433,77,480,70"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_map_renderer.html#a4338a7d3f08cd663096e3226fa0c6fa3" title="マップの描画を行う．" alt="" coords="20,39,181,81"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="243,82,181,74,182,68,244,77"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_robot_ground_point_renderer.html#af62ae053ae0c6f182fb2c2dddfcaf2cc" title=" " alt="" coords="5,105,196,148"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="243,110,197,116,196,111,243,105"/>
 </map>

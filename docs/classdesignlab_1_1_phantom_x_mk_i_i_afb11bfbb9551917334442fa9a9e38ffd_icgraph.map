@@ -1,0 +1,21 @@
+<map id="designlab::PhantomXMkII::GetLegBasePosRobotCoordinate" name="designlab::PhantomXMkII::GetLegBasePosRobotCoordinate">
+<area shape="rect" id="Node000001" title="脚の付け根の座標(leg base position )を取得する．ロボット座標系．" alt="" coords="502,197,722,240"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a688e8dd6b7f92d5b1a4fa8d4fbcc2714" title="安定余裕(Stability Margin)を計算する． 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい． &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計..." alt="" coords="266,5,436,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="584,187,528,124,492,91,453,62,430,51,433,46,455,58,495,87,532,120,588,184"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a0630fa1d537f7e00aa422a83c98ebdda" title="グローバル座標系で表現されている座標を，脚座標系に変換する．" alt="" coords="248,72,454,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="565,191,512,160,453,129,425,118,427,113,455,124,515,155,568,187"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a028f4e024ebebca50325beef3444bfc5" title="脚座標系で表現されている座標を，グローバル座標系に変換する．" alt="" coords="248,139,454,181"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="499,196,449,185,450,179,501,191"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a2d84fda12ddad344e7de4c0e023ffd4f" title="胴体が地面と干渉しているかどうかを判定する．" alt="" coords="5,164,200,207"/>
+<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="487,213,200,194,200,189,487,208"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a27befb91ff5b1954cd31a3a46d70e995" title="脚座標系で表現されている座標を，ロボット座標系に変換する．" alt="" coords="249,256,453,299"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="501,246,450,258,449,253,499,241"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#aeed1296b4886eb07bc095ca2b5e8c333" title="脚が他の脚と干渉しているかどうかを判定する．" alt="" coords="19,285,186,328"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="574,251,520,286,488,302,455,313,385,326,314,330,246,328,187,323,187,318,247,323,314,325,385,321,453,308,486,297,517,281,571,247"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a23f271c79b8151dbb64c4e441b19e1d6" title="ロボット座標系で表現されている座標を，脚座標系に変換する．" alt="" coords="249,373,453,416"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="582,253,526,305,455,357,419,375,417,370,453,352,522,301,578,249"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#aea0eea059d621c567e8c0a704d7f79c8" title="安定余裕を用いて，静的に安定しているかどうかを判定する．" alt="" coords="19,5,186,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="251,29,186,29,186,24,251,24"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="233,175,200,178,200,173,233,169"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="235,294,187,299,186,294,234,288"/>
+</map>

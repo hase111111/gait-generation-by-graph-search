@@ -1,10 +1,10 @@
 <map id="cpplint.CheckForCopyright" name="cpplint.CheckForCopyright">
-<area shape="rect" id="Node000001" title=" " alt="" coords="601,29,776,56"/>
-<area shape="rect" id="Node000002" href="$namespacecpplintdocs#af49dbbca393312acfa3a46984665eaff" title=" " alt="" coords="394,29,553,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="586,45,554,45,554,40,586,40"/>
-<area shape="rect" id="Node000003" href="$namespacecpplintdocs#acecb7a35ccd8dc94f7759b8740496f5f" title=" " alt="" coords="214,29,346,56"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="378,45,346,45,346,40,378,40"/>
-<area shape="rect" id="Node000004" href="$namespacecpplintdocs#a3f8324de8f8a4138491fb973817322da" title=" " alt="" coords="5,29,166,56"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="198,45,166,45,166,40,198,40"/>
-<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="119,16,107,10,85,8,65,10,54,15,52,20,57,27,52,30,46,21,51,11,64,5,86,3,109,5,121,12"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="532,29,707,56"/>
+<area shape="rect" id="Node000002" href="$namespacecpplint.html#af49dbbca393312acfa3a46984665eaff" title=" " alt="" coords="325,29,484,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="517,45,485,45,485,40,517,40"/>
+<area shape="rect" id="Node000003" href="$namespacecpplint.html#acecb7a35ccd8dc94f7759b8740496f5f" title=" " alt="" coords="145,29,277,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="310,45,277,45,277,40,310,40"/>
+<area shape="rect" id="Node000004" href="$namespacecpplint.html#acf4a1286bb0905ffa465d24881a5d2e7" title=" " alt="" coords="5,29,97,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="130,45,97,45,97,40,130,40"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="78,17,69,11,51,8,35,10,26,15,24,20,28,28,23,30,18,21,22,11,33,5,51,3,71,6,81,13"/>
 </map>

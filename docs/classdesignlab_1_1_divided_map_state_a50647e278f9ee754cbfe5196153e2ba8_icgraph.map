@@ -1,9 +1,19 @@
 <map id="designlab::DividedMapState::Init" name="designlab::DividedMapState::Init">
-<area shape="rect" id="Node000001" title="マップのデータを初期化する． ロボットの重心座標を中心にマップのデータを格子状に分割し， その中に存在する脚設置可能点を集める．" alt="" coords="292,72,473,115"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_gait_pattern_generator_basicdocs#a3b957e224a453c5fc85bd15684560043" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="8,5,241,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="282,70,209,51,210,46,283,65"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_gait_pattern_generator_threaddocs#af6729bdafbd310f762733e7fa10f8df5" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,72,244,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="276,96,244,96,244,91,276,91"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_node_initializerdocs#a717aea9fc00fcb51c5ba3518fac717fc" title="地形に適した初期姿勢を設定する．" alt="" coords="42,139,207,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="283,122,208,141,207,136,282,117"/>
+<area shape="rect" id="Node000001" title="マップのデータを初期化する． ロボットの重心座標を中心にマップのデータを格子状に分割し， その中に存在する脚設置可能点を集める．" alt="" coords="292,239,473,281"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_gait_pattern_generator_basic.html#a3b957e224a453c5fc85bd15684560043" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="8,5,241,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="364,226,344,187,317,143,283,99,242,62,223,51,225,46,245,58,287,96,322,140,349,185,369,224"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_gait_pattern_generator_thread.html#af6729bdafbd310f762733e7fa10f8df5" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,72,244,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="353,229,305,177,275,151,242,129,218,118,221,113,245,124,278,147,309,173,357,225"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_graphic_main_display_model.html#af42c7a85c4334dec044d664a36cf7f34" title=" " alt="" coords="17,139,232,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="327,234,243,196,209,184,211,179,245,191,329,229"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_graphic_main_robot_control.html#ad643aefb41adbe094e4f81ddd576597b" title=" " alt="" coords="15,205,234,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="276,249,234,243,235,238,277,244"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_node_initializer.html#a717aea9fc00fcb51c5ba3518fac717fc" title="地形に適した初期姿勢を設定する．" alt="" coords="42,272,207,315"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="277,276,208,285,207,280,277,271"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_map_renderer.html#a8255fbb9add954ad6bff218968a16669" title="マップの状態を設定する．代入と同時に DividedMap も更新される．" alt="" coords="44,339,205,381"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="329,291,245,329,207,342,205,337,243,324,327,286"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_map_renderer.html#a3580cb88f4e45a744548ab7923661029" title="ロボットの重心のグローバル座標を設定する． &#160;&#160;DividedMap はロボットの重心を中心にしているので， ロボットの重心のグローバル座標を設定する必要がある． &#160;&#160;代入と同時に DividedMap..." alt="" coords="44,405,205,448"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="357,295,309,347,278,373,245,396,206,412,204,408,242,391,275,369,305,343,353,291"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_graphic_main_robot_control.html#a3609d5c3fedd6e5b5d364b99131938b4" title="描画画面の更新を行う．純粋仮想関数のため， 継承先では必ず override する必要がある．" alt="" coords="29,472,220,515"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="369,296,349,335,322,380,287,424,245,462,222,475,219,471,242,458,283,421,317,377,344,333,364,294"/>
 </map>

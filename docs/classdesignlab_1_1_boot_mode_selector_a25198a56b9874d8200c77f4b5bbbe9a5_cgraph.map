@@ -1,0 +1,19 @@
+<map id="designlab::BootModeSelector::SelectBootMode" name="designlab::BootModeSelector::SelectBootMode">
+<area shape="rect" id="Node000001" title="起動モードを選択する． &#160;&#160;BootModeが int 型をもとにしているかつ， 0から始まることを前提にしているので， うまく動作しない場合は，BootModeの定義を見直すこと．" alt="" coords="5,79,197,121"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数． &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている． &#160;&#160;例えば，" alt="" coords="819,5,1006,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,76,193,57,244,43,319,30,395,21,547,12,688,12,804,16,804,21,688,17,547,17,396,26,319,35,245,48,194,62,148,81"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="436,79,579,121"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="181,75,244,64,316,58,388,64,427,72,426,77,388,69,316,63,245,69,182,81"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="627,108,771,151"/>
+<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="182,119,245,131,343,138,442,140,613,134,613,139,442,145,343,144,244,136,181,125"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_cmd_i_o_util.html#a46968822c14aa0afa22c346a06afe753" title="整数を入力させる関数． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="245,79,388,121"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="197,97,230,97,230,103,197,103"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_cmd_i_o_util.html#a563e04e0ce3cf7b6c988a94b887a74b9" title="コマンドラインで改行をする関数．" alt="" coords="436,196,579,239"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="136,120,186,149,246,175,335,197,421,209,420,214,334,202,244,180,184,154,133,124"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="580,108,613,113,612,119,579,114"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="744,105,852,53,854,57,746,110"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数．指定した文字で文字列を分割する． &#160;&#160;分割した結果，空白が含まれる場合や文字列がない場合は，そのまま返す． &#160;&#160;最後が区切り文字で終わる場合は，それを無視する．" alt="" coords="842,108,983,151"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="771,127,827,127,827,132,771,132"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="388,97,421,97,421,103,388,103"/>
+<area shape="poly" id="edge10_Node000007_Node000004" title=" " alt="" coords="555,193,637,155,639,160,557,198"/>
+</map>

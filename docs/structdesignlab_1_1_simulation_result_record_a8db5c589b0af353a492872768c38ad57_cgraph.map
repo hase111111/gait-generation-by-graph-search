@@ -1,5 +1,7 @@
 <map id="designlab::SimulationResultRecord::ToCsvString" name="designlab::SimulationResultRecord::ToCsvString">
-<area shape="rect" id="Node000001" title="このクラスのデータを， csvファイルに出力する用の形式で文字列に変換する．" alt="" coords="5,5,188,48"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_graph_search_result_recorddocs#a5c544b05fea97002cd283a22d3e5edf5" title="CSV形式のヘッダを返す．" alt="" coords="236,5,433,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,24,220,24,220,29,188,29"/>
+<area shape="rect" id="Node000001" title="このクラスのデータを， csvファイルに出力する用の形式で文字列に変換する．" alt="" coords="5,39,188,81"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数． &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている． &#160;&#160;例えば，" alt="" coords="241,5,428,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,45,226,39,226,44,188,50"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_graph_search_result_record.html#a5c544b05fea97002cd283a22d3e5edf5" title="CSV形式のヘッダを返す．" alt="" coords="236,72,433,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,70,221,75,220,80,188,75"/>
 </map>

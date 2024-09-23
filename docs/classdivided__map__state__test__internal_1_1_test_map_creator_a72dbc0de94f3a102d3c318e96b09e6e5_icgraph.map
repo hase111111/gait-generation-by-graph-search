@@ -1,0 +1,5 @@
+<map id="divided_map_state_test_internal::TestMapCreator::InitMap" name="divided_map_state_test_internal::TestMapCreator::InitMap">
+<area shape="rect" id="Node000001" title="kMin [mm] ～ kMax [mm]の範囲に kInterval [mm]間隔で脚設置可能点を生成する．" alt="" coords="151,5,321,64"/>
+<area shape="rect" id="Node000002" href="$divided__map__state__test_8h.html#a4ec2fe30854c59fd5d86be869447a425" title=" " alt="" coords="5,21,103,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,37,103,37,103,32,136,32"/>
+</map>

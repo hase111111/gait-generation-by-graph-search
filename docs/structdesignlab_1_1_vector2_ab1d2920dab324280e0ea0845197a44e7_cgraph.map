@@ -1,0 +1,5 @@
+<map id="designlab::Vector2::GetZeroVec" name="designlab::Vector2::GetZeroVec">
+<area shape="rect" id="Node000001" title="零ベクトルを返す． 静的な関数なので Vector2::GetZeroVec() と呼ぶことができる．" alt="" coords="5,5,135,48"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector2.html#a54f9a7240ca13ef4df18bd573bba14a2" title=" " alt="" coords="183,5,312,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,24,168,24,168,29,135,29"/>
+</map>

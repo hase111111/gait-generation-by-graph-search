@@ -1,5 +1,5 @@
 <map id="designlab::com_func::RemoveLegGroundPatternFromNotGroundableLeg" name="designlab::com_func::RemoveLegGroundPatternFromNotGroundableLeg">
 <area shape="rect" id="Node000001" title="接地できない脚番号から， その脚が接地できない場合に取り得ない接地パターンを falseにする．" alt="" coords="5,5,216,64"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1com__funcdocs#a32f26cf991322f7e7cc4ea68213967a7" title="脚の接地パターンの総数を返す．" alt="" coords="264,13,446,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,32,248,32,248,37,216,37"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1com__func.html#a32f26cf991322f7e7cc4ea68213967a7" title="脚の接地パターンの総数を返す．" alt="" coords="264,13,446,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,32,249,32,249,37,216,37"/>
 </map>

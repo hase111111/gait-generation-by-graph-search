@@ -1,0 +1,7 @@
+<map id="designlab::ApproximatedMotionRangeRender::Draw" name="designlab::ApproximatedMotionRangeRender::Draw">
+<area shape="rect" id="Node000001" title="描画処理を行う． const 関数にしているのは， 描画処理の中でメンバ変数を変更しないようにするため．" alt="" coords="5,39,209,81"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1dxlib__util.html#aceffcb5f4496686bed7db7fc55488958" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する． &#160;&#160;ロボット座標系は右手座標系， Dxlibは左手座標系（工学は右手・ゲームライブラリは左手が多い）なのでyを..." alt="" coords="257,5,395,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,42,241,37,242,42,209,47"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1dxlib__util.html#aec08fe28b57053d60e3085bd20ce8b25" title="3D空間に立方体を描画する．" alt="" coords="258,72,394,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="209,73,244,78,243,83,208,78"/>
+</map>

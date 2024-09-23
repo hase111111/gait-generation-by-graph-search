@@ -1,12 +1,12 @@
 <map id="cpplint.IsDecltype" name="cpplint.IsDecltype">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,47,130,73"/>
-<area shape="rect" id="Node000002" href="$namespacecpplintdocs#a6334cf8e2b362b9cc6f28fb84a3cef48" title=" " alt="" coords="178,17,385,44"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,49,164,44,165,49,130,54"/>
-<area shape="rect" id="Node000005" href="$namespacecpplintdocs#a515e256f8ccda50d15b9b7401f5264f7" title=" " alt="" coords="675,68,780,95"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="130,59,660,77,660,82,130,65"/>
-<area shape="rect" id="Node000003" href="$namespacecpplintdocs#a3688a48ada153189003ae1638fba6f59" title=" " alt="" coords="433,5,627,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="386,26,417,26,417,31,386,32"/>
-<area shape="rect" id="Node000004" href="$namespacecpplintdocs#aa0db7290fc6bd23f44b6602a6ae22738" title=" " alt="" coords="678,13,777,40"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="628,24,662,24,662,29,628,29"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="610,46,663,61,662,66,609,51"/>
+<area shape="rect" id="Node000002" href="$namespacecpplint.html#a6334cf8e2b362b9cc6f28fb84a3cef48" title=" " alt="" coords="178,17,385,44"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,49,165,44,165,49,130,54"/>
+<area shape="rect" id="Node000005" href="$namespacecpplint.html#a515e256f8ccda50d15b9b7401f5264f7" title=" " alt="" coords="675,68,780,95"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="130,59,661,77,660,82,130,65"/>
+<area shape="rect" id="Node000003" href="$namespacecpplint.html#a3688a48ada153189003ae1638fba6f59" title=" " alt="" coords="433,5,627,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="386,26,418,26,418,31,386,32"/>
+<area shape="rect" id="Node000004" href="$namespacecpplint.html#aa0db7290fc6bd23f44b6602a6ae22738" title=" " alt="" coords="678,13,777,40"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="628,24,663,24,663,29,628,29"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="610,46,664,61,662,66,609,51"/>
 </map>

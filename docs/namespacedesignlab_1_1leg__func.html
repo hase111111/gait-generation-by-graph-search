@@ -3,16 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DesignLabDoxygen: designlab::leg_func 名前空間</title>
+<title>GaitGeneration by Graph Search: designlab::leg_func 名前空間</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -25,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">DesignLabDoxygen
+   <div id="projectname">GaitGeneration by Graph Search
    </div>
   </td>
  </tr>
@@ -33,7 +29,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.9.7 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -50,23 +46,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('namespacedesignlab_1_1leg__func.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -88,6 +67,11 @@ $(document).ready(function(){initNavTree('namespacedesignlab_1_1leg__func.html',
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacedesignlab.html">designlab</a></li><li class="navelem"><a class="el" href="namespacedesignlab_1_1leg__func.html">leg_func</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#typedef-members">型定義</a> &#124;
@@ -102,91 +86,82 @@ $(document).ready(function(){initNavTree('namespacedesignlab_1_1leg__func.html',
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 型定義</h2></td></tr>
-<tr class="memitem:aeed0147f934052f177c0761b75bacc65" id="r_aeed0147f934052f177c0761b75bacc65"><td class="memItemLeft" align="right" valign="top"><a id="aeed0147f934052f177c0761b75bacc65" name="aeed0147f934052f177c0761b75bacc65"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>LegStateBit</b> = std::bitset&lt; <a class="el" href="namespacedesignlab_1_1leg__func.html#a85b556a69a51c9e00ccae2383ae33052">kLegStateBitNum</a> &gt;</td></tr>
-<tr class="memdesc:aeed0147f934052f177c0761b75bacc65"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚状態を保存する型．28bitのビット型． <br /></td></tr>
+<tr class="memitem:aeed0147f934052f177c0761b75bacc65"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> = std::bitset&lt; <a class="el" href="namespacedesignlab_1_1leg__func.html#a85b556a69a51c9e00ccae2383ae33052">kLegStateBitNum</a> &gt;</td></tr>
+<tr class="memdesc:aeed0147f934052f177c0761b75bacc65"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚状態を保存する型．28bitのビット型．  <br /></td></tr>
 <tr class="separator:aeed0147f934052f177c0761b75bacc65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a412eba2f9bdfb755114f63da0545ac61" id="r_a412eba2f9bdfb755114f63da0545ac61"><td class="memItemLeft" align="right" valign="top"><a id="a412eba2f9bdfb755114f63da0545ac61" name="a412eba2f9bdfb755114f63da0545ac61"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>LegGroundedBit</b> = std::bitset&lt; <a class="el" href="classdesignlab_1_1_hexapod_const.html#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> &gt;</td></tr>
-<tr class="memdesc:a412eba2f9bdfb755114f63da0545ac61"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の遊脚・接地を表す型．6bitのビット型．接地が 1 遊脚が 0． <br /></td></tr>
+<tr class="memitem:a412eba2f9bdfb755114f63da0545ac61"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#a412eba2f9bdfb755114f63da0545ac61">LegGroundedBit</a> = std::bitset&lt; <a class="el" href="classdesignlab_1_1_hexapod_const.html#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> &gt;</td></tr>
+<tr class="memdesc:a412eba2f9bdfb755114f63da0545ac61"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の遊脚・接地を表す型．6bitのビット型．接地が 1 遊脚が 0．  <br /></td></tr>
 <tr class="separator:a412eba2f9bdfb755114f63da0545ac61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 関数</h2></td></tr>
-<tr class="memitem:addb03f2c129476bc73065ee52708dcd5" id="r_addb03f2c129476bc73065ee52708dcd5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#addb03f2c129476bc73065ee52708dcd5">MakeLegStateBit</a> (<a class="el" href="discrete__com__pos_8h.html#aae667c8a4db0938ece7d037c80ea858e">enums::DiscreteComPos</a> discrete_com_pos, const std::array&lt; bool, <a class="el" href="classdesignlab_1_1_hexapod_const.html#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> &gt; &amp;is_ground, const std::array&lt; <a class="el" href="discrete__leg__pos_8h.html#ab5710dabeacf5161415ee779fe947495">enums::DiscreteLegPos</a>, <a class="el" href="classdesignlab_1_1_hexapod_const.html#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> &gt; &amp;leg_pos)</td></tr>
+<tr class="memitem:addb03f2c129476bc73065ee52708dcd5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#addb03f2c129476bc73065ee52708dcd5">MakeLegStateBit</a> (<a class="el" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858e">enums::DiscreteComPos</a> discrete_com_pos, const std::array&lt; bool, <a class="el" href="classdesignlab_1_1_hexapod_const.html#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> &gt; &amp;is_ground, const std::array&lt; <a class="el" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495">enums::DiscreteLegPos</a>, <a class="el" href="classdesignlab_1_1_hexapod_const.html#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> &gt; &amp;leg_pos)</td></tr>
 <tr class="memdesc:addb03f2c129476bc73065ee52708dcd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚状態を作成して返す関数．脚状態は重心パターン， 脚の接地・遊脚，離散化した脚位置のデータが含まれる．  <br /></td></tr>
 <tr class="separator:addb03f2c129476bc73065ee52708dcd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b87ebe130ffec4a53e929bdb13c4ee3" id="r_a4b87ebe130ffec4a53e929bdb13c4ee3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3">IsGrounded</a> (const <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> &amp;leg_state_bit, int leg_index)</td></tr>
+<tr class="memitem:a4b87ebe130ffec4a53e929bdb13c4ee3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3">IsGrounded</a> (const <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> &amp;leg_state_bit, int leg_index)</td></tr>
 <tr class="memdesc:a4b87ebe130ffec4a53e929bdb13c4ee3"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． <br  />
  脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．  <br /></td></tr>
 <tr class="separator:a4b87ebe130ffec4a53e929bdb13c4ee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba40fd16353e3566503af79fd3bff892" id="r_aba40fd16353e3566503af79fd3bff892"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedesignlab_1_1leg__func.html#a412eba2f9bdfb755114f63da0545ac61">LegGroundedBit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#aba40fd16353e3566503af79fd3bff892">GetLegGroundedBit</a> (const <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> &amp;leg_state)</td></tr>
+<tr class="memitem:aba40fd16353e3566503af79fd3bff892"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedesignlab_1_1leg__func.html#a412eba2f9bdfb755114f63da0545ac61">LegGroundedBit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#aba40fd16353e3566503af79fd3bff892">GetLegGroundedBit</a> (const <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> &amp;leg_state)</td></tr>
 <tr class="memdesc:aba40fd16353e3566503af79fd3bff892"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚が接地しているなら1，遊脚を0としたビット列で遊脚・接地脚の状態を返す． <br  />
  例えば 0 番脚のみが遊脚しているなら 0b111 110 を返す．  <br /></td></tr>
 <tr class="separator:aba40fd16353e3566503af79fd3bff892"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a410e98538abd3a3346c5223e32100355" id="r_a410e98538abd3a3346c5223e32100355"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#a410e98538abd3a3346c5223e32100355">GetGroundedLegNum</a> (const <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> &amp;leg_state)</td></tr>
+<tr class="memitem:a410e98538abd3a3346c5223e32100355"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#a410e98538abd3a3346c5223e32100355">GetGroundedLegNum</a> (const <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> &amp;leg_state)</td></tr>
 <tr class="memdesc:a410e98538abd3a3346c5223e32100355"><td class="mdescLeft">&#160;</td><td class="mdescRight">接地している脚の本数を返す関数．  <br /></td></tr>
 <tr class="separator:a410e98538abd3a3346c5223e32100355"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a783362f08ae38b6e3f5cb09aad52d51b" id="r_a783362f08ae38b6e3f5cb09aad52d51b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#a783362f08ae38b6e3f5cb09aad52d51b">GetLiftedLegNum</a> (const <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> &amp;leg_state)</td></tr>
+<tr class="memitem:a783362f08ae38b6e3f5cb09aad52d51b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#a783362f08ae38b6e3f5cb09aad52d51b">GetLiftedLegNum</a> (const <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> &amp;leg_state)</td></tr>
 <tr class="memdesc:a783362f08ae38b6e3f5cb09aad52d51b"><td class="mdescLeft">&#160;</td><td class="mdescRight">遊脚している脚の本数を返す関数．  <br /></td></tr>
 <tr class="separator:a783362f08ae38b6e3f5cb09aad52d51b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac79059fd4ea5194294609cd6f6834d93" id="r_ac79059fd4ea5194294609cd6f6834d93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#ac79059fd4ea5194294609cd6f6834d93">GetGroundedLegIndexByVector</a> (const <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> &amp;leg_state, std::vector&lt; int &gt; *res_index)</td></tr>
+<tr class="memitem:ac79059fd4ea5194294609cd6f6834d93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#ac79059fd4ea5194294609cd6f6834d93">GetGroundedLegIndexByVector</a> (const <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> &amp;leg_state, std::vector&lt; int &gt; *res_index)</td></tr>
 <tr class="memdesc:ac79059fd4ea5194294609cd6f6834d93"><td class="mdescLeft">&#160;</td><td class="mdescRight">接地している脚の脚番号0～5を，引数で参照渡しする関数．  <br /></td></tr>
 <tr class="separator:ac79059fd4ea5194294609cd6f6834d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab008f25ef39dfb41ee4a76f3c9cc0529" id="r_ab008f25ef39dfb41ee4a76f3c9cc0529"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#ab008f25ef39dfb41ee4a76f3c9cc0529">GetLiftedLegIndexByVector</a> (const <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> &amp;leg_state, std::vector&lt; int &gt; *res_index)</td></tr>
+<tr class="memitem:ab008f25ef39dfb41ee4a76f3c9cc0529"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#ab008f25ef39dfb41ee4a76f3c9cc0529">GetLiftedLegIndexByVector</a> (const <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> &amp;leg_state, std::vector&lt; int &gt; *res_index)</td></tr>
 <tr class="memdesc:ab008f25ef39dfb41ee4a76f3c9cc0529"><td class="mdescLeft">&#160;</td><td class="mdescRight">遊脚している脚の脚番号0～5を，引数_res_numberで参照渡しする関数．  <br /></td></tr>
 <tr class="separator:ab008f25ef39dfb41ee4a76f3c9cc0529"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7617bec21b4f953dc3b4641f58a0e2e" id="r_ab7617bec21b4f953dc3b4641f58a0e2e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="discrete__leg__pos_8h.html#ab5710dabeacf5161415ee779fe947495">enums::DiscreteLegPos</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#ab7617bec21b4f953dc3b4641f58a0e2e">GetDiscreteLegPos</a> (const <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> &amp;leg_state, int leg_index)</td></tr>
+<tr class="memitem:ab7617bec21b4f953dc3b4641f58a0e2e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495">enums::DiscreteLegPos</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#ab7617bec21b4f953dc3b4641f58a0e2e">GetDiscreteLegPos</a> (const <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> &amp;leg_state, int leg_index)</td></tr>
 <tr class="memdesc:ab7617bec21b4f953dc3b4641f58a0e2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚状態を取得する．  <br /></td></tr>
 <tr class="separator:ab7617bec21b4f953dc3b4641f58a0e2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97269d1d2e67a17e729889089a859b78" id="r_a97269d1d2e67a17e729889089a859b78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="discrete__com__pos_8h.html#aae667c8a4db0938ece7d037c80ea858e">enums::DiscreteComPos</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#a97269d1d2e67a17e729889089a859b78">GetDiscreteComPos</a> (const <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> &amp;leg_state)</td></tr>
+<tr class="memitem:a97269d1d2e67a17e729889089a859b78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858e">enums::DiscreteComPos</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#a97269d1d2e67a17e729889089a859b78">GetDiscreteComPos</a> (const <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> &amp;leg_state)</td></tr>
 <tr class="memdesc:a97269d1d2e67a17e729889089a859b78"><td class="mdescLeft">&#160;</td><td class="mdescRight">現在の脚状態から重心パターンを取得する．  <br /></td></tr>
 <tr class="separator:a97269d1d2e67a17e729889089a859b78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8887609c397b32b722ccc0994a17d01" id="r_af8887609c397b32b722ccc0994a17d01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#af8887609c397b32b722ccc0994a17d01">ChangeLegState</a> (int leg_index, <a class="el" href="discrete__leg__pos_8h.html#ab5710dabeacf5161415ee779fe947495">enums::DiscreteLegPos</a> new_discretized_leg_pos, bool is_ground, <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> *leg_state)</td></tr>
+<tr class="memitem:af8887609c397b32b722ccc0994a17d01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#af8887609c397b32b722ccc0994a17d01">ChangeLegState</a> (int leg_index, <a class="el" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495">enums::DiscreteLegPos</a> new_discretized_leg_pos, bool is_ground, <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> *leg_state)</td></tr>
 <tr class="memdesc:af8887609c397b32b722ccc0994a17d01"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の情報を変更する．  <br /></td></tr>
 <tr class="separator:af8887609c397b32b722ccc0994a17d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e2c16048416541b45cfb82f8eac0480" id="r_a3e2c16048416541b45cfb82f8eac0480"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480">ChangeDiscreteLegPos</a> (int leg_index, <a class="el" href="discrete__leg__pos_8h.html#ab5710dabeacf5161415ee779fe947495">enums::DiscreteLegPos</a> new_discretized_leg_pos, <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> *leg_state)</td></tr>
+<tr class="memitem:a3e2c16048416541b45cfb82f8eac0480"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480">ChangeDiscreteLegPos</a> (int leg_index, <a class="el" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495">enums::DiscreteLegPos</a> new_discretized_leg_pos, <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> *leg_state)</td></tr>
 <tr class="memdesc:a3e2c16048416541b45cfb82f8eac0480"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の状態を変更する．遊脚を表すビットはそのまま．  <br /></td></tr>
 <tr class="separator:a3e2c16048416541b45cfb82f8eac0480"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa0778536285e1ec0fa1b7a1470e6186" id="r_aaa0778536285e1ec0fa1b7a1470e6186"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#aaa0778536285e1ec0fa1b7a1470e6186">ChangeGround</a> (int leg_index, bool is_ground, <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> *leg_state)</td></tr>
+<tr class="memitem:aaa0778536285e1ec0fa1b7a1470e6186"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#aaa0778536285e1ec0fa1b7a1470e6186">ChangeGround</a> (int leg_index, bool is_ground, <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> *leg_state)</td></tr>
 <tr class="memdesc:aaa0778536285e1ec0fa1b7a1470e6186"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の接地・遊脚情報を変更する．  <br /></td></tr>
 <tr class="separator:aaa0778536285e1ec0fa1b7a1470e6186"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad818e831df8eb0f0eb141e7fb62ad689" id="r_ad818e831df8eb0f0eb141e7fb62ad689"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#ad818e831df8eb0f0eb141e7fb62ad689">ChangeAllLegGround</a> (const <a class="el" href="namespacedesignlab_1_1leg__func.html#a412eba2f9bdfb755114f63da0545ac61">LegGroundedBit</a> &amp;is_ground_list, <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> *leg_state)</td></tr>
+<tr class="memitem:ad818e831df8eb0f0eb141e7fb62ad689"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#ad818e831df8eb0f0eb141e7fb62ad689">ChangeAllLegGround</a> (const <a class="el" href="namespacedesignlab_1_1leg__func.html#a412eba2f9bdfb755114f63da0545ac61">LegGroundedBit</a> &amp;is_ground_list, <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> *leg_state)</td></tr>
 <tr class="memdesc:ad818e831df8eb0f0eb141e7fb62ad689"><td class="mdescLeft">&#160;</td><td class="mdescRight">全ての脚の接地・遊脚情報を変更する．  <br /></td></tr>
 <tr class="separator:ad818e831df8eb0f0eb141e7fb62ad689"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a4626438aff7a077d8ee581b2917d3e" id="r_a9a4626438aff7a077d8ee581b2917d3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#a9a4626438aff7a077d8ee581b2917d3e">ChangeDiscreteComPos</a> (<a class="el" href="discrete__com__pos_8h.html#aae667c8a4db0938ece7d037c80ea858e">enums::DiscreteComPos</a> new_com_pattern, <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> *leg_state)</td></tr>
+<tr class="memitem:a9a4626438aff7a077d8ee581b2917d3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#a9a4626438aff7a077d8ee581b2917d3e">ChangeDiscreteComPos</a> (<a class="el" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858e">enums::DiscreteComPos</a> new_com_pattern, <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> *leg_state)</td></tr>
 <tr class="memdesc:a9a4626438aff7a077d8ee581b2917d3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心のデータを変更する．  <br /></td></tr>
 <tr class="separator:a9a4626438aff7a077d8ee581b2917d3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0638b32b8b228a6e927f6de16e2f3441" id="r_a0638b32b8b228a6e927f6de16e2f3441"><td class="memItemLeft" align="right" valign="top"><a id="a0638b32b8b228a6e927f6de16e2f3441" name="a0638b32b8b228a6e927f6de16e2f3441"></a>
-constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>kLegPosMaskBit</b> (0b0111)</td></tr>
-<tr class="memdesc:a0638b32b8b228a6e927f6de16e2f3441"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚位置は4bitの下位三桁で管理されるので，そこをマスクする． <br /></td></tr>
+<tr class="memitem:a0638b32b8b228a6e927f6de16e2f3441"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#a0638b32b8b228a6e927f6de16e2f3441">kLegPosMaskBit</a> (0b0111)</td></tr>
+<tr class="memdesc:a0638b32b8b228a6e927f6de16e2f3441"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚位置は4bitの下位三桁で管理されるので，そこをマスクする．  <br /></td></tr>
 <tr class="separator:a0638b32b8b228a6e927f6de16e2f3441"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4324547428d4b166d210138ccfffc07e" id="r_a4324547428d4b166d210138ccfffc07e"><td class="memItemLeft" align="right" valign="top"><a id="a4324547428d4b166d210138ccfffc07e" name="a4324547428d4b166d210138ccfffc07e"></a>
-constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>kLegStateMaskBit</b> (0b1111)</td></tr>
-<tr class="memdesc:a4324547428d4b166d210138ccfffc07e"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚状態は4bitで管理されるので，そこをマスクする． <br /></td></tr>
+<tr class="memitem:a4324547428d4b166d210138ccfffc07e"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#a4324547428d4b166d210138ccfffc07e">kLegStateMaskBit</a> (0b1111)</td></tr>
+<tr class="memdesc:a4324547428d4b166d210138ccfffc07e"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚状態は4bitで管理されるので，そこをマスクする．  <br /></td></tr>
 <tr class="separator:a4324547428d4b166d210138ccfffc07e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 変数</h2></td></tr>
-<tr class="memitem:abe2f601b0f9390ddd56f6092ca9180a2" id="r_abe2f601b0f9390ddd56f6092ca9180a2"><td class="memItemLeft" align="right" valign="top"><a id="abe2f601b0f9390ddd56f6092ca9180a2" name="abe2f601b0f9390ddd56f6092ca9180a2"></a>
-constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>kLegPosBitNum</b> = 4</td></tr>
-<tr class="memdesc:abe2f601b0f9390ddd56f6092ca9180a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚位置を表すビット数．離散化された脚位置は3bit，遊脚・接地は1bit．あわせて4bit． <br /></td></tr>
+<tr class="memitem:abe2f601b0f9390ddd56f6092ca9180a2"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#abe2f601b0f9390ddd56f6092ca9180a2">kLegPosBitNum</a> = 4</td></tr>
+<tr class="memdesc:abe2f601b0f9390ddd56f6092ca9180a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚位置を表すビット数．離散化された脚位置は3bit，遊脚・接地は1bit．あわせて4bit．  <br /></td></tr>
 <tr class="separator:abe2f601b0f9390ddd56f6092ca9180a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e8bbdedc13b0286e45fb4833b03470c" id="r_a4e8bbdedc13b0286e45fb4833b03470c"><td class="memItemLeft" align="right" valign="top"><a id="a4e8bbdedc13b0286e45fb4833b03470c" name="a4e8bbdedc13b0286e45fb4833b03470c"></a>
-constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>kComPosBitNum</b> = 4</td></tr>
-<tr class="memdesc:a4e8bbdedc13b0286e45fb4833b03470c"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心パターンを表すビット数． <br /></td></tr>
+<tr class="memitem:a4e8bbdedc13b0286e45fb4833b03470c"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#a4e8bbdedc13b0286e45fb4833b03470c">kComPosBitNum</a> = 4</td></tr>
+<tr class="memdesc:a4e8bbdedc13b0286e45fb4833b03470c"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心パターンを表すビット数．  <br /></td></tr>
 <tr class="separator:a4e8bbdedc13b0286e45fb4833b03470c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85b556a69a51c9e00ccae2383ae33052" id="r_a85b556a69a51c9e00ccae2383ae33052"><td class="memItemLeft" align="right" valign="top"><a id="a85b556a69a51c9e00ccae2383ae33052" name="a85b556a69a51c9e00ccae2383ae33052"></a>
-constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>kLegStateBitNum</b> = <a class="el" href="classdesignlab_1_1_hexapod_const.html#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> * <a class="el" href="namespacedesignlab_1_1leg__func.html#abe2f601b0f9390ddd56f6092ca9180a2">kLegPosBitNum</a> + <a class="el" href="namespacedesignlab_1_1leg__func.html#a4e8bbdedc13b0286e45fb4833b03470c">kComPosBitNum</a></td></tr>
-<tr class="memdesc:a85b556a69a51c9e00ccae2383ae33052"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚状態を保存するビット数．28bit． <br /></td></tr>
+<tr class="memitem:a85b556a69a51c9e00ccae2383ae33052"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#a85b556a69a51c9e00ccae2383ae33052">kLegStateBitNum</a> = <a class="el" href="classdesignlab_1_1_hexapod_const.html#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> * <a class="el" href="namespacedesignlab_1_1leg__func.html#abe2f601b0f9390ddd56f6092ca9180a2">kLegPosBitNum</a> + <a class="el" href="namespacedesignlab_1_1leg__func.html#a4e8bbdedc13b0286e45fb4833b03470c">kComPosBitNum</a></td></tr>
+<tr class="memdesc:a85b556a69a51c9e00ccae2383ae33052"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚状態を保存するビット数．28bit．  <br /></td></tr>
 <tr class="separator:a85b556a69a51c9e00ccae2383ae33052"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70663ed1f016df2602e960f07056ca30" id="r_a70663ed1f016df2602e960f07056ca30"><td class="memItemLeft" align="right" valign="top"><a id="a70663ed1f016df2602e960f07056ca30" name="a70663ed1f016df2602e960f07056ca30"></a>
-constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>kShiftToComNum</b> = <a class="el" href="classdesignlab_1_1_hexapod_const.html#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> * 4</td></tr>
-<tr class="memdesc:a70663ed1f016df2602e960f07056ca30"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心パターンを保存するビットまで行くために，どれだけビットをシフトするか． <br /></td></tr>
+<tr class="memitem:a70663ed1f016df2602e960f07056ca30"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#a70663ed1f016df2602e960f07056ca30">kShiftToComNum</a> = <a class="el" href="classdesignlab_1_1_hexapod_const.html#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> * 4</td></tr>
+<tr class="memdesc:a70663ed1f016df2602e960f07056ca30"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心パターンを保存するビットまで行くために，どれだけビットをシフトするか．  <br /></td></tr>
 <tr class="separator:a70663ed1f016df2602e960f07056ca30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82a33fe81f59d131b4eac6540881a5a4" id="r_a82a33fe81f59d131b4eac6540881a5a4"><td class="memItemLeft" align="right" valign="top"><a id="a82a33fe81f59d131b4eac6540881a5a4" name="a82a33fe81f59d131b4eac6540881a5a4"></a>
-constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a>&#160;</td><td class="memItemRight" valign="bottom"><b>kComStateMaskBit</b> = (0b1111 &lt;&lt; <a class="el" href="namespacedesignlab_1_1leg__func.html#a70663ed1f016df2602e960f07056ca30">kShiftToComNum</a>)</td></tr>
-<tr class="memdesc:a82a33fe81f59d131b4eac6540881a5a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心パターンを保存するビットをマスクするビット． <br /></td></tr>
+<tr class="memitem:a82a33fe81f59d131b4eac6540881a5a4"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1leg__func.html#a82a33fe81f59d131b4eac6540881a5a4">kComStateMaskBit</a> = (0b1111 &lt;&lt; <a class="el" href="namespacedesignlab_1_1leg__func.html#a70663ed1f016df2602e960f07056ca30">kShiftToComNum</a>)</td></tr>
+<tr class="memdesc:a82a33fe81f59d131b4eac6540881a5a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心パターンを保存するビットをマスクするビット．  <br /></td></tr>
 <tr class="separator:a82a33fe81f59d131b4eac6540881a5a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
@@ -197,7 +172,44 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
  1脚の脚状態を4bitで表す 最上位0:遊脚,1:接地．　残り3bitで離散化した脚位置． <br  />
  離散化した脚位置は基準位置を4として，それより前にあるなら4より大きい数字， 後ろにあるならば4より小さい数字． <br  />
 </p>
-</div><h2 class="groupheader">関数詳解</h2>
+</div><h2 class="groupheader">型定義詳解</h2>
+<a id="a412eba2f9bdfb755114f63da0545ac61" name="a412eba2f9bdfb755114f63da0545ac61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a412eba2f9bdfb755114f63da0545ac61">&#9670;&#160;</a></span>LegGroundedBit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacedesignlab_1_1leg__func.html#a412eba2f9bdfb755114f63da0545ac61">designlab::leg_func::LegGroundedBit</a> = typedef std::bitset&lt;<a class="el" href="classdesignlab_1_1_hexapod_const.html#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>脚の遊脚・接地を表す型．6bitのビット型．接地が 1 遊脚が 0． </p>
+
+<p class="definition"> <a class="el" href="leg__state_8h_source.html">leg_state.h</a> の <a class="el" href="leg__state_8h_source.html#l00057">57</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="aeed0147f934052f177c0761b75bacc65" name="aeed0147f934052f177c0761b75bacc65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeed0147f934052f177c0761b75bacc65">&#9670;&#160;</a></span>LegStateBit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">designlab::leg_func::LegStateBit</a> = typedef std::bitset&lt;<a class="el" href="namespacedesignlab_1_1leg__func.html#a85b556a69a51c9e00ccae2383ae33052">kLegStateBitNum</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>脚状態を保存する型．28bitのビット型． </p>
+
+<p class="definition"> <a class="el" href="leg__state_8h_source.html">leg_state.h</a> の <a class="el" href="leg__state_8h_source.html#l00054">54</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
 <a id="ad818e831df8eb0f0eb141e7fb62ad689" name="ad818e831df8eb0f0eb141e7fb62ad689"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad818e831df8eb0f0eb141e7fb62ad689">&#9670;&#160;</a></span>ChangeAllLegGround()</h2>
 
@@ -232,6 +244,8 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
   </table>
   </dd>
 </dl>
+
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00230">230</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -239,7 +253,21 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
 <map name="anamespacedesignlab_1_1leg__func_ad818e831df8eb0f0eb141e7fb62ad689_cgraph" id="anamespacedesignlab_1_1leg__func_ad818e831df8eb0f0eb141e7fb62ad689_cgraph">
 <area shape="rect" title="全ての脚の接地・遊脚情報を変更する．" alt="" coords="5,5,157,48"/>
 <area shape="rect" href="namespacedesignlab_1_1leg__func.html#aaa0778536285e1ec0fa1b7a1470e6186" title="脚の接地・遊脚情報を変更する．" alt="" coords="205,5,337,48"/>
-<area shape="poly" title=" " alt="" coords="157,24,189,24,189,29,157,29"/>
+<area shape="poly" title=" " alt="" coords="157,24,190,24,190,29,157,29"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1leg__func_ad818e831df8eb0f0eb141e7fb62ad689_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1leg__func_ad818e831df8eb0f0eb141e7fb62ad689_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1leg__func_ad818e831df8eb0f0eb141e7fb62ad689_icgraph" id="anamespacedesignlab_1_1leg__func_ad818e831df8eb0f0eb141e7fb62ad689_icgraph">
+<area shape="rect" title="全ての脚の接地・遊脚情報を変更する．" alt="" coords="231,72,382,115"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down.html#a861b8e2c2efd6673f70c53881848d442" title="現在のノードから次のノード群を生成する．" alt="" coords="5,5,183,48"/>
+<area shape="poly" title=" " alt="" coords="222,70,164,51,165,46,223,65"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down2d.html#a06c92f273cd957c7108ae2632bcd8339" title="現在のノードから次のノード群を生成する．" alt="" coords="5,72,183,115"/>
+<area shape="poly" title=" " alt="" coords="216,96,183,96,183,91,216,91"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down_radius.html#a4d2c69510f3b456ce4cb21c2a58e9b45" title="現在のノードから次のノード群を生成する．" alt="" coords="5,139,183,181"/>
+<area shape="poly" title=" " alt="" coords="223,122,165,141,164,135,222,117"/>
 </map>
 </div>
 
@@ -254,7 +282,7 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
         <tr>
           <td class="memname">void designlab::leg_func::ChangeDiscreteComPos </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="discrete__com__pos_8h.html#aae667c8a4db0938ece7d037c80ea858e">enums::DiscreteComPos</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858e">enums::DiscreteComPos</a>&#160;</td>
           <td class="paramname"><em>new_com_pattern</em>, </td>
         </tr>
         <tr>
@@ -281,6 +309,18 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>変更した重心パターンを返す． </dd></dl>
 
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00241">241</a> 行目に定義があります。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1leg__func_a9a4626438aff7a077d8ee581b2917d3e_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1leg__func_a9a4626438aff7a077d8ee581b2917d3e_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1leg__func_a9a4626438aff7a077d8ee581b2917d3e_icgraph" id="anamespacedesignlab_1_1leg__func_a9a4626438aff7a077d8ee581b2917d3e_icgraph">
+<area shape="rect" title="重心のデータを変更する．" alt="" coords="237,5,408,48"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_com_move.html#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する．" alt="" coords="5,5,189,48"/>
+<area shape="poly" title=" " alt="" coords="222,29,189,29,189,24,222,24"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a3e2c16048416541b45cfb82f8eac0480" name="a3e2c16048416541b45cfb82f8eac0480"></a>
@@ -298,7 +338,7 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="discrete__leg__pos_8h.html#ab5710dabeacf5161415ee779fe947495">enums::DiscreteLegPos</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495">enums::DiscreteLegPos</a>&#160;</td>
           <td class="paramname"><em>new_discretized_leg_pos</em>, </td>
         </tr>
         <tr>
@@ -324,6 +364,8 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
   </table>
   </dd>
 </dl>
+
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00175">175</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -331,7 +373,7 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
 <map name="anamespacedesignlab_1_1leg__func_a3e2c16048416541b45cfb82f8eac0480_cgraph" id="anamespacedesignlab_1_1leg__func_a3e2c16048416541b45cfb82f8eac0480_cgraph">
 <area shape="rect" title="脚の状態を変更する．遊脚を表すビットはそのまま．" alt="" coords="5,5,171,48"/>
 <area shape="rect" href="namespacedesignlab_1_1leg__func.html#a0638b32b8b228a6e927f6de16e2f3441" title="脚位置は4bitの下位三桁で管理されるので，そこをマスクする．" alt="" coords="219,5,351,48"/>
-<area shape="poly" title=" " alt="" coords="171,24,203,24,203,29,171,29"/>
+<area shape="poly" title=" " alt="" coords="171,24,204,24,204,29,171,29"/>
 </map>
 </div>
 <div class="dynheader">
@@ -339,9 +381,13 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
 <div class="dyncontent">
 <div class="center"><img src="namespacedesignlab_1_1leg__func_a3e2c16048416541b45cfb82f8eac0480_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1leg__func_a3e2c16048416541b45cfb82f8eac0480_icgraph" alt=""/></div>
 <map name="anamespacedesignlab_1_1leg__func_a3e2c16048416541b45cfb82f8eac0480_icgraph" id="anamespacedesignlab_1_1leg__func_a3e2c16048416541b45cfb82f8eac0480_icgraph">
-<area shape="rect" title="脚の状態を変更する．遊脚を表すビットはそのまま．" alt="" coords="186,5,351,48"/>
-<area shape="rect" href="namespacedesignlab_1_1leg__func.html#af8887609c397b32b722ccc0994a17d01" title="脚の情報を変更する．" alt="" coords="5,5,138,48"/>
-<area shape="poly" title=" " alt="" coords="170,29,138,29,138,24,170,24"/>
+<area shape="rect" title="脚の状態を変更する．遊脚を表すビットはそのまま．" alt="" coords="237,72,402,115"/>
+<area shape="rect" href="namespacedesignlab_1_1leg__func.html#af8887609c397b32b722ccc0994a17d01" title="脚の情報を変更する．" alt="" coords="31,5,163,48"/>
+<area shape="poly" title=" " alt="" coords="231,70,163,49,165,44,233,65"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_com_move.html#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する．" alt="" coords="5,72,189,115"/>
+<area shape="poly" title=" " alt="" coords="222,96,189,96,189,91,222,91"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_com_move_straight.html#a3e2fd67280dd581a695a09cea4f816a4" title="現在のノードから次のノード群を生成する．" alt="" coords="5,139,189,181"/>
+<area shape="poly" title=" " alt="" coords="233,122,172,141,170,135,231,117"/>
 </map>
 </div>
 
@@ -388,16 +434,24 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
   </table>
   </dd>
 </dl>
+
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00207">207</a> 行目に定義があります。</p>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacedesignlab_1_1leg__func_aaa0778536285e1ec0fa1b7a1470e6186_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1leg__func_aaa0778536285e1ec0fa1b7a1470e6186_icgraph" alt=""/></div>
 <map name="anamespacedesignlab_1_1leg__func_aaa0778536285e1ec0fa1b7a1470e6186_icgraph" id="anamespacedesignlab_1_1leg__func_aaa0778536285e1ec0fa1b7a1470e6186_icgraph">
-<area shape="rect" title="脚の接地・遊脚情報を変更する．" alt="" coords="205,39,337,81"/>
-<area shape="rect" href="namespacedesignlab_1_1leg__func.html#ad818e831df8eb0f0eb141e7fb62ad689" title="全ての脚の接地・遊脚情報を変更する．" alt="" coords="5,5,157,48"/>
-<area shape="poly" title=" " alt="" coords="189,48,157,43,158,37,190,43"/>
-<area shape="rect" href="namespacedesignlab_1_1leg__func.html#af8887609c397b32b722ccc0994a17d01" title="脚の情報を変更する．" alt="" coords="15,72,147,115"/>
-<area shape="poly" title=" " alt="" coords="190,77,148,84,147,79,189,72"/>
+<area shape="rect" title="脚の接地・遊脚情報を変更する．" alt="" coords="430,105,562,148"/>
+<area shape="rect" href="namespacedesignlab_1_1leg__func.html#ad818e831df8eb0f0eb141e7fb62ad689" title="全ての脚の接地・遊脚情報を変更する．" alt="" coords="231,72,382,115"/>
+<area shape="poly" title=" " alt="" coords="415,115,382,109,383,104,416,110"/>
+<area shape="rect" href="namespacedesignlab_1_1leg__func.html#af8887609c397b32b722ccc0994a17d01" title="脚の情報を変更する．" alt="" coords="240,139,373,181"/>
+<area shape="poly" title=" " alt="" coords="416,143,373,151,372,146,415,138"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down.html#a861b8e2c2efd6673f70c53881848d442" title="現在のノードから次のノード群を生成する．" alt="" coords="5,5,183,48"/>
+<area shape="poly" title=" " alt="" coords="222,70,164,51,165,46,223,65"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down2d.html#a06c92f273cd957c7108ae2632bcd8339" title="現在のノードから次のノード群を生成する．" alt="" coords="5,72,183,115"/>
+<area shape="poly" title=" " alt="" coords="216,96,183,96,183,91,216,91"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down_radius.html#a4d2c69510f3b456ce4cb21c2a58e9b45" title="現在のノードから次のノード群を生成する．" alt="" coords="5,139,183,181"/>
+<area shape="poly" title=" " alt="" coords="223,122,165,141,164,135,222,117"/>
 </map>
 </div>
 
@@ -418,7 +472,7 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="discrete__leg__pos_8h.html#ab5710dabeacf5161415ee779fe947495">enums::DiscreteLegPos</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495">enums::DiscreteLegPos</a>&#160;</td>
           <td class="paramname"><em>new_discretized_leg_pos</em>, </td>
         </tr>
         <tr>
@@ -451,6 +505,8 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
   </table>
   </dd>
 </dl>
+
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00157">157</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -458,11 +514,11 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
 <map name="anamespacedesignlab_1_1leg__func_af8887609c397b32b722ccc0994a17d01_cgraph" id="anamespacedesignlab_1_1leg__func_af8887609c397b32b722ccc0994a17d01_cgraph">
 <area shape="rect" title="脚の情報を変更する．" alt="" coords="5,39,138,81"/>
 <area shape="rect" href="namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480" title="脚の状態を変更する．遊脚を表すビットはそのまま．" alt="" coords="186,5,351,48"/>
-<area shape="poly" title=" " alt="" coords="138,46,170,41,171,46,138,51"/>
+<area shape="poly" title=" " alt="" coords="138,46,171,41,171,46,138,51"/>
 <area shape="rect" href="namespacedesignlab_1_1leg__func.html#aaa0778536285e1ec0fa1b7a1470e6186" title="脚の接地・遊脚情報を変更する．" alt="" coords="202,72,335,115"/>
-<area shape="poly" title=" " alt="" coords="138,69,187,77,186,82,138,74"/>
+<area shape="poly" title=" " alt="" coords="138,69,188,77,187,82,138,74"/>
 <area shape="rect" href="namespacedesignlab_1_1leg__func.html#a0638b32b8b228a6e927f6de16e2f3441" title="脚位置は4bitの下位三桁で管理されるので，そこをマスクする．" alt="" coords="399,5,531,48"/>
-<area shape="poly" title=" " alt="" coords="351,24,383,24,383,29,351,29"/>
+<area shape="poly" title=" " alt="" coords="351,24,384,24,384,29,351,29"/>
 </map>
 </div>
 
@@ -475,7 +531,7 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="discrete__com__pos_8h.html#aae667c8a4db0938ece7d037c80ea858e">enums::DiscreteComPos</a> designlab::leg_func::GetDiscreteComPos </td>
+          <td class="memname"><a class="el" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858e">enums::DiscreteComPos</a> designlab::leg_func::GetDiscreteComPos </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> &amp;&#160;</td>
           <td class="paramname"><em>leg_state</em></td><td>)</td>
@@ -492,20 +548,28 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
   </dd>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>重心パターンを返す． </dd></dl>
+
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00148">148</a> 行目に定義があります。</p>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacedesignlab_1_1leg__func_a97269d1d2e67a17e729889089a859b78_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1leg__func_a97269d1d2e67a17e729889089a859b78_icgraph" alt=""/></div>
 <map name="anamespacedesignlab_1_1leg__func_a97269d1d2e67a17e729889089a859b78_icgraph" id="anamespacedesignlab_1_1leg__func_a97269d1d2e67a17e729889089a859b78_icgraph">
-<area shape="rect" title="現在の脚状態から重心パターンを取得する．" alt="" coords="517,39,665,81"/>
-<area shape="rect" href="structdesignlab_1_1_graph_search_result_record.html#ab817d6534ee46d02492002e1966801e4" title="構造体の内容をCSV形式の文字列にして返す． , (カンマ) で区切られる．" alt="" coords="272,5,469,48"/>
-<area shape="poly" title=" " alt="" coords="501,49,469,44,470,39,502,44"/>
-<area shape="rect" href="structdesignlab_1_1_robot_state_node.html#a7fa3f31f167ac1cf468d81509f55c407" title="ノードの情報を文字列に変換する関数． &#160;&#160;デバッグ用に詳細な情報を出力する．" alt="" coords="281,72,460,115"/>
-<area shape="poly" title=" " alt="" coords="502,76,461,82,460,77,501,71"/>
-<area shape="rect" href="classdesignlab_1_1_system_main_graph_viewer.html#a19d272521cd15d5e493e24ef5834c218" title="主要な処理を行う関数．" alt="" coords="18,39,211,81"/>
-<area shape="poly" title=" " alt="" coords="265,82,211,75,211,70,266,77"/>
-<area shape="rect" href="classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="5,105,224,148"/>
-<area shape="poly" title=" " alt="" coords="265,110,224,115,224,110,265,104"/>
+<area shape="rect" title="現在の脚状態から重心パターンを取得する．" alt="" coords="517,139,665,181"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down.html#a861b8e2c2efd6673f70c53881848d442" title="現在のノードから次のノード群を生成する．" alt="" coords="282,5,459,48"/>
+<area shape="poly" title=" " alt="" coords="556,130,516,95,468,62,444,51,446,46,470,58,519,91,560,126"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down2d.html#a06c92f273cd957c7108ae2632bcd8339" title="現在のノードから次のノード群を生成する．" alt="" coords="282,72,459,115"/>
+<area shape="poly" title=" " alt="" coords="504,137,443,118,444,113,505,131"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down_radius.html#a4d2c69510f3b456ce4cb21c2a58e9b45" title="現在のノードから次のノード群を生成する．" alt="" coords="282,139,459,181"/>
+<area shape="poly" title=" " alt="" coords="502,163,459,163,459,157,502,157"/>
+<area shape="rect" href="structdesignlab_1_1_graph_search_result_record.html#ab817d6534ee46d02492002e1966801e4" title="構造体の内容をCSV形式の文字列にして返す． , (カンマ) で区切られる．" alt="" coords="272,205,469,248"/>
+<area shape="poly" title=" " alt="" coords="505,189,444,207,443,202,504,183"/>
+<area shape="rect" href="structdesignlab_1_1_robot_state_node.html#a7fa3f31f167ac1cf468d81509f55c407" title="ノードの情報を文字列に変換する関数． &#160;&#160;デバッグ用に詳細な情報を出力する．" alt="" coords="281,272,460,315"/>
+<area shape="poly" title=" " alt="" coords="560,194,519,229,470,262,446,274,444,269,468,258,516,225,556,190"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_graph_viewer.html#a19d272521cd15d5e493e24ef5834c218" title="主要な処理を行う関数．" alt="" coords="18,239,211,281"/>
+<area shape="poly" title=" " alt="" coords="265,282,211,275,211,270,266,277"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="5,305,224,348"/>
+<area shape="poly" title=" " alt="" coords="266,310,224,315,224,310,266,304"/>
 </map>
 </div>
 
@@ -518,7 +582,7 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="discrete__leg__pos_8h.html#ab5710dabeacf5161415ee779fe947495">enums::DiscreteLegPos</a> designlab::leg_func::GetDiscreteLegPos </td>
+          <td class="memname"><a class="el" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495">enums::DiscreteLegPos</a> designlab::leg_func::GetDiscreteLegPos </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> &amp;&#160;</td>
           <td class="paramname"><em>leg_state</em>, </td>
@@ -546,6 +610,8 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
   </dd>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>離散化された脚の位置を返す． </dd></dl>
+
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00134">134</a> 行目に定義があります。</p>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
@@ -553,13 +619,13 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
 <map name="anamespacedesignlab_1_1leg__func_ab7617bec21b4f953dc3b4641f58a0e2e_icgraph" id="anamespacedesignlab_1_1leg__func_ab7617bec21b4f953dc3b4641f58a0e2e_icgraph">
 <area shape="rect" title="脚状態を取得する．" alt="" coords="517,39,659,81"/>
 <area shape="rect" href="structdesignlab_1_1_graph_search_result_record.html#ab817d6534ee46d02492002e1966801e4" title="構造体の内容をCSV形式の文字列にして返す． , (カンマ) で区切られる．" alt="" coords="272,5,469,48"/>
-<area shape="poly" title=" " alt="" coords="501,49,469,44,470,39,502,44"/>
+<area shape="poly" title=" " alt="" coords="502,50,469,44,470,39,502,44"/>
 <area shape="rect" href="structdesignlab_1_1_robot_state_node.html#a7fa3f31f167ac1cf468d81509f55c407" title="ノードの情報を文字列に変換する関数． &#160;&#160;デバッグ用に詳細な情報を出力する．" alt="" coords="281,72,460,115"/>
-<area shape="poly" title=" " alt="" coords="502,76,461,82,460,77,501,71"/>
+<area shape="poly" title=" " alt="" coords="503,76,461,82,460,77,502,70"/>
 <area shape="rect" href="classdesignlab_1_1_system_main_graph_viewer.html#a19d272521cd15d5e493e24ef5834c218" title="主要な処理を行う関数．" alt="" coords="18,39,211,81"/>
 <area shape="poly" title=" " alt="" coords="265,82,211,75,211,70,266,77"/>
 <area shape="rect" href="classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="5,105,224,148"/>
-<area shape="poly" title=" " alt="" coords="265,110,224,115,224,110,265,104"/>
+<area shape="poly" title=" " alt="" coords="266,110,224,115,224,110,266,104"/>
 </map>
 </div>
 
@@ -599,6 +665,8 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
   </table>
   </dd>
 </dl>
+
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00100">100</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -606,7 +674,7 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
 <map name="anamespacedesignlab_1_1leg__func_ac79059fd4ea5194294609cd6f6834d93_cgraph" id="anamespacedesignlab_1_1leg__func_ac79059fd4ea5194294609cd6f6834d93_cgraph">
 <area shape="rect" title="接地している脚の脚番号0～5を，引数で参照渡しする関数．" alt="" coords="5,5,218,48"/>
 <area shape="rect" href="namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="266,5,398,48"/>
-<area shape="poly" title=" " alt="" coords="218,24,250,24,250,29,218,29"/>
+<area shape="poly" title=" " alt="" coords="218,24,251,24,251,29,218,29"/>
 </map>
 </div>
 
@@ -636,6 +704,8 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
   </dd>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>接地している脚の本数． </dd></dl>
+
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00078">78</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -653,9 +723,9 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
 <map name="anamespacedesignlab_1_1leg__func_a410e98538abd3a3346c5223e32100355_icgraph" id="anamespacedesignlab_1_1leg__func_a410e98538abd3a3346c5223e32100355_icgraph">
 <area shape="rect" title="接地している脚の本数を返す関数．" alt="" coords="411,5,565,48"/>
 <area shape="rect" href="namespacedesignlab_1_1leg__func.html#a783362f08ae38b6e3f5cb09aad52d51b" title="遊脚している脚の本数を返す関数．" alt="" coords="231,5,363,48"/>
-<area shape="poly" title=" " alt="" coords="395,29,363,29,363,24,395,24"/>
+<area shape="poly" title=" " alt="" coords="396,29,363,29,363,24,396,24"/>
 <area shape="rect" href="classdesignlab_1_1_node_creator_leg_hierarchy.html#ade5f7af05493084aaca057a4f543ebb7" title="現在のノードから次のノード群を生成する．" alt="" coords="5,5,183,48"/>
-<area shape="poly" title=" " alt="" coords="215,29,183,29,183,24,215,24"/>
+<area shape="poly" title=" " alt="" coords="216,29,183,29,183,24,216,24"/>
 </map>
 </div>
 
@@ -686,6 +756,8 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
   </dd>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>脚が接地しているなら1，遊脚を0としたビット列で遊脚・接地脚の状態を返す． </dd></dl>
+
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00059">59</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -693,7 +765,7 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
 <map name="anamespacedesignlab_1_1leg__func_aba40fd16353e3566503af79fd3bff892_cgraph" id="anamespacedesignlab_1_1leg__func_aba40fd16353e3566503af79fd3bff892_cgraph">
 <area shape="rect" title="脚が接地しているなら1，遊脚を0としたビット列で遊脚・接地脚の状態を返す． &#160;&#160;例えば 0 番脚のみが遊脚しているなら 0b111 110 を返す．" alt="" coords="5,5,149,48"/>
 <area shape="rect" href="namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="197,5,329,48"/>
-<area shape="poly" title=" " alt="" coords="149,24,181,24,181,29,149,29"/>
+<area shape="poly" title=" " alt="" coords="149,24,182,24,182,29,149,29"/>
 </map>
 </div>
 
@@ -733,6 +805,8 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
   </table>
   </dd>
 </dl>
+
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00117">117</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -740,7 +814,7 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
 <map name="anamespacedesignlab_1_1leg__func_ab008f25ef39dfb41ee4a76f3c9cc0529_cgraph" id="anamespacedesignlab_1_1leg__func_ab008f25ef39dfb41ee4a76f3c9cc0529_cgraph">
 <area shape="rect" title="遊脚している脚の脚番号0～5を，引数_res_numberで参照渡しする関数．" alt="" coords="5,5,193,48"/>
 <area shape="rect" href="namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="241,5,373,48"/>
-<area shape="poly" title=" " alt="" coords="193,24,225,24,225,29,193,29"/>
+<area shape="poly" title=" " alt="" coords="193,24,226,24,226,29,193,29"/>
 </map>
 </div>
 
@@ -770,6 +844,8 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
   </dd>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>遊脚している脚の本数． </dd></dl>
+
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00095">95</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -777,7 +853,7 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
 <map name="anamespacedesignlab_1_1leg__func_a783362f08ae38b6e3f5cb09aad52d51b_cgraph" id="anamespacedesignlab_1_1leg__func_a783362f08ae38b6e3f5cb09aad52d51b_cgraph">
 <area shape="rect" title="遊脚している脚の本数を返す関数．" alt="" coords="5,5,138,48"/>
 <area shape="rect" href="namespacedesignlab_1_1leg__func.html#a410e98538abd3a3346c5223e32100355" title="接地している脚の本数を返す関数．" alt="" coords="186,5,340,48"/>
-<area shape="poly" title=" " alt="" coords="138,24,170,24,170,29,138,29"/>
+<area shape="poly" title=" " alt="" coords="138,24,171,24,171,29,138,29"/>
 <area shape="rect" href="namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="388,5,520,48"/>
 <area shape="poly" title=" " alt="" coords="340,24,373,24,373,29,340,29"/>
 </map>
@@ -789,7 +865,7 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
 <map name="anamespacedesignlab_1_1leg__func_a783362f08ae38b6e3f5cb09aad52d51b_icgraph" id="anamespacedesignlab_1_1leg__func_a783362f08ae38b6e3f5cb09aad52d51b_icgraph">
 <area shape="rect" title="遊脚している脚の本数を返す関数．" alt="" coords="231,5,363,48"/>
 <area shape="rect" href="classdesignlab_1_1_node_creator_leg_hierarchy.html#ade5f7af05493084aaca057a4f543ebb7" title="現在のノードから次のノード群を生成する．" alt="" coords="5,5,183,48"/>
-<area shape="poly" title=" " alt="" coords="215,29,183,29,183,24,215,24"/>
+<area shape="poly" title=" " alt="" coords="216,29,183,29,183,24,216,24"/>
 </map>
 </div>
 
@@ -837,50 +913,145 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
   </table>
   </dd>
 </dl>
+
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00040">40</a> 行目に定義があります。</p>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacedesignlab_1_1leg__func_a4b87ebe130ffec4a53e929bdb13c4ee3_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1leg__func_a4b87ebe130ffec4a53e929bdb13c4ee3_icgraph" alt=""/></div>
 <map name="anamespacedesignlab_1_1leg__func_a4b87ebe130ffec4a53e929bdb13c4ee3_icgraph" id="anamespacedesignlab_1_1leg__func_a4b87ebe130ffec4a53e929bdb13c4ee3_icgraph">
-<area shape="rect" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="757,421,890,464"/>
-<area shape="rect" href="structdesignlab_1_1_robot_state_node.html#a28bedf0298ebf8f315a21294dd111f45" title="重心位置を変更する関数．" alt="" coords="507,88,700,131"/>
-<area shape="poly" title=" " alt="" coords="812,407,798,358,776,298,746,235,707,178,680,153,650,133,653,129,684,149,711,174,751,232,781,296,803,356,817,406"/>
-<area shape="rect" href="structdesignlab_1_1_robot_state_node.html#a73efce324f3ffd5ead5fbc663acd96a2" title="クォータニオンを変更し，胴体を回転させる関数．" alt="" coords="514,188,693,231"/>
-<area shape="poly" title=" " alt="" coords="809,408,794,369,772,325,743,282,708,245,690,233,693,229,711,241,748,279,777,323,799,367,814,406"/>
-<area shape="rect" href="classdesignlab_1_1_com_selector.html#afe154bc35f0971d6c2c2a649299b23c3" title="重心を求める．" alt="" coords="524,255,683,297"/>
-<area shape="poly" title=" " alt="" coords="799,410,760,359,735,333,708,312,682,298,685,293,711,307,739,329,764,355,803,406"/>
-<area shape="rect" href="namespacedesignlab_1_1leg__func.html#ac79059fd4ea5194294609cd6f6834d93" title="接地している脚の脚番号0～5を，引数で参照渡しする関数．" alt="" coords="497,321,709,364"/>
-<area shape="poly" title=" " alt="" coords="776,415,708,378,679,367,681,362,710,374,778,411"/>
-<area shape="rect" href="namespacedesignlab_1_1leg__func.html#a410e98538abd3a3346c5223e32100355" title="接地している脚の本数を返す関数．" alt="" coords="526,388,680,431"/>
-<area shape="poly" title=" " alt="" coords="742,433,680,424,681,418,742,428"/>
-<area shape="rect" href="namespacedesignlab_1_1leg__func.html#aba40fd16353e3566503af79fd3bff892" title="脚が接地しているなら1，遊脚を0としたビット列で遊脚・接地脚の状態を返す． &#160;&#160;例えば 0 番脚のみが遊脚しているなら 0b111 110 を返す．" alt="" coords="532,455,675,497"/>
-<area shape="poly" title=" " alt="" coords="742,458,676,468,675,462,742,452"/>
-<area shape="rect" href="namespacedesignlab_1_1leg__func.html#ab008f25ef39dfb41ee4a76f3c9cc0529" title="遊脚している脚の脚番号0～5を，引数_res_numberで参照渡しする関数．" alt="" coords="510,521,697,564"/>
-<area shape="poly" title=" " alt="" coords="778,475,710,512,681,523,679,518,708,507,776,470"/>
-<area shape="rect" href="classdesignlab_1_1_i_hexapod_posture_validator.html#a3abb48c6d7bfe266598759a9852268a2" title="全ての脚が可動範囲内にあるかどうかを判定する．" alt="" coords="512,588,695,631"/>
-<area shape="poly" title=" " alt="" coords="803,479,764,530,739,556,711,578,690,590,687,585,708,574,735,552,760,527,799,476"/>
-<area shape="rect" href="structdesignlab_1_1_graph_search_result_record.html#ab817d6534ee46d02492002e1966801e4" title="構造体の内容をCSV形式の文字列にして返す． , (カンマ) で区切られる．" alt="" coords="505,655,702,697"/>
-<area shape="poly" title=" " alt="" coords="814,480,799,518,777,562,748,607,711,645,693,656,690,652,708,641,743,603,772,560,794,516,809,478"/>
-<area shape="rect" href="structdesignlab_1_1_robot_state_node.html#a7fa3f31f167ac1cf468d81509f55c407" title="ノードの情報を文字列に変換する関数． &#160;&#160;デバッグ用に詳細な情報を出力する．" alt="" coords="514,721,693,764"/>
-<area shape="poly" title=" " alt="" coords="819,480,808,532,787,594,756,657,735,686,711,711,695,723,692,719,708,707,731,682,751,654,782,592,802,530,814,479"/>
-<area shape="rect" href="classdesignlab_1_1_node_creator_com_move.html#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する．" alt="" coords="248,5,432,48"/>
-<area shape="poly" title=" " alt="" coords="520,85,448,63,412,51,413,46,450,57,521,80"/>
-<area shape="rect" href="classdesignlab_1_1_node_creator_com_move_straight.html#a3e2fd67280dd581a695a09cea4f816a4" title="現在のノードから次のノード群を生成する．" alt="" coords="248,72,432,115"/>
-<area shape="poly" title=" " alt="" coords="491,105,432,102,432,96,491,100"/>
-<area shape="rect" href="classdesignlab_1_1_node_initializer.html#a717aea9fc00fcb51c5ba3518fac717fc" title="地形に適した初期姿勢を設定する．" alt="" coords="257,139,423,181"/>
-<area shape="poly" title=" " alt="" coords="491,133,423,147,422,142,490,128"/>
-<area shape="rect" href="classdesignlab_1_1_node_creator_body_rot.html#a162277203f0422a351c4d24e8167d43d" title="現在のノードから次のノード群を生成する．" alt="" coords="247,205,433,248"/>
-<area shape="poly" title=" " alt="" coords="498,219,433,223,433,218,497,214"/>
-<area shape="rect" href="namespacedesignlab_1_1leg__func.html#a783362f08ae38b6e3f5cb09aad52d51b" title="遊脚している脚の本数を返す関数．" alt="" coords="274,388,406,431"/>
-<area shape="poly" title=" " alt="" coords="510,412,407,412,407,407,510,407"/>
-<area shape="rect" href="classdesignlab_1_1_node_creator_leg_hierarchy.html#ade5f7af05493084aaca057a4f543ebb7" title="現在のノードから次のノード群を生成する．" alt="" coords="5,388,183,431"/>
-<area shape="poly" title=" " alt="" coords="258,412,183,412,183,407,258,407"/>
-<area shape="rect" href="classdesignlab_1_1_system_main_graph_viewer.html#a19d272521cd15d5e493e24ef5834c218" title="主要な処理を行う関数．" alt="" coords="244,688,436,731"/>
-<area shape="poly" title=" " alt="" coords="498,732,436,724,437,719,499,727"/>
-<area shape="rect" href="classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="231,755,449,797"/>
-<area shape="poly" title=" " alt="" coords="498,759,450,765,449,759,497,753"/>
+<area shape="rect" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="783,639,916,681"/>
+<area shape="rect" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a688e8dd6b7f92d5b1a4fa8d4fbcc2714" title="安定余裕(Stability Margin)を計算する． 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい． &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計..." alt="" coords="532,39,701,81"/>
+<area shape="poly" title=" " alt="" coords="842,624,828,513,805,366,773,224,754,168,733,128,707,103,676,84,679,79,711,99,737,125,759,166,778,223,810,365,833,512,847,624"/>
+<area shape="rect" href="structdesignlab_1_1_robot_state_node.html#a28bedf0298ebf8f315a21294dd111f45" title="重心位置を変更する関数．" alt="" coords="520,139,713,181"/>
+<area shape="poly" title=" " alt="" coords="842,624,828,524,805,396,791,332,774,274,754,227,733,195,712,179,715,175,737,191,759,225,779,272,796,331,811,395,833,524,847,624"/>
+<area shape="rect" href="structdesignlab_1_1_robot_state_node.html#a73efce324f3ffd5ead5fbc663acd96a2" title="クォータニオンを変更し，胴体を回転させる関数．" alt="" coords="527,605,706,648"/>
+<area shape="poly" title=" " alt="" coords="768,651,706,642,707,637,769,646"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down.html#a861b8e2c2efd6673f70c53881848d442" title="現在のノードから次のノード群を生成する．" alt="" coords="528,272,705,315"/>
+<area shape="poly" title=" " alt="" coords="844,624,836,560,818,481,804,439,786,399,762,361,734,329,704,310,707,305,737,325,767,358,790,396,809,437,824,479,842,559,849,623"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down2d.html#a06c92f273cd957c7108ae2632bcd8339" title="現在のノードから次のノード群を生成する．" alt="" coords="528,339,705,381"/>
+<area shape="poly" title=" " alt="" coords="840,624,829,573,809,511,778,449,757,420,734,395,704,377,707,373,737,391,762,417,782,446,814,509,834,571,846,623"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down_radius.html#a4d2c69510f3b456ce4cb21c2a58e9b45" title="現在のノードから次のノード群を生成する．" alt="" coords="528,405,705,448"/>
+<area shape="poly" title=" " alt="" coords="835,626,820,587,799,543,770,499,734,462,704,445,706,441,737,458,774,496,804,540,825,585,840,624"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_com_up_down.html#af55c8483f820c4a5d31a76ebcdf6785a" title="現在のノードから次のノード群を生成する．" alt="" coords="525,472,708,515"/>
+<area shape="poly" title=" " alt="" coords="826,628,787,576,762,551,734,529,707,515,709,511,737,524,765,547,791,573,830,624"/>
+<area shape="rect" href="classdesignlab_1_1_stability_margin_renderer.html#acdc7828d30b59293e5291d9d74d91acf" title="描画処理を行う． const 関数にしているのは， 描画処理の中でメンバ変数を変更しないようにするため．" alt="" coords="531,539,701,581"/>
+<area shape="poly" title=" " alt="" coords="803,633,734,596,701,583,702,578,736,591,806,628"/>
+<area shape="rect" href="classdesignlab_1_1_com_selector.html#afe154bc35f0971d6c2c2a649299b23c3" title="重心を求める．" alt="" coords="537,205,696,248"/>
+<area shape="poly" title=" " alt="" coords="846,624,843,548,827,451,813,400,793,350,767,303,733,262,716,249,695,239,698,235,719,244,737,258,771,300,798,347,818,398,833,450,848,548,852,624"/>
+<area shape="rect" href="namespacedesignlab_1_1leg__func.html#ac79059fd4ea5194294609cd6f6834d93" title="接地している脚の脚番号0～5を，引数で参照渡しする関数．" alt="" coords="510,672,722,715"/>
+<area shape="poly" title=" " alt="" coords="769,674,723,681,722,675,768,669"/>
+<area shape="rect" href="namespacedesignlab_1_1leg__func.html#a410e98538abd3a3346c5223e32100355" title="接地している脚の本数を返す関数．" alt="" coords="539,739,693,781"/>
+<area shape="poly" title=" " alt="" coords="806,692,736,729,695,744,693,739,734,724,803,687"/>
+<area shape="rect" href="namespacedesignlab_1_1leg__func.html#aba40fd16353e3566503af79fd3bff892" title="脚が接地しているなら1，遊脚を0としたビット列で遊脚・接地脚の状態を返す． &#160;&#160;例えば 0 番脚のみが遊脚しているなら 0b111 110 を返す．" alt="" coords="545,805,688,848"/>
+<area shape="poly" title=" " alt="" coords="830,696,791,747,765,773,737,796,689,816,687,811,734,791,762,769,787,744,826,692"/>
+<area shape="rect" href="namespacedesignlab_1_1leg__func.html#ab008f25ef39dfb41ee4a76f3c9cc0529" title="遊脚している脚の脚番号0～5を，引数_res_numberで参照渡しする関数．" alt="" coords="523,872,710,915"/>
+<area shape="poly" title=" " alt="" coords="840,696,825,735,804,780,774,824,737,862,712,877,709,872,734,858,770,821,799,777,820,733,835,694"/>
+<area shape="rect" href="classdesignlab_1_1_i_hexapod_posture_validator.html#a3abb48c6d7bfe266598759a9852268a2" title="全ての脚が可動範囲内にあるかどうかを判定する．" alt="" coords="525,939,708,981"/>
+<area shape="poly" title=" " alt="" coords="846,697,834,749,814,811,782,874,762,903,737,929,710,946,707,941,734,925,757,900,778,871,809,809,829,747,840,696"/>
+<area shape="rect" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a2d84fda12ddad344e7de4c0e023ffd4f" title="胴体が地面と干渉しているかどうかを判定する．" alt="" coords="519,1005,713,1048"/>
+<area shape="poly" title=" " alt="" coords="849,697,842,761,824,841,809,883,790,924,767,962,737,995,715,1011,712,1006,734,991,762,959,786,921,804,881,818,839,836,760,844,696"/>
+<area shape="rect" href="classdesignlab_1_1_robot_ground_point_renderer.html#a00517667ff548ea9ea8b8d6eaf1915a1" title=" " alt="" coords="497,1072,735,1131"/>
+<area shape="poly" title=" " alt="" coords="851,697,847,772,831,869,816,920,796,971,770,1019,737,1062,724,1074,720,1070,733,1058,766,1016,792,969,811,919,825,868,841,771,846,696"/>
+<area shape="rect" href="structdesignlab_1_1_graph_search_result_record.html#ab817d6534ee46d02492002e1966801e4" title="構造体の内容をCSV形式の文字列にして返す． , (カンマ) で区切られる．" alt="" coords="518,1155,715,1197"/>
+<area shape="poly" title=" " alt="" coords="847,696,834,799,812,933,797,1000,780,1060,760,1110,737,1144,717,1160,713,1156,733,1141,755,1108,775,1059,792,999,806,932,829,799,842,696"/>
+<area shape="rect" href="structdesignlab_1_1_robot_state_node.html#a7fa3f31f167ac1cf468d81509f55c407" title="ノードの情報を文字列に変換する関数． &#160;&#160;デバッグ用に詳細な情報を出力する．" alt="" coords="527,1221,706,1264"/>
+<area shape="poly" title=" " alt="" coords="848,697,837,813,816,966,801,1043,784,1114,762,1171,737,1211,708,1232,705,1227,733,1207,757,1169,778,1112,796,1042,811,965,832,812,843,696"/>
+<area shape="rect" href="classdesignlab_1_1_phantom_x_mk_i_i.html#aea0eea059d621c567e8c0a704d7f79c8" title="安定余裕を用いて，静的に安定しているかどうかを判定する．" alt="" coords="256,5,424,48"/>
+<area shape="poly" title=" " alt="" coords="516,51,424,39,424,34,517,45"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_com_move.html#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する．" alt="" coords="248,205,432,248"/>
+<area shape="poly" title=" " alt="" coords="512,188,432,207,431,202,510,183"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_com_move_straight.html#a3e2fd67280dd581a695a09cea4f816a4" title="現在のノードから次のノード群を生成する．" alt="" coords="248,139,432,181"/>
+<area shape="poly" title=" " alt="" coords="505,163,432,163,432,157,505,157"/>
+<area shape="rect" href="classdesignlab_1_1_node_initializer.html#a717aea9fc00fcb51c5ba3518fac717fc" title="地形に適した初期姿勢を設定する．" alt="" coords="257,72,423,115"/>
+<area shape="poly" title=" " alt="" coords="510,137,422,116,424,111,511,132"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_body_rot.html#a162277203f0422a351c4d24e8167d43d" title="現在のノードから次のノード群を生成する．" alt="" coords="247,605,433,648"/>
+<area shape="poly" title=" " alt="" coords="511,629,433,629,433,624,511,624"/>
+<area shape="poly" title=" " alt="" coords="522,229,432,229,432,224,522,224"/>
+<area shape="rect" href="namespacedesignlab_1_1leg__func.html#a783362f08ae38b6e3f5cb09aad52d51b" title="遊脚している脚の本数を返す関数．" alt="" coords="274,739,406,781"/>
+<area shape="poly" title=" " alt="" coords="524,763,406,763,406,757,524,757"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_hierarchy.html#ade5f7af05493084aaca057a4f543ebb7" title="現在のノードから次のノード群を生成する．" alt="" coords="5,739,183,781"/>
+<area shape="poly" title=" " alt="" coords="259,763,183,763,183,757,259,757"/>
+<area shape="rect" href="classdesignlab_1_1_graphic_main_basic.html#a21631baec22e6a7008896e3a66407f13" title="描画画面の更新を行う．純粋仮想関数のため， 継承先では必ず override する必要がある．" alt="" coords="245,1080,435,1123"/>
+<area shape="poly" title=" " alt="" coords="482,1104,435,1104,435,1099,482,1099"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_graph_viewer.html#a19d272521cd15d5e493e24ef5834c218" title="主要な処理を行う関数．" alt="" coords="244,1255,436,1297"/>
+<area shape="poly" title=" " alt="" coords="512,1258,437,1267,436,1262,511,1253"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="231,1188,449,1231"/>
+<area shape="poly" title=" " alt="" coords="511,1233,449,1225,450,1220,512,1227"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="a0638b32b8b228a6e927f6de16e2f3441" name="a0638b32b8b228a6e927f6de16e2f3441"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0638b32b8b228a6e927f6de16e2f3441">&#9670;&#160;</a></span>kLegPosMaskBit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> designlab::leg_func::kLegPosMaskBit </td>
+          <td>(</td>
+          <td class="paramtype">0b0111&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>脚位置は4bitの下位三桁で管理されるので，そこをマスクする． </p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1leg__func_a0638b32b8b228a6e927f6de16e2f3441_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1leg__func_a0638b32b8b228a6e927f6de16e2f3441_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1leg__func_a0638b32b8b228a6e927f6de16e2f3441_icgraph" id="anamespacedesignlab_1_1leg__func_a0638b32b8b228a6e927f6de16e2f3441_icgraph">
+<area shape="rect" title="脚位置は4bitの下位三桁で管理されるので，そこをマスクする．" alt="" coords="450,72,582,115"/>
+<area shape="rect" href="namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480" title="脚の状態を変更する．遊脚を表すビットはそのまま．" alt="" coords="237,72,402,115"/>
+<area shape="poly" title=" " alt="" coords="435,96,403,96,403,91,435,91"/>
+<area shape="rect" href="namespacedesignlab_1_1leg__func.html#af8887609c397b32b722ccc0994a17d01" title="脚の情報を変更する．" alt="" coords="31,5,163,48"/>
+<area shape="poly" title=" " alt="" coords="231,70,163,49,165,44,233,65"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_com_move.html#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する．" alt="" coords="5,72,189,115"/>
+<area shape="poly" title=" " alt="" coords="222,96,189,96,189,91,222,91"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_com_move_straight.html#a3e2fd67280dd581a695a09cea4f816a4" title="現在のノードから次のノード群を生成する．" alt="" coords="5,139,189,181"/>
+<area shape="poly" title=" " alt="" coords="233,122,172,141,170,135,231,117"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4324547428d4b166d210138ccfffc07e" name="a4324547428d4b166d210138ccfffc07e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4324547428d4b166d210138ccfffc07e">&#9670;&#160;</a></span>kLegStateMaskBit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> designlab::leg_func::kLegStateMaskBit </td>
+          <td>(</td>
+          <td class="paramtype">0b1111&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>脚状態は4bitで管理されるので，そこをマスクする． </p>
 
 </div>
 </div>
@@ -893,7 +1064,7 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
         <tr>
           <td class="memname"><a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> designlab::leg_func::MakeLegStateBit </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="discrete__com__pos_8h.html#aae667c8a4db0938ece7d037c80ea858e">enums::DiscreteComPos</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858e">enums::DiscreteComPos</a>&#160;</td>
           <td class="paramname"><em>discrete_com_pos</em>, </td>
         </tr>
         <tr>
@@ -905,7 +1076,7 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::array&lt; <a class="el" href="discrete__leg__pos_8h.html#ab5710dabeacf5161415ee779fe947495">enums::DiscreteLegPos</a>, <a class="el" href="classdesignlab_1_1_hexapod_const.html#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::array&lt; <a class="el" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495">enums::DiscreteLegPos</a>, <a class="el" href="classdesignlab_1_1_hexapod_const.html#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>leg_pos</em>&#160;</td>
         </tr>
         <tr>
@@ -927,16 +1098,157 @@ constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f9340
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>LegStateBit 作成した脚状態を返す． </dd></dl>
 
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00012">12</a> 行目に定義があります。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1leg__func_addb03f2c129476bc73065ee52708dcd5_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1leg__func_addb03f2c129476bc73065ee52708dcd5_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1leg__func_addb03f2c129476bc73065ee52708dcd5_icgraph" id="anamespacedesignlab_1_1leg__func_addb03f2c129476bc73065ee52708dcd5_icgraph">
+<area shape="rect" title="脚状態を作成して返す関数．脚状態は重心パターン， 脚の接地・遊脚，離散化した脚位置のデータが含まれる．" alt="" coords="219,35,351,77"/>
+<area shape="rect" href="classdesignlab_1_1_node_initializer.html#a2a8cf59dc1fd538a6c8f25a473fc3b14" title="ノードの初期化を行う．" alt="" coords="5,5,171,48"/>
+<area shape="poly" title=" " alt="" coords="203,47,171,42,172,36,204,41"/>
+<area shape="rect" href="node__creator__leg__hierarchy__test_8h.html#a0d8ce975ea819cfd57ab55001811a113" title=" " alt="" coords="39,72,137,99"/>
+<area shape="poly" title=" " alt="" coords="205,71,137,81,136,76,204,65"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">変数詳解</h2>
+<a id="a4e8bbdedc13b0286e45fb4833b03470c" name="a4e8bbdedc13b0286e45fb4833b03470c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e8bbdedc13b0286e45fb4833b03470c">&#9670;&#160;</a></span>kComPosBitNum</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int designlab::leg_func::kComPosBitNum = 4</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>重心パターンを表すビット数． </p>
+
+<p class="definition"> <a class="el" href="leg__state_8h_source.html">leg_state.h</a> の <a class="el" href="leg__state_8h_source.html#l00048">48</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a82a33fe81f59d131b4eac6540881a5a4" name="a82a33fe81f59d131b4eac6540881a5a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82a33fe81f59d131b4eac6540881a5a4">&#9670;&#160;</a></span>kComStateMaskBit</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">LegStateBit</a> designlab::leg_func::kComStateMaskBit = (0b1111 &lt;&lt; <a class="el" href="namespacedesignlab_1_1leg__func.html#a70663ed1f016df2602e960f07056ca30">kShiftToComNum</a>)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>重心パターンを保存するビットをマスクするビット． </p>
+
+<p class="definition"> <a class="el" href="leg__state_8h_source.html">leg_state.h</a> の <a class="el" href="leg__state_8h_source.html#l00074">74</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="abe2f601b0f9390ddd56f6092ca9180a2" name="abe2f601b0f9390ddd56f6092ca9180a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe2f601b0f9390ddd56f6092ca9180a2">&#9670;&#160;</a></span>kLegPosBitNum</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int designlab::leg_func::kLegPosBitNum = 4</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>脚位置を表すビット数．離散化された脚位置は3bit，遊脚・接地は1bit．あわせて4bit． </p>
+
+<p class="definition"> <a class="el" href="leg__state_8h_source.html">leg_state.h</a> の <a class="el" href="leg__state_8h_source.html#l00046">46</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a85b556a69a51c9e00ccae2383ae33052" name="a85b556a69a51c9e00ccae2383ae33052"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85b556a69a51c9e00ccae2383ae33052">&#9670;&#160;</a></span>kLegStateBitNum</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int designlab::leg_func::kLegStateBitNum = <a class="el" href="classdesignlab_1_1_hexapod_const.html#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> * <a class="el" href="namespacedesignlab_1_1leg__func.html#abe2f601b0f9390ddd56f6092ca9180a2">kLegPosBitNum</a> + <a class="el" href="namespacedesignlab_1_1leg__func.html#a4e8bbdedc13b0286e45fb4833b03470c">kComPosBitNum</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>脚状態を保存するビット数．28bit． </p>
+
+<p class="definition"> <a class="el" href="leg__state_8h_source.html">leg_state.h</a> の <a class="el" href="leg__state_8h_source.html#l00051">51</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a70663ed1f016df2602e960f07056ca30" name="a70663ed1f016df2602e960f07056ca30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70663ed1f016df2602e960f07056ca30">&#9670;&#160;</a></span>kShiftToComNum</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int designlab::leg_func::kShiftToComNum = <a class="el" href="classdesignlab_1_1_hexapod_const.html#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> * 4</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>重心パターンを保存するビットまで行くために，どれだけビットをシフトするか． </p>
+
+<p class="definition"> <a class="el" href="leg__state_8h_source.html">leg_state.h</a> の <a class="el" href="leg__state_8h_source.html#l00071">71</a> 行目に定義があります。</p>
+
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespacedesignlab.html">designlab</a></li><li class="navelem"><a class="el" href="namespacedesignlab_1_1leg__func.html">leg_func</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+</small></address>
 </body>
 </html>

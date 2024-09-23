@@ -1,24 +1,39 @@
 <map id="designlab::GraphSearcherStraightMove::SearchGraphTree" name="designlab::GraphSearcherStraightMove::SearchGraphTree">
-<area shape="rect" id="Node000001" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="5,223,211,265"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_gait_pattern_graph_treedocs#a7d02defb2f3e78885277442fb32282d7" title="指定したノードの重心の上下移動軌跡を返す．" alt="" coords="259,5,462,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,221,141,186,172,142,211,97,257,58,264,54,267,58,260,62,215,101,176,145,145,189,123,224"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_gait_pattern_graph_treedocs#af2594414411d9eb5e9103d30dffe9714" title="グラフのノードの総数を返す．" alt="" coords="268,72,453,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="133,220,188,176,257,131,282,119,284,124,260,136,191,181,136,224"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector3docs#aa36dbc9d5ec20bf4e1161e0f2593776c" title="ベクトルの長さを返す．" alt="" coords="514,160,643,203"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="145,220,197,194,258,175,321,166,384,163,499,168,498,173,384,168,321,171,259,180,199,199,148,225"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_gait_pattern_graph_treedocs#ac9d24a79c7d5e3db0eb943cd9ecd446d" title="グラフのノードの参照を返す．" alt="" coords="268,189,453,232"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="211,228,252,222,252,228,212,233"/>
-<area shape="rect" id="Node000007" href="$structdesignlab_1_1_vector3docs#a685643adba69e22d8f449434f1fce78b" title="単位ベクトルを返す． normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す． &#160;&#160;絶対値が0のベクトルの場合，そのまま0ベクトルを返す．" alt="" coords="296,256,425,299"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="212,255,281,264,280,269,211,260"/>
-<area shape="rect" id="Node000009" href="$classdesignlab_1_1_gait_pattern_graph_treedocs#a7d5f0968cb4718d9baf449222e0ec7d8" title="指定したノードの親ノードの参照を返す．depthは親ノードの深さを指定する．" alt="" coords="268,323,453,365"/>
-<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="156,263,260,308,277,315,275,320,258,313,154,268"/>
-<area shape="rect" id="Node000010" href="$classdesignlab_1_1_gait_pattern_graph_treedocs#a58dc796c0ec1334efff0cbcaee77eb6e" title="グラフの根ノードの参照を返す．" alt="" coords="268,389,453,432"/>
-<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="130,264,185,319,221,349,260,375,269,380,267,385,257,380,218,353,182,323,127,268"/>
-<area shape="rect" id="Node000011" href="$classdesignlab_1_1_gait_pattern_graph_treedocs#adfa3cd34663f368fe3e9e76962b38898" title="グラフが根ノードを持つかどうかを返す． &#160;&#160;根ノードとは，親を持たないノードのこと． &#160;&#160;一番最初に追加するノードは必ず根になるため， 根を持つかどうかはノードの総数が0でないかどうかで判定できる．" alt="" coords="268,456,453,499"/>
-<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="122,264,143,302,174,350,213,399,260,442,266,446,264,450,257,446,209,403,169,353,138,305,117,267"/>
-<area shape="rect" id="Node000005" href="$structdesignlab_1_1_vector3docs#a3b3da21ea415ea86d6d409f2ad053897" title="ベクトルの長さの2乗を返す．" alt="" coords="695,160,833,203"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="644,179,680,179,680,184,644,184"/>
-<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="425,256,461,242,527,208,529,213,463,246,426,261"/>
-<area shape="rect" id="Node000008" href="$namespacedesignlab_1_1math__utildocs#a92c055e0799991e88871e2a5d4f09280" title="C++において，小数同士の計算は誤差が出てしまう． 誤差込みで値が等しいか調べる．" alt="" coords="510,256,647,299"/>
-<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="425,275,495,275,495,280,425,280"/>
+<area shape="rect" id="Node000001" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="5,404,211,446"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数． &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている． &#160;&#160;例えば，" alt="" coords="711,28,899,70"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,403,118,336,142,244,161,196,186,149,218,107,257,72,310,43,366,22,426,10,486,4,545,3,603,7,703,22,703,27,602,12,545,9,486,9,426,15,368,27,312,48,260,77,222,111,190,152,166,198,147,246,123,337,114,404"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="294,86,437,129"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="112,403,128,349,157,278,199,204,226,169,257,139,279,125,281,130,260,143,230,173,204,207,162,281,133,351,117,404"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#a7d02defb2f3e78885277442fb32282d7" title="指定したノードの重心の上下移動軌跡を返す．" alt="" coords="264,153,467,196"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="116,402,136,361,167,308,207,253,231,228,257,206,263,201,266,206,260,210,235,232,211,256,171,311,141,363,121,404"/>
+<area shape="rect" id="Node000007" href="$structdesignlab_1_1_vector3.html#a891935bd4a3e01124107225f8d03f33c" title="正面に進む単位ベクトルを返す． 静的な関数なので，Vector3::GetFrontVec() と呼び出せる．" alt="" coords="301,220,430,262"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="123,402,178,338,215,303,257,272,286,258,288,263,260,277,219,307,182,342,127,405"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#af2594414411d9eb5e9103d30dffe9714" title="グラフのノードの総数を返す．" alt="" coords="273,286,458,329"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="147,401,258,345,288,332,290,337,260,350,150,406"/>
+<area shape="rect" id="Node000009" href="$structdesignlab_1_1_vector3.html#aa36dbc9d5ec20bf4e1161e0f2593776c" title="ベクトルの長さを返す．" alt="" coords="527,374,656,417"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="192,400,258,389,318,384,365,385,472,389,512,390,512,395,472,394,365,390,319,390,259,394,193,406"/>
+<area shape="rect" id="Node000011" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#ac9d24a79c7d5e3db0eb943cd9ecd446d" title="グラフのノードの参照を返す．" alt="" coords="273,404,458,446"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="211,422,258,422,258,428,211,428"/>
+<area shape="rect" id="Node000012" href="$structdesignlab_1_1_vector3.html#a685643adba69e22d8f449434f1fce78b" title="単位ベクトルを返す． normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す． &#160;&#160;絶対値が0のベクトルの場合，そのまま0ベクトルを返す．" alt="" coords="301,470,430,513"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="194,444,287,469,286,474,192,450"/>
+<area shape="rect" id="Node000014" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#a7d5f0968cb4718d9baf449222e0ec7d8" title="指定したノードの親ノードの参照を返す．depthは親ノードの深さを指定する．" alt="" coords="273,537,458,580"/>
+<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="138,445,193,484,260,523,274,529,271,534,257,527,190,488,135,449"/>
+<area shape="rect" id="Node000015" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#a58dc796c0ec1334efff0cbcaee77eb6e" title="グラフの根ノードの参照を返す．" alt="" coords="273,604,458,646"/>
+<area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="125,445,179,516,217,556,260,590,269,595,266,599,257,594,213,560,175,520,121,448"/>
+<area shape="rect" id="Node000016" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#adfa3cd34663f368fe3e9e76962b38898" title="グラフが根ノードを持つかどうかを返す． &#160;&#160;根ノードとは，親を持たないノードのこと． &#160;&#160;一番最初に追加するノードは必ず根になるため， 根を持つかどうかはノードの総数が0でないかどうかで判定できる．" alt="" coords="273,670,458,713"/>
+<area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="120,446,139,490,169,547,209,606,234,633,260,656,266,660,263,665,257,660,230,637,205,609,164,550,134,493,115,448"/>
+<area shape="rect" id="Node000017" href="$classdesignlab_1_1_graph_search_evaluator.html#afec9e5848a45da7d934104e85140169f" title="評価値を初期化する． 自身の持つ評価方法を用いて，評価値を初期化する．" alt="" coords="259,737,472,780"/>
+<area shape="poly" id="edge18_Node000001_Node000017" title=" " alt="" coords="117,446,132,502,160,576,179,616,202,655,229,691,260,723,265,727,261,731,257,727,225,695,197,658,174,619,155,579,127,503,111,448"/>
+<area shape="rect" id="Node000018" href="$classdesignlab_1_1_graph_search_evaluator.html#ae225cfba0b80231e46ed4865b9c2013e" title="2つの評価値を比較する．左側の評価値が良い場合は true を返す．" alt="" coords="259,804,472,846"/>
+<area shape="poly" id="edge19_Node000001_Node000018" title=" " alt="" coords="114,446,126,513,151,605,170,655,194,704,224,750,261,790,265,793,261,797,257,794,220,753,190,707,165,657,146,607,121,514,109,447"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="520,86,663,129"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="437,105,505,105,505,110,437,110"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="663,85,710,72,712,77,664,91"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数．指定した文字で文字列を分割する． &#160;&#160;分割した結果，空白が含まれる場合や文字列がない場合は，そのまま返す． &#160;&#160;最後が区切り文字で終わる場合は，それを無視する．" alt="" coords="735,94,875,137"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="664,108,720,110,719,115,664,113"/>
+<area shape="rect" id="Node000010" href="$structdesignlab_1_1_vector3.html#a3b3da21ea415ea86d6d409f2ad053897" title="ベクトルの長さの2乗を返す．" alt="" coords="736,374,874,417"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="657,393,721,393,721,398,657,398"/>
+<area shape="poly" id="edge13_Node000012_Node000009" title=" " alt="" coords="429,471,471,456,540,422,542,427,473,461,431,476"/>
+<area shape="rect" id="Node000013" href="$namespacedesignlab_1_1math__util.html#a92c055e0799991e88871e2a5d4f09280" title="C++において，小数同士の計算は誤差が出てしまう． 誤差込みで値が等しいか調べる．" alt="" coords="523,470,660,513"/>
+<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="430,489,508,489,508,494,430,494"/>
 </map>

@@ -1,0 +1,7 @@
+<map id="designlab::SerialCommunicationThread::Loop" name="designlab::SerialCommunicationThread::Loop">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,39,213,81"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_serial_communication_thread.html#a452462cadb075b9d4705c3c23fc61647" title="シリアル通信のスレッドを終了する．" alt="" coords="261,5,468,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,44,246,39,246,45,213,49"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_serial_communication_thread.html#a7d87173fcba71daeda0bf775df27904b" title=" " alt="" coords="261,72,468,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="213,71,246,75,246,81,213,76"/>
+</map>

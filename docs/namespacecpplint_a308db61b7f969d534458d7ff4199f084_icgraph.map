@@ -1,9 +1,11 @@
 <map id="cpplint._DropCommonSuffixes" name="cpplint._DropCommonSuffixes">
-<area shape="rect" id="Node000001" title=" " alt="" coords="628,5,824,32"/>
-<area shape="rect" id="Node000002" href="$namespacecpplintdocs#a1526090ecd95baf21204601e8debe02e" title=" " alt="" coords="423,5,580,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="613,21,581,21,581,16,613,16"/>
-<area shape="rect" id="Node000003" href="$namespacecpplintdocs#a250112a79030e6bfd18609fe46eed793" title=" " alt="" coords="210,5,375,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="408,21,375,21,375,16,408,16"/>
-<area shape="rect" id="Node000004" href="$namespacecpplintdocs#aeb451d66a076ed2f6bdd4fa4e5189fc5" title=" " alt="" coords="5,5,162,32"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="194,21,162,21,162,16,194,16"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="628,29,824,56"/>
+<area shape="poly" id="edge5_Node000001_Node000001" title=" " alt="" coords="766,18,753,11,726,8,702,10,690,15,687,20,692,27,688,30,681,21,686,11,701,5,726,3,754,6,768,13"/>
+<area shape="rect" id="Node000002" href="$namespacecpplint.html#a1526090ecd95baf21204601e8debe02e" title=" " alt="" coords="423,29,580,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="614,45,581,45,581,40,614,40"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="538,17,526,11,502,8,480,10,468,15,465,20,471,27,466,30,460,21,464,11,478,5,502,3,528,6,541,13"/>
+<area shape="rect" id="Node000003" href="$namespacecpplint.html#a250112a79030e6bfd18609fe46eed793" title=" " alt="" coords="210,29,375,56"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="408,45,375,45,375,40,408,40"/>
+<area shape="rect" id="Node000004" href="$namespacecpplint.html#aeb451d66a076ed2f6bdd4fa4e5189fc5" title=" " alt="" coords="5,29,162,56"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="195,45,162,45,162,40,195,40"/>
 </map>

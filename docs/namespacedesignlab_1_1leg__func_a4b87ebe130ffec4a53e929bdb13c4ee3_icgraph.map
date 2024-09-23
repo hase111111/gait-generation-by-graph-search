@@ -1,39 +1,60 @@
 <map id="designlab::leg_func::IsGrounded" name="designlab::leg_func::IsGrounded">
-<area shape="rect" id="Node000001" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="757,421,890,464"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_robot_state_nodedocs#a28bedf0298ebf8f315a21294dd111f45" title="重心位置を変更する関数．" alt="" coords="507,88,700,131"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="812,407,798,358,776,298,746,235,707,178,680,153,650,133,653,129,684,149,711,174,751,232,781,296,803,356,817,406"/>
-<area shape="rect" id="Node000006" href="$structdesignlab_1_1_robot_state_nodedocs#a73efce324f3ffd5ead5fbc663acd96a2" title="クォータニオンを変更し，胴体を回転させる関数．" alt="" coords="514,188,693,231"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="809,408,794,369,772,325,743,282,708,245,690,233,693,229,711,241,748,279,777,323,799,367,814,406"/>
-<area shape="rect" id="Node000008" href="$classdesignlab_1_1_com_selectordocs#afe154bc35f0971d6c2c2a649299b23c3" title="重心を求める．" alt="" coords="524,255,683,297"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="799,410,760,359,735,333,708,312,682,298,685,293,711,307,739,329,764,355,803,406"/>
-<area shape="rect" id="Node000009" href="$namespacedesignlab_1_1leg__funcdocs#ac79059fd4ea5194294609cd6f6834d93" title="接地している脚の脚番号0～5を，引数で参照渡しする関数．" alt="" coords="497,321,709,364"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="776,415,708,378,679,367,681,362,710,374,778,411"/>
-<area shape="rect" id="Node000010" href="$namespacedesignlab_1_1leg__funcdocs#a410e98538abd3a3346c5223e32100355" title="接地している脚の本数を返す関数．" alt="" coords="526,388,680,431"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="742,433,680,424,681,418,742,428"/>
-<area shape="rect" id="Node000013" href="$namespacedesignlab_1_1leg__funcdocs#aba40fd16353e3566503af79fd3bff892" title="脚が接地しているなら1，遊脚を0としたビット列で遊脚・接地脚の状態を返す． &#160;&#160;例えば 0 番脚のみが遊脚しているなら 0b111 110 を返す．" alt="" coords="532,455,675,497"/>
-<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="742,458,676,468,675,462,742,452"/>
-<area shape="rect" id="Node000014" href="$namespacedesignlab_1_1leg__funcdocs#ab008f25ef39dfb41ee4a76f3c9cc0529" title="遊脚している脚の脚番号0～5を，引数_res_numberで参照渡しする関数．" alt="" coords="510,521,697,564"/>
-<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="778,475,710,512,681,523,679,518,708,507,776,470"/>
-<area shape="rect" id="Node000015" href="$classdesignlab_1_1_i_hexapod_posture_validatordocs#a3abb48c6d7bfe266598759a9852268a2" title="全ての脚が可動範囲内にあるかどうかを判定する．" alt="" coords="512,588,695,631"/>
-<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="803,479,764,530,739,556,711,578,690,590,687,585,708,574,735,552,760,527,799,476"/>
-<area shape="rect" id="Node000016" href="$structdesignlab_1_1_graph_search_result_recorddocs#ab817d6534ee46d02492002e1966801e4" title="構造体の内容をCSV形式の文字列にして返す． , (カンマ) で区切られる．" alt="" coords="505,655,702,697"/>
-<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="814,480,799,518,777,562,748,607,711,645,693,656,690,652,708,641,743,603,772,560,794,516,809,478"/>
-<area shape="rect" id="Node000017" href="$structdesignlab_1_1_robot_state_nodedocs#a7fa3f31f167ac1cf468d81509f55c407" title="ノードの情報を文字列に変換する関数． &#160;&#160;デバッグ用に詳細な情報を出力する．" alt="" coords="514,721,693,764"/>
-<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="819,480,808,532,787,594,756,657,735,686,711,711,695,723,692,719,708,707,731,682,751,654,782,592,802,530,814,479"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_node_creator_com_movedocs#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する．" alt="" coords="248,5,432,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="520,85,448,63,412,51,413,46,450,57,521,80"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_node_creator_com_move_straightdocs#a3e2fd67280dd581a695a09cea4f816a4" title="現在のノードから次のノード群を生成する．" alt="" coords="248,72,432,115"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="491,105,432,102,432,96,491,100"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_node_initializerdocs#a717aea9fc00fcb51c5ba3518fac717fc" title="地形に適した初期姿勢を設定する．" alt="" coords="257,139,423,181"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="491,133,423,147,422,142,490,128"/>
-<area shape="rect" id="Node000007" href="$classdesignlab_1_1_node_creator_body_rotdocs#a162277203f0422a351c4d24e8167d43d" title="現在のノードから次のノード群を生成する．" alt="" coords="247,205,433,248"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="498,219,433,223,433,218,497,214"/>
-<area shape="rect" id="Node000011" href="$namespacedesignlab_1_1leg__funcdocs#a783362f08ae38b6e3f5cb09aad52d51b" title="遊脚している脚の本数を返す関数．" alt="" coords="274,388,406,431"/>
-<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="510,412,407,412,407,407,510,407"/>
-<area shape="rect" id="Node000012" href="$classdesignlab_1_1_node_creator_leg_hierarchydocs#ade5f7af05493084aaca057a4f543ebb7" title="現在のノードから次のノード群を生成する．" alt="" coords="5,388,183,431"/>
-<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="258,412,183,412,183,407,258,407"/>
-<area shape="rect" id="Node000018" href="$classdesignlab_1_1_system_main_graph_viewerdocs#a19d272521cd15d5e493e24ef5834c218" title="主要な処理を行う関数．" alt="" coords="244,688,436,731"/>
-<area shape="poly" id="edge17_Node000017_Node000018" title=" " alt="" coords="498,732,436,724,437,719,499,727"/>
-<area shape="rect" id="Node000019" href="$classdesignlab_1_1_system_main_simulationdocs#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="231,755,449,797"/>
-<area shape="poly" id="edge18_Node000017_Node000019" title=" " alt="" coords="498,759,450,765,449,759,497,753"/>
+<area shape="rect" id="Node000001" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="783,639,916,681"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a688e8dd6b7f92d5b1a4fa8d4fbcc2714" title="安定余裕(Stability Margin)を計算する． 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい． &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計..." alt="" coords="532,39,701,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="842,624,828,513,805,366,773,224,754,168,733,128,707,103,676,84,679,79,711,99,737,125,759,166,778,223,810,365,833,512,847,624"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_robot_state_node.html#a28bedf0298ebf8f315a21294dd111f45" title="重心位置を変更する関数．" alt="" coords="520,139,713,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="842,624,828,524,805,396,791,332,774,274,754,227,733,195,712,179,715,175,737,191,759,225,779,272,796,331,811,395,833,524,847,624"/>
+<area shape="rect" id="Node000008" href="$structdesignlab_1_1_robot_state_node.html#a73efce324f3ffd5ead5fbc663acd96a2" title="クォータニオンを変更し，胴体を回転させる関数．" alt="" coords="527,605,706,648"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="768,651,706,642,707,637,769,646"/>
+<area shape="rect" id="Node000010" href="$classdesignlab_1_1_node_creator_leg_up_down.html#a861b8e2c2efd6673f70c53881848d442" title="現在のノードから次のノード群を生成する．" alt="" coords="528,272,705,315"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="844,624,836,560,818,481,804,439,786,399,762,361,734,329,704,310,707,305,737,325,767,358,790,396,809,437,824,479,842,559,849,623"/>
+<area shape="rect" id="Node000011" href="$classdesignlab_1_1_node_creator_leg_up_down2d.html#a06c92f273cd957c7108ae2632bcd8339" title="現在のノードから次のノード群を生成する．" alt="" coords="528,339,705,381"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="840,624,829,573,809,511,778,449,757,420,734,395,704,377,707,373,737,391,762,417,782,446,814,509,834,571,846,623"/>
+<area shape="rect" id="Node000012" href="$classdesignlab_1_1_node_creator_leg_up_down_radius.html#a4d2c69510f3b456ce4cb21c2a58e9b45" title="現在のノードから次のノード群を生成する．" alt="" coords="528,405,705,448"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="835,626,820,587,799,543,770,499,734,462,704,445,706,441,737,458,774,496,804,540,825,585,840,624"/>
+<area shape="rect" id="Node000013" href="$classdesignlab_1_1_node_creator_com_up_down.html#af55c8483f820c4a5d31a76ebcdf6785a" title="現在のノードから次のノード群を生成する．" alt="" coords="525,472,708,515"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="826,628,787,576,762,551,734,529,707,515,709,511,737,524,765,547,791,573,830,624"/>
+<area shape="rect" id="Node000014" href="$classdesignlab_1_1_stability_margin_renderer.html#acdc7828d30b59293e5291d9d74d91acf" title="描画処理を行う． const 関数にしているのは， 描画処理の中でメンバ変数を変更しないようにするため．" alt="" coords="531,539,701,581"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="803,633,734,596,701,583,702,578,736,591,806,628"/>
+<area shape="rect" id="Node000015" href="$classdesignlab_1_1_com_selector.html#afe154bc35f0971d6c2c2a649299b23c3" title="重心を求める．" alt="" coords="537,205,696,248"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="846,624,843,548,827,451,813,400,793,350,767,303,733,262,716,249,695,239,698,235,719,244,737,258,771,300,798,347,818,398,833,450,848,548,852,624"/>
+<area shape="rect" id="Node000016" href="$namespacedesignlab_1_1leg__func.html#ac79059fd4ea5194294609cd6f6834d93" title="接地している脚の脚番号0～5を，引数で参照渡しする関数．" alt="" coords="510,672,722,715"/>
+<area shape="poly" id="edge16_Node000001_Node000016" title=" " alt="" coords="769,674,723,681,722,675,768,669"/>
+<area shape="rect" id="Node000017" href="$namespacedesignlab_1_1leg__func.html#a410e98538abd3a3346c5223e32100355" title="接地している脚の本数を返す関数．" alt="" coords="539,739,693,781"/>
+<area shape="poly" id="edge17_Node000001_Node000017" title=" " alt="" coords="806,692,736,729,695,744,693,739,734,724,803,687"/>
+<area shape="rect" id="Node000020" href="$namespacedesignlab_1_1leg__func.html#aba40fd16353e3566503af79fd3bff892" title="脚が接地しているなら1，遊脚を0としたビット列で遊脚・接地脚の状態を返す． &#160;&#160;例えば 0 番脚のみが遊脚しているなら 0b111 110 を返す．" alt="" coords="545,805,688,848"/>
+<area shape="poly" id="edge20_Node000001_Node000020" title=" " alt="" coords="830,696,791,747,765,773,737,796,689,816,687,811,734,791,762,769,787,744,826,692"/>
+<area shape="rect" id="Node000021" href="$namespacedesignlab_1_1leg__func.html#ab008f25ef39dfb41ee4a76f3c9cc0529" title="遊脚している脚の脚番号0～5を，引数_res_numberで参照渡しする関数．" alt="" coords="523,872,710,915"/>
+<area shape="poly" id="edge21_Node000001_Node000021" title=" " alt="" coords="840,696,825,735,804,780,774,824,737,862,712,877,709,872,734,858,770,821,799,777,820,733,835,694"/>
+<area shape="rect" id="Node000022" href="$classdesignlab_1_1_i_hexapod_posture_validator.html#a3abb48c6d7bfe266598759a9852268a2" title="全ての脚が可動範囲内にあるかどうかを判定する．" alt="" coords="525,939,708,981"/>
+<area shape="poly" id="edge22_Node000001_Node000022" title=" " alt="" coords="846,697,834,749,814,811,782,874,762,903,737,929,710,946,707,941,734,925,757,900,778,871,809,809,829,747,840,696"/>
+<area shape="rect" id="Node000023" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a2d84fda12ddad344e7de4c0e023ffd4f" title="胴体が地面と干渉しているかどうかを判定する．" alt="" coords="519,1005,713,1048"/>
+<area shape="poly" id="edge23_Node000001_Node000023" title=" " alt="" coords="849,697,842,761,824,841,809,883,790,924,767,962,737,995,715,1011,712,1006,734,991,762,959,786,921,804,881,818,839,836,760,844,696"/>
+<area shape="rect" id="Node000024" href="$classdesignlab_1_1_robot_ground_point_renderer.html#a00517667ff548ea9ea8b8d6eaf1915a1" title=" " alt="" coords="497,1072,735,1131"/>
+<area shape="poly" id="edge24_Node000001_Node000024" title=" " alt="" coords="851,697,847,772,831,869,816,920,796,971,770,1019,737,1062,724,1074,720,1070,733,1058,766,1016,792,969,811,919,825,868,841,771,846,696"/>
+<area shape="rect" id="Node000026" href="$structdesignlab_1_1_graph_search_result_record.html#ab817d6534ee46d02492002e1966801e4" title="構造体の内容をCSV形式の文字列にして返す． , (カンマ) で区切られる．" alt="" coords="518,1155,715,1197"/>
+<area shape="poly" id="edge26_Node000001_Node000026" title=" " alt="" coords="847,696,834,799,812,933,797,1000,780,1060,760,1110,737,1144,717,1160,713,1156,733,1141,755,1108,775,1059,792,999,806,932,829,799,842,696"/>
+<area shape="rect" id="Node000027" href="$structdesignlab_1_1_robot_state_node.html#a7fa3f31f167ac1cf468d81509f55c407" title="ノードの情報を文字列に変換する関数． &#160;&#160;デバッグ用に詳細な情報を出力する．" alt="" coords="527,1221,706,1264"/>
+<area shape="poly" id="edge27_Node000001_Node000027" title=" " alt="" coords="848,697,837,813,816,966,801,1043,784,1114,762,1171,737,1211,708,1232,705,1227,733,1207,757,1169,778,1112,796,1042,811,965,832,812,843,696"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#aea0eea059d621c567e8c0a704d7f79c8" title="安定余裕を用いて，静的に安定しているかどうかを判定する．" alt="" coords="256,5,424,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="516,51,424,39,424,34,517,45"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_node_creator_com_move.html#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する．" alt="" coords="248,205,432,248"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="512,188,432,207,431,202,510,183"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_node_creator_com_move_straight.html#a3e2fd67280dd581a695a09cea4f816a4" title="現在のノードから次のノード群を生成する．" alt="" coords="248,139,432,181"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="505,163,432,163,432,157,505,157"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_node_initializer.html#a717aea9fc00fcb51c5ba3518fac717fc" title="地形に適した初期姿勢を設定する．" alt="" coords="257,72,423,115"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="510,137,422,116,424,111,511,132"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_node_creator_body_rot.html#a162277203f0422a351c4d24e8167d43d" title="現在のノードから次のノード群を生成する．" alt="" coords="247,605,433,648"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="511,629,433,629,433,624,511,624"/>
+<area shape="poly" id="edge15_Node000015_Node000005" title=" " alt="" coords="522,229,432,229,432,224,522,224"/>
+<area shape="rect" id="Node000018" href="$namespacedesignlab_1_1leg__func.html#a783362f08ae38b6e3f5cb09aad52d51b" title="遊脚している脚の本数を返す関数．" alt="" coords="274,739,406,781"/>
+<area shape="poly" id="edge18_Node000017_Node000018" title=" " alt="" coords="524,763,406,763,406,757,524,757"/>
+<area shape="rect" id="Node000019" href="$classdesignlab_1_1_node_creator_leg_hierarchy.html#ade5f7af05493084aaca057a4f543ebb7" title="現在のノードから次のノード群を生成する．" alt="" coords="5,739,183,781"/>
+<area shape="poly" id="edge19_Node000018_Node000019" title=" " alt="" coords="259,763,183,763,183,757,259,757"/>
+<area shape="rect" id="Node000025" href="$classdesignlab_1_1_graphic_main_basic.html#a21631baec22e6a7008896e3a66407f13" title="描画画面の更新を行う．純粋仮想関数のため， 継承先では必ず override する必要がある．" alt="" coords="245,1080,435,1123"/>
+<area shape="poly" id="edge25_Node000024_Node000025" title=" " alt="" coords="482,1104,435,1104,435,1099,482,1099"/>
+<area shape="rect" id="Node000028" href="$classdesignlab_1_1_system_main_graph_viewer.html#a19d272521cd15d5e493e24ef5834c218" title="主要な処理を行う関数．" alt="" coords="244,1255,436,1297"/>
+<area shape="poly" id="edge28_Node000027_Node000028" title=" " alt="" coords="512,1258,437,1267,436,1262,511,1253"/>
+<area shape="rect" id="Node000029" href="$classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="231,1188,449,1231"/>
+<area shape="poly" id="edge29_Node000027_Node000029" title=" " alt="" coords="511,1233,449,1225,450,1220,512,1227"/>
 </map>

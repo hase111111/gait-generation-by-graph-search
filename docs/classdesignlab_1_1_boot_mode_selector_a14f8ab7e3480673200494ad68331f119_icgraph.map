@@ -1,0 +1,5 @@
+<map id="designlab::BootModeSelector::SetDefaultBootMode" name="designlab::BootModeSelector::SetDefaultBootMode">
+<area shape="rect" id="Node000001" title="デフォルトの起動モードを設定する．" alt="" coords="103,5,294,48"/>
+<area shape="rect" id="Node000002" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,55,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="88,29,55,29,55,24,88,24"/>
+</map>

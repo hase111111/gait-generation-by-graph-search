@@ -1,0 +1,5 @@
+<map id="designlab::Keyboard::GetPressingCount" name="designlab::Keyboard::GetPressingCount">
+<area shape="rect" id="Node000001" title="keyCodeのキーが押されているフレーム数を取得する．" alt="" coords="254,5,393,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graphic_main_display_model.html#a123284fa5272d199b738b977eaf99898" title="描画画面の更新を行う．純粋仮想関数のため， 継承先では必ず override する必要がある．" alt="" coords="5,5,206,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="239,29,206,29,206,24,239,24"/>
+</map>

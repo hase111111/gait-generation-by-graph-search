@@ -1,0 +1,5 @@
+<map id="designlab::Dxlib3dRendererGroup::Draw" name="designlab::Dxlib3dRendererGroup::Draw">
+<area shape="rect" id="Node000001" title="登録されているクラスの draw 関数を呼ぶ． &#160;&#160;また，Zソートを行う．" alt="" coords="5,5,185,48"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1dxlib__util.html#a5f59136031be16081cffcef06767b9e5" title="デフォルトだと描画処理を書いた順に描画されるが， これをZバッファを使用して奥行きを考慮して描画するようにする． 毎フレーム実行する必要がある．" alt="" coords="233,5,368,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,24,218,24,218,29,185,29"/>
+</map>

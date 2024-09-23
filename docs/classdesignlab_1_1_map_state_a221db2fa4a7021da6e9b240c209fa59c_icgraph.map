@@ -1,15 +1,29 @@
 <map id="designlab::MapState::GetMapPointSize" name="designlab::MapState::GetMapPointSize">
 <area shape="rect" id="Node000001" title="脚設置可能点の総数を返す．" alt="" coords="535,72,675,115"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_map_rendererdocs#a4338a7d3f08cd663096e3226fa0c6fa3" title="マップの描画を行う．" alt="" coords="309,5,470,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="520,70,460,51,462,46,521,65"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_result_file_importerdocs#a6d2660954a38564ea358b2fb6da71036" title="ノードリストとマップの状態をファイルから読み込む．" alt="" coords="292,72,487,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="519,96,487,96,487,91,519,91"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_divided_map_statedocs#a50647e278f9ee754cbfe5196153e2ba8" title="マップのデータを初期化する． ロボットの重心座標を中心にマップのデータを格子状に分割し， その中に存在する脚設置可能点を集める．" alt="" coords="299,139,480,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="521,122,462,141,460,135,520,117"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_gait_pattern_generator_basicdocs#a3b957e224a453c5fc85bd15684560043" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="8,72,241,115"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="286,137,211,118,213,113,288,132"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_gait_pattern_generator_threaddocs#af6729bdafbd310f762733e7fa10f8df5" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,139,244,181"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="283,163,244,163,244,157,283,157"/>
-<area shape="rect" id="Node000007" href="$classdesignlab_1_1_node_initializerdocs#a717aea9fc00fcb51c5ba3518fac717fc" title="地形に適した初期姿勢を設定する．" alt="" coords="42,205,207,248"/>
-<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="288,188,208,208,207,203,286,183"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_map_renderer.html#a4338a7d3f08cd663096e3226fa0c6fa3" title="マップの描画を行う．" alt="" coords="309,5,470,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="520,70,460,51,462,46,522,65"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_result_file_importer.html#a6d2660954a38564ea358b2fb6da71036" title="ノードリストとマップの状態をファイルから読み込む．" alt="" coords="292,72,487,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="520,96,487,96,487,91,520,91"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_divided_map_state.html#a50647e278f9ee754cbfe5196153e2ba8" title="マップのデータを初期化する． ロボットの重心座標を中心にマップのデータを格子状に分割し， その中に存在する脚設置可能点を集める．" alt="" coords="299,339,480,381"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="579,128,410,340,406,337,575,125"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_system_main_result_viewer.html#a7140a7e2d4cb4c62f7ff84f828afcdd2" title="主要な処理を行う関数．" alt="" coords="27,5,222,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="287,70,211,51,213,46,288,65"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_system_main_robot_control.html#a3106f05f7fcc8e37f07177433135f06f" title="主要な処理を行う関数．" alt="" coords="29,72,220,115"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="277,96,221,96,221,91,277,91"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_gait_pattern_generator_basic.html#a3b957e224a453c5fc85bd15684560043" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="8,139,241,181"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="366,328,315,260,281,225,242,196,221,184,223,180,245,191,284,221,319,257,370,325"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_gait_pattern_generator_thread.html#af6729bdafbd310f762733e7fa10f8df5" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,205,244,248"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="350,332,300,296,243,262,214,251,216,246,245,258,303,291,353,327"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_graphic_main_display_model.html#af42c7a85c4334dec044d664a36cf7f34" title=" " alt="" coords="17,272,232,315"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="287,337,211,318,213,313,288,332"/>
+<area shape="rect" id="Node000010" href="$classdesignlab_1_1_graphic_main_robot_control.html#ad643aefb41adbe094e4f81ddd576597b" title=" " alt="" coords="15,339,234,381"/>
+<area shape="poly" id="edge9_Node000006_Node000010" title=" " alt="" coords="284,363,234,363,234,357,284,357"/>
+<area shape="rect" id="Node000011" href="$classdesignlab_1_1_node_initializer.html#a717aea9fc00fcb51c5ba3518fac717fc" title="地形に適した初期姿勢を設定する．" alt="" coords="42,405,207,448"/>
+<area shape="poly" id="edge10_Node000006_Node000011" title=" " alt="" coords="288,388,208,408,207,403,287,383"/>
+<area shape="rect" id="Node000012" href="$classdesignlab_1_1_map_renderer.html#a8255fbb9add954ad6bff218968a16669" title="マップの状態を設定する．代入と同時に DividedMap も更新される．" alt="" coords="44,472,205,515"/>
+<area shape="poly" id="edge11_Node000006_Node000012" title=" " alt="" coords="353,393,303,429,245,462,207,477,205,472,243,458,300,424,350,388"/>
+<area shape="rect" id="Node000013" href="$classdesignlab_1_1_map_renderer.html#a3580cb88f4e45a744548ab7923661029" title="ロボットの重心のグローバル座標を設定する． &#160;&#160;DividedMap はロボットの重心を中心にしているので， ロボットの重心のグローバル座標を設定する必要がある． &#160;&#160;代入と同時に DividedMap..." alt="" coords="44,539,205,581"/>
+<area shape="poly" id="edge12_Node000006_Node000013" title=" " alt="" coords="370,395,319,463,284,499,245,529,206,547,204,542,242,524,281,495,315,460,366,392"/>
+<area shape="rect" id="Node000014" href="$classdesignlab_1_1_graphic_main_robot_control.html#a3609d5c3fedd6e5b5d364b99131938b4" title="描画画面の更新を行う．純粋仮想関数のため， 継承先では必ず override する必要がある．" alt="" coords="29,605,220,648"/>
+<area shape="poly" id="edge13_Node000006_Node000014" title=" " alt="" coords="378,396,359,441,330,495,293,549,270,574,245,596,222,609,219,605,242,591,266,570,289,546,326,493,354,439,373,394"/>
 </map>

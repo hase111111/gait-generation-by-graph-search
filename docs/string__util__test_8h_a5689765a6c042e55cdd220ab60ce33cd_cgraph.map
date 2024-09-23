@@ -1,0 +1,5 @@
+<map id="TEST_SUITE" name="TEST_SUITE">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,13,103,40"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数． &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている． &#160;&#160;例えば，" alt="" coords="151,5,338,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,24,136,24,136,29,103,29"/>
+</map>

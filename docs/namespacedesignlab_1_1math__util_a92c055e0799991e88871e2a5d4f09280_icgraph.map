@@ -1,43 +1,59 @@
 <map id="designlab::math_util::IsEqual" name="designlab::math_util::IsEqual">
-<area shape="rect" id="Node000001" title="C++において，小数同士の計算は誤差が出てしまう． 誤差込みで値が等しいか調べる．" alt="" coords="699,539,837,581"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector2docs#a5b486befcef8a9c50ff78137783c3ba9" title="このベクトルを正規化したベクトルを返す．" alt="" coords="498,105,627,148"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="750,526,706,421,649,294,574,150,578,147,654,292,711,419,755,523"/>
-<area shape="rect" id="Node000006" href="$structdesignlab_1_1_vector3docs#a685643adba69e22d8f449434f1fce78b" title="単位ベクトルを返す． normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す． &#160;&#160;絶対値が0のベクトルの場合，そのまま0ベクトルを返す．" alt="" coords="498,305,627,348"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="745,527,704,463,649,395,596,351,599,346,653,391,708,460,749,524"/>
-<area shape="rect" id="Node000010" href="$structdesignlab_1_1_line_segment2docs#a8608ddbcf8e71c74186de4fc6420f4ee" title="引数の線分と自身が平行かどうか調べる関数． 全て constexpr 関数で処理できるため非常に高速．" alt="" coords="479,405,646,448"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="734,530,695,495,650,462,628,451,630,446,653,458,699,491,738,526"/>
-<area shape="rect" id="Node000015" href="$structdesignlab_1_1_vector2docs#a38510ae37bb30094489c2a09a06f204a" title="このベクトルが0ならば true．" alt="" coords="498,472,627,515"/>
-<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="685,536,627,517,629,512,687,531"/>
-<area shape="rect" id="Node000016" href="$structdesignlab_1_1_vector3docs#a6319bbea38d7b4dab6091fe28b99fc57" title="x,y,zともに絶対値が0ならば true を返す．" alt="" coords="498,539,627,581"/>
-<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="684,563,628,563,628,557,684,557"/>
-<area shape="rect" id="Node000017" href="$structdesignlab_1_1_vector3docs#a1417e82d921393744bd0496590f078ff" title="2つのベクトルが等しいかどうかを返す．誤差を許容する．" alt="" coords="498,605,627,648"/>
-<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="687,589,629,608,627,603,685,584"/>
-<area shape="rect" id="Node000018" href="$namespacedesignlabdocs#a60f10cf89b782d822987acc6e655a2a7" title="3次元の位置ベクトルを回転させる．必ず正規化クォータニオンを用いること．" alt="" coords="479,672,646,699"/>
-<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="738,595,700,630,653,662,626,674,624,669,650,658,696,626,735,591"/>
-<area shape="rect" id="Node000019" href="$namespacedesignlabdocs#aa6386f09017c25f59fbdf0fa7088ec90" title="球面線形補間を行う．" alt="" coords="474,723,651,749"/>
-<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="751,596,711,656,684,687,653,713,631,724,628,720,650,708,680,683,707,653,747,593"/>
-<area shape="rect" id="Node000021" href="$namespacedesignlabdocs#a54d940e1e1adcbeeec8594a7f542fdef" title="オイラー角からクォータニオンへの変換．" alt="" coords="482,773,643,800"/>
-<area shape="poly" id="edge20_Node000001_Node000021" title=" " alt="" coords="758,597,743,636,720,681,691,725,653,763,633,775,631,770,650,759,686,722,716,678,738,634,753,595"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_phantom_x_mk_i_idocs#a688e8dd6b7f92d5b1a4fa8d4fbcc2714" title="安定余裕(Stability Margin)を計算する． 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい． &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計..." alt="" coords="239,5,408,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="506,100,425,62,395,51,396,46,427,58,508,95"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_com_selectordocs#afe154bc35f0971d6c2c2a649299b23c3" title="重心を求める．" alt="" coords="244,72,403,115"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="482,118,403,107,404,102,483,113"/>
-<area shape="rect" id="Node000005" href="$structdesignlab_1_1_vector2docs#ac75623bf80d61ccba4a26c6810eddd3c" title="このベクトルを正規化する． &#160;&#160;絶対値が0のベクトルの場合，そのまま0ベクトルになる．" alt="" coords="259,139,388,181"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="483,140,389,154,388,148,482,135"/>
-<area shape="rect" id="Node000007" href="$structdesignlab_1_1_vector3docs#ac5187e0ab8d45cda4a36dd38f34884e8" title="このベクトルを正規化する． &#160;&#160;絶対値が0のベクトルの場合，そのまま0ベクトルになる．" alt="" coords="259,205,388,248"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="506,300,425,262,387,249,389,244,427,258,508,295"/>
-<area shape="rect" id="Node000008" href="$classdesignlab_1_1_graph_searcher_straight_movedocs#a64643a2293909dc6b0166a916c5b26ee" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="221,272,426,315"/>
-<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="483,318,426,310,427,305,483,313"/>
-<area shape="rect" id="Node000009" href="$classdesignlab_1_1_robot_operator_for_gpgdocs#a240d9588144861d5556613811dc5433e" title="ロボットの動作を更新する．" alt="" coords="239,339,408,381"/>
-<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="483,340,408,351,408,346,483,335"/>
-<area shape="rect" id="Node000011" href="$structdesignlab_1_1_line_segment2docs#a334682a88e452a95429edf15593d1846" title="他の線分と交点が存在しているかどうか調べ，交点を返す関数．" alt="" coords="235,405,412,448"/>
-<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="463,429,413,429,413,424,463,424"/>
-<area shape="rect" id="Node000012" href="$structdesignlab_1_1_line_segment2docs#a29ea137970fa696c5789085591e8c2f9" title="他の線分との交点を求める．" alt="" coords="240,472,407,515"/>
-<area shape="poly" id="edge11_Node000010_Node000012" title=" " alt="" coords="470,455,403,474,402,469,469,450"/>
-<area shape="rect" id="Node000013" href="$structdesignlab_1_1_line_segment2docs#a8e2bdbc5c825c119d1801aa07bf3555e" title="他の線分と交点が存在しているかどうか調べる関数．" alt="" coords="240,539,407,581"/>
-<area shape="poly" id="edge12_Node000010_Node000013" title=" " alt="" coords="481,458,476,462,461,478,453,495,444,512,428,529,408,540,405,536,424,525,440,509,448,492,456,475,472,458,478,454"/>
-<area shape="rect" id="Node000014" href="$classdesignlab_1_1_phantom_x_mk_i_idocs#aeed1296b4886eb07bc095ca2b5e8c333" title="脚が他の脚と干渉しているかどうかを判定する．" alt="" coords="5,539,173,581"/>
-<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="224,563,173,563,173,557,224,557"/>
-<area shape="rect" id="Node000020" href="$classdesignlab_1_1_dxlib_cameradocs#a849d4bd740e6cebcbe726c7a537d74be" title="カメラの位置などの更新を行う．毎フレーム実行すること．" alt="" coords="244,715,403,757"/>
-<area shape="poly" id="edge19_Node000019_Node000020" title=" " alt="" coords="459,739,403,739,403,733,459,733"/>
+<area shape="rect" id="Node000001" title="C++において，小数同士の計算は誤差が出てしまう． 誤差込みで値が等しいか調べる．" alt="" coords="737,705,875,748"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector2.html#a5b486befcef8a9c50ff78137783c3ba9" title="このベクトルを正規化したベクトルを返す．" alt="" coords="536,105,665,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="795,692,756,518,725,406,687,294,649,214,613,150,618,147,654,211,692,292,730,404,762,517,801,690"/>
+<area shape="rect" id="Node000008" href="$structdesignlab_1_1_vector3.html#a685643adba69e22d8f449434f1fce78b" title="単位ベクトルを返す． normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す． &#160;&#160;絶対値が0のベクトルの場合，そのまま0ベクトルを返す．" alt="" coords="536,305,665,348"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="797,691,784,631,763,554,731,472,711,432,687,395,664,371,639,351,642,346,668,367,691,392,716,429,736,469,768,552,790,630,802,690"/>
+<area shape="rect" id="Node000013" href="$structdesignlab_1_1_line_segment2.html#a8608ddbcf8e71c74186de4fc6420f4ee" title="引数の線分と自身が平行かどうか調べる関数． 全て constexpr 関数で処理できるため非常に高速．" alt="" coords="517,405,684,448"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="796,691,783,640,762,579,731,517,711,488,688,462,672,451,676,446,691,458,715,484,735,514,767,577,788,639,801,690"/>
+<area shape="rect" id="Node000018" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#acd4f0edc022211d1ddd42cc7308e4ffd" title="指定した脚のHexapodJointStateが正しく計算できているかを調べる． &#160;&#160;目標座標に届かない場合や，間接の可動範囲外まで動いてしまう場合， 戻り値は false になる．" alt="" coords="517,472,684,515"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="790,692,774,654,752,610,723,567,688,529,671,517,674,513,691,525,727,563,757,608,779,652,795,690"/>
+<area shape="rect" id="Node000019" href="$structdesignlab_1_1_vector2.html#a38510ae37bb30094489c2a09a06f204a" title="このベクトルが0ならば true．" alt="" coords="536,539,665,581"/>
+<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="781,695,741,644,715,618,688,596,665,582,667,578,691,591,719,614,745,640,785,691"/>
+<area shape="rect" id="Node000020" href="$structdesignlab_1_1_vector3.html#a6319bbea38d7b4dab6091fe28b99fc57" title="x,y,zともに絶対値が0ならば true を返す．" alt="" coords="536,605,665,648"/>
+<area shape="poly" id="edge19_Node000001_Node000020" title=" " alt="" coords="757,700,688,662,662,651,664,646,691,658,759,695"/>
+<area shape="rect" id="Node000021" href="$structdesignlab_1_1_euler_x_y_z.html#af764f09049751a392831a2ef5473a4e0" title=" " alt="" coords="532,672,669,715"/>
+<area shape="poly" id="edge20_Node000001_Node000021" title=" " alt="" coords="723,716,669,707,670,702,724,711"/>
+<area shape="rect" id="Node000022" href="$structdesignlab_1_1_quaternion.html#a2479b775b88f53f45e0c15f9ce81b66a" title=" " alt="" coords="527,739,674,781"/>
+<area shape="poly" id="edge21_Node000001_Node000022" title=" " alt="" coords="723,743,675,751,674,745,722,737"/>
+<area shape="rect" id="Node000023" href="$structdesignlab_1_1_vector2.html#a5df1f1d62735d125f107a9926300ebd1" title=" " alt="" coords="536,805,665,848"/>
+<area shape="poly" id="edge22_Node000001_Node000023" title=" " alt="" coords="759,758,691,796,664,807,662,802,688,791,757,754"/>
+<area shape="rect" id="Node000024" href="$structdesignlab_1_1_vector3.html#a1417e82d921393744bd0496590f078ff" title="2つのベクトルが等しいかどうかを返す．誤差を許容する．" alt="" coords="536,872,665,915"/>
+<area shape="poly" id="edge23_Node000001_Node000024" title=" " alt="" coords="785,762,745,813,719,839,691,862,667,876,665,871,688,858,715,835,741,809,781,759"/>
+<area shape="rect" id="Node000025" href="$namespacedesignlab.html#a60f10cf89b782d822987acc6e655a2a7" title="3次元の位置ベクトルを回転させる．必ず正規化クォータニオンを用いること．" alt="" coords="517,939,684,965"/>
+<area shape="poly" id="edge24_Node000001_Node000025" title=" " alt="" coords="796,763,781,801,758,846,729,891,691,929,671,940,669,936,688,925,725,887,754,844,776,799,791,761"/>
+<area shape="rect" id="Node000026" href="$namespacedesignlab.html#aa6386f09017c25f59fbdf0fa7088ec90" title="球面線形補間を行う．" alt="" coords="512,989,689,1016"/>
+<area shape="poly" id="edge25_Node000001_Node000026" title=" " alt="" coords="801,763,788,812,766,870,735,929,715,956,691,979,673,991,670,987,688,975,711,952,730,926,762,868,783,810,795,762"/>
+<area shape="rect" id="Node000028" href="$math__util__test_8h.html#a8da02f2ef7af92c275b40e53fa68cb74" title=" " alt="" coords="552,1040,649,1067"/>
+<area shape="poly" id="edge27_Node000001_Node000028" title=" " alt="" coords="804,764,794,822,774,893,759,930,741,967,718,1000,691,1030,672,1043,651,1050,649,1045,670,1038,688,1026,714,997,736,964,754,928,769,892,789,820,798,763"/>
+<area shape="rect" id="Node000029" href="$namespacedesignlab.html#a54d940e1e1adcbeeec8594a7f542fdef" title="オイラー角からクォータニオンへの変換．" alt="" coords="520,1091,681,1117"/>
+<area shape="poly" id="edge28_Node000001_Node000029" title=" " alt="" coords="806,763,799,831,781,916,766,960,747,1004,722,1045,691,1081,675,1092,672,1088,688,1077,718,1042,742,1001,761,958,776,914,794,830,801,763"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a688e8dd6b7f92d5b1a4fa8d4fbcc2714" title="安定余裕(Stability Margin)を計算する． 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい． &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計..." alt="" coords="277,5,446,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="545,101,463,62,433,51,434,46,465,58,547,96"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_com_selector.html#afe154bc35f0971d6c2c2a649299b23c3" title="重心を求める．" alt="" coords="282,72,441,115"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="521,118,441,107,442,102,522,113"/>
+<area shape="rect" id="Node000007" href="$structdesignlab_1_1_vector2.html#ac75623bf80d61ccba4a26c6810eddd3c" title="このベクトルを正規化する． &#160;&#160;絶対値が0のベクトルの場合，そのまま0ベクトルになる．" alt="" coords="297,139,426,181"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="522,140,427,154,426,148,521,135"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#aea0eea059d621c567e8c0a704d7f79c8" title="安定余裕を用いて，静的に安定しているかどうかを判定する．" alt="" coords="24,5,192,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="262,29,192,29,192,24,262,24"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_node_creator_com_move.html#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する．" alt="" coords="16,72,200,115"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="267,96,200,96,200,91,267,91"/>
+<area shape="rect" id="Node000009" href="$structdesignlab_1_1_vector3.html#ac5187e0ab8d45cda4a36dd38f34884e8" title="このベクトルを正規化する． &#160;&#160;絶対値が0のベクトルの場合，そのまま0ベクトルになる．" alt="" coords="297,205,426,248"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="545,301,463,262,425,249,427,244,465,258,547,296"/>
+<area shape="rect" id="Node000010" href="$classdesignlab_1_1_graph_searcher_straight_move.html#a64643a2293909dc6b0166a916c5b26ee" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="259,272,464,315"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="521,318,464,310,465,305,522,313"/>
+<area shape="rect" id="Node000012" href="$classdesignlab_1_1_robot_operator_for_gpg.html#a240d9588144861d5556613811dc5433e" title="ロボットの動作を更新する．" alt="" coords="277,339,446,381"/>
+<area shape="poly" id="edge11_Node000008_Node000012" title=" " alt="" coords="522,340,446,351,446,346,521,335"/>
+<area shape="rect" id="Node000011" href="$classdesignlab_1_1_graph_searcher_straight_move.html#a012acb8e429cb97dc3843f2d80e16a70" title=" " alt="" coords="5,264,211,323"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="243,296,211,296,211,291,243,291"/>
+<area shape="rect" id="Node000014" href="$structdesignlab_1_1_line_segment2.html#a334682a88e452a95429edf15593d1846" title="他の線分と交点が存在しているかどうか調べ，交点を返す関数．" alt="" coords="273,405,450,448"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="502,429,451,429,451,424,502,424"/>
+<area shape="rect" id="Node000015" href="$structdesignlab_1_1_line_segment2.html#a29ea137970fa696c5789085591e8c2f9" title="他の線分との交点を求める．" alt="" coords="278,472,445,515"/>
+<area shape="poly" id="edge14_Node000013_Node000015" title=" " alt="" coords="509,455,441,474,440,469,507,450"/>
+<area shape="rect" id="Node000016" href="$structdesignlab_1_1_line_segment2.html#a8e2bdbc5c825c119d1801aa07bf3555e" title="他の線分と交点が存在しているかどうか調べる関数．" alt="" coords="278,539,445,581"/>
+<area shape="poly" id="edge15_Node000013_Node000016" title=" " alt="" coords="519,458,514,462,499,478,491,495,482,512,466,529,446,540,443,536,462,525,478,509,486,492,494,475,510,458,516,454"/>
+<area shape="rect" id="Node000017" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#aeed1296b4886eb07bc095ca2b5e8c333" title="脚が他の脚と干渉しているかどうかを判定する．" alt="" coords="24,539,192,581"/>
+<area shape="poly" id="edge16_Node000016_Node000017" title=" " alt="" coords="263,563,192,563,192,557,263,557"/>
+<area shape="rect" id="Node000027" href="$classdesignlab_1_1_dxlib_camera.html#a849d4bd740e6cebcbe726c7a537d74be" title="カメラの位置などの更新を行う．毎フレーム実行すること．" alt="" coords="282,981,441,1024"/>
+<area shape="poly" id="edge26_Node000026_Node000027" title=" " alt="" coords="497,1005,441,1005,441,1000,497,1000"/>
 </map>

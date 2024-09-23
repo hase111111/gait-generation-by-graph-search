@@ -1,0 +1,5 @@
+<map id="designlab::AverageCalculator::Calculate" name="designlab::AverageCalculator::Calculate">
+<area shape="rect" id="Node000001" title="平均値，分散，標準偏差を計算する．" alt="" coords="242,5,430,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_average_calculator.html#aedd3b215a9a9fb5863936ff5222bac78" title="データを追加する． &#160;&#160;この関数を呼び出すたびに，平均値，分散，標準偏差が再計算される．" alt="" coords="5,5,194,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="227,29,194,29,194,24,227,24"/>
+</map>

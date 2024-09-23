@@ -1,5 +1,7 @@
 <map id="designlab::InterpolatedNodeCreator::CreateInterpolatedNode" name="designlab::InterpolatedNodeCreator::CreateInterpolatedNode">
-<area shape="rect" id="Node000001" title="ノード間を補間する．" alt="" coords="249,5,455,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_interpolate_validatordocs#a5317df06cf659fb275d74eb8c8f4924e" title="2つのノード間を矩形軌道で補完し，可動範囲外を通過しないか検証する．" alt="" coords="5,5,201,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="233,29,201,29,201,24,233,24"/>
+<area shape="rect" id="Node000001" title="ノード間を補間する．" alt="" coords="249,39,455,81"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_interpolate_validator.html#a5317df06cf659fb275d74eb8c8f4924e" title="2つのノード間を矩形軌道で補完し，可動範囲外を通過しないか検証する．" alt="" coords="5,5,201,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="234,47,201,42,201,37,234,42"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_graphic_main_basic.html#a21631baec22e6a7008896e3a66407f13" title="描画画面の更新を行う．純粋仮想関数のため， 継承先では必ず override する必要がある．" alt="" coords="8,72,198,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="234,78,199,83,198,78,234,73"/>
 </map>

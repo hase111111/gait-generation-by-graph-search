@@ -1,4 +1,0 @@
-var phantomx__mk2__const_8h =
-[
-    [ "designlab::PhantomXMkIIConst", "classdesignlab_1_1_phantom_x_mk_i_i_constdocs", "classdesignlab_1_1_phantom_x_mk_i_i_const" ]
-];

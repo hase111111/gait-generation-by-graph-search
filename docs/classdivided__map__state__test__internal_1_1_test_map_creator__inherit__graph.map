@@ -1,5 +1,5 @@
 <map id="divided_map_state_test_internal::TestMapCreator" name="divided_map_state_test_internal::TestMapCreator">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,80,176,123"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_map_creatordocs" title="マップ生成クラスのインターフェース．" alt="" coords="13,5,168,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,48,93,80,88,80,88,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_map_creator.html" title="マップ生成クラスのインターフェース．" alt="" coords="13,5,168,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,47,93,80,88,80,88,47"/>
 </map>

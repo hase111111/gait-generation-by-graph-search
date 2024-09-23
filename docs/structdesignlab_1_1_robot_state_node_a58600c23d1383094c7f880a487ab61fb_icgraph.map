@@ -1,0 +1,7 @@
+<map id="designlab::RobotStateNode::ChangeLootNode" name="designlab::RobotStateNode::ChangeLootNode">
+<area shape="rect" id="Node000001" title="自身を根ノードに変更する関数． &#160;&#160;depthを0に，parent_numを&#45;1に初期化する．" alt="" coords="272,35,451,77"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="5,5,224,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="256,46,224,42,224,37,257,41"/>
+<area shape="rect" id="Node000003" href="$gait__pattern__graph__tree__test_8h.html#a15f0aee647853b40dfe34c6369d1f230" title=" " alt="" coords="66,72,163,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="257,71,164,82,164,77,257,66"/>
+</map>

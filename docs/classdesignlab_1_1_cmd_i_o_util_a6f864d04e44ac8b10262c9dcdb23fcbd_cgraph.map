@@ -1,5 +1,9 @@
 <map id="designlab::CmdIOUtil::OutputHorizontalLine" name="designlab::CmdIOUtil::OutputHorizontalLine">
-<area shape="rect" id="Node000001" title="コマンドラインに水平線を出力する関数．" alt="" coords="5,5,156,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_cmd_i_o_utildocs#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="204,5,347,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,24,188,24,188,29,156,29"/>
+<area shape="rect" id="Node000001" title="コマンドラインに水平線を出力する関数．" alt="" coords="5,39,156,81"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="204,39,347,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,57,189,57,189,63,156,63"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数． &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている． &#160;&#160;例えば，" alt="" coords="395,5,582,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="347,46,379,41,380,46,348,51"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数．指定した文字で文字列を分割する． &#160;&#160;分割した結果，空白が含まれる場合や文字列がない場合は，そのまま返す． &#160;&#160;最後が区切り文字で終わる場合は，それを無視する．" alt="" coords="419,72,559,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="348,69,404,77,403,83,347,74"/>
 </map>

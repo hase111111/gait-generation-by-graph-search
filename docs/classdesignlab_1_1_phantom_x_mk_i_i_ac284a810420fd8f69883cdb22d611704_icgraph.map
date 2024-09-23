@@ -1,0 +1,7 @@
+<map id="designlab::PhantomXMkII::GetFreeLegPosLegCoordinate" name="designlab::PhantomXMkII::GetFreeLegPosLegCoordinate">
+<area shape="rect" id="Node000001" title="遊脚する位置を返す，脚座標系．" alt="" coords="248,39,451,81"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a2d84fda12ddad344e7de4c0e023ffd4f" title="胴体が地面と干渉しているかどうかを判定する．" alt="" coords="5,5,200,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="233,47,200,42,200,37,233,42"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#aab0677aba41eed4d1138c6adacc27fa1" title="脚が可動範囲内にあるかどうかを判定する．" alt="" coords="19,72,186,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="233,78,187,85,186,79,233,73"/>
+</map>

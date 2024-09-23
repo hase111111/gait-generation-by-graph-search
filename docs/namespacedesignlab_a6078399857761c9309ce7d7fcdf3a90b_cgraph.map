@@ -1,11 +1,11 @@
 <map id="designlab::ToEulerXYZ" name="designlab::ToEulerXYZ">
 <area shape="rect" id="Node000001" title="クォータニオンからXYZオイラー角への変換．" alt="" coords="5,31,157,57"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlabdocs#a78f534befd80ba94ea6c6058487d2596" title="回転角行列からXYZオイラー角への変換．" alt="" coords="220,5,372,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,32,204,27,205,32,157,38"/>
-<area shape="rect" id="Node000003" href="$namespacedesignlabdocs#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換．" alt="" coords="205,56,387,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="157,50,189,54,189,59,157,56"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaterniondocs#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="435,48,582,91"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab.html#a78f534befd80ba94ea6c6058487d2596" title="回転角行列からXYZオイラー角への変換．" alt="" coords="220,5,372,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,32,205,27,205,32,157,38"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換．" alt="" coords="205,56,387,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="157,50,190,54,190,59,157,56"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="435,48,582,91"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="388,67,420,67,420,72,388,72"/>
-<area shape="rect" id="Node000005" href="$structdesignlab_1_1_quaterniondocs#a56bbbd522805450144f54aae7dbd117e" title="クォータニオンのノルムを返す． &#160;&#160;ノルムとは，ベクトルの大きさのこと． クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 の平方根で求められる．" alt="" coords="630,48,778,91"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="583,67,614,67,614,72,583,72"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_quaternion.html#a56bbbd522805450144f54aae7dbd117e" title="クォータニオンのノルムを返す． &#160;&#160;ノルムとは，ベクトルの大きさのこと． クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 の平方根で求められる．" alt="" coords="630,48,778,91"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="583,67,615,67,615,72,583,72"/>
 </map>

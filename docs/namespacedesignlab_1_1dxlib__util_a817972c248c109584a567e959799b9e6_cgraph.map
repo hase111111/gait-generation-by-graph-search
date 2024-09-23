@@ -1,7 +1,7 @@
 <map id="designlab::dxlib_util::InitDxlib3DSetting" name="designlab::dxlib_util::InitDxlib3DSetting">
 <area shape="rect" id="Node000001" title="3D処理を行う上で必要な初期化処理をまとめたもの．" alt="" coords="5,39,141,81"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1dxlib__utildocs#aceffcb5f4496686bed7db7fc55488958" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する． &#160;&#160;ロボット座標系は右手座標系， Dxlibは左手座標系（工学は右手・ゲームライブラリは左手が多い）なのでyを..." alt="" coords="189,5,327,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,45,173,39,174,44,142,50"/>
-<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector3docs#a49ed064fabc10cd349d8f02e7f8d5bfd" title="上に進む単位ベクトルを返す． 静的な関数なので，Vector3::GetUpVec() と呼び出せる．" alt="" coords="193,72,323,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="142,70,178,76,178,82,141,75"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1dxlib__util.html#aceffcb5f4496686bed7db7fc55488958" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する． &#160;&#160;ロボット座標系は右手座標系， Dxlibは左手座標系（工学は右手・ゲームライブラリは左手が多い）なのでyを..." alt="" coords="189,5,327,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,45,174,39,175,44,142,50"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector3.html#a49ed064fabc10cd349d8f02e7f8d5bfd" title="上に進む単位ベクトルを返す． 静的な関数なので，Vector3::GetUpVec() と呼び出せる．" alt="" coords="193,72,323,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="142,70,179,76,178,82,141,75"/>
 </map>

@@ -1,0 +1,7 @@
+<map id="designlab::string_util::GetTypeName" name="designlab::string_util::GetTypeName">
+<area shape="rect" id="Node000001" title=" " alt="" coords="242,39,382,81"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib_gui_terminal.html#ae9427d4a42e594d1b4e0f3984dc6f353" title=" " alt="" coords="8,5,191,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="227,49,191,44,192,38,228,44"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_map_creator_by_csv.html#af886237c7efec7562463866380a89a74" title="コンストラクタで作成するマップ情報を与える" alt="" coords="5,72,194,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="227,76,195,81,194,76,226,71"/>
+</map>

@@ -1,16 +1,20 @@
 <map id="designlab::CmdIOUtil::OutputTitle" name="designlab::CmdIOUtil::OutputTitle">
 <area shape="rect" id="Node000001" title="コマンドラインにこのソフトのタイトルを出力する関数． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="5,105,149,148"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_cmd_i_o_utildocs#ab32a7649e9c86ded7b337e6246247c57" title="中央に文字を出力する関数． 文字列が長すぎる場合は普通に左詰めで出力される．" alt="" coords="200,5,344,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,102,195,58,205,53,208,58,198,62,116,107"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_cmd_i_o_utildocs#a6f864d04e44ac8b10262c9dcdb23fcbd" title="コマンドラインに水平線を出力する関数．" alt="" coords="197,72,347,115"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="148,112,181,106,182,111,149,117"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_cmd_i_o_utildocs#a563e04e0ce3cf7b6c988a94b887a74b9" title="コマンドラインで改行をする関数．" alt="" coords="200,139,344,181"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="149,136,185,143,184,148,148,142"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_cmd_i_o_utildocs#ac8d2ba7c9fd6850d56615a9fdaeddc2d" title="右端に文字を出力する関数． 文字列が長すぎる場合は普通に左詰めで出力される．" alt="" coords="200,205,344,248"/>
-<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="116,146,198,191,208,196,205,201,195,196,114,151"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_cmd_i_o_utildocs#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="395,105,538,148"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="325,46,348,58,417,95,414,100,346,62,322,51"/>
-<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="348,104,380,109,379,114,347,109"/>
-<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="343,145,379,139,380,144,344,150"/>
-<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="322,202,346,191,414,154,417,158,348,196,325,207"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_cmd_i_o_util.html#ab32a7649e9c86ded7b337e6246247c57" title="中央に文字を出力する関数． 文字列が長すぎる場合は普通に左詰めで出力される．" alt="" coords="200,5,344,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,102,195,58,206,52,208,57,198,62,116,107"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_cmd_i_o_util.html#a6f864d04e44ac8b10262c9dcdb23fcbd" title="コマンドラインに水平線を出力する関数．" alt="" coords="197,72,347,115"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="148,112,181,106,182,111,149,117"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_cmd_i_o_util.html#a563e04e0ce3cf7b6c988a94b887a74b9" title="コマンドラインで改行をする関数．" alt="" coords="200,139,344,181"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="149,136,186,143,185,148,148,142"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_cmd_i_o_util.html#ac8d2ba7c9fd6850d56615a9fdaeddc2d" title="右端に文字を出力する関数． 文字列が長すぎる場合は普通に左詰めで出力される．" alt="" coords="200,205,344,248"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="116,146,198,191,208,196,206,201,195,196,114,151"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="395,105,538,148"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="325,46,348,58,417,95,415,100,346,62,322,51"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数． &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている． &#160;&#160;例えば，" alt="" coords="586,72,774,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="538,113,571,108,572,113,539,118"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数．指定した文字で文字列を分割する． &#160;&#160;分割した結果，空白が含まれる場合や文字列がない場合は，そのまま返す． &#160;&#160;最後が区切り文字で終わる場合は，それを無視する．" alt="" coords="610,139,750,181"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="539,135,596,144,595,149,538,140"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="348,104,381,109,380,115,347,109"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="343,145,380,139,381,144,344,150"/>
+<area shape="poly" id="edge10_Node000008_Node000003" title=" " alt="" coords="322,202,346,191,415,153,417,158,348,196,325,207"/>
 </map>

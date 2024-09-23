@@ -1,0 +1,5 @@
+<map id="designlab::GraphSearcherTurn::SearchGraphTree" name="designlab::GraphSearcherTurn::SearchGraphTree">
+<area shape="rect" id="Node000001" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="247,5,418,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graph_searcher_turn.html#a8b852fb376ce532c76565f44f6cedec9" title=" " alt="" coords="5,5,199,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,29,199,29,199,24,232,24"/>
+</map>

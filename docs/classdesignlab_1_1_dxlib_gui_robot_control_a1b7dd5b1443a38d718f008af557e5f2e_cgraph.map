@@ -1,0 +1,5 @@
+<map id="designlab::DxlibGuiRobotControl::Draw" name="designlab::DxlibGuiRobotControl::Draw">
+<area shape="rect" id="Node000001" title="GUIの描画．" alt="" coords="5,5,173,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_abstract_dxlib_gui.html#a0ec38a04b4771935e3877f4078a25c8c" title=" " alt="" coords="221,5,383,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,24,206,24,206,29,173,29"/>
+</map>

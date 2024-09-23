@@ -1,0 +1,9 @@
+<map id="designlab::RobotGroundPointRenderer::Draw" name="designlab::RobotGroundPointRenderer::Draw">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,39,196,81"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1dxlib__util.html#aceffcb5f4496686bed7db7fc55488958" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する． &#160;&#160;ロボット座標系は右手座標系， Dxlibは左手座標系（工学は右手・ゲームライブラリは左手が多い）なのでyを..." alt="" coords="262,5,401,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,44,247,36,248,41,196,49"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1dxlib__util.html#a170cac2fc964414af49c550aee6583c8" title="3D空間に立方体を描画する．立方体の上面の中心の座標から描画する．" alt="" coords="244,72,419,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="196,71,229,76,228,81,196,76"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1dxlib__util.html#aec08fe28b57053d60e3085bd20ce8b25" title="3D空間に立方体を描画する．" alt="" coords="467,72,602,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="420,91,452,91,452,96,420,96"/>
+</map>

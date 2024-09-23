@@ -1,0 +1,5 @@
+<map id="designlab::math_util::LimitRangeAngleDeg" name="designlab::math_util::LimitRangeAngleDeg">
+<area shape="rect" id="Node000001" title="角度を &#45;180° ～ 180° の範囲に収める関数．" alt="" coords="151,5,301,48"/>
+<area shape="rect" id="Node000002" href="$math__util__test_8h.html#af196a7e8b40c61b0ea9a33dd540297f0" title=" " alt="" coords="5,13,103,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,29,103,29,103,24,136,24"/>
+</map>

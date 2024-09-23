@@ -1,0 +1,7 @@
+<map id="designlab::DxlibNodeSetterGroup::Register" name="designlab::DxlibNodeSetterGroup::Register">
+<area shape="rect" id="Node000001" title="ノードの設定を行うクラスを登録する．" alt="" coords="272,39,450,81"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graphic_main_display_model.html#af42c7a85c4334dec044d664a36cf7f34" title=" " alt="" coords="7,5,222,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="257,49,222,44,223,39,257,43"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_graphic_main_robot_control.html#ad643aefb41adbe094e4f81ddd576597b" title=" " alt="" coords="5,72,224,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="257,77,225,81,224,76,256,71"/>
+</map>

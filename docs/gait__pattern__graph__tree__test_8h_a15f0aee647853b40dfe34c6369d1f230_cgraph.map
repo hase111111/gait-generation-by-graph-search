@@ -1,0 +1,9 @@
+<map id="TEST_SUITE" name="TEST_SUITE">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,13,103,40"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_robot_state_node.html#a58600c23d1383094c7f880a487ab61fb" title="自身を根ノードに変更する関数． &#160;&#160;depthを0に，parent_numを&#45;1に初期化する．" alt="" coords="151,5,330,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,24,136,24,136,29,103,29"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_quaternion.html#a45dfcf48edea7b439e7d189d0d105bfa" title="自身を正規化する．ノルムが１になる．" alt="" coords="378,5,525,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="330,24,363,24,363,29,330,29"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="573,5,721,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="526,24,558,24,558,29,526,29"/>
+</map>

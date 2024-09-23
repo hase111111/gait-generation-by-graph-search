@@ -1,5 +1,5 @@
 <map id="designlab::SimulationEndCheckerByPosture" name="designlab::SimulationEndCheckerByPosture">
 <area shape="rect" id="Node000001" title="最終姿勢によるシミュレーション終了判定クラス．" alt="" coords="7,96,175,139"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_simulation_end_checkerdocs" title="シミュレーションの終了を判定するクラスのインターフェース．" alt="" coords="5,5,177,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,64,94,96,88,96,88,64"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_simulation_end_checker.html" title="シミュレーションの終了を判定するクラスのインターフェース．" alt="" coords="5,5,177,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,63,94,96,88,96,88,63"/>
 </map>

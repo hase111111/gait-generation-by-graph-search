@@ -1,0 +1,25 @@
+<map id="designlab::GraphSearcherSpotTurn::SearchGraphTreeVector" name="designlab::GraphSearcherSpotTurn::SearchGraphTreeVector">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,72,226,115"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graph_search_evaluator.html#afec9e5848a45da7d934104e85140169f" title="評価値を初期化する． 自身の持つ評価方法を用いて，評価値を初期化する．" alt="" coords="504,5,717,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,76,489,40,490,46,226,81"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_graph_search_evaluator.html#ae225cfba0b80231e46ed4865b9c2013e" title="2つの評価値を比較する．左側の評価値が良い場合は true を返す．" alt="" coords="504,72,717,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="226,91,490,91,490,96,226,96"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_graph_searcher_spot_turn.html#a14d0f85dce3acf5c7715e52f03cb4701" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="274,239,456,281"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="151,113,321,228,318,232,148,117"/>
+<area shape="poly" id="edge10_Node000004_Node000002" title=" " alt="" coords="373,237,391,199,420,151,457,101,502,58,509,54,512,58,506,62,461,104,424,153,396,201,378,240"/>
+<area shape="poly" id="edge11_Node000004_Node000003" title=" " alt="" coords="381,237,432,181,465,151,503,124,513,119,515,123,505,129,469,155,435,185,385,240"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab_1_1math__util.html#a71ec8fe6a47e6e7618a53957fd0b8b10" title="角度を [deg] から [rad] に変換する関数．" alt="" coords="542,539,679,581"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="374,281,389,331,415,397,453,466,478,497,506,525,530,540,527,544,502,529,474,501,449,468,410,399,384,333,369,283"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#af2594414411d9eb5e9103d30dffe9714" title="グラフのノードの総数を返す．" alt="" coords="518,139,703,181"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="406,236,503,191,520,184,522,189,505,196,408,241"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#ac9d24a79c7d5e3db0eb943cd9ecd446d" title="グラフのノードの参照を返す．" alt="" coords="518,205,703,248"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="456,245,503,239,504,244,457,250"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#a7d5f0968cb4718d9baf449222e0ec7d8" title="指定したノードの親ノードの参照を返す．depthは親ノードの深さを指定する．" alt="" coords="518,272,703,315"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="457,270,504,276,503,281,456,275"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#a58dc796c0ec1334efff0cbcaee77eb6e" title="グラフの根ノードの参照を返す．" alt="" coords="518,339,703,381"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="408,279,505,324,522,331,520,336,503,329,406,284"/>
+<area shape="rect" id="Node000010" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#adfa3cd34663f368fe3e9e76962b38898" title="グラフが根ノードを持つかどうかを返す． &#160;&#160;根ノードとは，親を持たないノードのこと． &#160;&#160;一番最初に追加するノードは必ず根になるため， 根を持つかどうかはノードの総数が0でないかどうかで判定できる．" alt="" coords="518,405,703,448"/>
+<area shape="poly" id="edge9_Node000004_Node000010" title=" " alt="" coords="385,280,435,335,469,365,505,391,515,397,513,401,503,396,465,369,432,339,381,283"/>
+<area shape="rect" id="Node000011" href="$structdesignlab_1_1_quaternion.html#a557aa980908890a7c7e5b6e2caab9301" title="回転軸と回転角からクォータニオンを作成する． &#160;&#160;q = cos(θ/2) * w + sin(θ/2) * { v.x + v.y + v.z } となる． ノルムは必ず1になる．" alt="" coords="537,472,684,515"/>
+<area shape="poly" id="edge12_Node000004_Node000011" title=" " alt="" coords="378,280,396,319,424,367,461,416,506,458,525,469,522,474,502,462,457,419,420,369,391,321,373,283"/>
+</map>

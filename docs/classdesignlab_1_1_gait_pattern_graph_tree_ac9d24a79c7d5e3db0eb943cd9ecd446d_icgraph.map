@@ -1,14 +1,20 @@
 <map id="designlab::GaitPatternGraphTree::GetNode" name="designlab::GaitPatternGraphTree::GetNode">
 <area shape="rect" id="Node000001" title="グラフのノードの参照を返す．" alt="" coords="545,123,730,165"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graph_tree_creatordocs#a9a8a2cff8af6b99342e88c5cb1cd52ab" title="歩容パターングラフを作成する．" alt="" coords="301,5,488,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="586,117,496,69,454,51,456,46,498,64,589,112"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_gait_pattern_generator_threaddocs#af6729bdafbd310f762733e7fa10f8df5" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,35,244,77"/>
-<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="534,121,497,113,366,91,244,73,245,68,367,86,497,108,535,116"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_graph_searcher_spot_turndocs#a14d0f85dce3acf5c7715e52f03cb4701" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="303,123,486,165"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graph_tree_creator.html#a9a8a2cff8af6b99342e88c5cb1cd52ab" title="歩容パターングラフを作成する．" alt="" coords="301,5,488,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="587,117,496,69,454,51,456,46,498,64,589,113"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_gait_pattern_generator_thread.html#af6729bdafbd310f762733e7fa10f8df5" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,27,244,69"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="534,121,496,113,244,68,245,63,498,108,535,116"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_graph_searcher_spot_turn.html#a14d0f85dce3acf5c7715e52f03cb4701" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="303,123,486,165"/>
 <area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="530,147,486,147,486,141,530,141"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_graph_searcher_straight_movedocs#a64643a2293909dc6b0166a916c5b26ee" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="292,189,497,232"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="543,173,476,191,474,186,542,167"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_graph_searcher_turndocs#ac22fbad22f153e4d367575fe6cc55197" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="309,256,480,299"/>
-<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="601,177,554,213,498,246,472,258,470,253,496,242,551,208,598,173"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="286,41,244,46,244,40,285,36"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_graph_searcher_straight_move.html#a64643a2293909dc6b0166a916c5b26ee" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="292,189,497,232"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="544,172,476,191,474,186,543,167"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_graph_searcher_turn.html#ac22fbad22f153e4d367575fe6cc55197" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="309,260,480,303"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="601,177,553,212,498,246,464,262,462,257,496,242,550,208,598,173"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="287,38,244,41,244,36,286,33"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_graph_searcher_spot_turn.html#ade6020c031aed0563a16903da96ff064" title=" " alt="" coords="14,115,235,157"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="288,144,235,142,235,137,288,138"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_graph_searcher_straight_move.html#a012acb8e429cb97dc3843f2d80e16a70" title=" " alt="" coords="22,181,227,240"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="277,213,228,213,228,208,277,208"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_graph_searcher_turn.html#a8b852fb376ce532c76565f44f6cedec9" title=" " alt="" coords="28,264,221,307"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="294,285,222,287,222,281,294,280"/>
 </map>

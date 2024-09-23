@@ -1,5 +1,18 @@
 <map id="designlab::Quaternion::MakeByAngleAxis" name="designlab::Quaternion::MakeByAngleAxis">
-<area shape="rect" id="Node000001" title="回転軸と回転角からクォータニオンを作成する． &#160;&#160;q = cos(θ/2) * w + sin(θ/2) * { v.x + v.y + v.z } となる． ノルムは必ず1になる．" alt="" coords="228,5,375,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_camera_draggerdocs#ad9f9da3070ea76a8ae205590e5599d10" title="ドラッグ中の処理を行う． &#160;&#160;カーソルは上にあるけど，ドラッグ中ではない場合でも呼び出される．" alt="" coords="5,5,180,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="212,29,180,29,180,24,212,24"/>
+<area shape="rect" id="Node000001" title="回転軸と回転角からクォータニオンを作成する． &#160;&#160;q = cos(θ/2) * w + sin(θ/2) * { v.x + v.y + v.z } となる． ノルムは必ず1になる．" alt="" coords="508,160,655,203"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_node_creator_body_rot.html#a162277203f0422a351c4d24e8167d43d" title="現在のノードから次のノード群を生成する．" alt="" coords="274,5,460,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="553,150,511,105,459,62,437,51,440,46,461,58,515,101,557,147"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_camera_dragger.html#ad9f9da3070ea76a8ae205590e5599d10" title="ドラッグ中の処理を行う． &#160;&#160;カーソルは上にあるけど，ドラッグ中ではない場合でも呼び出される．" alt="" coords="280,72,454,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="513,156,420,118,422,113,515,151"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_dxlib_camera.html#a629d7ad98ab88714cfd0fd686baa774f" title=" " alt="" coords="36,160,195,203"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="493,181,460,180,274,180,195,182,195,176,274,175,460,175,493,175"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_graph_searcher_spot_turn.html#a14d0f85dce3acf5c7715e52f03cb4701" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="276,256,458,299"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="530,212,461,246,433,258,431,253,459,242,528,208"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_dxlib_camera.html#ae1a392104aa1cd5607559982e53cd5db" title="カメラのモードをセットする．同時にカメラの目標回転角度などを設定する．" alt="" coords="288,189,446,232"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="494,196,447,202,446,197,493,191"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_robot_operator_for_path.html#a1cd3621fbeb19e849d7a3a749aea8162" title="ロボットの動作を更新する．" alt="" coords="283,323,451,365"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="559,216,517,266,490,291,461,313,440,325,438,320,459,308,487,287,513,262,555,213"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_graph_searcher_spot_turn.html#ade6020c031aed0563a16903da96ff064" title=" " alt="" coords="5,256,226,299"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="260,280,226,280,226,275,260,275"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="272,202,195,193,196,188,273,197"/>
 </map>

@@ -1,7 +1,7 @@
 <map id="designlab::CameraDragger" name="designlab::CameraDragger">
 <area shape="rect" id="Node000001" title="マウスの入力でカメラを動かすクラス．" alt="" coords="109,80,284,107"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_dxlib_draggabledocs" title="ドラッグ可能なGUIのインターフェース．" alt="" coords="5,5,180,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,39,180,77,177,82,121,43"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_i_dxlib_wheel_handlerdocs" title="マウスホイールの入力を受け取るためのインターフェース．" alt="" coords="203,5,401,32"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="273,43,216,82,213,77,270,39"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_dxlib_draggable.html" title="ドラッグ可能なGUIのインターフェース．" alt="" coords="5,5,180,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,38,180,77,177,82,121,43"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_i_dxlib_wheel_handler.html" title="マウスホイールの入力を受け取るためのインターフェース．" alt="" coords="203,5,401,32"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="273,43,216,82,213,77,270,38"/>
 </map>

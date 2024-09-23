@@ -1,21 +1,9 @@
 <map id="cpplint.ShouldCheckNamespaceIndentation" name="cpplint.ShouldCheckNamespaceIndentation">
-<area shape="rect" id="Node000001" title=" " alt="" coords="874,48,1083,91"/>
-<area shape="rect" id="Node000002" href="$namespacecpplintdocs#a98bd45db7f6376b48ba397d1b06df2e7" title=" " alt="" coords="695,56,826,83"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="858,72,826,72,826,67,858,67"/>
-<area shape="rect" id="Node000003" href="$namespacecpplintdocs#ad02e7ecfbf3d754163caa2c9f48c6746" title=" " alt="" coords="445,5,636,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="684,55,601,35,602,30,685,49"/>
-<area shape="rect" id="Node000009" href="$namespacecpplintdocs#a92ea46979dfe7a731eedfc00f98e6908" title=" " alt="" coords="211,56,359,83"/>
-<area shape="poly" id="edge4_Node000002_Node000009" title=" " alt="" coords="680,72,359,72,359,67,680,67"/>
-<area shape="rect" id="Node000010" href="$namespacecpplintdocs#a42b46bcf4926559c5b946a0bccef5bf3" title=" " alt="" coords="434,132,647,159"/>
-<area shape="poly" id="edge6_Node000002_Node000010" title=" " alt="" coords="706,91,583,134,581,129,704,86"/>
-<area shape="rect" id="Node000004" href="$namespacecpplintdocs#a2ce48db291ac037321d21b3ba3f70066" title=" " alt="" coords="5,107,136,133"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="430,15,372,15,310,20,246,30,185,47,156,59,130,76,88,108,85,104,127,71,154,54,183,41,245,25,309,15,372,10,430,9"/>
-<area shape="poly" id="edge5_Node000009_Node000004" title=" " alt="" coords="211,89,131,109,129,103,210,84"/>
-<area shape="poly" id="edge9_Node000010_Node000004" title=" " alt="" coords="418,141,136,126,136,121,419,136"/>
-<area shape="rect" id="Node000011" href="$namespacecpplintdocs#aafc4fb5ea490272ca6a006b9e9a1b21f" title=" " alt="" coords="214,157,356,184"/>
-<area shape="poly" id="edge7_Node000010_Node000011" title=" " alt="" coords="419,160,356,166,356,161,418,155"/>
-<area shape="rect" id="Node000012" href="$namespacecpplintdocs#a2b9c6e28290cdb4f61d1752214e47588" title=" " alt="" coords="184,208,386,235"/>
-<area shape="poly" id="edge10_Node000010_Node000012" title=" " alt="" coords="487,167,387,199,345,210,343,205,385,193,485,162"/>
-<area shape="poly" id="edge8_Node000011_Node000004" title=" " alt="" coords="210,156,129,137,131,131,211,151"/>
-<area shape="poly" id="edge11_Node000012_Node000004" title=" " alt="" coords="200,205,183,198,128,167,87,136,90,132,131,163,185,194,202,200"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="632,5,842,48"/>
+<area shape="rect" id="Node000002" href="$namespacecpplint.html#aa6e33062b311eb8df8b394968bb8e057" title=" " alt="" coords="396,5,584,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="617,29,585,29,585,24,617,24"/>
+<area shape="rect" id="Node000003" href="$namespacecpplint.html#a60ab7d00cbd976925382b70bbf1fb2cf" title=" " alt="" coords="213,13,348,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="381,29,348,29,348,24,381,24"/>
+<area shape="rect" id="Node000004" href="$namespacecpplint.html#af49dbbca393312acfa3a46984665eaff" title=" " alt="" coords="5,13,165,40"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="198,29,165,29,165,24,198,24"/>
 </map>

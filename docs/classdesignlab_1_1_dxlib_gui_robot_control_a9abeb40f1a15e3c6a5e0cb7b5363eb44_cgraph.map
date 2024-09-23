@@ -1,0 +1,5 @@
+<map id="designlab::DxlibGuiRobotControl::~DxlibGuiRobotControl" name="designlab::DxlibGuiRobotControl::~DxlibGuiRobotControl">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,208,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_serial_communication_thread.html#a452462cadb075b9d4705c3c23fc61647" title="シリアル通信のスレッドを終了する．" alt="" coords="256,5,463,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,24,241,24,241,29,208,29"/>
+</map>

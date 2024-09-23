@@ -1,5 +1,5 @@
 <map id="designlab::SystemMainGraphViewer" name="designlab::SystemMainGraphViewer">
 <area shape="rect" id="Node000001" title="グラフを表示するシステムのメインクラス．" alt="" coords="5,80,198,123"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_system_maindocs" title="プログラムの面の処理のインターフェース．" alt="" coords="21,5,182,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,48,104,80,99,80,99,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_system_main.html" title="プログラムの面の処理のインターフェース．" alt="" coords="21,5,182,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,47,104,80,99,80,99,47"/>
 </map>

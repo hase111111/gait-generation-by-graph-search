@@ -1,0 +1,7 @@
+<map id="designlab::DxlibGuiDisplayNodeSwitcher::DxlibGuiDisplayNodeSwitcher" name="designlab::DxlibGuiDisplayNodeSwitcher::DxlibGuiDisplayNodeSwitcher">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,237,64"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_abstract_dxlib_gui.html#a9b64bfdbc0c66ab19bed71eb4ec11955" title="GUIの表示を行うかどうかを設定する．" alt="" coords="285,13,447,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="237,32,270,32,270,37,237,37"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_abstract_dxlib_gui.html#a0af50aac58a6b9e37be44a94870a0e0f" title="GUIの位置を設定する． &#160;&#160;Dxlibの画面の座標は左上を原点とし，右下に行くほど値が大きくなる． &#160;&#160;横方向にx軸，縦方向にy軸をとる．" alt="" coords="495,13,657,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="447,32,480,32,480,37,447,37"/>
+</map>

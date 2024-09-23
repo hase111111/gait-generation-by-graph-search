@@ -1,17 +1,17 @@
 <map id="designlab::Vector2::GetSquaredLength" name="designlab::Vector2::GetSquaredLength">
 <area shape="rect" id="Node000001" title="このベクトルの長さの2乗を返す．" alt="" coords="653,72,791,115"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector2docs#ab62323b441e66a37e41668fb0ac7ae99" title="このベクトルの長さを返す．" alt="" coords="457,39,586,81"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector2.html#ab62323b441e66a37e41668fb0ac7ae99" title="このベクトルの長さを返す．" alt="" coords="457,39,586,81"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="638,82,586,73,587,68,639,77"/>
-<area shape="rect" id="Node000008" href="$classdesignlab_1_1_phantom_x_mk_i_idocs#aab0677aba41eed4d1138c6adacc27fa1" title="脚が可動範囲内にあるかどうかを判定する．" alt="" coords="438,105,605,148"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="639,110,606,115,605,110,638,105"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_phantom_x_mk_i_idocs#ac027dc121a54e00da42ffcbab0028561" title="指定した脚の関節のグローバル座標と，角度を計算する． &#160;&#160;重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない． &#160;&#160;間接の可動範囲外まで動いてしまう場合でも，答えを返す． &#160;&#160;目標座標..." alt="" coords="223,5,390,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="441,50,390,42,391,37,442,45"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector2docs#a5b486befcef8a9c50ff78137783c3ba9" title="このベクトルを正規化したベクトルを返す．" alt="" coords="242,72,371,115"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="442,75,372,86,371,81,441,70"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_phantom_x_mk_i_idocs#a688e8dd6b7f92d5b1a4fa8d4fbcc2714" title="安定余裕(Stability Margin)を計算する． 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい． &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計..." alt="" coords="5,5,175,48"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="226,72,161,51,163,46,228,66"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_com_selectordocs#afe154bc35f0971d6c2c2a649299b23c3" title="重心を求める．" alt="" coords="10,72,170,115"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="226,96,170,96,170,91,226,91"/>
-<area shape="rect" id="Node000007" href="$structdesignlab_1_1_vector2docs#ac75623bf80d61ccba4a26c6810eddd3c" title="このベクトルを正規化する． &#160;&#160;絶対値が0のベクトルの場合，そのまま0ベクトルになる．" alt="" coords="25,139,155,181"/>
-<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="228,120,156,143,154,138,226,115"/>
+<area shape="rect" id="Node000010" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#aab0677aba41eed4d1138c6adacc27fa1" title="脚が可動範囲内にあるかどうかを判定する．" alt="" coords="438,105,605,148"/>
+<area shape="poly" id="edge7_Node000001_Node000010" title=" " alt="" coords="639,110,606,115,605,110,639,104"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#ac027dc121a54e00da42ffcbab0028561" title="指定した脚の関節のグローバル座標と，角度を計算する． &#160;&#160;重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない． &#160;&#160;間接の可動範囲外まで動いてしまう場合でも，答えを返す． &#160;&#160;目標座標..." alt="" coords="223,5,390,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="442,50,390,42,391,37,443,45"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector2.html#a5b486befcef8a9c50ff78137783c3ba9" title="このベクトルを正規化したベクトルを返す．" alt="" coords="242,72,371,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="443,75,372,86,371,81,442,70"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a688e8dd6b7f92d5b1a4fa8d4fbcc2714" title="安定余裕(Stability Margin)を計算する． 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい． &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計..." alt="" coords="5,5,175,48"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="227,72,161,51,163,46,228,67"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_com_selector.html#afe154bc35f0971d6c2c2a649299b23c3" title="重心を求める．" alt="" coords="10,72,170,115"/>
+<area shape="poly" id="edge5_Node000004_Node000007" title=" " alt="" coords="227,96,170,96,170,91,227,91"/>
+<area shape="rect" id="Node000009" href="$structdesignlab_1_1_vector2.html#ac75623bf80d61ccba4a26c6810eddd3c" title="このベクトルを正規化する． &#160;&#160;絶対値が0のベクトルの場合，そのまま0ベクトルになる．" alt="" coords="25,139,155,181"/>
+<area shape="poly" id="edge6_Node000004_Node000009" title=" " alt="" coords="228,120,156,143,154,138,227,115"/>
 </map>

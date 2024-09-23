@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cpplint_0',['cpplint',['../namespacecpplintdocs',1,'']]]
+  ['cpplint_0',['cpplint',['../namespacecpplint.html',1,'']]]
 ];

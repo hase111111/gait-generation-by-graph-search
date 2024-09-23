@@ -1,22 +1,46 @@
 <map id="designlab::SystemMainResultViewer::Main" name="designlab::SystemMainResultViewer::Main">
-<area shape="rect" id="Node000001" title="主要な処理を行う関数．" alt="" coords="5,89,200,132"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_file_treedocs#a733878741b1e145e088254478a06d6e5" title="ディレクトリの中から，ファイルを一つ選択する．" alt="" coords="248,89,378,132"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,108,232,108,232,113,200,113"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_cmd_i_o_utildocs#a46968822c14aa0afa22c346a06afe753" title="整数を入力させる関数． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="426,23,569,65"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="373,86,422,69,423,74,375,91"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_cmd_i_o_utildocs#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="816,85,959,128"/>
-<area shape="poly" id="edge8_Node000002_Node000005" title=" " alt="" coords="328,87,368,45,395,24,425,8,488,3,599,3,709,7,768,12,794,24,818,39,857,72,854,76,815,43,791,29,767,17,709,12,599,9,488,9,427,13,398,28,372,49,332,91"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_cmd_i_o_utildocs#aa27aa18b11d6199f27f82cfe97241336" title="yesかnoを入力させる関数．返り値で yes なら true，noなら falseを返す． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="426,89,569,132"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="378,108,411,108,411,113,378,113"/>
-<area shape="rect" id="Node000007" href="$classdesignlab_1_1_cmd_i_o_utildocs#a6f864d04e44ac8b10262c9dcdb23fcbd" title="コマンドラインに水平線を出力する関数．" alt="" coords="617,144,768,187"/>
-<area shape="poly" id="edge9_Node000002_Node000007" title=" " alt="" coords="379,130,427,141,517,154,602,160,602,166,516,159,425,147,378,135"/>
-<area shape="rect" id="Node000008" href="$classdesignlab_1_1_cmd_i_o_utildocs#a563e04e0ce3cf7b6c988a94b887a74b9" title="コマンドラインで改行をする関数．" alt="" coords="621,211,764,253"/>
-<area shape="poly" id="edge11_Node000002_Node000008" title=" " alt="" coords="354,130,427,164,519,193,607,214,605,219,517,198,425,169,351,135"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_cmd_i_o_utildocs#ac1e70caf5bcc19c4ab42106c3e1dc9ab" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="621,27,764,69"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="570,43,606,44,606,49,569,48"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="765,67,802,78,800,83,764,72"/>
-<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="565,86,609,72,611,77,567,91"/>
-<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="570,107,800,105,800,110,570,113"/>
-<area shape="poly" id="edge10_Node000007_Node000005" title=" " alt="" coords="765,141,800,130,801,135,766,146"/>
-<area shape="poly" id="edge12_Node000008_Node000005" title=" " alt="" coords="745,208,766,197,810,167,849,136,852,140,813,171,769,201,748,212"/>
+<area shape="rect" id="Node000001" title="主要な処理を行う関数．" alt="" coords="5,305,200,348"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_result_file_importer.html#a6d2660954a38564ea358b2fb6da71036" title="ノードリストとマップの状態をファイルから読み込む．" alt="" coords="248,92,443,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,303,177,248,246,185,300,141,304,146,249,189,181,252,126,307"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="881,301,1024,344"/>
+<area shape="poly" id="edge9_Node000001_Node000004" title=" " alt="" coords="108,304,124,257,152,195,193,132,218,103,246,78,278,57,307,42,334,33,361,28,491,19,592,6,635,3,676,4,714,11,753,25,792,47,834,79,857,102,877,128,909,184,931,239,945,286,940,287,926,241,904,186,873,131,853,105,831,83,789,51,750,29,713,16,675,9,636,8,593,11,491,24,362,33,335,38,309,47,281,61,249,82,221,106,197,135,157,198,129,259,113,306"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_cmd_i_o_util.html#aa27aa18b11d6199f27f82cfe97241336" title="yesかnoを入力させる関数．返り値で yes なら true，noなら falseを返す． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="495,151,638,193"/>
+<area shape="poly" id="edge5_Node000001_Node000008" title=" " alt="" coords="149,302,247,261,368,222,479,191,481,196,369,227,249,266,151,307"/>
+<area shape="rect" id="Node000010" href="$classdesignlab_1_1_cmd_i_o_util.html#a6f864d04e44ac8b10262c9dcdb23fcbd" title="コマンドラインに水平線を出力する関数．" alt="" coords="491,335,641,377"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="200,330,476,348,476,353,200,335"/>
+<area shape="rect" id="Node000011" href="$classdesignlab_1_1_cmd_i_o_util.html#a563e04e0ce3cf7b6c988a94b887a74b9" title="コマンドラインで改行をする関数．" alt="" coords="495,401,638,444"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="200,344,480,402,479,407,199,349"/>
+<area shape="rect" id="Node000012" href="$classdesignlab_1_1_cmd_i_o_util.html#a5fb6070a9e27ce7644f6071cd56dcbc1" title="コマンドラインにこのソフトのタイトルを出力する関数． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="274,444,417,487"/>
+<area shape="poly" id="edge14_Node000001_Node000012" title=" " alt="" coords="133,346,186,384,249,423,273,435,271,440,246,428,183,388,130,351"/>
+<area shape="rect" id="Node000015" href="$classdesignlab_1_1_file_tree.html#a733878741b1e145e088254478a06d6e5" title="ディレクトリの中から，ファイルを一つ選択する．" alt="" coords="280,276,411,319"/>
+<area shape="poly" id="edge21_Node000001_Node000015" title=" " alt="" coords="200,312,265,304,266,309,200,317"/>
+<area shape="rect" id="Node000017" href="$classdesignlab_1_1_cmd_i_o_util.html#a438dd94d87d41b43af1e484690af5b8a" title="入力待ちをする関数． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="689,569,833,612"/>
+<area shape="poly" id="edge28_Node000001_Node000017" title=" " alt="" coords="117,347,138,381,167,422,205,463,249,496,301,523,357,543,414,560,472,572,582,586,674,590,674,595,581,591,471,577,413,565,355,549,299,527,246,501,201,467,163,425,133,384,113,350"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_cmd_i_o_util.html#a2fe5f9aa287a9bddd51a4b1321d9e2f6" title="コマンドラインに文字を出力する関数．Error用の出力．" alt="" coords="689,93,833,136"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="444,111,675,112,675,117,443,116"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_map_state.html#a221db2fa4a7021da6e9b240c209fa59c" title="脚設置可能点の総数を返す．" alt="" coords="496,33,636,76"/>
+<area shape="poly" id="edge4_Node000002_Node000007" title=" " alt="" coords="427,89,481,74,482,80,429,94"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="806,134,834,155,865,187,892,222,934,287,930,289,888,225,861,191,831,159,803,139"/>
+<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="638,166,683,168,734,173,785,184,834,203,863,220,889,242,930,288,926,291,885,246,860,225,831,208,784,190,733,179,683,173,638,171"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="689,217,833,260"/>
+<area shape="poly" id="edge6_Node000008_Node000009" title=" " alt="" coords="631,191,684,209,682,214,630,196"/>
+<area shape="poly" id="edge7_Node000009_Node000004" title=" " alt="" coords="812,258,890,293,888,297,810,263"/>
+<area shape="poly" id="edge11_Node000010_Node000004" title=" " alt="" coords="642,347,865,327,866,333,642,352"/>
+<area shape="poly" id="edge13_Node000011_Node000004" title=" " alt="" coords="638,402,866,342,867,347,639,407"/>
+<area shape="poly" id="edge17_Node000012_Node000010" title=" " alt="" coords="386,441,490,387,501,381,503,386,492,392,388,446"/>
+<area shape="poly" id="edge18_Node000012_Node000011" title=" " alt="" coords="417,449,479,437,480,442,418,454"/>
+<area shape="rect" id="Node000013" href="$classdesignlab_1_1_cmd_i_o_util.html#ab32a7649e9c86ded7b337e6246247c57" title="中央に文字を出力する関数． 文字列が長すぎる場合は普通に左詰めで出力される．" alt="" coords="689,436,833,479"/>
+<area shape="poly" id="edge15_Node000012_Node000013" title=" " alt="" coords="418,461,675,456,675,462,418,467"/>
+<area shape="rect" id="Node000014" href="$classdesignlab_1_1_cmd_i_o_util.html#ac8d2ba7c9fd6850d56615a9fdaeddc2d" title="右端に文字を出力する関数． 文字列が長すぎる場合は普通に左詰めで出力される．" alt="" coords="689,503,833,545"/>
+<area shape="poly" id="edge19_Node000012_Node000014" title=" " alt="" coords="418,473,675,509,674,514,417,478"/>
+<area shape="poly" id="edge16_Node000013_Node000004" title=" " alt="" coords="802,433,831,415,914,351,917,356,834,419,805,438"/>
+<area shape="poly" id="edge20_Node000014_Node000004" title=" " alt="" coords="815,500,831,489,863,457,890,422,931,356,936,358,895,425,867,461,834,493,818,504"/>
+<area shape="poly" id="edge25_Node000015_Node000004" title=" " alt="" coords="411,297,866,316,866,322,411,303"/>
+<area shape="poly" id="edge24_Node000015_Node000008" title=" " alt="" coords="377,273,429,239,490,203,500,198,502,202,492,208,432,243,379,278"/>
+<area shape="poly" id="edge26_Node000015_Node000010" title=" " alt="" coords="412,312,478,330,476,335,410,317"/>
+<area shape="poly" id="edge27_Node000015_Node000011" title=" " alt="" coords="379,317,432,351,492,387,502,392,500,397,490,392,429,356,377,321"/>
+<area shape="rect" id="Node000016" href="$classdesignlab_1_1_cmd_i_o_util.html#a46968822c14aa0afa22c346a06afe753" title="整数を入力させる関数． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="495,217,638,260"/>
+<area shape="poly" id="edge22_Node000015_Node000016" title=" " alt="" coords="410,277,479,259,481,264,412,283"/>
+<area shape="poly" id="edge23_Node000016_Node000009" title=" " alt="" coords="638,236,675,236,675,241,638,241"/>
+<area shape="poly" id="edge29_Node000017_Node000004" title=" " alt="" coords="816,567,831,555,870,508,901,454,923,401,939,357,944,359,928,403,905,456,874,511,835,559,820,571"/>
 </map>

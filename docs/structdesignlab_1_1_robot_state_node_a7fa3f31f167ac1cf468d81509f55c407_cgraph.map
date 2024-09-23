@@ -1,16 +1,18 @@
 <map id="designlab::RobotStateNode::ToString" name="designlab::RobotStateNode::ToString">
-<area shape="rect" id="Node000001" title="ノードの情報を文字列に変換する関数． &#160;&#160;デバッグ用に詳細な情報を出力する．" alt="" coords="5,139,185,181"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__funcdocs#a97269d1d2e67a17e729889089a859b78" title="現在の脚状態から重心パターンを取得する．" alt="" coords="233,5,381,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,136,171,98,231,58,240,53,242,58,234,62,174,102,124,141"/>
-<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1leg__funcdocs#ab7617bec21b4f953dc3b4641f58a0e2e" title="脚状態を取得する．" alt="" coords="236,72,378,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,136,221,117,223,122,166,141"/>
-<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1leg__funcdocs#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="241,139,373,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="185,157,225,157,225,163,185,163"/>
-<area shape="rect" id="Node000005" href="$structdesignlab_1_1_quaterniondocs#a37c43da43484613d050d79393feaecec" title="クォータニオンを文字列に変換する． &#160;&#160;w, x, y, z の順で出力する．" alt="" coords="233,205,381,248"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="166,179,223,198,221,203,164,184"/>
-<area shape="rect" id="Node000007" href="$structdesignlab_1_1_vector3docs#adced04a30051a7d7a5845a1d9a9d1c11" title="このベクトルを文字列にして返す． &#160;&#160;(x, y, z) の形式，小数点以下3桁まで．" alt="" coords="242,272,372,315"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="124,179,174,218,234,258,242,262,240,267,231,262,171,222,121,184"/>
-<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1math__utildocs#a45276ca396d3aa1331b5bb5a4c849bbe" title="小数を文字列に変換する関数． &#160;&#160;C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する．" alt="" coords="429,239,609,281"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="381,236,414,241,413,246,380,241"/>
-<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="371,281,413,274,414,279,372,286"/>
+<area shape="rect" id="Node000001" title="ノードの情報を文字列に変換する関数． &#160;&#160;デバッグ用に詳細な情報を出力する．" alt="" coords="5,172,185,215"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数． &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている． &#160;&#160;例えば，" alt="" coords="233,5,420,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,170,162,115,195,84,231,58,240,53,243,57,234,62,198,88,165,118,115,173"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1leg__func.html#a97269d1d2e67a17e729889089a859b78" title="現在の脚状態から重心パターンを取得する．" alt="" coords="252,72,401,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="137,169,232,124,247,118,249,123,234,129,139,174"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1leg__func.html#ab7617bec21b4f953dc3b4641f58a0e2e" title="脚状態を取得する．" alt="" coords="255,139,398,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="184,178,240,170,241,175,185,183"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="260,205,393,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="185,204,246,212,245,218,184,209"/>
+<area shape="rect" id="Node000006" href="$structdesignlab_1_1_quaternion.html#a37c43da43484613d050d79393feaecec" title="クォータニオンを文字列に変換する． &#160;&#160;w, x, y, z の順で出力する．" alt="" coords="253,272,400,315"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="139,213,234,258,249,264,247,269,232,262,137,218"/>
+<area shape="rect" id="Node000008" href="$structdesignlab_1_1_vector3.html#adced04a30051a7d7a5845a1d9a9d1c11" title="このベクトルを文字列にして返す． &#160;&#160;(x, y, z) の形式，小数点以下3桁まで．" alt="" coords="262,339,391,381"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="115,213,165,268,198,298,234,324,249,333,247,337,231,329,195,302,162,272,112,217"/>
+<area shape="rect" id="Node000007" href="$namespacedesignlab_1_1math__util.html#a45276ca396d3aa1331b5bb5a4c849bbe" title="小数を文字列に変換する関数． &#160;&#160;C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する．" alt="" coords="468,305,648,348"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="401,301,454,309,453,314,400,307"/>
+<area shape="poly" id="edge8_Node000008_Node000007" title=" " alt="" coords="391,348,453,339,454,344,392,353"/>
 </map>

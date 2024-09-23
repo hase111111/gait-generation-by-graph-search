@@ -1,9 +1,15 @@
 <map id="designlab::GaitPatternGraphTree::GetRootNode" name="designlab::GaitPatternGraphTree::GetRootNode">
-<area shape="rect" id="Node000001" title="グラフの根ノードの参照を返す．" alt="" coords="259,72,444,115"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graph_searcher_spot_turndocs#a14d0f85dce3acf5c7715e52f03cb4701" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="17,5,199,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="256,70,188,51,189,46,257,65"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_graph_searcher_straight_movedocs#a64643a2293909dc6b0166a916c5b26ee" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="5,72,211,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="243,96,211,96,211,91,243,91"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_graph_searcher_turndocs#ac22fbad22f153e4d367575fe6cc55197" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="22,139,194,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="257,122,189,141,188,135,256,117"/>
+<area shape="rect" id="Node000001" title="グラフの根ノードの参照を返す．" alt="" coords="527,80,712,123"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graph_searcher_spot_turn.html#a14d0f85dce3acf5c7715e52f03cb4701" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="285,9,468,52"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="529,78,452,55,453,50,530,73"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_graph_searcher_straight_move.html#a64643a2293909dc6b0166a916c5b26ee" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="274,80,479,123"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="512,104,480,104,480,99,512,99"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_graph_searcher_turn.html#ac22fbad22f153e4d367575fe6cc55197" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="291,151,462,193"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="530,130,453,153,452,147,529,125"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_graph_searcher_spot_turn.html#ade6020c031aed0563a16903da96ff064" title=" " alt="" coords="5,5,226,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="270,32,226,31,226,26,270,26"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_graph_searcher_straight_move.html#a012acb8e429cb97dc3843f2d80e16a70" title=" " alt="" coords="13,72,218,131"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="259,104,219,104,219,99,259,99"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_graph_searcher_turn.html#a8b852fb376ce532c76565f44f6cedec9" title=" " alt="" coords="19,155,212,197"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="276,176,213,177,212,172,276,171"/>
 </map>

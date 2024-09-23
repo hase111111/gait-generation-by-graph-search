@@ -1,0 +1,7 @@
+<map id="designlab::GraphicMainGraphViewer::Update" name="designlab::GraphicMainGraphViewer::Update">
+<area shape="rect" id="Node000001" title="描画画面の更新を行う．純粋仮想関数のため， 継承先では必ず override する必要がある．" alt="" coords="5,39,198,81"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib_gui_updater.html#a8330d413e80271485c00caaf64c36841" title="GUIのUpdate関数を実行し，クリック，ドラッグなどの判定を行う． &#160;&#160;優先度の高いものから順に各種判定を行う．" alt="" coords="246,5,424,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,44,231,39,231,44,199,49"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_dxlib_node_setter_group.html#afd8f92a9f04d04aea6233c5adf0b7792" title="登録済みの全てのクラスに対してノードの設定を行う．" alt="" coords="246,72,424,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="199,71,231,76,231,81,198,76"/>
+</map>

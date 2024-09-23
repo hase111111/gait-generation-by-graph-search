@@ -1,5 +1,5 @@
 <map id="designlab::Quaternion::ToString" name="designlab::Quaternion::ToString">
 <area shape="rect" id="Node000001" title="クォータニオンを文字列に変換する． &#160;&#160;w, x, y, z の順で出力する．" alt="" coords="5,5,153,48"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__utildocs#a45276ca396d3aa1331b5bb5a4c849bbe" title="小数を文字列に変換する関数． &#160;&#160;C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する．" alt="" coords="201,5,381,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,24,185,24,185,29,153,29"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a45276ca396d3aa1331b5bb5a4c849bbe" title="小数を文字列に変換する関数． &#160;&#160;C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する．" alt="" coords="201,5,381,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,24,186,24,186,29,153,29"/>
 </map>

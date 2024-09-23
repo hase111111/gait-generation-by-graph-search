@@ -1,7 +1,7 @@
 <map id="designlab::AbstractDxlibGui::IsDraggable" name="designlab::AbstractDxlibGui::IsDraggable">
 <area shape="rect" id="Node000001" title="ドラッグ可能な位置にあるかを判定する．" alt="" coords="5,39,168,81"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_abstract_dxlib_guidocs#adbaa209e897fac58b5bc465c71a35eec" title="GUIの上にカーソルがあるかどうかを返す．" alt="" coords="216,5,378,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,44,200,39,201,45,169,50"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_abstract_dxlib_guidocs#ad6e3f4786389f28fbdbaaa6780e56aa4" title="GUIの表示を行うかどうかを返す．" alt="" coords="216,72,378,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="169,70,201,75,200,81,168,76"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_abstract_dxlib_gui.html#adbaa209e897fac58b5bc465c71a35eec" title="GUIの上にカーソルがあるかどうかを返す．" alt="" coords="216,5,378,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,44,200,39,201,44,169,50"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_abstract_dxlib_gui.html#ad6e3f4786389f28fbdbaaa6780e56aa4" title="GUIの表示を行うかどうかを返す．" alt="" coords="216,72,378,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="169,70,201,76,200,81,168,76"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="designlab::LineSegment2::IsParallel" name="designlab::LineSegment2::IsParallel">
 <area shape="rect" id="Node000001" title="引数の線分と自身が平行かどうか調べる関数． 全て constexpr 関数で処理できるため非常に高速．" alt="" coords="5,5,173,48"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__utildocs#a92c055e0799991e88871e2a5d4f09280" title="C++において，小数同士の計算は誤差が出てしまう． 誤差込みで値が等しいか調べる．" alt="" coords="221,5,358,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,24,205,24,205,29,173,29"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a92c055e0799991e88871e2a5d4f09280" title="C++において，小数同士の計算は誤差が出てしまう． 誤差込みで値が等しいか調べる．" alt="" coords="221,5,358,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,24,206,24,206,29,173,29"/>
 </map>

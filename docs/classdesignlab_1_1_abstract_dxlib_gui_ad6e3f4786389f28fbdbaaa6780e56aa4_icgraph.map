@@ -1,5 +1,5 @@
 <map id="designlab::AbstractDxlibGui::IsVisible" name="designlab::AbstractDxlibGui::IsVisible">
 <area shape="rect" id="Node000001" title="GUIの表示を行うかどうかを返す．" alt="" coords="216,5,378,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_abstract_dxlib_guidocs#ad3612b4e4795b9680e049d922387d561" title="ドラッグ可能な位置にあるかを判定する．" alt="" coords="5,5,168,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,29,168,29,168,24,200,24"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_abstract_dxlib_gui.html#ad3612b4e4795b9680e049d922387d561" title="ドラッグ可能な位置にあるかを判定する．" alt="" coords="5,5,168,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,29,168,29,168,24,201,24"/>
 </map>

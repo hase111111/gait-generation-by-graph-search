@@ -3,16 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DesignLabDoxygen: designlab::MapRenderer クラス</title>
+<title>GaitGeneration by Graph Search: designlab::MapRenderer クラス</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -25,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">DesignLabDoxygen
+   <div id="projectname">GaitGeneration by Graph Search
    </div>
   </td>
  </tr>
@@ -33,7 +29,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.8 -->
+<!-- 構築: Doxygen 1.9.7 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -50,23 +46,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('classdesignlab_1_1_map_renderer.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -88,6 +67,11 @@ $(document).ready(function(){initNavTree('classdesignlab_1_1_map_renderer.html',
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacedesignlab.html">designlab</a></li><li class="navelem"><a class="el" href="classdesignlab_1_1_map_renderer.html">MapRenderer</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">公開メンバ関数</a> &#124;
@@ -107,11 +91,11 @@ designlab::MapRenderer の継承関係図</div>
 <map name="adesignlab_1_1_map_renderer_inherit__map" id="adesignlab_1_1_map_renderer_inherit__map">
 <area shape="rect" title="マップの描画を行うクラス．" alt="" coords="118,80,279,107"/>
 <area shape="rect" href="classdesignlab_1_1_i_dxlib_node_setter.html" title="DxLibのGuiやRendererでノードのセットを行うためのインターフェース．" alt="" coords="5,5,187,32"/>
-<area shape="poly" title=" " alt="" coords="128,39,182,77,179,82,125,44"/>
+<area shape="poly" title=" " alt="" coords="127,38,182,77,179,82,124,43"/>
 <area shape="rect" href="classdesignlab_1_1_i_dxlib3d_renderer.html" title="DxLibの描画処理を行うクラスのインターフェース．" alt="" coords="210,5,393,32"/>
-<area shape="poly" title=" " alt="" coords="272,44,218,82,215,77,269,39"/>
+<area shape="poly" title=" " alt="" coords="273,43,218,82,215,77,270,38"/>
 </map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
 <div class="dynheader">
 designlab::MapRenderer 連携図</div>
 <div class="dyncontent">
@@ -119,29 +103,92 @@ designlab::MapRenderer 連携図</div>
 <map name="adesignlab_1_1_map_renderer_coll__map" id="adesignlab_1_1_map_renderer_coll__map">
 <area shape="rect" title="マップの描画を行うクラス．" alt="" coords="118,80,279,107"/>
 <area shape="rect" href="classdesignlab_1_1_i_dxlib_node_setter.html" title="DxLibのGuiやRendererでノードのセットを行うためのインターフェース．" alt="" coords="5,5,187,32"/>
-<area shape="poly" title=" " alt="" coords="128,39,182,77,179,82,125,44"/>
+<area shape="poly" title=" " alt="" coords="127,38,182,77,179,82,124,43"/>
 <area shape="rect" href="classdesignlab_1_1_i_dxlib3d_renderer.html" title="DxLibの描画処理を行うクラスのインターフェース．" alt="" coords="210,5,393,32"/>
-<area shape="poly" title=" " alt="" coords="272,44,218,82,215,77,269,39"/>
+<area shape="poly" title=" " alt="" coords="273,43,218,82,215,77,270,38"/>
 </map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a3580cb88f4e45a744548ab7923661029" id="r_a3580cb88f4e45a744548ab7923661029"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_map_renderer.html#a3580cb88f4e45a744548ab7923661029">SetNode</a> (const <a class="el" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a> &amp;pos) override</td></tr>
+<tr class="memitem:a5ebcd269ca98e2fa2c03632577c9e545"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_map_renderer.html#a5ebcd269ca98e2fa2c03632577c9e545">MapRenderer</a> ()</td></tr>
+<tr class="separator:a5ebcd269ca98e2fa2c03632577c9e545"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa930b6f78466bca53beed225a3724356"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_map_renderer.html#aa930b6f78466bca53beed225a3724356">~MapRenderer</a> ()=default</td></tr>
+<tr class="separator:aa930b6f78466bca53beed225a3724356"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3580cb88f4e45a744548ab7923661029"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_map_renderer.html#a3580cb88f4e45a744548ab7923661029">SetNode</a> (const <a class="el" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a> &amp;pos) override</td></tr>
 <tr class="memdesc:a3580cb88f4e45a744548ab7923661029"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボットの重心のグローバル座標を設定する． <br  />
  DividedMap はロボットの重心を中心にしているので， ロボットの重心のグローバル座標を設定する必要がある． <br  />
  代入と同時に DividedMap も更新される．  <br /></td></tr>
 <tr class="separator:a3580cb88f4e45a744548ab7923661029"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8255fbb9add954ad6bff218968a16669" id="r_a8255fbb9add954ad6bff218968a16669"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_map_renderer.html#a8255fbb9add954ad6bff218968a16669">SetMapState</a> (const <a class="el" href="classdesignlab_1_1_map_state.html">MapState</a> &amp;map)</td></tr>
+<tr class="memitem:a8255fbb9add954ad6bff218968a16669"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_map_renderer.html#a8255fbb9add954ad6bff218968a16669">SetMapState</a> (const <a class="el" href="classdesignlab_1_1_map_state.html">MapState</a> &amp;map)</td></tr>
 <tr class="memdesc:a8255fbb9add954ad6bff218968a16669"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップの状態を設定する．代入と同時に DividedMap も更新される．  <br /></td></tr>
 <tr class="separator:a8255fbb9add954ad6bff218968a16669"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4338a7d3f08cd663096e3226fa0c6fa3" id="r_a4338a7d3f08cd663096e3226fa0c6fa3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_map_renderer.html#a4338a7d3f08cd663096e3226fa0c6fa3">Draw</a> () const override</td></tr>
+<tr class="memitem:a4338a7d3f08cd663096e3226fa0c6fa3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_map_renderer.html#a4338a7d3f08cd663096e3226fa0c6fa3">Draw</a> () const override</td></tr>
 <tr class="memdesc:a4338a7d3f08cd663096e3226fa0c6fa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップの描画を行う．  <br /></td></tr>
 <tr class="separator:a4338a7d3f08cd663096e3226fa0c6fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classdesignlab_1_1_i_dxlib_node_setter"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classdesignlab_1_1_i_dxlib_node_setter')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classdesignlab_1_1_i_dxlib_node_setter.html">designlab::IDxlibNodeSetter</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:a6032243a12d5409049c6b428c2c873b5 inherit pub_methods_classdesignlab_1_1_i_dxlib_node_setter"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_dxlib_node_setter.html#a6032243a12d5409049c6b428c2c873b5">~IDxlibNodeSetter</a> ()=default</td></tr>
+<tr class="separator:a6032243a12d5409049c6b428c2c873b5 inherit pub_methods_classdesignlab_1_1_i_dxlib_node_setter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a024ed26186f7a15497b14fdd742aee7b inherit pub_methods_classdesignlab_1_1_i_dxlib_node_setter"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_dxlib_node_setter.html#a024ed26186f7a15497b14fdd742aee7b">SetNode</a> (const <a class="el" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a> &amp;node)=0</td></tr>
+<tr class="memdesc:a024ed26186f7a15497b14fdd742aee7b inherit pub_methods_classdesignlab_1_1_i_dxlib_node_setter"><td class="mdescLeft">&#160;</td><td class="mdescRight">ノードをセットする．  <br /></td></tr>
+<tr class="separator:a024ed26186f7a15497b14fdd742aee7b inherit pub_methods_classdesignlab_1_1_i_dxlib_node_setter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classdesignlab_1_1_i_dxlib3d_renderer"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classdesignlab_1_1_i_dxlib3d_renderer')"><img src="closed.png" alt="-"/>&#160;基底クラス <a class="el" href="classdesignlab_1_1_i_dxlib3d_renderer.html">designlab::IDxlib3dRenderer</a> に属する継承公開メンバ関数</td></tr>
+<tr class="memitem:a8d29619af54c27428e4a2325cc761af8 inherit pub_methods_classdesignlab_1_1_i_dxlib3d_renderer"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_dxlib3d_renderer.html#a8d29619af54c27428e4a2325cc761af8">~IDxlib3dRenderer</a> ()=default</td></tr>
+<tr class="separator:a8d29619af54c27428e4a2325cc761af8 inherit pub_methods_classdesignlab_1_1_i_dxlib3d_renderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23c9dd32ccffa163ed5f045f0dece621 inherit pub_methods_classdesignlab_1_1_i_dxlib3d_renderer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_dxlib3d_renderer.html#a23c9dd32ccffa163ed5f045f0dece621">Draw</a> () const =0</td></tr>
+<tr class="memdesc:a23c9dd32ccffa163ed5f045f0dece621 inherit pub_methods_classdesignlab_1_1_i_dxlib3d_renderer"><td class="mdescLeft">&#160;</td><td class="mdescRight">描画処理を行う． const 関数にしているのは， 描画処理の中でメンバ変数を変更しないようにするため．  <br /></td></tr>
+<tr class="separator:a23c9dd32ccffa163ed5f045f0dece621 inherit pub_methods_classdesignlab_1_1_i_dxlib3d_renderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>マップの描画を行うクラス． </p>
-</div><h2 class="groupheader">関数詳解</h2>
+
+<p class="definition"> <a class="el" href="map__renderer_8h_source.html">map_renderer.h</a> の <a class="el" href="map__renderer_8h_source.html#l00021">21</a> 行目に定義があります。</p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="a5ebcd269ca98e2fa2c03632577c9e545" name="a5ebcd269ca98e2fa2c03632577c9e545"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ebcd269ca98e2fa2c03632577c9e545">&#9670;&#160;</a></span>MapRenderer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">designlab::MapRenderer::MapRenderer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="map__renderer_8cpp_source.html">map_renderer.cpp</a> の <a class="el" href="map__renderer_8cpp_source.html#l00015">15</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="aa930b6f78466bca53beed225a3724356" name="aa930b6f78466bca53beed225a3724356"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa930b6f78466bca53beed225a3724356">&#9670;&#160;</a></span>~MapRenderer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">designlab::MapRenderer::~MapRenderer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
 <a id="a4338a7d3f08cd663096e3226fa0c6fa3" name="a4338a7d3f08cd663096e3226fa0c6fa3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4338a7d3f08cd663096e3226fa0c6fa3">&#9670;&#160;</a></span>Draw()</h2>
 
@@ -174,14 +221,30 @@ designlab::MapRenderer 連携図</div>
 </dl>
 
 <p><a class="el" href="classdesignlab_1_1_i_dxlib3d_renderer.html#a23c9dd32ccffa163ed5f045f0dece621">designlab::IDxlib3dRenderer</a>を実装しています。</p>
+
+<p class="definition"> <a class="el" href="map__renderer_8cpp_source.html">map_renderer.cpp</a> の <a class="el" href="map__renderer_8cpp_source.html#l00038">38</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_map_renderer_a4338a7d3f08cd663096e3226fa0c6fa3_cgraph.png" border="0" usemap="#aclassdesignlab_1_1_map_renderer_a4338a7d3f08cd663096e3226fa0c6fa3_cgraph" alt=""/></div>
 <map name="aclassdesignlab_1_1_map_renderer_a4338a7d3f08cd663096e3226fa0c6fa3_cgraph" id="aclassdesignlab_1_1_map_renderer_a4338a7d3f08cd663096e3226fa0c6fa3_cgraph">
-<area shape="rect" title="マップの描画を行う．" alt="" coords="5,5,167,48"/>
-<area shape="rect" href="classdesignlab_1_1_map_state.html#a221db2fa4a7021da6e9b240c209fa59c" title="脚設置可能点の総数を返す．" alt="" coords="215,5,355,48"/>
-<area shape="poly" title=" " alt="" coords="167,24,199,24,199,29,167,29"/>
+<area shape="rect" title="マップの描画を行う．" alt="" coords="5,172,167,215"/>
+<area shape="rect" href="namespacedesignlab_1_1dxlib__util.html#aceffcb5f4496686bed7db7fc55488958" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する． &#160;&#160;ロボット座標系は右手座標系， Dxlibは左手座標系（工学は右手・ゲームライブラリは左手が多い）なのでyを..." alt="" coords="236,5,375,48"/>
+<area shape="poly" title=" " alt="" coords="101,170,148,115,179,84,213,58,221,53,224,57,216,62,182,88,151,118,105,173"/>
+<area shape="rect" href="namespacedesignlab_1_1dxlib__util.html#a170cac2fc964414af49c550aee6583c8" title="3D空間に立方体を描画する．立方体の上面の中心の座標から描画する．" alt="" coords="218,72,393,115"/>
+<area shape="poly" title=" " alt="" coords="125,169,214,124,228,118,230,123,216,129,127,174"/>
+<area shape="rect" href="classdesignlab_1_1_map_state.html#a80c42812e6ff529ed9b468d0db52d757" title="脚設置可能点の座標を返す．" alt="" coords="235,139,376,181"/>
+<area shape="poly" title=" " alt="" coords="166,178,220,170,221,176,167,184"/>
+<area shape="rect" href="classdesignlab_1_1_map_state.html#a221db2fa4a7021da6e9b240c209fa59c" title="脚設置可能点の総数を返す．" alt="" coords="235,205,376,248"/>
+<area shape="poly" title=" " alt="" coords="167,203,221,211,220,216,166,208"/>
+<area shape="rect" href="classdesignlab_1_1_divided_map_state.html#a900c891b9319bd079e172105468d0808" title="格子状に切り分けられたマップから，脚設置可能点の数を取得する． &#160;&#160;範囲外の値を指定した場合は，0を返す．" alt="" coords="215,272,396,315"/>
+<area shape="poly" title=" " alt="" coords="127,213,216,258,230,264,228,268,214,262,125,217"/>
+<area shape="rect" href="classdesignlab_1_1_divided_map_state.html#a4fa0d0b29f758a1f23a6743c749a8013" title="格子状に切り分けられたマップから，脚設置可能点の実際の座標を取得する． &#160;&#160;範囲外の値を指定した場合は，(0,0,0)を返す．" alt="" coords="215,339,396,381"/>
+<area shape="poly" title=" " alt="" coords="105,213,151,268,182,298,216,324,224,329,221,334,213,329,179,302,148,272,101,217"/>
+<area shape="rect" href="namespacedesignlab_1_1dxlib__util.html#aec08fe28b57053d60e3085bd20ce8b25" title="3D空間に立方体を描画する．" alt="" coords="444,72,579,115"/>
+<area shape="poly" title=" " alt="" coords="394,91,429,91,429,96,394,96"/>
+<area shape="rect" href="structdesignlab_1_1_vector3.html#adb4d141dbd87c98d1006151956566f13" title="零ベクトルを返す． 静的な関数なので，Vector3::GetZeroVec() と呼び出せる．" alt="" coords="447,339,576,381"/>
+<area shape="poly" title=" " alt="" coords="397,357,432,357,432,363,397,363"/>
 </map>
 </div>
 
@@ -210,6 +273,32 @@ designlab::MapRenderer 連携図</div>
   </table>
   </dd>
 </dl>
+
+<p class="definition"> <a class="el" href="map__renderer_8cpp_source.html">map_renderer.cpp</a> の <a class="el" href="map__renderer_8cpp_source.html#l00030">30</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1_map_renderer_a8255fbb9add954ad6bff218968a16669_cgraph.png" border="0" usemap="#aclassdesignlab_1_1_map_renderer_a8255fbb9add954ad6bff218968a16669_cgraph" alt=""/></div>
+<map name="aclassdesignlab_1_1_map_renderer_a8255fbb9add954ad6bff218968a16669_cgraph" id="aclassdesignlab_1_1_map_renderer_a8255fbb9add954ad6bff218968a16669_cgraph">
+<area shape="rect" title="マップの状態を設定する．代入と同時に DividedMap も更新される．" alt="" coords="5,205,167,248"/>
+<area shape="rect" href="classdesignlab_1_1_divided_map_state.html#a50647e278f9ee754cbfe5196153e2ba8" title="マップのデータを初期化する． ロボットの重心座標を中心にマップのデータを格子状に分割し， その中に存在する脚設置可能点を集める．" alt="" coords="215,205,396,248"/>
+<area shape="poly" title=" " alt="" coords="167,224,200,224,200,229,167,229"/>
+<area shape="rect" href="classdesignlab_1_1_divided_map_state.html#a726a21449619c1d6980ed867c141992f" title="マップのデータを消去する．" alt="" coords="444,5,625,48"/>
+<area shape="poly" title=" " alt="" coords="317,204,366,133,402,93,442,58,450,53,453,58,446,62,405,97,370,136,321,207"/>
+<area shape="rect" href="classdesignlab_1_1_divided_map_state.html#a22c0df011d0506e6d5106c6acd931be9" title="指定した座標を DividedMap のインデックスに変換する． 範囲外の値を指定した場合でも，値を丸めずに返す． そのため，IsInMap で範囲内に存在するかどうかを確認する必要がある．" alt="" coords="444,72,625,115"/>
+<area shape="poly" title=" " alt="" coords="330,203,381,164,443,124,454,119,456,123,445,129,384,168,334,207"/>
+<area shape="rect" href="classdesignlab_1_1_divided_map_state.html#a8dcc229f5560978d2a082b326191d6ee" title="指定した座標を DividedMap のインデックスに変換する． 範囲外の値を指定した場合でも，値を丸めずに返す． そのため，IsInMap で範囲内に存在するかどうかを確認する必要がある．" alt="" coords="444,139,625,181"/>
+<area shape="poly" title=" " alt="" coords="380,202,444,183,446,189,382,207"/>
+<area shape="rect" href="classdesignlab_1_1_map_state.html#a80c42812e6ff529ed9b468d0db52d757" title="脚設置可能点の座標を返す．" alt="" coords="465,205,605,248"/>
+<area shape="poly" title=" " alt="" coords="396,224,450,224,450,229,396,229"/>
+<area shape="rect" href="classdesignlab_1_1_map_state.html#a221db2fa4a7021da6e9b240c209fa59c" title="脚設置可能点の総数を返す．" alt="" coords="465,272,605,315"/>
+<area shape="poly" title=" " alt="" coords="382,246,451,266,449,271,380,251"/>
+<area shape="rect" href="classdesignlab_1_1_divided_map_state.html#a50c9ba4fb3821ba6a674f3657fe80f6f" title="指定した座標がマップの範囲内に存在するかどうかを返す．" alt="" coords="444,339,625,381"/>
+<area shape="poly" title=" " alt="" coords="334,246,384,285,445,324,456,330,454,335,443,329,381,290,330,251"/>
+<area shape="rect" href="namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5" title="2乗した値を返す関数．" alt="" coords="466,405,603,448"/>
+<area shape="poly" title=" " alt="" coords="321,247,370,317,405,357,446,391,454,397,451,401,442,395,402,360,366,320,317,250"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -249,20 +338,42 @@ designlab::MapRenderer 連携図</div>
 
 <p><a class="el" href="classdesignlab_1_1_i_dxlib_node_setter.html#a024ed26186f7a15497b14fdd742aee7b">designlab::IDxlibNodeSetter</a>を実装しています。</p>
 
+<p class="definition"> <a class="el" href="map__renderer_8cpp_source.html">map_renderer.cpp</a> の <a class="el" href="map__renderer_8cpp_source.html#l00023">23</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1_map_renderer_a3580cb88f4e45a744548ab7923661029_cgraph.png" border="0" usemap="#aclassdesignlab_1_1_map_renderer_a3580cb88f4e45a744548ab7923661029_cgraph" alt=""/></div>
+<map name="aclassdesignlab_1_1_map_renderer_a3580cb88f4e45a744548ab7923661029_cgraph" id="aclassdesignlab_1_1_map_renderer_a3580cb88f4e45a744548ab7923661029_cgraph">
+<area shape="rect" title="ロボットの重心のグローバル座標を設定する． &#160;&#160;DividedMap はロボットの重心を中心にしているので， ロボットの重心のグローバル座標を設定する必要がある． &#160;&#160;代入と同時に DividedMap..." alt="" coords="5,205,167,248"/>
+<area shape="rect" href="classdesignlab_1_1_divided_map_state.html#a50647e278f9ee754cbfe5196153e2ba8" title="マップのデータを初期化する． ロボットの重心座標を中心にマップのデータを格子状に分割し， その中に存在する脚設置可能点を集める．" alt="" coords="215,205,396,248"/>
+<area shape="poly" title=" " alt="" coords="167,224,200,224,200,229,167,229"/>
+<area shape="rect" href="classdesignlab_1_1_divided_map_state.html#a726a21449619c1d6980ed867c141992f" title="マップのデータを消去する．" alt="" coords="444,5,625,48"/>
+<area shape="poly" title=" " alt="" coords="317,204,366,133,402,93,442,58,450,53,453,58,446,62,405,97,370,136,321,207"/>
+<area shape="rect" href="classdesignlab_1_1_divided_map_state.html#a22c0df011d0506e6d5106c6acd931be9" title="指定した座標を DividedMap のインデックスに変換する． 範囲外の値を指定した場合でも，値を丸めずに返す． そのため，IsInMap で範囲内に存在するかどうかを確認する必要がある．" alt="" coords="444,72,625,115"/>
+<area shape="poly" title=" " alt="" coords="330,203,381,164,443,124,454,119,456,123,445,129,384,168,334,207"/>
+<area shape="rect" href="classdesignlab_1_1_divided_map_state.html#a8dcc229f5560978d2a082b326191d6ee" title="指定した座標を DividedMap のインデックスに変換する． 範囲外の値を指定した場合でも，値を丸めずに返す． そのため，IsInMap で範囲内に存在するかどうかを確認する必要がある．" alt="" coords="444,139,625,181"/>
+<area shape="poly" title=" " alt="" coords="380,202,444,183,446,189,382,207"/>
+<area shape="rect" href="classdesignlab_1_1_map_state.html#a80c42812e6ff529ed9b468d0db52d757" title="脚設置可能点の座標を返す．" alt="" coords="465,205,605,248"/>
+<area shape="poly" title=" " alt="" coords="396,224,450,224,450,229,396,229"/>
+<area shape="rect" href="classdesignlab_1_1_map_state.html#a221db2fa4a7021da6e9b240c209fa59c" title="脚設置可能点の総数を返す．" alt="" coords="465,272,605,315"/>
+<area shape="poly" title=" " alt="" coords="382,246,451,266,449,271,380,251"/>
+<area shape="rect" href="classdesignlab_1_1_divided_map_state.html#a50c9ba4fb3821ba6a674f3657fe80f6f" title="指定した座標がマップの範囲内に存在するかどうかを返す．" alt="" coords="444,339,625,381"/>
+<area shape="poly" title=" " alt="" coords="334,246,384,285,445,324,456,330,454,335,443,329,381,290,330,251"/>
+<area shape="rect" href="namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5" title="2乗した値を返す関数．" alt="" coords="466,405,603,448"/>
+<area shape="poly" title=" " alt="" coords="321,247,370,317,405,357,446,391,454,397,451,401,442,395,402,360,366,320,317,250"/>
+</map>
+</div>
+
 </div>
 </div>
 <hr/>このクラス詳解は次のファイルから抽出されました:<ul>
-<li>C:/Users/hasegawa/Desktop/main/program/DesignLab/DesignLab/<a class="el" href="map__renderer_8h_source.html">map_renderer.h</a></li>
-<li>C:/Users/hasegawa/Desktop/main/program/DesignLab/DesignLab/<b>map_renderer.cpp</b></li>
+<li>DesignLab/<a class="el" href="map__renderer_8h_source.html">map_renderer.h</a></li>
+<li>DesignLab/<a class="el" href="map__renderer_8cpp_source.html">map_renderer.cpp</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespacedesignlab.html">designlab</a></li><li class="navelem"><a class="el" href="classdesignlab_1_1_map_renderer.html">MapRenderer</a></li>
-    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+</small></address>
 </body>
 </html>

@@ -1,3 +1,3 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$classdesignlab_1_1_map_file_importerdocs" title="マップを csv に出力したものを読み込むクラス． &#160;&#160;マップには脚接地可能点が羅列されているので，1行ずつ読み込み，それぞれマップに追加する．" alt="" coords="5,5,183,32"/>
+<area shape="rect" id="Node000000" href="$classdesignlab_1_1_map_file_importer.html" title="マップを csv に出力したものを読み込むクラス． &#160;&#160;マップには脚接地可能点が羅列されているので，1行ずつ読み込み，それぞれマップに追加する．" alt="" coords="5,5,183,32"/>
 </map>

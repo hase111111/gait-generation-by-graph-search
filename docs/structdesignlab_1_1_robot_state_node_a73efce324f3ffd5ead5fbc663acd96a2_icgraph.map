@@ -1,5 +1,5 @@
 <map id="designlab::RobotStateNode::ChangePosture" name="designlab::RobotStateNode::ChangePosture">
 <area shape="rect" id="Node000001" title="クォータニオンを変更し，胴体を回転させる関数．" alt="" coords="240,5,419,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_node_creator_body_rotdocs#a162277203f0422a351c4d24e8167d43d" title="現在のノードから次のノード群を生成する．" alt="" coords="5,5,192,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="224,29,192,29,192,24,224,24"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_node_creator_body_rot.html#a162277203f0422a351c4d24e8167d43d" title="現在のノードから次のノード群を生成する．" alt="" coords="5,5,192,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="225,29,192,29,192,24,225,24"/>
 </map>

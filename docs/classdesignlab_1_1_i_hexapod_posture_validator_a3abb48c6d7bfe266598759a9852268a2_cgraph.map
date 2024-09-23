@@ -1,7 +1,7 @@
 <map id="designlab::IHexapodPostureValidator::IsAllLegInRange" name="designlab::IHexapodPostureValidator::IsAllLegInRange">
 <area shape="rect" id="Node000001" title="全ての脚が可動範囲内にあるかどうかを判定する．" alt="" coords="5,39,189,81"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__funcdocs#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="262,5,395,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,44,246,36,247,41,189,49"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_i_hexapod_posture_validatordocs#acbe4959b1131c73725f1b285d6d3e5f4" title="脚が可動範囲内にあるかどうかを判定する．" alt="" coords="237,72,420,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="189,71,221,75,221,81,188,76"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="262,5,395,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,44,247,36,248,41,189,49"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_i_hexapod_posture_validator.html#acbe4959b1131c73725f1b285d6d3e5f4" title="脚が可動範囲内にあるかどうかを判定する．" alt="" coords="237,72,420,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="189,71,222,75,221,81,188,76"/>
 </map>

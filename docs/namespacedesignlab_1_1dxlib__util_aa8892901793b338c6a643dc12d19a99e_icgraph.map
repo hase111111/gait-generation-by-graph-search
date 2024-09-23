@@ -1,5 +1,5 @@
 <map id="designlab::dxlib_util::DrawHexagon" name="designlab::dxlib_util::DrawHexagon">
 <area shape="rect" id="Node000001" title="3D空間に六角形を描画する．" alt="" coords="207,5,342,48"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1dxlib__utildocs#ad8cc0ecb50fc678af0d50370a137356e" title="3D空間に六角柱を描画する．" alt="" coords="5,5,159,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,29,159,29,159,24,191,24"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1dxlib__util.html#ad8cc0ecb50fc678af0d50370a137356e" title="3D空間に六角柱を描画する．" alt="" coords="5,5,159,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,29,159,29,159,24,192,24"/>
 </map>

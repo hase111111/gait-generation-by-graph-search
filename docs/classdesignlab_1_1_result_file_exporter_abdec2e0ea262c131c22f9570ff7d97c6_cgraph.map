@@ -1,0 +1,11 @@
+<map id="designlab::ResultFileExporter::CreateRootDirectory" name="designlab::ResultFileExporter::CreateRootDirectory">
+<area shape="rect" id="Node000001" title="resultフォルダがなければ作成する．また，フォルダ名を指定する．" alt="" coords="5,39,197,81"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="245,39,388,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,57,230,57,230,63,197,63"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="436,39,579,81"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="388,57,421,57,421,63,388,63"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数． &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている． &#160;&#160;例えば，" alt="" coords="627,5,815,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="579,46,612,41,613,46,580,51"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数．指定した文字で文字列を分割する． &#160;&#160;分割した結果，空白が含まれる場合や文字列がない場合は，そのまま返す． &#160;&#160;最後が区切り文字で終わる場合は，それを無視する．" alt="" coords="651,72,791,115"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="580,69,637,77,636,83,579,74"/>
+</map>

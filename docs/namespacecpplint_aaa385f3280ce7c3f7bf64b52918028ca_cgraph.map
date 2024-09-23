@@ -1,13 +1,13 @@
 <map id="cpplint.IsDerivedFunction" name="cpplint.IsDerivedFunction">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,72,171,99"/>
-<area shape="rect" id="Node000002" href="$namespacecpplintdocs#a1b6021bb43f15b2ba6d35664a529b9b2" title=" " alt="" coords="219,21,380,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,69,225,50,226,55,148,74"/>
-<area shape="rect" id="Node000004" href="$namespacecpplintdocs#a515e256f8ccda50d15b9b7401f5264f7" title=" " alt="" coords="665,68,770,95"/>
+<area shape="rect" id="Node000002" href="$namespacecpplint.html#a1b6021bb43f15b2ba6d35664a529b9b2" title=" " alt="" coords="219,21,380,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,69,226,49,227,55,148,74"/>
+<area shape="rect" id="Node000004" href="$namespacecpplint.html#a515e256f8ccda50d15b9b7401f5264f7" title=" " alt="" coords="665,68,770,95"/>
 <area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="172,96,263,108,375,116,496,118,617,108,664,97,665,102,618,113,496,123,374,122,263,113,171,102"/>
-<area shape="rect" id="Node000005" href="$namespacecpplintdocs#aa0db7290fc6bd23f44b6602a6ae22738" title=" " alt="" coords="473,72,572,99"/>
+<area shape="rect" id="Node000005" href="$namespacecpplint.html#aa0db7290fc6bd23f44b6602a6ae22738" title=" " alt="" coords="473,72,572,99"/>
 <area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="171,83,458,83,458,88,171,88"/>
-<area shape="rect" id="Node000003" href="$namespacecpplintdocs#a9cc0677c6efe4f143ce3705136daf4be" title=" " alt="" coords="428,5,617,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="380,29,412,28,412,33,380,34"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="362,46,458,68,457,73,361,51"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="602,46,653,61,652,66,600,51"/>
+<area shape="rect" id="Node000003" href="$namespacecpplint.html#a9cc0677c6efe4f143ce3705136daf4be" title=" " alt="" coords="428,5,617,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="380,29,413,28,413,33,380,34"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="362,46,459,68,458,74,361,51"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="602,46,654,61,653,66,600,51"/>
 </map>

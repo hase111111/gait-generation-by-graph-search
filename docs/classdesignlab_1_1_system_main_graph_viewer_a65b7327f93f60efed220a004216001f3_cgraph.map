@@ -1,0 +1,18 @@
+<map id="designlab::SystemMainGraphViewer::SystemMainGraphViewer" name="designlab::SystemMainGraphViewer::SystemMainGraphViewer">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,105,221,148"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_cmd_i_o_util.html#a5fb6070a9e27ce7644f6071cd56dcbc1" title="コマンドラインにこのソフトのタイトルを出力する関数． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="269,105,412,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,124,254,124,254,129,221,129"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_cmd_i_o_util.html#ab32a7649e9c86ded7b337e6246247c57" title="中央に文字を出力する関数． 文字列が長すぎる場合は普通に左詰めで出力される．" alt="" coords="464,5,607,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="377,102,459,58,469,52,472,57,461,62,380,107"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_cmd_i_o_util.html#a6f864d04e44ac8b10262c9dcdb23fcbd" title="コマンドラインに水平線を出力する関数．" alt="" coords="460,72,610,115"/>
+<area shape="poly" id="edge4_Node000002_Node000007" title=" " alt="" coords="412,112,445,106,446,111,413,117"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_cmd_i_o_util.html#a563e04e0ce3cf7b6c988a94b887a74b9" title="コマンドラインで改行をする関数．" alt="" coords="464,139,607,181"/>
+<area shape="poly" id="edge6_Node000002_Node000008" title=" " alt="" coords="413,136,450,143,449,148,412,142"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_cmd_i_o_util.html#ac8d2ba7c9fd6850d56615a9fdaeddc2d" title="右端に文字を出力する関数． 文字列が長すぎる場合は普通に左詰めで出力される．" alt="" coords="464,205,607,248"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="380,146,461,191,472,196,469,201,459,196,377,151"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="658,105,802,148"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="588,46,612,58,681,95,678,100,609,62,586,51"/>
+<area shape="poly" id="edge5_Node000007_Node000004" title=" " alt="" coords="611,104,644,109,643,115,610,109"/>
+<area shape="poly" id="edge7_Node000008_Node000004" title=" " alt="" coords="607,145,643,139,644,144,607,150"/>
+<area shape="poly" id="edge9_Node000009_Node000004" title=" " alt="" coords="586,202,609,191,678,153,681,158,612,196,588,207"/>
+</map>

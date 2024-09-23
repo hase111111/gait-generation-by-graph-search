@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: DesignLab/node_creator_builder_turn.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">node_creator_builder_turn.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="node__creator__builder__turn_8cpp.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="node__creator__builder__turn_8h.html">node_creator_builder_turn.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="node__creator__body__rot_8h.html">node_creator_body_rot.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="cassert__define_8h.html">cassert_define.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="node__creator__com__move_8h.html">node_creator_com_move.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="node__creator__com__up__down_8h.html">node_creator_com_up_down.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="node__creator__leg__hierarchy_8h.html">node_creator_leg_hierarchy.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="node__creator__leg__up__down_8h.html">node_creator_leg_up_down.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_node_creator_builder_turn.html#a02640ebde37671d4263cac89e8c54fca">   20</a></span><a class="code hl_function" href="classdesignlab_1_1_node_creator_builder_turn.html#a02640ebde37671d4263cac89e8c54fca">NodeCreatorBuilderTurn::NodeCreatorBuilderTurn</a>(</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">const</span> std::shared_ptr&lt;const IHexapodCoordinateConverter&gt;&amp; converter_ptr,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">const</span> std::shared_ptr&lt;const IHexapodStatePresenter&gt;&amp; presenter_ptr,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">const</span> std::shared_ptr&lt;const IHexapodPostureValidator&gt;&amp; checker_ptr) :</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    converter_ptr_(converter_ptr),</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    presenter_ptr_(presenter_ptr),</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    checker_ptr_(checker_ptr)</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>{</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>}</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_node_creator_builder_turn.html#af3e1f1ba18c43b8d56a8a6e8d3d5086b">   30</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_node_creator_builder_turn.html#af3e1f1ba18c43b8d56a8a6e8d3d5086b">NodeCreatorBuilderTurn::Build</a>(</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">const</span> <a class="code hl_class" href="classdesignlab_1_1_divided_map_state.html">DividedMapState</a>&amp; map,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    std::map&lt;<a class="code hl_enumeration" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81">HexapodMove</a>, std::unique_ptr&lt;INodeCreator&gt;&gt;* node_creator)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    assert(node_creator != <span class="keyword">nullptr</span>);  <span class="comment">// node_creator が nullptr でない．</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    assert(node_creator-&gt;size() == 0);  <span class="comment">// node_creator は空でなければならない．</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">const</span> <span class="keyword">auto</span> hierarchy_list = std::vector&lt;enums::DiscreteLegPos&gt;{</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a1aa843cfb007a05d484edf751fdc905d">enums::DiscreteLegPos::kBack</a>,</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a3a344159c7144969a66c510c5eb0040d">enums::DiscreteLegPos::kCenter</a>,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a74b33dfe34e13923f9b235450de37871">enums::DiscreteLegPos::kFront</a>,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a7de5161d3d66930665695edb06796198">enums::DiscreteLegPos::kLowerBack</a>,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495ac197680fbf6de70bd3752b01a43d1ba7">enums::DiscreteLegPos::kLowerFront</a>,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a08c2c15252b53e4252ab6415b8aeac66">enums::DiscreteLegPos::kUpperBack</a>,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a55546b3f938b81742b7d0c03e85a5c91">enums::DiscreteLegPos::kUpperFront</a></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    };</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    (*node_creator)[<a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a7a0d289d2c7258b2f617388cded82812">HexapodMove::kLegHierarchyChange</a>] =</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        std::make_unique&lt;NodeCreatorLegHierarchy&gt;(<a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a4a6461c86ef75a5e573c7159b8f899af">HexapodMove::kLegUpDown</a>,</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                                                  hierarchy_list);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    (*node_creator)[<a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a4a6461c86ef75a5e573c7159b8f899af">HexapodMove::kLegUpDown</a>] = std::make_unique&lt;NodeCreatorLegUpDown&gt;(</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>      map,</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>      converter_ptr_,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>      presenter_ptr_,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>      checker_ptr_,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>      <a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81ad3c33ddfb2a26d82caa154fcf33350a5">HexapodMove::kBodyYawRot</a>);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    (*node_creator)[<a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81ad3c33ddfb2a26d82caa154fcf33350a5">HexapodMove::kBodyYawRot</a>] = std::make_unique&lt;NodeCreatorBodyRot&gt;(</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>      map,</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>      converter_ptr_,</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>      checker_ptr_,</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>      <a class="code hl_function" href="structdesignlab_1_1_vector3.html#a49ed064fabc10cd349d8f02e7f8d5bfd">Vector3::GetUpVec</a>(),</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>      <a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a6428915b783a686f1dfed18358d57bc7">HexapodMove::kComUpDown</a>);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    (*node_creator)[<a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a6428915b783a686f1dfed18358d57bc7">HexapodMove::kComUpDown</a>] = std::make_unique&lt;NodeCreatorComUpDown&gt;(</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>      map,</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>      converter_ptr_,</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>      presenter_ptr_,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>      checker_ptr_,</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>      <a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a54a0fd06169e7dc14648d41420e7385c">HexapodMove::kComMove</a>);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    (*node_creator)[<a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a54a0fd06169e7dc14648d41420e7385c">HexapodMove::kComMove</a>] = std::make_unique&lt;NodeCreatorComMove&gt;(</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>      map,</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>      converter_ptr_,</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>      presenter_ptr_,</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>      checker_ptr_,</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>      <a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a7a0d289d2c7258b2f617388cded82812">HexapodMove::kLegHierarchyChange</a>);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>}</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}  <span class="comment">// namespace designlab</span></div>
+<div class="ttc" id="acassert__define_8h_html"><div class="ttname"><a href="cassert__define_8h.html">cassert_define.h</a></div><div class="ttdoc">デバッグモードとリリースモードでアサートを有効化・無効化するためのヘッダファイル．</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_divided_map_state_html"><div class="ttname"><a href="classdesignlab_1_1_divided_map_state.html">designlab::DividedMapState</a></div><div class="ttdoc">マップを格子状に分割して管理するクラス．</div><div class="ttdef"><b>Definition</b> <a href="divided__map__state_8h_source.html#l00029">divided_map_state.h:30</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_node_creator_builder_turn_html_a02640ebde37671d4263cac89e8c54fca"><div class="ttname"><a href="classdesignlab_1_1_node_creator_builder_turn.html#a02640ebde37671d4263cac89e8c54fca">designlab::NodeCreatorBuilderTurn::NodeCreatorBuilderTurn</a></div><div class="ttdeci">NodeCreatorBuilderTurn(const std::shared_ptr&lt; const IHexapodCoordinateConverter &gt; &amp;converter_ptr, const std::shared_ptr&lt; const IHexapodStatePresenter &gt; &amp;presenter_ptr, const std::shared_ptr&lt; const IHexapodPostureValidator &gt; &amp;checker_ptr)</div><div class="ttdef"><b>Definition</b> <a href="node__creator__builder__turn_8cpp_source.html#l00020">node_creator_builder_turn.cpp:20</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_node_creator_builder_turn_html_af3e1f1ba18c43b8d56a8a6e8d3d5086b"><div class="ttname"><a href="classdesignlab_1_1_node_creator_builder_turn.html#af3e1f1ba18c43b8d56a8a6e8d3d5086b">designlab::NodeCreatorBuilderTurn::Build</a></div><div class="ttdeci">void Build(const DividedMapState &amp;map, std::map&lt; HexapodMove, std::unique_ptr&lt; INodeCreator &gt; &gt; *node_creator) const override</div><div class="ttdoc">INodeCreatorを生成する．</div><div class="ttdef"><b>Definition</b> <a href="node__creator__builder__turn_8cpp_source.html#l00030">node_creator_builder_turn.cpp:30</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1enums_html_ab5710dabeacf5161415ee779fe947495a08c2c15252b53e4252ab6415b8aeac66"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a08c2c15252b53e4252ab6415b8aeac66">designlab::enums::DiscreteLegPos::kUpperBack</a></div><div class="ttdeci">@ kUpperBack</div><div class="ttdoc">現在の位置より後方かつ上方にある．</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1enums_html_ab5710dabeacf5161415ee779fe947495a1aa843cfb007a05d484edf751fdc905d"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a1aa843cfb007a05d484edf751fdc905d">designlab::enums::DiscreteLegPos::kBack</a></div><div class="ttdeci">@ kBack</div><div class="ttdoc">現在の位置より後方にある．</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1enums_html_ab5710dabeacf5161415ee779fe947495a3a344159c7144969a66c510c5eb0040d"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a3a344159c7144969a66c510c5eb0040d">designlab::enums::DiscreteLegPos::kCenter</a></div><div class="ttdeci">@ kCenter</div><div class="ttdoc">現在の位置にある．</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1enums_html_ab5710dabeacf5161415ee779fe947495a55546b3f938b81742b7d0c03e85a5c91"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a55546b3f938b81742b7d0c03e85a5c91">designlab::enums::DiscreteLegPos::kUpperFront</a></div><div class="ttdeci">@ kUpperFront</div><div class="ttdoc">現在の位置より前方かつ上方にある．</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1enums_html_ab5710dabeacf5161415ee779fe947495a74b33dfe34e13923f9b235450de37871"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a74b33dfe34e13923f9b235450de37871">designlab::enums::DiscreteLegPos::kFront</a></div><div class="ttdeci">@ kFront</div><div class="ttdoc">現在の位置より前方にある．</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1enums_html_ab5710dabeacf5161415ee779fe947495a7de5161d3d66930665695edb06796198"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a7de5161d3d66930665695edb06796198">designlab::enums::DiscreteLegPos::kLowerBack</a></div><div class="ttdeci">@ kLowerBack</div><div class="ttdoc">現在の位置より後方かつ下方にある．</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1enums_html_ab5710dabeacf5161415ee779fe947495ac197680fbf6de70bd3752b01a43d1ba7"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495ac197680fbf6de70bd3752b01a43d1ba7">designlab::enums::DiscreteLegPos::kLowerFront</a></div><div class="ttdeci">@ kLowerFront</div><div class="ttdoc">現在の位置より前方かつ下方にある．</div></div>
+<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00015">abstract_dxlib_gui.cpp:16</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html_acc7368f4060dfdf3589ada8d62dd8a81"><div class="ttname"><a href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81">designlab::HexapodMove</a></div><div class="ttdeci">HexapodMove</div><div class="ttdoc">ロボットが次にどの動作をするのかを表す列挙体．</div><div class="ttdef"><b>Definition</b> <a href="hexapod__next__move_8h_source.html#l00016">hexapod_next_move.h:17</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html_acc7368f4060dfdf3589ada8d62dd8a81a4a6461c86ef75a5e573c7159b8f899af"><div class="ttname"><a href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a4a6461c86ef75a5e573c7159b8f899af">designlab::HexapodMove::kLegUpDown</a></div><div class="ttdeci">@ kLegUpDown</div><div class="ttdoc">脚の上下移動.</div></div>
+<div class="ttc" id="anamespacedesignlab_html_acc7368f4060dfdf3589ada8d62dd8a81a54a0fd06169e7dc14648d41420e7385c"><div class="ttname"><a href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a54a0fd06169e7dc14648d41420e7385c">designlab::HexapodMove::kComMove</a></div><div class="ttdeci">@ kComMove</div><div class="ttdoc">重心の平行移動．Center Of Massで重心のこと．</div></div>
+<div class="ttc" id="anamespacedesignlab_html_acc7368f4060dfdf3589ada8d62dd8a81a6428915b783a686f1dfed18358d57bc7"><div class="ttname"><a href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a6428915b783a686f1dfed18358d57bc7">designlab::HexapodMove::kComUpDown</a></div><div class="ttdeci">@ kComUpDown</div><div class="ttdoc">重心の上下移動．</div></div>
+<div class="ttc" id="anamespacedesignlab_html_acc7368f4060dfdf3589ada8d62dd8a81a7a0d289d2c7258b2f617388cded82812"><div class="ttname"><a href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a7a0d289d2c7258b2f617388cded82812">designlab::HexapodMove::kLegHierarchyChange</a></div><div class="ttdeci">@ kLegHierarchyChange</div><div class="ttdoc">脚の平行移動．脚の階層を変更する．</div></div>
+<div class="ttc" id="anamespacedesignlab_html_acc7368f4060dfdf3589ada8d62dd8a81ad3c33ddfb2a26d82caa154fcf33350a5"><div class="ttname"><a href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81ad3c33ddfb2a26d82caa154fcf33350a5">designlab::HexapodMove::kBodyYawRot</a></div><div class="ttdeci">@ kBodyYawRot</div><div class="ttdoc">ヨー軸周りの回転．</div></div>
+<div class="ttc" id="anode__creator__body__rot_8h_html"><div class="ttname"><a href="node__creator__body__rot_8h.html">node_creator_body_rot.h</a></div></div>
+<div class="ttc" id="anode__creator__builder__turn_8h_html"><div class="ttname"><a href="node__creator__builder__turn_8h.html">node_creator_builder_turn.h</a></div></div>
+<div class="ttc" id="anode__creator__com__move_8h_html"><div class="ttname"><a href="node__creator__com__move_8h.html">node_creator_com_move.h</a></div></div>
+<div class="ttc" id="anode__creator__com__up__down_8h_html"><div class="ttname"><a href="node__creator__com__up__down_8h.html">node_creator_com_up_down.h</a></div></div>
+<div class="ttc" id="anode__creator__leg__hierarchy_8h_html"><div class="ttname"><a href="node__creator__leg__hierarchy_8h.html">node_creator_leg_hierarchy.h</a></div></div>
+<div class="ttc" id="anode__creator__leg__up__down_8h_html"><div class="ttname"><a href="node__creator__leg__up__down_8h.html">node_creator_leg_up_down.h</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3_html_a49ed064fabc10cd349d8f02e7f8d5bfd"><div class="ttname"><a href="structdesignlab_1_1_vector3.html#a49ed064fabc10cd349d8f02e7f8d5bfd">designlab::Vector3::GetUpVec</a></div><div class="ttdeci">static constexpr Vector3 GetUpVec() noexcept</div><div class="ttdoc">上に進む単位ベクトルを返す． 静的な関数なので，Vector3::GetUpVec() と呼び出せる．</div><div class="ttdef"><b>Definition</b> <a href="math__vector3_8h_source.html#l00222">math_vector3.h:222</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+</small></address>
+</body>
+</html>

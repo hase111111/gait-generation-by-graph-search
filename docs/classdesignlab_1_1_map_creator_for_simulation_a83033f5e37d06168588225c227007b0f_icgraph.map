@@ -1,0 +1,5 @@
+<map id="designlab::MapCreatorForSimulation::InitMap" name="designlab::MapCreatorForSimulation::InitMap">
+<area shape="rect" id="Node000001" title="マップの初期化を行う．" alt="" coords="272,5,442,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graphic_main_robot_control.html#ad643aefb41adbe094e4f81ddd576597b" title=" " alt="" coords="5,5,224,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="257,29,224,29,224,24,257,24"/>
+</map>

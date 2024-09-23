@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: DesignLab/toml_serialize_macro.cpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">toml_serialize_macro.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="toml__serialize__macro_8cpp.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="toml__serialize__macro_8h.html">toml_serialize_macro.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1toml__func.html">    7</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab_1_1toml__func.html">designlab::toml_func</a></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a7212008e9103ff5ef65a79e0a17e8c36">Toml11Description::kNoTable</a>[] = <span class="stringliteral">&quot;no_table_value&quot;</span>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1toml__func.html#a345146097e012d45742a2341a733b2d8">   12</a></span>std::vector&lt;std::string&gt; <a class="code hl_function" href="namespacedesignlab_1_1toml__func.html#a345146097e012d45742a2341a733b2d8">sjis_to_utf8_vec</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; str_vec)</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    std::vector&lt;std::string&gt; ret_vec;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; str : str_vec)</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        ret_vec.push_back(sjis_to_utf8(str));</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="comment">// ret_vec.push_back(str);</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    }</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordflow">return</span> ret_vec;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>}  <span class="comment">// namespace designlab::toml_func</span></div>
+<div class="ttc" id="anamespacedesignlab_1_1toml__func_html"><div class="ttname"><a href="namespacedesignlab_1_1toml__func.html">designlab::toml_func</a></div><div class="ttdoc">tomlファイルのシリアライズ/デシリアライズを行うための関数群．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8cpp_source.html#l00007">toml_serialize_macro.cpp:8</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1toml__func_html_a345146097e012d45742a2341a733b2d8"><div class="ttname"><a href="namespacedesignlab_1_1toml__func.html#a345146097e012d45742a2341a733b2d8">designlab::toml_func::sjis_to_utf8_vec</a></div><div class="ttdeci">std::vector&lt; std::string &gt; sjis_to_utf8_vec(const std::vector&lt; std::string &gt; &amp;str_vec)</div><div class="ttdoc">文字列のベクターをShift-jisからUTF-8に変換する．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8cpp_source.html#l00012">toml_serialize_macro.cpp:12</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_toml11_description_html_a7212008e9103ff5ef65a79e0a17e8c36"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a7212008e9103ff5ef65a79e0a17e8c36">designlab::toml_func::Toml11Description::kNoTable</a></div><div class="ttdeci">static const char kNoTable[]</div><div class="ttdoc">テーブルがない場合に指定する文字列．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00050">toml_serialize_macro.h:50</a></div></div>
+<div class="ttc" id="atoml__serialize__macro_8h_html"><div class="ttname"><a href="toml__serialize__macro_8h.html">toml_serialize_macro.h</a></div><div class="ttdoc">tomlファイルのシリアライズ/デシリアライズを行うためのマクロ．</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+</small></address>
+</body>
+</html>

@@ -1,5 +1,9 @@
 <map id="designlab::CmdIOUtil::WaitAnyKey" name="designlab::CmdIOUtil::WaitAnyKey">
-<area shape="rect" id="Node000001" title="入力待ちをする関数． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="272,5,415,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_system_main_simulationdocs#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="5,5,224,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="256,29,224,29,224,24,256,24"/>
+<area shape="rect" id="Node000001" title="入力待ちをする関数． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="272,72,415,115"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_system_main_result_viewer.html#a7140a7e2d4cb4c62f7ff84f828afcdd2" title="主要な処理を行う関数．" alt="" coords="17,5,212,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="257,71,190,51,191,46,258,66"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_system_main_robot_control.html#a3106f05f7fcc8e37f07177433135f06f" title="主要な処理を行う関数．" alt="" coords="19,72,210,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="257,96,211,96,211,91,257,91"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="5,139,224,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="258,121,191,141,190,135,257,116"/>
 </map>

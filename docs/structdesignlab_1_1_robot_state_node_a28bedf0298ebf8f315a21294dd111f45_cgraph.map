@@ -1,14 +1,14 @@
 <map id="designlab::RobotStateNode::ChangeGlobalCenterOfMass" name="designlab::RobotStateNode::ChangeGlobalCenterOfMass">
 <area shape="rect" id="Node000001" title="重心位置を変更する関数．" alt="" coords="5,72,199,115"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_quaterniondocs#a893ee3dc143f059822f17ead2f716de1" title="クォータニオンの共役を返す． 共役なクォータニオンとは，ベクトル成分の符号を反転させたもの &#160;&#160;q = w + xi + yj + zk とすると， qの共役は w &#45; xi &#45; yj &#45; zk となる..." alt="" coords="257,5,404,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,69,241,50,242,55,178,74"/>
-<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1leg__funcdocs#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="264,72,397,115"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_quaternion.html#a893ee3dc143f059822f17ead2f716de1" title="クォータニオンの共役を返す． 共役なクォータニオンとは，ベクトル成分の符号を反転させたもの &#160;&#160;q = w + xi + yj + zk とすると， qの共役は w &#45; xi &#45; yj &#45; zk となる..." alt="" coords="257,5,404,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,69,241,50,243,55,178,74"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="264,72,397,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="199,91,249,91,249,96,199,96"/>
-<area shape="rect" id="Node000004" href="$namespacedesignlabdocs#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="247,163,414,189"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="164,113,277,154,276,159,162,118"/>
-<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="293,164,286,154,291,144,306,138,330,136,357,139,371,145,369,150,355,144,330,141,307,143,294,148,291,153,297,161"/>
-<area shape="rect" id="Node000005" href="$namespacedesignlabdocs#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換．" alt="" coords="462,163,644,189"/>
-<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="414,173,446,173,446,179,414,179"/>
-<area shape="rect" id="Node000006" href="$structdesignlab_1_1_quaterniondocs#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="692,155,840,197"/>
-<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="645,173,677,173,677,179,645,179"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="247,163,414,189"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="164,113,278,155,277,160,162,118"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="293,164,286,154,291,144,306,138,330,136,359,139,372,146,370,151,357,144,330,141,307,143,294,148,291,153,297,161"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換．" alt="" coords="462,163,644,189"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="414,173,447,173,447,179,414,179"/>
+<area shape="rect" id="Node000006" href="$structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="692,155,840,197"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="645,173,678,173,678,179,645,179"/>
 </map>

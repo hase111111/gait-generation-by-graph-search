@@ -1,5 +1,5 @@
 <map id="designlab::SlerpQuaternion" name="designlab::SlerpQuaternion">
 <area shape="rect" id="Node000001" title="球面線形補間を行う．" alt="" coords="212,13,389,40"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib_cameradocs#a849d4bd740e6cebcbe726c7a537d74be" title="カメラの位置などの更新を行う．毎フレーム実行すること．" alt="" coords="5,5,164,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,29,164,29,164,24,196,24"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib_camera.html#a849d4bd740e6cebcbe726c7a537d74be" title="カメラの位置などの更新を行う．毎フレーム実行すること．" alt="" coords="5,5,164,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,29,164,29,164,24,197,24"/>
 </map>

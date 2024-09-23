@@ -1,5 +1,5 @@
 <map id="designlab::MapCreatorByCsv" name="designlab::MapCreatorByCsv">
 <area shape="rect" id="Node000001" title="CSV ファイルからマップを生成するクラス．" alt="" coords="5,80,194,107"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_map_creatordocs" title="マップ生成クラスのインターフェース．" alt="" coords="22,5,177,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,48,102,80,97,80,97,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_map_creator.html" title="マップ生成クラスのインターフェース．" alt="" coords="22,5,177,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,47,102,80,97,80,97,47"/>
 </map>

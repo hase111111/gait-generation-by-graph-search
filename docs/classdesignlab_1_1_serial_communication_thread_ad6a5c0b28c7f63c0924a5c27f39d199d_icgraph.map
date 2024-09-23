@@ -1,0 +1,5 @@
+<map id="designlab::SerialCommunicationThread::Loop" name="designlab::SerialCommunicationThread::Loop">
+<area shape="rect" id="Node000001" title=" " alt="" coords="248,5,455,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib_gui_robot_control.html#a1af38aed3eb6e1a916c257e6ed3945f0" title="コンストラクタでWindowのサイズと，カメラの管理を行うクラスを受け取る．" alt="" coords="5,5,200,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="233,29,200,29,200,24,233,24"/>
+</map>

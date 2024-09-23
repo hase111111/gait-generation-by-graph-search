@@ -1,7 +1,7 @@
 <map id="designlab::SimulationSettingRecord" name="designlab::SimulationSettingRecord">
 <area shape="rect" id="Node000001" title=" " alt="" coords="60,112,246,155"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_euler_x_y_zdocs" title="XYZオイラー角を用いた回転を表す構造体．" alt="" coords="5,5,143,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,43,120,86,138,110,134,113,116,90,87,46"/>
-<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector3docs" title="3次元の位置ベクトルを表す構造体．" alt="" coords="167,5,296,32"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="225,48,204,90,182,113,178,110,200,86,220,46"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_euler_x_y_z.html" title="XYZオイラー角を用いた回転を表す構造体．" alt="" coords="5,5,143,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,43,120,86,138,110,134,113,116,90,87,46"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector3.html" title="3次元の位置ベクトルを表す構造体．" alt="" coords="167,5,296,32"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="226,47,204,90,182,113,178,110,200,86,221,45"/>
 </map>

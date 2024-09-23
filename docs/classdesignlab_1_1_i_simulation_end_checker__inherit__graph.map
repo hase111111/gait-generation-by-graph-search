@@ -1,9 +1,9 @@
 <map id="designlab::ISimulationEndChecker" name="designlab::ISimulationEndChecker">
 <area shape="rect" id="Node000001" title="シミュレーションの終了を判定するクラスのインターフェース．" alt="" coords="5,72,177,115"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_simulation_end_checker_by_goal_tapedocs" title="ゴールテープによるシミュレーション終了判定クラス．" alt="" coords="225,5,393,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,65,236,46,237,51,178,70"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_simulation_end_checker_by_positiondocs" title="最終位置によるシミュレーション終了判定クラス．" alt="" coords="225,72,393,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="192,91,224,91,224,96,192,96"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_simulation_end_checker_by_posturedocs" title="最終姿勢によるシミュレーション終了判定クラス．" alt="" coords="225,139,393,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="178,117,237,135,236,141,176,122"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_simulation_end_checker_by_goal_tape.html" title="ゴールテープによるシミュレーション終了判定クラス．" alt="" coords="225,5,393,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,65,236,46,237,51,177,70"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_simulation_end_checker_by_position.html" title="最終位置によるシミュレーション終了判定クラス．" alt="" coords="225,72,393,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="191,91,224,91,224,96,191,96"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_simulation_end_checker_by_posture.html" title="最終姿勢によるシミュレーション終了判定クラス．" alt="" coords="225,139,393,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="177,117,237,135,236,141,176,122"/>
 </map>

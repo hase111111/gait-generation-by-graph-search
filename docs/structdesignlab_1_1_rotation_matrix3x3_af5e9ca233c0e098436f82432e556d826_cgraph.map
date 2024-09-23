@@ -1,5 +1,5 @@
 <map id="designlab::RotationMatrix3x3::ToString" name="designlab::RotationMatrix3x3::ToString">
 <area shape="rect" id="Node000001" title="回転行列を文字列に変換する．" alt="" coords="5,5,195,48"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__utildocs#a45276ca396d3aa1331b5bb5a4c849bbe" title="小数を文字列に変換する関数． &#160;&#160;C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する．" alt="" coords="243,5,423,48"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a45276ca396d3aa1331b5bb5a4c849bbe" title="小数を文字列に変換する関数． &#160;&#160;C++ では C のフォーマットのように %3.3f とかで小数を文字列に変換できないため自作する．" alt="" coords="243,5,423,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,24,227,24,227,29,195,29"/>
 </map>

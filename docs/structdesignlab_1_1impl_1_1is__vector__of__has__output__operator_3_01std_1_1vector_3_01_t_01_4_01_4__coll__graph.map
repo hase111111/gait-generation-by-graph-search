@@ -1,7 +1,7 @@
 <map id="designlab::impl::is_vector_of_has_output_operator&lt; std::vector&lt; T &gt; &gt;" name="designlab::impl::is_vector_of_has_output_operator&lt; std::vector&lt; T &gt; &gt;">
 <area shape="rect" id="Node000001" title="出力ストリームが実装されている vector 型かどうかを判定するメタ関数．" alt="" coords="13,171,164,245"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1impl_1_1has__output__operatordocs" title="出力ストリームが実装されているか判断するメタ関数．" alt="" coords="5,80,172,123"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1impl_1_1has__output__operator.html" title="出力ストリームが実装されているか判断するメタ関数．" alt="" coords="5,80,172,123"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,138,91,170,86,170,86,138"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="35,5,142,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="91,48,91,80,86,80,86,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="91,47,91,80,86,80,86,47"/>
 </map>

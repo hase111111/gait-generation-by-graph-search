@@ -1,7 +1,8 @@
 <map id="cpplint.FileInfo.Split" name="cpplint.FileInfo.Split">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,140,32"/>
-<area shape="rect" id="Node000002" href="$classcpplint_1_1_file_infodocs#a714480dc56e24fd965f3273edfb1b268" title=" " alt="" coords="188,5,392,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,16,172,16,172,21,140,21"/>
-<area shape="rect" id="Node000003" href="$classcpplint_1_1_file_infodocs#a3e597152c0e09063f61a9fd82691991d" title=" " alt="" coords="440,5,603,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,16,424,16,424,21,392,21"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,140,56"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="36,30,29,21,34,11,48,5,73,3,99,5,113,13,110,17,98,11,72,8,50,10,37,15,34,20,40,27"/>
+<area shape="rect" id="Node000002" href="$classcpplint_1_1_file_info.html#a714480dc56e24fd965f3273edfb1b268" title=" " alt="" coords="188,29,392,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,40,172,40,172,45,140,45"/>
+<area shape="rect" id="Node000003" href="$classcpplint_1_1_file_info.html#a3e597152c0e09063f61a9fd82691991d" title=" " alt="" coords="440,29,603,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,40,425,40,425,45,392,45"/>
 </map>

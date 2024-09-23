@@ -1,0 +1,17 @@
+<map id="designlab::GraphicMainBasic::Update" name="designlab::GraphicMainBasic::Update">
+<area shape="rect" id="Node000001" title="描画画面の更新を行う．純粋仮想関数のため， 継承先では必ず override する必要がある．" alt="" coords="5,172,196,215"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib_gui_updater.html#a8330d413e80271485c00caaf64c36841" title="GUIのUpdate関数を実行し，クリック，ドラッグなどの判定を行う． &#160;&#160;優先度の高いものから順に各種判定を行う．" alt="" coords="274,5,452,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,170,169,114,204,84,242,58,259,49,261,54,245,62,207,88,173,118,121,173"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_interpolated_node_creator.html#abbad675a18b50fca198d14fc12ecea75" title="ノード間を補間する．" alt="" coords="260,72,466,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="143,169,243,124,263,117,265,122,245,129,145,174"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_movement_locus_renderer.html#a4c9e94d72a533fa1e74c23778c1a9ba4" title="ロボットの移動軌跡を記録する．ノードの配列から，重心位置の軌跡を取得する．" alt="" coords="265,139,461,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="196,179,250,172,250,177,197,184"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_dxlib_node_setter_group.html#afd8f92a9f04d04aea6233c5adf0b7792" title="登録済みの全てのクラスに対してノードの設定を行う．" alt="" coords="274,205,452,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="197,203,259,211,259,216,196,208"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_robot_ground_point_renderer.html#a00517667ff548ea9ea8b8d6eaf1915a1" title=" " alt="" coords="244,272,482,331"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="147,213,245,258,260,264,259,269,243,262,144,218"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_movement_locus_renderer.html#a7d0869bf26a00a260705bf2e5df610b3" title="シミュレーションの終了点を取得する．" alt="" coords="248,355,478,397"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="119,213,170,277,205,311,245,340,255,346,253,351,242,345,202,315,166,280,115,217"/>
+<area shape="rect" id="Node000007" href="$namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="530,280,662,323"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="483,299,515,299,515,304,483,304"/>
+</map>

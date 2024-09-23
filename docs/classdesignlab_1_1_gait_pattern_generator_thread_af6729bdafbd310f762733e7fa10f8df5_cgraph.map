@@ -1,43 +1,47 @@
 <map id="designlab::GaitPatternGeneratorThread::GetNextNodeByGraphSearch" name="designlab::GaitPatternGeneratorThread::GetNextNodeByGraphSearch">
 <area shape="rect" id="Node000001" title="グラフ探索を行い，次の動作として最適なノードを返す．" alt="" coords="5,264,244,307"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_gait_pattern_graph_treedocs#ac0d2e4ec3bd05e0092f8f27b34e88908" title="ノードを追加する． &#160;&#160;追加するノードは親ノードのインデックスと，depthの指定が適切にされている必要がある． &#160;&#160;これらが適切にされていない場合，アサーションに引っかかる． &#160;&#160;また，あらかじめ確保..." alt="" coords="526,5,711,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,262,159,223,193,175,238,127,290,87,343,62,400,44,457,33,510,27,511,32,458,38,401,50,345,67,293,92,241,131,198,179,163,226,140,265"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_graph_tree_creatordocs#a9a8a2cff8af6b99342e88c5cb1cd52ab" title="歩容パターングラフを作成する．" alt="" coords="292,139,478,181"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="170,261,324,186,327,191,172,266"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_gait_pattern_graph_treedocs#af2594414411d9eb5e9103d30dffe9714" title="グラフのノードの総数を返す．" alt="" coords="526,72,711,115"/>
-<area shape="poly" id="edge11_Node000001_Node000004" title=" " alt="" coords="139,262,164,230,199,192,242,154,291,124,345,105,401,93,458,86,510,84,510,90,458,92,402,98,346,110,293,129,245,158,202,195,168,233,143,265"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_gait_pattern_graph_treedocs#ac9d24a79c7d5e3db0eb943cd9ecd446d" title="グラフのノードの参照を返す．" alt="" coords="526,205,711,248"/>
-<area shape="poly" id="edge12_Node000001_Node000005" title=" " alt="" coords="225,261,291,249,404,237,510,229,511,234,405,242,292,255,225,266"/>
-<area shape="rect" id="Node000007" href="$classdesignlab_1_1_cmd_i_o_utildocs#adb7453f167304f8606a928b5e4e7ebd3" title="コマンドラインに文字を出力する関数．Debug用の出力．" alt="" coords="313,331,457,373"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="211,305,298,327,297,332,210,310"/>
-<area shape="rect" id="Node000009" href="$classdesignlab_1_1_cmd_i_o_utildocs#ac1e70caf5bcc19c4ab42106c3e1dc9ab" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="313,264,457,307"/>
-<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="244,283,297,283,297,288,244,288"/>
-<area shape="rect" id="Node000010" href="$classdesignlab_1_1_divided_map_statedocs#a50647e278f9ee754cbfe5196153e2ba8" title="マップのデータを初期化する． ロボットの重心座標を中心にマップのデータを格子状に分割し， その中に存在する脚設置可能点を集める．" alt="" coords="294,439,476,481"/>
-<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="159,305,341,428,338,432,156,309"/>
-<area shape="rect" id="Node000018" href="$structdesignlab_1_1_robot_state_nodedocs#a1094abe8cb1ef6d6dcfb72bae3098ac5" title="自身が根ノードであるか判定する．" alt="" coords="295,505,475,548"/>
-<area shape="poly" id="edge21_Node000001_Node000018" title=" " alt="" coords="140,305,164,345,198,395,242,446,293,491,299,495,296,500,290,495,238,450,194,398,159,348,135,308"/>
-<area shape="rect" id="Node000019" href="$classdesignlab_1_1_gait_pattern_graph_treedocs#a3a2e1f65d243cc24527387bc52a651ae" title="グラフをリセットする．" alt="" coords="292,572,478,615"/>
-<area shape="poly" id="edge22_Node000001_Node000019" title=" " alt="" coords="136,306,156,357,189,425,235,496,263,529,293,558,298,561,295,566,290,562,259,533,231,499,184,428,151,360,131,308"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#ac0d2e4ec3bd05e0092f8f27b34e88908" title="ノードを追加する． &#160;&#160;追加するノードは親ノードのインデックスと，depthの指定が適切にされている必要がある． &#160;&#160;これらが適切にされていない場合，アサーションに引っかかる． &#160;&#160;また，あらかじめ確保..." alt="" coords="526,5,711,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,262,159,223,193,175,238,127,290,87,344,62,401,44,458,33,511,27,512,32,458,38,402,49,346,67,293,92,241,131,198,179,163,226,140,265"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_graph_tree_creator.html#a9a8a2cff8af6b99342e88c5cb1cd52ab" title="歩容パターングラフを作成する．" alt="" coords="292,139,478,181"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="170,261,325,186,327,190,172,266"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#af2594414411d9eb5e9103d30dffe9714" title="グラフのノードの総数を返す．" alt="" coords="526,72,711,115"/>
+<area shape="poly" id="edge13_Node000001_Node000004" title=" " alt="" coords="139,262,164,230,199,192,242,154,291,124,345,105,402,92,458,86,511,84,511,90,459,92,403,98,346,110,293,129,245,158,202,195,168,233,143,265"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#ac9d24a79c7d5e3db0eb943cd9ecd446d" title="グラフのノードの参照を返す．" alt="" coords="526,205,711,248"/>
+<area shape="poly" id="edge14_Node000001_Node000005" title=" " alt="" coords="225,261,291,249,404,237,511,229,511,234,405,242,292,255,225,266"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_cmd_i_o_util.html#adb7453f167304f8606a928b5e4e7ebd3" title="コマンドラインに文字を出力する関数．Debug用の出力．" alt="" coords="313,331,457,373"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="211,305,299,327,298,333,210,310"/>
+<area shape="rect" id="Node000011" href="$classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="313,264,457,307"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="244,283,298,283,298,288,244,288"/>
+<area shape="rect" id="Node000012" href="$classdesignlab_1_1_divided_map_state.html#a50647e278f9ee754cbfe5196153e2ba8" title="マップのデータを初期化する． ロボットの重心座標を中心にマップのデータを格子状に分割し， その中に存在する脚設置可能点を集める．" alt="" coords="294,439,476,481"/>
+<area shape="poly" id="edge15_Node000001_Node000012" title=" " alt="" coords="159,305,341,428,338,432,156,309"/>
+<area shape="rect" id="Node000020" href="$structdesignlab_1_1_robot_state_node.html#a1094abe8cb1ef6d6dcfb72bae3098ac5" title="自身が根ノードであるか判定する．" alt="" coords="295,505,475,548"/>
+<area shape="poly" id="edge23_Node000001_Node000020" title=" " alt="" coords="140,305,164,345,198,395,242,446,293,491,300,496,297,500,290,495,238,450,194,398,159,348,135,308"/>
+<area shape="rect" id="Node000021" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#a3a2e1f65d243cc24527387bc52a651ae" title="グラフをリセットする．" alt="" coords="292,572,478,615"/>
+<area shape="poly" id="edge24_Node000001_Node000021" title=" " alt="" coords="136,306,156,357,189,425,235,496,263,529,293,558,298,562,295,566,290,562,259,533,231,499,184,428,151,360,131,308"/>
 <area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="410,136,462,97,525,58,536,52,538,57,527,62,465,101,414,140"/>
-<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="461,136,526,117,527,122,463,141"/>
-<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="463,179,527,198,526,203,461,184"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_gait_pattern_graph_treedocs#a5880ef9bfbc41d440c38982aefb08070" title="グラフが空かどうかを返す．" alt="" coords="526,139,711,181"/>
-<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="478,157,510,157,510,163,478,163"/>
-<area shape="rect" id="Node000008" href="$classdesignlab_1_1_cmd_i_o_utildocs#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="547,272,690,315"/>
-<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="456,331,531,312,532,318,457,337"/>
-<area shape="poly" id="edge10_Node000009_Node000008" title=" " alt="" coords="457,285,531,288,531,293,457,290"/>
-<area shape="rect" id="Node000011" href="$classdesignlab_1_1_divided_map_statedocs#a726a21449619c1d6980ed867c141992f" title="マップのデータを消去する．" alt="" coords="528,405,709,448"/>
-<area shape="poly" id="edge14_Node000010_Node000011" title=" " alt="" coords="475,444,512,439,513,444,476,450"/>
-<area shape="rect" id="Node000012" href="$classdesignlab_1_1_divided_map_statedocs#a22c0df011d0506e6d5106c6acd931be9" title="指定した座標を DividedMap のインデックスに変換する． 範囲外の値を指定した場合でも，値を丸めずに返す． そのため，IsInMap で範囲内に存在するかどうかを確認する必要がある．" alt="" coords="528,472,709,515"/>
-<area shape="poly" id="edge15_Node000010_Node000012" title=" " alt="" coords="476,470,513,476,512,481,475,476"/>
-<area shape="rect" id="Node000013" href="$classdesignlab_1_1_divided_map_statedocs#a8dcc229f5560978d2a082b326191d6ee" title="指定した座標を DividedMap のインデックスに変換する． 範囲外の値を指定した場合でも，値を丸めずに返す． そのため，IsInMap で範囲内に存在するかどうかを確認する必要がある．" alt="" coords="528,539,709,581"/>
-<area shape="poly" id="edge16_Node000010_Node000013" title=" " alt="" coords="454,479,479,491,504,508,527,524,538,530,536,534,525,529,500,512,477,496,452,484"/>
-<area shape="rect" id="Node000014" href="$classdesignlab_1_1_map_statedocs#a80c42812e6ff529ed9b468d0db52d757" title="脚設置可能点の座標を返す．" alt="" coords="549,605,689,648"/>
-<area shape="poly" id="edge17_Node000010_Node000014" title=" " alt="" coords="464,480,480,491,498,517,505,543,511,567,528,591,537,598,533,603,524,595,506,570,499,544,493,519,476,495,461,484"/>
-<area shape="rect" id="Node000015" href="$classdesignlab_1_1_map_statedocs#a221db2fa4a7021da6e9b240c209fa59c" title="脚設置可能点の総数を返す．" alt="" coords="549,672,689,715"/>
-<area shape="poly" id="edge18_Node000010_Node000015" title=" " alt="" coords="466,480,480,492,495,513,503,535,505,577,506,618,513,638,528,658,537,666,533,670,524,662,509,640,501,619,499,577,498,536,491,516,476,495,463,484"/>
-<area shape="rect" id="Node000016" href="$classdesignlab_1_1_divided_map_statedocs#a50c9ba4fb3821ba6a674f3657fe80f6f" title="指定した座標がマップの範囲内に存在するかどうかを返す．" alt="" coords="528,739,709,781"/>
-<area shape="poly" id="edge19_Node000010_Node000016" title=" " alt="" coords="467,480,480,492,500,522,508,552,508,581,505,610,501,639,502,667,509,696,528,725,529,726,525,730,524,728,504,698,496,668,496,639,499,610,503,581,502,553,495,524,476,495,463,484"/>
-<area shape="rect" id="Node000017" href="$namespacedesignlab_1_1math__utildocs#ac1263c8ff431181d677fad31e8c96db5" title="2乗した値を返す関数．" alt="" coords="550,339,687,381"/>
-<area shape="poly" id="edge20_Node000010_Node000017" title=" " alt="" coords="428,436,525,391,540,385,542,390,527,396,430,441"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="461,136,526,117,528,122,463,141"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="463,179,528,198,526,203,461,184"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#a5880ef9bfbc41d440c38982aefb08070" title="グラフが空かどうかを返す．" alt="" coords="526,139,711,181"/>
+<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="478,157,511,157,511,163,478,163"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="547,272,690,315"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="456,331,532,312,533,317,457,337"/>
+<area shape="rect" id="Node000009" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数． &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている． &#160;&#160;例えば，" alt="" coords="759,239,947,281"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="690,281,744,273,745,278,691,286"/>
+<area shape="rect" id="Node000010" href="$namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数．指定した文字で文字列を分割する． &#160;&#160;分割した結果，空白が含まれる場合や文字列がない場合は，そのまま返す． &#160;&#160;最後が区切り文字で終わる場合は，それを無視する．" alt="" coords="783,305,923,348"/>
+<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="691,301,769,312,768,317,690,306"/>
+<area shape="poly" id="edge12_Node000011_Node000008" title=" " alt="" coords="457,285,532,288,532,293,457,290"/>
+<area shape="rect" id="Node000013" href="$classdesignlab_1_1_divided_map_state.html#a726a21449619c1d6980ed867c141992f" title="マップのデータを消去する．" alt="" coords="528,405,709,448"/>
+<area shape="poly" id="edge16_Node000012_Node000013" title=" " alt="" coords="475,444,513,439,514,444,476,450"/>
+<area shape="rect" id="Node000014" href="$classdesignlab_1_1_divided_map_state.html#a22c0df011d0506e6d5106c6acd931be9" title="指定した座標を DividedMap のインデックスに変換する． 範囲外の値を指定した場合でも，値を丸めずに返す． そのため，IsInMap で範囲内に存在するかどうかを確認する必要がある．" alt="" coords="528,472,709,515"/>
+<area shape="poly" id="edge17_Node000012_Node000014" title=" " alt="" coords="476,470,514,476,513,481,475,476"/>
+<area shape="rect" id="Node000015" href="$classdesignlab_1_1_divided_map_state.html#a8dcc229f5560978d2a082b326191d6ee" title="指定した座標を DividedMap のインデックスに変換する． 範囲外の値を指定した場合でも，値を丸めずに返す． そのため，IsInMap で範囲内に存在するかどうかを確認する必要がある．" alt="" coords="528,539,709,581"/>
+<area shape="poly" id="edge18_Node000012_Node000015" title=" " alt="" coords="454,479,479,491,504,508,527,524,539,530,537,535,525,529,500,512,477,496,452,484"/>
+<area shape="rect" id="Node000016" href="$classdesignlab_1_1_map_state.html#a80c42812e6ff529ed9b468d0db52d757" title="脚設置可能点の座標を返す．" alt="" coords="549,605,689,648"/>
+<area shape="poly" id="edge19_Node000012_Node000016" title=" " alt="" coords="464,480,480,491,498,517,505,543,511,567,528,591,537,599,534,603,524,595,506,570,499,544,493,519,476,495,461,484"/>
+<area shape="rect" id="Node000017" href="$classdesignlab_1_1_map_state.html#a221db2fa4a7021da6e9b240c209fa59c" title="脚設置可能点の総数を返す．" alt="" coords="549,672,689,715"/>
+<area shape="poly" id="edge20_Node000012_Node000017" title=" " alt="" coords="466,480,480,492,495,513,503,535,505,577,506,618,513,638,528,658,538,667,534,671,524,662,509,640,501,619,499,577,498,536,491,516,476,495,463,484"/>
+<area shape="rect" id="Node000018" href="$classdesignlab_1_1_divided_map_state.html#a50c9ba4fb3821ba6a674f3657fe80f6f" title="指定した座標がマップの範囲内に存在するかどうかを返す．" alt="" coords="528,739,709,781"/>
+<area shape="poly" id="edge21_Node000012_Node000018" title=" " alt="" coords="467,480,480,492,500,522,508,552,508,581,505,610,501,639,502,667,509,696,528,725,530,727,526,730,524,728,504,698,496,668,496,639,499,610,503,581,502,553,495,524,476,495,463,484"/>
+<area shape="rect" id="Node000019" href="$namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5" title="2乗した値を返す関数．" alt="" coords="550,339,687,381"/>
+<area shape="poly" id="edge22_Node000012_Node000019" title=" " alt="" coords="428,436,525,391,540,385,542,390,527,396,430,441"/>
 </map>

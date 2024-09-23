@@ -1,5 +1,9 @@
 <map id="designlab::MapFileImporter::ImportMap" name="designlab::MapFileImporter::ImportMap">
-<area shape="rect" id="Node000001" title="マップを csv に出力したものを読み込む．" alt="" coords="5,5,183,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_cmd_i_o_utildocs#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="231,5,374,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,24,215,24,215,29,183,29"/>
+<area shape="rect" id="Node000001" title="マップを csv に出力したものを読み込む．" alt="" coords="5,39,183,81"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="231,39,374,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,57,216,57,216,63,183,63"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数． &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている． &#160;&#160;例えば，" alt="" coords="422,5,609,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="374,46,406,41,407,46,375,51"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数．指定した文字で文字列を分割する． &#160;&#160;分割した結果，空白が含まれる場合や文字列がない場合は，そのまま返す． &#160;&#160;最後が区切り文字で終わる場合は，それを無視する．" alt="" coords="446,72,586,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="375,69,431,77,430,83,374,74"/>
 </map>

@@ -1,7 +1,7 @@
 <map id="designlab::Stopwatch::GetElapsedMilliSecond" name="designlab::Stopwatch::GetElapsedMilliSecond">
 <area shape="rect" id="Node000001" title="計測結果をミリ秒で取得． &#160;&#160;start()と end()を呼び出してからこの関数を呼ぶ．" alt="" coords="272,39,436,81"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_stopwatchdocs#a51874446242f0ad0819837afb8036be7" title="経過時間をミリ秒で表した文字列を取得する．" alt="" coords="15,5,214,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_stopwatch.html#a51874446242f0ad0819837afb8036be7" title="経過時間をミリ秒で表した文字列を取得する．" alt="" coords="15,5,214,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="256,49,214,43,215,38,257,44"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_system_main_simulationdocs#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="5,72,224,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="256,76,225,81,224,75,256,71"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="5,72,224,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="257,76,225,81,224,75,256,71"/>
 </map>
