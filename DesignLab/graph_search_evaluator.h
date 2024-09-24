@@ -28,7 +28,7 @@ struct GraphSearchEvaluationValue final
 };
 
 
-//! @struct GraphSearchResult
+//! @struct GraphSearchEvaluator
 //! @brief グラフ探索の評価値を評価するクラス．
 class GraphSearchEvaluator final
 {

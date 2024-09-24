@@ -13,6 +13,15 @@
 namespace designlab
 {
 
+//! @class DoubleIntRange
+//! @brief 2つの変数を for 範囲ループで回すためのクラス
+//! @details
+//! 以下のように使うことができる
+//! @code
+//! for (const auto [i, j] : DoubleIntRange{ 3, 3 })
+//! {
+//!    // ここで i, j を使う
+//! }
 class DoubleIntRange final
 {
 public:
