@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>GaitGeneration by Graph Search: DesignLab/file_tree.cpp ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -29,7 +29,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.7 -->
+<!-- 構築: Doxygen 1.9.8 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -46,6 +46,11 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -89,6 +94,7 @@ $(function() {
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_file_tree.html#a49bfd68f37ed53d9a9e943dd15e227fe">   16</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_file_tree.html#a49bfd68f37ed53d9a9e943dd15e227fe">FileTree::DisplayFileTree</a>(<span class="keyword">const</span> std::string&amp; path, <span class="keywordtype">int</span> max_depth)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    FileTreeData tree = MakeFileTree(path, max_depth, <span class="stringliteral">&quot;&quot;</span>, <span class="stringliteral">&quot;sim&quot;</span>);</div>
@@ -96,7 +102,9 @@ $(function() {
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">int</span> count = 0;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    OutputFileTree(tree, 0, <span class="keyword">true</span>, &amp;count);</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>}</div>
+</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_file_tree.html#a733878741b1e145e088254478a06d6e5">   24</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_file_tree.html#a733878741b1e145e088254478a06d6e5">FileTree::SelectFile</a>(<span class="keyword">const</span> std::string&amp; path, <span class="keywordtype">int</span> max_depth,</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>                          <span class="keyword">const</span> std::string&amp; extension, <span class="keyword">const</span> std::string keyword,</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>                          std::string* output)<span class="keyword"> const</span></div>
@@ -145,6 +153,7 @@ $(function() {
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}</div>
+</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>FileTree::FileTreeData FileTree::MakeFileTree(<span class="keyword">const</span> std::string&amp; path, <span class="keywordtype">int</span> max_depth,</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                                              <span class="keyword">const</span> std::string&amp; extension,</div>
@@ -280,7 +289,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

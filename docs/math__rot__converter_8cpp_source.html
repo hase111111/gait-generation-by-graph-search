@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>GaitGeneration by Graph Search: DesignLab/math_rot_converter.cpp ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -29,7 +29,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.7 -->
+<!-- 構築: Doxygen 1.9.8 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -46,6 +46,11 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -86,6 +91,7 @@ $(function() {
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespacedesignlab.html#aa1c6fabbe9cbddd910f4578751c0ec86">   14</a></span><a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> <a class="code hl_function" href="namespacedesignlab.html#aa1c6fabbe9cbddd910f4578751c0ec86">ToQuaternion</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_rotation_matrix3x3.html">RotationMatrix3x3</a>&amp; rot)</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> q;</div>
@@ -102,7 +108,9 @@ $(function() {
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordflow">return</span> q;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>}</div>
+</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="namespacedesignlab.html#a54d940e1e1adcbeeec8594a7f542fdef">   31</a></span><a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> <a class="code hl_function" href="namespacedesignlab.html#aa1c6fabbe9cbddd910f4578751c0ec86">ToQuaternion</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_euler_x_y_z.html">EulerXYZ</a>&amp; e)</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> cos_x = std::cos(e.<a class="code hl_variable" href="structdesignlab_1_1_euler_x_y_z.html#a002c87d3a11aaabec75689b796990e33">x_angle</a> / 2.0f);</div>
@@ -128,7 +136,9 @@ $(function() {
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordflow">return</span> q;</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    }</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
+</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="foldopen" id="foldopen00057" data-start="{" data-end="}">
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294">   57</a></span><a class="code hl_struct" href="structdesignlab_1_1_rotation_matrix3x3.html">RotationMatrix3x3</a> <a class="code hl_function" href="namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294">ToRotationMatrix</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&amp; q)</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>{</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <a class="code hl_struct" href="structdesignlab_1_1_rotation_matrix3x3.html">RotationMatrix3x3</a> mat;</div>
@@ -158,7 +168,9 @@ $(function() {
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordflow">return</span> mat;</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>}</div>
+</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="foldopen" id="foldopen00087" data-start="{" data-end="}">
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="namespacedesignlab.html#a3aa3e315aa55ffe66c5cc4fef3c1b04f">   87</a></span><a class="code hl_struct" href="structdesignlab_1_1_rotation_matrix3x3.html">RotationMatrix3x3</a> <a class="code hl_function" href="namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294">ToRotationMatrix</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_euler_x_y_z.html">EulerXYZ</a>&amp; q)</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>{</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keyword">const</span> <span class="keyword">auto</span> mat_x = <a class="code hl_function" href="structdesignlab_1_1_rotation_matrix3x3.html#abc3bdb68d606ea4d724a92425188f9fa">RotationMatrix3x3::CreateRotationMatrixX</a>(q.<a class="code hl_variable" href="structdesignlab_1_1_euler_x_y_z.html#a002c87d3a11aaabec75689b796990e33">x_angle</a>);</div>
@@ -168,7 +180,9 @@ $(function() {
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="comment">// X→Y→Zの順に回転する．</span></div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordflow">return</span> mat_z * mat_y * mat_x;</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>}</div>
+</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="foldopen" id="foldopen00097" data-start="{" data-end="}">
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="namespacedesignlab.html#a78f534befd80ba94ea6c6058487d2596">   97</a></span><a class="code hl_struct" href="structdesignlab_1_1_euler_x_y_z.html">EulerXYZ</a> <a class="code hl_function" href="namespacedesignlab.html#a78f534befd80ba94ea6c6058487d2596">ToEulerXYZ</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_rotation_matrix3x3.html">RotationMatrix3x3</a>&amp; rot)</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>{</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">float</span> x = std::atan2(rot.<a class="code hl_variable" href="structdesignlab_1_1_rotation_matrix3x3.html#a459ee5b68e688cafa9f7227666e4c6a8">element</a>[2][1], rot.<a class="code hl_variable" href="structdesignlab_1_1_rotation_matrix3x3.html#a459ee5b68e688cafa9f7227666e4c6a8">element</a>[2][2]);</div>
@@ -179,12 +193,15 @@ $(function() {
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordflow">return</span> <a class="code hl_struct" href="structdesignlab_1_1_euler_x_y_z.html">EulerXYZ</a>{ x, y, z };</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>}</div>
+</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="foldopen" id="foldopen00108" data-start="{" data-end="}">
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="namespacedesignlab.html#a6078399857761c9309ce7d7fcdf3a90b">  108</a></span><a class="code hl_struct" href="structdesignlab_1_1_euler_x_y_z.html">EulerXYZ</a> <a class="code hl_function" href="namespacedesignlab.html#a78f534befd80ba94ea6c6058487d2596">ToEulerXYZ</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&amp; q)</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>{</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="comment">// クォータニオンを回転行列に変換してから，回転行列をオイラー角に変換する．</span></div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespacedesignlab.html#a78f534befd80ba94ea6c6058487d2596">ToEulerXYZ</a>(<a class="code hl_function" href="namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294">ToRotationMatrix</a>(q));</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>}</div>
+</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>}  <span class="comment">// namespace designlab</span></div>
@@ -216,7 +233,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

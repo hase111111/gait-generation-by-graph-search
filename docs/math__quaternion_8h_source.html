@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>GaitGeneration by Graph Search: DesignLab/math_quaternion.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -29,7 +29,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.7 -->
+<!-- 構築: Doxygen 1.9.8 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -46,6 +46,11 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -93,14 +98,17 @@ $(function() {
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html">   36</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> final</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#aa80a5e88802595ce7a63b75eccc7aa65">   39</a></span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#aa80a5e88802595ce7a63b75eccc7aa65">Quaternion</a>() : <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a>(1.0f), <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a>(0.0f, 0.0f, 0.0f) {}</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#ad8e53b628000940f37c14d6d4541442a">   48</a></span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#ad8e53b628000940f37c14d6d4541442a">Quaternion</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> w_,</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keyword">const</span> <span class="keywordtype">float</span> x_, <span class="keyword">const</span> <span class="keywordtype">float</span> y_, <span class="keyword">const</span> <span class="keywordtype">float</span> z_) :</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a>(w_),</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a>(x_, y_, z_) {}</div>
+</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#a3478e87815e90f29f0d03b1881ca213b">   58</a></span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a3478e87815e90f29f0d03b1881ca213b">Quaternion</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> w_, <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a>&amp; v_) : <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a>(w_), <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a>(v_) {}</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
@@ -112,94 +120,126 @@ $(function() {
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#a8c27cd72cb16f4abd00d2791fd7efdbc">   69</a></span>    <span class="keyword">constexpr</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a8c27cd72cb16f4abd00d2791fd7efdbc">operator + </a>() const noexcept { <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#aad302dad089b4931d8fa541792349056">   70</a></span>    <span class="keyword">constexpr</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#aad302dad089b4931d8fa541792349056">operator - </a>() const noexcept { <span class="keywordflow">return</span> { -<a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a>, -<a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a> }; }</div>
+<div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#aa8398f73756f5e0216d5a1be8533f6fa">   71</a></span>    <span class="keyword">constexpr</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a8c27cd72cb16f4abd00d2791fd7efdbc">operator + </a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&amp; q) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    {</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keywordflow">return</span> { <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a> + q.w, <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a> + q.v };</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keywordflow">return</span> { <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a> + q.<a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a>, <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a> + q.v };</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00075" data-start="{" data-end="}">
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#a398beced0fe94c5058330b7dbbf16b6e">   75</a></span>    <span class="keyword">constexpr</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#aad302dad089b4931d8fa541792349056">operator - </a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&amp; q) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    {</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">return</span> { <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a> - q.w, <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a> - q.v };</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">return</span> { <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a> - q.<a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a>, <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a> - q.v };</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00079" data-start="{" data-end="}">
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#abd5b6f28d19d82dd8bddce3fb6d4d90a">   79</a></span>    <span class="keyword">constexpr</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#abd5b6f28d19d82dd8bddce3fb6d4d90a">operator * </a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&amp; q) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    {</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordflow">return</span> { <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a> * q.w - <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a>.<a class="code hl_function" href="structdesignlab_1_1_vector3.html#aa0a76dfe9dc375fd09561734cf782f63">Dot</a>(q.v), <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a> * q.v + q.w * <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a> + <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a>.<a class="code hl_function" href="structdesignlab_1_1_vector3.html#a29671be58ff1cc4f073470214a5ae283">Cross</a>(q.v) };</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordflow">return</span> { <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a> * q.<a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a> - <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a>.<a class="code hl_function" href="structdesignlab_1_1_vector3.html#aa0a76dfe9dc375fd09561734cf782f63">Dot</a>(q.v), <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a> * q.v + q.w * <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a> + <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a>.<a class="code hl_function" href="structdesignlab_1_1_vector3.html#a29671be58ff1cc4f073470214a5ae283">Cross</a>(q.v) };</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="}">
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#aa3bde389928d55547e49a06437553454">   83</a></span>    <span class="keyword">constexpr</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#abd5b6f28d19d82dd8bddce3fb6d4d90a">operator * </a>(<span class="keyword">const</span> <span class="keywordtype">float</span> s) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    {</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordflow">return</span> { <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a> * s, <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a> * s };</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00087" data-start="{" data-end="}">
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#a52ec83e29e2e519ccba9dad894045766">   87</a></span>    <span class="keyword">constexpr</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a52ec83e29e2e519ccba9dad894045766">operator / </a>(<span class="keyword">const</span> <span class="keywordtype">float</span> s)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keyword">    </span>{</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keywordflow">return</span> { <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a> / s, <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a> / s };</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    }</div>
+</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="foldopen" id="foldopen00092" data-start="{" data-end="}">
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#a2479b775b88f53f45e0c15f9ce81b66a">   92</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a2479b775b88f53f45e0c15f9ce81b66a">operator == </a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&amp; q) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    {</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a92c055e0799991e88871e2a5d4f09280">math_util::IsEqual</a>(<a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a>, q.w) &amp;&amp; (<a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a> == q.v);</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    }</div>
+</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#ad4a4d754eba42c20ff550a3bb175617c">   96</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#ad4a4d754eba42c20ff550a3bb175617c">operator != </a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&amp; q) <span class="keyword">const</span> <span class="keyword">noexcept</span> { <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == q); }</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="foldopen" id="foldopen00098" data-start="{" data-end="}">
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#ab7ab2278db21570bcfbcfc2e9ee9756b">   98</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#ab7ab2278db21570bcfbcfc2e9ee9756b">operator &lt; </a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&amp; q) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    {</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordflow">return</span> (<a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a> &lt; q.w) || (<a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a> == q.w &amp;&amp; <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a> &lt; q.v);</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00102" data-start="{" data-end="}">
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#a36d3d412e604362640f057f6d4eaaa5b">  102</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a36d3d412e604362640f057f6d4eaaa5b">operator &gt; </a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&amp; other) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    {</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keywordflow">return</span> other &lt; *<span class="keyword">this</span>;</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    }</div>
+</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="foldopen" id="foldopen00107" data-start="{" data-end="}">
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#a1753ec4991940e35ccde9416687adebf">  107</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a1753ec4991940e35ccde9416687adebf">operator &lt;= </a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&amp; other) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    {</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keywordflow">return</span> !(*<span class="keyword">this</span> &gt; other);</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    }</div>
+</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="foldopen" id="foldopen00112" data-start="{" data-end="}">
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#a67c96022b6ddc2f66353d1fe443b2f6e">  112</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a67c96022b6ddc2f66353d1fe443b2f6e">operator &gt;= </a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&amp; other) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    {</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keywordflow">return</span> !(*<span class="keyword">this</span> &lt; other);</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    }</div>
+</div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    [[nodiscard]]</div>
+<div class="foldopen" id="foldopen00123" data-start="{" data-end="}">
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#afaac2f3922f46f7286a2e650f791cec4">  123</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">float</span> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#afaac2f3922f46f7286a2e650f791cec4">Dot</a>(<a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> other) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    {</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a> * other.w + <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a>.<a class="code hl_function" href="structdesignlab_1_1_vector3.html#aa0a76dfe9dc375fd09561734cf782f63">Dot</a>(other.v);</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    }</div>
+</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    [[nodiscard]]</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#a893ee3dc143f059822f17ead2f716de1">  134</a></span>    <span class="keyword">constexpr</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a893ee3dc143f059822f17ead2f716de1">GetConjugate</a>() const noexcept { <span class="keywordflow">return</span> { <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a>, -<a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a> }; }</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    [[nodiscard]]</div>
+<div class="foldopen" id="foldopen00140" data-start="{" data-end="}">
 <div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#a24ad10137dd081de9002ac270cdce9f9">  140</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">float</span> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a24ad10137dd081de9002ac270cdce9f9">GetLengthSquared</a>() const noexcept</div>
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    {</div>
 <div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a> * <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a> + <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a>.<a class="code hl_function" href="structdesignlab_1_1_vector3.html#aa0a76dfe9dc375fd09561734cf782f63">Dot</a>(<a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a>);</div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    }</div>
+</div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    [[nodiscard]]</div>
+<div class="foldopen" id="foldopen00150" data-start="{" data-end="}">
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#a56bbbd522805450144f54aae7dbd117e">  150</a></span>    <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a56bbbd522805450144f54aae7dbd117e">GetNorm</a>() const noexcept</div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    {</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <span class="keywordflow">return</span> std::sqrt(<a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a24ad10137dd081de9002ac270cdce9f9">GetLengthSquared</a>());</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    }</div>
+</div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    [[nodiscard]]</div>
+<div class="foldopen" id="foldopen00160" data-start="{" data-end="}">
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#ad164e180a90ff6e7e1df3f5b57cb8b3b">  160</a></span>    <span class="keyword">inline</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#ad164e180a90ff6e7e1df3f5b57cb8b3b">GetInverse</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="keyword">    </span>{</div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a893ee3dc143f059822f17ead2f716de1">GetConjugate</a>() * (1 / <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a56bbbd522805450144f54aae7dbd117e">GetNorm</a>());</div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    }</div>
+</div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    [[nodiscard]] <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba">GetNormalized</a>() const noexcept;</div>
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    [[nodiscard]]</div>
+<div class="foldopen" id="foldopen00175" data-start="{" data-end="}">
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#ab34d9fa35a4954182603f9c706f525fe">  175</a></span>    constexpr <span class="keywordtype">float</span> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#ab34d9fa35a4954182603f9c706f525fe">GetDistanceSquared</a>(const <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&amp; q) const noexcept</div>
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    {</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <span class="keywordflow">return</span> (*<span class="keyword">this</span> - q).GetLengthSquared();</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <span class="keywordflow">return</span> (*<span class="keyword">this</span> - q).<a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a24ad10137dd081de9002ac270cdce9f9">GetLengthSquared</a>();</div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    }</div>
+</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#a45dfcf48edea7b439e7d189d0d105bfa">  181</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a45dfcf48edea7b439e7d189d0d105bfa">Normalize</a>() noexcept { *<span class="keyword">this</span> = <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba">GetNormalized</a>(); }</div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="foldopen" id="foldopen00188" data-start="{" data-end="}">
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#a7ab059ba534429c41818b66bed33e7a2">  188</a></span>    [[nodiscard]] <span class="keyword">constexpr</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a7ab059ba534429c41818b66bed33e7a2">ToLeftHandCoordinate</a>() const noexcept</div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    {</div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        <span class="keywordflow">return</span> { <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a>, <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a>.<a class="code hl_variable" href="structdesignlab_1_1_vector3.html#a1173ed2dd31322b92dd4dae067177cbc">x</a>, -<a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a>.<a class="code hl_variable" href="structdesignlab_1_1_vector3.html#af2c9878342038c6a35c98e30dd532fae">y</a>, <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a>.<a class="code hl_variable" href="structdesignlab_1_1_vector3.html#a71c4baaa6cf57587e5cdadc5558cb4fd">z</a> };</div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    }</div>
+</div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    [[nodiscard]]</div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    <span class="keyword">static</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a557aa980908890a7c7e5b6e2caab9301">MakeByAngleAxis</a>(<span class="keywordtype">float</span> rad_angle, <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a>&amp; axis);</div>
@@ -212,6 +252,7 @@ $(function() {
 <div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">  213</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a>;    </div>
 <div class="line"><a id="l00214" name="l00214"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">  214</a></span>    <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a> <a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a>;  </div>
 <div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>};</div>
+</div>
 <div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
 <div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
 <div class="line"><a id="l00218" name="l00218"></a><span class="lineno"><a class="line" href="namespacedesignlab.html#a1329cb082c6b47a47150da24f72b15ee">  218</a></span><span class="keyword">constexpr</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> <a class="code hl_function" href="namespacedesignlab.html#a1329cb082c6b47a47150da24f72b15ee">operator * </a>(<span class="keywordtype">float</span> s, <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&amp; q) { <span class="keywordflow">return</span> q * s; }</div>
@@ -220,20 +261,23 @@ $(function() {
 <div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="keyword">inline</span> std::basic_ostream&lt;Char&gt;&amp; <a class="code hl_function" href="namespacedesignlab.html#ad72e69d1733944ac21af3b646beed735">operator &lt;&lt;</a>(</div>
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    std::basic_ostream&lt;Char&gt;&amp; os, <span class="keyword">const</span> Quaternion&amp; q)</div>
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>{</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    os &lt;&lt; <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a45276ca396d3aa1331b5bb5a4c849bbe">math_util::FloatingPointNumToString</a>(q.w) &lt;&lt; Char(<span class="charliteral">&#39;,&#39;</span>) &lt;&lt; q.v;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    os &lt;&lt; <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a45276ca396d3aa1331b5bb5a4c849bbe">math_util::FloatingPointNumToString</a>(q.w) &lt;&lt; Char(<span class="charliteral">&#39;,&#39;</span>) &lt;&lt; q.<a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a>;</div>
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
 <div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    <span class="keywordflow">return</span> os;</div>
 <div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>}</div>
 <div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> Char&gt;</div>
+<div class="foldopen" id="foldopen00232" data-start="{" data-end="}">
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno"><a class="line" href="namespacedesignlab.html#a18441706734367bf04cf9b8e865fc7ed">  232</a></span><span class="keyword">inline</span> std::basic_istream&lt;Char&gt;&amp; <a class="code hl_function" href="namespacedesignlab.html#a7d4ed47aac7769446f5267afd49ba4d3">operator &gt;&gt;</a>(</div>
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    std::basic_istream&lt;Char&gt;&amp; is, <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&amp; q)</div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>{</div>
 <div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    Char unused = 0;</div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    <span class="keywordflow">return</span> is &gt;&gt; unused &gt;&gt; q.<a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#af1dd98ff07b064332ad81745c277026f">w</a> &gt;&gt; unused &gt;&gt; q.<a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a>;</div>
 <div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>}</div>
+</div>
 <div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
 <div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>[[nodiscard]]</div>
+<div class="foldopen" id="foldopen00246" data-start="{" data-end="}">
 <div class="line"><a id="l00246" name="l00246"></a><span class="lineno"><a class="line" href="namespacedesignlab.html#a60f10cf89b782d822987acc6e655a2a7">  246</a></span><span class="keyword">constexpr</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a> <a class="code hl_function" href="namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d">RotateVector3</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a>&amp; vec, <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&amp; q)</div>
 <div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>{</div>
 <div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    <span class="comment">// 回転させるベクトルをスカラーが0のクオータニオンに変換．</span></div>
@@ -247,6 +291,7 @@ $(function() {
 <div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
 <div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    <span class="keywordflow">return</span> (q * p * q.<a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a893ee3dc143f059822f17ead2f716de1">GetConjugate</a>()).v;  <span class="comment">// ベクトル成分を返す．</span></div>
 <div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>}</div>
+</div>
 <div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
 <div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>Quaternion <a class="code hl_function" href="namespacedesignlab.html#aa6386f09017c25f59fbdf0fa7088ec90">SlerpQuaternion</a>(<span class="keyword">const</span> Quaternion&amp; q1, <span class="keyword">const</span> Quaternion&amp; q2, <span class="keywordtype">float</span> t);</div>
 <div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
@@ -306,7 +351,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

@@ -1,25 +1,25 @@
 <map id="designlab::MapCreatorFactory::Create" name="designlab::MapCreatorFactory::Create">
 <area shape="rect" id="Node000001" title="マップを生成するクラスを生成する．" alt="" coords="5,123,201,165"/>
 <area shape="rect" id="Node000002" href="$classdesignlab_1_1_toml_file_importer.html#a8ca4fd7bec19dce42d1ab1dfc895ff88" title="指定したファイルパスのファイルを読み込み，構造体に変換する． 読込に失敗した場合は，デフォルトの構造体を返す． また，読込に失敗した場合には， デフォルトの構造体をファイルに出力するかどうかをユーザに問..." alt="" coords="249,123,429,165"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,141,234,141,234,147,201,147"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,141,233,141,233,147,201,147"/>
 <area shape="rect" id="Node000003" href="$classdesignlab_1_1_toml_file_exporter.html#a095f0d7b33e267b1669a18aa6860522c" title="TOMLファイルを出力する．" alt="" coords="477,5,659,48"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="376,120,476,64,501,52,503,57,478,69,378,124"/>
-<area shape="rect" id="Node000007" href="$classdesignlab_1_1_toml_file_importer.html#a4960e633876bd88dc7433696943734e8" title="指定したファイルパスのファイルを読み込み，構造体に変換する．" alt="" coords="478,123,658,165"/>
-<area shape="poly" id="edge4_Node000002_Node000007" title=" " alt="" coords="429,141,463,141,463,147,429,147"/>
-<area shape="rect" id="Node000008" href="$classdesignlab_1_1_cmd_i_o_util.html#a563e04e0ce3cf7b6c988a94b887a74b9" title="コマンドラインで改行をする関数．" alt="" coords="707,64,851,107"/>
-<area shape="poly" id="edge13_Node000002_Node000008" title=" " alt="" coords="421,119,477,108,589,94,692,86,693,92,589,99,477,113,422,125"/>
-<area shape="rect" id="Node000009" href="$classdesignlab_1_1_cmd_i_o_util.html#a0ebb5b245f90bcc0d1849400d1faa7d2" title="コマンドラインに文字を出力する関数．System用の出力．" alt="" coords="707,131,851,173"/>
-<area shape="poly" id="edge14_Node000002_Node000009" title=" " alt="" coords="417,163,477,175,568,181,659,175,692,170,693,175,660,180,568,187,477,180,416,169"/>
-<area shape="rect" id="Node000010" href="$classdesignlab_1_1_cmd_i_o_util.html#aa27aa18b11d6199f27f82cfe97241336" title="yesかnoを入力させる関数．返り値で yes なら true，noなら falseを返す． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="497,240,640,283"/>
-<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="378,164,478,219,503,231,501,236,476,224,376,168"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_toml_file_importer.html#a4960e633876bd88dc7433696943734e8" title="指定したファイルパスのファイルを読み込み，構造体に変換する．" alt="" coords="478,123,658,165"/>
+<area shape="poly" id="edge4_Node000002_Node000008" title=" " alt="" coords="429,141,462,141,462,147,429,147"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_cmd_i_o_util.html#a563e04e0ce3cf7b6c988a94b887a74b9" title="コマンドラインで改行をする関数．" alt="" coords="707,64,851,107"/>
+<area shape="poly" id="edge13_Node000002_Node000009" title=" " alt="" coords="421,119,477,108,588,94,691,86,692,92,589,99,477,113,422,125"/>
+<area shape="rect" id="Node000010" href="$classdesignlab_1_1_cmd_i_o_util.html#a0ebb5b245f90bcc0d1849400d1faa7d2" title="コマンドラインに文字を出力する関数．System用の出力．" alt="" coords="707,131,851,173"/>
+<area shape="poly" id="edge14_Node000002_Node000010" title=" " alt="" coords="417,163,477,175,568,181,659,175,692,170,692,175,660,180,568,187,477,180,416,169"/>
+<area shape="rect" id="Node000011" href="$classdesignlab_1_1_cmd_i_o_util.html#aa27aa18b11d6199f27f82cfe97241336" title="yesかnoを入力させる関数．返り値で yes なら true，noなら falseを返す． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="497,240,640,283"/>
+<area shape="poly" id="edge9_Node000002_Node000011" title=" " alt="" coords="378,164,478,219,503,231,501,236,476,224,376,168"/>
 <area shape="rect" id="Node000004" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="899,131,1042,173"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="660,19,754,24,804,34,852,50,878,63,903,81,943,118,939,122,899,85,875,68,850,54,803,39,753,30,659,24"/>
-<area shape="poly" id="edge5_Node000007_Node000008" title=" " alt="" coords="646,120,692,107,694,112,648,125"/>
-<area shape="poly" id="edge7_Node000007_Node000009" title=" " alt="" coords="659,145,693,146,693,151,659,150"/>
-<area shape="poly" id="edge6_Node000008_Node000004" title=" " alt="" coords="843,105,894,123,893,128,841,110"/>
-<area shape="poly" id="edge8_Node000009_Node000004" title=" " alt="" coords="851,149,884,149,884,155,851,155"/>
-<area shape="poly" id="edge12_Node000010_Node000004" title=" " alt="" coords="639,240,850,183,884,173,885,178,851,188,641,245"/>
-<area shape="rect" id="Node000011" href="$classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="707,248,851,291"/>
-<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="640,261,693,263,692,269,640,267"/>
-<area shape="poly" id="edge11_Node000011_Node000004" title=" " alt="" coords="818,245,849,227,924,179,926,184,852,232,821,250"/>
+<area shape="poly" id="edge5_Node000008_Node000009" title=" " alt="" coords="646,120,691,107,693,112,648,125"/>
+<area shape="poly" id="edge7_Node000008_Node000010" title=" " alt="" coords="659,145,692,146,692,151,659,150"/>
+<area shape="poly" id="edge6_Node000009_Node000004" title=" " alt="" coords="843,105,894,123,892,128,841,110"/>
+<area shape="poly" id="edge8_Node000010_Node000004" title=" " alt="" coords="851,149,883,149,883,155,851,155"/>
+<area shape="poly" id="edge12_Node000011_Node000004" title=" " alt="" coords="639,240,850,183,883,174,885,179,851,188,641,245"/>
+<area shape="rect" id="Node000012" href="$classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="707,248,851,291"/>
+<area shape="poly" id="edge10_Node000011_Node000012" title=" " alt="" coords="640,261,692,263,692,269,640,267"/>
+<area shape="poly" id="edge11_Node000012_Node000004" title=" " alt="" coords="818,245,849,227,923,180,926,184,852,232,821,250"/>
 </map>

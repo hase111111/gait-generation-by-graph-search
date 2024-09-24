@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>GaitGeneration by Graph Search: DesignLab/robot_operation.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -29,7 +29,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.7 -->
+<!-- 構築: Doxygen 1.9.8 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -46,6 +46,11 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -92,6 +97,7 @@ $(function() {
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespacedesignlab.html#a3f1608338ad72e7ffe1024af10173b73">   34</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespacedesignlab.html#a3f1608338ad72e7ffe1024af10173b73">RobotOperationType</a> : <span class="keywordtype">int</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a35c3ace1970663a16e5c65baa5941b13">kNone</a>,                  </div>
@@ -101,8 +107,10 @@ $(function() {
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#a3f1608338ad72e7ffe1024af10173b73a32efdb36a9070a5a5042b2db2a492f61">kSpotTurnRotAxis</a>,       </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#a3f1608338ad72e7ffe1024af10173b73a93e026b035316bd2e27673dccb7bda19">kTurn</a>,                  </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
+</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="};">
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_robot_operation.html">   49</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1_robot_operation.html">RobotOperation</a> final</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>{</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_robot_operation.html#a1fa8619c1362d88802572282b154de04">   52</a></span>    <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a> <a class="code hl_variable" href="structdesignlab_1_1_robot_operation.html#a1fa8619c1362d88802572282b154de04">straight_move_vector</a>{ 1.f, 0.f, 0.f };</div>
@@ -125,8 +133,10 @@ $(function() {
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keyword">using </span>enum <a class="code hl_enumeration" href="namespacedesignlab.html#a3f1608338ad72e7ffe1024af10173b73">RobotOperationType</a>;</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>};</div>
+</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="foldopen" id="foldopen00078" data-start="{" data-end="}">
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="namespacedesignlab.html#adca931d9254e9249001b2f7728f53ab4">   78</a></span><a class="code hl_define" href="toml__serialize__macro_8h.html#a486ffec54db999fb033fd3d6e8ee473b">DESIGNLAB_TOML11_DESCRIPTION_CLASS</a>(<a class="code hl_struct" href="structdesignlab_1_1_robot_operation.html">RobotOperation</a>)</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>{</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <a class="code hl_define" href="toml__serialize__macro_8h.html#ae1a1d4be2656ed6d1c1921468379a6cf">DESIGNLAB_TOML11_FILE_ADD_DESCRIPTION</a>(<span class="stringliteral">&quot;Note that this file is not referenced by some settings.&quot;</span>);</div>
@@ -142,8 +152,9 @@ $(function() {
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <a class="code hl_define" href="toml__serialize__macro_8h.html#aa289aa4ab294185921bbdf5a563ecccb">DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION</a>(turn_clockwise, <span class="stringliteral">&quot;Param&quot;</span>, <span class="stringliteral">&quot;The value that is referenced when the setting is to turn in the specified direction.&quot;</span>);</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <a class="code hl_define" href="toml__serialize__macro_8h.html#aa289aa4ab294185921bbdf5a563ecccb">DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION</a>(operation_type, <a class="code hl_define" href="toml__serialize__macro_8h.html#a3bc3af387da2557ff92994625b23b0a1">DESIGNLAB_TOML11_NO_TABLE</a>,</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                                              std::format(<span class="stringliteral">&quot;This is the setting of the robot&#39;s operation method. ({})&quot;</span>, string_util::EnumValuesToString&lt;RobotOperationType&gt;(<span class="stringliteral">&quot; / &quot;</span>)));</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                                              std::format(<span class="stringliteral">&quot;This is the setting of the robot&#39;s operation method. ({})&quot;</span>, <a class="code hl_function" href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7">string_util::EnumValuesToString&lt;RobotOperationType&gt;</a>(<span class="stringliteral">&quot; / &quot;</span>)));</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>};</div>
+</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}  <span class="comment">// namespace designlab</span></div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
@@ -158,6 +169,7 @@ $(function() {
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_ROBOT_OPERATION_H_</span></div>
 <div class="ttc" id="amath__quaternion_8h_html"><div class="ttname"><a href="math__quaternion_8h.html">math_quaternion.h</a></div></div>
 <div class="ttc" id="amath__vector3_8h_html"><div class="ttname"><a href="math__vector3_8h.html">math_vector3.h</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1string__util_html_a87e32a810705f9dc98665faf2ae837a7"><div class="ttname"><a href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7">designlab::string_util::EnumValuesToString</a></div><div class="ttdeci">std::string EnumValuesToString(const std::string separator)</div><div class="ttdoc">enum型を渡すと，その要素を列挙した文字列を返す関数．</div><div class="ttdef"><b>Definition</b> <a href="string__util_8h_source.html#l00071">string_util.h:71</a></div></div>
 <div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00015">abstract_dxlib_gui.cpp:16</a></div></div>
 <div class="ttc" id="anamespacedesignlab_html_a3f1608338ad72e7ffe1024af10173b73"><div class="ttname"><a href="namespacedesignlab.html#a3f1608338ad72e7ffe1024af10173b73">designlab::RobotOperationType</a></div><div class="ttdeci">RobotOperationType</div><div class="ttdoc">Robotをどのように動かすかを表す列挙体．</div><div class="ttdef"><b>Definition</b> <a href="robot__operation_8h_source.html#l00034">robot_operation.h:35</a></div></div>
 <div class="ttc" id="anamespacedesignlab_html_a3f1608338ad72e7ffe1024af10173b73a32efdb36a9070a5a5042b2db2a492f61"><div class="ttname"><a href="namespacedesignlab.html#a3f1608338ad72e7ffe1024af10173b73a32efdb36a9070a5a5042b2db2a492f61">designlab::RobotOperationType::kSpotTurnRotAxis</a></div><div class="ttdeci">@ kSpotTurnRotAxis</div><div class="ttdoc">その場で旋回させる（回転軸を示し，その軸周りの右ねじの回転）</div></div>
@@ -191,7 +203,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

@@ -1,9 +1,13 @@
 <map id="designlab::CmdIOUtil::OutputCenter" name="designlab::CmdIOUtil::OutputCenter">
 <area shape="rect" id="Node000001" title="中央に文字を出力する関数． 文字列が長すぎる場合は普通に左詰めで出力される．" alt="" coords="5,39,149,81"/>
 <area shape="rect" id="Node000002" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="197,39,340,81"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,57,182,57,182,63,149,63"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,57,181,57,181,63,149,63"/>
 <area shape="rect" id="Node000003" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数． &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている． &#160;&#160;例えば，" alt="" coords="388,5,575,48"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="340,46,372,41,373,46,341,51"/>
-<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数．指定した文字で文字列を分割する． &#160;&#160;分割した結果，空白が含まれる場合や文字列がない場合は，そのまま返す． &#160;&#160;最後が区切り文字で終わる場合は，それを無視する．" alt="" coords="412,72,552,115"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="341,69,397,77,396,83,340,74"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数．指定した文字で文字列を分割する． &#160;&#160;分割した結果，空白が含まれる場合や文字列がない場合は，そのまま返す． &#160;&#160;最後が区切り文字で終わる場合は，それを無視する．" alt="" coords="412,72,552,115"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="341,69,396,77,395,83,340,74"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと，その要素を列挙した文字列を返す関数．" alt="" coords="623,39,775,81"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="576,38,608,43,607,49,575,44"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="658,39,656,29,663,20,677,14,699,12,722,14,736,21,734,25,721,20,699,17,679,19,666,24,661,30,663,38"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="552,80,608,71,608,77,553,85"/>
 </map>

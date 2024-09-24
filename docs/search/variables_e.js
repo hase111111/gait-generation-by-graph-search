@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['name_0',['name',['../classcpplint_1_1___class_info.html#a3de5f207d3449d735d15ebca779fe336',1,'cpplint._ClassInfo.name'],['../classcpplint_1_1___namespace_info.html#a6b518dae822e4e440405654e83dc86a1',1,'cpplint._NamespaceInfo.name']]],
-  ['next_5fmove_1',['next_move',['../structdesignlab_1_1_robot_state_node.html#af9fbc6f990c0579f5bb4e869412bad35',1,'designlab::RobotStateNode']]],
-  ['num_5flines_2',['num_lines',['../classcpplint_1_1_cleansed_lines.html#a4b42ab48659954fb6e0a4e4eb483a45a',1,'cpplint::CleansedLines']]]
+  ['operate_5fmode_0',['operate_mode',['../structdesignlab_1_1_simulation_setting_record.html#af25a459dc7d974433894965e46c7f13b',1,'designlab::SimulationSettingRecord']]],
+  ['operation_5ftype_1',['operation_type',['../structdesignlab_1_1_robot_operation.html#a75f409d25238f642bab731a1e1d9dc5d',1,'designlab::RobotOperation']]],
+  ['option_2',['option',['../structdesignlab_1_1_simulation_map_parameter.html#aadf65d8ae590401de59a29899b89422c',1,'designlab::SimulationMapParameter']]],
+  ['origin_3',['origin',['../detect_landing_point_8cpp.html#aec7eb74ac49118758a3f04650e91cd24',1,'detectLandingPoint.cpp']]]
 ];

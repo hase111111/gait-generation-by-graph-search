@@ -1,27 +1,27 @@
 <map id="designlab::TomlFileImporter::ImportOrUseDefault" name="designlab::TomlFileImporter::ImportOrUseDefault">
 <area shape="rect" id="Node000001" title="指定したファイルパスのファイルを読み込み，構造体に変換する． 読込に失敗した場合は，デフォルトの構造体を返す． また，読込に失敗した場合には， デフォルトの構造体をファイルに出力するかどうかをユーザに問..." alt="" coords="5,123,186,165"/>
 <area shape="rect" id="Node000002" href="$classdesignlab_1_1_toml_file_exporter.html#a095f0d7b33e267b1669a18aa6860522c" title="TOMLファイルを出力する．" alt="" coords="234,5,416,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,120,232,64,258,52,260,57,235,69,135,124"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_toml_file_importer.html#a4960e633876bd88dc7433696943734e8" title="指定したファイルパスのファイルを読み込み，構造体に変換する．" alt="" coords="235,123,415,165"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="186,141,220,141,220,147,186,147"/>
-<area shape="rect" id="Node000007" href="$classdesignlab_1_1_cmd_i_o_util.html#a563e04e0ce3cf7b6c988a94b887a74b9" title="コマンドラインで改行をする関数．" alt="" coords="464,64,607,107"/>
-<area shape="poly" id="edge14_Node000001_Node000007" title=" " alt="" coords="177,119,233,108,345,94,449,86,449,92,346,99,234,113,178,125"/>
-<area shape="rect" id="Node000008" href="$classdesignlab_1_1_cmd_i_o_util.html#a0ebb5b245f90bcc0d1849400d1faa7d2" title="コマンドラインに文字を出力する関数．System用の出力．" alt="" coords="464,131,607,173"/>
-<area shape="poly" id="edge15_Node000001_Node000008" title=" " alt="" coords="173,163,234,175,325,181,416,175,449,170,449,175,416,180,325,187,233,180,172,169"/>
-<area shape="rect" id="Node000009" href="$classdesignlab_1_1_cmd_i_o_util.html#aa27aa18b11d6199f27f82cfe97241336" title="yesかnoを入力させる関数．返り値で yes なら true，noなら falseを返す． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="253,240,397,283"/>
-<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="135,164,235,219,260,231,258,236,232,224,132,168"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,120,232,64,257,52,259,57,235,69,135,124"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_toml_file_importer.html#a4960e633876bd88dc7433696943734e8" title="指定したファイルパスのファイルを読み込み，構造体に変換する．" alt="" coords="235,123,415,165"/>
+<area shape="poly" id="edge5_Node000001_Node000007" title=" " alt="" coords="186,141,219,141,219,147,186,147"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_cmd_i_o_util.html#a563e04e0ce3cf7b6c988a94b887a74b9" title="コマンドラインで改行をする関数．" alt="" coords="464,64,607,107"/>
+<area shape="poly" id="edge14_Node000001_Node000008" title=" " alt="" coords="177,119,233,108,345,94,448,86,448,92,346,99,234,113,178,125"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_cmd_i_o_util.html#a0ebb5b245f90bcc0d1849400d1faa7d2" title="コマンドラインに文字を出力する関数．System用の出力．" alt="" coords="464,131,607,173"/>
+<area shape="poly" id="edge15_Node000001_Node000009" title=" " alt="" coords="173,163,234,175,325,181,416,175,448,170,449,175,416,180,325,187,233,180,172,169"/>
+<area shape="rect" id="Node000010" href="$classdesignlab_1_1_cmd_i_o_util.html#aa27aa18b11d6199f27f82cfe97241336" title="yesかnoを入力させる関数．返り値で yes なら true，noなら falseを返す． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="253,240,397,283"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="135,164,235,219,259,231,257,236,232,224,132,168"/>
 <area shape="rect" id="Node000003" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="655,131,799,173"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="416,19,511,24,561,34,608,50,635,63,659,81,700,118,696,122,656,85,632,68,606,54,559,39,510,30,416,24"/>
 <area shape="rect" id="Node000004" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数． &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている． &#160;&#160;例えば，" alt="" coords="847,97,1034,140"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="799,138,831,133,832,138,799,143"/>
-<area shape="rect" id="Node000005" href="$namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数．指定した文字で文字列を分割する． &#160;&#160;分割した結果，空白が含まれる場合や文字列がない場合は，そのまま返す． &#160;&#160;最後が区切り文字で終わる場合は，それを無視する．" alt="" coords="870,164,1011,207"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="799,161,856,169,855,175,799,166"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="403,120,449,107,451,112,404,125"/>
-<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="416,145,449,146,449,151,416,150"/>
-<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="600,105,651,123,649,128,598,110"/>
-<area shape="poly" id="edge9_Node000008_Node000003" title=" " alt="" coords="608,149,641,149,641,155,608,155"/>
-<area shape="poly" id="edge13_Node000009_Node000003" title=" " alt="" coords="396,240,607,183,641,173,642,178,608,188,397,245"/>
-<area shape="rect" id="Node000010" href="$classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="464,248,607,291"/>
-<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="397,261,449,263,449,269,397,267"/>
-<area shape="poly" id="edge12_Node000010_Node000003" title=" " alt="" coords="575,245,606,227,680,179,683,184,609,232,578,250"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数．指定した文字で文字列を分割する． &#160;&#160;分割した結果，空白が含まれる場合や文字列がない場合は，そのまま返す． &#160;&#160;最後が区切り文字で終わる場合は，それを無視する．" alt="" coords="870,164,1011,207"/>
+<area shape="poly" id="edge4_Node000003_Node000006" title=" " alt="" coords="799,161,855,169,854,175,799,166"/>
+<area shape="poly" id="edge6_Node000007_Node000008" title=" " alt="" coords="403,120,448,107,450,112,404,125"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="416,145,449,146,449,151,416,150"/>
+<area shape="poly" id="edge7_Node000008_Node000003" title=" " alt="" coords="600,105,651,123,649,128,598,110"/>
+<area shape="poly" id="edge9_Node000009_Node000003" title=" " alt="" coords="608,149,640,149,640,155,608,155"/>
+<area shape="poly" id="edge13_Node000010_Node000003" title=" " alt="" coords="396,240,607,183,640,174,641,179,608,188,397,245"/>
+<area shape="rect" id="Node000011" href="$classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="464,248,607,291"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="397,261,449,263,449,269,397,267"/>
+<area shape="poly" id="edge12_Node000011_Node000003" title=" " alt="" coords="575,245,606,227,680,180,682,184,609,232,578,250"/>
 </map>

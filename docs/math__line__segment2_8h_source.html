@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>GaitGeneration by Graph Search: DesignLab/math_line_segment2.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -29,7 +29,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.7 -->
+<!-- 構築: Doxygen 1.9.8 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -46,6 +46,11 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -88,39 +93,52 @@ $(function() {
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_line_segment2.html">   19</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1_line_segment2.html">LineSegment2</a> final</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_line_segment2.html#aa9f8c4bbf0fc31eab53811b6dd554446">   21</a></span>    <a class="code hl_function" href="structdesignlab_1_1_line_segment2.html#aa9f8c4bbf0fc31eab53811b6dd554446">LineSegment2</a>() = <span class="keywordflow">default</span>;</div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="}">
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_line_segment2.html#a59fcbab2348cc6806b667a6ed93e5e21">   22</a></span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="structdesignlab_1_1_line_segment2.html#a59fcbab2348cc6806b667a6ed93e5e21">LineSegment2</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector2.html">Vector2</a>&amp; <a class="code hl_variable" href="structdesignlab_1_1_line_segment2.html#a0187d2a0e54da41a136feefec647b7ef">start</a>, <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector2.html">Vector2</a>&amp; <a class="code hl_variable" href="structdesignlab_1_1_line_segment2.html#a8b8446a96a138d9db90ff07c3b0cf2b8">end</a>) :</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <a class="code hl_variable" href="structdesignlab_1_1_line_segment2.html#a0187d2a0e54da41a136feefec647b7ef">start</a>(<a class="code hl_variable" href="structdesignlab_1_1_line_segment2.html#a0187d2a0e54da41a136feefec647b7ef">start</a>), <a class="code hl_variable" href="structdesignlab_1_1_line_segment2.html#a8b8446a96a138d9db90ff07c3b0cf2b8">end</a>(<a class="code hl_variable" href="structdesignlab_1_1_line_segment2.html#a8b8446a96a138d9db90ff07c3b0cf2b8">end</a>) {}</div>
+</div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_line_segment2.html#a2481b3a67b858331598f3098c3da0692">   24</a></span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="structdesignlab_1_1_line_segment2.html#a2481b3a67b858331598f3098c3da0692">LineSegment2</a>(<span class="keywordtype">float</span> start_x, <span class="keywordtype">float</span> start_y, <span class="keywordtype">float</span> end_x, <span class="keywordtype">float</span> end_y) :</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <a class="code hl_variable" href="structdesignlab_1_1_line_segment2.html#a0187d2a0e54da41a136feefec647b7ef">start</a>(start_x, start_y), <a class="code hl_variable" href="structdesignlab_1_1_line_segment2.html#a8b8446a96a138d9db90ff07c3b0cf2b8">end</a>(end_x, end_y) {}</div>
+</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_line_segment2.html#a685deeeb43c47066c4500ce9af09c19f">   26</a></span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="structdesignlab_1_1_line_segment2.html#a685deeeb43c47066c4500ce9af09c19f">LineSegment2</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_line_segment2.html">LineSegment2</a>&amp; other) = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_line_segment2.html#a807c3742e3c6dab9ed9e4380dec4dcea">   27</a></span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="structdesignlab_1_1_line_segment2.html#a807c3742e3c6dab9ed9e4380dec4dcea">LineSegment2</a>(<a class="code hl_struct" href="structdesignlab_1_1_line_segment2.html">LineSegment2</a>&amp;&amp; other) <span class="keyword">noexcept</span> = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_line_segment2.html#a82633d158ac85f2ccec92161cdca5829">   28</a></span>    <span class="keyword">constexpr</span> <a class="code hl_struct" href="structdesignlab_1_1_line_segment2.html">LineSegment2</a>&amp; <a class="code hl_function" href="structdesignlab_1_1_line_segment2.html#a82633d158ac85f2ccec92161cdca5829">operator=</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_line_segment2.html">LineSegment2</a>&amp; other) = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="}">
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_line_segment2.html#aaceb63030c7ec1c94b39af9ea6e615f9">   30</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="structdesignlab_1_1_line_segment2.html#aaceb63030c7ec1c94b39af9ea6e615f9">operator==</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_line_segment2.html">LineSegment2</a>&amp; other)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">    </span>{</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="structdesignlab_1_1_line_segment2.html#a0187d2a0e54da41a136feefec647b7ef">start</a> == other.<a class="code hl_variable" href="structdesignlab_1_1_line_segment2.html#a0187d2a0e54da41a136feefec647b7ef">start</a> &amp;&amp; <a class="code hl_variable" href="structdesignlab_1_1_line_segment2.html#a8b8446a96a138d9db90ff07c3b0cf2b8">end</a> == other.<a class="code hl_variable" href="structdesignlab_1_1_line_segment2.html#a8b8446a96a138d9db90ff07c3b0cf2b8">end</a>;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
+</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_line_segment2.html#ad0211900effee9f293fed52cd83a749f">   35</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="structdesignlab_1_1_line_segment2.html#ad0211900effee9f293fed52cd83a749f">operator!=</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_line_segment2.html">LineSegment2</a>&amp; other)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">    </span>{</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == other);</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
+</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_line_segment2.html#af9f730372f9c5d563777c526d7415d20">   43</a></span>    <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code hl_function" href="structdesignlab_1_1_line_segment2.html#af9f730372f9c5d563777c526d7415d20">GetLength</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">    </span>{</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordflow">return</span> (<a class="code hl_variable" href="structdesignlab_1_1_line_segment2.html#a8b8446a96a138d9db90ff07c3b0cf2b8">end</a> - <a class="code hl_variable" href="structdesignlab_1_1_line_segment2.html#a0187d2a0e54da41a136feefec647b7ef">start</a>).GetLength();</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
+</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_line_segment2.html#a8608ddbcf8e71c74186de4fc6420f4ee">   53</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="structdesignlab_1_1_line_segment2.html#a8608ddbcf8e71c74186de4fc6420f4ee">IsParallel</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_line_segment2.html">LineSegment2</a>&amp; other)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">    </span>{</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="comment">// 外積が0なら平行．</span></div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a92c055e0799991e88871e2a5d4f09280">math_util::IsEqual</a>(</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            (<a class="code hl_variable" href="structdesignlab_1_1_line_segment2.html#a8b8446a96a138d9db90ff07c3b0cf2b8">end</a> - <a class="code hl_variable" href="structdesignlab_1_1_line_segment2.html#a0187d2a0e54da41a136feefec647b7ef">start</a>).Cross(other.<a class="code hl_variable" href="structdesignlab_1_1_line_segment2.html#a8b8446a96a138d9db90ff07c3b0cf2b8">end</a> - other.<a class="code hl_variable" href="structdesignlab_1_1_line_segment2.html#a0187d2a0e54da41a136feefec647b7ef">start</a>), 0.0f);</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
+</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_struct" href="structdesignlab_1_1_vector2.html">Vector2</a> <a class="code hl_function" href="structdesignlab_1_1_line_segment2.html#a29ea137970fa696c5789085591e8c2f9">GetIntersection</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_line_segment2.html">LineSegment2</a>&amp; other) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
@@ -133,6 +151,7 @@ $(function() {
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_line_segment2.html#a0187d2a0e54da41a136feefec647b7ef">   83</a></span>    <a class="code hl_struct" href="structdesignlab_1_1_vector2.html">Vector2</a> <a class="code hl_variable" href="structdesignlab_1_1_line_segment2.html#a0187d2a0e54da41a136feefec647b7ef">start</a>;  </div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_line_segment2.html#a8b8446a96a138d9db90ff07c3b0cf2b8">   84</a></span>    <a class="code hl_struct" href="structdesignlab_1_1_vector2.html">Vector2</a> <a class="code hl_variable" href="structdesignlab_1_1_line_segment2.html#a8b8446a96a138d9db90ff07c3b0cf2b8">end</a>;    </div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>};</div>
+</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>}  <span class="comment">// namespace designlab</span></div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
@@ -162,7 +181,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

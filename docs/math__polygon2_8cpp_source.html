@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>GaitGeneration by Graph Search: DesignLab/math_polygon2.cpp ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -29,7 +29,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.7 -->
+<!-- 構築: Doxygen 1.9.8 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -46,6 +46,11 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -87,6 +92,7 @@ $(function() {
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="}">
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_polygon2.html#ae9bb0c5330fc477ca6912c8523d2778b">   15</a></span><a class="code hl_function" href="structdesignlab_1_1_polygon2.html#a6edc66cd0f311e8beffa9144b0cd7c0e">Polygon2::Polygon2</a>(<span class="keyword">const</span> std::vector&lt;Vector2&gt;&amp; vertex)</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    assert(vertex.size() &lt;= kMaxVertexNum);  <span class="comment">// 頂点数は最大値を超えてはいけない．</span></div>
@@ -96,7 +102,9 @@ $(function() {
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <a class="code hl_function" href="structdesignlab_1_1_polygon2.html#a3a86701c31b1eefd1089183db2d5846c">AddVertex</a>(vertex[i]);</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    }</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
+</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_polygon2.html#a3d07388abe43272f11c2abc984fd0cac">   25</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="structdesignlab_1_1_polygon2.html#a3d07388abe43272f11c2abc984fd0cac">Polygon2::AddVertexCheckForDuplicates</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector2.html">Vector2</a>&amp; v)</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>{</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; vertex_num; i++)</div>
@@ -114,7 +122,9 @@ $(function() {
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
+</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_polygon2.html#a62d2b537b5e86833c9854f4a7e760890">   43</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="structdesignlab_1_1_polygon2.html#a62d2b537b5e86833c9854f4a7e760890">Polygon2::RemoveVertex</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> i)</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>{</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordflow">if</span> (i &lt; 0 || i &gt;= <a class="code hl_function" href="structdesignlab_1_1_polygon2.html#a5325a59337947d2b61e055431f2ce3f3">GetVertexNum</a>())</div>
@@ -132,7 +142,9 @@ $(function() {
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    --vertex_num;</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>}</div>
+</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="}">
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_polygon2.html#ac59c9ef538b543cd14b6b8ff84c472b3">   61</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="structdesignlab_1_1_polygon2.html#ac59c9ef538b543cd14b6b8ff84c472b3">Polygon2::IsConvex</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> num = <a class="code hl_function" href="structdesignlab_1_1_polygon2.html#a5325a59337947d2b61e055431f2ce3f3">GetVertexNum</a>();</div>
@@ -166,7 +178,9 @@ $(function() {
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>}</div>
+</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="foldopen" id="foldopen00095" data-start="{" data-end="}">
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_polygon2.html#a3965642438156b1b86dfea1d76beaa53">   95</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="structdesignlab_1_1_polygon2.html#a3965642438156b1b86dfea1d76beaa53">Polygon2::IsInside</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector2.html">Vector2</a>&amp; point)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> num = <a class="code hl_function" href="structdesignlab_1_1_polygon2.html#a5325a59337947d2b61e055431f2ce3f3">GetVertexNum</a>();</div>
@@ -241,7 +255,9 @@ $(function() {
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="keywordflow">return</span> (cnt % 2 == 1);</div>
 <div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>}</div>
+</div>
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="foldopen" id="foldopen00170" data-start="{" data-end="}">
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_polygon2.html#a310bb9599a9ef2b23581bafa7ede4327">  170</a></span>std::string <a class="code hl_function" href="structdesignlab_1_1_polygon2.html#a310bb9599a9ef2b23581bafa7ede4327">Polygon2::ToString</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    std::string res;</div>
@@ -265,6 +281,7 @@ $(function() {
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="keywordflow">return</span> res;</div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>}</div>
+</div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>}  <span class="comment">// namespace designlab</span></div>
 <div class="ttc" id="acassert__define_8h_html"><div class="ttname"><a href="cassert__define_8h.html">cassert_define.h</a></div><div class="ttdoc">デバッグモードとリリースモードでアサートを有効化・無効化するためのヘッダファイル．</div></div>
@@ -290,7 +307,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

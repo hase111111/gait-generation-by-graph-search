@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>GaitGeneration by Graph Search: DesignLab/simulation_map_parameter.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -29,7 +29,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.7 -->
+<!-- 構築: Doxygen 1.9.8 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -46,6 +46,11 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -91,6 +96,7 @@ $(function() {
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab_1_1enums.html">designlab::enums</a></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1enums.html#a907b88828aa3d7858f436483f434bae3">   21</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespacedesignlab_1_1enums.html#a907b88828aa3d7858f436483f434bae3">SimulationMapMode</a> : <span class="keywordtype">int</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a907b88828aa3d7858f436483f434bae3a87e664a10c53376737024444ba714bba">kFlat</a> = 0,  </div>
@@ -102,7 +108,9 @@ $(function() {
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a907b88828aa3d7858f436483f434bae3ab64649c0868f16dbd568590263b21af2">kCircle</a>,  </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a907b88828aa3d7858f436483f434bae3ad6af42cef87a94a47a552c2c986d444f">kDonut</a>,  </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>};</div>
+</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1enums.html#ab640f79752b6b2c4c4a9a3bb2129102b">   39</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespacedesignlab_1_1enums.html#ab640f79752b6b2c4c4a9a3bb2129102b">SimulationMapOption</a> : <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>{</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="comment">// 1 &lt;&lt;  x は 2^x を表す．</span></div>
@@ -115,6 +123,7 @@ $(function() {
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab640f79752b6b2c4c4a9a3bb2129102ba7afa40661d1f59b43f605d283dd29036">kRough</a> = 1 &lt;&lt; 4,        </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab640f79752b6b2c4c4a9a3bb2129102ba85b88892cc62d5ba8d124ad985eded26">kRadiation</a> = 1 &lt;&lt; 5,    </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>};</div>
+</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}  <span class="comment">// namespace designlab::enums</span></div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
@@ -122,20 +131,26 @@ $(function() {
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>{</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="};">
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_simulation_map_parameter.html">   60</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1_simulation_map_parameter.html">SimulationMapParameter</a> final</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>{</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_simulation_map_parameter.html#a9763a7ac6ae9d5ac62a595aceffa194f">   63</a></span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="structdesignlab_1_1_simulation_map_parameter.html#a9763a7ac6ae9d5ac62a595aceffa194f">SimulationMapParameter</a>() :</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <a class="code hl_variable" href="structdesignlab_1_1_simulation_map_parameter.html#a1dcb64ee7220ea726d5f63dc6ed33fc7">mode</a>(enums::SimulationMapMode::kFlat),</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <a class="code hl_variable" href="structdesignlab_1_1_simulation_map_parameter.html#aadf65d8ae590401de59a29899b89422c">option</a>(static_cast&lt;unsigned int&gt;(enums::SimulationMapOption::<a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a35c3ace1970663a16e5c65baa5941b13">kNone</a>))</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    {</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    }</div>
+</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_simulation_map_parameter.html#a98af8be4abfd51c1778c634e17db9f5d">   71</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structdesignlab_1_1_simulation_map_parameter.html#a98af8be4abfd51c1778c634e17db9f5d">SetMode</a>(<span class="keyword">const</span> <a class="code hl_enumeration" href="namespacedesignlab_1_1enums.html#a907b88828aa3d7858f436483f434bae3">enums::SimulationMapMode</a> create_mode)</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    {</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <a class="code hl_variable" href="structdesignlab_1_1_simulation_map_parameter.html#a1dcb64ee7220ea726d5f63dc6ed33fc7">mode</a> = create_mode;</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    }</div>
+</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="foldopen" id="foldopen00080" data-start="{" data-end="}">
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_simulation_map_parameter.html#a0fe763f6ee01dbd6e34a3d7a0e43208a">   80</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structdesignlab_1_1_simulation_map_parameter.html#a0fe763f6ee01dbd6e34a3d7a0e43208a">SetOption</a>(<span class="keyword">const</span> std::vector&lt;enums::SimulationMapOption&gt; create_options)</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    {</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        assert(!create_options.empty());</div>
@@ -145,7 +160,9 @@ $(function() {
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <a class="code hl_variable" href="structdesignlab_1_1_simulation_map_parameter.html#aadf65d8ae590401de59a29899b89422c">option</a> |= <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(i);</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        }</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    }</div>
+</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="foldopen" id="foldopen00097" data-start="{" data-end="}">
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_simulation_map_parameter.html#ac58dd10c55c5dee7b158f87d0118acaf">   97</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structdesignlab_1_1_simulation_map_parameter.html#ac58dd10c55c5dee7b158f87d0118acaf">SetMapSize</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> max_x, <span class="keyword">const</span> <span class="keywordtype">float</span> min_x, <span class="keyword">const</span> <span class="keywordtype">float</span> max_y,</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                  <span class="keyword">const</span> <span class="keywordtype">float</span> min_y, <span class="keyword">const</span> <span class="keywordtype">float</span> start_rough_x, <span class="keyword">const</span> <span class="keywordtype">float</span> map_base_z)</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    {</div>
@@ -161,14 +178,18 @@ $(function() {
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <a class="code hl_variable" href="structdesignlab_1_1_simulation_map_parameter.html#a5e451284662f4eac25638260f337c71e">map_start_rough_x</a> = start_rough_x;</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <a class="code hl_variable" href="structdesignlab_1_1_simulation_map_parameter.html#ae31eaf6e64fcf869d1f26f466926e9a1">base_z</a> = map_base_z;</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    }</div>
+</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="foldopen" id="foldopen00113" data-start="{" data-end="}">
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_simulation_map_parameter.html#ae012669db829e9c08ad01e412dd1b331">  113</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structdesignlab_1_1_simulation_map_parameter.html#ae012669db829e9c08ad01e412dd1b331">SetStripeInterval</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> interval)</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    {</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        assert(0 &lt; interval);</div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <a class="code hl_variable" href="structdesignlab_1_1_simulation_map_parameter.html#a1f15c8120aac32c9503418c8e4e440de">stripe_interval</a> = interval;</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    }</div>
+</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="foldopen" id="foldopen00120" data-start="{" data-end="}">
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_simulation_map_parameter.html#aa62d2c263370669da95d0313282a881a">  120</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structdesignlab_1_1_simulation_map_parameter.html#aa62d2c263370669da95d0313282a881a">SetHoleRate</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> rate)</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    {</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        assert(0 &lt;= rate);</div>
@@ -176,7 +197,9 @@ $(function() {
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <a class="code hl_variable" href="structdesignlab_1_1_simulation_map_parameter.html#af416bb58a419e96dc5dfafb7cd35b827">hole_rate</a> = rate;</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    }</div>
+</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="foldopen" id="foldopen00128" data-start="{" data-end="}">
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_simulation_map_parameter.html#aed5cd26043cd318fc120ca650697e9da">  128</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structdesignlab_1_1_simulation_map_parameter.html#aed5cd26043cd318fc120ca650697e9da">SetStepValue</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> height, <span class="keyword">const</span> <span class="keywordtype">float</span> length)</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    {</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        assert(0 &lt; length);</div>
@@ -184,16 +207,21 @@ $(function() {
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <a class="code hl_variable" href="structdesignlab_1_1_simulation_map_parameter.html#ab710d63456ab3b4b7819bb67e9be7b42">step_height</a> = height;</div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <a class="code hl_variable" href="structdesignlab_1_1_simulation_map_parameter.html#a592f003aa8c7a3275e47c08413cd1470">step_length</a> = length;</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    }</div>
+</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="foldopen" id="foldopen00136" data-start="{" data-end="}">
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_simulation_map_parameter.html#a90a94ea043c52ad3e4dffc5c76b42ba6">  136</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structdesignlab_1_1_simulation_map_parameter.html#a90a94ea043c52ad3e4dffc5c76b42ba6">SetTiltAngle</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> angle)</div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    {</div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <a class="code hl_variable" href="structdesignlab_1_1_simulation_map_parameter.html#add8874470781897ac2878882ab80b3e0">tilt_angle</a> = angle;</div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    }</div>
+</div>
 <div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="foldopen" id="foldopen00141" data-start="{" data-end="}">
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_simulation_map_parameter.html#ae465ef6c4b2bc6d91e1cc01035f24b4e">  141</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structdesignlab_1_1_simulation_map_parameter.html#ae465ef6c4b2bc6d91e1cc01035f24b4e">SetSlopeAngle</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> angle)</div>
 <div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    {</div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        <a class="code hl_variable" href="structdesignlab_1_1_simulation_map_parameter.html#acc14fd4246ca18171b654dd9c55092e9">slope_angle</a> = angle;</div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    }</div>
+</div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_simulation_map_parameter.html#afe082519f4b8f7c8f0b114ff23ecb8fd">  146</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structdesignlab_1_1_simulation_map_parameter.html#afe082519f4b8f7c8f0b114ff23ecb8fd">SetRouthHeight</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> height_min, <span class="keyword">const</span> <span class="keywordtype">float</span> height_max)</div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    {</div>
@@ -232,8 +260,10 @@ $(function() {
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_simulation_map_parameter.html#a05e360b54640e7fd8994df6b3d09f884">  182</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structdesignlab_1_1_simulation_map_parameter.html#a05e360b54640e7fd8994df6b3d09f884">radial_hole_rate</a>{ 100 };  </div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_simulation_map_parameter.html#a9bdcd1fa5f425ac1057c3e1c4dbcc6b4">  183</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structdesignlab_1_1_simulation_map_parameter.html#a9bdcd1fa5f425ac1057c3e1c4dbcc6b4">radial_angle_offset</a>{ 0.0 };  </div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>};</div>
+</div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="foldopen" id="foldopen00187" data-start="{" data-end="}">
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno"><a class="line" href="namespacedesignlab.html#a7ec25f4a6b0bca8300fbb5ebde6e5ac4">  187</a></span><a class="code hl_define" href="toml__serialize__macro_8h.html#a486ffec54db999fb033fd3d6e8ee473b">DESIGNLAB_TOML11_DESCRIPTION_CLASS</a>(<a class="code hl_struct" href="structdesignlab_1_1_simulation_map_parameter.html">SimulationMapParameter</a>)</div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>{</div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <a class="code hl_define" href="toml__serialize__macro_8h.html#a4b9bf407ecc73e60445af21101648d9b">DESIGNLAB_TOML11_FILE_NO_DESCRIPTION</a>();</div>
@@ -243,12 +273,12 @@ $(function() {
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <a class="code hl_define" href="toml__serialize__macro_8h.html#aa289aa4ab294185921bbdf5a563ecccb">DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION</a>(mode,</div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        <a class="code hl_define" href="toml__serialize__macro_8h.html#a3bc3af387da2557ff92994625b23b0a1">DESIGNLAB_TOML11_NO_TABLE</a>,</div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <span class="stringliteral">&quot;生成するマップの種類．(\&quot;&quot;</span> +</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        string_util::EnumValuesToString&lt;enums::SimulationMapMode&gt;(<span class="stringliteral">&quot;\&quot; / \&quot;&quot;</span>) +</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        <a class="code hl_function" href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7">string_util::EnumValuesToString&lt;enums::SimulationMapMode&gt;</a>(<span class="stringliteral">&quot;\&quot; / \&quot;&quot;</span>) +</div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        <span class="stringliteral">&quot;\&quot;)&quot;</span>);</div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <a class="code hl_define" href="toml__serialize__macro_8h.html#aa289aa4ab294185921bbdf5a563ecccb">DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION</a>(option,</div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        <a class="code hl_define" href="toml__serialize__macro_8h.html#a3bc3af387da2557ff92994625b23b0a1">DESIGNLAB_TOML11_NO_TABLE</a>,</div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        <span class="stringliteral">&quot;マップ生成のオプション．複数指定したいならば足し合わせて指定すること．( &quot;</span> +</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        string_util::EnumEntriesToString&lt;enums::SimulationMapOption&gt;(<span class="stringliteral">&quot; / &quot;</span>) +</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        <a class="code hl_function" href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7">string_util::EnumEntriesToString&lt;enums::SimulationMapOption&gt;</a>(<span class="stringliteral">&quot; / &quot;</span>) +</div>
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        <span class="stringliteral">&quot; )&quot;</span>);</div>
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <a class="code hl_define" href="toml__serialize__macro_8h.html#aa289aa4ab294185921bbdf5a563ecccb">DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION</a>(base_z, <span class="stringliteral">&quot;Basic&quot;</span>, <span class="stringliteral">&quot;マップの基準となるZ座標．&quot;</span>);</div>
@@ -283,6 +313,7 @@ $(function() {
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <a class="code hl_define" href="toml__serialize__macro_8h.html#aa289aa4ab294185921bbdf5a563ecccb">DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION</a>(radial_hole_rate, <span class="stringliteral">&quot;Radial&quot;</span>, <span class="stringliteral">&quot;放射状の地形のホール率[%]．&quot;</span>);</div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <a class="code hl_define" href="toml__serialize__macro_8h.html#aa289aa4ab294185921bbdf5a563ecccb">DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION</a>(radial_angle_offset, <span class="stringliteral">&quot;Radial&quot;</span>, <span class="stringliteral">&quot;放射状の地形の角度オフセット[deg]．&quot;</span>);</div>
 <div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>};</div>
+</div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
 <div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>}  <span class="comment">// namespace designlab</span></div>
 <div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
@@ -317,6 +348,7 @@ $(function() {
 <div class="ttc" id="anamespacedesignlab_1_1enums_html_ab640f79752b6b2c4c4a9a3bb2129102ba8e35636aec82464935030f4c1d6d1724"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#ab640f79752b6b2c4c4a9a3bb2129102ba8e35636aec82464935030f4c1d6d1724">designlab::enums::SimulationMapOption::kPerforated</a></div><div class="ttdeci">@ kPerforated</div><div class="ttdoc">穴の空いたマップに変化させる．</div></div>
 <div class="ttc" id="anamespacedesignlab_1_1enums_html_ab640f79752b6b2c4c4a9a3bb2129102ba91bcd78a299b9747fbffc0cf1c1ae144"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#ab640f79752b6b2c4c4a9a3bb2129102ba91bcd78a299b9747fbffc0cf1c1ae144">designlab::enums::SimulationMapOption::kStep</a></div><div class="ttdeci">@ kStep</div><div class="ttdoc">階段状の地形に変化させる．</div></div>
 <div class="ttc" id="anamespacedesignlab_1_1enums_html_ab640f79752b6b2c4c4a9a3bb2129102bac406727c5046dbc650c16ed3dd99fc81"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#ab640f79752b6b2c4c4a9a3bb2129102bac406727c5046dbc650c16ed3dd99fc81">designlab::enums::SimulationMapOption::kSlope</a></div><div class="ttdeci">@ kSlope</div><div class="ttdoc">スロープ状の地形に変化させる．</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1string__util_html_a87e32a810705f9dc98665faf2ae837a7"><div class="ttname"><a href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7">designlab::string_util::EnumValuesToString</a></div><div class="ttdeci">std::string EnumValuesToString(const std::string separator)</div><div class="ttdoc">enum型を渡すと，その要素を列挙した文字列を返す関数．</div><div class="ttdef"><b>Definition</b> <a href="string__util_8h_source.html#l00071">string_util.h:71</a></div></div>
 <div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00015">abstract_dxlib_gui.cpp:16</a></div></div>
 <div class="ttc" id="anamespacedesignlab_html_acc7368f4060dfdf3589ada8d62dd8a81a35c3ace1970663a16e5c65baa5941b13"><div class="ttname"><a href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a35c3ace1970663a16e5c65baa5941b13">designlab::HexapodMove::kNone</a></div><div class="ttdeci">@ kNone</div><div class="ttdoc">何も動作をしない．</div></div>
 <div class="ttc" id="astring__util_8h_html"><div class="ttname"><a href="string__util_8h.html">string_util.h</a></div></div>
@@ -366,7 +398,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

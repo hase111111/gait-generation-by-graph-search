@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>GaitGeneration by Graph Search: DesignLab/math_quaternion.cpp ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -29,7 +29,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.7 -->
+<!-- 構築: Doxygen 1.9.8 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -46,6 +46,11 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -88,6 +93,7 @@ $(function() {
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba">   16</a></span><a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba">Quaternion::GetNormalized</a>() const noexcept</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="comment">// ノルムが0の場合は，(0,0,0,0)を返す．</span></div>
@@ -100,7 +106,9 @@ $(function() {
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span> * (1.f / norm);</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>}</div>
+</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="}">
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#a557aa980908890a7c7e5b6e2caab9301">   29</a></span><a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a557aa980908890a7c7e5b6e2caab9301">Quaternion::MakeByAngleAxis</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> angle, <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a>&amp; axis)</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="comment">// オイラー角をクオータニオンに変換．</span></div>
@@ -110,7 +118,9 @@ $(function() {
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">return</span> { cosf(half_angle),</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a>{ axis.<a class="code hl_variable" href="structdesignlab_1_1_vector3.html#a1173ed2dd31322b92dd4dae067177cbc">x</a>, axis.<a class="code hl_variable" href="structdesignlab_1_1_vector3.html#af2c9878342038c6a35c98e30dd532fae">y</a>, axis.<a class="code hl_variable" href="structdesignlab_1_1_vector3.html#a71c4baaa6cf57587e5cdadc5558cb4fd">z</a> }.GetNormalized() * sinf(half_angle) };</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
+</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="}">
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#a37c43da43484613d050d79393feaecec">   39</a></span>std::string <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a37c43da43484613d050d79393feaecec">Quaternion::ToString</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    std::string str;</div>
@@ -120,14 +130,18 @@ $(function() {
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="stringliteral">&quot;, z: &quot;</span> + <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a45276ca396d3aa1331b5bb5a4c849bbe">math_util::FloatingPointNumToString</a>(<a class="code hl_variable" href="structdesignlab_1_1_quaternion.html#a5de03d2ccf59cbdcb55ab526832c3a9c">v</a>.<a class="code hl_variable" href="structdesignlab_1_1_vector3.html#a71c4baaa6cf57587e5cdadc5558cb4fd">z</a>) + <span class="stringliteral">&quot; )&quot;</span>;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordflow">return</span> str;</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_quaternion.html#ad46b2f2a6e3c2f6e69a5daa3bbd8ada6">   49</a></span>std::string <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#ad46b2f2a6e3c2f6e69a5daa3bbd8ada6">Quaternion::ToCsvString</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    std::stringstream ss;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    ss &lt;&lt; *<span class="keyword">this</span>;</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">return</span> ss.str();</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>}</div>
+</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="foldopen" id="foldopen00056" data-start="{" data-end="}">
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="namespacedesignlab.html#aa6386f09017c25f59fbdf0fa7088ec90">   56</a></span><a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> <a class="code hl_function" href="namespacedesignlab.html#aa6386f09017c25f59fbdf0fa7088ec90">SlerpQuaternion</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&amp; q1, <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a>&amp; q2, <span class="keyword">const</span> <span class="keywordtype">float</span> t)</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>{</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    assert(0 &lt;= t &amp;&amp; t &lt;= 1);  <span class="comment">// tが 0 ～ 1 の間に収まっているか確認．</span></div>
@@ -162,6 +176,7 @@ $(function() {
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="comment">// 補間されたクォータニオンを返す．</span></div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordflow">return</span> sin_1_t_theta * sin_theta_inv * q1 + sin_t_theta * sin_theta_inv * q2;</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>}</div>
+</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>}  <span class="comment">// namespace designlab</span></div>
 <div class="ttc" id="acassert__define_8h_html"><div class="ttname"><a href="cassert__define_8h.html">cassert_define.h</a></div><div class="ttdoc">デバッグモードとリリースモードでアサートを有効化・無効化するためのヘッダファイル．</div></div>
@@ -186,7 +201,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

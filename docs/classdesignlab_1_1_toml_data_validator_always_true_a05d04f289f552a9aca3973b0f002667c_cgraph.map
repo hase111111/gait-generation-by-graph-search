@@ -1,11 +1,11 @@
 <map id="designlab::TomlDataValidatorAlwaysTrue::Validate" name="designlab::TomlDataValidatorAlwaysTrue::Validate">
 <area shape="rect" id="Node000001" title="TOMLファイルのデータの検証を行う．" alt="" coords="5,39,196,81"/>
 <area shape="rect" id="Node000002" href="$classdesignlab_1_1_cmd_i_o_util.html#ab913a88b80ef7181aa23f9dce114e3fb" title="コマンドラインに文字を出力する関数．Info用の出力．" alt="" coords="244,39,387,81"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,57,229,57,229,63,196,63"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,57,228,57,228,63,196,63"/>
 <area shape="rect" id="Node000003" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="435,39,578,81"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="387,57,420,57,420,63,387,63"/>
 <area shape="rect" id="Node000004" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数． &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている． &#160;&#160;例えば，" alt="" coords="626,5,814,48"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="578,46,611,41,612,46,579,51"/>
-<area shape="rect" id="Node000005" href="$namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数．指定した文字で文字列を分割する． &#160;&#160;分割した結果，空白が含まれる場合や文字列がない場合は，そのまま返す． &#160;&#160;最後が区切り文字で終わる場合は，それを無視する．" alt="" coords="650,72,790,115"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="579,69,636,77,635,83,578,74"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="578,46,610,41,611,46,579,51"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数．指定した文字で文字列を分割する． &#160;&#160;分割した結果，空白が含まれる場合や文字列がない場合は，そのまま返す． &#160;&#160;最後が区切り文字で終わる場合は，それを無視する．" alt="" coords="650,72,790,115"/>
+<area shape="poly" id="edge4_Node000003_Node000006" title=" " alt="" coords="579,69,634,77,634,83,578,74"/>
 </map>

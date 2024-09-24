@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>GaitGeneration by Graph Search: DesignLab/dxlib_util.cpp ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -29,7 +29,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.7 -->
+<!-- 構築: Doxygen 1.9.8 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -46,6 +46,11 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -86,9 +91,11 @@ $(function() {
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="graphic__const_8h.html">graphic_const.h</a>&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1dxlib__util.html">   14</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab_1_1dxlib__util.html">designlab::dxlib_util</a></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1dxlib__util.html#a817972c248c109584a567e959799b9e6">   17</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#a817972c248c109584a567e959799b9e6">InitDxlib3DSetting</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> high_quality)</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordflow">if</span> (high_quality)</div>
@@ -105,8 +112,10 @@ $(function() {
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        SetLightEnable(FALSE);</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    }</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>}</div>
+</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1dxlib__util.html#a5f59136031be16081cffcef06767b9e5">   35</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#a5f59136031be16081cffcef06767b9e5">SetZBufferEnable</a>()</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="comment">// Ｚバッファを有効にする．</span></div>
@@ -115,8 +124,10 @@ $(function() {
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="comment">// Ｚバッファへの書き込みを有効にする．</span></div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    SetWriteZBuffer3D(TRUE);</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
+</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1dxlib__util.html#aec08fe28b57053d60e3085bd20ce8b25">   45</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#aec08fe28b57053d60e3085bd20ce8b25">DrawCube3D</a>(<span class="keyword">const</span> VECTOR&amp; center_pos,</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                <span class="keyword">const</span> <span class="keywordtype">float</span> side_len, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> color)</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>{</div>
@@ -163,15 +174,19 @@ $(function() {
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    DrawTriangle3D(vertex[2], vertex[3], vertex[7], color, TRUE);</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    DrawTriangle3D(vertex[7], vertex[6], vertex[2], color, TRUE);</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>}</div>
+</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="foldopen" id="foldopen00093" data-start="{" data-end="}">
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1dxlib__util.html#a170cac2fc964414af49c550aee6583c8">   93</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#a170cac2fc964414af49c550aee6583c8">DrawCube3DWithTopPos</a>(</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keyword">const</span> VECTOR&amp; top_pos, <span class="keyword">const</span> <span class="keywordtype">float</span> side_len, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> color)</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>{</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#aec08fe28b57053d60e3085bd20ce8b25">DrawCube3D</a>(VSub(top_pos, VGet(0, 0, side_len / 2)), side_len, color);</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>}</div>
+</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="foldopen" id="foldopen00100" data-start="{" data-end="}">
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1dxlib__util.html#aa8892901793b338c6a643dc12d19a99e">  100</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#aa8892901793b338c6a643dc12d19a99e">DrawHexagon</a>(<span class="keyword">const</span> std::array&lt;VECTOR, 6&gt;&amp; vertex, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> color)</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>{</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="comment">// 3D描画の関数は3角形を基本単位とするので，</span></div>
@@ -181,8 +196,10 @@ $(function() {
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    DrawTriangle3D(vertex[1], vertex[4], vertex[5], color, TRUE);</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    DrawTriangle3D(vertex[2], vertex[3], vertex[4], color, TRUE);</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>}</div>
+</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="foldopen" id="foldopen00111" data-start="{" data-end="}">
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1dxlib__util.html#ad8cc0ecb50fc678af0d50370a137356e">  111</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#ad8cc0ecb50fc678af0d50370a137356e">DrawHexagonalPrism</a>(<span class="keyword">const</span> std::array&lt;VECTOR, 6&gt;&amp; vertex, <span class="keyword">const</span> <span class="keywordtype">float</span> height,</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>                        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> color)</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>{</div>
@@ -235,8 +252,10 @@ $(function() {
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>                       TRUE);</div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    }</div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>}</div>
+</div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>}  <span class="comment">// namespace designlab::dxlib_util</span></div>
+</div>
 <div class="ttc" id="adxlib__util_8h_html"><div class="ttname"><a href="dxlib__util_8h.html">dxlib_util.h</a></div></div>
 <div class="ttc" id="agraphic__const_8h_html"><div class="ttname"><a href="graphic__const_8h.html">graphic_const.h</a></div></div>
 <div class="ttc" id="amath__vector3_8h_html"><div class="ttname"><a href="math__vector3_8h.html">math_vector3.h</a></div></div>
@@ -252,7 +271,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

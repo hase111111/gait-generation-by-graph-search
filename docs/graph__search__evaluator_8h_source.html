@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>GaitGeneration by Graph Search: DesignLab/graph_search_evaluator.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -29,7 +29,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.7 -->
+<!-- 構築: Doxygen 1.9.8 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -46,6 +46,11 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -88,6 +93,7 @@ $(function() {
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_graph_search_evaluation_value.html">   19</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1_graph_search_evaluation_value.html">GraphSearchEvaluationValue</a> final</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_graph_search_evaluation_value.html#a4ad4777e027f64a15ce45c3f8af4b3d0">   21</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="structdesignlab_1_1_graph_search_evaluation_value.html#a4ad4777e027f64a15ce45c3f8af4b3d0">Tag</a> = int;</div>
@@ -97,19 +103,23 @@ $(function() {
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_graph_search_evaluation_value.html#a62002c5f69cc6891488ff7f323776418">   26</a></span>    std::map&lt;Tag, float&gt; <a class="code hl_variable" href="structdesignlab_1_1_graph_search_evaluation_value.html#a62002c5f69cc6891488ff7f323776418">value</a>;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
+</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_graph_search_evaluator.html">   32</a></span><span class="keyword">class </span><a class="code hl_class" href="classdesignlab_1_1_graph_search_evaluator.html">GraphSearchEvaluator</a> final</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">using </span>Tag = <a class="code hl_typedef" href="structdesignlab_1_1_graph_search_evaluation_value.html#a4ad4777e027f64a15ce45c3f8af4b3d0">GraphSearchEvaluationValue::Tag</a>;  <span class="comment">// 読みやすさのため，別名をつける．</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_graph_search_evaluator_1_1_evaluation_method.html">   39</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1_graph_search_evaluator_1_1_evaluation_method.html">EvaluationMethod</a> final</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    {</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_graph_search_evaluator_1_1_evaluation_method.html#a784357a0a735e40322ebcbf308a482a3">   41</a></span>        <span class="keywordtype">bool</span> <a class="code hl_variable" href="structdesignlab_1_1_graph_search_evaluator_1_1_evaluation_method.html#a784357a0a735e40322ebcbf308a482a3">is_lower_better</a>;  </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_graph_search_evaluator_1_1_evaluation_method.html#a627731e6b7031d7a88e6792a24dcb2e7">   43</a></span>        <span class="keywordtype">float</span> <a class="code hl_variable" href="structdesignlab_1_1_graph_search_evaluator_1_1_evaluation_method.html#a627731e6b7031d7a88e6792a24dcb2e7">margin</a>;  </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    };</div>
+</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_graph_search_evaluator.html#aecaeb3af78608aad1f8990c6ff1f99c1">   46</a></span>    <a class="code hl_function" href="classdesignlab_1_1_graph_search_evaluator.html#aecaeb3af78608aad1f8990c6ff1f99c1">GraphSearchEvaluator</a>() = <span class="keyword">delete</span>;  </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
@@ -135,6 +145,7 @@ $(function() {
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keyword">const</span> std::vector&lt;Tag&gt; evaluation_priority_list_;</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>};</div>
+</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>}  <span class="comment">// namespace designlab</span></div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
@@ -159,7 +170,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

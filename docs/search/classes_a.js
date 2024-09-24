@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['keyboard_0',['Keyboard',['../classdesignlab_1_1_keyboard.html',1,'designlab']]]
+  ['linesegment2_0',['LineSegment2',['../structdesignlab_1_1_line_segment2.html',1,'designlab']]]
 ];

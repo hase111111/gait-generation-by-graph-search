@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>GaitGeneration by Graph Search: DesignLab/phantomx_mk2.cpp ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -29,7 +29,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.7 -->
+<!-- 構築: Doxygen 1.9.8 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -46,6 +46,11 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -94,6 +99,7 @@ $(function() {
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="}">
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a25a758626f406071b19c69efc0a7b42d">   22</a></span><a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a25a758626f406071b19c69efc0a7b42d">PhantomXMkII::PhantomXMkII</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_phantom_x_mk_i_i_parameter_record.html">PhantomXMkIIParameterRecord</a>&amp; parameter_record) :</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    kBodyLiftingHeightMin(parameter_record.body_lifting_height_min),</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    kBodyLiftingHeightMax(parameter_record.body_lifting_height_max),</div>
@@ -125,7 +131,9 @@ $(function() {
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    kMinLegDistance(50.0)</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>{</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}</div>
+</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_phantom_x_mk_i_i.html#ac027dc121a54e00da42ffcbab0028561">   54</a></span><a class="code hl_struct" href="structdesignlab_1_1_hexapod_joint_state.html">HexapodJointState</a> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_i.html#ac027dc121a54e00da42ffcbab0028561">PhantomXMkII::CalculateJointState</a>(</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> leg_index, <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a>&amp; leg_pos) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>{</div>
@@ -339,7 +347,9 @@ $(function() {
 <div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
 <div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    <span class="keywordflow">return</span> res;</div>
 <div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>}</div>
+</div>
 <div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="foldopen" id="foldopen00268" data-start="{" data-end="}">
 <div class="line"><a id="l00268" name="l00268"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_phantom_x_mk_i_i.html#acd4f0edc022211d1ddd42cc7308e4ffd">  268</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_i.html#acd4f0edc022211d1ddd42cc7308e4ffd">PhantomXMkII::IsValidJointState</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> leg_index,</div>
 <div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>                                     <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a>&amp; leg_pos,</div>
 <div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>                                     <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_hexapod_joint_state.html">HexapodJointState</a>&amp; joint_state) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
@@ -389,8 +399,10 @@ $(function() {
 <div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span> </div>
 <div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>}</div>
+</div>
 <div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
 <div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span> </div>
+<div class="foldopen" id="foldopen00319" data-start="{" data-end="}">
 <div class="line"><a id="l00319" name="l00319"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a0630fa1d537f7e00aa422a83c98ebdda">  319</a></span><a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a0630fa1d537f7e00aa422a83c98ebdda">PhantomXMkII::ConvertGlobalToLegCoordinate</a>(</div>
 <div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a>&amp; converted_position,</div>
 <div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> leg_index,</div>
@@ -415,7 +427,9 @@ $(function() {
 <div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>            <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_i.html#afb11bfbb9551917334442fa9a9e38ffd">GetLegBasePosRobotCoordinate</a>(leg_index);</div>
 <div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    }</div>
 <div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>}</div>
+</div>
 <div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span> </div>
+<div class="foldopen" id="foldopen00344" data-start="{" data-end="}">
 <div class="line"><a id="l00344" name="l00344"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a028f4e024ebebca50325beef3444bfc5">  344</a></span><a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a028f4e024ebebca50325beef3444bfc5">PhantomXMkII::ConvertLegToGlobalCoordinate</a>(</div>
 <div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a>&amp; converted_position,</div>
 <div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    <span class="keywordtype">int</span> leg_index,</div>
@@ -438,7 +452,9 @@ $(function() {
 <div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>            <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_i.html#afb11bfbb9551917334442fa9a9e38ffd">GetLegBasePosRobotCoordinate</a>(leg_index) + center_of_mass_global;</div>
 <div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>    }</div>
 <div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>}</div>
+</div>
 <div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span> </div>
+<div class="foldopen" id="foldopen00367" data-start="{" data-end="}">
 <div class="line"><a id="l00367" name="l00367"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_phantom_x_mk_i_i.html#ae4b923566d06eef5f765b1e7afdd57ae">  367</a></span><a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_i.html#ae4b923566d06eef5f765b1e7afdd57ae">PhantomXMkII::ConvertRobotToGlobalCoordinate</a>(</div>
 <div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a>&amp; converted_position,</div>
 <div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a>&amp; center_of_mass_global,</div>
@@ -454,20 +470,26 @@ $(function() {
 <div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>        <span class="keywordflow">return</span> converted_position + center_of_mass_global;</div>
 <div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>    }</div>
 <div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>}</div>
+</div>
 <div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span> </div>
+<div class="foldopen" id="foldopen00383" data-start="{" data-end="}">
 <div class="line"><a id="l00383" name="l00383"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a23f271c79b8151dbb64c4e441b19e1d6">  383</a></span><a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a23f271c79b8151dbb64c4e441b19e1d6">PhantomXMkII::ConvertRobotToLegCoordinate</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a>&amp; converted_position,</div>
 <div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>                                                  <span class="keyword">const</span> <span class="keywordtype">int</span> leg_index)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>    <span class="keywordflow">return</span> converted_position - <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_i.html#afb11bfbb9551917334442fa9a9e38ffd">GetLegBasePosRobotCoordinate</a>(leg_index);</div>
 <div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>}</div>
+</div>
 <div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span> </div>
+<div class="foldopen" id="foldopen00389" data-start="{" data-end="}">
 <div class="line"><a id="l00389" name="l00389"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a27befb91ff5b1954cd31a3a46d70e995">  389</a></span><a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a27befb91ff5b1954cd31a3a46d70e995">PhantomXMkII::ConvertLegToRobotCoordinate</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a>&amp; converted_position,</div>
 <div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>                                                  <span class="keyword">const</span> <span class="keywordtype">int</span> leg_index)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>    <span class="keywordflow">return</span> converted_position + <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_i.html#afb11bfbb9551917334442fa9a9e38ffd">GetLegBasePosRobotCoordinate</a>(leg_index);</div>
 <div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>}</div>
+</div>
 <div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span> </div>
 <div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span> </div>
+<div class="foldopen" id="foldopen00396" data-start="{" data-end="}">
 <div class="line"><a id="l00396" name="l00396"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_phantom_x_mk_i_i.html#ac284a810420fd8f69883cdb22d611704">  396</a></span><a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_i.html#ac284a810420fd8f69883cdb22d611704">PhantomXMkII::GetFreeLegPosLegCoordinate</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> leg_index) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>{</div>
 <div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>    <span class="comment">// leg_indexは 0～5 である．</span></div>
@@ -476,7 +498,9 @@ $(function() {
 <div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span> </div>
 <div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>    <span class="keywordflow">return</span> free_leg_pos_leg_coordinate_[leg_index];</div>
 <div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>}</div>
+</div>
 <div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span> </div>
+<div class="foldopen" id="foldopen00405" data-start="{" data-end="}">
 <div class="line"><a id="l00405" name="l00405"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_phantom_x_mk_i_i.html#afb11bfbb9551917334442fa9a9e38ffd">  405</a></span><a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_i.html#afb11bfbb9551917334442fa9a9e38ffd">PhantomXMkII::GetLegBasePosRobotCoordinate</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> leg_index) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>{</div>
 <div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>    <span class="comment">// leg_indexは 0～5 である．</span></div>
@@ -485,8 +509,10 @@ $(function() {
 <div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span> </div>
 <div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>    <span class="keywordflow">return</span> leg_base_pos_robot_coordinate_[leg_index];</div>
 <div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>}</div>
+</div>
 <div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span> </div>
 <div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span> </div>
+<div class="foldopen" id="foldopen00415" data-start="{" data-end="}">
 <div class="line"><a id="l00415" name="l00415"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_phantom_x_mk_i_i.html#aab0677aba41eed4d1138c6adacc27fa1">  415</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_i.html#aab0677aba41eed4d1138c6adacc27fa1">PhantomXMkII::IsLegInRange</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> leg_index, <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a>&amp; leg_pos)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>    <span class="comment">// leg_indexは 0～5 である．</span></div>
@@ -535,7 +561,9 @@ $(function() {
 <div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span> </div>
 <div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span>}</div>
+</div>
 <div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span> </div>
+<div class="foldopen" id="foldopen00464" data-start="{" data-end="}">
 <div class="line"><a id="l00464" name="l00464"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_phantom_x_mk_i_i.html#aeed1296b4886eb07bc095ca2b5e8c333">  464</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_i.html#aeed1296b4886eb07bc095ca2b5e8c333">PhantomXMkII::IsLegInterfering</a>(</div>
 <div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span>    <span class="keyword">const</span> std::array&lt;Vector3, HexapodConst::kLegNum&gt;&amp; leg_pos)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span><span class="keyword"></span>{</div>
@@ -571,17 +599,23 @@ $(function() {
 <div class="line"><a id="l00496" name="l00496"></a><span class="lineno">  496</span> </div>
 <div class="line"><a id="l00497" name="l00497"></a><span class="lineno">  497</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00498" name="l00498"></a><span class="lineno">  498</span>}</div>
+</div>
 <div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span> </div>
+<div class="foldopen" id="foldopen00500" data-start="{" data-end="}">
 <div class="line"><a id="l00500" name="l00500"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a52a929d7f1610aa2f074d6b84c386bdf">  500</a></span><span class="keywordtype">float</span> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a52a929d7f1610aa2f074d6b84c386bdf">PhantomXMkII::GetGroundHeightMarginMin</a>() const noexcept</div>
 <div class="line"><a id="l00501" name="l00501"></a><span class="lineno">  501</span>{</div>
 <div class="line"><a id="l00502" name="l00502"></a><span class="lineno">  502</span>    <span class="keywordflow">return</span> kBodyLiftingHeightMin;</div>
 <div class="line"><a id="l00503" name="l00503"></a><span class="lineno">  503</span>}</div>
+</div>
 <div class="line"><a id="l00504" name="l00504"></a><span class="lineno">  504</span> </div>
+<div class="foldopen" id="foldopen00505" data-start="{" data-end="}">
 <div class="line"><a id="l00505" name="l00505"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a346bba4678638b033dcc6f07b3a5389f">  505</a></span><span class="keywordtype">float</span> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a346bba4678638b033dcc6f07b3a5389f">PhantomXMkII::GetGroundHeightMarginMax</a>() const noexcept</div>
 <div class="line"><a id="l00506" name="l00506"></a><span class="lineno">  506</span>{</div>
 <div class="line"><a id="l00507" name="l00507"></a><span class="lineno">  507</span>    <span class="keywordflow">return</span> kBodyLiftingHeightMax;</div>
 <div class="line"><a id="l00508" name="l00508"></a><span class="lineno">  508</span>}</div>
+</div>
 <div class="line"><a id="l00509" name="l00509"></a><span class="lineno">  509</span> </div>
+<div class="foldopen" id="foldopen00510" data-start="{" data-end="}">
 <div class="line"><a id="l00510" name="l00510"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a688e8dd6b7f92d5b1a4fa8d4fbcc2714">  510</a></span><span class="keywordtype">float</span> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a688e8dd6b7f92d5b1a4fa8d4fbcc2714">PhantomXMkII::CalculateStabilityMargin</a>(</div>
 <div class="line"><a id="l00511" name="l00511"></a><span class="lineno">  511</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">leg_func::LegStateBit</a>&amp; leg_state,</div>
 <div class="line"><a id="l00512" name="l00512"></a><span class="lineno">  512</span>    <span class="keyword">const</span> std::array&lt;Vector3, HexapodConst::kLegNum&gt;&amp; leg_pos)<span class="keyword"> const</span></div>
@@ -634,14 +668,18 @@ $(function() {
 <div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span> </div>
 <div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span>    <span class="keywordflow">return</span> min_margin;</div>
 <div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span>}</div>
+</div>
 <div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span> </div>
+<div class="foldopen" id="foldopen00563" data-start="{" data-end="}">
 <div class="line"><a id="l00563" name="l00563"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_phantom_x_mk_i_i.html#aea0eea059d621c567e8c0a704d7f79c8">  563</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_i.html#aea0eea059d621c567e8c0a704d7f79c8">PhantomXMkII::IsStable</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">leg_func::LegStateBit</a>&amp; leg_state,</div>
 <div class="line"><a id="l00564" name="l00564"></a><span class="lineno">  564</span>                            <span class="keyword">const</span> std::array&lt;Vector3, HexapodConst::kLegNum&gt;&amp; leg_pos)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00565" name="l00565"></a><span class="lineno">  565</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00566" name="l00566"></a><span class="lineno">  566</span>    <span class="comment">// kStableMargin 以上の余裕があるか調べる．</span></div>
 <div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a688e8dd6b7f92d5b1a4fa8d4fbcc2714">CalculateStabilityMargin</a>(leg_state, leg_pos) &gt; kStableMargin;</div>
 <div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span>}</div>
+</div>
 <div class="line"><a id="l00569" name="l00569"></a><span class="lineno">  569</span> </div>
+<div class="foldopen" id="foldopen00570" data-start="{" data-end="}">
 <div class="line"><a id="l00570" name="l00570"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a2d84fda12ddad344e7de4c0e023ffd4f">  570</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a2d84fda12ddad344e7de4c0e023ffd4f">PhantomXMkII::IsBodyInterferingWithGround</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a>&amp; node,</div>
 <div class="line"><a id="l00571" name="l00571"></a><span class="lineno">  571</span>                                               <span class="keyword">const</span> <a class="code hl_class" href="classdesignlab_1_1_divided_map_state.html">DividedMapState</a>&amp; devide_map)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00572" name="l00572"></a><span class="lineno">  572</span><span class="keyword"></span>{</div>
@@ -703,6 +741,7 @@ $(function() {
 <div class="line"><a id="l00628" name="l00628"></a><span class="lineno">  628</span> </div>
 <div class="line"><a id="l00629" name="l00629"></a><span class="lineno">  629</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00630" name="l00630"></a><span class="lineno">  630</span>}</div>
+</div>
 <div class="line"><a id="l00631" name="l00631"></a><span class="lineno">  631</span> </div>
 <div class="line"><a id="l00632" name="l00632"></a><span class="lineno">  632</span> </div>
 <div class="line"><a id="l00633" name="l00633"></a><span class="lineno">  633</span>std::array&lt;float, PhantomXMkII::kMaxLegRSize&gt; PhantomXMkII::InitMaxLegR()<span class="keyword"> const</span></div>
@@ -914,7 +953,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

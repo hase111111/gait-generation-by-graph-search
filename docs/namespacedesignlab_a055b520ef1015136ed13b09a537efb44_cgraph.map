@@ -1,5 +1,9 @@
 <map id="designlab::DESIGNLAB_TOML11_DESCRIPTION_CLASS" name="designlab::DESIGNLAB_TOML11_DESCRIPTION_CLASS">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,226,48"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,226,77"/>
 <area shape="rect" id="Node000002" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数． &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている． &#160;&#160;例えば，" alt="" coords="274,5,461,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,24,259,24,259,29,226,29"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,40,258,37,259,42,226,46"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと，その要素を列挙した文字列を返す関数．" alt="" coords="509,35,660,77"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="226,56,274,57,461,57,494,57,494,62,461,63,274,63,226,62"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="462,37,494,41,493,46,461,42"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="543,35,542,25,549,16,563,10,585,8,608,10,622,17,620,21,607,16,585,13,564,15,552,20,547,26,548,34"/>
 </map>

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>GaitGeneration by Graph Search: DesignLab/gait_pattern_graph_tree.cpp ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -29,7 +29,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.7 -->
+<!-- 構築: Doxygen 1.9.8 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -46,6 +46,11 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -84,6 +89,7 @@ $(function() {
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_gait_pattern_graph_tree.html#a7d5f0968cb4718d9baf449222e0ec7d8">   11</a></span><span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a>&amp; <a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_tree.html#a7d5f0968cb4718d9baf449222e0ec7d8">GaitPatternGraphTree::GetParentNode</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> index, <span class="keyword">const</span> <span class="keywordtype">int</span> depth)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    assert(0 &lt;= index);</div>
@@ -105,7 +111,9 @@ $(function() {
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">return</span> nodes_[res_index];</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}</div>
+</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="}">
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_gait_pattern_graph_tree.html#a69eaf1ffd9772f8ea1063c36ee7bbcaa">   33</a></span><span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_tree.html#a69eaf1ffd9772f8ea1063c36ee7bbcaa">GaitPatternGraphTree::GetParentNodeIndex</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> index, <span class="keyword">const</span> <span class="keywordtype">int</span> depth)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    assert(0 &lt;= depth);</div>
@@ -127,6 +135,7 @@ $(function() {
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">return</span> res_index;</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>}</div>
+</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}  <span class="comment">// namespace designlab</span></div>
 <div class="ttc" id="aclassdesignlab_1_1_gait_pattern_graph_tree_html_a69eaf1ffd9772f8ea1063c36ee7bbcaa"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_graph_tree.html#a69eaf1ffd9772f8ea1063c36ee7bbcaa">designlab::GaitPatternGraphTree::GetParentNodeIndex</a></div><div class="ttdeci">const int GetParentNodeIndex(const int index, const int depth) const</div><div class="ttdoc">指定したノードの親ノードの参照を返す．depthは親ノードの深さを指定する．</div><div class="ttdef"><b>Definition</b> <a href="gait__pattern__graph__tree_8cpp_source.html#l00033">gait_pattern_graph_tree.cpp:33</a></div></div>
@@ -137,7 +146,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

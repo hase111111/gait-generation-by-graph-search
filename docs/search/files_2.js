@@ -10,6 +10,5 @@ var searchData=
   ['com_5fselector_2ecpp_7',['com_selector.cpp',['../com__selector_8cpp.html',1,'']]],
   ['com_5fselector_2eh_8',['com_selector.h',['../com__selector_8h.html',1,'']]],
   ['com_5ftype_2ecpp_9',['com_type.cpp',['../com__type_8cpp.html',1,'']]],
-  ['com_5ftype_2eh_10',['com_type.h',['../com__type_8h.html',1,'']]],
-  ['cpplint_2epy_11',['cpplint.py',['../cpplint_8py.html',1,'']]]
+  ['com_5ftype_2eh_10',['com_type.h',['../com__type_8h.html',1,'']]]
 ];

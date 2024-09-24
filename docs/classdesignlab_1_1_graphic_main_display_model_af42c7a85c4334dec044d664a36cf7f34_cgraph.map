@@ -3,44 +3,44 @@
 <area shape="rect" id="Node000002" href="$classdesignlab_1_1_hexapod_renderer_builder.html#a595c704a5ba5b379a828afbba93d9ddf" title="HexapodRendererクラスのインスタンスを作成する． static関数なので，HexapodRendererBuilder::Build()と呼び出す．" alt="" coords="273,139,460,181"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,354,180,276,220,230,267,191,275,186,277,191,270,195,224,234,184,279,129,357"/>
 <area shape="rect" id="Node000003" href="$classdesignlab_1_1_map_creator_factory.html#abaa5ea7c6bf775eca630b90d2140534c" title="マップを生成するクラスを生成する．" alt="" coords="269,205,464,248"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="139,353,197,310,267,264,292,252,294,257,270,269,200,314,143,357"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="139,353,197,310,267,264,291,252,294,257,270,269,200,314,143,357"/>
 <area shape="rect" id="Node000004" href="$classdesignlab_1_1_toml_file_importer.html#a8ca4fd7bec19dce42d1ab1dfc895ff88" title="指定したファイルパスのファイルを読み込み，構造体に変換する． 読込に失敗した場合は，デフォルトの構造体を返す． また，読込に失敗した場合には， デフォルトの構造体をファイルに出力するかどうかをユーザに問..." alt="" coords="513,123,693,165"/>
-<area shape="poly" id="edge11_Node000001_Node000004" title=" " alt="" coords="159,353,268,308,325,295,371,292,414,284,437,274,462,258,479,239,486,218,493,197,510,175,515,171,519,175,514,179,498,199,491,220,484,241,466,262,440,279,416,289,372,297,325,301,269,313,161,358"/>
-<area shape="rect" id="Node000014" href="$classdesignlab_1_1_divided_map_state.html#a50647e278f9ee754cbfe5196153e2ba8" title="マップのデータを初期化する． ロボットの重心座標を中心にマップのデータを格子状に分割し， その中に存在する脚設置可能点を集める．" alt="" coords="276,323,457,365"/>
-<area shape="poly" id="edge12_Node000001_Node000014" title=" " alt="" coords="221,361,261,355,261,360,221,366"/>
-<area shape="rect" id="Node000022" href="$classdesignlab_1_1_dxlib_gui_updater.html#a3778e8571c86de255812192002c2109d" title="Terminalを開く. &#160;&#160;他のGUIをRegisterした後に呼び出すこと． &#160;&#160;2回目以降の呼び出しは無視される． &#160;&#160;また，Terminalは最も優先度が高い．" alt="" coords="277,389,456,432"/>
-<area shape="poly" id="edge20_Node000001_Node000022" title=" " alt="" coords="221,389,262,394,262,400,221,394"/>
-<area shape="rect" id="Node000023" href="$classdesignlab_1_1_dxlib3d_renderer_group.html#a5b7b5dae938216769964b02135ceaa11" title="3D描画を行うクラスを登録する．" alt="" coords="277,456,456,499"/>
-<area shape="poly" id="edge21_Node000001_Node000023" title=" " alt="" coords="164,397,270,442,287,448,285,453,268,446,162,402"/>
-<area shape="rect" id="Node000024" href="$classdesignlab_1_1_dxlib_node_setter_group.html#a0a3a10123471e7ba79f9f540fd245c66" title="ノードの設定を行うクラスを登録する．" alt="" coords="277,523,456,565"/>
-<area shape="poly" id="edge22_Node000001_Node000024" title=" " alt="" coords="136,397,193,452,230,482,270,508,280,514,278,519,267,513,227,486,190,456,132,401"/>
-<area shape="rect" id="Node000025" href="$classdesignlab_1_1_dxlib_gui_updater.html#a1857f9c279951c3b92d823e9724839b9" title="UpdateとDrawを行うGUIを登録する． &#160;&#160;IDxlibClickableまたは，IDxlibDraggable, IDxlibWheelHandlerを継承している場合は，それらも同時に登録す..." alt="" coords="277,589,456,632"/>
-<area shape="poly" id="edge23_Node000001_Node000025" title=" " alt="" coords="128,397,150,435,182,483,222,532,270,575,277,580,274,584,267,579,218,536,177,486,145,438,123,400"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="431,202,463,191,527,168,529,173,465,196,432,207"/>
+<area shape="poly" id="edge11_Node000001_Node000004" title=" " alt="" coords="159,353,268,308,325,295,371,292,414,284,437,274,462,258,479,239,486,218,493,197,510,175,515,172,518,176,514,179,498,199,491,220,484,241,466,262,440,279,416,289,372,297,325,301,269,313,161,358"/>
+<area shape="rect" id="Node000015" href="$classdesignlab_1_1_divided_map_state.html#a50647e278f9ee754cbfe5196153e2ba8" title="マップのデータを初期化する． ロボットの重心座標を中心にマップのデータを格子状に分割し， その中に存在する脚設置可能点を集める．" alt="" coords="276,323,457,365"/>
+<area shape="poly" id="edge12_Node000001_Node000015" title=" " alt="" coords="221,361,260,355,260,361,221,366"/>
+<area shape="rect" id="Node000023" href="$classdesignlab_1_1_dxlib_gui_updater.html#a3778e8571c86de255812192002c2109d" title="Terminalを開く. &#160;&#160;他のGUIをRegisterした後に呼び出すこと． &#160;&#160;2回目以降の呼び出しは無視される． &#160;&#160;また，Terminalは最も優先度が高い．" alt="" coords="277,389,456,432"/>
+<area shape="poly" id="edge20_Node000001_Node000023" title=" " alt="" coords="221,389,262,394,261,400,221,394"/>
+<area shape="rect" id="Node000024" href="$classdesignlab_1_1_dxlib3d_renderer_group.html#a5b7b5dae938216769964b02135ceaa11" title="3D描画を行うクラスを登録する．" alt="" coords="277,456,456,499"/>
+<area shape="poly" id="edge21_Node000001_Node000024" title=" " alt="" coords="164,397,270,442,286,448,284,453,268,446,162,402"/>
+<area shape="rect" id="Node000025" href="$classdesignlab_1_1_dxlib_node_setter_group.html#a0a3a10123471e7ba79f9f540fd245c66" title="ノードの設定を行うクラスを登録する．" alt="" coords="277,523,456,565"/>
+<area shape="poly" id="edge22_Node000001_Node000025" title=" " alt="" coords="136,397,193,452,230,482,270,508,280,513,277,518,267,513,227,486,190,456,132,401"/>
+<area shape="rect" id="Node000026" href="$classdesignlab_1_1_dxlib_gui_updater.html#a1857f9c279951c3b92d823e9724839b9" title="UpdateとDrawを行うGUIを登録する． &#160;&#160;IDxlibClickableまたは，IDxlibDraggable, IDxlibWheelHandlerを継承している場合は，それらも同時に登録す..." alt="" coords="277,589,456,632"/>
+<area shape="poly" id="edge23_Node000001_Node000026" title=" " alt="" coords="128,397,150,435,182,483,222,532,270,575,277,579,274,584,267,579,218,536,177,486,145,438,123,400"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="431,202,463,191,526,169,527,174,465,196,432,207"/>
 <area shape="rect" id="Node000005" href="$classdesignlab_1_1_toml_file_exporter.html#a095f0d7b33e267b1669a18aa6860522c" title="TOMLファイルを出力する．" alt="" coords="741,5,924,48"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="640,120,740,64,765,52,768,57,743,69,642,124"/>
-<area shape="rect" id="Node000009" href="$classdesignlab_1_1_toml_file_importer.html#a4960e633876bd88dc7433696943734e8" title="指定したファイルパスのファイルを読み込み，構造体に変換する．" alt="" coords="742,123,923,165"/>
-<area shape="poly" id="edge5_Node000004_Node000009" title=" " alt="" coords="693,141,727,141,727,147,693,147"/>
-<area shape="rect" id="Node000010" href="$classdesignlab_1_1_cmd_i_o_util.html#a563e04e0ce3cf7b6c988a94b887a74b9" title="コマンドラインで改行をする関数．" alt="" coords="972,77,1115,120"/>
-<area shape="poly" id="edge9_Node000004_Node000010" title=" " alt="" coords="682,119,741,108,853,98,957,95,957,100,854,103,742,113,683,125"/>
-<area shape="rect" id="Node000011" href="$classdesignlab_1_1_cmd_i_o_util.html#a0ebb5b245f90bcc0d1849400d1faa7d2" title="コマンドラインに文字を出力する関数．System用の出力．" alt="" coords="972,156,1115,199"/>
-<area shape="poly" id="edge10_Node000004_Node000011" title=" " alt="" coords="681,163,742,175,854,182,957,180,957,185,853,187,741,180,680,169"/>
-<area shape="rect" id="Node000012" href="$classdesignlab_1_1_cmd_i_o_util.html#aa27aa18b11d6199f27f82cfe97241336" title="yesかnoを入力させる関数．返り値で yes なら true，noなら falseを返す． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="761,240,904,283"/>
-<area shape="poly" id="edge8_Node000004_Node000012" title=" " alt="" coords="672,163,695,175,719,197,743,219,763,231,760,235,740,223,716,201,692,180,670,168"/>
-<area shape="poly" id="edge6_Node000009_Node000010" title=" " alt="" coords="923,122,957,114,958,120,924,127"/>
-<area shape="poly" id="edge7_Node000009_Node000011" title=" " alt="" coords="924,156,957,161,957,166,923,161"/>
-<area shape="rect" id="Node000015" href="$classdesignlab_1_1_divided_map_state.html#a726a21449619c1d6980ed867c141992f" title="マップのデータを消去する．" alt="" coords="512,189,693,232"/>
-<area shape="poly" id="edge13_Node000014_Node000015" title=" " alt="" coords="432,320,462,302,477,287,486,272,495,257,510,242,517,237,520,242,514,246,499,261,490,275,481,290,466,306,435,324"/>
-<area shape="rect" id="Node000016" href="$classdesignlab_1_1_divided_map_state.html#a22c0df011d0506e6d5106c6acd931be9" title="指定した座標を DividedMap のインデックスに変換する． 範囲外の値を指定した場合でも，値を丸めずに返す． そのため，IsInMap で範囲内に存在するかどうかを確認する必要がある．" alt="" coords="512,256,693,299"/>
-<area shape="poly" id="edge14_Node000014_Node000016" title=" " alt="" coords="443,320,510,301,511,306,445,325"/>
-<area shape="rect" id="Node000017" href="$classdesignlab_1_1_divided_map_state.html#a8dcc229f5560978d2a082b326191d6ee" title="指定した座標を DividedMap のインデックスに変換する． 範囲外の値を指定した場合でも，値を丸めずに返す． そのため，IsInMap で範囲内に存在するかどうかを確認する必要がある．" alt="" coords="512,323,693,365"/>
-<area shape="poly" id="edge15_Node000014_Node000017" title=" " alt="" coords="457,341,497,341,497,347,457,347"/>
-<area shape="rect" id="Node000018" href="$classdesignlab_1_1_map_state.html#a80c42812e6ff529ed9b468d0db52d757" title="脚設置可能点の座標を返す．" alt="" coords="533,389,673,432"/>
-<area shape="poly" id="edge16_Node000014_Node000018" title=" " alt="" coords="445,363,519,384,517,390,443,368"/>
-<area shape="rect" id="Node000019" href="$classdesignlab_1_1_map_state.html#a221db2fa4a7021da6e9b240c209fa59c" title="脚設置可能点の総数を返す．" alt="" coords="533,456,673,499"/>
-<area shape="poly" id="edge17_Node000014_Node000019" title=" " alt="" coords="446,364,466,375,482,392,490,409,499,426,514,442,521,447,518,451,510,446,494,429,486,412,478,395,462,379,444,368"/>
-<area shape="rect" id="Node000020" href="$classdesignlab_1_1_divided_map_state.html#a50c9ba4fb3821ba6a674f3657fe80f6f" title="指定した座標がマップの範囲内に存在するかどうかを返す．" alt="" coords="512,523,693,565"/>
-<area shape="poly" id="edge18_Node000014_Node000020" title=" " alt="" coords="451,364,466,375,479,393,487,410,491,443,495,476,501,493,514,509,517,512,513,515,510,512,497,495,490,478,486,444,482,411,475,395,462,379,448,368"/>
-<area shape="rect" id="Node000021" href="$namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5" title="2乗した値を返す関数．" alt="" coords="534,589,671,632"/>
-<area shape="poly" id="edge19_Node000014_Node000021" title=" " alt="" coords="452,364,466,376,484,401,492,427,493,452,491,477,489,502,490,526,497,551,514,576,523,584,520,588,510,579,493,553,485,527,484,502,486,477,488,452,486,428,479,404,462,379,449,368"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="640,120,740,64,765,52,767,57,743,69,642,124"/>
+<area shape="rect" id="Node000010" href="$classdesignlab_1_1_toml_file_importer.html#a4960e633876bd88dc7433696943734e8" title="指定したファイルパスのファイルを読み込み，構造体に変換する．" alt="" coords="742,123,923,165"/>
+<area shape="poly" id="edge5_Node000004_Node000010" title=" " alt="" coords="693,141,727,141,727,147,693,147"/>
+<area shape="rect" id="Node000011" href="$classdesignlab_1_1_cmd_i_o_util.html#a563e04e0ce3cf7b6c988a94b887a74b9" title="コマンドラインで改行をする関数．" alt="" coords="972,77,1115,120"/>
+<area shape="poly" id="edge9_Node000004_Node000011" title=" " alt="" coords="682,119,741,108,853,98,956,95,956,100,853,103,742,113,683,125"/>
+<area shape="rect" id="Node000012" href="$classdesignlab_1_1_cmd_i_o_util.html#a0ebb5b245f90bcc0d1849400d1faa7d2" title="コマンドラインに文字を出力する関数．System用の出力．" alt="" coords="972,156,1115,199"/>
+<area shape="poly" id="edge10_Node000004_Node000012" title=" " alt="" coords="681,163,742,175,853,182,956,180,956,185,853,187,741,180,680,169"/>
+<area shape="rect" id="Node000013" href="$classdesignlab_1_1_cmd_i_o_util.html#aa27aa18b11d6199f27f82cfe97241336" title="yesかnoを入力させる関数．返り値で yes なら true，noなら falseを返す． &#160;&#160;出力される文字列は，必ず OutputDetail::kSystem で出力される．" alt="" coords="761,240,904,283"/>
+<area shape="poly" id="edge8_Node000004_Node000013" title=" " alt="" coords="672,163,695,175,719,197,743,219,763,231,760,235,740,223,716,201,692,180,670,168"/>
+<area shape="poly" id="edge6_Node000010_Node000011" title=" " alt="" coords="923,122,956,115,957,120,924,127"/>
+<area shape="poly" id="edge7_Node000010_Node000012" title=" " alt="" coords="924,156,957,161,956,166,923,161"/>
+<area shape="rect" id="Node000016" href="$classdesignlab_1_1_divided_map_state.html#a726a21449619c1d6980ed867c141992f" title="マップのデータを消去する．" alt="" coords="512,189,693,232"/>
+<area shape="poly" id="edge13_Node000015_Node000016" title=" " alt="" coords="432,320,462,302,477,287,486,272,495,257,510,242,517,238,520,242,514,246,499,261,490,275,481,290,466,306,435,324"/>
+<area shape="rect" id="Node000017" href="$classdesignlab_1_1_divided_map_state.html#a22c0df011d0506e6d5106c6acd931be9" title="指定した座標を DividedMap のインデックスに変換する． 範囲外の値を指定した場合でも，値を丸めずに返す． そのため，IsInMap で範囲内に存在するかどうかを確認する必要がある．" alt="" coords="512,256,693,299"/>
+<area shape="poly" id="edge14_Node000015_Node000017" title=" " alt="" coords="443,320,509,301,510,306,445,325"/>
+<area shape="rect" id="Node000018" href="$classdesignlab_1_1_divided_map_state.html#a8dcc229f5560978d2a082b326191d6ee" title="指定した座標を DividedMap のインデックスに変換する． 範囲外の値を指定した場合でも，値を丸めずに返す． そのため，IsInMap で範囲内に存在するかどうかを確認する必要がある．" alt="" coords="512,323,693,365"/>
+<area shape="poly" id="edge15_Node000015_Node000018" title=" " alt="" coords="457,341,496,341,496,347,457,347"/>
+<area shape="rect" id="Node000019" href="$classdesignlab_1_1_map_state.html#a80c42812e6ff529ed9b468d0db52d757" title="脚設置可能点の座標を返す．" alt="" coords="533,389,673,432"/>
+<area shape="poly" id="edge16_Node000015_Node000019" title=" " alt="" coords="445,363,518,384,517,389,443,368"/>
+<area shape="rect" id="Node000020" href="$classdesignlab_1_1_map_state.html#a221db2fa4a7021da6e9b240c209fa59c" title="脚設置可能点の総数を返す．" alt="" coords="533,456,673,499"/>
+<area shape="poly" id="edge17_Node000015_Node000020" title=" " alt="" coords="446,364,466,375,482,392,490,409,499,426,514,442,521,447,518,451,510,446,494,429,486,412,478,395,462,379,444,368"/>
+<area shape="rect" id="Node000021" href="$classdesignlab_1_1_divided_map_state.html#a50c9ba4fb3821ba6a674f3657fe80f6f" title="指定した座標がマップの範囲内に存在するかどうかを返す．" alt="" coords="512,523,693,565"/>
+<area shape="poly" id="edge18_Node000015_Node000021" title=" " alt="" coords="451,364,466,375,479,393,487,410,491,443,495,476,501,493,514,509,516,511,513,515,510,512,497,495,490,478,486,444,482,411,475,395,462,379,448,368"/>
+<area shape="rect" id="Node000022" href="$namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5" title="2乗した値を返す関数．" alt="" coords="534,589,671,632"/>
+<area shape="poly" id="edge19_Node000015_Node000022" title=" " alt="" coords="452,364,466,376,484,401,492,427,493,452,491,477,489,502,490,526,497,551,514,576,523,584,519,588,510,579,493,553,485,527,484,502,486,477,488,452,486,428,479,404,462,379,449,368"/>
 </map>

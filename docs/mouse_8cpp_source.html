@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>GaitGeneration by Graph Search: DesignLab/mouse.cpp ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -29,7 +29,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.7 -->
+<!-- 構築: Doxygen 1.9.8 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -46,6 +46,11 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -90,6 +95,7 @@ $(function() {
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_mouse.html#a854188bf64a72fad6f51744a1f00e836">   18</a></span><a class="code hl_function" href="classdesignlab_1_1_mouse.html#a854188bf64a72fad6f51744a1f00e836">Mouse::Mouse</a>() :</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    kMouseKeyCodes</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
@@ -111,7 +117,9 @@ $(function() {
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>wheel_rot_(0)</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
+</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_mouse.html#a6168c87684c1d827824bb33187a2bc16">   40</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_mouse.html#a6168c87684c1d827824bb33187a2bc16">Mouse::Update</a>()</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="comment">// マウスの位置取得．</span></div>
@@ -141,7 +149,9 @@ $(function() {
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="comment">// ホイール回転を取得，GetMouseWheelRotVol()は前回の呼び出し以降の回転量を返す．</span></div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    wheel_rot_ = GetMouseWheelRotVol();</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}</div>
+</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_mouse.html#a2d743cdb60f507974f6a1a771b77fef4">   70</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="classdesignlab_1_1_mouse.html#a2d743cdb60f507974f6a1a771b77fef4">Mouse::GetPressingCount</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> mouse_code)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="comment">// std::mapでは find も count も処理速度は同じくらい，</span></div>
@@ -153,7 +163,9 @@ $(function() {
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordflow">return</span> pushing_counter_.at(mouse_code);</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}</div>
+</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="foldopen" id="foldopen00082" data-start="{" data-end="}">
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_mouse.html#a497b0f0ffbaade89343ec1c457c6c0d3">   82</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="classdesignlab_1_1_mouse.html#a497b0f0ffbaade89343ec1c457c6c0d3">Mouse::GetReleasingCount</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> mouse_code)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordflow">if</span> (releasing_counter_.count(mouse_code) == 0)</div>
@@ -163,22 +175,29 @@ $(function() {
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordflow">return</span> releasing_counter_.at(mouse_code);</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>}</div>
+</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="foldopen" id="foldopen00092" data-start="{" data-end="}">
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_mouse.html#a2d0b65b6e6652c690211860b39a80da5">   92</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="classdesignlab_1_1_mouse.html#a2d0b65b6e6652c690211860b39a80da5">Mouse::GetDiffPosX</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordflow">return</span> cursor_pos_x_ - cursor_past_pos_x_;</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>}</div>
+</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="foldopen" id="foldopen00097" data-start="{" data-end="}">
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_mouse.html#a871bbb03d9b5f2b4159725f76dcd7e9a">   97</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="classdesignlab_1_1_mouse.html#a871bbb03d9b5f2b4159725f76dcd7e9a">Mouse::GetDiffPosY</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordflow">return</span> cursor_pos_y_ - cursor_past_pos_y_;</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>}</div>
+</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="foldopen" id="foldopen00102" data-start="{" data-end="}">
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_mouse.html#ab9a3594d08805c288bb7daabd35e9749">  102</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="classdesignlab_1_1_mouse.html#ab9a3594d08805c288bb7daabd35e9749">Mouse::GetDiffPos</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordflow">return</span> sqrt(<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5">math_util::Squared</a>(<a class="code hl_function" href="classdesignlab_1_1_mouse.html#a871bbb03d9b5f2b4159725f76dcd7e9a">GetDiffPosY</a>()) +</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5">math_util::Squared</a>(<a class="code hl_function" href="classdesignlab_1_1_mouse.html#a2d0b65b6e6652c690211860b39a80da5">GetDiffPosX</a>())));</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>}</div>
+</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>}  <span class="comment">// namespace designlab</span></div>
 <div class="ttc" id="aclassdesignlab_1_1_mouse_html_a2d0b65b6e6652c690211860b39a80da5"><div class="ttname"><a href="classdesignlab_1_1_mouse.html#a2d0b65b6e6652c690211860b39a80da5">designlab::Mouse::GetDiffPosX</a></div><div class="ttdeci">int GetDiffPosX() const</div><div class="ttdoc">マウスカーソルの移動量を取得する． X座標は画面の左端を0として，右向きが正． これは Dxlib の仕様なので変更不能．</div><div class="ttdef"><b>Definition</b> <a href="mouse_8cpp_source.html#l00092">mouse.cpp:92</a></div></div>
@@ -195,7 +214,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

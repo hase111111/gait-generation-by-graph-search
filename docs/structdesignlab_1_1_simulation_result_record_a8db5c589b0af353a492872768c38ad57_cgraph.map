@@ -1,7 +1,10 @@
 <map id="designlab::SimulationResultRecord::ToCsvString" name="designlab::SimulationResultRecord::ToCsvString">
-<area shape="rect" id="Node000001" title="このクラスのデータを， csvファイルに出力する用の形式で文字列に変換する．" alt="" coords="5,39,188,81"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数． &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている． &#160;&#160;例えば，" alt="" coords="241,5,428,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,45,226,39,226,44,188,50"/>
-<area shape="rect" id="Node000003" href="$structdesignlab_1_1_graph_search_result_record.html#a5c544b05fea97002cd283a22d3e5edf5" title="CSV形式のヘッダを返す．" alt="" coords="236,72,433,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,70,221,75,220,80,188,75"/>
+<area shape="rect" id="Node000001" title="このクラスのデータを， csvファイルに出力する用の形式で文字列に変換する．" alt="" coords="5,63,188,105"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数． &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている． &#160;&#160;例えば，" alt="" coords="241,29,428,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,69,225,63,226,69,188,74"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_graph_search_result_record.html#a5c544b05fea97002cd283a22d3e5edf5" title="CSV形式のヘッダを返す．" alt="" coords="236,96,433,139"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="188,94,220,99,220,104,188,99"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと，その要素を列挙した文字列を返す関数．" alt="" coords="481,29,632,72"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="428,48,465,48,465,53,428,53"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="514,29,513,19,520,10,535,5,557,3,580,5,595,11,593,16,579,10,557,8,536,10,523,15,518,21,520,28"/>
 </map>

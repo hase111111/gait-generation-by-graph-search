@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>GaitGeneration by Graph Search: DesignLab/robot_state_node.h ソースファイル</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -29,7 +29,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.7 -->
+<!-- 構築: Doxygen 1.9.8 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -46,6 +46,11 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -99,10 +104,12 @@ $(function() {
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>{</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="namespacedesignlab.html#a544838e1c21678697fe16489f01767ba">   45</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a> final</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>{</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_robot_state_node.html#aa7544548abb588657ebbdc058a66bea1">   47</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#aa7544548abb588657ebbdc058a66bea1">kNoParentIndex</a> = -1;  </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_robot_state_node.html#ac4c4241c84fc61868f352958cd0f4c77">   49</a></span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="structdesignlab_1_1_robot_state_node.html#ac4c4241c84fc61868f352958cd0f4c77">RobotStateNode</a>() :</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#a368e1568eaff0a1b1f638b0628ee4fbb">leg_state</a>(0),</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#a18aa35bd423c669ed5e3ff36bf3877dc">leg_pos</a>{ <a class="code hl_function" href="namespacedesignlab.html#a7de9ff5ecd1d94f3be60898e2be78f40">MakeArray</a>&lt;<a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a>&gt;(</div>
@@ -122,7 +129,9 @@ $(function() {
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#acd8a880f8cc6cb4cd4a980ca388103ff">depth</a>(0)</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    {</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    }</div>
+</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="foldopen" id="foldopen00069" data-start="{" data-end="}">
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_robot_state_node.html#ade51b19f1be33835acf2c90283fcbcbe">   69</a></span>    <span class="keyword">constexpr</span> <a class="code hl_function" href="structdesignlab_1_1_robot_state_node.html#ade51b19f1be33835acf2c90283fcbcbe">RobotStateNode</a>(</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>      <span class="keyword">const</span> <a class="code hl_typedef" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">leg_func::LegStateBit</a>&amp; state,</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>      <span class="keyword">const</span> std::array&lt;Vector3, HexapodConst::kLegNum&gt;&amp; pos,</div>
@@ -142,6 +151,7 @@ $(function() {
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#acd8a880f8cc6cb4cd4a980ca388103ff">depth</a>(d)</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    {</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    }</div>
+</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_robot_state_node.html#a953b79229a8f876a2d3e2bf02a9eb494">   89</a></span>    <a class="code hl_function" href="structdesignlab_1_1_robot_state_node.html#a953b79229a8f876a2d3e2bf02a9eb494">RobotStateNode</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a>&amp; other) = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_robot_state_node.html#a25f1322c05b4f83d291a2d2a1910c36f">   90</a></span>    <a class="code hl_function" href="structdesignlab_1_1_robot_state_node.html#a25f1322c05b4f83d291a2d2a1910c36f">RobotStateNode</a>(<a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a>&amp;&amp; other) <span class="keyword">noexcept</span> = <span class="keywordflow">default</span>;</div>
@@ -155,13 +165,16 @@ $(function() {
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keyword">const</span> std::shared_ptr&lt;const IHexapodCoordinateConverter&gt;&amp; converter_ptr,</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">designlab::Quaternion</a>&amp; new_posture);</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="foldopen" id="foldopen00113" data-start="{" data-end="}">
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_robot_state_node.html#a58600c23d1383094c7f880a487ab61fb">  113</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structdesignlab_1_1_robot_state_node.html#a58600c23d1383094c7f880a487ab61fb">ChangeLootNode</a>()</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    {</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#acd8a880f8cc6cb4cd4a980ca388103ff">depth</a> = 0;</div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#af69c94b8177124c5c61f642175b8c90d">parent_index</a> = <a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#aa7544548abb588657ebbdc058a66bea1">kNoParentIndex</a>;</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#a9ea7fddac931844d058129d1481b651a">posture</a>.<a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a45dfcf48edea7b439e7d189d0d105bfa">Normalize</a>();</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    }</div>
+</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="foldopen" id="foldopen00124" data-start="{" data-end="}">
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_robot_state_node.html#a6b3997cbc4ff0c8a48582608a12fca8e">  124</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structdesignlab_1_1_robot_state_node.html#a6b3997cbc4ff0c8a48582608a12fca8e">ChangeToNextNode</a>(</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keyword">const</span> <span class="keywordtype">int</span> parent_index_,</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keyword">const</span> <a class="code hl_enumeration" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81">HexapodMove</a> next_move_)</div>
@@ -170,11 +183,14 @@ $(function() {
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#af69c94b8177124c5c61f642175b8c90d">parent_index</a> = parent_index_;</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#af9fbc6f990c0579f5bb4e869412bad35">next_move</a> = next_move_;</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    }</div>
+</div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="foldopen" id="foldopen00136" data-start="{" data-end="}">
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_robot_state_node.html#a1094abe8cb1ef6d6dcfb72bae3098ac5">  136</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="structdesignlab_1_1_robot_state_node.html#a1094abe8cb1ef6d6dcfb72bae3098ac5">IsLootNode</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="keyword">    </span>{</div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="keywordflow">return</span> (<a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#af69c94b8177124c5c61f642175b8c90d">parent_index</a> &lt; 0) &amp;&amp; (<a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#acd8a880f8cc6cb4cd4a980ca388103ff">depth</a> == 0);</div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    }</div>
+</div>
 <div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    std::string <a class="code hl_function" href="structdesignlab_1_1_robot_state_node.html#a7fa3f31f167ac1cf468d81509f55c407">ToString</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
@@ -183,6 +199,7 @@ $(function() {
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keyword">static</span> <a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a> <a class="code hl_function" href="structdesignlab_1_1_robot_state_node.html#a4a95df1683c834e25e22743d46f3d4d8">FromString</a>(<span class="keyword">const</span> std::string&amp; str);</div>
 <div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="foldopen" id="foldopen00158" data-start="{" data-end="}">
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_robot_state_node.html#a239e46d06331efc15262d62d22d86833">  158</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="structdesignlab_1_1_robot_state_node.html#a239e46d06331efc15262d62d22d86833">operator == </a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a>&amp; other)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="keyword">    </span>{</div>
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#af9fbc6f990c0579f5bb4e869412bad35">next_move</a> != other.<a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#af9fbc6f990c0579f5bb4e869412bad35">next_move</a>) { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
@@ -208,11 +225,14 @@ $(function() {
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    }</div>
+</div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="foldopen" id="foldopen00184" data-start="{" data-end="}">
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_robot_state_node.html#a8ffe702b672986b7fa141778a9a4a938">  184</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="structdesignlab_1_1_robot_state_node.html#a8ffe702b672986b7fa141778a9a4a938">operator != </a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a>&amp; other)</div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    {</div>
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == other);</div>
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    }</div>
+</div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_robot_state_node.html#a368e1568eaff0a1b1f638b0628ee4fbb">  191</a></span>    <a class="code hl_typedef" href="namespacedesignlab_1_1leg__func.html#aeed0147f934052f177c0761b75bacc65">leg_func::LegStateBit</a> <a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#a368e1568eaff0a1b1f638b0628ee4fbb">leg_state</a>;</div>
@@ -258,6 +278,7 @@ $(function() {
 <div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
 <div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    <span class="keywordflow">return</span> os;</div>
 <div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>}</div>
+</div>
 <div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
 <div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>}  <span class="comment">// namespace designlab</span></div>
 <div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
@@ -309,7 +330,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

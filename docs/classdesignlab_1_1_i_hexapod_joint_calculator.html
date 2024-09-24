@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>GaitGeneration by Graph Search: designlab::IHexapodJointCalculator クラス</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -29,7 +29,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 構築: Doxygen 1.9.7 -->
+<!-- 構築: Doxygen 1.9.8 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -97,25 +97,25 @@ designlab::IHexapodJointCalculator の継承関係図</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a7350ca02704d4ba4b51c5edb01e37132"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#a7350ca02704d4ba4b51c5edb01e37132">~IHexapodJointCalculator</a> ()=default</td></tr>
+<tr class="memitem:a7350ca02704d4ba4b51c5edb01e37132" id="r_a7350ca02704d4ba4b51c5edb01e37132"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#a7350ca02704d4ba4b51c5edb01e37132">~IHexapodJointCalculator</a> ()=default</td></tr>
 <tr class="separator:a7350ca02704d4ba4b51c5edb01e37132"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71c57b0148f940a472830c618ded593b"><td class="memItemLeft" align="right" valign="top">std::array&lt; <a class="el" href="structdesignlab_1_1_hexapod_joint_state.html">HexapodJointState</a>, <a class="el" href="classdesignlab_1_1_hexapod_const.html#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#a71c57b0148f940a472830c618ded593b">CalculateAllJointState</a> (const <a class="el" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a> &amp;node) const noexcept</td></tr>
+<tr class="memitem:a71c57b0148f940a472830c618ded593b" id="r_a71c57b0148f940a472830c618ded593b"><td class="memItemLeft" align="right" valign="top">std::array&lt; <a class="el" href="structdesignlab_1_1_hexapod_joint_state.html">HexapodJointState</a>, <a class="el" href="classdesignlab_1_1_hexapod_const.html#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#a71c57b0148f940a472830c618ded593b">CalculateAllJointState</a> (const <a class="el" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a> &amp;node) const noexcept</td></tr>
 <tr class="memdesc:a71c57b0148f940a472830c618ded593b"><td class="mdescLeft">&#160;</td><td class="mdescRight">全ての関節のグローバル座標と，角度を計算する． <br  />
  重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない． <br  />
  間接の可動範囲外まで動いてしまう場合でも，答えを返す． <br  />
  目標座標に届かない場合は，最も近い座標まで脚を伸ばし， 戻り値の is_in_range を false にする．  <br /></td></tr>
 <tr class="separator:a71c57b0148f940a472830c618ded593b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a263785f20728be6e2226eb0cb01fd169"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structdesignlab_1_1_hexapod_joint_state.html">HexapodJointState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#a263785f20728be6e2226eb0cb01fd169">CalculateJointState</a> (const int leg_index, const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;leg_pos) const noexcept=0</td></tr>
+<tr class="memitem:a263785f20728be6e2226eb0cb01fd169" id="r_a263785f20728be6e2226eb0cb01fd169"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structdesignlab_1_1_hexapod_joint_state.html">HexapodJointState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#a263785f20728be6e2226eb0cb01fd169">CalculateJointState</a> (const int leg_index, const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;leg_pos) const noexcept=0</td></tr>
 <tr class="memdesc:a263785f20728be6e2226eb0cb01fd169"><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した脚の関節のグローバル座標と，角度を計算する． <br  />
  重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない． <br  />
  間接の可動範囲外まで動いてしまう場合でも，答えを返す． <br  />
  目標座標に届かない場合は，最も近い座標まで脚を伸ばし， 戻り値の is_in_range を false にする．  <br /></td></tr>
 <tr class="separator:a263785f20728be6e2226eb0cb01fd169"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae981b7e1b1515f84beaf0429fe0d6bc3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#ae981b7e1b1515f84beaf0429fe0d6bc3">IsValidAllJointState</a> (const <a class="el" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a> &amp;node, const std::array&lt; <a class="el" href="structdesignlab_1_1_hexapod_joint_state.html">HexapodJointState</a>, <a class="el" href="classdesignlab_1_1_hexapod_const.html#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> &gt; &amp;joint_state) const noexcept</td></tr>
+<tr class="memitem:ae981b7e1b1515f84beaf0429fe0d6bc3" id="r_ae981b7e1b1515f84beaf0429fe0d6bc3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#ae981b7e1b1515f84beaf0429fe0d6bc3">IsValidAllJointState</a> (const <a class="el" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a> &amp;node, const std::array&lt; <a class="el" href="structdesignlab_1_1_hexapod_joint_state.html">HexapodJointState</a>, <a class="el" href="classdesignlab_1_1_hexapod_const.html#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> &gt; &amp;joint_state) const noexcept</td></tr>
 <tr class="memdesc:ae981b7e1b1515f84beaf0429fe0d6bc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">HexapodJointStateが正しく計算できているかを調べる． <br  />
  目標座標に届かない場合や，間接の可動範囲外まで動いてしまう場合， 戻り値は false になる．  <br /></td></tr>
 <tr class="separator:ae981b7e1b1515f84beaf0429fe0d6bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a444292445924403fac151b5f1b874d08"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#a444292445924403fac151b5f1b874d08">IsValidJointState</a> (const int leg_index, const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;leg_pos, const <a class="el" href="structdesignlab_1_1_hexapod_joint_state.html">HexapodJointState</a> &amp;joint_state) const noexcept=0</td></tr>
+<tr class="memitem:a444292445924403fac151b5f1b874d08" id="r_a444292445924403fac151b5f1b874d08"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#a444292445924403fac151b5f1b874d08">IsValidJointState</a> (const int leg_index, const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;leg_pos, const <a class="el" href="structdesignlab_1_1_hexapod_joint_state.html">HexapodJointState</a> &amp;joint_state) const noexcept=0</td></tr>
 <tr class="memdesc:a444292445924403fac151b5f1b874d08"><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した脚のHexapodJointStateが正しく計算できているかを調べる． <br  />
  目標座標に届かない場合や，間接の可動範囲外まで動いてしまう場合， 戻り値は false になる．  <br /></td></tr>
 <tr class="separator:a444292445924403fac151b5f1b874d08"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -394,7 +394,7 @@ designlab::IHexapodJointCalculator の継承関係図</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
