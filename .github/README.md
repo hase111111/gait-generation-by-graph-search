@@ -15,7 +15,12 @@ Visual Studioで開発した，グラフ探索を用いた6脚ロボットの歩
 
 ## 概要
 
-![simulation](./img/simulation.gif) ![viewer](./img/viewer.gif)
+<div align="center">
+    <p>
+        <img src="./img/simulation.gif" width="45%">
+        <img src="./img/viewer.gif" width="45%">
+    </p>
+</div>
 
 グラフ探索による4脚ロボットの自由歩容生成を行う研究[^1]を拡張した，6脚ロボットの自由歩容生成を行うプログラムです．
 グラフ探索による歩容生成の結果を，グラフィカルに表示するシミュレータの機能を持っています．
