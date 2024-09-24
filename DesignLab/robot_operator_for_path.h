@@ -1,7 +1,9 @@
 ﻿
-//! @file      robot_operator_for_path.h
-//! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @file robot_operator_for_path.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_ROBOT_OPERATOR_FOR_PATH_H_
 #define DESIGNLAB_ROBOT_OPERATOR_FOR_PATH_H_

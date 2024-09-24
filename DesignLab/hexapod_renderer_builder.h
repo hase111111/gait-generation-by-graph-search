@@ -1,7 +1,9 @@
 ﻿
-//! @file      hexapod_renderer_builder.h
-//! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @file hexapod_renderer_builder.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_HEXAPOD_RENDERER_BUILDER_H_
 #define DESIGNLAB_HEXAPOD_RENDERER_BUILDER_H_

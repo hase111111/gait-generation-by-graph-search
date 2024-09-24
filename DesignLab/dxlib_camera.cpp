@@ -1,6 +1,9 @@
 ﻿
-//! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @file dxlib_camera.cpp
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #include "dxlib_camera.h"
 
@@ -99,61 +102,61 @@ void DxlibCamera::SetCameraViewMode(const enums::CameraViewMode mode)
     // ゴール座標を更新する．
     switch (mode)
     {
-    case enums::CameraViewMode::kFrontView:
-    {
-        goal_camera_state_.camera_quat =
-            Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(0.0f), Vector3::GetUpVec());
-        return;
-    }
+        case enums::CameraViewMode::kFrontView:
+        {
+            goal_camera_state_.camera_quat =
+                Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(0.0f), Vector3::GetUpVec());
+            return;
+        }
 
-    case enums::CameraViewMode::kBackView:
-    {
-        goal_camera_state_.camera_quat =
-            Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(180.0f), Vector3::GetUpVec());
-        return;
-    }
+        case enums::CameraViewMode::kBackView:
+        {
+            goal_camera_state_.camera_quat =
+                Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(180.0f), Vector3::GetUpVec());
+            return;
+        }
 
-    case enums::CameraViewMode::kTopView:
-    {
-        Quaternion quat1 = Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(-90.0f),
-            Vector3::GetLeftVec());
+        case enums::CameraViewMode::kTopView:
+        {
+            Quaternion quat1 = Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(-90.0f),
+                Vector3::GetLeftVec());
 
-        Quaternion quat2 = Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(180.0f),
-            Vector3::GetFrontVec());
+            Quaternion quat2 = Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(180.0f),
+                Vector3::GetFrontVec());
 
-        goal_camera_state_.camera_quat = quat1 * quat2;
+            goal_camera_state_.camera_quat = quat1 * quat2;
 
-        return;
-    }
+            return;
+        }
 
-    case enums::CameraViewMode::kRightSideView:
-    {
-        goal_camera_state_.camera_quat =
-            Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(-90.0f), Vector3::GetUpVec());
-        return;
-    }
+        case enums::CameraViewMode::kRightSideView:
+        {
+            goal_camera_state_.camera_quat =
+                Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(-90.0f), Vector3::GetUpVec());
+            return;
+        }
 
-    case enums::CameraViewMode::kLeftSideView:
-    {
-        goal_camera_state_.camera_quat =
-            Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(90.0f), Vector3::GetUpVec());
-        return;
-    }
+        case enums::CameraViewMode::kLeftSideView:
+        {
+            goal_camera_state_.camera_quat =
+                Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(90.0f), Vector3::GetUpVec());
+            return;
+        }
 
-    case enums::CameraViewMode::kFreeControlled:
-    {
-        return;
-    }
+        case enums::CameraViewMode::kFreeControlled:
+        {
+            return;
+        }
 
-    case enums::CameraViewMode::kFreeControlledAndMovableTarget:
-    {
-        free_controlled_target_pos_ = goal_camera_state_.target_pos;
-        return;
-    }
+        case enums::CameraViewMode::kFreeControlledAndMovableTarget:
+        {
+            free_controlled_target_pos_ = goal_camera_state_.target_pos;
+            return;
+        }
 
-    default:
-        assert(false);  // ここに来ることはない．
-        break;
+        default:
+            assert(false);  // ここに来ることはない．
+            break;
     }
 }
 

@@ -1,7 +1,9 @@
 ﻿
-//! @file      asyncable_data_test.h
-//! @author    Hasegawa
-/// @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @file asyncable_data_test.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_ASYNCABLE_DATA_TEST_H_
 #define DESIGNLAB_ASYNCABLE_DATA_TEST_H_

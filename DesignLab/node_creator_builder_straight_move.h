@@ -1,7 +1,9 @@
 ﻿
-//! @file      node_creator_builder_straight_move.h
-//! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @file node_creator_builder_straight_move.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_NODE_CREATOR_BUILDER_STRAIGHT_MOVE_H_
 #define DESIGNLAB_NODE_CREATOR_BUILDER_STRAIGHT_MOVE_H_

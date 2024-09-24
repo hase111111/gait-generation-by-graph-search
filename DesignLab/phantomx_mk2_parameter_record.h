@@ -1,8 +1,9 @@
 ﻿
-//! @file      phantomx_mk2_parameter_record.h
-//! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//! Saitama University All right reserved.
+//! @file phantomx_mk2_parameter_record.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_PHANTOMX_MK2_PARAMETER_RECORD_H_
 #define DESIGNLAB_PHANTOMX_MK2_PARAMETER_RECORD_H_

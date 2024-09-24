@@ -1,8 +1,9 @@
 ﻿
-//! @file      interpolated_node_creator.h
-//! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//! Saitama University All right reserved.
+//! @file interpolated_node_creator.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_INTERPOLATED_NODE_CREATOR_H_
 #define DESIGNLAB_INTERPOLATED_NODE_CREATOR_H_

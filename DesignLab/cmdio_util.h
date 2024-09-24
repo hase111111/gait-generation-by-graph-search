@@ -1,7 +1,9 @@
 ﻿
-//! @file      cmdio_util.h
-//! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @file cmdio_util.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_CMDIO_UTIL_H_
 #define DESIGNLAB_CMDIO_UTIL_H_

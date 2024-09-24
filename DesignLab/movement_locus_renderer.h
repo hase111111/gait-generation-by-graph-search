@@ -1,7 +1,9 @@
 ﻿
-//! @file      movement_locus_renderer.h
-//! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @file movement_locus_renderer.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_MOVEMENT_LOCUS_RENDERER_H_
 #define DESIGNLAB_MOVEMENT_LOCUS_RENDERER_H_

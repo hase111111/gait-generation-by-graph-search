@@ -1,7 +1,9 @@
 ﻿
-//! @file      dxlib_node_setter_group.h
-//! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @file dxlib_node_setter_group.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_DXLIB_NODE_SETTER_GROUP_H_
 #define DESIGNLAB_DXLIB_NODE_SETTER_GROUP_H_

@@ -1,8 +1,9 @@
 ﻿
-//! @file      dxlib_gui_robot_control.h
-//! @author    hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//! Saitama University All right reserved.
+//! @file dxlib_gui_robot_control.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_DXLIB_GUI_ROBOT_CONTROL_H_
 #define DESIGNLAB_DXLIB_GUI_ROBOT_CONTROL_H_

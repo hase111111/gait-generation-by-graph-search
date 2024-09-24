@@ -1,7 +1,9 @@
 ﻿
-//! @file      application_setting_record.h
-//! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @file application_setting_record.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_APPLICATION_SETTING_RECORD_H_
 #define DESIGNLAB_APPLICATION_SETTING_RECORD_H_

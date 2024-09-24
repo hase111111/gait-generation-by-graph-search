@@ -1,7 +1,9 @@
 ﻿
-//! @file      gait_pattern_graph_tree_test.h
-//! @author    Hasegawa
-//! @copyright 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file gait_pattern_graph_tree_test.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_GAIT_PATTERN_GRAPH_TREE_TEST_H_
 #define DESIGNLAB_GAIT_PATTERN_GRAPH_TREE_TEST_H_

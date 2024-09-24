@@ -1,8 +1,9 @@
 ﻿
-//! @file      abstract_dxlib_gui.h
-//! @author    hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//!  Saitama University All right reserved.
+//! @file abstract_dxlib_gui.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_ABSTRACT_DXLIB_GUI_H_
 #define DESIGNLAB_ABSTRACT_DXLIB_GUI_H_

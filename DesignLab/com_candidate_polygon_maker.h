@@ -1,7 +1,9 @@
 ﻿
-//! @file      com_candidate_polygon_maker.h
-//! @author    Hasegawa
-//! @copyright 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file com_candidate_polygon_maker.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_COM_CANDIDATE_POLYGON_MAKER_H_
 #define DESIGNLAB_COM_CANDIDATE_POLYGON_MAKER_H_

@@ -1,6 +1,9 @@
 ﻿
-//! @author    hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @file system_main_robot_control.cpp
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #include "system_main_robot_control.h"
 

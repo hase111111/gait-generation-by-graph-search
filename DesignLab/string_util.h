@@ -1,7 +1,9 @@
 ﻿
-//! @file      string_util.h
-//! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @file string_util.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_STRING_UTIL_H_
 #define DESIGNLAB_STRING_UTIL_H_
@@ -12,6 +14,8 @@
 #include <magic_enum.hpp>
 
 
+//! @namespace designlab::string_util
+//! @brief 文字列操作に関する関数を提供する名前空間．
 namespace designlab::string_util
 {
 

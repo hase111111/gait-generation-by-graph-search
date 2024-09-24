@@ -1,7 +1,9 @@
 ﻿
-//! @file      simulation_end_checker_by_posture.h
-//! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @file simulation_end_checker_by_posture.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_SIMULATION_END_CHECKER_BY_POSTURE_H_
 #define DESIGNLAB_SIMULATION_END_CHECKER_BY_POSTURE_H_

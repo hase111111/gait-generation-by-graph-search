@@ -1,7 +1,9 @@
 ﻿
-//! @file      node_creator_leg_up_down.h
-//! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @file node_creator_leg_up_down.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_NODE_CREATOR_LEG_UP_DOWN_H_
 #define DESIGNLAB_NODE_CREATOR_LEG_UP_DOWN_H_

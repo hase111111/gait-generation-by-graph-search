@@ -1,7 +1,9 @@
 ﻿
-//! @file      interface_graph_searcher.h
-//! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @file interface_graph_searcher.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_INTERFACE_GRAPH_SEARCHER_H_
 #define DESIGNLAB_INTERFACE_GRAPH_SEARCHER_H_

@@ -1,7 +1,9 @@
 ﻿
-/// @file      loop_util.h
-/// @author    hasegawa
-/// @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @file loop_util.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_LOOP_UTIL_H_
 #define DESIGNLAB_LOOP_UTIL_H_

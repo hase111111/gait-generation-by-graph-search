@@ -1,7 +1,9 @@
 ﻿
-//! @file      node_creator_leg_hierarchy.h
-//! @author    Hasegawa
-//! @copyright 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file node_creator_leg_hierarchy.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_H_
 #define DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_H_

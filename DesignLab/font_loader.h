@@ -1,8 +1,9 @@
 ﻿
-//! @file      font_loader.h
-//! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//!  Saitama University All right reserved.
+//! @file font_loader.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_FONT_LOADER_H_
 #define DESIGNLAB_FONT_LOADER_H_

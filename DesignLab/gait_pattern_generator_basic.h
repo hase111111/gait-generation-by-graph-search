@@ -1,8 +1,9 @@
 ﻿
-//! @file      gait_pattern_generator_basic.h
-//! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory,
-//! Saitama University All right reserved.
+//! @file gait_pattern_generator_basic.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_GAIT_PATTERN_GENERATOR_BASIC_H_
 #define DESIGNLAB_GAIT_PATTERN_GENERATOR_BASIC_H_

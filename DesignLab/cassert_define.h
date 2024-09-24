@@ -1,7 +1,5 @@
 ﻿
-//! @file      cassert_define.h
-//! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @file cassert_define.h
 //! @brief デバッグモードとリリースモードでアサートを有効化・無効化するためのヘッダファイル．
 //! @details
 //! Visual Studioでは，デバッグモードではアサートを有効化し，
@@ -18,6 +16,10 @@
 //! @n つまり，#undef NDEBUG は，assertを有効化する．
 //! @n 逆に，#define NDEBUG は，assertを無効化する．
 //! @n これらの処理は，cassertのインクルードより前に行う必要がある．
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_CASSERT_DEFINE_H_
 #define DESIGNLAB_CASSERT_DEFINE_H_

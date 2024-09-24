@@ -1,7 +1,9 @@
 ﻿
-//! @file      phantomx_renderer_simple.h
-//! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @file phantomx_renderer_simple.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_PHANTOMX_RENDERER_SIMPLE_H_
 #define DESIGNLAB_PHANTOMX_RENDERER_SIMPLE_H_

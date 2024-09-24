@@ -1,6 +1,9 @@
 ﻿
-//! @author    Hasegawa
-//! @copyright 埼玉大学 設計工学研究室 2023. All right reserved.
+//! @file node_creator_com_up_down.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #include "node_creator_com_up_down.h"
 

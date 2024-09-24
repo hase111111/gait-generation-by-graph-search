@@ -1,6 +1,9 @@
 ﻿
-//! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @file dxlib_3d_renderer_group.cpp
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #include "dxlib_3d_renderer_group.h"
 

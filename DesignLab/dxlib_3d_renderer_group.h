@@ -1,7 +1,9 @@
 ﻿
-//! @file      dxlib_3d_renderer_group.h
-//! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @file dxlib_3d_renderer_group.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_DXLIB_3D_RENDERER_GROUP_H_
 #define DESIGNLAB_DXLIB_3D_RENDERER_GROUP_H_

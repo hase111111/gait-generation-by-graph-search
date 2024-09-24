@@ -1,7 +1,9 @@
 ﻿
-//! @file      node_creator_builder_body_rot.h
-//! @author    hasegawa
-//! @copyright © 埼玉大学 設計工学研究室 2024. All right reserved.
+//! @file node_creator_builder_body_rot.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_NODE_CREATOR_BUILDER_BODY_ROT_H
 #define DESIGNLAB_NODE_CREATOR_BUILDER_BODY_ROT_H

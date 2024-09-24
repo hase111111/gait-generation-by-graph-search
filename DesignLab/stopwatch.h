@@ -1,7 +1,9 @@
 ﻿
-//! @file      stopwatch.h
-//! @author    Hasegawa
-//! @copyright (C) 2023 Design Engineering Laboratory, Saitama University All right reserved.
+//! @file stopwatch.h
+
+// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Released under the MIT license
+// https://opensource.org/licenses/mit-license.php
 
 #ifndef DESIGNLAB_STOPWATCH_H_
 #define DESIGNLAB_STOPWATCH_H_
