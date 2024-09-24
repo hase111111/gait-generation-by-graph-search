@@ -8,6 +8,7 @@
 #include "system_main_robot_control.h"
 
 #include <format>
+#include <filesystem>
 
 #include <boost/thread.hpp>
 
@@ -22,6 +23,7 @@ namespace designlab
 SystemMainRobotControl::SystemMainRobotControl(const std::shared_ptr<GraphicDataBroker>& broker_ptr) :
     broker_ptr_(broker_ptr)
 {
+    InitializeDirectory();
 }
 
 void SystemMainRobotControl::Main()
@@ -39,7 +41,12 @@ void SystemMainRobotControl::Main()
 
         if (!file_tree.SelectFile(kResultFileDirectoryPath, -1, "csv", ResultFileConst::kNodeListName, &res_path))
         {
-            CmdIOUtil::Output("該当のデータがありませんでした．終了します．", kSystem);
+            CmdIOUtil::Output("No data were found. Terminate.", kSystem);
+            CmdIOUtil::OutputNewLine(1, kSystem);
+
+            //! ヒントを表示する．「kResultFileDirectoryPath の中にファイルを入れてください．」
+            CmdIOUtil::Output(
+                "Please put the file in the directory. \"./" + kResultFileDirectoryPath + "\"", kSystem);
 
             break;
         }
@@ -61,7 +68,7 @@ void SystemMainRobotControl::Main()
             broker_ptr_->simulation_end_index.SetData({ graph.size() - 1 });
 
             // データを表示する．
-            CmdIOUtil::Output("データを表示します．", kSystem);
+            CmdIOUtil::Output("Displays data.", kSystem);
             CmdIOUtil::OutputNewLine(1, kSystem);
             CmdIOUtil::WaitAnyKey();
             CmdIOUtil::OutputNewLine(1, kSystem);
@@ -69,12 +76,12 @@ void SystemMainRobotControl::Main()
         }
         else
         {
-            CmdIOUtil::Output("ファイルの読み込みに失敗しました．終了します．", kSystem);
+            CmdIOUtil::Output("Failed to load file. Exit.", kSystem);
         }
 
         // 終了するかどうかを選択
 
-        if (CmdIOUtil::InputYesNo("このモードを終了しますか？"))
+        if (CmdIOUtil::InputYesNo("Do you want to exit this mode?"))
         {
             CmdIOUtil::OutputNewLine(1, kSystem);
 
@@ -194,6 +201,15 @@ void SystemMainRobotControl::DivideSwingAndStance(std::vector<RobotStateNode>* g
         }
 
         prev_pos = *itr;
+    }
+}
+
+void SystemMainRobotControl::InitializeDirectory()
+{
+    // ディレクトリが存在しているか確認する．
+    if (!std::filesystem::exists(kResultFileDirectoryPath))
+    {
+        std::filesystem::create_directory(kResultFileDirectoryPath);
     }
 }
 

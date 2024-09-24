@@ -65,7 +65,7 @@ void SystemMainSimulation::Main()
     using string_util::EnumToStringRemoveTopK;
 
     // コマンドラインにタイトルを表示する．
-    CmdIOUtil::OutputTitle("シミュレーションモード");
+    CmdIOUtil::OutputTitle("Simulation mode");
     OutputSetting();  // コマンドラインに設定を表示する．
 
     DeadLockChecker dead_lock_checker;
@@ -83,14 +83,14 @@ void SystemMainSimulation::Main()
 
         record.graph_search_result_recorder.push_back(GraphSearchResultRecord{ current_node, 0, { kSuccess, ""} });
 
-        CmdIOUtil::FormatOutput(kSystem, "シミュレーション{}回目を開始します", i + 1);
-        CmdIOUtil::SpacedFormatOutput(kInfo, "[初期ノードの状態]\n{}", current_node.ToString());
+        CmdIOUtil::FormatOutput(kSystem, "Start simulation {} times", i + 1);
+        CmdIOUtil::SpacedFormatOutput(kInfo, "[Initial node state]\n{}", current_node.ToString());
 
         if (setting_ptr_->do_step_execution_each_simulation)
         {
             CmdIOUtil::OutputNewLine(1, kSystem);
 
-            if (!CmdIOUtil::InputYesNo("シミュレーションを開始しますか"))
+            if (!CmdIOUtil::InputYesNo("Do you want to start the simulation?"))
             {
                 break;
             }
@@ -129,7 +129,7 @@ void SystemMainSimulation::Main()
                 // シミュレーションの結果を格納する変数を失敗に更新する．
                 record.simulation_result = enums::SimulationResult::kFailureByGraphSearch;
 
-                CmdIOUtil::FormatOutput(kSystem, "シミュレーションに失敗しました．SimulationResult = {}/ GraphSearch = {}",
+                CmdIOUtil::FormatOutput(kSystem, "Simulation failed. SimulationResult = {}/ GraphSearch = {}",
                                   EnumToStringRemoveTopK(record.simulation_result), result_state.ToString());
 
                 // 次の歩容が生成できなかったら，このループを抜け，
@@ -146,7 +146,7 @@ void SystemMainSimulation::Main()
                 broker_ptr_->graph.PushBack(current_node);
             }
 
-            CmdIOUtil::SpacedFormatOutput(kInfo, "[ シミュレーション{}回目 / 歩容生成{}回目 ]\n{}", i + 1, j + 1, current_node.ToString());
+            CmdIOUtil::SpacedFormatOutput(kInfo, "[ Simulation {} times / Gait generation {} times ]\n{}", i + 1, j + 1, current_node.ToString());
             CmdIOUtil::OutputHorizontalLine("-", kInfo);
 
             // 動作チェッカーにもノードを通達する．
@@ -159,7 +159,7 @@ void SystemMainSimulation::Main()
 
                 record.simulation_result = enums::SimulationResult::kFailureByLoopMotion;
 
-                CmdIOUtil::FormatOutput(kSystem, "シミュレーションに失敗しました．SimulationResult = {} / GraphSearch = {}",
+                CmdIOUtil::FormatOutput(kSystem, "Simulation failed. SimulationResult = {} / GraphSearch = {}",
                                   EnumToStringRemoveTopK(record.simulation_result), result_state.ToString());
 
                 // 動作がループしてしまっているならば，
@@ -173,7 +173,7 @@ void SystemMainSimulation::Main()
                 // シミュレーションの結果を格納する変数を成功に更新する．
                 record.simulation_result = enums::SimulationResult::kSuccess;
 
-                CmdIOUtil::FormatOutput(kSystem, "シミュレーションに成功しました．SimulationResult = {}", EnumToStringRemoveTopK(record.simulation_result));
+                CmdIOUtil::FormatOutput(kSystem, "The simulation was successful. SimulationResult = {}", EnumToStringRemoveTopK(record.simulation_result));
 
                 break;  // 成功したら，このループを抜け，次のシミュレーションへ進む．
             }
@@ -184,14 +184,14 @@ void SystemMainSimulation::Main()
                 // シミュレーションの結果を格納する変数を失敗に更新する．
                 record.simulation_result = enums::SimulationResult::kFailureByNodeLimitExceeded;
 
-                CmdIOUtil::FormatOutput(kSystem, "シミュレーションに失敗しました．SimulationResult = {}", EnumToStringRemoveTopK(record.simulation_result));
+                CmdIOUtil::FormatOutput(kSystem, "Simulation failed. SimulationResult = {}", EnumToStringRemoveTopK(record.simulation_result));
             }
 
             // ステップ実行にしているならば，ここで一時停止する．
             if (setting_ptr_->do_step_execution_each_gait)
             {
                 CmdIOUtil::OutputNewLine(1, kSystem);
-                CmdIOUtil::WaitAnyKey("キー入力で次の歩容を生成します");
+                CmdIOUtil::WaitAnyKey("Generates the next step by key input");
             }
         }  // 歩容生成のループ終了．
 
@@ -208,12 +208,12 @@ void SystemMainSimulation::Main()
 
 
     // シミュレーションの結果を全てファイルに出力する．
-    if (CmdIOUtil::InputYesNo("結果を出力しますか？"))
+    if (CmdIOUtil::InputYesNo("Do you want to output results?"))
     {
         result_exporter_ptr_->Export();
     }
 
-    CmdIOUtil::SpacedOutput("シミュレーションを終了します", kSystem);
+    CmdIOUtil::SpacedOutput("Exit Simulation", kSystem);
 }
 
 
@@ -221,23 +221,24 @@ void SystemMainSimulation::OutputSetting() const
 {
     using enum OutputDetail;
 
-    CmdIOUtil::Output("[設定]", kSystem);
+    CmdIOUtil::Output("[Setting]", kSystem);
     CmdIOUtil::OutputNewLine(1, kSystem);
 
 
     if (setting_ptr_->do_cmd_output)
     {
-        CmdIOUtil::Output("・コマンドラインへの出力を行います", kSystem);
+        CmdIOUtil::Output("・Output to command line.", kSystem);
 
         const std::string output_str = magic_enum::enum_name(setting_ptr_->cmd_output_detail).data();
 
-        CmdIOUtil::FormatOutput(kSystem, "　　・priorityが{}以上のもののみ出力されます", output_str);
+        CmdIOUtil::FormatOutput(kSystem, "　　・Only those with a priority of {} or higher will be output.", output_str);
     }
     else
     {
         const std::string output_str = magic_enum::enum_name(kSystem).data();
 
-        CmdIOUtil::FormatOutput(kSystem, "・コマンドラインへの出力を行いません．(priorityが{}のものは例外的に出力されます)", output_str);
+        CmdIOUtil::FormatOutput(kSystem,
+            "・No output to the command line. (The exception is the output of the one whose priority is {}.", output_str);
     }
 
     CmdIOUtil::OutputNewLine(1, kSystem);
@@ -245,11 +246,11 @@ void SystemMainSimulation::OutputSetting() const
 
     if (setting_ptr_->do_step_execution_each_simulation)
     {
-        CmdIOUtil::Output("・シミュレーションをステップ実行します", kSystem);
+        CmdIOUtil::Output("・Step through the simulation.", kSystem);
     }
     else
     {
-        CmdIOUtil::Output("・シミュレーションをステップ実行しません", kSystem);
+        CmdIOUtil::Output("・Does not step through the simulation.", kSystem);
     }
 
     CmdIOUtil::OutputNewLine(1, kSystem);
@@ -257,22 +258,22 @@ void SystemMainSimulation::OutputSetting() const
 
     if (setting_ptr_->do_step_execution_each_gait)
     {
-        CmdIOUtil::Output("・各歩容をステップ実行します", kSystem);
+        CmdIOUtil::Output("・Step through each step.", kSystem);
     }
     else
     {
-        CmdIOUtil::Output("・各歩容をステップ実行しません", kSystem);
+        CmdIOUtil::Output("・Does not step through each step.", kSystem);
     }
 
     CmdIOUtil::OutputNewLine(1, kSystem);
 
     if (setting_ptr_->do_gui_display)
     {
-        CmdIOUtil::Output("・GUIを表示します", kSystem);
+        CmdIOUtil::Output("・Display GUI.", kSystem);
     }
     else
     {
-        CmdIOUtil::Output("・GUIを表示しません", kSystem);
+        CmdIOUtil::Output("・Do not display GUI.", kSystem);
     }
 
     CmdIOUtil::OutputNewLine(1, kSystem);

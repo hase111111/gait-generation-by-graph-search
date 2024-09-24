@@ -61,8 +61,11 @@ void NodeCreatorBuilderStraightMove::Build(
     (*node_creator)[HexapodMove::kComUpDown] =
         std::make_unique<NodeCreatorComUpDown>(map, converter_ptr_, presenter_ptr_, checker_ptr_, kComMove);
 
+    //(*node_creator)[HexapodMove::kComMove] =
+    //    std::make_unique<NodeCreatorComMoveStraight>(map, converter_ptr_, presenter_ptr_, checker_ptr_, kLegHierarchyChange);
+
     (*node_creator)[HexapodMove::kComMove] =
-        std::make_unique<NodeCreatorComMoveStraight>(map, converter_ptr_, presenter_ptr_, checker_ptr_, kLegHierarchyChange);
+        std::make_unique<NodeCreatorComMove>(map, converter_ptr_, presenter_ptr_, checker_ptr_, kLegHierarchyChange);
 }
 
 }  // namespace designlab

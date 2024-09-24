@@ -38,6 +38,9 @@ private:
     //! @brief ノードのうち，脚の上下運動を行うノードを，遊脚と接地に分ける．
     void DivideSwingAndStance(std::vector<RobotStateNode>* graph_ptr);
 
+    //! @brief ディレクトリを作成する．
+    void InitializeDirectory();
+
     ResultFileImporter result_importer_;
 
     const std::shared_ptr<GraphicDataBroker> broker_ptr_;
