@@ -133,7 +133,7 @@ std::vector<std::string> SerialCommunicationThread::GetReadData(const int num) c
 bool SerialCommunicationThread::Initialize()
 {
     // 通信を開始する．Windowsでは CreateFile で COMポートを開く．
-    serial_handle_ = CreateFile(kComName[7].c_str(), GENERIC_READ | GENERIC_WRITE,
+    serial_handle_ = CreateFile(kComName[kComPortNumber].c_str(), GENERIC_READ | GENERIC_WRITE,
                                 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 
     if (serial_handle_ == INVALID_HANDLE_VALUE)

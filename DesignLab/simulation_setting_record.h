@@ -77,7 +77,7 @@ struct SimulationSettingRecord final
     std::vector<Vector3> path_points{ {0, 0, 0}, { 1000, 0, 0 } };
 
 
-    Vector3 initial_positions{ 0.f, 30.0f, 0.f };
+    Vector3 initial_positions{ 0.f, 0.f, 30.f };
 
     EulerXYZ initial_posture{ 0.f, 0.f, 0.f };
 
