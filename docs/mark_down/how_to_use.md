@@ -16,7 +16,21 @@ GUIを閉じてもコマンドプロンプトは残りますが，
 起動が終了すると，上記のようなメニューが表示されます．
 このメニューから，5つのモードを選択できます．
 プロンプトに数字を打ち込んで，Enterを押すことでモードを選択します．
-5つのモードそれぞれの使い方について以下に説明します．
+5つのモードそれぞれの使い方について説明します．
+
+## 目次
+
+- [Simulation](#simulation)
+  - [GUIの操作方法](#guiの操作方法)
+  - [GUI上のウィンドウ](#gui上のウィンドウ)
+- [Viewer](#viewer)
+- [DisplayModel](#displaymodel)
+- [ResultViewer](#resultviewer)
+- [RobotControl](#robotcontrol)
+- [はじめて実行する場合](#はじめて実行する場合)
+- [設定ファイル](#設定ファイル)
+  - [settings.toml](#settingstoml)
+  - [phantomx_mk2.toml](#phantomx_mk2toml)
 
 ## Simulation
 
@@ -100,11 +114,61 @@ GUI上には以下のようなウィンドウが表示されます．
 ## DisplayModel
 
 ロボットのモデルを表示することができるモードです．
+このモードは，ロボットのモデルを表示するだけであり，歩容生成は行いません．
+
+操作方法はSimulationモードと同じですが，キー入力でロボットのモデルを操作できます．
+`shift`キーを押しながら以下の入力をすると，胴体のみを操作できます．
+脚を操作する場合は，`shift`キーの代わりに数字の`1 ～ 6`を押してください．
+右前脚から時計回りに`1 ～ 6`と対応しています．
+
+- `w + shift` : 胴体を前進させる
+- `s + shift` : 胴体を後退させる
+- `a + shift` : 胴体を左へ移動
+- `d + shift` : 胴体を右へ移動
+- `q + shift` : 胴体を下へ移動
+- `e + shift` : 胴体を上へ移動
+
+また胴体のみ，回転させることもできます．`i`キーを押しながら以下の入力をすると，反対方向に回転します．
+
+- `r + shift` : 胴体を回転させる（roll）
+- `p + shift` : 胴体を回転させる（pitch）
+- `y + shift` : 胴体を回転させる（yaw）
+
+動作によってロボットの表示がおかしくなった場合は，一度このモードを終了し，再度起動してください．
+
+<div align="center">
+    <img src="./display_model.jpg" width="70%" class="center">
+</div>
 
 ## ResultViewer
 
 歩容生成の結果を表示することができるモードです．
 Simulationモードでシミュレーションを行った後に，このモードで結果を確認します．
+整数を入力することで，結果がGUI上に表示されます．
+GUIの操作方法はSimulationモードと同じです．
+
+```bash
+====================================================================================================
+                                        Result Viewer System
+====================================================================================================
+
+****************************************************************************************************
+
+[ result ]
+|
+| - [ sample_20230924_1822_21 ]
+| |
+| |- node_list1.csv [-0-]
+|
+| - [ sample_20230924_1805_47 ]
+| |
+| |- node_list1.csv [-1-]
+
+****************************************************************************************************
+
+Please select a file. Enter an integer. ( 0 ～ 1 )
+>>
+```
 
 ## RobotControl
 
@@ -176,7 +240,6 @@ tomlファイルを編集する場合の注意点は以下の通りです．
   - `version_minor` : マイナーバージョン（変更する必要はありません）
   - `version_patch` : パッチバージョン（変更する必要はありません）
 
-
 ```toml
 [Mode]
     ask_about_modes = true
@@ -197,4 +260,40 @@ tomlファイルを編集する場合の注意点は以下の通りです．
     version_major = 0
     version_minor = 5
     version_patch = 0
+```
+
+### phantomx_mk2.toml
+
+`simulation_condition/phantomx_mk2.toml`はPhantomX Mk-IIの設定ファイルです．
+ロボットの設定を変更する場合はこのファイルを編集してください．
+
+- `Body` : ロボットの体に関する設定.
+  - `body_lifting_height_max` : ロボットの最大持ち上げ高さ.
+  - `body_lifting_height_min` : ロボットの最小持ち上げ高さ.
+- `CoxaRange` : 第1関節の可動範囲に関する設定.
+  - `movable_coxa_angle_max_deg` : 脚の付け根の最大可動角度.
+  - `movable_coxa_angle_min_deg` : 脚の付け根の最小可動角度.
+- `LegRange` : 近似された可動範囲に関する設定.
+  - `max_leg_range` : 水平方向の脚の最大長さ.
+  - `min_leg_range` : 水平方向の脚の最小長さ.
+- `Other` : その他の設定.
+  - `free_leg_height` : 遊脚の高さ.
+  - `stable_margin` : 静的安定余裕．10mm以上を推奨．
+
+```toml
+[Body]
+    body_lifting_height_max = 160.0
+    body_lifting_height_min = 30.0
+
+[CoxaRange]
+    movable_coxa_angle_max_deg = 40.0
+    movable_coxa_angle_min_deg = -40.0
+
+[LegRange]
+    max_leg_range = 200.0
+    min_leg_range = 140.0
+
+[Other]
+    free_leg_height = -20.0
+    stable_margin = 15.0
 ```
