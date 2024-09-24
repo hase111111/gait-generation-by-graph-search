@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['end_0',['end',['../classdesignlab_1_1_stopwatch.html#abd870de16a431b5541ff7a3c9f900424',1,'designlab::Stopwatch::End()'],['../classdesignlab_1_1_double_int_range.html#a39dd441ee725021b4bcc3da5d45f3f9e',1,'designlab::DoubleIntRange::end()']]],
+  ['end_0',['End',['../classdesignlab_1_1_stopwatch.html#abd870de16a431b5541ff7a3c9f900424',1,'designlab::Stopwatch']]],
   ['endthread_1',['EndThread',['../classdesignlab_1_1_serial_communication_thread.html#a452462cadb075b9d4705c3c23fc61647',1,'designlab::SerialCommunicationThread']]],
   ['enumentriestostring_2',['EnumEntriesToString',['../namespacedesignlab_1_1string__util.html#a20dde22abdea4d5aa4cca87aa7877645',1,'designlab::string_util']]],
   ['enumtostringremovetopk_3',['EnumToStringRemoveTopK',['../namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3',1,'designlab::string_util']]],

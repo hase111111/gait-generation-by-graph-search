@@ -1,19 +1,3 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$classdesignlab_1_1_i_node_creator.html" title="ノード生成処理のインターフェース．" alt="" coords="5,215,165,241"/>
-<area shape="rect" id="Node000001" href="$classdesignlab_1_1_node_creator_body_rot.html" title="ロボットの回転を表すノードを生成するクラス．" alt="" coords="216,5,423,32"/>
-<area shape="poly" id="edge49_Node000000_Node000001" title=" " alt="" coords="95,200,112,164,138,121,171,78,211,42,233,30,236,35,214,46,174,82,142,124,117,166,100,202"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_node_creator_com_move.html" title="波東さんの手法で重心の平行移動を行うクラス．" alt="" coords="213,56,426,83"/>
-<area shape="poly" id="edge50_Node000000_Node000002" title=" " alt="" coords="101,201,147,146,177,117,211,92,237,81,240,86,214,97,180,121,150,149,105,204"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_node_creator_com_move_straight.html" title="直線方向に重心の平行移動を行うクラス．" alt="" coords="228,107,411,149"/>
-<area shape="poly" id="edge51_Node000000_Node000003" title=" " alt="" coords="121,205,212,159,242,147,244,152,214,164,123,209"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_node_creator_com_up_down.html" title="重心の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．" alt="" coords="228,173,411,216"/>
-<area shape="poly" id="edge52_Node000000_Node000004" title=" " alt="" coords="179,212,227,205,228,210,180,217"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_node_creator_leg_hierarchy.html" title="脚の階層構造を作るためのクラス．" alt="" coords="231,240,408,283"/>
-<area shape="poly" id="edge53_Node000000_Node000005" title=" " alt="" coords="179,239,230,246,230,251,178,244"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_node_creator_leg_up_down.html" title="脚の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．" alt="" coords="231,307,408,349"/>
-<area shape="poly" id="edge54_Node000000_Node000006" title=" " alt="" coords="123,247,214,292,244,304,242,309,212,297,121,251"/>
-<area shape="rect" id="Node000007" href="$classdesignlab_1_1_node_creator_leg_up_down2d.html" title="脚の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．" alt="" coords="231,373,408,416"/>
-<area shape="poly" id="edge55_Node000000_Node000007" title=" " alt="" coords="106,252,151,306,181,335,214,359,236,370,233,375,211,364,178,339,148,310,102,255"/>
-<area shape="rect" id="Node000008" href="$classdesignlab_1_1_node_creator_leg_up_down_radius.html" title="脚の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．" alt="" coords="231,440,408,483"/>
-<area shape="poly" id="edge56_Node000000_Node000008" title=" " alt="" coords="99,254,116,293,141,339,174,386,214,426,232,437,230,442,211,430,170,389,136,342,111,295,94,256"/>
+<area shape="rect" id="Node000000" href="$classdesignlab_1_1_interpolated_node_creator.html" title="矩形軌道を生成し，ノード間を補間するクラス．" alt="" coords="5,5,187,48"/>
 </map>

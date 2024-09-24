@@ -1,3 +1,9 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$classdesignlab_1_1_interpolate_validator.html" title="補間の妥当性を検証するクラス．" alt="" coords="5,5,201,32"/>
+<area shape="rect" id="Node000000" href="$classdesignlab_1_1_i_simulation_end_checker.html" title="シミュレーションの終了を判定するクラスのインターフェース．" alt="" coords="5,72,177,115"/>
+<area shape="rect" id="Node000001" href="$classdesignlab_1_1_simulation_end_checker_by_goal_tape.html" title="ゴールテープによるシミュレーション終了判定クラス．" alt="" coords="225,5,393,48"/>
+<area shape="poly" id="edge64_Node000000_Node000001" title=" " alt="" coords="176,65,236,46,237,51,178,70"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_simulation_end_checker_by_position.html" title="最終位置によるシミュレーション終了判定クラス．" alt="" coords="225,72,393,115"/>
+<area shape="poly" id="edge65_Node000000_Node000002" title=" " alt="" coords="192,91,224,91,224,96,192,96"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_simulation_end_checker_by_posture.html" title="最終姿勢によるシミュレーション終了判定クラス．" alt="" coords="225,139,393,181"/>
+<area shape="poly" id="edge66_Node000000_Node000003" title=" " alt="" coords="178,117,237,135,236,141,176,122"/>
 </map>

@@ -1,3 +1,5 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$structdesignlab_1_1_vector2.html" title="2次元の位置ベクトルを表す構造体．" alt="" coords="5,5,135,32"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,13,126,40"/>
+<area shape="rect" id="Node000001" href="$structdesignlab_1_1impl_1_1is__toml11__available__type.html" title="toml11で使用可能な型かどうかを判定するメタ関数．" alt="" coords="174,5,360,48"/>
+<area shape="poly" id="edge76_Node000000_Node000001" title=" " alt="" coords="141,24,173,24,173,29,141,29"/>
 </map>

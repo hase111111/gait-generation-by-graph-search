@@ -1,5 +1,5 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$classdesignlab_1_1_i_toml_data_validator.html" title=" " alt="" coords="5,5,199,48"/>
-<area shape="rect" id="Node000001" href="$classdesignlab_1_1_application_setting_record_validator.html" title="ApplicationSettingRecord のバリデータ．" alt="" coords="247,5,436,48"/>
-<area shape="poly" id="edge71_Node000000_Node000001" title=" " alt="" coords="214,24,246,24,246,29,214,29"/>
+<area shape="rect" id="Node000000" href="$classdesignlab_1_1_i_toml_data_validator.html" title="TOMLファイルのデータの検証を行う処理のインターフェース．" alt="" coords="5,13,230,40"/>
+<area shape="rect" id="Node000001" href="$classdesignlab_1_1_toml_data_validator_always_true.html" title="常に trueを返す ITomlDataValidator の実装クラス．" alt="" coords="278,5,468,48"/>
+<area shape="poly" id="edge73_Node000000_Node000001" title=" " alt="" coords="245,24,277,24,277,29,245,29"/>
 </map>

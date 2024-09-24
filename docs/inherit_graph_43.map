@@ -1,11 +1,5 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$classdesignlab_1_1_i_hexapod_coordinate_converter.html" title="ロボットは重心位置・アクチュエータなど様々な点を基準とする座標系を持つ． これらを相互に変換する処理のインターフェース．" alt="" coords="5,5,206,48"/>
-<area shape="rect" id="Node000001" href="$classdesignlab_1_1_phantom_x_mk_i_i.html" title="PhantomX mk&#45;2 の状態を計算するクラス．" alt="" coords="254,113,421,140"/>
-<area shape="poly" id="edge41_Node000000_Node000001" title=" " alt="" coords="191,51,207,58,313,110,310,115,205,62,189,56"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_hexapod_joint_calculator.html" title="間接角度や角速度を計算する処理のインターフェース．" alt="" coords="23,72,188,115"/>
-<area shape="poly" id="edge42_Node000002_Node000001" title=" " alt="" coords="203,105,254,112,253,117,202,110"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_i_hexapod_posture_validator.html" title="6脚ロボットが有効な姿勢をとっているかを チェックする処理のインターフェース．" alt="" coords="14,139,197,181"/>
-<area shape="poly" id="edge43_Node000003_Node000001" title=" " alt="" coords="211,142,253,136,254,141,212,147"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_i_hexapod_state_presenter.html" title="6脚ロボットの状態を表示するクラス．" alt="" coords="21,205,190,248"/>
-<area shape="poly" id="edge44_Node000004_Node000001" title=" " alt="" coords="189,197,205,191,310,138,313,143,207,196,191,202"/>
+<area shape="rect" id="Node000000" href="$structdesignlab_1_1impl_1_1is__toml11__available__type__not__vector__type.html" title="toml11で使用可能な型かどうかを判定するメタ関数． toml11は vector型にも対応しているが，こちらでは除外する．" alt="" coords="5,13,161,72"/>
+<area shape="rect" id="Node000001" href="$structdesignlab_1_1impl_1_1is__toml11__available__type__vector__type_3_01std_1_1vector_3_01_t_01_4_01_4.html" title="toml11で使用可能な型かどうかを判定するメタ関数． vector型の場合はこちらを使用して判定する．" alt="" coords="209,5,375,80"/>
+<area shape="poly" id="edge48_Node000000_Node000001" title=" " alt="" coords="176,40,208,40,208,45,176,45"/>
 </map>

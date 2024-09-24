@@ -1,11 +1,11 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$classdesignlab_1_1_i_graphic_main.html" title="GraphicMainのインターフェース．" alt="" coords="5,97,166,124"/>
-<area shape="rect" id="Node000001" href="$classdesignlab_1_1_graphic_main_basic.html" title="シミュレーションの一覧表示，ロボットの動きの軌跡の表示 などベーシックな機能を提供するクラス．" alt="" coords="219,5,409,32"/>
-<area shape="poly" id="edge34_Node000000_Node000001" title=" " alt="" coords="121,87,164,64,213,42,248,30,250,35,215,46,166,68,123,92"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graphic_main_display_model.html" title="ロボットのモデルを表示して，正しく動作しているかを確認するためのクラス．" alt="" coords="214,56,414,99"/>
-<area shape="poly" id="edge35_Node000000_Node000002" title=" " alt="" coords="180,94,213,89,214,95,180,100"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_graphic_main_graph_viewer.html" title="GraphViewerの画面を表示するクラス．" alt="" coords="218,123,410,165"/>
-<area shape="poly" id="edge36_Node000000_Node000003" title=" " alt="" coords="180,122,218,127,217,133,180,127"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_graphic_main_robot_control.html" title="ロボットの制御を行うGUIの処理，描画を行うクラス．" alt="" coords="218,189,410,232"/>
-<area shape="poly" id="edge37_Node000000_Node000004" title=" " alt="" coords="124,129,215,175,244,186,242,191,213,180,122,134"/>
+<area shape="rect" id="Node000000" href="$classdesignlab_1_1_i_hexapod_coordinate_converter.html" title="ロボットは重心位置・アクチュエータなど様々な点を基準とする座標系を持つ． これらを相互に変換する処理のインターフェース．" alt="" coords="5,5,206,48"/>
+<area shape="rect" id="Node000001" href="$classdesignlab_1_1_phantom_x_mk_i_i.html" title="PhantomX mk&#45;2 の状態を計算するクラス．" alt="" coords="254,113,421,140"/>
+<area shape="poly" id="edge41_Node000000_Node000001" title=" " alt="" coords="191,51,207,58,313,110,310,115,205,62,189,56"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_hexapod_joint_calculator.html" title="間接角度や角速度を計算する処理のインターフェース．" alt="" coords="23,72,188,115"/>
+<area shape="poly" id="edge42_Node000002_Node000001" title=" " alt="" coords="204,105,254,112,253,117,203,110"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_i_hexapod_posture_validator.html" title="6脚ロボットが有効な姿勢をとっているかを チェックする処理のインターフェース．" alt="" coords="14,139,197,181"/>
+<area shape="poly" id="edge43_Node000003_Node000001" title=" " alt="" coords="212,142,253,136,254,141,213,147"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_i_hexapod_state_presenter.html" title="6脚ロボットの状態を表示するクラス．" alt="" coords="21,205,190,248"/>
+<area shape="poly" id="edge44_Node000004_Node000001" title=" " alt="" coords="189,197,205,191,310,138,313,143,207,196,191,202"/>
 </map>

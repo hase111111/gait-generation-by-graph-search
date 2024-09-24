@@ -96,7 +96,7 @@ var searchData=
   ['stability_5fmargin_5frenderer_2eh_93',['stability_margin_renderer.h',['../stability__margin__renderer_8h.html',1,'']]],
   ['stabilitymarginrenderer_94',['stabilitymarginrenderer',['../classdesignlab_1_1_stability_margin_renderer.html#a81ba3eabea9ce52190aae726b96ead87',1,'designlab::StabilityMarginRenderer::StabilityMarginRenderer()'],['../classdesignlab_1_1_stability_margin_renderer.html',1,'designlab::StabilityMarginRenderer']]],
   ['stable_5fmargin_95',['stable_margin',['../structdesignlab_1_1_phantom_x_mk_i_i_parameter_record.html#a29850eb6858098c25fa547fd1e507b9c',1,'designlab::PhantomXMkIIParameterRecord']]],
-  ['start_96',['start',['../structdesignlab_1_1_line_segment2.html#a0187d2a0e54da41a136feefec647b7ef',1,'designlab::LineSegment2::start'],['../classdesignlab_1_1_stopwatch.html#ae1befceaeb038d9841a020ee99cba068',1,'designlab::Stopwatch::Start()']]],
+  ['start_96',['start',['../classdesignlab_1_1_stopwatch.html#ae1befceaeb038d9841a020ee99cba068',1,'designlab::Stopwatch::Start()'],['../structdesignlab_1_1_line_segment2.html#a0187d2a0e54da41a136feefec647b7ef',1,'designlab::LineSegment2::start']]],
   ['std_97',['std',['../namespacestd.html',1,'']]],
   ['step_5fheight_98',['step_height',['../structdesignlab_1_1_simulation_map_parameter.html#ab710d63456ab3b4b7819bb67e9be7b42',1,'designlab::SimulationMapParameter']]],
   ['step_5flength_99',['step_length',['../structdesignlab_1_1_simulation_map_parameter.html#a592f003aa8c7a3275e47c08413cd1470',1,'designlab::SimulationMapParameter']]],

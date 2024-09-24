@@ -1,53 +1,11 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$classdesignlab_1_1_i_dxlib3d_renderer.html" title="DxLibの描画処理を行うクラスのインターフェース．" alt="" coords="251,181,433,208"/>
-<area shape="rect" id="Node000001" href="$classdesignlab_1_1_approximated_motion_range_render.html" title="6脚歩行ロボットの近似された脚の動作範囲を描画するクラス．" alt="" coords="489,240,692,283"/>
-<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="409,210,509,237,508,242,408,215"/>
-<area shape="rect" id="Node000020" href="$classdesignlab_1_1_graph_com_plotter.html" title=" " alt="" coords="499,5,683,32"/>
-<area shape="poly" id="edge2_Node000000_Node000020" title=" " alt="" coords="357,167,407,104,441,70,480,42,505,30,507,35,482,46,444,74,411,107,362,170"/>
-<area shape="rect" id="Node000016" href="$classdesignlab_1_1_map_renderer.html" title="マップの描画を行うクラス．" alt="" coords="510,307,671,333"/>
-<area shape="poly" id="edge3_Node000000_Node000016" title=" " alt="" coords="370,216,420,255,482,292,513,303,511,309,480,297,417,260,367,220"/>
-<area shape="rect" id="Node000017" href="$classdesignlab_1_1_phantom_x_mk_i_i_renderer_model.html" title="3Dモデルを使用して PhantomX の描画を行うクラス．" alt="" coords="481,357,700,400"/>
-<area shape="poly" id="edge4_Node000000_Node000017" title=" " alt="" coords="362,219,412,281,445,315,482,343,504,354,502,359,480,348,442,319,408,285,358,222"/>
-<area shape="rect" id="Node000018" href="$classdesignlab_1_1_phantom_x_renderer_simple.html" title="3Dモデルを使用せず，多角形を組み合わせてPhantomXの描画を行うクラス．" alt="" coords="493,107,688,149"/>
-<area shape="poly" id="edge5_Node000000_Node000018" title=" " alt="" coords="408,174,508,147,509,153,409,179"/>
-<area shape="rect" id="Node000019" href="$classdesignlab_1_1_stability_margin_renderer.html" title="ロボットの静的安定余裕(支持脚多角形)を描画するクラス．" alt="" coords="506,173,676,216"/>
-<area shape="poly" id="edge6_Node000000_Node000019" title=" " alt="" coords="448,192,505,192,505,197,448,197"/>
-<area shape="rect" id="Node000021" href="$classdesignlab_1_1_world_grid_renderer.html" title="ワールドの格子線を描画するクラス．" alt="" coords="494,56,688,83"/>
-<area shape="poly" id="edge7_Node000000_Node000021" title=" " alt="" coords="367,169,417,129,480,92,511,81,513,86,482,97,420,134,370,173"/>
-<area shape="rect" id="Node000009" href="$classdesignlab_1_1_i_dxlib_clickable.html" title="クリック可能なGUIのインターフェース．" alt="" coords="19,440,189,467"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_abstract_dxlib_gui.html" title="Dxlibを使ったGUIの抽象クラス．" alt="" coords="251,541,433,568"/>
-<area shape="poly" id="edge8_Node000009_Node000004" title=" " alt="" coords="192,470,204,476,220,489,229,502,238,515,252,527,276,538,274,543,249,532,234,519,225,505,216,493,201,481,190,475"/>
-<area shape="rect" id="Node000010" href="$classdesignlab_1_1_dxlib_gui_terminal.html" title="×ボタンを押して消えたGUIを復活させるためのクラス．" alt="" coords="251,440,433,467"/>
-<area shape="poly" id="edge14_Node000009_Node000010" title=" " alt="" coords="204,451,250,451,250,456,204,456"/>
-<area shape="rect" id="Node000012" href="$classdesignlab_1_1_simple_button.html" title="Dxlibのウィンドウのボタンの処理・描画を管理するクラス．" alt="" coords="261,491,423,517"/>
-<area shape="poly" id="edge15_Node000009_Node000012" title=" " alt="" coords="185,468,276,487,275,493,184,473"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_dxlib_gui_camera.html" title="カメラの操作・管理を行うGUIの処理・描画を行うクラス．" alt="" coords="502,491,680,517"/>
-<area shape="poly" id="edge9_Node000004_Node000003" title=" " alt="" coords="425,535,521,515,522,521,426,540"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_dxlib_gui_camera_parameter_displayer.html" title="カメラの情報を表示するGUIの処理・描画を行うクラス．" alt="" coords="502,592,680,635"/>
-<area shape="poly" id="edge10_Node000004_Node000005" title=" " alt="" coords="416,569,502,590,500,595,415,575"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_dxlib_gui_display_node_switcher.html" title="ノードの表示・切り替えを行うGUIのクラス．" alt="" coords="503,659,679,701"/>
-<area shape="poly" id="edge11_Node000004_Node000006" title=" " alt="" coords="426,573,435,578,451,595,459,612,467,629,483,645,504,657,501,661,479,649,463,632,455,614,447,598,431,582,423,577"/>
-<area shape="rect" id="Node000007" href="$classdesignlab_1_1_dxlib_gui_node_displayer.html" title="ノードの情報を表示するGUIのクラス．" alt="" coords="482,541,699,568"/>
-<area shape="poly" id="edge12_Node000004_Node000007" title=" " alt="" coords="448,552,482,552,482,557,448,557"/>
-<area shape="rect" id="Node000008" href="$classdesignlab_1_1_dxlib_gui_robot_control.html" title="カメラの操作・管理を行うGUIの処理・描画を行うクラス．" alt="" coords="507,424,674,467"/>
-<area shape="poly" id="edge13_Node000004_Node000008" title=" " alt="" coords="421,533,432,527,446,515,455,503,464,489,480,476,506,463,508,468,482,481,468,493,459,506,450,519,434,532,423,538"/>
-<area shape="rect" id="Node000013" href="$classdesignlab_1_1_i_dxlib_draggable.html" title="ドラッグ可能なGUIのインターフェース．" alt="" coords="17,541,191,568"/>
-<area shape="poly" id="edge16_Node000013_Node000004" title=" " alt="" coords="206,552,250,552,250,557,206,557"/>
-<area shape="rect" id="Node000014" href="$classdesignlab_1_1_camera_dragger.html" title="マウスの入力でカメラを動かすクラス．" alt="" coords="255,592,429,619"/>
-<area shape="poly" id="edge17_Node000013_Node000014" title=" " alt="" coords="185,569,276,589,275,594,184,574"/>
-<area shape="rect" id="Node000011" href="$classdesignlab_1_1_i_dxlib_gui.html" title="Dxlibの画面に表示するGUIのインターフェース．" alt="" coords="36,491,172,517"/>
-<area shape="poly" id="edge18_Node000011_Node000004" title=" " alt="" coords="185,518,276,538,275,543,184,524"/>
-<area shape="poly" id="edge19_Node000011_Node000010" title=" " alt="" coords="184,484,275,465,276,470,185,490"/>
-<area shape="poly" id="edge20_Node000011_Node000012" title=" " alt="" coords="187,501,260,501,260,507,187,507"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_dxlib_node_setter.html" title="DxLibのGuiやRendererでノードのセットを行うためのインターフェース．" alt="" coords="251,336,433,363"/>
-<area shape="poly" id="edge21_Node000002_Node000001" title=" " alt="" coords="388,327,480,292,514,281,516,286,482,297,390,332"/>
-<area shape="poly" id="edge25_Node000002_Node000016" title=" " alt="" coords="447,334,509,327,510,332,448,340"/>
-<area shape="poly" id="edge26_Node000002_Node000017" title=" " alt="" coords="448,359,481,363,480,368,447,364"/>
-<area shape="poly" id="edge27_Node000002_Node000018" title=" " alt="" coords="358,323,425,227,458,183,479,159,499,148,502,152,483,163,462,186,429,230,363,326"/>
-<area shape="poly" id="edge28_Node000002_Node000019" title=" " alt="" coords="363,323,413,274,445,248,480,226,504,214,507,219,482,230,448,252,417,278,367,327"/>
-<area shape="poly" id="edge22_Node000002_Node000003" title=" " alt="" coords="373,370,435,426,457,454,467,465,482,476,508,488,506,493,480,481,463,469,453,457,431,430,369,374"/>
-<area shape="poly" id="edge23_Node000002_Node000007" title=" " alt="" coords="377,370,407,395,435,426,450,455,456,481,464,505,483,527,501,539,498,543,479,531,459,507,451,483,445,457,431,430,403,399,373,374"/>
-<area shape="poly" id="edge24_Node000002_Node000008" title=" " alt="" coords="385,367,482,410,515,421,513,426,480,414,383,372"/>
-<area shape="rect" id="Node000015" href="$classdesignlab_1_1_i_dxlib_wheel_handler.html" title="マウスホイールの入力を受け取るためのインターフェース．" alt="" coords="5,592,203,619"/>
-<area shape="poly" id="edge29_Node000015_Node000014" title=" " alt="" coords="217,603,254,603,254,608,217,608"/>
+<area shape="rect" id="Node000000" href="$classdesignlab_1_1_i_graphic_main.html" title="GraphicMainのインターフェース．" alt="" coords="5,97,166,124"/>
+<area shape="rect" id="Node000001" href="$classdesignlab_1_1_graphic_main_basic.html" title="シミュレーションの一覧表示，ロボットの動きの軌跡の表示 などベーシックな機能を提供するクラス．" alt="" coords="219,5,409,32"/>
+<area shape="poly" id="edge34_Node000000_Node000001" title=" " alt="" coords="121,87,164,63,213,42,248,30,250,35,215,46,167,68,124,91"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graphic_main_display_model.html" title="ロボットのモデルを表示して，正しく動作しているかを確認するためのクラス．" alt="" coords="214,56,414,99"/>
+<area shape="poly" id="edge35_Node000000_Node000002" title=" " alt="" coords="180,94,213,89,214,95,181,99"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_graphic_main_graph_viewer.html" title="GraphViewerの画面を表示するクラス．" alt="" coords="218,123,410,165"/>
+<area shape="poly" id="edge36_Node000000_Node000003" title=" " alt="" coords="181,122,218,127,217,133,180,127"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_graphic_main_robot_control.html" title="ロボットの制御を行うGUIの処理，描画を行うクラス．" alt="" coords="218,189,410,232"/>
+<area shape="poly" id="edge37_Node000000_Node000004" title=" " alt="" coords="125,130,215,175,244,186,242,191,213,180,123,134"/>
 </map>

@@ -1,5 +1,3 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$classdesignlab_1_1_i_toml_data_validator.html" title="TOMLファイルのデータの検証を行う処理のインターフェース．" alt="" coords="5,13,230,40"/>
-<area shape="rect" id="Node000001" href="$classdesignlab_1_1_toml_data_validator_always_true.html" title="常に trueを返す ITomlDataValidator の実装クラス．" alt="" coords="278,5,468,48"/>
-<area shape="poly" id="edge73_Node000000_Node000001" title=" " alt="" coords="244,24,277,24,277,29,244,29"/>
+<area shape="rect" id="Node000000" href="$structdesignlab_1_1_line_segment2.html" title="2次元の線分を表す構造体．" alt="" coords="5,5,173,32"/>
 </map>
