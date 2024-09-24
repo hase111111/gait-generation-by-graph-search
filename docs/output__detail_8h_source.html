@@ -82,31 +82,35 @@ $(document).ready(function() { init_codefold(0); });
 </div><!--header-->
 <div class="contents">
 <a href="output__detail_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef DESIGNLAB_OUTPUT_DETAIL_H_</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define DESIGNLAB_OUTPUT_DETAIL_H_</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">   16</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a> : <span class="keywordtype">int</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb">kSystem</a> = 0,    </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645ae3587c730cc1aa530fa4ddc9c4204e97">kError</a>,         </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645aec0da41f4e48b52c362303eb27ed5dee">kWarning</a>,       </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a176a473e63c17ccdac91640c67f149bf">kInfo</a>,          </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645abb53ce21b7c0b7c8a8f7860a41901d29">kDebug</a>,         </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Copyright(c) 2023 Design Engineering Laboratory, Saitama University</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// Released under the MIT license</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// https://opensource.org/licenses/mit-license.php</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DESIGNLAB_OUTPUT_DETAIL_H_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DESIGNLAB_OUTPUT_DETAIL_H_</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">   18</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a> : <span class="keywordtype">int</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb">kSystem</a> = 0,    </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645ae3587c730cc1aa530fa4ddc9c4204e97">kError</a>,         </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645aec0da41f4e48b52c362303eb27ed5dee">kWarning</a>,       </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a176a473e63c17ccdac91640c67f149bf">kInfo</a>,          </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645abb53ce21b7c0b7c8a8f7860a41901d29">kDebug</a>,         </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
 </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>}  <span class="comment">// namespace designlab</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_OUTPUT_DETAIL_H_</span></div>
-<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00015">abstract_dxlib_gui.cpp:16</a></div></div>
-<div class="ttc" id="anamespacedesignlab_html_a43f5ea9398e73bc5134e238b7e8c5645"><div class="ttname"><a href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">designlab::OutputDetail</a></div><div class="ttdeci">OutputDetail</div><div class="ttdoc">コマンドラインに文字を出力する際に，その詳細を指定するための列挙体．</div><div class="ttdef"><b>Definition</b> <a href="output__detail_8h_source.html#l00016">output_detail.h:17</a></div></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>}  <span class="comment">// namespace designlab</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_OUTPUT_DETAIL_H_</span></div>
+<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00017">abstract_dxlib_gui.cpp:18</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html_a43f5ea9398e73bc5134e238b7e8c5645"><div class="ttname"><a href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">designlab::OutputDetail</a></div><div class="ttdeci">OutputDetail</div><div class="ttdoc">コマンドラインに文字を出力する際に，その詳細を指定するための列挙体．</div><div class="ttdef"><b>Definition</b> <a href="output__detail_8h_source.html#l00018">output_detail.h:19</a></div></div>
 <div class="ttc" id="anamespacedesignlab_html_a43f5ea9398e73bc5134e238b7e8c5645a176a473e63c17ccdac91640c67f149bf"><div class="ttname"><a href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a176a473e63c17ccdac91640c67f149bf">designlab::OutputDetail::kInfo</a></div><div class="ttdeci">@ kInfo</div><div class="ttdoc">優先度低めの情報．</div></div>
 <div class="ttc" id="anamespacedesignlab_html_a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb"><div class="ttname"><a href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb">designlab::OutputDetail::kSystem</a></div><div class="ttdeci">@ kSystem</div><div class="ttdoc">システムメッセージ，常に出力する．</div></div>
 <div class="ttc" id="anamespacedesignlab_html_a43f5ea9398e73bc5134e238b7e8c5645abb53ce21b7c0b7c8a8f7860a41901d29"><div class="ttname"><a href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645abb53ce21b7c0b7c8a8f7860a41901d29">designlab::OutputDetail::kDebug</a></div><div class="ttdeci">@ kDebug</div><div class="ttdoc">デバッグ時のみ出力，一番優先度が低い．</div></div>

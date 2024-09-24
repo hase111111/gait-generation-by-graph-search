@@ -140,12 +140,12 @@ designlab::ModelLoader 連携図</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// モデルのハンドル番号</span></div>
 <div class="line"><span class="keywordtype">int</span> model_handle = <a class="code hl_function" href="classdesignlab_1_1_singleton.html#a1f95c7ccffdb673174f681e9c0d7dde0">ModelLoader::GetIns</a>()-&gt;<a class="code hl_function" href="classdesignlab_1_1_model_loader.html#a96d8af49357666380caa31a92d1dd157">GetModelHandle</a>(file_path);</div>
-<div class="ttc" id="aclassdesignlab_1_1_model_loader_html_a96d8af49357666380caa31a92d1dd157"><div class="ttname"><a href="classdesignlab_1_1_model_loader.html#a96d8af49357666380caa31a92d1dd157">designlab::ModelLoader::GetModelHandle</a></div><div class="ttdeci">int GetModelHandle(const std::string &amp;file_path)</div><div class="ttdoc">Dxlibは3Dモデルを描画する際に，モデルのハンドルを指定する．   モデルがまだ読み込まれていない場合は， モデルを読み込んでから，ハンドル番号を返す．   すでに読み込みずみのモデルを読み込んだ場...</div><div class="ttdef"><b>Definition</b> <a href="model__loader_8cpp_source.html#l00014">model_loader.cpp:14</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_singleton_html_a1f95c7ccffdb673174f681e9c0d7dde0"><div class="ttname"><a href="classdesignlab_1_1_singleton.html#a1f95c7ccffdb673174f681e9c0d7dde0">designlab::Singleton&lt; ModelLoader &gt;::GetIns</a></div><div class="ttdeci">static ModelLoader * GetIns()</div><div class="ttdoc">インスタンスを取得する．   このクラスを継承したクラスは クラス名::getIns()-&gt; の形式でメンバ関数を呼び出す．</div><div class="ttdef"><b>Definition</b> <a href="singleton_8h_source.html#l00033">singleton.h:33</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_model_loader_html_a96d8af49357666380caa31a92d1dd157"><div class="ttname"><a href="classdesignlab_1_1_model_loader.html#a96d8af49357666380caa31a92d1dd157">designlab::ModelLoader::GetModelHandle</a></div><div class="ttdeci">int GetModelHandle(const std::string &amp;file_path)</div><div class="ttdoc">Dxlibは3Dモデルを描画する際に，モデルのハンドルを指定する．   モデルがまだ読み込まれていない場合は， モデルを読み込んでから，ハンドル番号を返す．   すでに読み込みずみのモデルを読み込んだ場...</div><div class="ttdef"><b>Definition</b> <a href="model__loader_8cpp_source.html#l00016">model_loader.cpp:16</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_singleton_html_a1f95c7ccffdb673174f681e9c0d7dde0"><div class="ttname"><a href="classdesignlab_1_1_singleton.html#a1f95c7ccffdb673174f681e9c0d7dde0">designlab::Singleton&lt; ModelLoader &gt;::GetIns</a></div><div class="ttdeci">static ModelLoader * GetIns()</div><div class="ttdoc">インスタンスを取得する．   このクラスを継承したクラスは クラス名::getIns()-&gt; の形式でメンバ関数を呼び出す．</div><div class="ttdef"><b>Definition</b> <a href="singleton_8h_source.html#l00034">singleton.h:34</a></div></div>
 </div><!-- fragment --> <dl class="section see"><dt>参照</dt><dd><a class="el" href="classdesignlab_1_1_singleton.html" title="Singletonクラス作成のためのテンプレートクラス．">Singleton</a> </dd></dl>
 <dl class="section attention"><dt>注意</dt><dd>このクラスを使用するときは，必ず DxLib_Init() の後に使用すること． また，DxLib_End() の前に使用を終了すること． これらを守らないと，アプリがクラッシュする． </dd></dl>
 
-<p class="definition"> <a class="el" href="model__loader_8h_source.html">model_loader.h</a> の <a class="el" href="model__loader_8h_source.html#l00036">36</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="model__loader_8h_source.html">model_loader.h</a> の <a class="el" href="model__loader_8h_source.html#l00037">37</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">関数詳解</h2>
 <a id="a96d8af49357666380caa31a92d1dd157" name="a96d8af49357666380caa31a92d1dd157"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a96d8af49357666380caa31a92d1dd157">&#9670;&#160;</a></span>GetModelHandle()</h2>
@@ -174,7 +174,7 @@ designlab::ModelLoader 連携図</div>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>モデルのハンドル番号．失敗したら-1を返す．成功値は正の値． </dd></dl>
 
-<p class="definition"> <a class="el" href="model__loader_8cpp_source.html">model_loader.cpp</a> の <a class="el" href="model__loader_8cpp_source.html#l00014">14</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="model__loader_8cpp_source.html">model_loader.cpp</a> の <a class="el" href="model__loader_8cpp_source.html#l00016">16</a> 行目に定義があります。</p>
 
 </div>
 </div>

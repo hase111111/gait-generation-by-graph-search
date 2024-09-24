@@ -138,11 +138,11 @@ designlab::FontLoader 連携図</div>
 <div class="line"><span class="keywordtype">int</span> font_handle = <a class="code hl_function" href="classdesignlab_1_1_singleton.html#a1f95c7ccffdb673174f681e9c0d7dde0">FontLoader::GetIns</a>()-&gt;<a class="code hl_function" href="classdesignlab_1_1_font_loader.html#a4a3466a84bcce2086502a0bd4e3c5f61">GetFontHandle</a>(<span class="stringliteral">&quot;font/consola.ttf&quot;</span>);</div>
 <div class="line"> </div>
 <div class="line">DrawStringToHandle(0, 0, <span class="stringliteral">&quot;Hello World&quot;</span>, GetColor(255, 255, 255), font_handle);</div>
-<div class="ttc" id="aclassdesignlab_1_1_font_loader_html_a4a3466a84bcce2086502a0bd4e3c5f61"><div class="ttname"><a href="classdesignlab_1_1_font_loader.html#a4a3466a84bcce2086502a0bd4e3c5f61">designlab::FontLoader::GetFontHandle</a></div><div class="ttdeci">int GetFontHandle(const std::string &amp;file_path)</div><div class="ttdoc">Dxlibでは特定のフォントで描画する際に，フォントのハンドルを指定する．   この関数では，フォントのファイルパスを指定すると， フォントのハンドル番号を返す．   フォントがまだ読み込まれていない場...</div><div class="ttdef"><b>Definition</b> <a href="font__loader_8cpp_source.html#l00014">font_loader.cpp:14</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_singleton_html_a1f95c7ccffdb673174f681e9c0d7dde0"><div class="ttname"><a href="classdesignlab_1_1_singleton.html#a1f95c7ccffdb673174f681e9c0d7dde0">designlab::Singleton&lt; FontLoader &gt;::GetIns</a></div><div class="ttdeci">static FontLoader * GetIns()</div><div class="ttdoc">インスタンスを取得する．   このクラスを継承したクラスは クラス名::getIns()-&gt; の形式でメンバ関数を呼び出す．</div><div class="ttdef"><b>Definition</b> <a href="singleton_8h_source.html#l00033">singleton.h:33</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_font_loader_html_a4a3466a84bcce2086502a0bd4e3c5f61"><div class="ttname"><a href="classdesignlab_1_1_font_loader.html#a4a3466a84bcce2086502a0bd4e3c5f61">designlab::FontLoader::GetFontHandle</a></div><div class="ttdeci">int GetFontHandle(const std::string &amp;file_path)</div><div class="ttdoc">Dxlibでは特定のフォントで描画する際に，フォントのハンドルを指定する．   この関数では，フォントのファイルパスを指定すると， フォントのハンドル番号を返す．   フォントがまだ読み込まれていない場...</div><div class="ttdef"><b>Definition</b> <a href="font__loader_8cpp_source.html#l00016">font_loader.cpp:16</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_singleton_html_a1f95c7ccffdb673174f681e9c0d7dde0"><div class="ttname"><a href="classdesignlab_1_1_singleton.html#a1f95c7ccffdb673174f681e9c0d7dde0">designlab::Singleton&lt; FontLoader &gt;::GetIns</a></div><div class="ttdeci">static FontLoader * GetIns()</div><div class="ttdoc">インスタンスを取得する．   このクラスを継承したクラスは クラス名::getIns()-&gt; の形式でメンバ関数を呼び出す．</div><div class="ttdef"><b>Definition</b> <a href="singleton_8h_source.html#l00034">singleton.h:34</a></div></div>
 </div><!-- fragment --> <dl class="section see"><dt>参照</dt><dd><a class="el" href="classdesignlab_1_1_singleton.html" title="Singletonクラス作成のためのテンプレートクラス．">Singleton</a> </dd></dl>
 
-<p class="definition"> <a class="el" href="font__loader_8h_source.html">font_loader.h</a> の <a class="el" href="font__loader_8h_source.html#l00030">30</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="font__loader_8h_source.html">font_loader.h</a> の <a class="el" href="font__loader_8h_source.html#l00031">31</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">関数詳解</h2>
 <a id="a4a3466a84bcce2086502a0bd4e3c5f61" name="a4a3466a84bcce2086502a0bd4e3c5f61"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4a3466a84bcce2086502a0bd4e3c5f61">&#9670;&#160;</a></span>GetFontHandle()</h2>
@@ -173,7 +173,7 @@ designlab::FontLoader 連携図</div>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>フォントのハンドル番号．失敗したら-1を返す．成功値は正の値． </dd></dl>
 
-<p class="definition"> <a class="el" href="font__loader_8cpp_source.html">font_loader.cpp</a> の <a class="el" href="font__loader_8cpp_source.html#l00014">14</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="font__loader_8cpp_source.html">font_loader.cpp</a> の <a class="el" href="font__loader_8cpp_source.html#l00016">16</a> 行目に定義があります。</p>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">

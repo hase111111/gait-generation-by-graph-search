@@ -82,59 +82,63 @@ $(document).ready(function() { init_codefold(0); });
 </div><!--header-->
 <div class="contents">
 <a href="fps__controller_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef DESIGNLAB_FPS_CONTROLLER_H_</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define DESIGNLAB_FPS_CONTROLLER_H_</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;list&gt;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Copyright(c) 2023 Design Engineering Laboratory, Saitama University</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// Released under the MIT license</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// https://opensource.org/licenses/mit-license.php</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DESIGNLAB_FPS_CONTROLLER_H_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DESIGNLAB_FPS_CONTROLLER_H_</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;list&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_fps_controller.html">   31</a></span><span class="keyword">class </span><a class="code hl_class" href="classdesignlab_1_1_fps_controller.html">FpsController</a> final</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_fps_controller.html#a3a37e96e234aac1947a7ca6fb4fae35e">   34</a></span>    <a class="code hl_function" href="classdesignlab_1_1_fps_controller.html#a3a37e96e234aac1947a7ca6fb4fae35e">FpsController</a>() = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="classdesignlab_1_1_fps_controller.html#a3a37e96e234aac1947a7ca6fb4fae35e">FpsController</a>(<span class="keywordtype">int</span> target_fps);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_fps_controller.html#a2d5a5b06fe0bd2cc27a43d10c1fe91d1">Wait</a>();</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_fps_controller.html#a5d1412e0476b8cc98d2218b44b4bc12a">SkipDrawScene</a>();</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_fps_controller.html#afc83b3cee759248c32af7b9a63f10f6c">DrawFps</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">void</span> RegisterTime(<span class="keywordtype">int</span> now_time);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">bool</span> CheckNeedSkipDrawScreen(<span class="keywordtype">int</span>* wait_time) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">bool</span> TargetFpsIsValid() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_fps_controller.html">   32</a></span><span class="keyword">class </span><a class="code hl_class" href="classdesignlab_1_1_fps_controller.html">FpsController</a> final</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_fps_controller.html#a3a37e96e234aac1947a7ca6fb4fae35e">   35</a></span>    <a class="code hl_function" href="classdesignlab_1_1_fps_controller.html#a3a37e96e234aac1947a7ca6fb4fae35e">FpsController</a>() = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="classdesignlab_1_1_fps_controller.html#a3a37e96e234aac1947a7ca6fb4fae35e">FpsController</a>(<span class="keywordtype">int</span> target_fps);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_fps_controller.html#a2d5a5b06fe0bd2cc27a43d10c1fe91d1">Wait</a>();</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_fps_controller.html#a5d1412e0476b8cc98d2218b44b4bc12a">SkipDrawScene</a>();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_fps_controller.html#afc83b3cee759248c32af7b9a63f10f6c">DrawFps</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">void</span> RegisterTime(<span class="keywordtype">int</span> now_time);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">bool</span> CheckNeedSkipDrawScreen(<span class="keywordtype">int</span>* wait_time) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">bool</span> TargetFpsIsValid() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> kTargetFpsValue;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> kOneFrameTime;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> kListMax;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    std::list&lt;int&gt; time_list_;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">bool</span> need_skip_draw_screen_;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>};</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> kTargetFpsValue;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> kOneFrameTime;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> kListMax;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    std::list&lt;int&gt; time_list_;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">bool</span> need_skip_draw_screen_;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>};</div>
 </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>}  <span class="comment">// namespace designlab</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>}  <span class="comment">// namespace designlab</span></div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_FPS_CONTROLLER_H_</span></div>
-<div class="ttc" id="aclassdesignlab_1_1_fps_controller_html"><div class="ttname"><a href="classdesignlab_1_1_fps_controller.html">designlab::FpsController</a></div><div class="ttdoc">FPSを一定にキープするためのクラス．</div><div class="ttdef"><b>Definition</b> <a href="fps__controller_8h_source.html#l00031">fps_controller.h:32</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_fps_controller_html_a2d5a5b06fe0bd2cc27a43d10c1fe91d1"><div class="ttname"><a href="classdesignlab_1_1_fps_controller.html#a2d5a5b06fe0bd2cc27a43d10c1fe91d1">designlab::FpsController::Wait</a></div><div class="ttdeci">void Wait()</div><div class="ttdoc">処理が早すぎる場合，FPSを一定にするために待つ．</div><div class="ttdef"><b>Definition</b> <a href="fps__controller_8cpp_source.html#l00026">fps_controller.cpp:26</a></div></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_FPS_CONTROLLER_H_</span></div>
+<div class="ttc" id="aclassdesignlab_1_1_fps_controller_html"><div class="ttname"><a href="classdesignlab_1_1_fps_controller.html">designlab::FpsController</a></div><div class="ttdoc">FPSを一定にキープするためのクラス．</div><div class="ttdef"><b>Definition</b> <a href="fps__controller_8h_source.html#l00032">fps_controller.h:33</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_fps_controller_html_a2d5a5b06fe0bd2cc27a43d10c1fe91d1"><div class="ttname"><a href="classdesignlab_1_1_fps_controller.html#a2d5a5b06fe0bd2cc27a43d10c1fe91d1">designlab::FpsController::Wait</a></div><div class="ttdeci">void Wait()</div><div class="ttdoc">処理が早すぎる場合，FPSを一定にするために待つ．</div><div class="ttdef"><b>Definition</b> <a href="fps__controller_8cpp_source.html#l00028">fps_controller.cpp:28</a></div></div>
 <div class="ttc" id="aclassdesignlab_1_1_fps_controller_html_a3a37e96e234aac1947a7ca6fb4fae35e"><div class="ttname"><a href="classdesignlab_1_1_fps_controller.html#a3a37e96e234aac1947a7ca6fb4fae35e">designlab::FpsController::FpsController</a></div><div class="ttdeci">FpsController()=delete</div></div>
-<div class="ttc" id="aclassdesignlab_1_1_fps_controller_html_a5d1412e0476b8cc98d2218b44b4bc12a"><div class="ttname"><a href="classdesignlab_1_1_fps_controller.html#a5d1412e0476b8cc98d2218b44b4bc12a">designlab::FpsController::SkipDrawScene</a></div><div class="ttdeci">bool SkipDrawScene()</div><div class="ttdoc">60Hz以上のモニター使用時に処理が詰まって画面がちらつかないように， 描画処理をスキップするかどうかを判定する．</div><div class="ttdef"><b>Definition</b> <a href="fps__controller_8cpp_source.html#l00055">fps_controller.cpp:55</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_fps_controller_html_afc83b3cee759248c32af7b9a63f10f6c"><div class="ttname"><a href="classdesignlab_1_1_fps_controller.html#afc83b3cee759248c32af7b9a63f10f6c">designlab::FpsController::DrawFps</a></div><div class="ttdeci">void DrawFps() const</div><div class="ttdef"><b>Definition</b> <a href="fps__controller_8cpp_source.html#l00072">fps_controller.cpp:72</a></div></div>
-<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00015">abstract_dxlib_gui.cpp:16</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_fps_controller_html_a5d1412e0476b8cc98d2218b44b4bc12a"><div class="ttname"><a href="classdesignlab_1_1_fps_controller.html#a5d1412e0476b8cc98d2218b44b4bc12a">designlab::FpsController::SkipDrawScene</a></div><div class="ttdeci">bool SkipDrawScene()</div><div class="ttdoc">60Hz以上のモニター使用時に処理が詰まって画面がちらつかないように， 描画処理をスキップするかどうかを判定する．</div><div class="ttdef"><b>Definition</b> <a href="fps__controller_8cpp_source.html#l00057">fps_controller.cpp:57</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_fps_controller_html_afc83b3cee759248c32af7b9a63f10f6c"><div class="ttname"><a href="classdesignlab_1_1_fps_controller.html#afc83b3cee759248c32af7b9a63f10f6c">designlab::FpsController::DrawFps</a></div><div class="ttdeci">void DrawFps() const</div><div class="ttdef"><b>Definition</b> <a href="fps__controller_8cpp_source.html#l00074">fps_controller.cpp:74</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00017">abstract_dxlib_gui.cpp:18</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

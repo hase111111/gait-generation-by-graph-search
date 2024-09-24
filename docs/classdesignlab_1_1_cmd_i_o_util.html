@@ -194,13 +194,13 @@ $(function() {
 <div class="line"><a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#a68c98202eefde10ffc3010ebd20ce395">CmdIOUtil::DoOutput</a>(<span class="keyword">true</span>);</div>
 <div class="line"><span class="comment">// 出力</span></div>
 <div class="line"><a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2">CmdIOUtil::Output</a>(<span class="stringliteral">&quot;Hello World!&quot;</span>, <a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a176a473e63c17ccdac91640c67f149bf">OutputDetail::kInfo</a>);</div>
-<div class="ttc" id="aclassdesignlab_1_1_cmd_i_o_util_html_a36a151f3c6a49d4b1253332516ca3de2"><div class="ttname"><a href="classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2">designlab::CmdIOUtil::Output</a></div><div class="ttdeci">static void Output(const std::string &amp;str, OutputDetail detail)</div><div class="ttdoc">コマンドラインに文字を出力する関数．   SetOutputLimit() で設定した出力の許可範囲内であれば出力される．   必ず SetOutputLimit() を呼び出してから使うこと．</div><div class="ttdef"><b>Definition</b> <a href="cmdio__util_8cpp_source.html#l00053">cmdio_util.cpp:53</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_cmd_i_o_util_html_a68c98202eefde10ffc3010ebd20ce395"><div class="ttname"><a href="classdesignlab_1_1_cmd_i_o_util.html#a68c98202eefde10ffc3010ebd20ce395">designlab::CmdIOUtil::DoOutput</a></div><div class="ttdeci">static void DoOutput(bool do_output)</div><div class="ttdoc">そもそも出力をするかを設定する関数．   false に設定しても システムメッセージは出力される．</div><div class="ttdef"><b>Definition</b> <a href="cmdio__util_8cpp_source.html#l00047">cmdio_util.cpp:47</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_cmd_i_o_util_html_ada2e0e9f3f180796f27327e8a6e8a2bf"><div class="ttname"><a href="classdesignlab_1_1_cmd_i_o_util.html#ada2e0e9f3f180796f27327e8a6e8a2bf">designlab::CmdIOUtil::SetOutputLimit</a></div><div class="ttdeci">static void SetOutputLimit(OutputDetail limit)</div><div class="ttdoc">出力するメッセージをどこまで許可するかを設定する関数．   この関数を呼び出してから出ないと，他の関数を使えない．   例えば kError に設定すると，kError 未満の出力( kInfo とか ...</div><div class="ttdef"><b>Definition</b> <a href="cmdio__util_8cpp_source.html#l00029">cmdio_util.cpp:29</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_cmd_i_o_util_html_a36a151f3c6a49d4b1253332516ca3de2"><div class="ttname"><a href="classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2">designlab::CmdIOUtil::Output</a></div><div class="ttdeci">static void Output(const std::string &amp;str, OutputDetail detail)</div><div class="ttdoc">コマンドラインに文字を出力する関数．   SetOutputLimit() で設定した出力の許可範囲内であれば出力される．   必ず SetOutputLimit() を呼び出してから使うこと．</div><div class="ttdef"><b>Definition</b> <a href="cmdio__util_8cpp_source.html#l00056">cmdio_util.cpp:56</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_cmd_i_o_util_html_a68c98202eefde10ffc3010ebd20ce395"><div class="ttname"><a href="classdesignlab_1_1_cmd_i_o_util.html#a68c98202eefde10ffc3010ebd20ce395">designlab::CmdIOUtil::DoOutput</a></div><div class="ttdeci">static void DoOutput(bool do_output)</div><div class="ttdoc">そもそも出力をするかを設定する関数．   false に設定しても システムメッセージは出力される．</div><div class="ttdef"><b>Definition</b> <a href="cmdio__util_8cpp_source.html#l00050">cmdio_util.cpp:50</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_cmd_i_o_util_html_ada2e0e9f3f180796f27327e8a6e8a2bf"><div class="ttname"><a href="classdesignlab_1_1_cmd_i_o_util.html#ada2e0e9f3f180796f27327e8a6e8a2bf">designlab::CmdIOUtil::SetOutputLimit</a></div><div class="ttdeci">static void SetOutputLimit(OutputDetail limit)</div><div class="ttdoc">出力するメッセージをどこまで許可するかを設定する関数．   この関数を呼び出してから出ないと，他の関数を使えない．   例えば kError に設定すると，kError 未満の出力( kInfo とか ...</div><div class="ttdef"><b>Definition</b> <a href="cmdio__util_8cpp_source.html#l00032">cmdio_util.cpp:32</a></div></div>
 <div class="ttc" id="anamespacedesignlab_html_a43f5ea9398e73bc5134e238b7e8c5645a176a473e63c17ccdac91640c67f149bf"><div class="ttname"><a href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a176a473e63c17ccdac91640c67f149bf">designlab::OutputDetail::kInfo</a></div><div class="ttdeci">@ kInfo</div><div class="ttdoc">優先度低めの情報．</div></div>
 <div class="ttc" id="anamespacedesignlab_html_a43f5ea9398e73bc5134e238b7e8c5645abb53ce21b7c0b7c8a8f7860a41901d29"><div class="ttname"><a href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645abb53ce21b7c0b7c8a8f7860a41901d29">designlab::OutputDetail::kDebug</a></div><div class="ttdeci">@ kDebug</div><div class="ttdoc">デバッグ時のみ出力，一番優先度が低い．</div></div>
 </div><!-- fragment --> 
-<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00043">43</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00045">45</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">構築子と解体子</h2>
 <a id="aab57364355e93ab5d243f042962b1937" name="aab57364355e93ab5d243f042962b1937"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aab57364355e93ab5d243f042962b1937">&#9670;&#160;</a></span>CmdIOUtil() <span class="overload">[1/3]</span></h2>
@@ -318,7 +318,7 @@ $(function() {
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00075">75</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00077">77</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -383,7 +383,7 @@ $(function() {
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00047">47</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00050">50</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -419,7 +419,7 @@ $(function() {
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00096">96</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00098">98</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -509,7 +509,7 @@ template&lt;typename... Args&gt; </div>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00115">115</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00117">117</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -617,7 +617,7 @@ template&lt;typename... Args&gt; </div>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00082">82</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00084">84</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -688,7 +688,7 @@ template&lt;typename... Args&gt; </div>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>入力されたディレクトリ名． </dd></dl>
 
-<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00283">283</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00286">286</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -771,7 +771,7 @@ template&lt;typename... Args&gt; </div>
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>入力された整数． </dd></dl>
 
-<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00224">224</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00227">227</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -851,7 +851,7 @@ template&lt;typename... Args&gt; </div>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00259">259</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00262">262</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -976,7 +976,7 @@ template&lt;typename... Args&gt; </div>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00053">53</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00056">56</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -1181,7 +1181,7 @@ template&lt;typename... Args&gt; </div>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00114">114</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00117">117</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -1265,7 +1265,7 @@ template&lt;typename... Args&gt; </div>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00181">181</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00184">184</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -1357,7 +1357,7 @@ template&lt;typename... Args&gt; </div>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00171">171</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00174">174</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -1472,7 +1472,7 @@ template&lt;typename... Args&gt; </div>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00142">142</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00145">145</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -1556,7 +1556,7 @@ template&lt;typename... Args&gt; </div>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00195">195</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00198">198</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -1637,7 +1637,7 @@ template&lt;typename... Args&gt; </div>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00029">29</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00032">32</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -1716,7 +1716,7 @@ template&lt;typename... Args&gt; </div>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00128">128</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00130">130</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -1793,7 +1793,7 @@ template&lt;typename... Args&gt; </div>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00107">107</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00110">110</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -1863,7 +1863,7 @@ template&lt;typename... Args&gt; </div>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00103">103</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00105">105</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -1942,7 +1942,7 @@ template&lt;typename... Args&gt; </div>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00216">216</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00219">219</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -2010,7 +2010,7 @@ template&lt;typename... Args&gt; </div>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00089">89</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00091">91</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">

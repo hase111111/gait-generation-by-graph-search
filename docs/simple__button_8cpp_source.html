@@ -82,225 +82,229 @@ $(document).ready(function() { init_codefold(0); });
 </div><!--header-->
 <div class="contents">
 <a href="simple__button_8cpp.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="simple__button_8h.html">simple_button.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Copyright(c) 2023 Design Engineering Laboratory, Saitama University</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// Released under the MIT license</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// https://opensource.org/licenses/mit-license.php</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="simple__button_8h.html">simple_button.h</a>&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;Dxlib.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="cassert__define_8h.html">cassert_define.h</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="math__util_8h.html">math_util.h</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="string__util_8h.html">string_util.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="font__loader_8h.html">font_loader.h</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="foldopen" id="foldopen00021" data-start="{" data-end="}">
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_simple_button.html#a0ab178942dc6c0d5fd5bd5919ba0c7ee">   21</a></span><a class="code hl_function" href="classdesignlab_1_1_simple_button.html#ab21c14244970b81a212e8c500be0c5d6">SimpleButton::SimpleButton</a>(</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">const</span> std::string&amp; text,</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> pos_x, <span class="keyword">const</span> <span class="keywordtype">int</span> pos_y, <span class="keyword">const</span> <span class="keywordtype">int</span> size_x, <span class="keyword">const</span> <span class="keywordtype">int</span> size_y,</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">const</span> <span class="keywordtype">bool</span> fit_size) :</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    text_(string_util::Split(text, <span class="stringliteral">&quot;\n&quot;</span>)),</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    pos_middle_x(pos_x),</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    pos_middle_y(pos_y),</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    kSizeX(fit_size ? GetFitButtonSizeX(size_x) : size_x),</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    kSizeY(fit_size ? GetFitButtonSizeX(size_y) : size_y)</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    assert(0 &lt; kSizeX);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    assert(0 &lt; kSizeY);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;Dxlib.h&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="cassert__define_8h.html">cassert_define.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="math__util_8h.html">math_util.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="string__util_8h.html">string_util.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="font__loader_8h.html">font_loader.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="}">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_simple_button.html#a0ab178942dc6c0d5fd5bd5919ba0c7ee">   23</a></span><a class="code hl_function" href="classdesignlab_1_1_simple_button.html#ab21c14244970b81a212e8c500be0c5d6">SimpleButton::SimpleButton</a>(</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">const</span> std::string&amp; text,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> pos_x, <span class="keyword">const</span> <span class="keywordtype">int</span> pos_y, <span class="keyword">const</span> <span class="keywordtype">int</span> size_x, <span class="keyword">const</span> <span class="keywordtype">int</span> size_y,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">const</span> <span class="keywordtype">bool</span> fit_size) :</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    text_(string_util::Split(text, <span class="stringliteral">&quot;\n&quot;</span>)),</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    pos_middle_x(pos_x),</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    pos_middle_y(pos_y),</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    kSizeX(fit_size ? GetFitButtonSizeX(size_x) : size_x),</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    kSizeY(fit_size ? GetFitButtonSizeX(size_y) : size_y)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    assert(0 &lt; kSizeX);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    assert(0 &lt; kSizeY);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>}</div>
 </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_simple_button.html#a2172c4fc4df4e4d283550131b1e0eca3">   35</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_simple_button.html#a2172c4fc4df4e4d283550131b1e0eca3">SimpleButton::SetPos</a>(</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> pos_x, <span class="keyword">const</span> <span class="keywordtype">int</span> pos_y, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> option)</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">if</span> (option &amp; <a class="code hl_variable" href="namespacedesignlab.html#ab11bb3b4e663eaabdebee5dddcea6d7d">kDxlibGuiAnchorLeft</a>)</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    {</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        pos_middle_x = pos_x - kSizeX / 2;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    }</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (option &amp; <a class="code hl_variable" href="namespacedesignlab.html#a47768117974f9a4cfc656172b7883567">kDxlibGuiAnchorMiddleX</a>)</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    {</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        pos_middle_x = pos_x;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (option &amp; <a class="code hl_variable" href="namespacedesignlab.html#ac38bbd15d0858800247199b87816bdc6">kDxlibGuiAnchorRight</a>)</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        pos_middle_x = pos_x + kSizeX / 2;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    }</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordflow">if</span> (option &amp; <a class="code hl_variable" href="namespacedesignlab.html#a243f54073ec0650e2a5670f53002e909">kDxlibGuiAnchorTop</a>)</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    {</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        pos_middle_y = pos_y - kSizeY / 2;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    }</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (option &amp; <a class="code hl_variable" href="namespacedesignlab.html#af564d187d154a9c518be92e179bd7b03">kDxlibGuiAnchorMiddleY</a>)</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    {</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        pos_middle_y = pos_y;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (option &amp; <a class="code hl_variable" href="namespacedesignlab.html#a50191ffbef8cb53dd9ff2885e73fcd1f">kDxlibGuiAnchorBottom</a>)</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    {</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        pos_middle_y = pos_y + kSizeY / 2;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_simple_button.html#a2172c4fc4df4e4d283550131b1e0eca3">   37</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_simple_button.html#a2172c4fc4df4e4d283550131b1e0eca3">SimpleButton::SetPos</a>(</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> pos_x, <span class="keyword">const</span> <span class="keywordtype">int</span> pos_y, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> option)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">if</span> (option &amp; <a class="code hl_variable" href="namespacedesignlab.html#ab11bb3b4e663eaabdebee5dddcea6d7d">kDxlibGuiAnchorLeft</a>)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        pos_middle_x = pos_x - kSizeX / 2;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (option &amp; <a class="code hl_variable" href="namespacedesignlab.html#a47768117974f9a4cfc656172b7883567">kDxlibGuiAnchorMiddleX</a>)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        pos_middle_x = pos_x;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (option &amp; <a class="code hl_variable" href="namespacedesignlab.html#ac38bbd15d0858800247199b87816bdc6">kDxlibGuiAnchorRight</a>)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        pos_middle_x = pos_x + kSizeX / 2;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">if</span> (option &amp; <a class="code hl_variable" href="namespacedesignlab.html#a243f54073ec0650e2a5670f53002e909">kDxlibGuiAnchorTop</a>)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        pos_middle_y = pos_y - kSizeY / 2;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (option &amp; <a class="code hl_variable" href="namespacedesignlab.html#af564d187d154a9c518be92e179bd7b03">kDxlibGuiAnchorMiddleY</a>)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        pos_middle_y = pos_y;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (option &amp; <a class="code hl_variable" href="namespacedesignlab.html#a50191ffbef8cb53dd9ff2885e73fcd1f">kDxlibGuiAnchorBottom</a>)</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        pos_middle_y = pos_y + kSizeY / 2;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    }</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}</div>
 </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_simple_button.html#a457f013b6ca3c46f96c23a2946aeb2fa">   65</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_simple_button.html#a457f013b6ca3c46f96c23a2946aeb2fa">SimpleButton::Update</a>()</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>{</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="comment">// now_color_blue_を target_color_blue_ に近づける．</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    now_color_blue_ =</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a0bb65d79aff7212b0ea64882f22b9b1b">math_util::ApproachTarget</a>(now_color_blue_, target_color_blue_, 0.1f);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    target_color_blue_ -= 4;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    target_color_blue_ = target_color_blue_ &lt; 0 ? 0 : target_color_blue_;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>}</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="foldopen" id="foldopen00067" data-start="{" data-end="}">
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_simple_button.html#a457f013b6ca3c46f96c23a2946aeb2fa">   67</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_simple_button.html#a457f013b6ca3c46f96c23a2946aeb2fa">SimpleButton::Update</a>()</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>{</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="comment">// now_color_blue_を target_color_blue_ に近づける．</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    now_color_blue_ =</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a0bb65d79aff7212b0ea64882f22b9b1b">math_util::ApproachTarget</a>(now_color_blue_, target_color_blue_, 0.1f);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    target_color_blue_ -= 4;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    target_color_blue_ = target_color_blue_ &lt; 0 ? 0 : target_color_blue_;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}</div>
 </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="foldopen" id="foldopen00075" data-start="{" data-end="}">
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_simple_button.html#a2eef161f2499afff52e80f6c7254954e">   75</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_simple_button.html#a2eef161f2499afff52e80f6c7254954e">SimpleButton::Draw</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordflow">if</span> (!visible_) { <span class="keywordflow">return</span>; }</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> base_color = GetColor(128, 128, 128);</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> button_color =</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        GetColor(255 - now_color_blue_, 255 - now_color_blue_ / 2, 255);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> str_color = GetColor(20, 20, 20);</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> frame_size = 1;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="comment">// ベースを描画．</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    DrawBox(</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>      pos_middle_x - kSizeX / 2,</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>      pos_middle_y - kSizeY / 2,</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>      pos_middle_x + kSizeX / 2,</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>      pos_middle_y + kSizeY / 2,</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>      base_color,</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>      TRUE);</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="comment">// その上にボタンを描画．</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    DrawBox(</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>      pos_middle_x - kSizeX / 2 + frame_size,</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>      pos_middle_y - kSizeY / 2 + frame_size,</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>      pos_middle_x + kSizeX / 2 - frame_size,</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>      pos_middle_y + kSizeY / 2 - frame_size,</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>      button_color,</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>      TRUE);</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="comment">// テキストを表示．</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> font_handle =</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <a class="code hl_function" href="classdesignlab_1_1_singleton.html#a1f95c7ccffdb673174f681e9c0d7dde0">FontLoader::GetIns</a>()-&gt;<a class="code hl_function" href="classdesignlab_1_1_font_loader.html#a4a3466a84bcce2086502a0bd4e3c5f61">GetFontHandle</a>(<span class="stringliteral">&quot;font/Yu_Gothic_UI.dft&quot;</span>);</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; text_.size(); ++i)</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    {</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keyword">const</span> <span class="keyword">auto</span> text_width = GetDrawStringWidthToHandle(</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            text_[i].c_str(), <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(text_[i].size()), font_handle);</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keyword">const</span> <span class="keyword">auto</span> text_height = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(text_.size()) * kFontSize;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="foldopen" id="foldopen00077" data-start="{" data-end="}">
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_simple_button.html#a2eef161f2499afff52e80f6c7254954e">   77</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_simple_button.html#a2eef161f2499afff52e80f6c7254954e">SimpleButton::Draw</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordflow">if</span> (!visible_) { <span class="keywordflow">return</span>; }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> base_color = GetColor(128, 128, 128);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> button_color =</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        GetColor(255 - now_color_blue_, 255 - now_color_blue_ / 2, 255);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> str_color = GetColor(20, 20, 20);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> frame_size = 1;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="comment">// ベースを描画．</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    DrawBox(</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>      pos_middle_x - kSizeX / 2,</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>      pos_middle_y - kSizeY / 2,</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>      pos_middle_x + kSizeX / 2,</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>      pos_middle_y + kSizeY / 2,</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>      base_color,</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>      TRUE);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="comment">// その上にボタンを描画．</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    DrawBox(</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>      pos_middle_x - kSizeX / 2 + frame_size,</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>      pos_middle_y - kSizeY / 2 + frame_size,</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>      pos_middle_x + kSizeX / 2 - frame_size,</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>      pos_middle_y + kSizeY / 2 - frame_size,</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>      button_color,</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>      TRUE);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="comment">// テキストを表示．</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> font_handle =</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <a class="code hl_function" href="classdesignlab_1_1_singleton.html#a1f95c7ccffdb673174f681e9c0d7dde0">FontLoader::GetIns</a>()-&gt;<a class="code hl_function" href="classdesignlab_1_1_font_loader.html#a4a3466a84bcce2086502a0bd4e3c5f61">GetFontHandle</a>(<span class="stringliteral">&quot;font/Yu_Gothic_UI.dft&quot;</span>);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; text_.size(); ++i)</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="keyword">const</span> <span class="keyword">auto</span> text_width = GetDrawStringWidthToHandle(</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            text_[i].c_str(), <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(text_[i].size()), font_handle);</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        DrawStringToHandle(</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            pos_middle_x - text_width / 2,</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            pos_middle_y - text_height / 2 + i * kFontSize,</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            text_[i].c_str(),</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            str_color,</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            font_handle);</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    }</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>}</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keyword">const</span> <span class="keyword">auto</span> text_height = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(text_.size()) * kFontSize;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        DrawStringToHandle(</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            pos_middle_x - text_width / 2,</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            pos_middle_y - text_height / 2 + i * kFontSize,</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            text_[i].c_str(),</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            str_color,</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            font_handle);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    }</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>}</div>
 </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="foldopen" id="foldopen00123" data-start="{" data-end="}">
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_simple_button.html#ae02c78ddebd16c746b046c9df210e000">  123</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_simple_button.html#ae02c78ddebd16c746b046c9df210e000">SimpleButton::ClickedAction</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_dxlib_mouse_state.html">DxlibMouseState</a>&amp; state)</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>{</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    target_color_blue_ = 64;</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keywordflow">if</span> (click_function_ &amp;&amp;</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        visible_ &amp;&amp;</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        state.<a class="code hl_variable" href="structdesignlab_1_1_dxlib_mouse_state.html#aacf2003cae6dc2948ff069f9cce70e47">left_pushing_count</a> == 1)</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    {</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        now_color_blue_ = 128;</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        click_function_();</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    }</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>}</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="foldopen" id="foldopen00125" data-start="{" data-end="}">
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_simple_button.html#ae02c78ddebd16c746b046c9df210e000">  125</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_simple_button.html#ae02c78ddebd16c746b046c9df210e000">SimpleButton::ClickedAction</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_dxlib_mouse_state.html">DxlibMouseState</a>&amp; state)</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>{</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    target_color_blue_ = 64;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keywordflow">if</span> (click_function_ &amp;&amp;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        visible_ &amp;&amp;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        state.<a class="code hl_variable" href="structdesignlab_1_1_dxlib_mouse_state.html#aacf2003cae6dc2948ff069f9cce70e47">left_pushing_count</a> == 1)</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    {</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        now_color_blue_ = 128;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        click_function_();</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    }</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>}</div>
 </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
-<div class="foldopen" id="foldopen00137" data-start="{" data-end="}">
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_simple_button.html#a9276d574483a456e85347626610ed6b0">  137</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_simple_button.html#a9276d574483a456e85347626610ed6b0">SimpleButton::CursorOnGui</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> cursor_x, <span class="keyword">const</span> <span class="keywordtype">int</span> cursor_y) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>{</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordflow">return</span> pos_middle_x - kSizeX / 2 &lt; cursor_x &amp;&amp;</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        cursor_x &lt; pos_middle_x + kSizeX / 2 &amp;&amp;</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        pos_middle_y - kSizeY / 2 &lt; cursor_y &amp;&amp;</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        cursor_y &lt; pos_middle_y + kSizeY / 2;</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>}</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="foldopen" id="foldopen00139" data-start="{" data-end="}">
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_simple_button.html#a9276d574483a456e85347626610ed6b0">  139</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_simple_button.html#a9276d574483a456e85347626610ed6b0">SimpleButton::CursorOnGui</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> cursor_x, <span class="keyword">const</span> <span class="keywordtype">int</span> cursor_y) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>{</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="keywordflow">return</span> pos_middle_x - kSizeX / 2 &lt; cursor_x &amp;&amp;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        cursor_x &lt; pos_middle_x + kSizeX / 2 &amp;&amp;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        pos_middle_y - kSizeY / 2 &lt; cursor_y &amp;&amp;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        cursor_y &lt; pos_middle_y + kSizeY / 2;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>}</div>
 </div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="keywordtype">int</span> SimpleButton::GetFitButtonSizeX(<span class="keyword">const</span> <span class="keywordtype">int</span> now_size_x) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>{</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="comment">// 文字列の中からもっと横幅が大きいものを探す．</span></div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> font_handle =</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <a class="code hl_function" href="classdesignlab_1_1_singleton.html#a1f95c7ccffdb673174f681e9c0d7dde0">FontLoader::GetIns</a>()-&gt;<a class="code hl_function" href="classdesignlab_1_1_font_loader.html#a4a3466a84bcce2086502a0bd4e3c5f61">GetFontHandle</a>(<span class="stringliteral">&quot;font/Yu_Gothic_UI.dft&quot;</span>);</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keywordtype">int</span> max_width = 0;</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; i : text_)</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    {</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        <span class="keyword">const</span> <span class="keywordtype">int</span> width = GetDrawStringWidthToHandle(</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>            i.c_str(), <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(i.size()), font_handle);</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        <span class="keywordflow">if</span> (max_width &lt; width)</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        {</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            max_width = width;</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        }</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    }</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="comment">// 横幅が大きい文字列に合わせてボタンの横幅を変更する．</span></div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keywordflow">if</span> (now_size_x &lt; max_width)</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    {</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="keywordflow">return</span> max_width;</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    }</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    {</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="keywordflow">return</span> now_size_x;</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    }</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>}</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="keywordtype">int</span> SimpleButton::GetFitButtonSizeY(<span class="keyword">const</span> <span class="keywordtype">int</span> now_size_y) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>{</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordtype">int</span> height = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(text_.size()) * kFontSize;</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keywordflow">if</span> (now_size_y &lt; height)</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    {</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        <span class="keywordflow">return</span> height;</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    }</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    {</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        <span class="keywordflow">return</span> now_size_y;</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    }</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>}</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>}  <span class="comment">// namespace designlab</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="keywordtype">int</span> SimpleButton::GetFitButtonSizeX(<span class="keyword">const</span> <span class="keywordtype">int</span> now_size_x) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>{</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="comment">// 文字列の中からもっと横幅が大きいものを探す．</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> font_handle =</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <a class="code hl_function" href="classdesignlab_1_1_singleton.html#a1f95c7ccffdb673174f681e9c0d7dde0">FontLoader::GetIns</a>()-&gt;<a class="code hl_function" href="classdesignlab_1_1_font_loader.html#a4a3466a84bcce2086502a0bd4e3c5f61">GetFontHandle</a>(<span class="stringliteral">&quot;font/Yu_Gothic_UI.dft&quot;</span>);</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keywordtype">int</span> max_width = 0;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; i : text_)</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    {</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <span class="keyword">const</span> <span class="keywordtype">int</span> width = GetDrawStringWidthToHandle(</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            i.c_str(), <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(i.size()), font_handle);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <span class="keywordflow">if</span> (max_width &lt; width)</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        {</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            max_width = width;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        }</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    }</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <span class="comment">// 横幅が大きい文字列に合わせてボタンの横幅を変更する．</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordflow">if</span> (now_size_x &lt; max_width)</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    {</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        <span class="keywordflow">return</span> max_width;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    }</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    {</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <span class="keywordflow">return</span> now_size_x;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    }</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>}</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="keywordtype">int</span> SimpleButton::GetFitButtonSizeY(<span class="keyword">const</span> <span class="keywordtype">int</span> now_size_y) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>{</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keywordtype">int</span> height = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(text_.size()) * kFontSize;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keywordflow">if</span> (now_size_y &lt; height)</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    {</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        <span class="keywordflow">return</span> height;</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    }</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    {</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        <span class="keywordflow">return</span> now_size_y;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    }</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>}</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>}  <span class="comment">// namespace designlab</span></div>
 <div class="ttc" id="acassert__define_8h_html"><div class="ttname"><a href="cassert__define_8h.html">cassert_define.h</a></div><div class="ttdoc">デバッグモードとリリースモードでアサートを有効化・無効化するためのヘッダファイル．</div></div>
-<div class="ttc" id="aclassdesignlab_1_1_font_loader_html_a4a3466a84bcce2086502a0bd4e3c5f61"><div class="ttname"><a href="classdesignlab_1_1_font_loader.html#a4a3466a84bcce2086502a0bd4e3c5f61">designlab::FontLoader::GetFontHandle</a></div><div class="ttdeci">int GetFontHandle(const std::string &amp;file_path)</div><div class="ttdoc">Dxlibでは特定のフォントで描画する際に，フォントのハンドルを指定する．   この関数では，フォントのファイルパスを指定すると， フォントのハンドル番号を返す．   フォントがまだ読み込まれていない場...</div><div class="ttdef"><b>Definition</b> <a href="font__loader_8cpp_source.html#l00014">font_loader.cpp:14</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_simple_button_html_a2172c4fc4df4e4d283550131b1e0eca3"><div class="ttname"><a href="classdesignlab_1_1_simple_button.html#a2172c4fc4df4e4d283550131b1e0eca3">designlab::SimpleButton::SetPos</a></div><div class="ttdeci">void SetPos(int pos_x, int pos_y, unsigned int option=kDxlibGuiAnchorLeftTop)</div><div class="ttdoc">ボタンの座標を設定する．</div><div class="ttdef"><b>Definition</b> <a href="simple__button_8cpp_source.html#l00035">simple_button.cpp:35</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_simple_button_html_a2eef161f2499afff52e80f6c7254954e"><div class="ttname"><a href="classdesignlab_1_1_simple_button.html#a2eef161f2499afff52e80f6c7254954e">designlab::SimpleButton::Draw</a></div><div class="ttdeci">void Draw() const override</div><div class="ttdoc">GUIの描画．</div><div class="ttdef"><b>Definition</b> <a href="simple__button_8cpp_source.html#l00075">simple_button.cpp:75</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_simple_button_html_a457f013b6ca3c46f96c23a2946aeb2fa"><div class="ttname"><a href="classdesignlab_1_1_simple_button.html#a457f013b6ca3c46f96c23a2946aeb2fa">designlab::SimpleButton::Update</a></div><div class="ttdeci">void Update() override</div><div class="ttdoc">GUIの更新，毎フレーム実行すること．</div><div class="ttdef"><b>Definition</b> <a href="simple__button_8cpp_source.html#l00065">simple_button.cpp:65</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_simple_button_html_a9276d574483a456e85347626610ed6b0"><div class="ttname"><a href="classdesignlab_1_1_simple_button.html#a9276d574483a456e85347626610ed6b0">designlab::SimpleButton::CursorOnGui</a></div><div class="ttdeci">bool CursorOnGui(int cursor_x, int cursor_y) const noexcept override</div><div class="ttdoc">GUIの上にカーソルがあるかどうかを返す．</div><div class="ttdef"><b>Definition</b> <a href="simple__button_8cpp_source.html#l00137">simple_button.cpp:137</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_font_loader_html_a4a3466a84bcce2086502a0bd4e3c5f61"><div class="ttname"><a href="classdesignlab_1_1_font_loader.html#a4a3466a84bcce2086502a0bd4e3c5f61">designlab::FontLoader::GetFontHandle</a></div><div class="ttdeci">int GetFontHandle(const std::string &amp;file_path)</div><div class="ttdoc">Dxlibでは特定のフォントで描画する際に，フォントのハンドルを指定する．   この関数では，フォントのファイルパスを指定すると， フォントのハンドル番号を返す．   フォントがまだ読み込まれていない場...</div><div class="ttdef"><b>Definition</b> <a href="font__loader_8cpp_source.html#l00016">font_loader.cpp:16</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_simple_button_html_a2172c4fc4df4e4d283550131b1e0eca3"><div class="ttname"><a href="classdesignlab_1_1_simple_button.html#a2172c4fc4df4e4d283550131b1e0eca3">designlab::SimpleButton::SetPos</a></div><div class="ttdeci">void SetPos(int pos_x, int pos_y, unsigned int option=kDxlibGuiAnchorLeftTop)</div><div class="ttdoc">ボタンの座標を設定する．</div><div class="ttdef"><b>Definition</b> <a href="simple__button_8cpp_source.html#l00037">simple_button.cpp:37</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_simple_button_html_a2eef161f2499afff52e80f6c7254954e"><div class="ttname"><a href="classdesignlab_1_1_simple_button.html#a2eef161f2499afff52e80f6c7254954e">designlab::SimpleButton::Draw</a></div><div class="ttdeci">void Draw() const override</div><div class="ttdoc">GUIの描画．</div><div class="ttdef"><b>Definition</b> <a href="simple__button_8cpp_source.html#l00077">simple_button.cpp:77</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_simple_button_html_a457f013b6ca3c46f96c23a2946aeb2fa"><div class="ttname"><a href="classdesignlab_1_1_simple_button.html#a457f013b6ca3c46f96c23a2946aeb2fa">designlab::SimpleButton::Update</a></div><div class="ttdeci">void Update() override</div><div class="ttdoc">GUIの更新，毎フレーム実行すること．</div><div class="ttdef"><b>Definition</b> <a href="simple__button_8cpp_source.html#l00067">simple_button.cpp:67</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_simple_button_html_a9276d574483a456e85347626610ed6b0"><div class="ttname"><a href="classdesignlab_1_1_simple_button.html#a9276d574483a456e85347626610ed6b0">designlab::SimpleButton::CursorOnGui</a></div><div class="ttdeci">bool CursorOnGui(int cursor_x, int cursor_y) const noexcept override</div><div class="ttdoc">GUIの上にカーソルがあるかどうかを返す．</div><div class="ttdef"><b>Definition</b> <a href="simple__button_8cpp_source.html#l00139">simple_button.cpp:139</a></div></div>
 <div class="ttc" id="aclassdesignlab_1_1_simple_button_html_ab21c14244970b81a212e8c500be0c5d6"><div class="ttname"><a href="classdesignlab_1_1_simple_button.html#ab21c14244970b81a212e8c500be0c5d6">designlab::SimpleButton::SimpleButton</a></div><div class="ttdeci">SimpleButton()=delete</div><div class="ttdoc">デフォルトコンストラクタは生成できない．</div></div>
-<div class="ttc" id="aclassdesignlab_1_1_simple_button_html_ae02c78ddebd16c746b046c9df210e000"><div class="ttname"><a href="classdesignlab_1_1_simple_button.html#ae02c78ddebd16c746b046c9df210e000">designlab::SimpleButton::ClickedAction</a></div><div class="ttdeci">void ClickedAction(const DxlibMouseState &amp;state) override</div><div class="ttdoc">GUIがクリックされたときに実行される関数．   CursorOnGuiが true を返すときに呼び出される． 複数のGUIが重なっている場合は，優先度の高いものから順に呼び出される．</div><div class="ttdef"><b>Definition</b> <a href="simple__button_8cpp_source.html#l00123">simple_button.cpp:123</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_singleton_html_a1f95c7ccffdb673174f681e9c0d7dde0"><div class="ttname"><a href="classdesignlab_1_1_singleton.html#a1f95c7ccffdb673174f681e9c0d7dde0">designlab::Singleton&lt; FontLoader &gt;::GetIns</a></div><div class="ttdeci">static FontLoader * GetIns()</div><div class="ttdoc">インスタンスを取得する．   このクラスを継承したクラスは クラス名::getIns()-&gt; の形式でメンバ関数を呼び出す．</div><div class="ttdef"><b>Definition</b> <a href="singleton_8h_source.html#l00033">singleton.h:33</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_simple_button_html_ae02c78ddebd16c746b046c9df210e000"><div class="ttname"><a href="classdesignlab_1_1_simple_button.html#ae02c78ddebd16c746b046c9df210e000">designlab::SimpleButton::ClickedAction</a></div><div class="ttdeci">void ClickedAction(const DxlibMouseState &amp;state) override</div><div class="ttdoc">GUIがクリックされたときに実行される関数．   CursorOnGuiが true を返すときに呼び出される． 複数のGUIが重なっている場合は，優先度の高いものから順に呼び出される．</div><div class="ttdef"><b>Definition</b> <a href="simple__button_8cpp_source.html#l00125">simple_button.cpp:125</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_singleton_html_a1f95c7ccffdb673174f681e9c0d7dde0"><div class="ttname"><a href="classdesignlab_1_1_singleton.html#a1f95c7ccffdb673174f681e9c0d7dde0">designlab::Singleton&lt; FontLoader &gt;::GetIns</a></div><div class="ttdeci">static FontLoader * GetIns()</div><div class="ttdoc">インスタンスを取得する．   このクラスを継承したクラスは クラス名::getIns()-&gt; の形式でメンバ関数を呼び出す．</div><div class="ttdef"><b>Definition</b> <a href="singleton_8h_source.html#l00034">singleton.h:34</a></div></div>
 <div class="ttc" id="afont__loader_8h_html"><div class="ttname"><a href="font__loader_8h.html">font_loader.h</a></div></div>
 <div class="ttc" id="amath__util_8h_html"><div class="ttname"><a href="math__util_8h.html">math_util.h</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1math__util_html_a0bb65d79aff7212b0ea64882f22b9b1b"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#a0bb65d79aff7212b0ea64882f22b9b1b">designlab::math_util::ApproachTarget</a></div><div class="ttdeci">T ApproachTarget(const T &amp;current, const T &amp;target, float rate)</div><div class="ttdoc">目標値に値を近づける関数． 描画用なので，線形でなく，適当に値を近づける． そのため，計算に使いたいなら作り直すこと．</div><div class="ttdef"><b>Definition</b> <a href="math__util_8h_source.html#l00084">math_util.h:84</a></div></div>
-<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00015">abstract_dxlib_gui.cpp:16</a></div></div>
-<div class="ttc" id="anamespacedesignlab_html_a243f54073ec0650e2a5670f53002e909"><div class="ttname"><a href="namespacedesignlab.html#a243f54073ec0650e2a5670f53002e909">designlab::kDxlibGuiAnchorTop</a></div><div class="ttdeci">constexpr unsigned int kDxlibGuiAnchorTop</div><div class="ttdef"><b>Definition</b> <a href="interface__dxlib__gui_8h_source.html#l00017">interface_dxlib_gui.h:17</a></div></div>
-<div class="ttc" id="anamespacedesignlab_html_a47768117974f9a4cfc656172b7883567"><div class="ttname"><a href="namespacedesignlab.html#a47768117974f9a4cfc656172b7883567">designlab::kDxlibGuiAnchorMiddleX</a></div><div class="ttdeci">constexpr unsigned int kDxlibGuiAnchorMiddleX</div><div class="ttdef"><b>Definition</b> <a href="interface__dxlib__gui_8h_source.html#l00015">interface_dxlib_gui.h:15</a></div></div>
-<div class="ttc" id="anamespacedesignlab_html_a50191ffbef8cb53dd9ff2885e73fcd1f"><div class="ttname"><a href="namespacedesignlab.html#a50191ffbef8cb53dd9ff2885e73fcd1f">designlab::kDxlibGuiAnchorBottom</a></div><div class="ttdeci">constexpr unsigned int kDxlibGuiAnchorBottom</div><div class="ttdef"><b>Definition</b> <a href="interface__dxlib__gui_8h_source.html#l00019">interface_dxlib_gui.h:19</a></div></div>
-<div class="ttc" id="anamespacedesignlab_html_ab11bb3b4e663eaabdebee5dddcea6d7d"><div class="ttname"><a href="namespacedesignlab.html#ab11bb3b4e663eaabdebee5dddcea6d7d">designlab::kDxlibGuiAnchorLeft</a></div><div class="ttdeci">constexpr unsigned int kDxlibGuiAnchorLeft</div><div class="ttdef"><b>Definition</b> <a href="interface__dxlib__gui_8h_source.html#l00014">interface_dxlib_gui.h:14</a></div></div>
-<div class="ttc" id="anamespacedesignlab_html_ac38bbd15d0858800247199b87816bdc6"><div class="ttname"><a href="namespacedesignlab.html#ac38bbd15d0858800247199b87816bdc6">designlab::kDxlibGuiAnchorRight</a></div><div class="ttdeci">constexpr unsigned int kDxlibGuiAnchorRight</div><div class="ttdef"><b>Definition</b> <a href="interface__dxlib__gui_8h_source.html#l00016">interface_dxlib_gui.h:16</a></div></div>
-<div class="ttc" id="anamespacedesignlab_html_af564d187d154a9c518be92e179bd7b03"><div class="ttname"><a href="namespacedesignlab.html#af564d187d154a9c518be92e179bd7b03">designlab::kDxlibGuiAnchorMiddleY</a></div><div class="ttdeci">constexpr unsigned int kDxlibGuiAnchorMiddleY</div><div class="ttdef"><b>Definition</b> <a href="interface__dxlib__gui_8h_source.html#l00018">interface_dxlib_gui.h:18</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1math__util_html_a0bb65d79aff7212b0ea64882f22b9b1b"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#a0bb65d79aff7212b0ea64882f22b9b1b">designlab::math_util::ApproachTarget</a></div><div class="ttdeci">T ApproachTarget(const T &amp;current, const T &amp;target, float rate)</div><div class="ttdoc">目標値に値を近づける関数． 描画用なので，線形でなく，適当に値を近づける． そのため，計算に使いたいなら作り直すこと．</div><div class="ttdef"><b>Definition</b> <a href="math__util_8h_source.html#l00085">math_util.h:85</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00017">abstract_dxlib_gui.cpp:18</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html_a243f54073ec0650e2a5670f53002e909"><div class="ttname"><a href="namespacedesignlab.html#a243f54073ec0650e2a5670f53002e909">designlab::kDxlibGuiAnchorTop</a></div><div class="ttdeci">constexpr unsigned int kDxlibGuiAnchorTop</div><div class="ttdef"><b>Definition</b> <a href="interface__dxlib__gui_8h_source.html#l00018">interface_dxlib_gui.h:18</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html_a47768117974f9a4cfc656172b7883567"><div class="ttname"><a href="namespacedesignlab.html#a47768117974f9a4cfc656172b7883567">designlab::kDxlibGuiAnchorMiddleX</a></div><div class="ttdeci">constexpr unsigned int kDxlibGuiAnchorMiddleX</div><div class="ttdef"><b>Definition</b> <a href="interface__dxlib__gui_8h_source.html#l00016">interface_dxlib_gui.h:16</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html_a50191ffbef8cb53dd9ff2885e73fcd1f"><div class="ttname"><a href="namespacedesignlab.html#a50191ffbef8cb53dd9ff2885e73fcd1f">designlab::kDxlibGuiAnchorBottom</a></div><div class="ttdeci">constexpr unsigned int kDxlibGuiAnchorBottom</div><div class="ttdef"><b>Definition</b> <a href="interface__dxlib__gui_8h_source.html#l00020">interface_dxlib_gui.h:20</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html_ab11bb3b4e663eaabdebee5dddcea6d7d"><div class="ttname"><a href="namespacedesignlab.html#ab11bb3b4e663eaabdebee5dddcea6d7d">designlab::kDxlibGuiAnchorLeft</a></div><div class="ttdeci">constexpr unsigned int kDxlibGuiAnchorLeft</div><div class="ttdef"><b>Definition</b> <a href="interface__dxlib__gui_8h_source.html#l00015">interface_dxlib_gui.h:15</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html_ac38bbd15d0858800247199b87816bdc6"><div class="ttname"><a href="namespacedesignlab.html#ac38bbd15d0858800247199b87816bdc6">designlab::kDxlibGuiAnchorRight</a></div><div class="ttdeci">constexpr unsigned int kDxlibGuiAnchorRight</div><div class="ttdef"><b>Definition</b> <a href="interface__dxlib__gui_8h_source.html#l00017">interface_dxlib_gui.h:17</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html_af564d187d154a9c518be92e179bd7b03"><div class="ttname"><a href="namespacedesignlab.html#af564d187d154a9c518be92e179bd7b03">designlab::kDxlibGuiAnchorMiddleY</a></div><div class="ttdeci">constexpr unsigned int kDxlibGuiAnchorMiddleY</div><div class="ttdef"><b>Definition</b> <a href="interface__dxlib__gui_8h_source.html#l00019">interface_dxlib_gui.h:19</a></div></div>
 <div class="ttc" id="asimple__button_8h_html"><div class="ttname"><a href="simple__button_8h.html">simple_button.h</a></div></div>
 <div class="ttc" id="astring__util_8h_html"><div class="ttname"><a href="string__util_8h.html">string_util.h</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_dxlib_mouse_state_html"><div class="ttname"><a href="structdesignlab_1_1_dxlib_mouse_state.html">designlab::DxlibMouseState</a></div><div class="ttdoc">マウスの状態を表す構造体．</div><div class="ttdef"><b>Definition</b> <a href="interface__dxlib__clickable_8h_source.html#l00022">interface_dxlib_clickable.h:23</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_dxlib_mouse_state_html_aacf2003cae6dc2948ff069f9cce70e47"><div class="ttname"><a href="structdesignlab_1_1_dxlib_mouse_state.html#aacf2003cae6dc2948ff069f9cce70e47">designlab::DxlibMouseState::left_pushing_count</a></div><div class="ttdeci">int left_pushing_count</div><div class="ttdoc">マウスの左ボタンが押されているフレーム数．</div><div class="ttdef"><b>Definition</b> <a href="interface__dxlib__clickable_8h_source.html#l00031">interface_dxlib_clickable.h:31</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_dxlib_mouse_state_html"><div class="ttname"><a href="structdesignlab_1_1_dxlib_mouse_state.html">designlab::DxlibMouseState</a></div><div class="ttdoc">マウスの状態を表す構造体．</div><div class="ttdef"><b>Definition</b> <a href="interface__dxlib__clickable_8h_source.html#l00023">interface_dxlib_clickable.h:24</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_dxlib_mouse_state_html_aacf2003cae6dc2948ff069f9cce70e47"><div class="ttname"><a href="structdesignlab_1_1_dxlib_mouse_state.html#aacf2003cae6dc2948ff069f9cce70e47">designlab::DxlibMouseState::left_pushing_count</a></div><div class="ttdeci">int left_pushing_count</div><div class="ttdoc">マウスの左ボタンが押されているフレーム数．</div><div class="ttdef"><b>Definition</b> <a href="interface__dxlib__clickable_8h_source.html#l00032">interface_dxlib_clickable.h:32</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

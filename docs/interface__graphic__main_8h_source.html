@@ -82,37 +82,41 @@ $(document).ready(function() { init_codefold(0); });
 </div><!--header-->
 <div class="contents">
 <a href="interface__graphic__main_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef DESIGNLAB_INTERFACE_GRAPHIC_MAIN_H_</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define DESIGNLAB_INTERFACE_GRAPHIC_MAIN_H_</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_i_graphic_main.html">   19</a></span><span class="keyword">class </span><a class="code hl_class" href="classdesignlab_1_1_i_graphic_main.html">IGraphicMain</a></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_i_graphic_main.html#abdcd761f493bd4cfbc2bf53c299e1c27">   22</a></span>    <a class="code hl_function" href="classdesignlab_1_1_i_graphic_main.html#abdcd761f493bd4cfbc2bf53c299e1c27">IGraphicMain</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_i_graphic_main.html#a8a02bec6755476afffb3197a29389d41">   23</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classdesignlab_1_1_i_graphic_main.html#a8a02bec6755476afffb3197a29389d41">~IGraphicMain</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_i_graphic_main.html#aedfa3f7af0e078b794f479c47e51ba8f">   29</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_i_graphic_main.html#aedfa3f7af0e078b794f479c47e51ba8f">Update</a>() = 0;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_i_graphic_main.html#a4ad73f9dd139df69b2afbf6b6dc4a213">   34</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_i_graphic_main.html#a4ad73f9dd139df69b2afbf6b6dc4a213">Draw</a>() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>};</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Copyright(c) 2023 Design Engineering Laboratory, Saitama University</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// Released under the MIT license</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// https://opensource.org/licenses/mit-license.php</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DESIGNLAB_INTERFACE_GRAPHIC_MAIN_H_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DESIGNLAB_INTERFACE_GRAPHIC_MAIN_H_</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_i_graphic_main.html">   21</a></span><span class="keyword">class </span><a class="code hl_class" href="classdesignlab_1_1_i_graphic_main.html">IGraphicMain</a></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_i_graphic_main.html#abdcd761f493bd4cfbc2bf53c299e1c27">   24</a></span>    <a class="code hl_function" href="classdesignlab_1_1_i_graphic_main.html#abdcd761f493bd4cfbc2bf53c299e1c27">IGraphicMain</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_i_graphic_main.html#a8a02bec6755476afffb3197a29389d41">   25</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classdesignlab_1_1_i_graphic_main.html#a8a02bec6755476afffb3197a29389d41">~IGraphicMain</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_i_graphic_main.html#aedfa3f7af0e078b794f479c47e51ba8f">   31</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_i_graphic_main.html#aedfa3f7af0e078b794f479c47e51ba8f">Update</a>() = 0;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_i_graphic_main.html#a4ad73f9dd139df69b2afbf6b6dc4a213">   36</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_i_graphic_main.html#a4ad73f9dd139df69b2afbf6b6dc4a213">Draw</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>};</div>
 </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}  <span class="comment">// namespace designlab</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_INTERFACE_GRAPHIC_MAIN_H_</span></div>
-<div class="ttc" id="aclassdesignlab_1_1_i_graphic_main_html"><div class="ttname"><a href="classdesignlab_1_1_i_graphic_main.html">designlab::IGraphicMain</a></div><div class="ttdoc">GraphicMainのインターフェース．</div><div class="ttdef"><b>Definition</b> <a href="interface__graphic__main_8h_source.html#l00019">interface_graphic_main.h:20</a></div></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}  <span class="comment">// namespace designlab</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_INTERFACE_GRAPHIC_MAIN_H_</span></div>
+<div class="ttc" id="aclassdesignlab_1_1_i_graphic_main_html"><div class="ttname"><a href="classdesignlab_1_1_i_graphic_main.html">designlab::IGraphicMain</a></div><div class="ttdoc">GraphicMainのインターフェース．</div><div class="ttdef"><b>Definition</b> <a href="interface__graphic__main_8h_source.html#l00021">interface_graphic_main.h:22</a></div></div>
 <div class="ttc" id="aclassdesignlab_1_1_i_graphic_main_html_a4ad73f9dd139df69b2afbf6b6dc4a213"><div class="ttname"><a href="classdesignlab_1_1_i_graphic_main.html#a4ad73f9dd139df69b2afbf6b6dc4a213">designlab::IGraphicMain::Draw</a></div><div class="ttdeci">virtual void Draw() const =0</div><div class="ttdoc">描画を行う． ここでは描画系の処理のみを行い内部のデータを 更新しないため const を付けている．</div></div>
 <div class="ttc" id="aclassdesignlab_1_1_i_graphic_main_html_a8a02bec6755476afffb3197a29389d41"><div class="ttname"><a href="classdesignlab_1_1_i_graphic_main.html#a8a02bec6755476afffb3197a29389d41">designlab::IGraphicMain::~IGraphicMain</a></div><div class="ttdeci">virtual ~IGraphicMain()=default</div></div>
 <div class="ttc" id="aclassdesignlab_1_1_i_graphic_main_html_abdcd761f493bd4cfbc2bf53c299e1c27"><div class="ttname"><a href="classdesignlab_1_1_i_graphic_main.html#abdcd761f493bd4cfbc2bf53c299e1c27">designlab::IGraphicMain::IGraphicMain</a></div><div class="ttdeci">IGraphicMain()=default</div></div>
 <div class="ttc" id="aclassdesignlab_1_1_i_graphic_main_html_aedfa3f7af0e078b794f479c47e51ba8f"><div class="ttname"><a href="classdesignlab_1_1_i_graphic_main.html#aedfa3f7af0e078b794f479c47e51ba8f">designlab::IGraphicMain::Update</a></div><div class="ttdeci">virtual bool Update()=0</div><div class="ttdoc">描画画面の更新を行う．純粋仮想関数のため， 継承先では必ず override する必要がある．</div></div>
-<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00015">abstract_dxlib_gui.cpp:16</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00017">abstract_dxlib_gui.cpp:18</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -82,35 +82,39 @@ $(document).ready(function() { init_codefold(0); });
 </div><!--header-->
 <div class="contents">
 <a href="discrete__leg__pos_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef DESIGNLAB_DISCRETE_LEG_POS_H_</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define DESIGNLAB_DISCRETE_LEG_POS_H_</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab_1_1enums.html">designlab::enums</a></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495">   19</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495">DiscreteLegPos</a> : <span class="keywordtype">int</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a7de5161d3d66930665695edb06796198">kLowerBack</a> = 1,     </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea1aa843cfb007a05d484edf751fdc905d">kBack</a>,              </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a08c2c15252b53e4252ab6415b8aeac66">kUpperBack</a>,         </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a3a344159c7144969a66c510c5eb0040d">kCenter</a>,            </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495ac197680fbf6de70bd3752b01a43d1ba7">kLowerFront</a>,        </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea74b33dfe34e13923f9b235450de37871">kFront</a>,             </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a55546b3f938b81742b7d0c03e85a5c91">kUpperFront</a>,        </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>};</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Copyright(c) 2023 Design Engineering Laboratory, Saitama University</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// Released under the MIT license</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// https://opensource.org/licenses/mit-license.php</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DESIGNLAB_DISCRETE_LEG_POS_H_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DESIGNLAB_DISCRETE_LEG_POS_H_</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab_1_1enums.html">designlab::enums</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495">   21</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495">DiscreteLegPos</a> : <span class="keywordtype">int</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a7de5161d3d66930665695edb06796198">kLowerBack</a> = 1,     </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea1aa843cfb007a05d484edf751fdc905d">kBack</a>,              </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a08c2c15252b53e4252ab6415b8aeac66">kUpperBack</a>,         </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a3a344159c7144969a66c510c5eb0040d">kCenter</a>,            </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495ac197680fbf6de70bd3752b01a43d1ba7">kLowerFront</a>,        </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea74b33dfe34e13923f9b235450de37871">kFront</a>,             </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a55546b3f938b81742b7d0c03e85a5c91">kUpperFront</a>,        </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>};</div>
 </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>}  <span class="comment">// namespace designlab::enums</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_DISCRETE_LEG_POS_H_</span></div>
-<div class="ttc" id="anamespacedesignlab_1_1enums_html"><div class="ttname"><a href="namespacedesignlab_1_1enums.html">designlab::enums</a></div><div class="ttdef"><b>Definition</b> <a href="discrete__com__pos_8h_source.html#l00010">discrete_com_pos.h:11</a></div></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>}  <span class="comment">// namespace designlab::enums</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_DISCRETE_LEG_POS_H_</span></div>
+<div class="ttc" id="anamespacedesignlab_1_1enums_html"><div class="ttname"><a href="namespacedesignlab_1_1enums.html">designlab::enums</a></div><div class="ttdef"><b>Definition</b> <a href="discrete__com__pos_8h_source.html#l00012">discrete_com_pos.h:13</a></div></div>
 <div class="ttc" id="anamespacedesignlab_1_1enums_html_aae667c8a4db0938ece7d037c80ea858ea1aa843cfb007a05d484edf751fdc905d"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea1aa843cfb007a05d484edf751fdc905d">designlab::enums::DiscreteComPos::kBack</a></div><div class="ttdeci">@ kBack</div><div class="ttdoc">重心が後方にある．</div></div>
 <div class="ttc" id="anamespacedesignlab_1_1enums_html_aae667c8a4db0938ece7d037c80ea858ea74b33dfe34e13923f9b235450de37871"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea74b33dfe34e13923f9b235450de37871">designlab::enums::DiscreteComPos::kFront</a></div><div class="ttdeci">@ kFront</div><div class="ttdoc">重心が前方にある．</div></div>
-<div class="ttc" id="anamespacedesignlab_1_1enums_html_ab5710dabeacf5161415ee779fe947495"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495">designlab::enums::DiscreteLegPos</a></div><div class="ttdeci">DiscreteLegPos</div><div class="ttdoc">離散化された脚位置を表す列挙体．   先行研究では 1～7の int型の数値で表現されているが， 可読性を上げるために列挙体にした．   離散化された脚位置は 3bit (0 ～ 7)の範囲で表現される...</div><div class="ttdef"><b>Definition</b> <a href="discrete__leg__pos_8h_source.html#l00019">discrete_leg_pos.h:20</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1enums_html_ab5710dabeacf5161415ee779fe947495"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495">designlab::enums::DiscreteLegPos</a></div><div class="ttdeci">DiscreteLegPos</div><div class="ttdoc">離散化された脚位置を表す列挙体．   先行研究では 1～7の int型の数値で表現されているが， 可読性を上げるために列挙体にした．   離散化された脚位置は 3bit (0 ～ 7)の範囲で表現される...</div><div class="ttdef"><b>Definition</b> <a href="discrete__leg__pos_8h_source.html#l00021">discrete_leg_pos.h:22</a></div></div>
 <div class="ttc" id="anamespacedesignlab_1_1enums_html_ab5710dabeacf5161415ee779fe947495a08c2c15252b53e4252ab6415b8aeac66"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a08c2c15252b53e4252ab6415b8aeac66">designlab::enums::DiscreteLegPos::kUpperBack</a></div><div class="ttdeci">@ kUpperBack</div><div class="ttdoc">現在の位置より後方かつ上方にある．</div></div>
 <div class="ttc" id="anamespacedesignlab_1_1enums_html_ab5710dabeacf5161415ee779fe947495a3a344159c7144969a66c510c5eb0040d"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a3a344159c7144969a66c510c5eb0040d">designlab::enums::DiscreteLegPos::kCenter</a></div><div class="ttdeci">@ kCenter</div><div class="ttdoc">現在の位置にある．</div></div>
 <div class="ttc" id="anamespacedesignlab_1_1enums_html_ab5710dabeacf5161415ee779fe947495a55546b3f938b81742b7d0c03e85a5c91"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a55546b3f938b81742b7d0c03e85a5c91">designlab::enums::DiscreteLegPos::kUpperFront</a></div><div class="ttdeci">@ kUpperFront</div><div class="ttdoc">現在の位置より前方かつ上方にある．</div></div>

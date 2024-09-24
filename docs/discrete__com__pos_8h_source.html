@@ -82,36 +82,40 @@ $(document).ready(function() { init_codefold(0); });
 </div><!--header-->
 <div class="contents">
 <a href="discrete__com__pos_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef DESIGNLAB_DISCRETE_COM_POS_H_</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define DESIGNLAB_DISCRETE_COM_POS_H_</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="foldopen" id="foldopen00010" data-start="{" data-end="}">
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1enums.html">   10</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab_1_1enums.html">designlab::enums</a></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858e">   15</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858e">DiscreteComPos</a></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea74b33dfe34e13923f9b235450de37871">kFront</a> = 1,     </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea1a46deb2cd611afce2f0e5e1c182656f">kFrontLeft</a>,     </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea86fd41d9644e647c1742fbd525ab46ba">kBackLeft</a>,      </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea1aa843cfb007a05d484edf751fdc905d">kBack</a>,          </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858eabecb87c73a49003b78d6ccdefc281243">kBackRight</a>,     </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea0e1eab792a30d17af8487e5e0ffd4880">kFrontRight</a>,    </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea2cea17d0be5c9b18f3f4a7e390795230">kCenterFront</a>,   </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea76e82fcef53fe34ef8cca74ce99d6d69">kCenterBack</a>,    </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
-</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>}  <span class="comment">// namespace designlab::enums</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Copyright(c) 2023 Design Engineering Laboratory, Saitama University</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// Released under the MIT license</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// https://opensource.org/licenses/mit-license.php</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DESIGNLAB_DISCRETE_COM_POS_H_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DESIGNLAB_DISCRETE_COM_POS_H_</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="}">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1enums.html">   12</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab_1_1enums.html">designlab::enums</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858e">   17</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858e">DiscreteComPos</a></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea74b33dfe34e13923f9b235450de37871">kFront</a> = 1,     </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea1a46deb2cd611afce2f0e5e1c182656f">kFrontLeft</a>,     </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea86fd41d9644e647c1742fbd525ab46ba">kBackLeft</a>,      </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea1aa843cfb007a05d484edf751fdc905d">kBack</a>,          </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858eabecb87c73a49003b78d6ccdefc281243">kBackRight</a>,     </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea0e1eab792a30d17af8487e5e0ffd4880">kFrontRight</a>,    </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea2cea17d0be5c9b18f3f4a7e390795230">kCenterFront</a>,   </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea76e82fcef53fe34ef8cca74ce99d6d69">kCenterBack</a>,    </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
 </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_DISCRETE_COM_POS_H_</span></div>
-<div class="ttc" id="anamespacedesignlab_1_1enums_html"><div class="ttname"><a href="namespacedesignlab_1_1enums.html">designlab::enums</a></div><div class="ttdef"><b>Definition</b> <a href="discrete__com__pos_8h_source.html#l00010">discrete_com_pos.h:11</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1enums_html_aae667c8a4db0938ece7d037c80ea858e"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858e">designlab::enums::DiscreteComPos</a></div><div class="ttdeci">DiscreteComPos</div><div class="ttdef"><b>Definition</b> <a href="discrete__com__pos_8h_source.html#l00015">discrete_com_pos.h:16</a></div></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>}  <span class="comment">// namespace designlab::enums</span></div>
+</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_DISCRETE_COM_POS_H_</span></div>
+<div class="ttc" id="anamespacedesignlab_1_1enums_html"><div class="ttname"><a href="namespacedesignlab_1_1enums.html">designlab::enums</a></div><div class="ttdef"><b>Definition</b> <a href="discrete__com__pos_8h_source.html#l00012">discrete_com_pos.h:13</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1enums_html_aae667c8a4db0938ece7d037c80ea858e"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858e">designlab::enums::DiscreteComPos</a></div><div class="ttdeci">DiscreteComPos</div><div class="ttdef"><b>Definition</b> <a href="discrete__com__pos_8h_source.html#l00017">discrete_com_pos.h:18</a></div></div>
 <div class="ttc" id="anamespacedesignlab_1_1enums_html_aae667c8a4db0938ece7d037c80ea858ea0e1eab792a30d17af8487e5e0ffd4880"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea0e1eab792a30d17af8487e5e0ffd4880">designlab::enums::DiscreteComPos::kFrontRight</a></div><div class="ttdeci">@ kFrontRight</div><div class="ttdoc">重心が右前方にある．</div></div>
 <div class="ttc" id="anamespacedesignlab_1_1enums_html_aae667c8a4db0938ece7d037c80ea858ea1a46deb2cd611afce2f0e5e1c182656f"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea1a46deb2cd611afce2f0e5e1c182656f">designlab::enums::DiscreteComPos::kFrontLeft</a></div><div class="ttdeci">@ kFrontLeft</div><div class="ttdoc">重心が左前方にある．</div></div>
 <div class="ttc" id="anamespacedesignlab_1_1enums_html_aae667c8a4db0938ece7d037c80ea858ea1aa843cfb007a05d484edf751fdc905d"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858ea1aa843cfb007a05d484edf751fdc905d">designlab::enums::DiscreteComPos::kBack</a></div><div class="ttdeci">@ kBack</div><div class="ttdoc">重心が後方にある．</div></div>

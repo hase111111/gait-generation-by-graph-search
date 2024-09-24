@@ -82,44 +82,48 @@ $(document).ready(function() { init_codefold(0); });
 </div><!--header-->
 <div class="contents">
 <a href="graphic__data__broker_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef DESIGNLAB_GRAPHIC_DATA_BROKER_H_</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define DESIGNLAB_GRAPHIC_DATA_BROKER_H_</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Copyright(c) 2023 Design Engineering Laboratory, Saitama University</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// Released under the MIT license</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// https://opensource.org/licenses/mit-license.php</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DESIGNLAB_GRAPHIC_DATA_BROKER_H_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DESIGNLAB_GRAPHIC_DATA_BROKER_H_</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="asyncable__data_8h.html">asyncable_data.h</a>&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="map__state_8h.html">map_state.h</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="robot__state__node_8h.html">robot_state_node.h</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_graphic_data_broker.html">   26</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1_graphic_data_broker.html">GraphicDataBroker</a> final</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>{</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_graphic_data_broker.html#a1a08f78c3a7e7137a1980c840652d85f">   29</a></span>    <a class="code hl_class" href="classdesignlab_1_1_asyncable_data.html">AsyncableData&lt;MapState&gt;</a> <a class="code hl_variable" href="structdesignlab_1_1_graphic_data_broker.html#a1a08f78c3a7e7137a1980c840652d85f">map_state</a>;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_graphic_data_broker.html#a0629770f71ed21b23612b37f1e0055d3">   31</a></span>    <a class="code hl_class" href="classdesignlab_1_1_asyncable_data.html">AsyncableData&lt;std::vector&lt;RobotStateNode&gt;</a> &gt; <a class="code hl_variable" href="structdesignlab_1_1_graphic_data_broker.html#a0629770f71ed21b23612b37f1e0055d3">graph</a>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="asyncable__data_8h.html">asyncable_data.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="map__state_8h.html">map_state.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="robot__state__node_8h.html">robot_state_node.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_graphic_data_broker.html">   28</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1_graphic_data_broker.html">GraphicDataBroker</a> final</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>{</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_graphic_data_broker.html#a1a08f78c3a7e7137a1980c840652d85f">   31</a></span>    <a class="code hl_class" href="classdesignlab_1_1_asyncable_data.html">AsyncableData&lt;MapState&gt;</a> <a class="code hl_variable" href="structdesignlab_1_1_graphic_data_broker.html#a1a08f78c3a7e7137a1980c840652d85f">map_state</a>;</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_graphic_data_broker.html#a6d69f0b0a1129854b943c791bfaf36b7">   33</a></span>    <a class="code hl_class" href="classdesignlab_1_1_asyncable_data.html">AsyncableData&lt;std::vector&lt;size_t&gt;</a> &gt; <a class="code hl_variable" href="structdesignlab_1_1_graphic_data_broker.html#a6d69f0b0a1129854b943c791bfaf36b7">simulation_end_index</a>;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>};</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_graphic_data_broker.html#a0629770f71ed21b23612b37f1e0055d3">   33</a></span>    <a class="code hl_class" href="classdesignlab_1_1_asyncable_data.html">AsyncableData&lt;std::vector&lt;RobotStateNode&gt;</a> &gt; <a class="code hl_variable" href="structdesignlab_1_1_graphic_data_broker.html#a0629770f71ed21b23612b37f1e0055d3">graph</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="structdesignlab_1_1_graphic_data_broker.html#a6d69f0b0a1129854b943c791bfaf36b7">   35</a></span>    <a class="code hl_class" href="classdesignlab_1_1_asyncable_data.html">AsyncableData&lt;std::vector&lt;size_t&gt;</a> &gt; <a class="code hl_variable" href="structdesignlab_1_1_graphic_data_broker.html#a6d69f0b0a1129854b943c791bfaf36b7">simulation_end_index</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>};</div>
 </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>}  <span class="comment">// namespace designlab</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_GRAPHIC_DATA_BROKER_H_</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}  <span class="comment">// namespace designlab</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_GRAPHIC_DATA_BROKER_H_</span></div>
 <div class="ttc" id="aasyncable__data_8h_html"><div class="ttname"><a href="asyncable__data_8h.html">asyncable_data.h</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_asyncable_data_html"><div class="ttname"><a href="classdesignlab_1_1_asyncable_data.html">designlab::AsyncableData</a></div><div class="ttdoc">非同期処理を行う際に，データの更新回数とデータをまとめて扱うためのクラス．</div><div class="ttdef"><b>Definition</b> <a href="asyncable__data_8h_source.html#l00052">asyncable_data.h:53</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_asyncable_data_html"><div class="ttname"><a href="classdesignlab_1_1_asyncable_data.html">designlab::AsyncableData</a></div><div class="ttdoc">非同期処理を行う際に，データの更新回数とデータをまとめて扱うためのクラス．</div><div class="ttdef"><b>Definition</b> <a href="asyncable__data_8h_source.html#l00054">asyncable_data.h:55</a></div></div>
 <div class="ttc" id="amap__state_8h_html"><div class="ttname"><a href="map__state_8h.html">map_state.h</a></div></div>
-<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00015">abstract_dxlib_gui.cpp:16</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00017">abstract_dxlib_gui.cpp:18</a></div></div>
 <div class="ttc" id="arobot__state__node_8h_html"><div class="ttname"><a href="robot__state__node_8h.html">robot_state_node.h</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_graphic_data_broker_html"><div class="ttname"><a href="structdesignlab_1_1_graphic_data_broker.html">designlab::GraphicDataBroker</a></div><div class="ttdoc">グラフ探索の結果を別スレッドのグラフィッククラスに連絡するための構造体．</div><div class="ttdef"><b>Definition</b> <a href="graphic__data__broker_8h_source.html#l00026">graphic_data_broker.h:27</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_graphic_data_broker_html_a0629770f71ed21b23612b37f1e0055d3"><div class="ttname"><a href="structdesignlab_1_1_graphic_data_broker.html#a0629770f71ed21b23612b37f1e0055d3">designlab::GraphicDataBroker::graph</a></div><div class="ttdeci">AsyncableData&lt; std::vector&lt; RobotStateNode &gt; &gt; graph</div><div class="ttdef"><b>Definition</b> <a href="graphic__data__broker_8h_source.html#l00031">graphic_data_broker.h:31</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_graphic_data_broker_html_a1a08f78c3a7e7137a1980c840652d85f"><div class="ttname"><a href="structdesignlab_1_1_graphic_data_broker.html#a1a08f78c3a7e7137a1980c840652d85f">designlab::GraphicDataBroker::map_state</a></div><div class="ttdeci">AsyncableData&lt; MapState &gt; map_state</div><div class="ttdoc">マップの情報，カメラをロボットに設置する場合，ロボットの位置も含まれる．</div><div class="ttdef"><b>Definition</b> <a href="graphic__data__broker_8h_source.html#l00029">graphic_data_broker.h:29</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_graphic_data_broker_html_a6d69f0b0a1129854b943c791bfaf36b7"><div class="ttname"><a href="structdesignlab_1_1_graphic_data_broker.html#a6d69f0b0a1129854b943c791bfaf36b7">designlab::GraphicDataBroker::simulation_end_index</a></div><div class="ttdeci">AsyncableData&lt; std::vector&lt; size_t &gt; &gt; simulation_end_index</div><div class="ttdef"><b>Definition</b> <a href="graphic__data__broker_8h_source.html#l00033">graphic_data_broker.h:33</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_graphic_data_broker_html"><div class="ttname"><a href="structdesignlab_1_1_graphic_data_broker.html">designlab::GraphicDataBroker</a></div><div class="ttdoc">グラフ探索の結果を別スレッドのグラフィッククラスに連絡するための構造体．</div><div class="ttdef"><b>Definition</b> <a href="graphic__data__broker_8h_source.html#l00028">graphic_data_broker.h:29</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_graphic_data_broker_html_a0629770f71ed21b23612b37f1e0055d3"><div class="ttname"><a href="structdesignlab_1_1_graphic_data_broker.html#a0629770f71ed21b23612b37f1e0055d3">designlab::GraphicDataBroker::graph</a></div><div class="ttdeci">AsyncableData&lt; std::vector&lt; RobotStateNode &gt; &gt; graph</div><div class="ttdef"><b>Definition</b> <a href="graphic__data__broker_8h_source.html#l00033">graphic_data_broker.h:33</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_graphic_data_broker_html_a1a08f78c3a7e7137a1980c840652d85f"><div class="ttname"><a href="structdesignlab_1_1_graphic_data_broker.html#a1a08f78c3a7e7137a1980c840652d85f">designlab::GraphicDataBroker::map_state</a></div><div class="ttdeci">AsyncableData&lt; MapState &gt; map_state</div><div class="ttdoc">マップの情報，カメラをロボットに設置する場合，ロボットの位置も含まれる．</div><div class="ttdef"><b>Definition</b> <a href="graphic__data__broker_8h_source.html#l00031">graphic_data_broker.h:31</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_graphic_data_broker_html_a6d69f0b0a1129854b943c791bfaf36b7"><div class="ttname"><a href="structdesignlab_1_1_graphic_data_broker.html#a6d69f0b0a1129854b943c791bfaf36b7">designlab::GraphicDataBroker::simulation_end_index</a></div><div class="ttdeci">AsyncableData&lt; std::vector&lt; size_t &gt; &gt; simulation_end_index</div><div class="ttdef"><b>Definition</b> <a href="graphic__data__broker_8h_source.html#l00035">graphic_data_broker.h:35</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

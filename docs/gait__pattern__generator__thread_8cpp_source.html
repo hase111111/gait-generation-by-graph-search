@@ -82,198 +82,202 @@ $(document).ready(function() { init_codefold(0); });
 </div><!--header-->
 <div class="contents">
 <a href="gait__pattern__generator__thread_8cpp.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="gait__pattern__generator__thread_8h.html">gait_pattern_generator_thread.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Copyright(c) 2023 Design Engineering Laboratory, Saitama University</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// Released under the MIT license</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// https://opensource.org/licenses/mit-license.php</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;format&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;utility&gt;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;boost/thread.hpp&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="gait__pattern__generator__thread_8h.html">gait_pattern_generator_thread.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;format&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;utility&gt;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="array__util_8h.html">array_util.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="cassert__define_8h.html">cassert_define.h</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="cmdio__util_8h.html">cmdio_util.h</a>&quot;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="graph__search__const_8h.html">graph_search_const.h</a>&quot;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="map__state_8h.html">map_state.h</a>&quot;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="string__util_8h.html">string_util.h</a>&quot;</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_gait_pattern_generator_thread.html#ae7b7e4a292dace6d76421275711eac1d">   25</a></span><a class="code hl_function" href="classdesignlab_1_1_gait_pattern_generator_thread.html#a613aeafa7049c20d89dc90c91eacc10e">GaitPatternGeneratorThread::GaitPatternGeneratorThread</a>(</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    std::unique_ptr&lt;GraphTreeCreator&gt;&amp;&amp; graph_tree_creator_ptr,</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    std::unique_ptr&lt;IGraphSearcher&gt;&amp;&amp; graph_searcher_ptr,</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> max_depth,</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> max_node_num) :</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    graph_tree_creator_ptr_(<a class="code hl_namespace" href="namespacestd.html">std</a>::move(graph_tree_creator_ptr)),</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    graph_searcher_ptr_(<a class="code hl_namespace" href="namespacestd.html">std</a>::move(graph_searcher_ptr)),</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    graph_tree_{ 1000 },</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    graph_tree_array_(InitializeGraphTreeArray(kThreadNum, max_node_num)),</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    max_depth_(max_depth)</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    assert(graph_tree_creator_ptr_ != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    assert(graph_searcher_ptr_ != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    assert(max_depth_ &gt; 0);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    assert(max_node_num &gt; 0);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    assert(graph_tree_array_.size() == kThreadNum);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;boost/thread.hpp&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="array__util_8h.html">array_util.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="cassert__define_8h.html">cassert_define.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="cmdio__util_8h.html">cmdio_util.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="graph__search__const_8h.html">graph_search_const.h</a>&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="map__state_8h.html">map_state.h</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;<a class="code" href="string__util_8h.html">string_util.h</a>&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>{</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_gait_pattern_generator_thread.html#ae7b7e4a292dace6d76421275711eac1d">   27</a></span><a class="code hl_function" href="classdesignlab_1_1_gait_pattern_generator_thread.html#a613aeafa7049c20d89dc90c91eacc10e">GaitPatternGeneratorThread::GaitPatternGeneratorThread</a>(</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    std::unique_ptr&lt;GraphTreeCreator&gt;&amp;&amp; graph_tree_creator_ptr,</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    std::unique_ptr&lt;IGraphSearcher&gt;&amp;&amp; graph_searcher_ptr,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> max_depth,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> max_node_num) :</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    graph_tree_creator_ptr_(<a class="code hl_namespace" href="namespacestd.html">std</a>::move(graph_tree_creator_ptr)),</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    graph_searcher_ptr_(<a class="code hl_namespace" href="namespacestd.html">std</a>::move(graph_searcher_ptr)),</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    graph_tree_{ 1000 },</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    graph_tree_array_(InitializeGraphTreeArray(kThreadNum, max_node_num)),</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    max_depth_(max_depth)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    assert(graph_tree_creator_ptr_ != <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    assert(graph_searcher_ptr_ != <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    assert(max_depth_ &gt; 0);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    assert(max_node_num &gt; 0);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    assert(graph_tree_array_.size() == kThreadNum);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>}</div>
 </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_gait_pattern_generator_thread.html#af6729bdafbd310f762733e7fa10f8df5">   43</a></span><a class="code hl_struct" href="structdesignlab_1_1_graph_search_result.html">GraphSearchResult</a> <a class="code hl_function" href="classdesignlab_1_1_gait_pattern_generator_thread.html#af6729bdafbd310f762733e7fa10f8df5">GaitPatternGeneratorThread::GetNextNodeByGraphSearch</a>(</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a>&amp; current_node,</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">const</span> <a class="code hl_class" href="classdesignlab_1_1_map_state.html">MapState</a>&amp; map_state,</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_robot_operation.html">RobotOperation</a>&amp; operation,</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a>* output_node)</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>{</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    assert(current_node.<a class="code hl_function" href="structdesignlab_1_1_robot_state_node.html#a1094abe8cb1ef6d6dcfb72bae3098ac5">IsLootNode</a>());</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    assert(output_node != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="comment">// 初期化処理を行う．</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_class" href="classdesignlab_1_1_divided_map_state.html">DividedMapState</a> divided_map;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    divided_map.<a class="code hl_function" href="classdesignlab_1_1_divided_map_state.html#a50647e278f9ee754cbfe5196153e2ba8">Init</a>(map_state, current_node.<a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#a7f0441441995f133038743750bdc4eaa">center_of_mass_global_coord</a>);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    graph_tree_creator_ptr_-&gt;Init(divided_map);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_gait_pattern_generator_thread.html#af6729bdafbd310f762733e7fa10f8df5">   45</a></span><a class="code hl_struct" href="structdesignlab_1_1_graph_search_result.html">GraphSearchResult</a> <a class="code hl_function" href="classdesignlab_1_1_gait_pattern_generator_thread.html#af6729bdafbd310f762733e7fa10f8df5">GaitPatternGeneratorThread::GetNextNodeByGraphSearch</a>(</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a>&amp; current_node,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">const</span> <a class="code hl_class" href="classdesignlab_1_1_map_state.html">MapState</a>&amp; map_state,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_robot_operation.html">RobotOperation</a>&amp; operation,</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a>* output_node)</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>{</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    assert(current_node.<a class="code hl_function" href="structdesignlab_1_1_robot_state_node.html#a1094abe8cb1ef6d6dcfb72bae3098ac5">IsLootNode</a>());</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    assert(output_node != <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="comment">// 初期化処理を行う．</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_class" href="classdesignlab_1_1_divided_map_state.html">DividedMapState</a> divided_map;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    divided_map.<a class="code hl_function" href="classdesignlab_1_1_divided_map_state.html#a50647e278f9ee754cbfe5196153e2ba8">Init</a>(map_state, current_node.<a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#a7f0441441995f133038743750bdc4eaa">center_of_mass_global_coord</a>);</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="comment">// グラフ探索をするための，歩容パターングラフを生成する．</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    graph_tree_.<a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_tree.html#a3a2e1f65d243cc24527387bc52a651ae">Reset</a>();</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    graph_tree_.<a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_tree.html#ac0d2e4ec3bd05e0092f8f27b34e88908">AddNode</a>(current_node);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_graph_search_result.html">GraphSearchResult</a> create_result =</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        graph_tree_creator_ptr_-&gt;CreateGraphTree(0, 1, &amp;graph_tree_);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">if</span> (create_result.<a class="code hl_variable" href="structdesignlab_1_1_graph_search_result.html#ac42f7bbd1e03b902ef7e57a070914996">result</a> != <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a0d13216d970637939ee1de09362e58faa8c632159fa131f09d04f94e3cbcd8782">enums::Result::kSuccess</a>) { <span class="keywordflow">return</span> create_result; }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    graph_tree_creator_ptr_-&gt;Init(divided_map);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="comment">// グラフ探索をするための，歩容パターングラフを生成する．</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    graph_tree_.<a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_tree.html#a3a2e1f65d243cc24527387bc52a651ae">Reset</a>();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    graph_tree_.<a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_tree.html#ac0d2e4ec3bd05e0092f8f27b34e88908">AddNode</a>(current_node);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_graph_search_result.html">GraphSearchResult</a> create_result =</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        graph_tree_creator_ptr_-&gt;CreateGraphTree(0, 1, &amp;graph_tree_);</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#adb7453f167304f8606a928b5e4e7ebd3">CmdIOUtil::DebugOutput</a>(<span class="stringliteral">&quot;Graph tree generation has been completed to depth 1.&quot;</span>);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab">CmdIOUtil::FormatOutput</a>(<a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645abb53ce21b7c0b7c8a8f7860a41901d29">OutputDetail::kDebug</a>,</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                            <span class="stringliteral">&quot;The number of nodes in the graph tree is {}.&quot;</span>,</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                            graph_tree_.<a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_tree.html#af2594414411d9eb5e9103d30dffe9714">GetGraphSize</a>());</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="comment">// 深さ0のノードを配列にコピーする．</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; kThreadNum; i++)</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    {</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        graph_tree_array_[i].Reset();</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        graph_tree_array_[i].AddNode(current_node);</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    }</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="comment">// 深さ1のノードを配列に分けてコピーする．</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; graph_tree_.<a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_tree.html#af2594414411d9eb5e9103d30dffe9714">GetGraphSize</a>(); i++)</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    {</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keywordflow">if</span> (graph_tree_.<a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_tree.html#ac9d24a79c7d5e3db0eb943cd9ecd446d">GetNode</a>(i).<a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#acd8a880f8cc6cb4cd4a980ca388103ff">depth</a> == 1)</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        {</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="comment">// i を kThreadNum で割った余り番目の配列にコピーする．</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            graph_tree_array_[i % kThreadNum].AddNode(graph_tree_.<a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_tree.html#ac9d24a79c7d5e3db0eb943cd9ecd446d">GetNode</a>(i));</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        }</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    }</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="comment">// スレッドを分けて，最大深さまで探索する．</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    boost::thread_group thread_group;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; kThreadNum; i++)</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    {</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordflow">if</span> (graph_tree_array_[i].GetGraphSize() &gt; 1)</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        {</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            <a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab">CmdIOUtil::FormatOutput</a>(</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                <a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645abb53ce21b7c0b7c8a8f7860a41901d29">OutputDetail::kDebug</a>,</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                <span class="stringliteral">&quot;Starts graph tree generation in thread {}.&quot;</span>, i);</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            <a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab">CmdIOUtil::FormatOutput</a>(</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                <a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645abb53ce21b7c0b7c8a8f7860a41901d29">OutputDetail::kDebug</a>,</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                <span class="stringliteral">&quot;The number of nodes explored in thread {} is {}.&quot;</span>,</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                i, graph_tree_array_[i].GetGraphSize());</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            thread_group.create_thread(</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>              boost::bind(</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                &amp;<a class="code hl_function" href="classdesignlab_1_1_graph_tree_creator.html#a9a8a2cff8af6b99342e88c5cb1cd52ab">GraphTreeCreator::CreateGraphTree</a>,</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                graph_tree_creator_ptr_.get(),</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>                1,</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>                max_depth_,</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>                &amp;graph_tree_array_[i]));</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        }</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    }</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    thread_group.join_all();  <span class="comment">// 全てのスレッドが終了するまで待機する．</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordflow">if</span> (create_result.<a class="code hl_variable" href="structdesignlab_1_1_graph_search_result.html#ac42f7bbd1e03b902ef7e57a070914996">result</a> != <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a0d13216d970637939ee1de09362e58faa8c632159fa131f09d04f94e3cbcd8782">enums::Result::kSuccess</a>) { <span class="keywordflow">return</span> create_result; }</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#adb7453f167304f8606a928b5e4e7ebd3">CmdIOUtil::DebugOutput</a>(<span class="stringliteral">&quot;Graph tree generation has been completed to depth 1.&quot;</span>);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab">CmdIOUtil::FormatOutput</a>(<a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645abb53ce21b7c0b7c8a8f7860a41901d29">OutputDetail::kDebug</a>,</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                            <span class="stringliteral">&quot;The number of nodes in the graph tree is {}.&quot;</span>,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                            graph_tree_.<a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_tree.html#af2594414411d9eb5e9103d30dffe9714">GetGraphSize</a>());</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="comment">// 深さ0のノードを配列にコピーする．</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; kThreadNum; i++)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        graph_tree_array_[i].Reset();</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        graph_tree_array_[i].AddNode(current_node);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="comment">// 深さ1のノードを配列に分けてコピーする．</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; graph_tree_.<a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_tree.html#af2594414411d9eb5e9103d30dffe9714">GetGraphSize</a>(); i++)</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="keywordflow">if</span> (graph_tree_.<a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_tree.html#ac9d24a79c7d5e3db0eb943cd9ecd446d">GetNode</a>(i).<a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#acd8a880f8cc6cb4cd4a980ca388103ff">depth</a> == 1)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        {</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <span class="comment">// i を kThreadNum で割った余り番目の配列にコピーする．</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            graph_tree_array_[i % kThreadNum].AddNode(graph_tree_.<a class="code hl_function" href="classdesignlab_1_1_gait_pattern_graph_tree.html#ac9d24a79c7d5e3db0eb943cd9ecd446d">GetNode</a>(i));</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        }</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    }</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="comment">// スレッドを分けて，最大深さまで探索する．</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    boost::thread_group thread_group;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; kThreadNum; i++)</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keywordflow">if</span> (graph_tree_array_[i].GetGraphSize() &gt; 1)</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        {</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab">CmdIOUtil::FormatOutput</a>(</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                <a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645abb53ce21b7c0b7c8a8f7860a41901d29">OutputDetail::kDebug</a>,</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                <span class="stringliteral">&quot;Starts graph tree generation in thread {}.&quot;</span>, i);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            <a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab">CmdIOUtil::FormatOutput</a>(</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                <a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645abb53ce21b7c0b7c8a8f7860a41901d29">OutputDetail::kDebug</a>,</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                <span class="stringliteral">&quot;The number of nodes explored in thread {} is {}.&quot;</span>,</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                i, graph_tree_array_[i].GetGraphSize());</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            thread_group.create_thread(</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>              boost::bind(</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>                &amp;<a class="code hl_function" href="classdesignlab_1_1_graph_tree_creator.html#a9a8a2cff8af6b99342e88c5cb1cd52ab">GraphTreeCreator::CreateGraphTree</a>,</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>                graph_tree_creator_ptr_.get(),</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>                1,</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>                max_depth_,</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>                &amp;graph_tree_array_[i]));</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        }</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    }</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#adb7453f167304f8606a928b5e4e7ebd3">CmdIOUtil::DebugOutput</a>(<span class="stringliteral">&quot;Graph tree generation is complete.\n&quot;</span>);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    thread_group.join_all();  <span class="comment">// 全てのスレッドが終了するまで待機する．</span></div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; kThreadNum; i++)</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    {</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab">CmdIOUtil::FormatOutput</a>(</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            <a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645abb53ce21b7c0b7c8a8f7860a41901d29">OutputDetail::kDebug</a>,</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            <span class="stringliteral">&quot;The number of nodes created in thread {} is {}.&quot;</span>,</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            i, graph_tree_array_[i].GetGraphSize());</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    }</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="comment">// グラフ探索を行う．</span></div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#adb7453f167304f8606a928b5e4e7ebd3">CmdIOUtil::DebugOutput</a>(<span class="stringliteral">&quot;Evaluates graph trees.&quot;</span>);</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keyword">const</span> <span class="keyword">auto</span> [search_result, _, next_node] =</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        graph_searcher_ptr_-&gt;SearchGraphTreeVector(</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            graph_tree_array_, operation, divided_map, max_depth_);</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordflow">if</span> (search_result.result != <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a0d13216d970637939ee1de09362e58faa8c632159fa131f09d04f94e3cbcd8782">enums::Result::kSuccess</a>)</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    {</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#adb7453f167304f8606a928b5e4e7ebd3">CmdIOUtil::DebugOutput</a>(<span class="stringliteral">&quot;Failed to evaluate the graph tree.&quot;</span>);</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keywordflow">return</span> search_result;</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    }</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    (*output_node) = next_node;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#adb7453f167304f8606a928b5e4e7ebd3">CmdIOUtil::DebugOutput</a>(<span class="stringliteral">&quot;Graph tree generation is complete.\n&quot;</span>);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; kThreadNum; i++)</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    {</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab">CmdIOUtil::FormatOutput</a>(</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            <a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645abb53ce21b7c0b7c8a8f7860a41901d29">OutputDetail::kDebug</a>,</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            <span class="stringliteral">&quot;The number of nodes created in thread {} is {}.&quot;</span>,</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            i, graph_tree_array_[i].GetGraphSize());</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    }</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="comment">// グラフ探索を行う．</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#adb7453f167304f8606a928b5e4e7ebd3">CmdIOUtil::DebugOutput</a>(<span class="stringliteral">&quot;Evaluates graph trees.&quot;</span>);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keyword">const</span> <span class="keyword">auto</span> [search_result, _, next_node] =</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        graph_searcher_ptr_-&gt;SearchGraphTreeVector(</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            graph_tree_array_, operation, divided_map, max_depth_);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordflow">if</span> (search_result.result != <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a0d13216d970637939ee1de09362e58faa8c632159fa131f09d04f94e3cbcd8782">enums::Result::kSuccess</a>)</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    {</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#adb7453f167304f8606a928b5e4e7ebd3">CmdIOUtil::DebugOutput</a>(<span class="stringliteral">&quot;Failed to evaluate the graph tree.&quot;</span>);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        <span class="keywordflow">return</span> search_result;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    }</div>
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#adb7453f167304f8606a928b5e4e7ebd3">CmdIOUtil::DebugOutput</a>(</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        <span class="stringliteral">&quot;Graph tree evaluation is completed. Graph search succeeded.&quot;</span>);</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordflow">return</span> { <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a0d13216d970637939ee1de09362e58faa8c632159fa131f09d04f94e3cbcd8782">enums::Result::kSuccess</a>, std::string(<span class="stringliteral">&quot;&quot;</span>) };</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>}</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    (*output_node) = next_node;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#adb7453f167304f8606a928b5e4e7ebd3">CmdIOUtil::DebugOutput</a>(</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="stringliteral">&quot;Graph tree evaluation is completed. Graph search succeeded.&quot;</span>);</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="keywordflow">return</span> { <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a0d13216d970637939ee1de09362e58faa8c632159fa131f09d04f94e3cbcd8782">enums::Result::kSuccess</a>, std::string(<span class="stringliteral">&quot;&quot;</span>) };</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>}</div>
 </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>std::vector&lt;GaitPatternGraphTree&gt;</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>GaitPatternGeneratorThread::InitializeGraphTreeArray(</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> thread_num, <span class="keyword">const</span> <span class="keywordtype">int</span> max_node_num)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    std::vector&lt;GaitPatternGraphTree&gt; graph_tree_array;</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; thread_num; i++)</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    {</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        graph_tree_array.emplace_back(max_node_num / thread_num);</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    }</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordflow">return</span> graph_tree_array;</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>}</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>}  <span class="comment">// namespace designlab</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>std::vector&lt;GaitPatternGraphTree&gt;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>GaitPatternGeneratorThread::InitializeGraphTreeArray(</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> thread_num, <span class="keyword">const</span> <span class="keywordtype">int</span> max_node_num)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    std::vector&lt;GaitPatternGraphTree&gt; graph_tree_array;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; thread_num; i++)</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    {</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        graph_tree_array.emplace_back(max_node_num / thread_num);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    }</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keywordflow">return</span> graph_tree_array;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>}</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>}  <span class="comment">// namespace designlab</span></div>
 <div class="ttc" id="aarray__util_8h_html"><div class="ttname"><a href="array__util_8h.html">array_util.h</a></div></div>
 <div class="ttc" id="acassert__define_8h_html"><div class="ttname"><a href="cassert__define_8h.html">cassert_define.h</a></div><div class="ttdoc">デバッグモードとリリースモードでアサートを有効化・無効化するためのヘッダファイル．</div></div>
-<div class="ttc" id="aclassdesignlab_1_1_cmd_i_o_util_html_ac1e70caf5bcc19c4ab42106c3e1dc9ab"><div class="ttname"><a href="classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab">designlab::CmdIOUtil::FormatOutput</a></div><div class="ttdeci">static void FormatOutput(OutputDetail detail, const std::format_string&lt; Args... &gt; str, Args &amp;&amp;... args)</div><div class="ttdoc">コマンドラインに文字を出力する関数．   SetOutputLimit() で設定した出力の許可範囲内であれば出力される．   必ず SetOutputLimit() を呼び出してから使うこと．</div><div class="ttdef"><b>Definition</b> <a href="cmdio__util_8h_source.html#l00115">cmdio_util.h:115</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_cmd_i_o_util_html_adb7453f167304f8606a928b5e4e7ebd3"><div class="ttname"><a href="classdesignlab_1_1_cmd_i_o_util.html#adb7453f167304f8606a928b5e4e7ebd3">designlab::CmdIOUtil::DebugOutput</a></div><div class="ttdeci">static void DebugOutput(const std::string &amp;str)</div><div class="ttdoc">コマンドラインに文字を出力する関数．Debug用の出力．</div><div class="ttdef"><b>Definition</b> <a href="cmdio__util_8h_source.html#l00075">cmdio_util.h:75</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_divided_map_state_html"><div class="ttname"><a href="classdesignlab_1_1_divided_map_state.html">designlab::DividedMapState</a></div><div class="ttdoc">マップを格子状に分割して管理するクラス．</div><div class="ttdef"><b>Definition</b> <a href="divided__map__state_8h_source.html#l00029">divided_map_state.h:30</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_divided_map_state_html_a50647e278f9ee754cbfe5196153e2ba8"><div class="ttname"><a href="classdesignlab_1_1_divided_map_state.html#a50647e278f9ee754cbfe5196153e2ba8">designlab::DividedMapState::Init</a></div><div class="ttdeci">void Init(const MapState &amp;map_state, const Vector3 global_robot_com)</div><div class="ttdoc">マップのデータを初期化する． ロボットの重心座標を中心にマップのデータを格子状に分割し， その中に存在する脚設置可能点を集める．</div><div class="ttdef"><b>Definition</b> <a href="divided__map__state_8cpp_source.html#l00023">divided_map_state.cpp:23</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_cmd_i_o_util_html_ac1e70caf5bcc19c4ab42106c3e1dc9ab"><div class="ttname"><a href="classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab">designlab::CmdIOUtil::FormatOutput</a></div><div class="ttdeci">static void FormatOutput(OutputDetail detail, const std::format_string&lt; Args... &gt; str, Args &amp;&amp;... args)</div><div class="ttdoc">コマンドラインに文字を出力する関数．   SetOutputLimit() で設定した出力の許可範囲内であれば出力される．   必ず SetOutputLimit() を呼び出してから使うこと．</div><div class="ttdef"><b>Definition</b> <a href="cmdio__util_8h_source.html#l00117">cmdio_util.h:117</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_cmd_i_o_util_html_adb7453f167304f8606a928b5e4e7ebd3"><div class="ttname"><a href="classdesignlab_1_1_cmd_i_o_util.html#adb7453f167304f8606a928b5e4e7ebd3">designlab::CmdIOUtil::DebugOutput</a></div><div class="ttdeci">static void DebugOutput(const std::string &amp;str)</div><div class="ttdoc">コマンドラインに文字を出力する関数．Debug用の出力．</div><div class="ttdef"><b>Definition</b> <a href="cmdio__util_8h_source.html#l00077">cmdio_util.h:77</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_divided_map_state_html"><div class="ttname"><a href="classdesignlab_1_1_divided_map_state.html">designlab::DividedMapState</a></div><div class="ttdoc">マップを格子状に分割して管理するクラス．</div><div class="ttdef"><b>Definition</b> <a href="divided__map__state_8h_source.html#l00031">divided_map_state.h:32</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_divided_map_state_html_a50647e278f9ee754cbfe5196153e2ba8"><div class="ttname"><a href="classdesignlab_1_1_divided_map_state.html#a50647e278f9ee754cbfe5196153e2ba8">designlab::DividedMapState::Init</a></div><div class="ttdeci">void Init(const MapState &amp;map_state, const Vector3 global_robot_com)</div><div class="ttdoc">マップのデータを初期化する． ロボットの重心座標を中心にマップのデータを格子状に分割し， その中に存在する脚設置可能点を集める．</div><div class="ttdef"><b>Definition</b> <a href="divided__map__state_8cpp_source.html#l00026">divided_map_state.cpp:26</a></div></div>
 <div class="ttc" id="aclassdesignlab_1_1_gait_pattern_generator_thread_html_a613aeafa7049c20d89dc90c91eacc10e"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_generator_thread.html#a613aeafa7049c20d89dc90c91eacc10e">designlab::GaitPatternGeneratorThread::GaitPatternGeneratorThread</a></div><div class="ttdeci">GaitPatternGeneratorThread()=delete</div><div class="ttdoc">デフォルトコンストラクタは禁止．</div></div>
-<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_generator_thread_html_af6729bdafbd310f762733e7fa10f8df5"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_generator_thread.html#af6729bdafbd310f762733e7fa10f8df5">designlab::GaitPatternGeneratorThread::GetNextNodeByGraphSearch</a></div><div class="ttdeci">GraphSearchResult GetNextNodeByGraphSearch(const RobotStateNode &amp;current_node, const MapState &amp;map_ref, const RobotOperation &amp;operation, RobotStateNode *output_node) override</div><div class="ttdoc">グラフ探索を行い，次の動作として最適なノードを返す．</div><div class="ttdef"><b>Definition</b> <a href="gait__pattern__generator__thread_8cpp_source.html#l00043">gait_pattern_generator_thread.cpp:43</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_graph_tree_html_a3a2e1f65d243cc24527387bc52a651ae"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_graph_tree.html#a3a2e1f65d243cc24527387bc52a651ae">designlab::GaitPatternGraphTree::Reset</a></div><div class="ttdeci">constexpr void Reset()</div><div class="ttdoc">グラフをリセットする．</div><div class="ttdef"><b>Definition</b> <a href="gait__pattern__graph__tree_8h_source.html#l00121">gait_pattern_graph_tree.h:121</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_graph_tree_html_ac0d2e4ec3bd05e0092f8f27b34e88908"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_graph_tree.html#ac0d2e4ec3bd05e0092f8f27b34e88908">designlab::GaitPatternGraphTree::AddNode</a></div><div class="ttdeci">void AddNode(const RobotStateNode &amp;node)</div><div class="ttdoc">ノードを追加する．   追加するノードは親ノードのインデックスと，depthの指定が適切にされている必要がある．   これらが適切にされていない場合，アサーションに引っかかる．   また，あらかじめ確保...</div><div class="ttdef"><b>Definition</b> <a href="gait__pattern__graph__tree_8h_source.html#l00105">gait_pattern_graph_tree.h:105</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_graph_tree_html_ac9d24a79c7d5e3db0eb943cd9ecd446d"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_graph_tree.html#ac9d24a79c7d5e3db0eb943cd9ecd446d">designlab::GaitPatternGraphTree::GetNode</a></div><div class="ttdeci">const RobotStateNode &amp; GetNode(const int index) const</div><div class="ttdoc">グラフのノードの参照を返す．</div><div class="ttdef"><b>Definition</b> <a href="gait__pattern__graph__tree_8h_source.html#l00078">gait_pattern_graph_tree.h:78</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_graph_tree_html_af2594414411d9eb5e9103d30dffe9714"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_graph_tree.html#af2594414411d9eb5e9103d30dffe9714">designlab::GaitPatternGraphTree::GetGraphSize</a></div><div class="ttdeci">constexpr int GetGraphSize() const</div><div class="ttdoc">グラフのノードの総数を返す．</div><div class="ttdef"><b>Definition</b> <a href="gait__pattern__graph__tree_8h_source.html#l00038">gait_pattern_graph_tree.h:38</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_graph_tree_creator_html_a9a8a2cff8af6b99342e88c5cb1cd52ab"><div class="ttname"><a href="classdesignlab_1_1_graph_tree_creator.html#a9a8a2cff8af6b99342e88c5cb1cd52ab">designlab::GraphTreeCreator::CreateGraphTree</a></div><div class="ttdeci">GraphSearchResult CreateGraphTree(int start_depth, int max_depth, GaitPatternGraphTree *graph_ptr) const</div><div class="ttdoc">歩容パターングラフを作成する．</div><div class="ttdef"><b>Definition</b> <a href="graph__tree__creator_8cpp_source.html#l00033">graph_tree_creator.cpp:33</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_map_state_html"><div class="ttname"><a href="classdesignlab_1_1_map_state.html">designlab::MapState</a></div><div class="ttdoc">マップを表すクラス．</div><div class="ttdef"><b>Definition</b> <a href="map__state_8h_source.html#l00029">map_state.h:30</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_generator_thread_html_af6729bdafbd310f762733e7fa10f8df5"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_generator_thread.html#af6729bdafbd310f762733e7fa10f8df5">designlab::GaitPatternGeneratorThread::GetNextNodeByGraphSearch</a></div><div class="ttdeci">GraphSearchResult GetNextNodeByGraphSearch(const RobotStateNode &amp;current_node, const MapState &amp;map_ref, const RobotOperation &amp;operation, RobotStateNode *output_node) override</div><div class="ttdoc">グラフ探索を行い，次の動作として最適なノードを返す．</div><div class="ttdef"><b>Definition</b> <a href="gait__pattern__generator__thread_8cpp_source.html#l00045">gait_pattern_generator_thread.cpp:45</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_graph_tree_html_a3a2e1f65d243cc24527387bc52a651ae"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_graph_tree.html#a3a2e1f65d243cc24527387bc52a651ae">designlab::GaitPatternGraphTree::Reset</a></div><div class="ttdeci">constexpr void Reset()</div><div class="ttdoc">グラフをリセットする．</div><div class="ttdef"><b>Definition</b> <a href="gait__pattern__graph__tree_8h_source.html#l00123">gait_pattern_graph_tree.h:123</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_graph_tree_html_ac0d2e4ec3bd05e0092f8f27b34e88908"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_graph_tree.html#ac0d2e4ec3bd05e0092f8f27b34e88908">designlab::GaitPatternGraphTree::AddNode</a></div><div class="ttdeci">void AddNode(const RobotStateNode &amp;node)</div><div class="ttdoc">ノードを追加する．   追加するノードは親ノードのインデックスと，depthの指定が適切にされている必要がある．   これらが適切にされていない場合，アサーションに引っかかる．   また，あらかじめ確保...</div><div class="ttdef"><b>Definition</b> <a href="gait__pattern__graph__tree_8h_source.html#l00107">gait_pattern_graph_tree.h:107</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_graph_tree_html_ac9d24a79c7d5e3db0eb943cd9ecd446d"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_graph_tree.html#ac9d24a79c7d5e3db0eb943cd9ecd446d">designlab::GaitPatternGraphTree::GetNode</a></div><div class="ttdeci">const RobotStateNode &amp; GetNode(const int index) const</div><div class="ttdoc">グラフのノードの参照を返す．</div><div class="ttdef"><b>Definition</b> <a href="gait__pattern__graph__tree_8h_source.html#l00080">gait_pattern_graph_tree.h:80</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_gait_pattern_graph_tree_html_af2594414411d9eb5e9103d30dffe9714"><div class="ttname"><a href="classdesignlab_1_1_gait_pattern_graph_tree.html#af2594414411d9eb5e9103d30dffe9714">designlab::GaitPatternGraphTree::GetGraphSize</a></div><div class="ttdeci">constexpr int GetGraphSize() const</div><div class="ttdoc">グラフのノードの総数を返す．</div><div class="ttdef"><b>Definition</b> <a href="gait__pattern__graph__tree_8h_source.html#l00040">gait_pattern_graph_tree.h:40</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_graph_tree_creator_html_a9a8a2cff8af6b99342e88c5cb1cd52ab"><div class="ttname"><a href="classdesignlab_1_1_graph_tree_creator.html#a9a8a2cff8af6b99342e88c5cb1cd52ab">designlab::GraphTreeCreator::CreateGraphTree</a></div><div class="ttdeci">GraphSearchResult CreateGraphTree(int start_depth, int max_depth, GaitPatternGraphTree *graph_ptr) const</div><div class="ttdoc">歩容パターングラフを作成する．</div><div class="ttdef"><b>Definition</b> <a href="graph__tree__creator_8cpp_source.html#l00036">graph_tree_creator.cpp:36</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_map_state_html"><div class="ttname"><a href="classdesignlab_1_1_map_state.html">designlab::MapState</a></div><div class="ttdoc">マップを表すクラス．</div><div class="ttdef"><b>Definition</b> <a href="map__state_8h_source.html#l00031">map_state.h:32</a></div></div>
 <div class="ttc" id="acmdio__util_8h_html"><div class="ttname"><a href="cmdio__util_8h.html">cmdio_util.h</a></div></div>
 <div class="ttc" id="agait__pattern__generator__thread_8h_html"><div class="ttname"><a href="gait__pattern__generator__thread_8h.html">gait_pattern_generator_thread.h</a></div></div>
 <div class="ttc" id="agraph__search__const_8h_html"><div class="ttname"><a href="graph__search__const_8h.html">graph_search_const.h</a></div></div>
 <div class="ttc" id="amap__state_8h_html"><div class="ttname"><a href="map__state_8h.html">map_state.h</a></div></div>
 <div class="ttc" id="anamespacedesignlab_1_1enums_html_a0d13216d970637939ee1de09362e58faa8c632159fa131f09d04f94e3cbcd8782"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#a0d13216d970637939ee1de09362e58faa8c632159fa131f09d04f94e3cbcd8782">designlab::enums::Result::kSuccess</a></div><div class="ttdeci">@ kSuccess</div></div>
-<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00015">abstract_dxlib_gui.cpp:16</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00017">abstract_dxlib_gui.cpp:18</a></div></div>
 <div class="ttc" id="anamespacedesignlab_html_a43f5ea9398e73bc5134e238b7e8c5645abb53ce21b7c0b7c8a8f7860a41901d29"><div class="ttname"><a href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645abb53ce21b7c0b7c8a8f7860a41901d29">designlab::OutputDetail::kDebug</a></div><div class="ttdeci">@ kDebug</div><div class="ttdoc">デバッグ時のみ出力，一番優先度が低い．</div></div>
-<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdef"><b>Definition</b> <a href="com__type_8h_source.html#l00021">com_type.h:22</a></div></div>
+<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdef"><b>Definition</b> <a href="com__type_8h_source.html#l00023">com_type.h:24</a></div></div>
 <div class="ttc" id="astring__util_8h_html"><div class="ttname"><a href="string__util_8h.html">string_util.h</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_graph_search_result_html"><div class="ttname"><a href="structdesignlab_1_1_graph_search_result.html">designlab::GraphSearchResult</a></div><div class="ttdoc">グラフ探索の評価値を評価するクラス．</div><div class="ttdef"><b>Definition</b> <a href="graph__search__result__record_8h_source.html#l00037">graph_search_result_record.h:38</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_graph_search_result_html_ac42f7bbd1e03b902ef7e57a070914996"><div class="ttname"><a href="structdesignlab_1_1_graph_search_result.html#ac42f7bbd1e03b902ef7e57a070914996">designlab::GraphSearchResult::result</a></div><div class="ttdeci">enums::Result result</div><div class="ttdoc">成功か失敗か．</div><div class="ttdef"><b>Definition</b> <a href="graph__search__result__record_8h_source.html#l00049">graph_search_result_record.h:49</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_robot_operation_html"><div class="ttname"><a href="structdesignlab_1_1_robot_operation.html">designlab::RobotOperation</a></div><div class="ttdoc">探索において目標となる座標や角度，評価する値についてまとめた構造体．</div><div class="ttdef"><b>Definition</b> <a href="robot__operation_8h_source.html#l00049">robot_operation.h:50</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_robot_state_node_html"><div class="ttname"><a href="structdesignlab_1_1_robot_state_node.html">designlab::RobotStateNode</a></div><div class="ttdoc">グラフ構造のためのノード(頂点)．旧名 LNODE</div><div class="ttdef"><b>Definition</b> <a href="robot__state__node_8h_source.html#l00045">robot_state_node.h:46</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_robot_state_node_html_a1094abe8cb1ef6d6dcfb72bae3098ac5"><div class="ttname"><a href="structdesignlab_1_1_robot_state_node.html#a1094abe8cb1ef6d6dcfb72bae3098ac5">designlab::RobotStateNode::IsLootNode</a></div><div class="ttdeci">constexpr bool IsLootNode() const</div><div class="ttdoc">自身が根ノードであるか判定する．</div><div class="ttdef"><b>Definition</b> <a href="robot__state__node_8h_source.html#l00136">robot_state_node.h:136</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_robot_state_node_html_a7f0441441995f133038743750bdc4eaa"><div class="ttname"><a href="structdesignlab_1_1_robot_state_node.html#a7f0441441995f133038743750bdc4eaa">designlab::RobotStateNode::center_of_mass_global_coord</a></div><div class="ttdeci">Vector3 center_of_mass_global_coord</div><div class="ttdoc">[4 * 3 = 12byte] グローバル座標系における重心の位置．旧名 GCOM</div><div class="ttdef"><b>Definition</b> <a href="robot__state__node_8h_source.html#l00201">robot_state_node.h:201</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_robot_state_node_html_acd8a880f8cc6cb4cd4a980ca388103ff"><div class="ttname"><a href="structdesignlab_1_1_robot_state_node.html#acd8a880f8cc6cb4cd4a980ca388103ff">designlab::RobotStateNode::depth</a></div><div class="ttdeci">int depth</div><div class="ttdoc">[4 byte] 自身の深さ．一番上の親が深さ0となる．</div><div class="ttdef"><b>Definition</b> <a href="robot__state__node_8h_source.html#l00216">robot_state_node.h:216</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_graph_search_result_html"><div class="ttname"><a href="structdesignlab_1_1_graph_search_result.html">designlab::GraphSearchResult</a></div><div class="ttdoc">グラフ探索の評価値を評価するクラス．</div><div class="ttdef"><b>Definition</b> <a href="graph__search__result__record_8h_source.html#l00039">graph_search_result_record.h:40</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_graph_search_result_html_ac42f7bbd1e03b902ef7e57a070914996"><div class="ttname"><a href="structdesignlab_1_1_graph_search_result.html#ac42f7bbd1e03b902ef7e57a070914996">designlab::GraphSearchResult::result</a></div><div class="ttdeci">enums::Result result</div><div class="ttdoc">成功か失敗か．</div><div class="ttdef"><b>Definition</b> <a href="graph__search__result__record_8h_source.html#l00051">graph_search_result_record.h:51</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_robot_operation_html"><div class="ttname"><a href="structdesignlab_1_1_robot_operation.html">designlab::RobotOperation</a></div><div class="ttdoc">探索において目標となる座標や角度，評価する値についてまとめた構造体．</div><div class="ttdef"><b>Definition</b> <a href="robot__operation_8h_source.html#l00051">robot_operation.h:52</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_robot_state_node_html"><div class="ttname"><a href="structdesignlab_1_1_robot_state_node.html">designlab::RobotStateNode</a></div><div class="ttdoc">グラフ構造のためのノード(頂点)．旧名 LNODE</div><div class="ttdef"><b>Definition</b> <a href="robot__state__node_8h_source.html#l00046">robot_state_node.h:47</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_robot_state_node_html_a1094abe8cb1ef6d6dcfb72bae3098ac5"><div class="ttname"><a href="structdesignlab_1_1_robot_state_node.html#a1094abe8cb1ef6d6dcfb72bae3098ac5">designlab::RobotStateNode::IsLootNode</a></div><div class="ttdeci">constexpr bool IsLootNode() const</div><div class="ttdoc">自身が根ノードであるか判定する．</div><div class="ttdef"><b>Definition</b> <a href="robot__state__node_8h_source.html#l00137">robot_state_node.h:137</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_robot_state_node_html_a7f0441441995f133038743750bdc4eaa"><div class="ttname"><a href="structdesignlab_1_1_robot_state_node.html#a7f0441441995f133038743750bdc4eaa">designlab::RobotStateNode::center_of_mass_global_coord</a></div><div class="ttdeci">Vector3 center_of_mass_global_coord</div><div class="ttdoc">[4 * 3 = 12byte] グローバル座標系における重心の位置．旧名 GCOM</div><div class="ttdef"><b>Definition</b> <a href="robot__state__node_8h_source.html#l00202">robot_state_node.h:202</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_robot_state_node_html_acd8a880f8cc6cb4cd4a980ca388103ff"><div class="ttname"><a href="structdesignlab_1_1_robot_state_node.html#acd8a880f8cc6cb4cd4a980ca388103ff">designlab::RobotStateNode::depth</a></div><div class="ttdeci">int depth</div><div class="ttdoc">[4 byte] 自身の深さ．一番上の親が深さ0となる．</div><div class="ttdef"><b>Definition</b> <a href="robot__state__node_8h_source.html#l00217">robot_state_node.h:217</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -82,33 +82,37 @@ $(document).ready(function() { init_codefold(0); });
 </div><!--header-->
 <div class="contents">
 <a href="hexapod__next__move_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef DESIGNLAB_HEXAPOD_NEXT_MOVE_H_</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define DESIGNLAB_HEXAPOD_NEXT_MOVE_H_</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81">   16</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81">HexapodMove</a> : <span class="keywordtype">int</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a35c3ace1970663a16e5c65baa5941b13">kNone</a>,                  </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a4a6461c86ef75a5e573c7159b8f899af">kLegUpDown</a>,             </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a7a0d289d2c7258b2f617388cded82812">kLegHierarchyChange</a>,    </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a54a0fd06169e7dc14648d41420e7385c">kComMove</a>,               </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a6428915b783a686f1dfed18358d57bc7">kComUpDown</a>,             </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a182913de9e1d9a06377ab8c7e93c9800">kBodyPitchRot</a>,          </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81ad3c33ddfb2a26d82caa154fcf33350a5">kBodyYawRot</a>,            </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Copyright(c) 2023 Design Engineering Laboratory, Saitama University</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// Released under the MIT license</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// https://opensource.org/licenses/mit-license.php</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DESIGNLAB_HEXAPOD_NEXT_MOVE_H_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DESIGNLAB_HEXAPOD_NEXT_MOVE_H_</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81">   18</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81">HexapodMove</a> : <span class="keywordtype">int</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a35c3ace1970663a16e5c65baa5941b13">kNone</a>,                  </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a4a6461c86ef75a5e573c7159b8f899af">kLegUpDown</a>,             </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a7a0d289d2c7258b2f617388cded82812">kLegHierarchyChange</a>,    </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a54a0fd06169e7dc14648d41420e7385c">kComMove</a>,               </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a6428915b783a686f1dfed18358d57bc7">kComUpDown</a>,             </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a182913de9e1d9a06377ab8c7e93c9800">kBodyPitchRot</a>,          </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81ad3c33ddfb2a26d82caa154fcf33350a5">kBodyYawRot</a>,            </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
 </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>}  <span class="comment">// namespace designlab</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_HEXAPOD_NEXT_MOVE_H_</span></div>
-<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00015">abstract_dxlib_gui.cpp:16</a></div></div>
-<div class="ttc" id="anamespacedesignlab_html_acc7368f4060dfdf3589ada8d62dd8a81"><div class="ttname"><a href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81">designlab::HexapodMove</a></div><div class="ttdeci">HexapodMove</div><div class="ttdoc">ロボットが次にどの動作をするのかを表す列挙体．</div><div class="ttdef"><b>Definition</b> <a href="hexapod__next__move_8h_source.html#l00016">hexapod_next_move.h:17</a></div></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>}  <span class="comment">// namespace designlab</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_HEXAPOD_NEXT_MOVE_H_</span></div>
+<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00017">abstract_dxlib_gui.cpp:18</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html_acc7368f4060dfdf3589ada8d62dd8a81"><div class="ttname"><a href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81">designlab::HexapodMove</a></div><div class="ttdeci">HexapodMove</div><div class="ttdoc">ロボットが次にどの動作をするのかを表す列挙体．</div><div class="ttdef"><b>Definition</b> <a href="hexapod__next__move_8h_source.html#l00018">hexapod_next_move.h:19</a></div></div>
 <div class="ttc" id="anamespacedesignlab_html_acc7368f4060dfdf3589ada8d62dd8a81a182913de9e1d9a06377ab8c7e93c9800"><div class="ttname"><a href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a182913de9e1d9a06377ab8c7e93c9800">designlab::HexapodMove::kBodyPitchRot</a></div><div class="ttdeci">@ kBodyPitchRot</div><div class="ttdoc">ピッチ軸周りの回転．</div></div>
 <div class="ttc" id="anamespacedesignlab_html_acc7368f4060dfdf3589ada8d62dd8a81a35c3ace1970663a16e5c65baa5941b13"><div class="ttname"><a href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a35c3ace1970663a16e5c65baa5941b13">designlab::HexapodMove::kNone</a></div><div class="ttdeci">@ kNone</div><div class="ttdoc">何も動作をしない．</div></div>
 <div class="ttc" id="anamespacedesignlab_html_acc7368f4060dfdf3589ada8d62dd8a81a4a6461c86ef75a5e573c7159b8f899af"><div class="ttname"><a href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a4a6461c86ef75a5e573c7159b8f899af">designlab::HexapodMove::kLegUpDown</a></div><div class="ttdeci">@ kLegUpDown</div><div class="ttdoc">脚の上下移動.</div></div>

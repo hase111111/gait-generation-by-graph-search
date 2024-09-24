@@ -82,181 +82,185 @@ $(document).ready(function() { init_codefold(0); });
 </div><!--header-->
 <div class="contents">
 <a href="node__creator__leg__hierarchy_8cpp.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="node__creator__leg__hierarchy_8h.html">node_creator_leg_hierarchy.h</a>&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="leg__state_8h.html">leg_state.h</a>&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Copyright(c) 2023 Design Engineering Laboratory, Saitama University</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// Released under the MIT license</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// https://opensource.org/licenses/mit-license.php</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="node__creator__leg__hierarchy_8h.html">node_creator_leg_hierarchy.h</a>&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="leg__state_8h.html">leg_state.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="foldopen" id="foldopen00013" data-start="{" data-end="}">
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_node_creator_leg_hierarchy.html#a91be54c4da3c895f16a59b5ffd24e37f">   13</a></span><a class="code hl_function" href="classdesignlab_1_1_node_creator_leg_hierarchy.html#a91be54c4da3c895f16a59b5ffd24e37f">NodeCreatorLegHierarchy::NodeCreatorLegHierarchy</a>(</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">const</span> <a class="code hl_enumeration" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81">HexapodMove</a> next_move,</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">const</span> std::vector&lt;enums::DiscreteLegPos&gt;&amp; discrete_leg_pos_list) :</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    next_move_(next_move),</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    discrete_leg_pos_list_(discrete_leg_pos_list)</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    assert(discrete_leg_pos_list.size() != 0);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>}</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_node_creator_leg_hierarchy.html#a91be54c4da3c895f16a59b5ffd24e37f">   16</a></span><a class="code hl_function" href="classdesignlab_1_1_node_creator_leg_hierarchy.html#a91be54c4da3c895f16a59b5ffd24e37f">NodeCreatorLegHierarchy::NodeCreatorLegHierarchy</a>(</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">const</span> <a class="code hl_enumeration" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81">HexapodMove</a> next_move,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">const</span> std::vector&lt;enums::DiscreteLegPos&gt;&amp; discrete_leg_pos_list) :</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    next_move_(next_move),</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    discrete_leg_pos_list_(discrete_leg_pos_list)</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    assert(discrete_leg_pos_list.size() != 0);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
 </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="foldopen" id="foldopen00023" data-start="{" data-end="}">
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_node_creator_leg_hierarchy.html#ade5f7af05493084aaca057a4f543ebb7">   23</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_node_creator_leg_hierarchy.html#ade5f7af05493084aaca057a4f543ebb7">NodeCreatorLegHierarchy::Create</a>(</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a>&amp; current_node,</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> current_node_index,</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    std::vector&lt;RobotStateNode&gt;* output_graph)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="comment">// 現在，接地している脚の本数を数える．</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> kLiftedLegNum = <a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#a783362f08ae38b6e3f5cb09aad52d51b">leg_func::GetLiftedLegNum</a>(current_node.<a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#a368e1568eaff0a1b1f638b0628ee4fbb">leg_state</a>);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="comment">// 遊脚している脚の本数によって処理をする．</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">if</span> (kLiftedLegNum == 1)</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    {</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="comment">// 1 本遊脚している．</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        Create1LegLifted(current_node, current_node_index, output_graph);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    }</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (kLiftedLegNum == 2)</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    {</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="comment">// 2 本遊脚している．</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        Create2LegLifted(current_node, current_node_index, output_graph);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    }</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (kLiftedLegNum == 3)</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    {</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="comment">// 3 本遊脚している．</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        Create3LegLifted(current_node, current_node_index, output_graph);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    {</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="comment">// ここに来るのは接地している脚の数が6本 or 1本 or 2本の時．</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="comment">// 地面についている脚が3本を切ることはない，何故ならロボットが倒れてしまうため．</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="comment">// また6本接地しているならば脚を動かせない(遊脚する必要がある)．</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="comment">// よって処理を行わない．(そのままの状態を次のノードにする．)</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a> new_node = current_node;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="comment">// 次のノード用に，深さ・親・次の動作を更新する．</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        new_node.<a class="code hl_function" href="structdesignlab_1_1_robot_state_node.html#a6b3997cbc4ff0c8a48582608a12fca8e">ChangeToNextNode</a>(current_node_index, next_move_);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="}">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_node_creator_leg_hierarchy.html#ade5f7af05493084aaca057a4f543ebb7">   26</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_node_creator_leg_hierarchy.html#ade5f7af05493084aaca057a4f543ebb7">NodeCreatorLegHierarchy::Create</a>(</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a>&amp; current_node,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> current_node_index,</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    std::vector&lt;RobotStateNode&gt;* output_graph)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="comment">// 現在，接地している脚の本数を数える．</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> kLiftedLegNum = <a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#a783362f08ae38b6e3f5cb09aad52d51b">leg_func::GetLiftedLegNum</a>(current_node.<a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#a368e1568eaff0a1b1f638b0628ee4fbb">leg_state</a>);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="comment">// 遊脚している脚の本数によって処理をする．</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">if</span> (kLiftedLegNum == 1)</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="comment">// 1 本遊脚している．</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        Create1LegLifted(current_node, current_node_index, output_graph);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    }</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (kLiftedLegNum == 2)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="comment">// 2 本遊脚している．</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        Create2LegLifted(current_node, current_node_index, output_graph);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    }</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (kLiftedLegNum == 3)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="comment">// 3 本遊脚している．</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        Create3LegLifted(current_node, current_node_index, output_graph);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="comment">// ここに来るのは接地している脚の数が6本 or 1本 or 2本の時．</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="comment">// 地面についている脚が3本を切ることはない，何故ならロボットが倒れてしまうため．</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="comment">// また6本接地しているならば脚を動かせない(遊脚する必要がある)．</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="comment">// よって処理を行わない．(そのままの状態を次のノードにする．)</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a> new_node = current_node;</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="comment">// 追加する．</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        (*output_graph).emplace_back(new_node);</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    }</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="comment">// 次のノード用に，深さ・親・次の動作を更新する．</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        new_node.<a class="code hl_function" href="structdesignlab_1_1_robot_state_node.html#a6b3997cbc4ff0c8a48582608a12fca8e">ChangeToNextNode</a>(current_node_index, next_move_);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="comment">// 追加する．</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        (*output_graph).emplace_back(new_node);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>}</div>
 </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">// 全て上の関数にまとめると文量が増えるため，以下の関数に処理を分けておく．</span></div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keywordtype">void</span> NodeCreatorLegHierarchy::Create1LegLifted(</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a>&amp; current_node,</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> current_node_index,</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    std::vector&lt;RobotStateNode&gt;* output_graph)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="comment">// 遊脚している脚を探す．遊脚数は1なので1つの数字が帰るはず</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    std::vector&lt;int&gt; lifted_leg_list;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#ab008f25ef39dfb41ee4a76f3c9cc0529">leg_func::GetLiftedLegIndexByVector</a>(current_node.<a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#a368e1568eaff0a1b1f638b0628ee4fbb">leg_state</a>, &amp;lifted_leg_list);</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">// 全て上の関数にまとめると文量が増えるため，以下の関数に処理を分けておく．</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">void</span> NodeCreatorLegHierarchy::Create1LegLifted(</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a>&amp; current_node,</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> current_node_index,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    std::vector&lt;RobotStateNode&gt;* output_graph)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="comment">// 遊脚している脚を探す．遊脚数は1なので1つの数字が帰るはず</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    std::vector&lt;int&gt; lifted_leg_list;</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="comment">// 列挙体 DiscreteLegPos の全ての要素でループを回す．</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> i : discrete_leg_pos_list_)</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    {</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a> new_node = current_node;  <span class="comment">// 新しい脚状態を生成する.</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="comment">// 脚状態を変更する．</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480">leg_func::ChangeDiscreteLegPos</a>(lifted_leg_list[0], i, &amp;new_node.<a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#a368e1568eaff0a1b1f638b0628ee4fbb">leg_state</a>);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#ab008f25ef39dfb41ee4a76f3c9cc0529">leg_func::GetLiftedLegIndexByVector</a>(current_node.<a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#a368e1568eaff0a1b1f638b0628ee4fbb">leg_state</a>, &amp;lifted_leg_list);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="comment">// 列挙体 DiscreteLegPos の全ての要素でループを回す．</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> i : discrete_leg_pos_list_)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a> new_node = current_node;  <span class="comment">// 新しい脚状態を生成する.</span></div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="comment">// 次のノード用に，深さ・親・次の動作を更新する．</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        new_node.<a class="code hl_function" href="structdesignlab_1_1_robot_state_node.html#a6b3997cbc4ff0c8a48582608a12fca8e">ChangeToNextNode</a>(current_node_index, next_move_);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="comment">// 脚状態を変更する．</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480">leg_func::ChangeDiscreteLegPos</a>(lifted_leg_list[0], i, &amp;new_node.<a class="code hl_variable" href="structdesignlab_1_1_robot_state_node.html#a368e1568eaff0a1b1f638b0628ee4fbb">leg_state</a>);</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        (*output_graph).emplace_back(new_node);  <span class="comment">// 追加する．</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    }</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>}</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keywordtype">void</span> NodeCreatorLegHierarchy::Create2LegLifted(</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keyword">const</span> RobotStateNode&amp; current_node,</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> current_node_index,</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    std::vector&lt;RobotStateNode&gt;* output_graph)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keyword">using </span><a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480">leg_func::ChangeDiscreteLegPos</a>;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="comment">// 遊脚している脚を探す．遊脚数は2なので2つの数字が帰るはず</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    std::vector&lt;int&gt; lifted_leg_list;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="comment">// 次のノード用に，深さ・親・次の動作を更新する．</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        new_node.<a class="code hl_function" href="structdesignlab_1_1_robot_state_node.html#a6b3997cbc4ff0c8a48582608a12fca8e">ChangeToNextNode</a>(current_node_index, next_move_);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        (*output_graph).emplace_back(new_node);  <span class="comment">// 追加する．</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>}</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keywordtype">void</span> NodeCreatorLegHierarchy::Create2LegLifted(</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keyword">const</span> RobotStateNode&amp; current_node,</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> current_node_index,</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    std::vector&lt;RobotStateNode&gt;* output_graph)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keyword">using </span><a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480">leg_func::ChangeDiscreteLegPos</a>;</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#ab008f25ef39dfb41ee4a76f3c9cc0529">leg_func::GetLiftedLegIndexByVector</a>(current_node.leg_state, &amp;lifted_leg_list);</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="comment">// 遊脚している脚を探す．遊脚数は2なので2つの数字が帰るはず</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    std::vector&lt;int&gt; lifted_leg_list;</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="comment">// 列挙体 DiscreteLegPos の全ての要素でループを回す．</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> i : discrete_leg_pos_list_)</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    {</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> j : discrete_leg_pos_list_)</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        {</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            RobotStateNode new_node = current_node;  <span class="comment">// 新しい脚状態を生成する.</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            <span class="comment">// 脚状態を変更する．</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            <a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480">ChangeDiscreteLegPos</a>(lifted_leg_list[0], i, &amp;new_node.leg_state);</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            <a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480">ChangeDiscreteLegPos</a>(lifted_leg_list[1], j, &amp;new_node.leg_state);</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            <span class="comment">// 次のノード用に，深さ・親・次の動作を更新する．</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            new_node.ChangeToNextNode(current_node_index, next_move_);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#ab008f25ef39dfb41ee4a76f3c9cc0529">leg_func::GetLiftedLegIndexByVector</a>(current_node.leg_state, &amp;lifted_leg_list);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="comment">// 列挙体 DiscreteLegPos の全ての要素でループを回す．</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> i : discrete_leg_pos_list_)</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    {</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> j : discrete_leg_pos_list_)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            RobotStateNode new_node = current_node;  <span class="comment">// 新しい脚状態を生成する.</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            <span class="comment">// 脚状態を変更する．</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            <a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480">ChangeDiscreteLegPos</a>(lifted_leg_list[0], i, &amp;new_node.leg_state);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            <a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480">ChangeDiscreteLegPos</a>(lifted_leg_list[1], j, &amp;new_node.leg_state);</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            (*output_graph).emplace_back(new_node);  <span class="comment">// 追加する．</span></div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        }</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    }</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>}</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="keywordtype">void</span> NodeCreatorLegHierarchy::Create3LegLifted(</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keyword">const</span> RobotStateNode&amp; current_node,</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> current_node_index,</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    std::vector&lt;RobotStateNode&gt;* output_graph)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keyword">using </span><a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480">leg_func::ChangeDiscreteLegPos</a>;</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="comment">// 遊脚している脚を探す．遊脚数は3なので3つの数字が帰るはず</span></div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    std::vector&lt;int&gt; lifted_leg_list;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            <span class="comment">// 次のノード用に，深さ・親・次の動作を更新する．</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            new_node.ChangeToNextNode(current_node_index, next_move_);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            (*output_graph).emplace_back(new_node);  <span class="comment">// 追加する．</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    }</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>}</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="keywordtype">void</span> NodeCreatorLegHierarchy::Create3LegLifted(</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keyword">const</span> RobotStateNode&amp; current_node,</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> current_node_index,</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    std::vector&lt;RobotStateNode&gt;* output_graph)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keyword">using </span><a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480">leg_func::ChangeDiscreteLegPos</a>;</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#ab008f25ef39dfb41ee4a76f3c9cc0529">leg_func::GetLiftedLegIndexByVector</a>(current_node.leg_state, &amp;lifted_leg_list);</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="comment">// 遊脚している脚を探す．遊脚数は3なので3つの数字が帰るはず</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    std::vector&lt;int&gt; lifted_leg_list;</div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="comment">// 列挙体 DiscreteLegPos の全ての要素でループを回す．</span></div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> i : discrete_leg_pos_list_)</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    {</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> j : discrete_leg_pos_list_)</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        {</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> k : discrete_leg_pos_list_)</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            {</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                RobotStateNode new_node = current_node;  <span class="comment">// 新しい脚状態を生成する.</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                <span class="comment">// 脚状態を変更する．</span></div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                <a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480">ChangeDiscreteLegPos</a>(lifted_leg_list[0], i, &amp;new_node.leg_state);</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                <a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480">ChangeDiscreteLegPos</a>(lifted_leg_list[1], j, &amp;new_node.leg_state);</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                <a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480">ChangeDiscreteLegPos</a>(lifted_leg_list[2], k, &amp;new_node.leg_state);</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                <span class="comment">// 次のノード用に，深さ・親・次の動作を更新する．</span></div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>                new_node.ChangeToNextNode(current_node_index, next_move_);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#ab008f25ef39dfb41ee4a76f3c9cc0529">leg_func::GetLiftedLegIndexByVector</a>(current_node.leg_state, &amp;lifted_leg_list);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="comment">// 列挙体 DiscreteLegPos の全ての要素でループを回す．</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> i : discrete_leg_pos_list_)</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    {</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> j : discrete_leg_pos_list_)</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        {</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> k : discrete_leg_pos_list_)</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            {</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                RobotStateNode new_node = current_node;  <span class="comment">// 新しい脚状態を生成する.</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                <span class="comment">// 脚状態を変更する．</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>                <a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480">ChangeDiscreteLegPos</a>(lifted_leg_list[0], i, &amp;new_node.leg_state);</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                <a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480">ChangeDiscreteLegPos</a>(lifted_leg_list[1], j, &amp;new_node.leg_state);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>                <a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480">ChangeDiscreteLegPos</a>(lifted_leg_list[2], k, &amp;new_node.leg_state);</div>
 <div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                (*output_graph).push_back(new_node);  <span class="comment">// 追加する．</span></div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            }</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        }</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    }</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>}</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>}  <span class="comment">// namespace designlab</span></div>
-<div class="ttc" id="aclassdesignlab_1_1_node_creator_leg_hierarchy_html_a91be54c4da3c895f16a59b5ffd24e37f"><div class="ttname"><a href="classdesignlab_1_1_node_creator_leg_hierarchy.html#a91be54c4da3c895f16a59b5ffd24e37f">designlab::NodeCreatorLegHierarchy::NodeCreatorLegHierarchy</a></div><div class="ttdeci">NodeCreatorLegHierarchy(HexapodMove next_move, const std::vector&lt; enums::DiscreteLegPos &gt; &amp;discrete_leg_pos_list)</div><div class="ttdoc">コンストラクタ．</div><div class="ttdef"><b>Definition</b> <a href="node__creator__leg__hierarchy_8cpp_source.html#l00013">node_creator_leg_hierarchy.cpp:13</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_node_creator_leg_hierarchy_html_ade5f7af05493084aaca057a4f543ebb7"><div class="ttname"><a href="classdesignlab_1_1_node_creator_leg_hierarchy.html#ade5f7af05493084aaca057a4f543ebb7">designlab::NodeCreatorLegHierarchy::Create</a></div><div class="ttdeci">void Create(const RobotStateNode &amp;current_node, int current_node_index, std::vector&lt; RobotStateNode &gt; *output_nodes) const override</div><div class="ttdoc">現在のノードから次のノード群を生成する．</div><div class="ttdef"><b>Definition</b> <a href="node__creator__leg__hierarchy_8cpp_source.html#l00023">node_creator_leg_hierarchy.cpp:23</a></div></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                <span class="comment">// 次のノード用に，深さ・親・次の動作を更新する．</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>                new_node.ChangeToNextNode(current_node_index, next_move_);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>                (*output_graph).push_back(new_node);  <span class="comment">// 追加する．</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            }</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        }</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    }</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>}</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>}  <span class="comment">// namespace designlab</span></div>
+<div class="ttc" id="aclassdesignlab_1_1_node_creator_leg_hierarchy_html_a91be54c4da3c895f16a59b5ffd24e37f"><div class="ttname"><a href="classdesignlab_1_1_node_creator_leg_hierarchy.html#a91be54c4da3c895f16a59b5ffd24e37f">designlab::NodeCreatorLegHierarchy::NodeCreatorLegHierarchy</a></div><div class="ttdeci">NodeCreatorLegHierarchy(HexapodMove next_move, const std::vector&lt; enums::DiscreteLegPos &gt; &amp;discrete_leg_pos_list)</div><div class="ttdoc">コンストラクタ．</div><div class="ttdef"><b>Definition</b> <a href="node__creator__leg__hierarchy_8cpp_source.html#l00016">node_creator_leg_hierarchy.cpp:16</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_node_creator_leg_hierarchy_html_ade5f7af05493084aaca057a4f543ebb7"><div class="ttname"><a href="classdesignlab_1_1_node_creator_leg_hierarchy.html#ade5f7af05493084aaca057a4f543ebb7">designlab::NodeCreatorLegHierarchy::Create</a></div><div class="ttdeci">void Create(const RobotStateNode &amp;current_node, int current_node_index, std::vector&lt; RobotStateNode &gt; *output_nodes) const override</div><div class="ttdoc">現在のノードから次のノード群を生成する．</div><div class="ttdef"><b>Definition</b> <a href="node__creator__leg__hierarchy_8cpp_source.html#l00026">node_creator_leg_hierarchy.cpp:26</a></div></div>
 <div class="ttc" id="aleg__state_8h_html"><div class="ttname"><a href="leg__state_8h.html">leg_state.h</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1leg__func_html_a3e2c16048416541b45cfb82f8eac0480"><div class="ttname"><a href="namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480">designlab::leg_func::ChangeDiscreteLegPos</a></div><div class="ttdeci">void ChangeDiscreteLegPos(const int leg_index, const enums::DiscreteLegPos new_discretized_leg_pos, LegStateBit *leg_state)</div><div class="ttdoc">脚の状態を変更する．遊脚を表すビットはそのまま．</div><div class="ttdef"><b>Definition</b> <a href="leg__state_8cpp_source.html#l00175">leg_state.cpp:175</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1leg__func_html_a783362f08ae38b6e3f5cb09aad52d51b"><div class="ttname"><a href="namespacedesignlab_1_1leg__func.html#a783362f08ae38b6e3f5cb09aad52d51b">designlab::leg_func::GetLiftedLegNum</a></div><div class="ttdeci">int GetLiftedLegNum(const LegStateBit &amp;leg_state)</div><div class="ttdoc">遊脚している脚の本数を返す関数．</div><div class="ttdef"><b>Definition</b> <a href="leg__state_8cpp_source.html#l00095">leg_state.cpp:95</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1leg__func_html_ab008f25ef39dfb41ee4a76f3c9cc0529"><div class="ttname"><a href="namespacedesignlab_1_1leg__func.html#ab008f25ef39dfb41ee4a76f3c9cc0529">designlab::leg_func::GetLiftedLegIndexByVector</a></div><div class="ttdeci">void GetLiftedLegIndexByVector(const LegStateBit &amp;leg_state, std::vector&lt; int &gt; *res_index)</div><div class="ttdoc">遊脚している脚の脚番号0～5を，引数_res_numberで参照渡しする関数．</div><div class="ttdef"><b>Definition</b> <a href="leg__state_8cpp_source.html#l00117">leg_state.cpp:117</a></div></div>
-<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00015">abstract_dxlib_gui.cpp:16</a></div></div>
-<div class="ttc" id="anamespacedesignlab_html_acc7368f4060dfdf3589ada8d62dd8a81"><div class="ttname"><a href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81">designlab::HexapodMove</a></div><div class="ttdeci">HexapodMove</div><div class="ttdoc">ロボットが次にどの動作をするのかを表す列挙体．</div><div class="ttdef"><b>Definition</b> <a href="hexapod__next__move_8h_source.html#l00016">hexapod_next_move.h:17</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__func_html_a3e2c16048416541b45cfb82f8eac0480"><div class="ttname"><a href="namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480">designlab::leg_func::ChangeDiscreteLegPos</a></div><div class="ttdeci">void ChangeDiscreteLegPos(const int leg_index, const enums::DiscreteLegPos new_discretized_leg_pos, LegStateBit *leg_state)</div><div class="ttdoc">脚の状態を変更する．遊脚を表すビットはそのまま．</div><div class="ttdef"><b>Definition</b> <a href="leg__state_8cpp_source.html#l00178">leg_state.cpp:178</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__func_html_a783362f08ae38b6e3f5cb09aad52d51b"><div class="ttname"><a href="namespacedesignlab_1_1leg__func.html#a783362f08ae38b6e3f5cb09aad52d51b">designlab::leg_func::GetLiftedLegNum</a></div><div class="ttdeci">int GetLiftedLegNum(const LegStateBit &amp;leg_state)</div><div class="ttdoc">遊脚している脚の本数を返す関数．</div><div class="ttdef"><b>Definition</b> <a href="leg__state_8cpp_source.html#l00098">leg_state.cpp:98</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1leg__func_html_ab008f25ef39dfb41ee4a76f3c9cc0529"><div class="ttname"><a href="namespacedesignlab_1_1leg__func.html#ab008f25ef39dfb41ee4a76f3c9cc0529">designlab::leg_func::GetLiftedLegIndexByVector</a></div><div class="ttdeci">void GetLiftedLegIndexByVector(const LegStateBit &amp;leg_state, std::vector&lt; int &gt; *res_index)</div><div class="ttdoc">遊脚している脚の脚番号0～5を，引数_res_numberで参照渡しする関数．</div><div class="ttdef"><b>Definition</b> <a href="leg__state_8cpp_source.html#l00120">leg_state.cpp:120</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00017">abstract_dxlib_gui.cpp:18</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html_acc7368f4060dfdf3589ada8d62dd8a81"><div class="ttname"><a href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81">designlab::HexapodMove</a></div><div class="ttdeci">HexapodMove</div><div class="ttdoc">ロボットが次にどの動作をするのかを表す列挙体．</div><div class="ttdef"><b>Definition</b> <a href="hexapod__next__move_8h_source.html#l00018">hexapod_next_move.h:19</a></div></div>
 <div class="ttc" id="anode__creator__leg__hierarchy_8h_html"><div class="ttname"><a href="node__creator__leg__hierarchy_8h.html">node_creator_leg_hierarchy.h</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_robot_state_node_html"><div class="ttname"><a href="structdesignlab_1_1_robot_state_node.html">designlab::RobotStateNode</a></div><div class="ttdoc">グラフ構造のためのノード(頂点)．旧名 LNODE</div><div class="ttdef"><b>Definition</b> <a href="robot__state__node_8h_source.html#l00045">robot_state_node.h:46</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_robot_state_node_html_a368e1568eaff0a1b1f638b0628ee4fbb"><div class="ttname"><a href="structdesignlab_1_1_robot_state_node.html#a368e1568eaff0a1b1f638b0628ee4fbb">designlab::RobotStateNode::leg_state</a></div><div class="ttdeci">leg_func::LegStateBit leg_state</div><div class="ttdoc">[4 byte] 脚状態，重心パターンを bitで表す．旧名 leg_con．</div><div class="ttdef"><b>Definition</b> <a href="robot__state__node_8h_source.html#l00191">robot_state_node.h:191</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_robot_state_node_html_a6b3997cbc4ff0c8a48582608a12fca8e"><div class="ttname"><a href="structdesignlab_1_1_robot_state_node.html#a6b3997cbc4ff0c8a48582608a12fca8e">designlab::RobotStateNode::ChangeToNextNode</a></div><div class="ttdeci">constexpr void ChangeToNextNode(const int parent_index_, const HexapodMove next_move_)</div><div class="ttdoc">次の動作を設定する関数．   深さを一つ深くして，親と次の動作を設定する．</div><div class="ttdef"><b>Definition</b> <a href="robot__state__node_8h_source.html#l00124">robot_state_node.h:124</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_robot_state_node_html"><div class="ttname"><a href="structdesignlab_1_1_robot_state_node.html">designlab::RobotStateNode</a></div><div class="ttdoc">グラフ構造のためのノード(頂点)．旧名 LNODE</div><div class="ttdef"><b>Definition</b> <a href="robot__state__node_8h_source.html#l00046">robot_state_node.h:47</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_robot_state_node_html_a368e1568eaff0a1b1f638b0628ee4fbb"><div class="ttname"><a href="structdesignlab_1_1_robot_state_node.html#a368e1568eaff0a1b1f638b0628ee4fbb">designlab::RobotStateNode::leg_state</a></div><div class="ttdeci">leg_func::LegStateBit leg_state</div><div class="ttdoc">[4 byte] 脚状態，重心パターンを bitで表す．旧名 leg_con．</div><div class="ttdef"><b>Definition</b> <a href="robot__state__node_8h_source.html#l00192">robot_state_node.h:192</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_robot_state_node_html_a6b3997cbc4ff0c8a48582608a12fca8e"><div class="ttname"><a href="structdesignlab_1_1_robot_state_node.html#a6b3997cbc4ff0c8a48582608a12fca8e">designlab::RobotStateNode::ChangeToNextNode</a></div><div class="ttdeci">constexpr void ChangeToNextNode(const int parent_index_, const HexapodMove next_move_)</div><div class="ttdoc">次の動作を設定する関数．   深さを一つ深くして，親と次の動作を設定する．</div><div class="ttdef"><b>Definition</b> <a href="robot__state__node_8h_source.html#l00125">robot_state_node.h:125</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -82,150 +82,154 @@ $(document).ready(function() { init_codefold(0); });
 </div><!--header-->
 <div class="contents">
 <a href="graphic__main__graph__viewer_8cpp.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="graphic__main__graph__viewer_8h.html">graphic_main_graph_viewer.h</a>&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="cassert__define_8h.html">cassert_define.h</a>&quot;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="camera__dragger_8h.html">camera_dragger.h</a>&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="dxlib__gui__camera_8h.html">dxlib_gui_camera.h</a>&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="dxlib__gui__camera__parameter__displayer_8h.html">dxlib_gui_camera_parameter_displayer.h</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="dxlib__gui__node__displayer_8h.html">dxlib_gui_node_displayer.h</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="dxlib__util_8h.html">dxlib_util.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="hexapod__renderer__builder_8h.html">hexapod_renderer_builder.h</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="keyboard_8h.html">keyboard.h</a>&quot;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="map__renderer_8h.html">map_renderer.h</a>&quot;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="node__initializer_8h.html">node_initializer.h</a>&quot;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="world__grid__renderer_8h.html">world_grid_renderer.h</a>&quot;</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Copyright(c) 2023 Design Engineering Laboratory, Saitama University</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// Released under the MIT license</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// https://opensource.org/licenses/mit-license.php</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="graphic__main__graph__viewer_8h.html">graphic_main_graph_viewer.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="cassert__define_8h.html">cassert_define.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="camera__dragger_8h.html">camera_dragger.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="dxlib__gui__camera_8h.html">dxlib_gui_camera.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="dxlib__gui__camera__parameter__displayer_8h.html">dxlib_gui_camera_parameter_displayer.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="dxlib__gui__node__displayer_8h.html">dxlib_gui_node_displayer.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="dxlib__util_8h.html">dxlib_util.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="hexapod__renderer__builder_8h.html">hexapod_renderer_builder.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="keyboard_8h.html">keyboard.h</a>&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="map__renderer_8h.html">map_renderer.h</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;<a class="code" href="node__initializer_8h.html">node_initializer.h</a>&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;<a class="code" href="world__grid__renderer_8h.html">world_grid_renderer.h</a>&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_graphic_main_graph_viewer.html#a24ec06ecbf0c201b107b18e1edd829ad">   25</a></span><a class="code hl_function" href="classdesignlab_1_1_graphic_main_graph_viewer.html#a24ec06ecbf0c201b107b18e1edd829ad">GraphicMainGraphViewer::GraphicMainGraphViewer</a>(</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">const</span> std::shared_ptr&lt;const GraphicDataBroker&gt;&amp; broker_ptr,</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">const</span> std::shared_ptr&lt;const IHexapodCoordinateConverter&gt;&amp; converter_ptr,</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">const</span> std::shared_ptr&lt;const IHexapodJointCalculator&gt;&amp; calculator_ptr,</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">const</span> std::shared_ptr&lt;const IHexapodPostureValidator&gt;&amp; checker_ptr,</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">const</span> std::shared_ptr&lt;const ApplicationSettingRecord&gt;&amp; setting_ptr) :</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    broker_ptr_(broker_ptr),</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    mouse_ptr_(<a class="code hl_namespace" href="namespacestd.html">std</a>::make_shared&lt;<a class="code hl_class" href="classdesignlab_1_1_mouse.html">Mouse</a>&gt;()),</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    graph_({}),</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    gui_controller_ptr_(std::make_unique&lt;GraphViewerGUIController&gt;(&amp;graph_, &amp;display_node_index_, setting_ptr))</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    assert(broker_ptr_ != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment">// 適当なノードを生成して，描画クラスを初期化する．</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_class" href="classdesignlab_1_1_node_initializer.html">NodeInitializer</a> node_initializer{ <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a>{0.f, 0.f, 30.f}, EulerXYZ(), <a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a35c3ace1970663a16e5c65baa5941b13">HexapodMove::kNone</a> };</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    RobotStateNode init_node = node_initializer.InitNode();</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">const</span> <span class="keyword">auto</span> camera = std::make_shared&lt;DxlibCamera&gt;();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>{</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="}">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_graphic_main_graph_viewer.html#a24ec06ecbf0c201b107b18e1edd829ad">   28</a></span><a class="code hl_function" href="classdesignlab_1_1_graphic_main_graph_viewer.html#a24ec06ecbf0c201b107b18e1edd829ad">GraphicMainGraphViewer::GraphicMainGraphViewer</a>(</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">const</span> std::shared_ptr&lt;const GraphicDataBroker&gt;&amp; broker_ptr,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">const</span> std::shared_ptr&lt;const IHexapodCoordinateConverter&gt;&amp; converter_ptr,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">const</span> std::shared_ptr&lt;const IHexapodJointCalculator&gt;&amp; calculator_ptr,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">const</span> std::shared_ptr&lt;const IHexapodPostureValidator&gt;&amp; checker_ptr,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">const</span> std::shared_ptr&lt;const ApplicationSettingRecord&gt;&amp; setting_ptr) :</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    broker_ptr_(broker_ptr),</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    mouse_ptr_(<a class="code hl_namespace" href="namespacestd.html">std</a>::make_shared&lt;<a class="code hl_class" href="classdesignlab_1_1_mouse.html">Mouse</a>&gt;()),</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    graph_({}),</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    gui_controller_ptr_(std::make_unique&lt;GraphViewerGUIController&gt;(&amp;graph_, &amp;display_node_index_, setting_ptr))</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    assert(broker_ptr_ != <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="comment">// 適当なノードを生成して，描画クラスを初期化する．</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="classdesignlab_1_1_node_initializer.html">NodeInitializer</a> node_initializer{ <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a>{0.f, 0.f, 30.f}, EulerXYZ(), <a class="code hl_enumvalue" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a35c3ace1970663a16e5c65baa5941b13">HexapodMove::kNone</a> };</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    RobotStateNode init_node = node_initializer.InitNode();</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">const</span> <span class="keyword">auto</span> camera_gui = std::make_shared&lt;DxlibGuiCamera&gt;(setting_ptr-&gt;window_size_x, setting_ptr-&gt;window_size_y, camera);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    camera_gui-&gt;SetPos(10, setting_ptr-&gt;window_size_y - 10, <a class="code hl_variable" href="namespacedesignlab.html#ac23615ac07844d3fc2b751c88101820b">kDxlibGuiAnchorLeftBottom</a>, <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">const</span> <span class="keyword">auto</span> camera = std::make_shared&lt;DxlibCamera&gt;();</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">const</span> <span class="keyword">auto</span> camera_dragger = std::make_shared&lt;CameraDragger&gt;(camera);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">const</span> <span class="keyword">auto</span> camera_parameter_gui = std::make_shared&lt;DxlibGuiCameraParameterDisplayer&gt;(setting_ptr-&gt;window_size_x, setting_ptr-&gt;window_size_y, camera);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    camera_parameter_gui-&gt;SetPos(10, 10, <a class="code hl_variable" href="namespacedesignlab.html#adece34d16ec2a1d25a21b89cf6f1aa44">kDxlibGuiAnchorLeftTop</a>, <span class="keyword">true</span>);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    camera_parameter_gui-&gt;SetVisible(<span class="keyword">false</span>);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">const</span> <span class="keyword">auto</span> node_display_gui = std::make_shared&lt;DxlibGuiNodeDisplayer&gt;(setting_ptr-&gt;window_size_x, setting_ptr-&gt;window_size_y, converter_ptr, calculator_ptr, checker_ptr);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    node_display_gui-&gt;SetPos(setting_ptr-&gt;window_size_x - 10, 10, <a class="code hl_variable" href="namespacedesignlab.html#ac90cba7815066edcd14353985f91b616">kDxlibGuiAnchorRightTop</a>, <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">const</span> <span class="keyword">auto</span> camera_gui = std::make_shared&lt;DxlibGuiCamera&gt;(setting_ptr-&gt;window_size_x, setting_ptr-&gt;window_size_y, camera);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    camera_gui-&gt;SetPos(10, setting_ptr-&gt;window_size_y - 10, <a class="code hl_variable" href="namespacedesignlab.html#ac23615ac07844d3fc2b751c88101820b">kDxlibGuiAnchorLeftBottom</a>, <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">const</span> <span class="keyword">auto</span> camera_dragger = std::make_shared&lt;CameraDragger&gt;(camera);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">const</span> <span class="keyword">auto</span> camera_parameter_gui = std::make_shared&lt;DxlibGuiCameraParameterDisplayer&gt;(setting_ptr-&gt;window_size_x, setting_ptr-&gt;window_size_y, camera);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    camera_parameter_gui-&gt;SetPos(10, 10, <a class="code hl_variable" href="namespacedesignlab.html#adece34d16ec2a1d25a21b89cf6f1aa44">kDxlibGuiAnchorLeftTop</a>, <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    camera_parameter_gui-&gt;SetVisible(<span class="keyword">false</span>);</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">const</span> <span class="keyword">auto</span> [hexapod_renderer_, hexapod_node_setter] =</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <a class="code hl_function" href="classdesignlab_1_1_hexapod_renderer_builder.html#a595c704a5ba5b379a828afbba93d9ddf">HexapodRendererBuilder::Build</a>(converter_ptr, calculator_ptr, setting_ptr-&gt;gui_display_quality);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">const</span> <span class="keyword">auto</span> node_display_gui = std::make_shared&lt;DxlibGuiNodeDisplayer&gt;(setting_ptr-&gt;window_size_x, setting_ptr-&gt;window_size_y, converter_ptr, calculator_ptr, checker_ptr);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    node_display_gui-&gt;SetPos(setting_ptr-&gt;window_size_x - 10, 10, <a class="code hl_variable" href="namespacedesignlab.html#ac90cba7815066edcd14353985f91b616">kDxlibGuiAnchorRightTop</a>, <span class="keyword">true</span>);</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">const</span> <span class="keyword">auto</span> map_renderer = std::make_shared&lt;MapRenderer&gt;();</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    map_renderer-&gt;SetMapState(broker_ptr-&gt;map_state.GetData());</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">const</span> <span class="keyword">auto</span> [hexapod_renderer_, hexapod_node_setter] =</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <a class="code hl_function" href="classdesignlab_1_1_hexapod_renderer_builder.html#a595c704a5ba5b379a828afbba93d9ddf">HexapodRendererBuilder::Build</a>(converter_ptr, calculator_ptr, setting_ptr-&gt;gui_display_quality);</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keyword">const</span> <span class="keyword">auto</span> world_grid_renderer = std::make_shared&lt;WorldGridRenderer&gt;();</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keyword">const</span> <span class="keyword">auto</span> map_renderer = std::make_shared&lt;MapRenderer&gt;();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    map_renderer-&gt;SetMapState(broker_ptr-&gt;map_state.GetData());</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    gui_updater_.Register(camera_dragger, <a class="code hl_variable" href="classdesignlab_1_1_dxlib_gui_updater.html#a4242e72bd3dc5ea48a29e95d27993031">DxlibGuiUpdater::kBottomPriority</a>);</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    gui_updater_.Register(camera_parameter_gui, <a class="code hl_variable" href="classdesignlab_1_1_dxlib_gui_updater.html#a8eb942512ff4ab65cef9d889123ea114">DxlibGuiUpdater::kTopPriority</a>);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    gui_updater_.Register(camera_gui, <a class="code hl_variable" href="classdesignlab_1_1_dxlib_gui_updater.html#a8eb942512ff4ab65cef9d889123ea114">DxlibGuiUpdater::kTopPriority</a>);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    gui_updater_.Register(node_display_gui, <a class="code hl_variable" href="classdesignlab_1_1_dxlib_gui_updater.html#a8eb942512ff4ab65cef9d889123ea114">DxlibGuiUpdater::kTopPriority</a>);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    gui_updater_.OpenTerminal();</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    renderer_group_.Register(hexapod_renderer_);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    renderer_group_.Register(map_renderer);</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    renderer_group_.Register(world_grid_renderer);</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    node_setter_group_.Register(camera_gui);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    node_setter_group_.Register(node_display_gui);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    node_setter_group_.Register(hexapod_node_setter);</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    node_setter_group_.Register(map_renderer);</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>}</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">const</span> <span class="keyword">auto</span> world_grid_renderer = std::make_shared&lt;WorldGridRenderer&gt;();</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    gui_updater_.Register(camera_dragger, <a class="code hl_variable" href="classdesignlab_1_1_dxlib_gui_updater.html#a4242e72bd3dc5ea48a29e95d27993031">DxlibGuiUpdater::kBottomPriority</a>);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    gui_updater_.Register(camera_parameter_gui, <a class="code hl_variable" href="classdesignlab_1_1_dxlib_gui_updater.html#a8eb942512ff4ab65cef9d889123ea114">DxlibGuiUpdater::kTopPriority</a>);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    gui_updater_.Register(camera_gui, <a class="code hl_variable" href="classdesignlab_1_1_dxlib_gui_updater.html#a8eb942512ff4ab65cef9d889123ea114">DxlibGuiUpdater::kTopPriority</a>);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    gui_updater_.Register(node_display_gui, <a class="code hl_variable" href="classdesignlab_1_1_dxlib_gui_updater.html#a8eb942512ff4ab65cef9d889123ea114">DxlibGuiUpdater::kTopPriority</a>);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    gui_updater_.OpenTerminal();</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    renderer_group_.Register(hexapod_renderer_);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    renderer_group_.Register(map_renderer);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    renderer_group_.Register(world_grid_renderer);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    node_setter_group_.Register(camera_gui);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    node_setter_group_.Register(node_display_gui);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    node_setter_group_.Register(hexapod_node_setter);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    node_setter_group_.Register(map_renderer);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>}</div>
 </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="foldopen" id="foldopen00084" data-start="{" data-end="}">
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_graphic_main_graph_viewer.html#a3b0775258226bd908c98bc5099545b5f">   84</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_graphic_main_graph_viewer.html#a3b0775258226bd908c98bc5099545b5f">GraphicMainGraphViewer::Update</a>()</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>{</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    mouse_ptr_-&gt;Update();</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    gui_controller_ptr_-&gt;Update();</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">if</span> (graph_update_count_ != broker_ptr_-&gt;graph.GetUpdateCount())</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    {</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        graph_.clear();  <span class="comment">// グラフを初期化する．</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        graph_ = broker_ptr_-&gt;graph.GetData();  <span class="comment">// データを更新する．</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="comment">// グラフの中身が空でないならば，表示するノードを初期化する．</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="keywordflow">if</span> (!graph_.empty())</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        {</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            display_node_index_ = 0;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        }</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        gui_controller_ptr_-&gt;UpdateGraphNodeDepthData();</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        graph_update_count_ = broker_ptr_-&gt;graph.GetUpdateCount();</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="foldopen" id="foldopen00087" data-start="{" data-end="}">
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_graphic_main_graph_viewer.html#a3b0775258226bd908c98bc5099545b5f">   87</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_graphic_main_graph_viewer.html#a3b0775258226bd908c98bc5099545b5f">GraphicMainGraphViewer::Update</a>()</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>{</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    mouse_ptr_-&gt;Update();</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    gui_controller_ptr_-&gt;Update();</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordflow">if</span> (graph_update_count_ != broker_ptr_-&gt;graph.GetUpdateCount())</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        graph_.clear();  <span class="comment">// グラフを初期化する．</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        graph_ = broker_ptr_-&gt;graph.GetData();  <span class="comment">// データを更新する．</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="comment">// グラフの中身が空でないならば，表示するノードを初期化する．</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordflow">if</span> (!graph_.empty())</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        {</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            display_node_index_ = 0;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        }</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        gui_controller_ptr_-&gt;UpdateGraphNodeDepthData();</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordflow">if</span> (display_node_index_ &lt; graph_.size() &amp;&amp; graph_.size() != 0)</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    {</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        node_setter_group_.<a class="code hl_function" href="classdesignlab_1_1_dxlib_node_setter_group.html#afd8f92a9f04d04aea6233c5adf0b7792">SetNode</a>(graph_.at(display_node_index_));</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    }</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    gui_updater_.<a class="code hl_function" href="classdesignlab_1_1_dxlib_gui_updater.html#a8330d413e80271485c00caaf64c36841">Activate</a>(mouse_ptr_);</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>}</div>
-</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        graph_update_count_ = broker_ptr_-&gt;graph.GetUpdateCount();</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    }</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordflow">if</span> (display_node_index_ &lt; graph_.size() &amp;&amp; graph_.size() != 0)</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    {</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        node_setter_group_.<a class="code hl_function" href="classdesignlab_1_1_dxlib_node_setter_group.html#afd8f92a9f04d04aea6233c5adf0b7792">SetNode</a>(graph_.at(display_node_index_));</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    }</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    gui_updater_.<a class="code hl_function" href="classdesignlab_1_1_dxlib_gui_updater.html#a8330d413e80271485c00caaf64c36841">Activate</a>(mouse_ptr_);</div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="foldopen" id="foldopen00118" data-start="{" data-end="}">
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_graphic_main_graph_viewer.html#ae9895d8e508a5f885d0ee12dbfcd24aa">  118</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_graphic_main_graph_viewer.html#ae9895d8e508a5f885d0ee12dbfcd24aa">GraphicMainGraphViewer::Draw</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    renderer_group_.<a class="code hl_function" href="classdesignlab_1_1_dxlib3d_renderer_group.html#ad9244776a48fabba9ef1b648bd750a73">Draw</a>();</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    gui_controller_ptr_-&gt;Draw();</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    gui_updater_.<a class="code hl_function" href="classdesignlab_1_1_dxlib_gui_updater.html#a6f381c10ed8d90a143acc33065d1a0fe">Draw</a>();</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>}</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>}</div>
 </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="foldopen" id="foldopen00121" data-start="{" data-end="}">
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_graphic_main_graph_viewer.html#ae9895d8e508a5f885d0ee12dbfcd24aa">  121</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_graphic_main_graph_viewer.html#ae9895d8e508a5f885d0ee12dbfcd24aa">GraphicMainGraphViewer::Draw</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    renderer_group_.<a class="code hl_function" href="classdesignlab_1_1_dxlib3d_renderer_group.html#ad9244776a48fabba9ef1b648bd750a73">Draw</a>();</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    gui_controller_ptr_-&gt;Draw();</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>}  <span class="comment">// namespace designlab</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    gui_updater_.<a class="code hl_function" href="classdesignlab_1_1_dxlib_gui_updater.html#a6f381c10ed8d90a143acc33065d1a0fe">Draw</a>();</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>}</div>
+</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>}  <span class="comment">// namespace designlab</span></div>
 <div class="ttc" id="acamera__dragger_8h_html"><div class="ttname"><a href="camera__dragger_8h.html">camera_dragger.h</a></div></div>
 <div class="ttc" id="acassert__define_8h_html"><div class="ttname"><a href="cassert__define_8h.html">cassert_define.h</a></div><div class="ttdoc">デバッグモードとリリースモードでアサートを有効化・無効化するためのヘッダファイル．</div></div>
-<div class="ttc" id="aclassdesignlab_1_1_dxlib3d_renderer_group_html_ad9244776a48fabba9ef1b648bd750a73"><div class="ttname"><a href="classdesignlab_1_1_dxlib3d_renderer_group.html#ad9244776a48fabba9ef1b648bd750a73">designlab::Dxlib3dRendererGroup::Draw</a></div><div class="ttdeci">void Draw() const</div><div class="ttdoc">登録されているクラスの draw 関数を呼ぶ．   また，Zソートを行う．</div><div class="ttdef"><b>Definition</b> <a href="dxlib__3d__renderer__group_8cpp_source.html#l00021">dxlib_3d_renderer_group.cpp:21</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_dxlib_gui_updater_html_a4242e72bd3dc5ea48a29e95d27993031"><div class="ttname"><a href="classdesignlab_1_1_dxlib_gui_updater.html#a4242e72bd3dc5ea48a29e95d27993031">designlab::DxlibGuiUpdater::kBottomPriority</a></div><div class="ttdeci">static constexpr int kBottomPriority</div><div class="ttdoc">最も優先度が低い．</div><div class="ttdef"><b>Definition</b> <a href="dxlib__gui__updater_8h_source.html#l00058">dxlib_gui_updater.h:58</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_dxlib_gui_updater_html_a6f381c10ed8d90a143acc33065d1a0fe"><div class="ttname"><a href="classdesignlab_1_1_dxlib_gui_updater.html#a6f381c10ed8d90a143acc33065d1a0fe">designlab::DxlibGuiUpdater::Draw</a></div><div class="ttdeci">void Draw() const</div><div class="ttdoc">登録済みのGUIのDraw関数を実行する．</div><div class="ttdef"><b>Definition</b> <a href="dxlib__gui__updater_8cpp_source.html#l00055">dxlib_gui_updater.cpp:55</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_dxlib_gui_updater_html_a8330d413e80271485c00caaf64c36841"><div class="ttname"><a href="classdesignlab_1_1_dxlib_gui_updater.html#a8330d413e80271485c00caaf64c36841">designlab::DxlibGuiUpdater::Activate</a></div><div class="ttdeci">void Activate(const std::shared_ptr&lt; const Mouse &gt; &amp;mouse_ptr)</div><div class="ttdoc">GUIのUpdate関数を実行し，クリック，ドラッグなどの判定を行う．   優先度の高いものから順に各種判定を行う．</div><div class="ttdef"><b>Definition</b> <a href="dxlib__gui__updater_8cpp_source.html#l00045">dxlib_gui_updater.cpp:45</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_dxlib_gui_updater_html_a8eb942512ff4ab65cef9d889123ea114"><div class="ttname"><a href="classdesignlab_1_1_dxlib_gui_updater.html#a8eb942512ff4ab65cef9d889123ea114">designlab::DxlibGuiUpdater::kTopPriority</a></div><div class="ttdeci">static constexpr int kTopPriority</div><div class="ttdoc">最も優先的に処理される．</div><div class="ttdef"><b>Definition</b> <a href="dxlib__gui__updater_8h_source.html#l00059">dxlib_gui_updater.h:59</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_dxlib_node_setter_group_html_afd8f92a9f04d04aea6233c5adf0b7792"><div class="ttname"><a href="classdesignlab_1_1_dxlib_node_setter_group.html#afd8f92a9f04d04aea6233c5adf0b7792">designlab::DxlibNodeSetterGroup::SetNode</a></div><div class="ttdeci">void SetNode(const RobotStateNode &amp;node)</div><div class="ttdoc">登録済みの全てのクラスに対してノードの設定を行う．</div><div class="ttdef"><b>Definition</b> <a href="dxlib__node__setter__group_8cpp_source.html#l00020">dxlib_node_setter_group.cpp:20</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_graphic_main_graph_viewer_html_a24ec06ecbf0c201b107b18e1edd829ad"><div class="ttname"><a href="classdesignlab_1_1_graphic_main_graph_viewer.html#a24ec06ecbf0c201b107b18e1edd829ad">designlab::GraphicMainGraphViewer::GraphicMainGraphViewer</a></div><div class="ttdeci">GraphicMainGraphViewer(const std::shared_ptr&lt; const GraphicDataBroker &gt; &amp;broker_ptr, const std::shared_ptr&lt; const IHexapodCoordinateConverter &gt; &amp;converter_ptr, const std::shared_ptr&lt; const IHexapodJointCalculator &gt; &amp;calculator_ptr, const std::shared_ptr&lt; const IHexapodPostureValidator &gt; &amp;checker_ptr, const std::shared_ptr&lt; const ApplicationSettingRecord &gt; &amp;setting_ptr)</div><div class="ttdef"><b>Definition</b> <a href="graphic__main__graph__viewer_8cpp_source.html#l00025">graphic_main_graph_viewer.cpp:25</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_graphic_main_graph_viewer_html_a3b0775258226bd908c98bc5099545b5f"><div class="ttname"><a href="classdesignlab_1_1_graphic_main_graph_viewer.html#a3b0775258226bd908c98bc5099545b5f">designlab::GraphicMainGraphViewer::Update</a></div><div class="ttdeci">bool Update() override</div><div class="ttdoc">描画画面の更新を行う．純粋仮想関数のため， 継承先では必ず override する必要がある．</div><div class="ttdef"><b>Definition</b> <a href="graphic__main__graph__viewer_8cpp_source.html#l00084">graphic_main_graph_viewer.cpp:84</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_graphic_main_graph_viewer_html_ae9895d8e508a5f885d0ee12dbfcd24aa"><div class="ttname"><a href="classdesignlab_1_1_graphic_main_graph_viewer.html#ae9895d8e508a5f885d0ee12dbfcd24aa">designlab::GraphicMainGraphViewer::Draw</a></div><div class="ttdeci">void Draw() const override</div><div class="ttdoc">描画を行う． ここでは描画系の処理のみを行い内部のデータを 更新しないため const を付けている．</div><div class="ttdef"><b>Definition</b> <a href="graphic__main__graph__viewer_8cpp_source.html#l00118">graphic_main_graph_viewer.cpp:118</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_hexapod_renderer_builder_html_a595c704a5ba5b379a828afbba93d9ddf"><div class="ttname"><a href="classdesignlab_1_1_hexapod_renderer_builder.html#a595c704a5ba5b379a828afbba93d9ddf">designlab::HexapodRendererBuilder::Build</a></div><div class="ttdeci">static std::tuple&lt; std::shared_ptr&lt; IDxlib3dRenderer &gt;, std::shared_ptr&lt; IDxlibNodeSetter &gt; &gt; Build(const std::shared_ptr&lt; const IHexapodCoordinateConverter &gt; &amp;converter_ptr, const std::shared_ptr&lt; const IHexapodJointCalculator &gt; &amp;calculator_ptr, DisplayQuality display_quality)</div><div class="ttdoc">HexapodRendererクラスのインスタンスを作成する． static関数なので，HexapodRendererBuilder::Build()と呼び出す．</div><div class="ttdef"><b>Definition</b> <a href="hexapod__renderer__builder_8cpp_source.html#l00015">hexapod_renderer_builder.cpp:15</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_mouse_html"><div class="ttname"><a href="classdesignlab_1_1_mouse.html">designlab::Mouse</a></div><div class="ttdoc">Dxlibでマウス入力を取得するクラス．</div><div class="ttdef"><b>Definition</b> <a href="mouse_8h_source.html#l00019">mouse.h:20</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_node_initializer_html"><div class="ttname"><a href="classdesignlab_1_1_node_initializer.html">designlab::NodeInitializer</a></div><div class="ttdoc">ノードの初期化を行うクラス．   シミュレーション時にノードの初期値を設定するために使用する．</div><div class="ttdef"><b>Definition</b> <a href="node__initializer_8h_source.html#l00018">node_initializer.h:19</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_dxlib3d_renderer_group_html_ad9244776a48fabba9ef1b648bd750a73"><div class="ttname"><a href="classdesignlab_1_1_dxlib3d_renderer_group.html#ad9244776a48fabba9ef1b648bd750a73">designlab::Dxlib3dRendererGroup::Draw</a></div><div class="ttdeci">void Draw() const</div><div class="ttdoc">登録されているクラスの draw 関数を呼ぶ．   また，Zソートを行う．</div><div class="ttdef"><b>Definition</b> <a href="dxlib__3d__renderer__group_8cpp_source.html#l00024">dxlib_3d_renderer_group.cpp:24</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_dxlib_gui_updater_html_a4242e72bd3dc5ea48a29e95d27993031"><div class="ttname"><a href="classdesignlab_1_1_dxlib_gui_updater.html#a4242e72bd3dc5ea48a29e95d27993031">designlab::DxlibGuiUpdater::kBottomPriority</a></div><div class="ttdeci">static constexpr int kBottomPriority</div><div class="ttdoc">最も優先度が低い．</div><div class="ttdef"><b>Definition</b> <a href="dxlib__gui__updater_8h_source.html#l00059">dxlib_gui_updater.h:59</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_dxlib_gui_updater_html_a6f381c10ed8d90a143acc33065d1a0fe"><div class="ttname"><a href="classdesignlab_1_1_dxlib_gui_updater.html#a6f381c10ed8d90a143acc33065d1a0fe">designlab::DxlibGuiUpdater::Draw</a></div><div class="ttdeci">void Draw() const</div><div class="ttdoc">登録済みのGUIのDraw関数を実行する．</div><div class="ttdef"><b>Definition</b> <a href="dxlib__gui__updater_8cpp_source.html#l00057">dxlib_gui_updater.cpp:57</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_dxlib_gui_updater_html_a8330d413e80271485c00caaf64c36841"><div class="ttname"><a href="classdesignlab_1_1_dxlib_gui_updater.html#a8330d413e80271485c00caaf64c36841">designlab::DxlibGuiUpdater::Activate</a></div><div class="ttdeci">void Activate(const std::shared_ptr&lt; const Mouse &gt; &amp;mouse_ptr)</div><div class="ttdoc">GUIのUpdate関数を実行し，クリック，ドラッグなどの判定を行う．   優先度の高いものから順に各種判定を行う．</div><div class="ttdef"><b>Definition</b> <a href="dxlib__gui__updater_8cpp_source.html#l00047">dxlib_gui_updater.cpp:47</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_dxlib_gui_updater_html_a8eb942512ff4ab65cef9d889123ea114"><div class="ttname"><a href="classdesignlab_1_1_dxlib_gui_updater.html#a8eb942512ff4ab65cef9d889123ea114">designlab::DxlibGuiUpdater::kTopPriority</a></div><div class="ttdeci">static constexpr int kTopPriority</div><div class="ttdoc">最も優先的に処理される．</div><div class="ttdef"><b>Definition</b> <a href="dxlib__gui__updater_8h_source.html#l00060">dxlib_gui_updater.h:60</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_dxlib_node_setter_group_html_afd8f92a9f04d04aea6233c5adf0b7792"><div class="ttname"><a href="classdesignlab_1_1_dxlib_node_setter_group.html#afd8f92a9f04d04aea6233c5adf0b7792">designlab::DxlibNodeSetterGroup::SetNode</a></div><div class="ttdeci">void SetNode(const RobotStateNode &amp;node)</div><div class="ttdoc">登録済みの全てのクラスに対してノードの設定を行う．</div><div class="ttdef"><b>Definition</b> <a href="dxlib__node__setter__group_8cpp_source.html#l00023">dxlib_node_setter_group.cpp:23</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_graphic_main_graph_viewer_html_a24ec06ecbf0c201b107b18e1edd829ad"><div class="ttname"><a href="classdesignlab_1_1_graphic_main_graph_viewer.html#a24ec06ecbf0c201b107b18e1edd829ad">designlab::GraphicMainGraphViewer::GraphicMainGraphViewer</a></div><div class="ttdeci">GraphicMainGraphViewer(const std::shared_ptr&lt; const GraphicDataBroker &gt; &amp;broker_ptr, const std::shared_ptr&lt; const IHexapodCoordinateConverter &gt; &amp;converter_ptr, const std::shared_ptr&lt; const IHexapodJointCalculator &gt; &amp;calculator_ptr, const std::shared_ptr&lt; const IHexapodPostureValidator &gt; &amp;checker_ptr, const std::shared_ptr&lt; const ApplicationSettingRecord &gt; &amp;setting_ptr)</div><div class="ttdef"><b>Definition</b> <a href="graphic__main__graph__viewer_8cpp_source.html#l00028">graphic_main_graph_viewer.cpp:28</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_graphic_main_graph_viewer_html_a3b0775258226bd908c98bc5099545b5f"><div class="ttname"><a href="classdesignlab_1_1_graphic_main_graph_viewer.html#a3b0775258226bd908c98bc5099545b5f">designlab::GraphicMainGraphViewer::Update</a></div><div class="ttdeci">bool Update() override</div><div class="ttdoc">描画画面の更新を行う．純粋仮想関数のため， 継承先では必ず override する必要がある．</div><div class="ttdef"><b>Definition</b> <a href="graphic__main__graph__viewer_8cpp_source.html#l00087">graphic_main_graph_viewer.cpp:87</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_graphic_main_graph_viewer_html_ae9895d8e508a5f885d0ee12dbfcd24aa"><div class="ttname"><a href="classdesignlab_1_1_graphic_main_graph_viewer.html#ae9895d8e508a5f885d0ee12dbfcd24aa">designlab::GraphicMainGraphViewer::Draw</a></div><div class="ttdeci">void Draw() const override</div><div class="ttdoc">描画を行う． ここでは描画系の処理のみを行い内部のデータを 更新しないため const を付けている．</div><div class="ttdef"><b>Definition</b> <a href="graphic__main__graph__viewer_8cpp_source.html#l00121">graphic_main_graph_viewer.cpp:121</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_hexapod_renderer_builder_html_a595c704a5ba5b379a828afbba93d9ddf"><div class="ttname"><a href="classdesignlab_1_1_hexapod_renderer_builder.html#a595c704a5ba5b379a828afbba93d9ddf">designlab::HexapodRendererBuilder::Build</a></div><div class="ttdeci">static std::tuple&lt; std::shared_ptr&lt; IDxlib3dRenderer &gt;, std::shared_ptr&lt; IDxlibNodeSetter &gt; &gt; Build(const std::shared_ptr&lt; const IHexapodCoordinateConverter &gt; &amp;converter_ptr, const std::shared_ptr&lt; const IHexapodJointCalculator &gt; &amp;calculator_ptr, DisplayQuality display_quality)</div><div class="ttdoc">HexapodRendererクラスのインスタンスを作成する． static関数なので，HexapodRendererBuilder::Build()と呼び出す．</div><div class="ttdef"><b>Definition</b> <a href="hexapod__renderer__builder_8cpp_source.html#l00018">hexapod_renderer_builder.cpp:18</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_mouse_html"><div class="ttname"><a href="classdesignlab_1_1_mouse.html">designlab::Mouse</a></div><div class="ttdoc">Dxlibでマウス入力を取得するクラス．</div><div class="ttdef"><b>Definition</b> <a href="mouse_8h_source.html#l00020">mouse.h:21</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_node_initializer_html"><div class="ttname"><a href="classdesignlab_1_1_node_initializer.html">designlab::NodeInitializer</a></div><div class="ttdoc">ノードの初期化を行うクラス．   シミュレーション時にノードの初期値を設定するために使用する．</div><div class="ttdef"><b>Definition</b> <a href="node__initializer_8h_source.html#l00020">node_initializer.h:21</a></div></div>
 <div class="ttc" id="adxlib__gui__camera_8h_html"><div class="ttname"><a href="dxlib__gui__camera_8h.html">dxlib_gui_camera.h</a></div></div>
 <div class="ttc" id="adxlib__gui__camera__parameter__displayer_8h_html"><div class="ttname"><a href="dxlib__gui__camera__parameter__displayer_8h.html">dxlib_gui_camera_parameter_displayer.h</a></div></div>
 <div class="ttc" id="adxlib__gui__node__displayer_8h_html"><div class="ttname"><a href="dxlib__gui__node__displayer_8h.html">dxlib_gui_node_displayer.h</a></div></div>
@@ -234,14 +238,14 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="ahexapod__renderer__builder_8h_html"><div class="ttname"><a href="hexapod__renderer__builder_8h.html">hexapod_renderer_builder.h</a></div></div>
 <div class="ttc" id="akeyboard_8h_html"><div class="ttname"><a href="keyboard_8h.html">keyboard.h</a></div></div>
 <div class="ttc" id="amap__renderer_8h_html"><div class="ttname"><a href="map__renderer_8h.html">map_renderer.h</a></div></div>
-<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00015">abstract_dxlib_gui.cpp:16</a></div></div>
-<div class="ttc" id="anamespacedesignlab_html_ac23615ac07844d3fc2b751c88101820b"><div class="ttname"><a href="namespacedesignlab.html#ac23615ac07844d3fc2b751c88101820b">designlab::kDxlibGuiAnchorLeftBottom</a></div><div class="ttdeci">constexpr unsigned int kDxlibGuiAnchorLeftBottom</div><div class="ttdef"><b>Definition</b> <a href="interface__dxlib__gui_8h_source.html#l00028">interface_dxlib_gui.h:28</a></div></div>
-<div class="ttc" id="anamespacedesignlab_html_ac90cba7815066edcd14353985f91b616"><div class="ttname"><a href="namespacedesignlab.html#ac90cba7815066edcd14353985f91b616">designlab::kDxlibGuiAnchorRightTop</a></div><div class="ttdeci">constexpr unsigned int kDxlibGuiAnchorRightTop</div><div class="ttdef"><b>Definition</b> <a href="interface__dxlib__gui_8h_source.html#l00040">interface_dxlib_gui.h:40</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00017">abstract_dxlib_gui.cpp:18</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html_ac23615ac07844d3fc2b751c88101820b"><div class="ttname"><a href="namespacedesignlab.html#ac23615ac07844d3fc2b751c88101820b">designlab::kDxlibGuiAnchorLeftBottom</a></div><div class="ttdeci">constexpr unsigned int kDxlibGuiAnchorLeftBottom</div><div class="ttdef"><b>Definition</b> <a href="interface__dxlib__gui_8h_source.html#l00029">interface_dxlib_gui.h:29</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html_ac90cba7815066edcd14353985f91b616"><div class="ttname"><a href="namespacedesignlab.html#ac90cba7815066edcd14353985f91b616">designlab::kDxlibGuiAnchorRightTop</a></div><div class="ttdeci">constexpr unsigned int kDxlibGuiAnchorRightTop</div><div class="ttdef"><b>Definition</b> <a href="interface__dxlib__gui_8h_source.html#l00041">interface_dxlib_gui.h:41</a></div></div>
 <div class="ttc" id="anamespacedesignlab_html_acc7368f4060dfdf3589ada8d62dd8a81a35c3ace1970663a16e5c65baa5941b13"><div class="ttname"><a href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a35c3ace1970663a16e5c65baa5941b13">designlab::HexapodMove::kNone</a></div><div class="ttdeci">@ kNone</div><div class="ttdoc">何も動作をしない．</div></div>
-<div class="ttc" id="anamespacedesignlab_html_adece34d16ec2a1d25a21b89cf6f1aa44"><div class="ttname"><a href="namespacedesignlab.html#adece34d16ec2a1d25a21b89cf6f1aa44">designlab::kDxlibGuiAnchorLeftTop</a></div><div class="ttdeci">constexpr unsigned int kDxlibGuiAnchorLeftTop</div><div class="ttdef"><b>Definition</b> <a href="interface__dxlib__gui_8h_source.html#l00022">interface_dxlib_gui.h:22</a></div></div>
-<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdef"><b>Definition</b> <a href="com__type_8h_source.html#l00021">com_type.h:22</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html_adece34d16ec2a1d25a21b89cf6f1aa44"><div class="ttname"><a href="namespacedesignlab.html#adece34d16ec2a1d25a21b89cf6f1aa44">designlab::kDxlibGuiAnchorLeftTop</a></div><div class="ttdeci">constexpr unsigned int kDxlibGuiAnchorLeftTop</div><div class="ttdef"><b>Definition</b> <a href="interface__dxlib__gui_8h_source.html#l00023">interface_dxlib_gui.h:23</a></div></div>
+<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdef"><b>Definition</b> <a href="com__type_8h_source.html#l00023">com_type.h:24</a></div></div>
 <div class="ttc" id="anode__initializer_8h_html"><div class="ttname"><a href="node__initializer_8h.html">node_initializer.h</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_vector3_html"><div class="ttname"><a href="structdesignlab_1_1_vector3.html">designlab::Vector3</a></div><div class="ttdoc">3次元の位置ベクトルを表す構造体．</div><div class="ttdef"><b>Definition</b> <a href="math__vector3_8h_source.html#l00038">math_vector3.h:39</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3_html"><div class="ttname"><a href="structdesignlab_1_1_vector3.html">designlab::Vector3</a></div><div class="ttdoc">3次元の位置ベクトルを表す構造体．</div><div class="ttdef"><b>Definition</b> <a href="math__vector3_8h_source.html#l00039">math_vector3.h:40</a></div></div>
 <div class="ttc" id="aworld__grid__renderer_8h_html"><div class="ttname"><a href="world__grid__renderer_8h.html">world_grid_renderer.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

@@ -166,8 +166,6 @@ $(function() {
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>このプログラムでは脚状態をビット(28bit)の情報で表す． そのデータを処理するための関数． </p>
-<dl class="section author"><dt>著者</dt><dd>Hasegawa </dd></dl>
-<dl class="section copyright"><dt>著作権所有</dt><dd>埼玉大学 設計工学研究室 2023. All right reserved.</dd></dl>
 <p>脚状態って言ってるけど離散化された重心位置も入ってる． <br  />
  1脚の脚状態を4bitで表す 最上位0:遊脚,1:接地．　残り3bitで離散化した脚位置． <br  />
  離散化した脚位置は基準位置を4として，それより前にあるなら4より大きい数字， 後ろにあるならば4より小さい数字． <br  />
@@ -187,7 +185,7 @@ $(function() {
 
 <p>脚の遊脚・接地を表す型．6bitのビット型．接地が 1 遊脚が 0． </p>
 
-<p class="definition"> <a class="el" href="leg__state_8h_source.html">leg_state.h</a> の <a class="el" href="leg__state_8h_source.html#l00057">57</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="leg__state_8h_source.html">leg_state.h</a> の <a class="el" href="leg__state_8h_source.html#l00059">59</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -205,7 +203,7 @@ $(function() {
 
 <p>脚状態を保存する型．28bitのビット型． </p>
 
-<p class="definition"> <a class="el" href="leg__state_8h_source.html">leg_state.h</a> の <a class="el" href="leg__state_8h_source.html#l00054">54</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="leg__state_8h_source.html">leg_state.h</a> の <a class="el" href="leg__state_8h_source.html#l00056">56</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -245,7 +243,7 @@ $(function() {
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00230">230</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00233">233</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -309,7 +307,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>変更した重心パターンを返す． </dd></dl>
 
-<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00241">241</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00244">244</a> 行目に定義があります。</p>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
@@ -365,7 +363,7 @@ $(function() {
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00175">175</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00178">178</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -435,7 +433,7 @@ $(function() {
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00207">207</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00210">210</a> 行目に定義があります。</p>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
@@ -506,7 +504,7 @@ $(function() {
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00157">157</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00160">160</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -549,7 +547,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>重心パターンを返す． </dd></dl>
 
-<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00148">148</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00151">151</a> 行目に定義があります。</p>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
@@ -611,7 +609,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>離散化された脚の位置を返す． </dd></dl>
 
-<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00134">134</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00137">137</a> 行目に定義があります。</p>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
@@ -666,7 +664,7 @@ $(function() {
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00100">100</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00103">103</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -705,7 +703,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>接地している脚の本数． </dd></dl>
 
-<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00078">78</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00081">81</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -757,7 +755,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>脚が接地しているなら1，遊脚を0としたビット列で遊脚・接地脚の状態を返す． </dd></dl>
 
-<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00059">59</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00062">62</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -806,7 +804,7 @@ $(function() {
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00117">117</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00120">120</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -845,7 +843,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>遊脚している脚の本数． </dd></dl>
 
-<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00095">95</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00098">98</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
@@ -914,7 +912,7 @@ $(function() {
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00040">40</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00043">43</a> 行目に定義があります。</p>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
@@ -1098,7 +1096,7 @@ $(function() {
 </dl>
 <dl class="section return"><dt>戻り値</dt><dd>LegStateBit 作成した脚状態を返す． </dd></dl>
 
-<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00012">12</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="leg__state_8cpp_source.html">leg_state.cpp</a> の <a class="el" href="leg__state_8cpp_source.html#l00015">15</a> 行目に定義があります。</p>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
@@ -1137,7 +1135,7 @@ $(function() {
 
 <p>重心パターンを表すビット数． </p>
 
-<p class="definition"> <a class="el" href="leg__state_8h_source.html">leg_state.h</a> の <a class="el" href="leg__state_8h_source.html#l00048">48</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="leg__state_8h_source.html">leg_state.h</a> の <a class="el" href="leg__state_8h_source.html#l00050">50</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -1163,7 +1161,7 @@ $(function() {
 
 <p>重心パターンを保存するビットをマスクするビット． </p>
 
-<p class="definition"> <a class="el" href="leg__state_8h_source.html">leg_state.h</a> の <a class="el" href="leg__state_8h_source.html#l00074">74</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="leg__state_8h_source.html">leg_state.h</a> の <a class="el" href="leg__state_8h_source.html#l00076">76</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -1189,7 +1187,7 @@ $(function() {
 
 <p>脚位置を表すビット数．離散化された脚位置は3bit，遊脚・接地は1bit．あわせて4bit． </p>
 
-<p class="definition"> <a class="el" href="leg__state_8h_source.html">leg_state.h</a> の <a class="el" href="leg__state_8h_source.html#l00046">46</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="leg__state_8h_source.html">leg_state.h</a> の <a class="el" href="leg__state_8h_source.html#l00048">48</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -1215,7 +1213,7 @@ $(function() {
 
 <p>脚状態を保存するビット数．28bit． </p>
 
-<p class="definition"> <a class="el" href="leg__state_8h_source.html">leg_state.h</a> の <a class="el" href="leg__state_8h_source.html#l00051">51</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="leg__state_8h_source.html">leg_state.h</a> の <a class="el" href="leg__state_8h_source.html#l00053">53</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -1241,7 +1239,7 @@ $(function() {
 
 <p>重心パターンを保存するビットまで行くために，どれだけビットをシフトするか． </p>
 
-<p class="definition"> <a class="el" href="leg__state_8h_source.html">leg_state.h</a> の <a class="el" href="leg__state_8h_source.html#l00071">71</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="leg__state_8h_source.html">leg_state.h</a> の <a class="el" href="leg__state_8h_source.html#l00073">73</a> 行目に定義があります。</p>
 
 </div>
 </div>
