@@ -1,6 +1,9 @@
 
 # Gait Pattern Generation for Graph Search
 
+![](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)
+![](https://img.shields.io/badge/-C++-00599C.svg?logo=cplusplus&style=flat)
+
 Visual Studioで開発した，グラフ探索を用いた6脚ロボットの歩容生成を行うためのシミュレータです．
 卒業研究のために作成したプログラムで，研究の題目は"グラフ探索を用いた多脚ロボットの歩容パターン生成における脚軌道生成失敗時の歩容パターンの再評価手法"です．
 
