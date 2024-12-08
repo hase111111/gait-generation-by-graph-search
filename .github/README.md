@@ -1,8 +1,16 @@
 
-# Gait Pattern Generation for Graph Search
-
-![](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)
+![](https://img.shields.io/github/license/hase111111/gait-generation-by-graph-search)
 ![](https://img.shields.io/badge/-C++-00599C.svg?logo=cplusplus&style=flat)
+![](https://img.shields.io/github/v/release/hase111111/gait-generation-by-graph-search)
+
+<div align="center">
+    <p>
+        <img src="./img/simulation.gif" width="45%">
+        <img src="./img/viewer.gif" width="45%">
+    </p>
+</div>
+
+# グラフ探索による歩容生成 / Gait Pattern Generation for Graph Search
 
 Visual Studioで開発した，グラフ探索を用いた6脚ロボットの歩容生成を行うためのシミュレータです．
 卒業研究のために作成したプログラムで，研究の題目は"グラフ探索を用いた多脚ロボットの歩容パターン生成における脚軌道生成失敗時の歩容パターンの再評価手法"です．
@@ -18,20 +26,15 @@ Visual Studioで開発した，グラフ探索を用いた6脚ロボットの歩
 
 ## 概要
 
-<div align="center">
-    <p>
-        <img src="./img/simulation.gif" width="45%">
-        <img src="./img/viewer.gif" width="45%">
-    </p>
-</div>
-
 グラフ探索による4脚ロボットの自由歩容生成を行う研究[^1]を拡張した，6脚ロボットの自由歩容生成を行うプログラムです．
 グラフ探索による歩容生成の結果を，グラフィカルに表示するシミュレータの機能を持っています．
 また，歩容生成の結果やマップの状態を保存し，後から読み込むことができます．
 
-ソースコードについての，Doxygenによるドキュメントは[こちら](https://hase111111.github.io/gait-generation-by-graph-search/)にあります．
-
 [^1]: Pal, Prabir K., and K. Jayarajan, “Generation of Free Gait-A Graph Search Approach”, IEEE Transactions on Robotics and Automation, Vol.7,No.3,pp.299-305, 1991.  
+
+## ドキュメント
+
+ソースコードについての，Doxygenによるドキュメントは[こちら](https://hase111111.github.io/gait-generation-by-graph-search/)にあります．
 
 ## 開発環境
 
