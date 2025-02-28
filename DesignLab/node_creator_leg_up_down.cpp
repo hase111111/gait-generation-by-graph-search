@@ -247,6 +247,8 @@ bool NodeCreatorLegUpDown::IsGroundableLeg(const int now_leg_num,
     }
 
 
+
+
     // 候補点を全列挙したのち，候補点が一つもなければ false．
     if (!is_candidate_pos) { return false; }
 
