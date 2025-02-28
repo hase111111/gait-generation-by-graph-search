@@ -11,8 +11,7 @@
 #include "string_util.h"
 
 
-namespace
-{
+namespace {
 // 無名名前空間．このファイル内でのみ有効．
 
 static constexpr int kBaudRate = 9600;  // ボーレート．Arduino側と合わせる．
@@ -23,26 +22,21 @@ const std::string kComName[] = { "", "COM1", "COM2", "COM3", "COM4",
                                             "\\\\.\\COM10", "\\\\.\\COM11", "\\\\.\\COM12", "\\\\.\\COM13" };
 }
 
-namespace designlab
-{
+namespace designlab {
 
-void SerialCommunicationThread::Loop()
-{
-    if (!Initialize())
-    {
+void SerialCommunicationThread::Loop() {
+    if (!Initialize()) {
         end_flag_ = true;
 
         // 通信の初期化に失敗した場合は，即座に終了する．
         return;
     }
 
-    while (true)
-    {
+    while (true) {
         Sleep(static_cast<int>(1000 * kThreadPeriod));  // 指定した時間だけスリープする．(ミリ秒単位)
 
         // 読み込みを行う．
-        if (!Read())
-        {
+        if (!Read()) {
             EndThread();
 
             // 読み込みに失敗した場合は，即座に終了する．
@@ -50,8 +44,7 @@ void SerialCommunicationThread::Loop()
         }
 
         // 書き込みを行う．
-        if (!Write())
-        {
+        if (!Write()) {
             EndThread();
 
             // 書き込みに失敗した場合は，即座に終了する．
@@ -59,18 +52,15 @@ void SerialCommunicationThread::Loop()
         }
 
         // スレッドの終了フラグが立っている場合は，即座に終了する．
-        if (IsEnd())
-        {
+        if (IsEnd()) {
             return;
         }
     }
 }
 
-void SerialCommunicationThread::SetWriteData(const std::string& str)
-{
+void SerialCommunicationThread::SetWriteData(const std::string& str) {
     // 通信が開始されていない場合は，即座に終了する．
-    if (serial_handle_ == INVALID_HANDLE_VALUE)
-    {
+    if (serial_handle_ == INVALID_HANDLE_VALUE) {
         return;
     }
 
@@ -80,64 +70,55 @@ void SerialCommunicationThread::SetWriteData(const std::string& str)
     write_data_ = str;
 }
 
-std::string SerialCommunicationThread::GetTopReadData() const
-{
+std::string SerialCommunicationThread::GetTopReadData() const {
     // スレッドの排他制御を行う．
     boost::mutex::scoped_lock lock(mutex_);
 
     // 読み込みデータが空の場合は，空文字を返す．
-    if (read_data_.empty())
-    {
+    if (read_data_.empty()) {
         return "";
     }
 
     return read_data_.back();
 }
 
-std::vector<std::string> SerialCommunicationThread::GetAllReadData() const
-{
+std::vector<std::string> SerialCommunicationThread::GetAllReadData() const {
     // スレッドの排他制御を行う．
     boost::mutex::scoped_lock lock(mutex_);
 
     return read_data_;
 }
 
-std::vector<std::string> SerialCommunicationThread::GetReadData(const int num) const
-{
+std::vector<std::string> SerialCommunicationThread::GetReadData(const int num) const {
     // スレッドの排他制御を行う．
     boost::mutex::scoped_lock lock(mutex_);
 
     std::vector<std::string> ret;
 
     // 読み込みデータが空の場合は，空の配列を返す．
-    if (read_data_.empty())
-    {
+    if (read_data_.empty()) {
         return ret;
     }
 
     // 読み込みデータが指定した数よりも少ない場合は，全てのデータを返す．
-    if (read_data_.size() <= num)
-    {
+    if (read_data_.size() <= num) {
         return read_data_;
     }
 
     // 読み込みデータが指定した数よりも多い場合は，最新のデータを返す．
-    for (int i = 0; i < num; ++i)
-    {
+    for (int i = 0; i < num; ++i) {
         ret.push_back(read_data_[read_data_.size() - 1 - i]);
     }
 
     return ret;
 }
 
-bool SerialCommunicationThread::Initialize()
-{
+bool SerialCommunicationThread::Initialize() {
     // 通信を開始する．Windowsでは CreateFile で COMポートを開く．
     serial_handle_ = CreateFile(kComName[kComPortNumber].c_str(), GENERIC_READ | GENERIC_WRITE,
                                 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 
-    if (serial_handle_ == INVALID_HANDLE_VALUE)
-    {
+    if (serial_handle_ == INVALID_HANDLE_VALUE) {
         return false;
     }
 
@@ -173,25 +154,21 @@ bool SerialCommunicationThread::Initialize()
     return true;
 }
 
-bool SerialCommunicationThread::Read()
-{
+bool SerialCommunicationThread::Read() {
     // 通信が開始されていない場合は，即座に終了する．
-    if (serial_handle_ == INVALID_HANDLE_VALUE)
-    {
+    if (serial_handle_ == INVALID_HANDLE_VALUE) {
         return false;
     }
 
     DWORD read_size = 0;
     char read_buffer[kBufferSize] = { 0 };
 
-    if (!ReadFile(serial_handle_, read_buffer, kBufferSize, &read_size, NULL))
-    {
+    if (!ReadFile(serial_handle_, read_buffer, kBufferSize, &read_size, NULL)) {
         // 読み込みに失敗した場合は終了する．
         return false;
     }
 
-    if (read_size == 0)
-    {
+    if (read_size == 0) {
         // 読み込みデータがない場合は終了する．
         // 読み込み自体は成功しているため，trueを返す．
         return true;
@@ -208,11 +185,9 @@ bool SerialCommunicationThread::Read()
         // スレッドの排他制御を行う．
         boost::mutex::scoped_lock lock(mutex_);
 
-        for (const auto& data : split_data)
-        {
+        for (const auto& data : split_data) {
             // 空文字の場合は追加しない．
-            if (data.empty())
-            {
+            if (data.empty()) {
                 continue;
             }
 
@@ -224,30 +199,25 @@ bool SerialCommunicationThread::Read()
     return true;
 }
 
-bool SerialCommunicationThread::Write()
-{
+bool SerialCommunicationThread::Write() {
     // 通信が開始されていない場合は，即座に終了する．
-    if (serial_handle_ == INVALID_HANDLE_VALUE)
-    {
+    if (serial_handle_ == INVALID_HANDLE_VALUE) {
         return false;
     }
 
     // 書き込みデータがない場合は，即座に終了する．
-    if (write_data_ == "")
-    {
+    if (write_data_ == "") {
         return true;
     }
 
     DWORD write_size = 0;
 
-    if (!WriteFile(serial_handle_, write_data_.c_str(), static_cast<DWORD>(write_data_.size()), &write_size, NULL))
-    {
+    if (!WriteFile(serial_handle_, write_data_.c_str(), static_cast<DWORD>(write_data_.size()), &write_size, NULL)) {
         // 書き込みに失敗した場合は終了する．
         return false;
     }
 
-    if (write_size == 0)
-    {
+    if (write_size == 0) {
         // 書き込みデータがない場合は終了する．
         // 書き込み自体は成功しているため，trueを返す．
         return true;
