@@ -15,7 +15,7 @@
 Visual Studioで開発した，グラフ探索を用いた6脚ロボットの歩容生成を行うためのシミュレータです．
 卒業研究のために作成したプログラムで，研究の題目は"グラフ探索を用いた多脚ロボットの歩容パターン生成における脚軌道生成失敗時の歩容パターンの再評価手法"です．
 
-English version is [here](./README_en.md).
+ **English version is [here](./README_en.md).**
 
 ## 目次
 
