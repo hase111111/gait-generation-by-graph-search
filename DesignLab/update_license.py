@@ -17,7 +17,7 @@ print(f"header_files num : {len(header_files)}")
 
 
 # ライセンスのテンプレート
-file_name_comment = "//! @file "
+file_name_comment = "\n//! @file "
 license_template = """
 
 // Copyright(c) 2023-2025 Design Engineering Laboratory, Saitama University
@@ -25,6 +25,7 @@ license_template = """
 // https://opensource.org/licenses/mit-license.php
 """
 
+print("license_template:")
 print(file_name_comment + license_template)
 
 
@@ -32,13 +33,20 @@ print(file_name_comment + license_template)
 # まず，ファイルの先頭にあるコメントを削除する
 # その後，file_name_comment, license_templateを追加する
 def update_license(filepath, new_license):
-    with open(filepath, "r", encoding="utf-8") as file:
+    path = current_dir + '\\' +filepath
+    print(f"update_license: {path}")
+    with open(path, "r", encoding="utf_8_sig") as file:
         lines = file.readlines()
 
     # `//` で始まらない最初の行を探す
     start_index = 0
     for i, line in enumerate(lines):
         if not line.strip().startswith("//"):  # `//` で始まらない行を見つける
+
+            # 空白のみの行はスキップ
+            if line.strip() == "":
+                continue
+
             start_index = i
             break
 
@@ -46,10 +54,15 @@ def update_license(filepath, new_license):
     new_content = new_license + "\n" + "".join(lines[start_index:])
 
     # 上書き保存
-    with open(filepath, "w", encoding="utf-8") as file:
+    with open(path, "w", encoding="utf_8_sig") as file:
         file.write(new_content)
 
 
 # ファイルごとにライセンスを更新
 for cpp_file in cpp_files:
     update_license(cpp_file, file_name_comment + cpp_file + license_template)
+
+for header_file in header_files:
+    update_license(header_file, file_name_comment + header_file + license_template)
+
+print("update_license.py: finish")
