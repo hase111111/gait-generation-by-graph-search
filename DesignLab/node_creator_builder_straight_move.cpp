@@ -1,7 +1,7 @@
 ﻿
-//! @file node_creator_builder_straight_move.h
+//! @file node_creator_builder_straight_move.cpp
 
-// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Copyright(c) 2023-2025 Design Engineering Laboratory, Saitama University
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 

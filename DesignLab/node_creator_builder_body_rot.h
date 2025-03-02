@@ -1,7 +1,7 @@
 ﻿
 //! @file node_creator_builder_body_rot.h
 
-// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Copyright(c) 2023-2025 Design Engineering Laboratory, Saitama University
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 

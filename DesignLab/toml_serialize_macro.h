@@ -1,13 +1,7 @@
 ﻿
 //! @file toml_serialize_macro.h
-//! @brief tomlファイルのシリアライズ/デシリアライズを行うためのマクロ．
-//! @details
-//! TOML11_DEFINE_CONVERSION_NON_INTRUSIVEをラッパしたもの．
-//! もともとのほうでは enum型を取り扱うことができなかったが，
-//! このマクロでは取り扱うことができる．
-//! また，クラスの説明を追加することができる．
 
-// Copyright(c) 2023 Design Engineering Laboratory, Saitama University
+// Copyright(c) 2023-2025 Design Engineering Laboratory, Saitama University
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
