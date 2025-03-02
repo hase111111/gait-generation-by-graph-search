@@ -24,6 +24,7 @@ enum class HexapodMove : int
     kComUpDown,             //!< 重心の上下移動．
     kBodyPitchRot,          //!< ピッチ軸周りの回転．
     kBodyYawRot,            //!< ヨー軸周りの回転．
+    kBodyRollRot,           //!< ロール軸周りの回転．
 };
 
 }  // namespace designlab
