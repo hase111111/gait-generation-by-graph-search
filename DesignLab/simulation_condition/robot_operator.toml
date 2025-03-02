@@ -1,29 +1,28 @@
-#設定によってはこのファイルは参照されないため注意．
+#Note that this file is not referenced by some settings.
 
-#ロボットの操作方法を設定します．( kNone / kStraightMoveVector / kStraightMovePosition / kSpotTurnLastPosture / kSpotTurnRotAxis / kTurn )
-operation_type = "kSpotTurnRotAxis"
+#This is the setting of the robot's operation method. (kNone / kStraightMoveVector / kStraightMovePosition / kSpotTurnLastPosture / kSpotTurnRotAxis / kTurn)
+operation_type = "kStraightMovePosition"
 
 [Param]
     
-    #指定した姿勢になるまでその場で旋回する設定の場合に参照される値．
-    #spot_turn_last_posture_ = "     0.707,     0.000,     0.000,     -0.707"
-    spot_turn_last_posture_ = "     0.000,     0.000,     0.000,     1.000"
-
-    #指定した軸周り(右ねじの方向)にその場で旋回する設定の場合に参照される値．
+    #The value that is referenced when setting the camera to turn on the spot until it reaches the specified posture.
+    spot_turn_last_posture = "     1.000,     0.000,     0.000,     0.000"
+    
+    #The value referred to when setting up in-situ turning around the specified axis (in the direction of right-hand threads).
     spot_turn_rot_axis = "     0.000,     0.000,     1.000"
     
-    #指定した座標へ直進する設定の場合に参照される値．
-    straight_move_position_ = " 1000000.000,     0.000,     0.000"
+    #The value that is referred to when the setting is to go straight to the specified coordinates.
+    straight_move_position = " 10000.000,     0.000,     0.000"
     
-    #指定した方向へ直進する設定の場合に参照される値．
-    straight_move_vector_ = "     1.000,     0.000,     0.000"
+    #The value that is referenced when the setting is to go straight in the specified direction.
+    straight_move_vector = "     1.000,     0.000,     0.000"
     
-    #指定した中心を中心に旋回する設定の場合に参照される値．
+    #The value referred to when setting the rotation around the specified center.
     turn_center = "     0.000,     0.000"
     
-    #指定した方向に旋回する設定の場合に参照される値．
+    #The value that is referenced when the setting is to turn in the specified direction.
     turn_clockwise = true
     
-    #指定した半径で旋回する設定の場合に参照される値．
+    #The value referenced in the case of a setup that turns at a specified radius.
     turn_radius = 1000.0
     

@@ -25,7 +25,7 @@
 [Output]
     
     #How much output is allowed on the command line. ( "kSystem" / "kError" / "kWarning" / "kInfo" / "kDebug" )
-    cmd_output_detail = "kInfo" 
+    cmd_output_detail = "kError" 
     
     #Output characters to the command line. ( true / false )
     do_cmd_output = true

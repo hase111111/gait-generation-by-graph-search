@@ -79,6 +79,18 @@ void InitOutputSetting(
     CmdIOUtil::SetOutputLimit(setting->cmd_output_detail);
 }
 
+auto LoadPhantomXMkII() {
+    using designlab::TomlFileImporter;
+    using designlab::PhantomXMkIIParameterRecord;
+    using designlab::PhantomXMkII;
+
+    TomlFileImporter<PhantomXMkIIParameterRecord> parameter_importer;
+    const auto record = parameter_importer.ImportOrUseDefault(
+        "./simulation_condition/phantomx_mk2.toml");
+
+    return std::make_shared<PhantomXMkII>(record);
+}
+
 }  // namespace
 
 
@@ -131,33 +143,21 @@ int main() {
 
 
         // 選択が終わったら，選択されたモードに応じてシステムを作成する．
-        auto graphic_data_broker = std::make_shared<GraphicDataBroker>();
-
-        TomlFileImporter<PhantomXMkIIParameterRecord> parameter_importer;
-        const PhantomXMkIIParameterRecord parameter_record = parameter_importer.ImportOrUseDefault("./simulation_condition/phantomx_mk2.toml");
-
-        auto phantomx_mk2 = std::make_shared<PhantomXMkII>(parameter_record);
-
-        auto node_creator_builder_straight = std::make_unique<NodeCreatorBuilderStraightMove>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
-        auto node_creator_builder_turn_spot = std::make_unique<NodeCreatorBuilderTurnSpot>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
-
-        auto graph_tree_creator_straight = std::make_unique<GraphTreeCreator>(std::move(node_creator_builder_straight));
-        auto graph_tree_creator_turn_spot = std::make_unique<GraphTreeCreator>(std::move(node_creator_builder_turn_spot));
-
-        auto graph_searcher_straight = std::make_unique<GraphSearcherStraightMove>(phantomx_mk2);
-        auto graph_searcher_turn_spot = std::make_unique<GraphSearcherSpotTurn>(phantomx_mk2, phantomx_mk2);
-
         std::unique_ptr<ISystemMain> system_main;
 
         switch (boot_mode) {
             case BootMode::kSimulation: {
                 // シミュレーションシステムクラスを作成する．
+                auto phantomx_mk2 = LoadPhantomXMkII();
 
-                auto gait_pattern_generator_straight = std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator_straight), std::move(graph_searcher_straight), 4, 20000000);
-                auto gait_pattern_generator_turn_spot = std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator_turn_spot), std::move(graph_searcher_turn_spot), 4, 20000000);
-                auto gait_pattern_generator_switch_move = std::make_unique<GaitPatternGeneratorSwitchMove>(std::move(gait_pattern_generator_straight), std::move(gait_pattern_generator_turn_spot));
+                auto node_creator_builder = std::make_unique<NodeCreatorBuilderStraightMove>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
+                auto graph_tree_creator = std::make_unique<GraphTreeCreator>(std::move(node_creator_builder));
 
-                const SimulationSettingRecord simulation_setting_record = TomlFileImporter<SimulationSettingRecord>{}.ImportOrUseDefault("./simulation_condition/simulation_setting.toml");
+                auto graph_searcher = std::make_unique<GraphSearcherStraightMove>(phantomx_mk2);
+
+                auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator), std::move(graph_searcher), 5, 20000000);
+
+                const auto simulation_setting_record = TomlFileImporter<SimulationSettingRecord>{}.ImportOrUseDefault("./simulation_condition/simulation_setting.toml");
 
                 auto map_creator = MapCreatorFactory::Create(simulation_setting_record);
                 auto simulation_end_checker = SimulationEndCheckerFactory::Create(simulation_setting_record);
@@ -167,8 +167,10 @@ int main() {
                                                                           simulation_setting_record.initial_move);
                 auto result_exporter = std::make_shared<ResultFileExporter>(phantomx_mk2);
 
+                auto graphic_data_broker = std::make_shared<GraphicDataBroker>();
+
                 system_main = std::make_unique<SystemMainSimulation>(
-                  std::move(gait_pattern_generator_switch_move),
+                  std::move(gait_pattern_generator),
                   std::move(map_creator),
                   std::move(simulation_end_checker),
                   std::move(robot_operator),
@@ -190,13 +192,18 @@ int main() {
                 const SimulationSettingRecord simulation_setting_record =
                     simulation_setting_importer.ImportOrUseDefault("./simulation_condition/simulation_setting.toml");
 
+                auto phantomx_mk2 = LoadPhantomXMkII();
+                auto graphic_data_broker = std::make_shared<GraphicDataBroker>();
+
                 auto map_creator = MapCreatorFactory::Create(simulation_setting_record);
 
-                system_main = std::make_unique<SystemMainGraphViewer>(
-                    std::move(graph_tree_creator_straight),
-                    std::move(map_creator),
-                    graphic_data_broker,
-                    application_setting_record);
+                //system_main = std::make_unique<SystemMainGraphViewer>(
+                //    std::move(graph_tree_creator),
+                //    std::move(map_creator),
+                //    graphic_data_broker,
+                //    application_setting_record);
+
+                CmdIOUtil::Output("Viewer is not implemented yet.", kSystem);
 
                 std::unique_ptr<IGraphicMain> graphic_main_viewer =
                     std::make_unique<GraphicMainGraphViewer>(graphic_data_broker, phantomx_mk2, phantomx_mk2, phantomx_mk2, application_setting_record);
@@ -206,6 +213,8 @@ int main() {
                 break;
             }
             case BootMode::kDisplayModel: {
+                auto phantomx_mk2 = LoadPhantomXMkII();
+
                 std::unique_ptr<IGraphicMain> graphic_main_test =
                     std::make_unique<GraphicMainDisplayModel>(
                     phantomx_mk2,
@@ -219,6 +228,9 @@ int main() {
             }
             case BootMode::kResultViewer: {
                 // 結果表示システムクラスを作成する．
+                auto phantomx_mk2 = LoadPhantomXMkII();
+                auto graphic_data_broker = std::make_shared<GraphicDataBroker>();
+
                 system_main = std::make_unique<SystemMainResultViewer>(graphic_data_broker, application_setting_record, phantomx_mk2, phantomx_mk2);
 
                 std::unique_ptr<IGraphicMain> graphic_main = std::make_unique<GraphicMainBasic>(graphic_data_broker, phantomx_mk2, phantomx_mk2, phantomx_mk2, application_setting_record);
@@ -228,6 +240,8 @@ int main() {
                 break;
             }
             case BootMode::kRobotControl: {
+                auto graphic_data_broker = std::make_shared<GraphicDataBroker>();
+                auto phantomx_mk2 = LoadPhantomXMkII();
                 system_main = std::make_unique<SystemMainRobotControl>(graphic_data_broker);
 
                 std::unique_ptr<IGraphicMain> graphic_main_robot_control =
