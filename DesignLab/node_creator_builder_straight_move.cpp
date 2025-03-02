@@ -19,8 +19,7 @@
 #include "node_creator_body_rot.h"
 
 
-namespace designlab
-{
+namespace designlab {
 
 NodeCreatorBuilderStraightMove::NodeCreatorBuilderStraightMove(
   const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
@@ -28,14 +27,11 @@ NodeCreatorBuilderStraightMove::NodeCreatorBuilderStraightMove(
   const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr) :
     converter_ptr_(converter_ptr),
     presenter_ptr_(presenter_ptr),
-    checker_ptr_(checker_ptr)
-{
-}
+    checker_ptr_(checker_ptr) {}
 
 void NodeCreatorBuilderStraightMove::Build(
   const DividedMapState& map,
-  std::map<HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const
-{
+  std::map<HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const {
     using enum enums::DiscreteLegPos;
     using enum HexapodMove;
 
@@ -56,16 +52,20 @@ void NodeCreatorBuilderStraightMove::Build(
         std::make_unique<NodeCreatorLegHierarchy>(kLegUpDown, hierarchy_list);
 
     (*node_creator)[HexapodMove::kLegUpDown] =
-        std::make_unique<NodeCreatorLegUpDownRadius>(map, converter_ptr_, presenter_ptr_, checker_ptr_, kComUpDown);
+        std::make_unique<NodeCreatorLegUpDownRadius>(
+            map, converter_ptr_, presenter_ptr_, checker_ptr_, kComUpDown);
 
     (*node_creator)[HexapodMove::kComUpDown] =
-        std::make_unique<NodeCreatorComUpDown>(map, converter_ptr_, presenter_ptr_, checker_ptr_, kComMove);
+        std::make_unique<NodeCreatorComUpDown>(
+            map, converter_ptr_, presenter_ptr_, checker_ptr_, kComMove);
 
-    //(*node_creator)[HexapodMove::kComMove] =
-    //    std::make_unique<NodeCreatorComMoveStraight>(map, converter_ptr_, presenter_ptr_, checker_ptr_, kLegHierarchyChange);
+    // (*node_creator)[HexapodMove::kComMove] =
+    //     std::make_unique<NodeCreatorComMoveStraight>(
+    //          map, converter_ptr_, presenter_ptr_, checker_ptr_, kLegHierarchyChange);
 
     (*node_creator)[HexapodMove::kComMove] =
-        std::make_unique<NodeCreatorComMove>(map, converter_ptr_, presenter_ptr_, checker_ptr_, kLegHierarchyChange);
+        std::make_unique<NodeCreatorComMove>(
+            map, converter_ptr_, presenter_ptr_, checker_ptr_, kLegHierarchyChange);
 }
 
 }  // namespace designlab

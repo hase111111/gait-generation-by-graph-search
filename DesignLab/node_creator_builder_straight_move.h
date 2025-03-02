@@ -14,13 +14,11 @@
 #include "interface_node_creator_builder.h"
 
 
-namespace designlab
-{
+namespace designlab {
 
 //! @class NodeCreatorBuilderStraightMove
 //! @brief 波東さんが行った処理と同様の方法になるようにノード生成クラスを生成するクラス．
-class NodeCreatorBuilderStraightMove final : public INodeCreatorBuilder
-{
+class NodeCreatorBuilderStraightMove final : public INodeCreatorBuilder {
 public:
     NodeCreatorBuilderStraightMove(
       const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
