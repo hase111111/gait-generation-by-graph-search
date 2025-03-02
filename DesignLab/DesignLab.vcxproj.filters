@@ -678,6 +678,9 @@
     <ClInclude Include="loop_util_test.h">
       <Filter>ソース ファイル\Common\Test</Filter>
     </ClInclude>
+    <ClInclude Include="document.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
