@@ -681,6 +681,9 @@
     <ClInclude Include="document.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="node_creator_builder_ground_conforming_rot.h">
+      <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
@@ -1012,6 +1015,9 @@
     </ClCompile>
     <ClCompile Include="graph_com_plotter.cpp">
       <Filter>ソース ファイル\Graphic\3DRender</Filter>
+    </ClCompile>
+    <ClCompile Include="node_creator_builder_ground_conforming_rot.cpp">
+      <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

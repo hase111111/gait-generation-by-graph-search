@@ -33,6 +33,7 @@
 #include "node_creator_builder_turn_spot.h"
 #include "node_creator_builder_straight_move.h"
 #include "node_creator_builder_body_rot.h"
+#include "node_creator_builder_ground_conforming_rot.h"
 #include "map_creator_factory.h"
 #include "robot_operator_factory.h"
 #include "simulation_end_checker_factory.h"
@@ -150,12 +151,12 @@ int main() {
                 // シミュレーションシステムクラスを作成する．
                 auto phantomx_mk2 = LoadPhantomXMkII();
 
-                auto node_creator_builder = std::make_unique<NodeCreatorBuilderStraightMove>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
+                auto node_creator_builder = std::make_unique<NodeCreatorBuilderGroundConformingRot>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
                 auto graph_tree_creator = std::make_unique<GraphTreeCreator>(std::move(node_creator_builder));
 
                 auto graph_searcher = std::make_unique<GraphSearcherStraightMove>(phantomx_mk2);
 
-                auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator), std::move(graph_searcher), 5, 20000000);
+                auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator), std::move(graph_searcher), 5, 40000000);
 
                 const auto simulation_setting_record = TomlFileImporter<SimulationSettingRecord>{}.ImportOrUseDefault("./simulation_condition/simulation_setting.toml");
 

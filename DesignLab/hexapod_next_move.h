@@ -22,9 +22,9 @@ enum class HexapodMove : int
     kLegHierarchyChange,    //!< 脚の平行移動．脚の階層を変更する．
     kComMove,               //!< 重心の平行移動．Center Of Massで重心のこと．
     kComUpDown,             //!< 重心の上下移動．
+    kBodyRollRot,           //!< ロール軸周りの回転．
     kBodyPitchRot,          //!< ピッチ軸周りの回転．
     kBodyYawRot,            //!< ヨー軸周りの回転．
-    kBodyRollRot,           //!< ロール軸周りの回転．
 };
 
 }  // namespace designlab

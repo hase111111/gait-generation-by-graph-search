@@ -8,7 +8,10 @@
 
 #include "node_creator_builder_ground_conforming_rot.h"
 
+#include <vector>
+
 #include "cassert_define.h"
+#include "node_creator_body_rot.h"
 #include "node_creator_com_move.h"
 #include "node_creator_com_move_straight.h"
 #include "node_creator_com_up_down.h"
@@ -50,19 +53,27 @@ void NodeCreatorBuilderGroundConformingRot::Build(
       kLowerBack, kLowerFront, kUpperBack, kUpperFront
     };
 
-    (*node_creator)[HexapodMove::kLegHierarchyChange] =
+    (*node_creator)[kLegHierarchyChange] =
         std::make_unique<NodeCreatorLegHierarchy>(kLegUpDown, hierarchy_list);
 
-    (*node_creator)[HexapodMove::kLegUpDown] =
-        std::make_unique<NodeCreatorLegUpDownRadius>(
+    (*node_creator)[kLegUpDown] =
+        std::make_unique<NodeCreatorLegUpDown>(
             map, converter_ptr_, presenter_ptr_, checker_ptr_, kComUpDown);
 
-    (*node_creator)[HexapodMove::kComUpDown] =
+    (*node_creator)[kComUpDown] =
         std::make_unique<NodeCreatorComUpDown>(
-            map, converter_ptr_, presenter_ptr_, checker_ptr_, kComMove);
+            map, converter_ptr_, presenter_ptr_, checker_ptr_, kBodyPitchRot);
+
+    (*node_creator)[kBodyPitchRot] =
+        std::make_unique<NodeCreatorBodyRot>(
+            map, converter_ptr_, checker_ptr_, Vector3{ 0,1,0 }, kComMove);
+
+    (*node_creator)[kBodyRollRot] =
+        std::make_unique<NodeCreatorBodyRot>(
+            map, converter_ptr_, checker_ptr_, Vector3{ 1,0,0 }, kComMove);
 
     (*node_creator)[HexapodMove::kComMove] =
-        std::make_unique<NodeCreatorComMove>(
+        std::make_unique<NodeCreatorComMoveStraight>(
             map, converter_ptr_, presenter_ptr_, checker_ptr_, kLegHierarchyChange);
 }
 
