@@ -83,7 +83,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="contents">
 <a href="main_8cpp.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Copyright(c) 2023 Design Engineering Laboratory, Saitama University</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Copyright(c) 2023-2025 Design Engineering Laboratory, Saitama University</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// Released under the MIT license</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// https://opensource.org/licenses/mit-license.php</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
@@ -212,7 +212,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            {</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>                <span class="comment">// シミュレーションシステムクラスを作成する．</span></div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>                <span class="keyword">auto</span> gait_pattern_generator_straight = std::make_unique&lt;GaitPatternGeneratorBasic&gt;(std::move(graph_tree_creator_straight), std::move(graph_searcher_straight), 5, 20000000);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>                <span class="keyword">auto</span> gait_pattern_generator_straight = std::make_unique&lt;GaitPatternGeneratorBasic&gt;(std::move(graph_tree_creator_straight), std::move(graph_searcher_straight), 4, 20000000);</div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>                <span class="keyword">auto</span> gait_pattern_generator_turn_spot = std::make_unique&lt;GaitPatternGeneratorBasic&gt;(std::move(graph_tree_creator_turn_spot), std::move(graph_searcher_turn_spot), 4, 20000000);</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                <span class="keyword">auto</span> gait_pattern_generator_switch_move = std::make_unique&lt;GaitPatternGeneratorSwitchMove&gt;(std::move(gait_pattern_generator_straight), std::move(gait_pattern_generator_turn_spot));</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>

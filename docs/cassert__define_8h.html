@@ -76,28 +76,10 @@ $(function() {
   <div class="headertitle"><div class="title">cassert_define.h ファイル</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>デバッグモードとリリースモードでアサートを有効化・無効化するためのヘッダファイル．  
-<a href="#details">[詳解]</a></p>
 <div class="textblock"><code>#include &lt;cassert&gt;</code><br />
 </div>
 <p><a href="cassert__define_8h_source.html">[ソースコード]</a></p>
-<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>デバッグモードとリリースモードでアサートを有効化・無効化するためのヘッダファイル． </p>
-<p>Visual Studioでは，デバッグモードではアサートを有効化し， リリースモードではアサートを無効化する． <br  />
- しかし，このプログラムは処理が重いせいで， 環境によってはそもそもデバッグモードで実行することが難しい． <br  />
- そこで，リリースモードでもアサートを有効化するために， 以下のようなヘッダファイルを作成した． <br  />
-<br  />
- リリースモードでアサートを出したい場合は，以下のリリースモードのところで <br  />
- #undef NDEBUG でアサートを有効化すること． <br  />
- NDEBUGが defineされているときは，assertを無効化する． <br  />
- #undef は defineされているものを無効化する． <br  />
- つまり，::undef NDEBUG は，assertを有効化する． <br  />
- 逆に，::define NDEBUG は，assertを無効化する． <br  />
- これらの処理は，cassertのインクルードより前に行う必要がある． </p>
-
-<p class="definition"> <a class="el" href="cassert__define_8h_source.html">cassert_define.h</a> に定義があります。</p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8

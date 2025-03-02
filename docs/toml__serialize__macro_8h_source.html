@@ -82,379 +82,379 @@ $(document).ready(function() { init_codefold(0); });
 </div><!--header-->
 <div class="contents">
 <a href="toml__serialize__macro_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// Copyright(c) 2023 Design Engineering Laboratory, Saitama University</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">// Released under the MIT license</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">// https://opensource.org/licenses/mit-license.php</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#ifndef DESIGNLAB_TOML_SERIALIZE_MACRO_H_</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define DESIGNLAB_TOML_SERIALIZE_MACRO_H_</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Copyright(c) 2023-2025 Design Engineering Laboratory, Saitama University</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// Released under the MIT license</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// https://opensource.org/licenses/mit-license.php</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DESIGNLAB_TOML_SERIALIZE_MACRO_H_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DESIGNLAB_TOML_SERIALIZE_MACRO_H_</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;magic_enum.hpp&gt;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;strconv2.h&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;magic_enum.hpp&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;strconv2.h&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;<a class="code" href="implicit__metafunction__for__toml11_8h.html">implicit_metafunction_for_toml11.h</a>&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;<a class="code" href="math__euler_8h.html">math_euler.h</a>&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="math__quaternion_8h.html">math_quaternion.h</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;<a class="code" href="math__vector3_8h.html">math_vector3.h</a>&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;<a class="code" href="toml11__define_8h.html">toml11_define.h</a>&quot;</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;<a class="code" href="implicit__metafunction__for__toml11_8h.html">implicit_metafunction_for_toml11.h</a>&quot;</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;<a class="code" href="math__euler_8h.html">math_euler.h</a>&quot;</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;<a class="code" href="math__quaternion_8h.html">math_quaternion.h</a>&quot;</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;<a class="code" href="math__vector3_8h.html">math_vector3.h</a>&quot;</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;<a class="code" href="toml11__define_8h.html">toml11_define.h</a>&quot;</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab_1_1toml__func.html">designlab::toml_func</a></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>{</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="foldopen" id="foldopen00049" data-start="{" data-end="};">
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_toml11_description.html">   49</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1toml__func_1_1_toml11_description.html">Toml11Description</a> final</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>{</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a7212008e9103ff5ef65a79e0a17e8c36">   52</a></span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a7212008e9103ff5ef65a79e0a17e8c36">kNoTable</a>[];</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab_1_1toml__func.html">designlab::toml_func</a></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="};">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_toml11_description.html">   43</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1toml__func_1_1_toml11_description.html">Toml11Description</a> final</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>{</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a7212008e9103ff5ef65a79e0a17e8c36">   46</a></span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a7212008e9103ff5ef65a79e0a17e8c36">kNoTable</a>[];</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a6f58ea58c5e606780e28328a1e1bd118">   48</a></span>    <a class="code hl_function" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a6f58ea58c5e606780e28328a1e1bd118">Toml11Description</a>(<span class="keyword">const</span> std::string&amp; t, <span class="keyword">const</span> std::string&amp; d) :</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <a class="code hl_variable" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#ab09e69de8c224b40fd41584638691063">table_name</a>(t),</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <a class="code hl_variable" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a1fa90dcbef75cf2951a3392be3ee303b">description</a>(d)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    }</div>
+</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a6f58ea58c5e606780e28328a1e1bd118">   54</a></span>    <a class="code hl_function" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a6f58ea58c5e606780e28328a1e1bd118">Toml11Description</a>(<span class="keyword">const</span> std::string&amp; t, <span class="keyword">const</span> std::string&amp; d) :</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <a class="code hl_variable" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#ab09e69de8c224b40fd41584638691063">table_name</a>(t),</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <a class="code hl_variable" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a1fa90dcbef75cf2951a3392be3ee303b">description</a>(d)</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    {</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#ab09e69de8c224b40fd41584638691063">   54</a></span>    std::string <a class="code hl_variable" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#ab09e69de8c224b40fd41584638691063">table_name</a>;  </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a1fa90dcbef75cf2951a3392be3ee303b">   55</a></span>    std::string <a class="code hl_variable" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a1fa90dcbef75cf2951a3392be3ee303b">description</a>;  </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>};</div>
 </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#ab09e69de8c224b40fd41584638691063">   60</a></span>    std::string <a class="code hl_variable" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#ab09e69de8c224b40fd41584638691063">table_name</a>;  </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a1fa90dcbef75cf2951a3392be3ee303b">   61</a></span>    std::string <a class="code hl_variable" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a1fa90dcbef75cf2951a3392be3ee303b">description</a>;  </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>};</div>
-</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>std::vector&lt;std::string&gt; <a class="code hl_function" href="namespacedesignlab_1_1toml__func.html#a345146097e012d45742a2341a733b2d8">sjis_to_utf8_vec</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; str_vec);</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>std::vector&lt;std::string&gt; <a class="code hl_function" href="namespacedesignlab_1_1toml__func.html#a345146097e012d45742a2341a733b2d8">sjis_to_utf8_vec</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; str_vec);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keyword">typename</span> std::enable_if&lt;impl::is_toml11_available_type&lt;T&gt;::value&gt;::type</div>
-<div class="foldopen" id="foldopen00077" data-start="{" data-end="}">
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1toml__func.html#ace0724744f33cfe29e5800255fa075d0">   77</a></span><a class="code hl_function" href="namespacedesignlab_1_1toml__func.html#ace0724744f33cfe29e5800255fa075d0">SetTomlValue</a>(::toml::basic_value&lt;toml::preserve_comments, std::map&gt;* v, <span class="keyword">const</span> std::string&amp; str, <span class="keyword">const</span> T&amp; value)</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>{</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    (*v)[str] = value;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword">typename</span> std::enable_if&lt;impl::is_toml11_available_type&lt;T&gt;::value&gt;::type</div>
+<div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1toml__func.html#ace0724744f33cfe29e5800255fa075d0">   71</a></span><a class="code hl_function" href="namespacedesignlab_1_1toml__func.html#ace0724744f33cfe29e5800255fa075d0">SetTomlValue</a>(::toml::basic_value&lt;toml::preserve_comments, std::map&gt;* v, <span class="keyword">const</span> std::string&amp; str, <span class="keyword">const</span> T&amp; value)</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>{</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    (*v)[str] = value;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}</div>
 </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keyword">typename</span> std::enable_if&lt;!impl::is_toml11_available_type&lt;T&gt;::value&amp;&amp; std::is_enum&lt;T&gt;::value&gt;::type</div>
-<div class="foldopen" id="foldopen00089" data-start="{" data-end="}">
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1toml__func.html#ac82929b3a6fe8c261f3626a8f3cf94d2">   89</a></span><a class="code hl_function" href="namespacedesignlab_1_1toml__func.html#ace0724744f33cfe29e5800255fa075d0">SetTomlValue</a>(::toml::basic_value&lt;toml::preserve_comments, std::map&gt;* v, <span class="keyword">const</span> std::string&amp; str, <span class="keyword">const</span> T&amp; value)</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>{</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    (*v)[str] = <span class="keyword">static_cast&lt;</span>std::string<span class="keyword">&gt;</span>(magic_enum::enum_name(value));</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>}</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keyword">typename</span> std::enable_if&lt;!impl::is_toml11_available_type&lt;T&gt;::value&amp;&amp; std::is_enum&lt;T&gt;::value&gt;::type</div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="}">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1toml__func.html#ac82929b3a6fe8c261f3626a8f3cf94d2">   83</a></span><a class="code hl_function" href="namespacedesignlab_1_1toml__func.html#ace0724744f33cfe29e5800255fa075d0">SetTomlValue</a>(::toml::basic_value&lt;toml::preserve_comments, std::map&gt;* v, <span class="keyword">const</span> std::string&amp; str, <span class="keyword">const</span> T&amp; value)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>{</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    (*v)[str] = <span class="keyword">static_cast&lt;</span>std::string<span class="keyword">&gt;</span>(magic_enum::enum_name(value));</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
 </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keyword">typename</span> std::enable_if&lt;!impl::is_toml11_available_type&lt;T&gt;::value&amp;&amp; <a class="code hl_struct" href="structdesignlab_1_1impl_1_1has__output__operator.html">impl::has_output_operator&lt;T&gt;::value</a>&gt;::type</div>
-<div class="foldopen" id="foldopen00102" data-start="{" data-end="}">
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1toml__func.html#a0c9dd884dfd4a4db8971e6cd8e59aba7">  102</a></span><a class="code hl_function" href="namespacedesignlab_1_1toml__func.html#ace0724744f33cfe29e5800255fa075d0">SetTomlValue</a>(::toml::basic_value&lt;toml::preserve_comments, std::map&gt;* v, <span class="keyword">const</span> std::string&amp; str, <span class="keyword">const</span> T&amp; value)</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>{</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    std::stringstream ss;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    ss &lt;&lt; value;</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    (*v)[str] = ss.str();</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>}</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keyword">typename</span> std::enable_if&lt;!impl::is_toml11_available_type&lt;T&gt;::value&amp;&amp; <a class="code hl_struct" href="structdesignlab_1_1impl_1_1has__output__operator.html">impl::has_output_operator&lt;T&gt;::value</a>&gt;::type</div>
+<div class="foldopen" id="foldopen00096" data-start="{" data-end="}">
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1toml__func.html#a0c9dd884dfd4a4db8971e6cd8e59aba7">   96</a></span><a class="code hl_function" href="namespacedesignlab_1_1toml__func.html#ace0724744f33cfe29e5800255fa075d0">SetTomlValue</a>(::toml::basic_value&lt;toml::preserve_comments, std::map&gt;* v, <span class="keyword">const</span> std::string&amp; str, <span class="keyword">const</span> T&amp; value)</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>{</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    std::stringstream ss;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    ss &lt;&lt; value;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    (*v)[str] = ss.str();</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>}</div>
 </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="keyword">typename</span> std::enable_if&lt;!impl::is_toml11_available_type&lt;T&gt;::value&amp;&amp; <a class="code hl_struct" href="structdesignlab_1_1impl_1_1is__vector__of__has__output__operator.html">impl::is_vector_of_has_output_operator&lt;T&gt;::value</a>&gt;::type</div>
+<div class="foldopen" id="foldopen00105" data-start="{" data-end="}">
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1toml__func.html#a89333b2d7ff7f3c46acaec96ef1d2979">  105</a></span><a class="code hl_function" href="namespacedesignlab_1_1toml__func.html#ace0724744f33cfe29e5800255fa075d0">SetTomlValue</a>(::toml::basic_value&lt;toml::preserve_comments, std::map&gt;* v, <span class="keyword">const</span> std::string&amp; str, <span class="keyword">const</span> T&amp; value)</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>{</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    std::vector&lt;std::string&gt; str_vec(value.size());</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="keyword">typename</span> std::enable_if&lt;!impl::is_toml11_available_type&lt;T&gt;::value&amp;&amp; <a class="code hl_struct" href="structdesignlab_1_1impl_1_1is__vector__of__has__output__operator.html">impl::is_vector_of_has_output_operator&lt;T&gt;::value</a>&gt;::type</div>
-<div class="foldopen" id="foldopen00111" data-start="{" data-end="}">
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1toml__func.html#a89333b2d7ff7f3c46acaec96ef1d2979">  111</a></span><a class="code hl_function" href="namespacedesignlab_1_1toml__func.html#ace0724744f33cfe29e5800255fa075d0">SetTomlValue</a>(::toml::basic_value&lt;toml::preserve_comments, std::map&gt;* v, <span class="keyword">const</span> std::string&amp; str, <span class="keyword">const</span> T&amp; value)</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>{</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    std::vector&lt;std::string&gt; str_vec(value.size());</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; value.size(); ++i)</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    {</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        std::stringstream ss;</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        ss &lt;&lt; value[i];</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        str_vec[i] = ss.str();</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    }</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    (*v)[str] = str_vec;</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>}</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; value.size(); ++i)</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        std::stringstream ss;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        ss &lt;&lt; value[i];</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        str_vec[i] = ss.str();</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    }</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    (*v)[str] = str_vec;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>}</div>
 </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Enable = <span class="keywordtype">void</span>&gt;</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl.html">  127</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl.html">GetTomlValueImpl</a>;</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00135" data-start="{" data-end="};">
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_3b07bd3c2acf053c0b37464b32d1a9cf3.html">  135</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl.html">GetTomlValueImpl</a> &lt; T, typename <a class="code hl_namespace" href="namespacestd.html">std</a>::enable_if&lt;impl::is_toml11_available_type&lt;T&gt;::value&gt; ::type &gt;</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>{</div>
-<div class="foldopen" id="foldopen00137" data-start="{" data-end="}">
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_3b07bd3c2acf053c0b37464b32d1a9cf3.html#a284f43b36a4c5c3f868bc9b84739ebd2">  137</a></span>    <span class="keyword">static</span> T <a class="code hl_function" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_3b07bd3c2acf053c0b37464b32d1a9cf3.html#a284f43b36a4c5c3f868bc9b84739ebd2">Get</a>(::toml::basic_value&lt;toml::preserve_comments, std::map&gt;* v, <span class="keyword">const</span> std::string&amp; var_str)</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    {</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        <span class="keywordflow">return</span> toml::find&lt;T&gt;(*v, var_str);</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Enable = <span class="keywordtype">void</span>&gt;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl.html">  121</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl.html">GetTomlValueImpl</a>;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00129" data-start="{" data-end="};">
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_3b07bd3c2acf053c0b37464b32d1a9cf3.html">  129</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl.html">GetTomlValueImpl</a> &lt; T, typename <a class="code hl_namespace" href="namespacestd.html">std</a>::enable_if&lt;impl::is_toml11_available_type&lt;T&gt;::value&gt; ::type &gt;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>{</div>
+<div class="foldopen" id="foldopen00131" data-start="{" data-end="}">
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_3b07bd3c2acf053c0b37464b32d1a9cf3.html#a284f43b36a4c5c3f868bc9b84739ebd2">  131</a></span>    <span class="keyword">static</span> T <a class="code hl_function" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_3b07bd3c2acf053c0b37464b32d1a9cf3.html#a284f43b36a4c5c3f868bc9b84739ebd2">Get</a>(::toml::basic_value&lt;toml::preserve_comments, std::map&gt;* v, <span class="keyword">const</span> std::string&amp; var_str)</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    {</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keywordflow">return</span> toml::find&lt;T&gt;(*v, var_str);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    }</div>
 </div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>};</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>};</div>
 </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00147" data-start="{" data-end="};">
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_328529863b9f932a63d4a25913375ada6.html">  147</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl.html">GetTomlValueImpl</a>&lt;T, typename <a class="code hl_namespace" href="namespacestd.html">std</a>::enable_if&lt;!impl::is_toml11_available_type&lt;T&gt;::value&amp;&amp; std::is_enum&lt;T&gt;::value&gt;::type&gt;</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>{</div>
-<div class="foldopen" id="foldopen00154" data-start="{" data-end="}">
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_328529863b9f932a63d4a25913375ada6.html#a045c042cd503731f4433ab823773b3a9">  154</a></span>    <span class="keyword">static</span> T <a class="code hl_function" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_328529863b9f932a63d4a25913375ada6.html#a045c042cd503731f4433ab823773b3a9">Get</a>(::toml::basic_value&lt;toml::preserve_comments, std::map&gt;* v, <span class="keyword">const</span> std::string&amp; var_str)</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    {</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        std::string str = toml::find&lt;std::string&gt;(*v, var_str);</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        <span class="keywordflow">return</span> magic_enum::enum_cast&lt;T&gt;(str).value();</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    }</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00141" data-start="{" data-end="};">
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_328529863b9f932a63d4a25913375ada6.html">  141</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl.html">GetTomlValueImpl</a>&lt;T, typename <a class="code hl_namespace" href="namespacestd.html">std</a>::enable_if&lt;!impl::is_toml11_available_type&lt;T&gt;::value&amp;&amp; std::is_enum&lt;T&gt;::value&gt;::type&gt;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>{</div>
+<div class="foldopen" id="foldopen00148" data-start="{" data-end="}">
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_328529863b9f932a63d4a25913375ada6.html#a045c042cd503731f4433ab823773b3a9">  148</a></span>    <span class="keyword">static</span> T <a class="code hl_function" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_328529863b9f932a63d4a25913375ada6.html#a045c042cd503731f4433ab823773b3a9">Get</a>(::toml::basic_value&lt;toml::preserve_comments, std::map&gt;* v, <span class="keyword">const</span> std::string&amp; var_str)</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    {</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        std::string str = toml::find&lt;std::string&gt;(*v, var_str);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <span class="keywordflow">return</span> magic_enum::enum_cast&lt;T&gt;(str).value();</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    }</div>
 </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>};</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>};</div>
 </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00165" data-start="{" data-end="};">
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_39d3e7579bcc5575292b80a1ace9292bc.html">  165</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl.html">GetTomlValueImpl</a>&lt;T, typename <a class="code hl_namespace" href="namespacestd.html">std</a>::enable_if&lt;!impl::is_toml11_available_type&lt;T&gt;::value&amp;&amp; impl::has_input_operator&lt;T&gt;::value&gt;::type&gt;</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>{</div>
-<div class="foldopen" id="foldopen00172" data-start="{" data-end="}">
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_39d3e7579bcc5575292b80a1ace9292bc.html#a01d84cc5b8a22eadbe734a20e704bf37">  172</a></span>    <span class="keyword">static</span> T <a class="code hl_function" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_39d3e7579bcc5575292b80a1ace9292bc.html#a01d84cc5b8a22eadbe734a20e704bf37">Get</a>(::toml::basic_value&lt;toml::preserve_comments, std::map&gt;* v, <span class="keyword">const</span> std::string&amp; var_str)</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    {</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        std::string str = toml::find&lt;std::string&gt;(*v, var_str);</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        std::stringstream ss;</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        ss &lt;&lt; str;</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        T temp{};</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        ss &gt;&gt; temp;</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <span class="keywordflow">return</span> temp;</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    }</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00159" data-start="{" data-end="};">
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_39d3e7579bcc5575292b80a1ace9292bc.html">  159</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl.html">GetTomlValueImpl</a>&lt;T, typename <a class="code hl_namespace" href="namespacestd.html">std</a>::enable_if&lt;!impl::is_toml11_available_type&lt;T&gt;::value&amp;&amp; impl::has_input_operator&lt;T&gt;::value&gt;::type&gt;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>{</div>
+<div class="foldopen" id="foldopen00166" data-start="{" data-end="}">
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_39d3e7579bcc5575292b80a1ace9292bc.html#a01d84cc5b8a22eadbe734a20e704bf37">  166</a></span>    <span class="keyword">static</span> T <a class="code hl_function" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_39d3e7579bcc5575292b80a1ace9292bc.html#a01d84cc5b8a22eadbe734a20e704bf37">Get</a>(::toml::basic_value&lt;toml::preserve_comments, std::map&gt;* v, <span class="keyword">const</span> std::string&amp; var_str)</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    {</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        std::string str = toml::find&lt;std::string&gt;(*v, var_str);</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        std::stringstream ss;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        ss &lt;&lt; str;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        T temp{};</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        ss &gt;&gt; temp;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="keywordflow">return</span> temp;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    }</div>
 </div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>};</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>};</div>
 </div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00184" data-start="{" data-end="};">
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_33fc5982aea123e2d9ca55f2926b667d8.html">  184</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl.html">GetTomlValueImpl</a>&lt;T, typename <a class="code hl_namespace" href="namespacestd.html">std</a>::enable_if&lt;!impl::is_toml11_available_type&lt;T&gt;::value&amp;&amp; impl::is_vector_of_has_input_operator&lt;T&gt;::value&gt;::type&gt;</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>{</div>
-<div class="foldopen" id="foldopen00186" data-start="{" data-end="}">
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_33fc5982aea123e2d9ca55f2926b667d8.html#a1b3a6e1de1cf93c89f6db017c4ba127f">  186</a></span>    <span class="keyword">static</span> T <a class="code hl_function" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_33fc5982aea123e2d9ca55f2926b667d8.html#a1b3a6e1de1cf93c89f6db017c4ba127f">Get</a>(::toml::basic_value&lt;toml::preserve_comments, std::map&gt;* v, <span class="keyword">const</span> std::string&amp; var_str)</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    {</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        std::vector&lt;std::string&gt; str_vec = toml::find&lt;std::vector&lt;std::string&gt;&gt;(*v, var_str);</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        T temp{};</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        temp.resize(str_vec.size());</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; str_vec.size(); ++i)</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        {</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>            std::stringstream ss;</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>            ss &lt;&lt; str_vec[i];</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>            ss &gt;&gt; temp[i];</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        }</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        <span class="keywordflow">return</span> temp;</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    }</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00178" data-start="{" data-end="};">
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_33fc5982aea123e2d9ca55f2926b667d8.html">  178</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl.html">GetTomlValueImpl</a>&lt;T, typename <a class="code hl_namespace" href="namespacestd.html">std</a>::enable_if&lt;!impl::is_toml11_available_type&lt;T&gt;::value&amp;&amp; impl::is_vector_of_has_input_operator&lt;T&gt;::value&gt;::type&gt;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>{</div>
+<div class="foldopen" id="foldopen00180" data-start="{" data-end="}">
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_33fc5982aea123e2d9ca55f2926b667d8.html#a1b3a6e1de1cf93c89f6db017c4ba127f">  180</a></span>    <span class="keyword">static</span> T <a class="code hl_function" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_33fc5982aea123e2d9ca55f2926b667d8.html#a1b3a6e1de1cf93c89f6db017c4ba127f">Get</a>(::toml::basic_value&lt;toml::preserve_comments, std::map&gt;* v, <span class="keyword">const</span> std::string&amp; var_str)</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    {</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        std::vector&lt;std::string&gt; str_vec = toml::find&lt;std::vector&lt;std::string&gt;&gt;(*v, var_str);</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        T temp{};</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        temp.resize(str_vec.size());</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; str_vec.size(); ++i)</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        {</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>            std::stringstream ss;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>            ss &lt;&lt; str_vec[i];</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>            ss &gt;&gt; temp[i];</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        }</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <span class="keywordflow">return</span> temp;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    }</div>
 </div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>};</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>};</div>
 </div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00213" data-start="{" data-end="}">
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1toml__func.html#a0345568eeffa42f19cc64dbc8c0a2745">  213</a></span>T <a class="code hl_function" href="namespacedesignlab_1_1toml__func.html#a0345568eeffa42f19cc64dbc8c0a2745">GetTomlValue</a>(::toml::basic_value&lt;toml::preserve_comments, std::map&gt; v, <span class="keyword">const</span> std::string&amp; var_str)</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>{</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="keywordflow">return</span> <a class="code hl_struct" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl.html">GetTomlValueImpl&lt;T&gt;::Get</a>(&amp;v, var_str);</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>}</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00207" data-start="{" data-end="}">
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1toml__func.html#a0345568eeffa42f19cc64dbc8c0a2745">  207</a></span>T <a class="code hl_function" href="namespacedesignlab_1_1toml__func.html#a0345568eeffa42f19cc64dbc8c0a2745">GetTomlValue</a>(::toml::basic_value&lt;toml::preserve_comments, std::map&gt; v, <span class="keyword">const</span> std::string&amp; var_str)</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>{</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    <span class="keywordflow">return</span> <a class="code hl_struct" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl.html">GetTomlValueImpl&lt;T&gt;::Get</a>(&amp;v, var_str);</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>}</div>
 </div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>}  <span class="comment">// namespace designlab::toml_func</span></div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
-<div class="foldopen" id="foldopen00226" data-start="" data-end="">
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#af00804278068824d6340b62fb05e334f">  226</a></span><span class="preprocessor">#define DESIGNLAB_SUB_MACRO_FIND_MEMBER_VARIABLE_FROM_VALUE(VAR_NAME)      \</span></div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="preprocessor">{                                                                          \</span></div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="preprocessor">    const std::string table_str = desc.VAR_NAME.table_name;                \</span></div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="preprocessor">                                                                           \</span></div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="preprocessor">    if (table_str == ::designlab::toml_func::Toml11Description::kNoTable)  \</span></div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="preprocessor">    {                                                                      \</span></div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="preprocessor">        obj.VAR_NAME =                                                     \</span></div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="preprocessor">            ::designlab::toml_func::GetTomlValue&lt;decltype(obj.VAR_NAME)&gt;(  \</span></div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><span class="preprocessor">                v_,                                                        \</span></div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="preprocessor">                TOML11_STRINGIZE(VAR_NAME));                               \</span></div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="preprocessor">    }                                                                      \</span></div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span><span class="preprocessor">    else                                                                   \</span></div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="preprocessor">    {                                                                      \</span></div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="preprocessor">        obj.VAR_NAME =                                                     \</span></div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span><span class="preprocessor">            ::designlab::toml_func::GetTomlValue&lt;decltype(obj.VAR_NAME)&gt;(  \</span></div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="preprocessor">                v_[table_str],                                             \</span></div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><span class="preprocessor">                TOML11_STRINGIZE(VAR_NAME));                               \</span></div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="preprocessor">    }                                                                      \</span></div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><span class="preprocessor">}</span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>}  <span class="comment">// namespace designlab::toml_func</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="foldopen" id="foldopen00220" data-start="" data-end="">
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#af00804278068824d6340b62fb05e334f">  220</a></span><span class="preprocessor">#define DESIGNLAB_SUB_MACRO_FIND_MEMBER_VARIABLE_FROM_VALUE(VAR_NAME)      \</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="preprocessor">{                                                                          \</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="preprocessor">    const std::string table_str = desc.VAR_NAME.table_name;                \</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="preprocessor">                                                                           \</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="preprocessor">    if (table_str == ::designlab::toml_func::Toml11Description::kNoTable)  \</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="preprocessor">    {                                                                      \</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="preprocessor">        obj.VAR_NAME =                                                     \</span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="preprocessor">            ::designlab::toml_func::GetTomlValue&lt;decltype(obj.VAR_NAME)&gt;(  \</span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="preprocessor">                v_,                                                        \</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="preprocessor">                TOML11_STRINGIZE(VAR_NAME));                               \</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="preprocessor">    }                                                                      \</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="preprocessor">    else                                                                   \</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="preprocessor">    {                                                                      \</span></div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="preprocessor">        obj.VAR_NAME =                                                     \</span></div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><span class="preprocessor">            ::designlab::toml_func::GetTomlValue&lt;decltype(obj.VAR_NAME)&gt;(  \</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="preprocessor">                v_[table_str],                                             \</span></div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="preprocessor">                TOML11_STRINGIZE(VAR_NAME));                               \</span></div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span><span class="preprocessor">    }                                                                      \</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="preprocessor">}</span></div>
 </div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
-<div class="foldopen" id="foldopen00253" data-start="" data-end="">
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#a323fb13d0dd0379f67b2254a2a71b2ef">  253</a></span><span class="preprocessor">#define DESIGNLAB_SUB_MACRO_ASSIGN_MEMBER_VARIABLE_TO_VALUE(VAR)                  \</span></div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="preprocessor">if (desc.VAR.table_name != ::designlab::toml_func::Toml11Description::kNoTable) { \</span></div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="preprocessor">    if (v.count(desc.VAR.table_name) == 0)                                        \</span></div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span><span class="preprocessor">    {                                                                             \</span></div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span><span class="preprocessor">        v[desc.VAR.table_name] = toml::table{};                                   \</span></div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="preprocessor">    }                                                                             \</span></div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span><span class="preprocessor">                                                                                  \</span></div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="preprocessor">    ::designlab::toml_func::SetTomlValue(&amp;v[desc.VAR.table_name],                 \</span></div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span><span class="preprocessor">        TOML11_STRINGIZE(VAR), obj.VAR);                                          \</span></div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span><span class="preprocessor">}                                                                                 \</span></div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="preprocessor">else                                                                              \</span></div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="preprocessor">{                                                                                 \</span></div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span><span class="preprocessor">    ::designlab::toml_func::SetTomlValue(                                         \</span></div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span><span class="preprocessor">        &amp;v, TOML11_STRINGIZE(VAR), obj.VAR);                                      \</span></div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span><span class="preprocessor">}</span></div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="foldopen" id="foldopen00247" data-start="" data-end="">
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#a323fb13d0dd0379f67b2254a2a71b2ef">  247</a></span><span class="preprocessor">#define DESIGNLAB_SUB_MACRO_ASSIGN_MEMBER_VARIABLE_TO_VALUE(VAR)                  \</span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="preprocessor">if (desc.VAR.table_name != ::designlab::toml_func::Toml11Description::kNoTable) { \</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="preprocessor">    if (v.count(desc.VAR.table_name) == 0)                                        \</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="preprocessor">    {                                                                             \</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="preprocessor">        v[desc.VAR.table_name] = toml::table{};                                   \</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span><span class="preprocessor">    }                                                                             \</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="preprocessor">                                                                                  \</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="preprocessor">    ::designlab::toml_func::SetTomlValue(&amp;v[desc.VAR.table_name],                 \</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="preprocessor">        TOML11_STRINGIZE(VAR), obj.VAR);                                          \</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span><span class="preprocessor">}                                                                                 \</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span><span class="preprocessor">else                                                                              \</span></div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="preprocessor">{                                                                                 \</span></div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span><span class="preprocessor">    ::designlab::toml_func::SetTomlValue(                                         \</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="preprocessor">        &amp;v, TOML11_STRINGIZE(VAR), obj.VAR);                                      \</span></div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span><span class="preprocessor">}</span></div>
 </div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
-<div class="foldopen" id="foldopen00276" data-start="" data-end="">
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#a04392bb31072c67f98529b4b35b8ad7f">  276</a></span><span class="preprocessor">#define DESIGNLAB_SUB_MACRO_ADD_COMMENT(VN)                                        \</span></div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span><span class="preprocessor">if (desc.VN.description != &quot;&quot;) {                                                   \</span></div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="preprocessor">    if (desc.VN.table_name != ::designlab::toml_func::Toml11Description::kNoTable) \</span></div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span><span class="preprocessor">    {                                                                              \</span></div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span><span class="preprocessor">        v[desc.VN.table_name][#VN].comments().push_back(desc.VN.description);      \</span></div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span><span class="preprocessor">    }                                                                              \</span></div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><span class="preprocessor">    else                                                                           \</span></div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span><span class="preprocessor">    {                                                                              \</span></div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span><span class="preprocessor">        v[#VN].comments().push_back(desc.VN.description);                          \</span></div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span><span class="preprocessor">    }                                                                              \</span></div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span><span class="preprocessor">}</span></div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="foldopen" id="foldopen00270" data-start="" data-end="">
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#a04392bb31072c67f98529b4b35b8ad7f">  270</a></span><span class="preprocessor">#define DESIGNLAB_SUB_MACRO_ADD_COMMENT(VN)                                        \</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="preprocessor">if (desc.VN.description != &quot;&quot;) {                                                   \</span></div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="preprocessor">    if (desc.VN.table_name != ::designlab::toml_func::Toml11Description::kNoTable) \</span></div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span><span class="preprocessor">    {                                                                              \</span></div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span><span class="preprocessor">        v[desc.VN.table_name][#VN].comments().push_back(desc.VN.description);      \</span></div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="preprocessor">    }                                                                              \</span></div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span><span class="preprocessor">    else                                                                           \</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span><span class="preprocessor">    {                                                                              \</span></div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="preprocessor">        v[#VN].comments().push_back(desc.VN.description);                          \</span></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span><span class="preprocessor">    }                                                                              \</span></div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span><span class="preprocessor">}</span></div>
 </div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
+<div class="foldopen" id="foldopen00286" data-start="" data-end="">
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#a486ffec54db999fb033fd3d6e8ee473b">  286</a></span><span class="preprocessor">#define DESIGNLAB_TOML11_DESCRIPTION_CLASS(CLASS) \</span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span><span class="preprocessor">struct CLASS##Description final</span></div>
+</div>
 <div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span> </div>
-<div class="foldopen" id="foldopen00292" data-start="" data-end="">
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#a486ffec54db999fb033fd3d6e8ee473b">  292</a></span><span class="preprocessor">#define DESIGNLAB_TOML11_DESCRIPTION_CLASS(CLASS) \</span></div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span><span class="preprocessor">struct CLASS##Description final</span></div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
+<div class="foldopen" id="foldopen00293" data-start="" data-end="">
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#a4b9bf407ecc73e60445af21101648d9b">  293</a></span><span class="preprocessor">#define DESIGNLAB_TOML11_FILE_NO_DESCRIPTION() \</span></div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span><span class="preprocessor">const ::std::vector&lt;::std::string&gt; file_description_vec{};</span></div>
 </div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
 <div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
-<div class="foldopen" id="foldopen00299" data-start="" data-end="">
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#a4b9bf407ecc73e60445af21101648d9b">  299</a></span><span class="preprocessor">#define DESIGNLAB_TOML11_FILE_NO_DESCRIPTION() \</span></div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span><span class="preprocessor">const ::std::vector&lt;::std::string&gt; file_description_vec{};</span></div>
+<div class="foldopen" id="foldopen00300" data-start="" data-end="">
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#ae1a1d4be2656ed6d1c1921468379a6cf">  300</a></span><span class="preprocessor">#define DESIGNLAB_TOML11_FILE_ADD_DESCRIPTION(DESCRIPTION) \</span></div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span><span class="preprocessor">const ::std::vector&lt;::std::string&gt; file_description_vec{sjis_to_utf8(DESCRIPTION)};</span></div>
 </div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> </div>
-<div class="foldopen" id="foldopen00306" data-start="" data-end="">
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#ae1a1d4be2656ed6d1c1921468379a6cf">  306</a></span><span class="preprocessor">#define DESIGNLAB_TOML11_FILE_ADD_DESCRIPTION(DESCRIPTION) \</span></div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span><span class="preprocessor">const ::std::vector&lt;::std::string&gt; file_description_vec{sjis_to_utf8(DESCRIPTION)};</span></div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span> </div>
+<div class="foldopen" id="foldopen00307" data-start="" data-end="">
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#af210a60bc0584be3453baae36f15b1cb">  307</a></span><span class="preprocessor">#define DESIGNLAB_TOML11_FILE_ADD_DESCRIPTION_MULTI_LINE(DESCRIPTION_VEC) \</span></div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span><span class="preprocessor">const ::std::vector&lt;::std::string&gt; file_description_vec = \</span></div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span><span class="preprocessor">    ::designlab::toml_func::sjis_to_utf8_vec(DESCRIPTION_VEC);</span></div>
 </div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span> </div>
-<div class="foldopen" id="foldopen00313" data-start="" data-end="">
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#af210a60bc0584be3453baae36f15b1cb">  313</a></span><span class="preprocessor">#define DESIGNLAB_TOML11_FILE_ADD_DESCRIPTION_MULTI_LINE(DESCRIPTION_VEC) \</span></div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span><span class="preprocessor">const ::std::vector&lt;::std::string&gt; file_description_vec = \</span></div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span><span class="preprocessor">    ::designlab::toml_func::sjis_to_utf8_vec(DESCRIPTION_VEC);</span></div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span> </div>
+<div class="foldopen" id="foldopen00316" data-start="" data-end="">
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#aa9a0f83348a99077238d7a8e6034c066">  316</a></span><span class="preprocessor">#define DESIGNLAB_TOML11_TABLE_ADD_DESCRIPTION(...) \</span></div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span><span class="preprocessor">const std::vector&lt;std::string&gt; table_name_description_vec = \</span></div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span><span class="preprocessor">    ::designlab::toml_func::sjis_to_utf8_vec({ __VA_ARGS__ });</span></div>
 </div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span> </div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
-<div class="foldopen" id="foldopen00322" data-start="" data-end="">
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#aa9a0f83348a99077238d7a8e6034c066">  322</a></span><span class="preprocessor">#define DESIGNLAB_TOML11_TABLE_ADD_DESCRIPTION(...) \</span></div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span><span class="preprocessor">const std::vector&lt;std::string&gt; table_name_description_vec = \</span></div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span><span class="preprocessor">    ::designlab::toml_func::sjis_to_utf8_vec({ __VA_ARGS__ });</span></div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span> </div>
+<div class="foldopen" id="foldopen00323" data-start="" data-end="">
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#a4e60774c17bff581cd175fdafc08a191">  323</a></span><span class="preprocessor">#define DESIGNLAB_TOML11_TABLE_NO_DESCRIPTION() \</span></div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span><span class="preprocessor">const std::vector&lt;std::string&gt; table_name_description_vec = {};</span></div>
 </div>
 <div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span> </div>
-<div class="foldopen" id="foldopen00329" data-start="" data-end="">
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#a4e60774c17bff581cd175fdafc08a191">  329</a></span><span class="preprocessor">#define DESIGNLAB_TOML11_TABLE_NO_DESCRIPTION() \</span></div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span><span class="preprocessor">const std::vector&lt;std::string&gt; table_name_description_vec = {};</span></div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span> </div>
+<div class="foldopen" id="foldopen00332" data-start="" data-end="">
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#aa289aa4ab294185921bbdf5a563ecccb">  332</a></span><span class="preprocessor">#define DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(VARIABLE, TABLE, DESCRIPTION) \</span></div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span><span class="preprocessor">const ::designlab::toml_func::Toml11Description VARIABLE{                       \</span></div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span><span class="preprocessor">    TABLE, sjis_to_utf8(DESCRIPTION)                                            \</span></div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span><span class="preprocessor">}</span></div>
 </div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span> </div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span> </div>
-<div class="foldopen" id="foldopen00338" data-start="" data-end="">
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#aa289aa4ab294185921bbdf5a563ecccb">  338</a></span><span class="preprocessor">#define DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(VARIABLE, TABLE, DESCRIPTION) \</span></div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span><span class="preprocessor">const ::designlab::toml_func::Toml11Description VARIABLE{                       \</span></div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span><span class="preprocessor">    TABLE, sjis_to_utf8(DESCRIPTION)                                            \</span></div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span><span class="preprocessor">}</span></div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span> </div>
+<div class="foldopen" id="foldopen00341" data-start="" data-end="">
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#abbdfb99e0ee7814af551e1bb778f12b2">  341</a></span><span class="preprocessor">#define DESIGNLAB_TOML11_VARIABLE_NO_DESCRIPTION(VARIABLE, TABLE) \</span></div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span><span class="preprocessor">const ::designlab::toml_func::Toml11Description VARIABLE{TABLE, &quot;&quot;}</span></div>
 </div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span> </div>
-<div class="foldopen" id="foldopen00347" data-start="" data-end="">
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#abbdfb99e0ee7814af551e1bb778f12b2">  347</a></span><span class="preprocessor">#define DESIGNLAB_TOML11_VARIABLE_NO_DESCRIPTION(VARIABLE, TABLE) \</span></div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span><span class="preprocessor">const ::designlab::toml_func::Toml11Description VARIABLE{TABLE, &quot;&quot;}</span></div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span> </div>
+<div class="foldopen" id="foldopen00346" data-start="" data-end="">
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#a3bc3af387da2557ff92994625b23b0a1">  346</a></span><span class="preprocessor">#define DESIGNLAB_TOML11_NO_TABLE \</span></div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span><span class="preprocessor">::designlab::toml_func::Toml11Description::kNoTable</span></div>
 </div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span> </div>
 <div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
-<div class="foldopen" id="foldopen00352" data-start="" data-end="">
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#a3bc3af387da2557ff92994625b23b0a1">  352</a></span><span class="preprocessor">#define DESIGNLAB_TOML11_NO_TABLE \</span></div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span><span class="preprocessor">::designlab::toml_func::Toml11Description::kNoTable</span></div>
-</div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span> </div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span> </div>
-<div class="line"><a id="l00401" name="l00401"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#a1c33ab3cc83c611d28789e4d383737e7">  401</a></span><span class="preprocessor">#define DESIGNLAB_TOML11_SERIALIZE(NAME, ...)                                   \</span></div>
-<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span><span class="preprocessor">namespace toml                                                                  \</span></div>
-<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span><span class="preprocessor">{                                                                               \</span></div>
-<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span><span class="preprocessor">template&lt;&gt;                                                                      \</span></div>
-<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span><span class="preprocessor">struct from&lt;NAME&gt;                                                               \</span></div>
-<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span><span class="preprocessor">{                                                                               \</span></div>
-<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span><span class="preprocessor">  static_assert(std::is_class&lt;NAME&gt;::value,                                     \</span></div>
-<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span><span class="preprocessor">    &quot;第1引数はクラスか構造体である必要があります．&quot;);                           \</span></div>
-<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span><span class="preprocessor">  static_assert(std::is_default_constructible&lt;NAME&gt;::value,                     \</span></div>
-<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span><span class="preprocessor">    &quot;第1引数はデフォルトコンストラクタを持つ必要があります．&quot;);                 \</span></div>
-<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span><span class="preprocessor">                                                                                \</span></div>
-<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span><span class="preprocessor">  template&lt;typename C, template&lt;typename ...&gt; class T,                          \</span></div>
-<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span><span class="preprocessor">       template&lt;typename ...&gt; class A&gt;                                          \</span></div>
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span><span class="preprocessor">  static NAME from_toml(basic_value&lt;C, T, A&gt;&amp; v)                                \</span></div>
-<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span><span class="preprocessor">  {                                                                             \</span></div>
-<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span><span class="preprocessor">    ::toml::basic_value&lt;toml::preserve_comments, std::map&gt; v_ = v;              \</span></div>
-<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span><span class="preprocessor">    NAME obj;                                                                   \</span></div>
-<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span><span class="preprocessor">    NAME##Description desc;                                                     \</span></div>
-<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span><span class="preprocessor">    TOML11_FOR_EACH_VA_ARGS(                                                    \</span></div>
-<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span><span class="preprocessor">        DESIGNLAB_SUB_MACRO_FIND_MEMBER_VARIABLE_FROM_VALUE, __VA_ARGS__)       \</span></div>
-<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span><span class="preprocessor">    return obj;                                                                 \</span></div>
-<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span><span class="preprocessor">  }                                                                             \</span></div>
-<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span><span class="preprocessor">};                                                                              \</span></div>
-<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span><span class="preprocessor">                                                                                \</span></div>
-<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span><span class="preprocessor">template&lt;&gt;                                                                      \</span></div>
-<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span><span class="preprocessor">struct into&lt;NAME&gt;                                                               \</span></div>
-<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span><span class="preprocessor">{                                                                               \</span></div>
-<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span><span class="preprocessor">  static value into_toml(const NAME&amp; obj)                                       \</span></div>
-<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span><span class="preprocessor">  {                                                                             \</span></div>
-<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span><span class="preprocessor">    ::toml::basic_value&lt;toml::preserve_comments, std::map&gt; v = ::toml::table{}; \</span></div>
-<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span><span class="preprocessor">                                                                                \</span></div>
-<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span><span class="preprocessor">    NAME##Description desc;                                                     \</span></div>
-<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span><span class="preprocessor">                                                                                \</span></div>
-<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span><span class="preprocessor">    for (const auto i : desc.file_description_vec)                              \</span></div>
-<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span><span class="preprocessor">    {                                                                           \</span></div>
-<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span><span class="preprocessor">      v.comments().push_back(i);                                                \</span></div>
-<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span><span class="preprocessor">    }                                                                           \</span></div>
-<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span><span class="preprocessor">                                                                                \</span></div>
-<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span><span class="preprocessor">    for (int i = 0; i &lt; desc.table_name_description_vec.size(); ++i)            \</span></div>
-<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span><span class="preprocessor">    {                                                                           \</span></div>
-<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span><span class="preprocessor">      v[desc.table_name_description_vec[i]] = ::toml::table{};                  \</span></div>
-<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span><span class="preprocessor">      v[desc.table_name_description_vec[i]].comments().                         \</span></div>
-<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span><span class="preprocessor">        push_back(desc.table_name_description_vec[i + 1]);                      \</span></div>
-<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span><span class="preprocessor">      ++i;                                                                      \</span></div>
-<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span><span class="preprocessor">    }                                                                           \</span></div>
-<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span><span class="preprocessor">                                                                                \</span></div>
-<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span><span class="preprocessor">    TOML11_FOR_EACH_VA_ARGS(                                                    \</span></div>
-<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span><span class="preprocessor">        DESIGNLAB_SUB_MACRO_ASSIGN_MEMBER_VARIABLE_TO_VALUE, __VA_ARGS__)       \</span></div>
-<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span><span class="preprocessor">    TOML11_FOR_EACH_VA_ARGS(                                                    \</span></div>
-<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span><span class="preprocessor">        DESIGNLAB_SUB_MACRO_ADD_COMMENT, __VA_ARGS__)                           \</span></div>
-<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span><span class="preprocessor">    return v;                                                                   \</span></div>
-<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span><span class="preprocessor">  }                                                                             \</span></div>
-<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span><span class="preprocessor">};                                                                              \</span></div>
-<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span><span class="preprocessor">                                                                                \</span></div>
-<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span><span class="preprocessor">}  </span><span class="comment">// namespace toml</span></div>
-<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span> </div>
-<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span> </div>
-<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_TOML_SERIALIZE_MACRO_H_</span></div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno"><a class="line" href="toml__serialize__macro_8h.html#a1c33ab3cc83c611d28789e4d383737e7">  395</a></span><span class="preprocessor">#define DESIGNLAB_TOML11_SERIALIZE(NAME, ...)                                   \</span></div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span><span class="preprocessor">namespace toml                                                                  \</span></div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span><span class="preprocessor">{                                                                               \</span></div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span><span class="preprocessor">template&lt;&gt;                                                                      \</span></div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span><span class="preprocessor">struct from&lt;NAME&gt;                                                               \</span></div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span><span class="preprocessor">{                                                                               \</span></div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span><span class="preprocessor">  static_assert(std::is_class&lt;NAME&gt;::value,                                     \</span></div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span><span class="preprocessor">    &quot;第1引数はクラスか構造体である必要があります．&quot;);                           \</span></div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span><span class="preprocessor">  static_assert(std::is_default_constructible&lt;NAME&gt;::value,                     \</span></div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span><span class="preprocessor">    &quot;第1引数はデフォルトコンストラクタを持つ必要があります．&quot;);                 \</span></div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span><span class="preprocessor">                                                                                \</span></div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span><span class="preprocessor">  template&lt;typename C, template&lt;typename ...&gt; class T,                          \</span></div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span><span class="preprocessor">       template&lt;typename ...&gt; class A&gt;                                          \</span></div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span><span class="preprocessor">  static NAME from_toml(basic_value&lt;C, T, A&gt;&amp; v)                                \</span></div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span><span class="preprocessor">  {                                                                             \</span></div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span><span class="preprocessor">    ::toml::basic_value&lt;toml::preserve_comments, std::map&gt; v_ = v;              \</span></div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span><span class="preprocessor">    NAME obj;                                                                   \</span></div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span><span class="preprocessor">    NAME##Description desc;                                                     \</span></div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span><span class="preprocessor">    TOML11_FOR_EACH_VA_ARGS(                                                    \</span></div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span><span class="preprocessor">        DESIGNLAB_SUB_MACRO_FIND_MEMBER_VARIABLE_FROM_VALUE, __VA_ARGS__)       \</span></div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span><span class="preprocessor">    return obj;                                                                 \</span></div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span><span class="preprocessor">  }                                                                             \</span></div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span><span class="preprocessor">};                                                                              \</span></div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span><span class="preprocessor">                                                                                \</span></div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span><span class="preprocessor">template&lt;&gt;                                                                      \</span></div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span><span class="preprocessor">struct into&lt;NAME&gt;                                                               \</span></div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span><span class="preprocessor">{                                                                               \</span></div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span><span class="preprocessor">  static value into_toml(const NAME&amp; obj)                                       \</span></div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span><span class="preprocessor">  {                                                                             \</span></div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span><span class="preprocessor">    ::toml::basic_value&lt;toml::preserve_comments, std::map&gt; v = ::toml::table{}; \</span></div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span><span class="preprocessor">                                                                                \</span></div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span><span class="preprocessor">    NAME##Description desc;                                                     \</span></div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span><span class="preprocessor">                                                                                \</span></div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span><span class="preprocessor">    for (const auto i : desc.file_description_vec)                              \</span></div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span><span class="preprocessor">    {                                                                           \</span></div>
+<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span><span class="preprocessor">      v.comments().push_back(i);                                                \</span></div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span><span class="preprocessor">    }                                                                           \</span></div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span><span class="preprocessor">                                                                                \</span></div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span><span class="preprocessor">    for (int i = 0; i &lt; desc.table_name_description_vec.size(); ++i)            \</span></div>
+<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span><span class="preprocessor">    {                                                                           \</span></div>
+<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span><span class="preprocessor">      v[desc.table_name_description_vec[i]] = ::toml::table{};                  \</span></div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span><span class="preprocessor">      v[desc.table_name_description_vec[i]].comments().                         \</span></div>
+<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span><span class="preprocessor">        push_back(desc.table_name_description_vec[i + 1]);                      \</span></div>
+<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span><span class="preprocessor">      ++i;                                                                      \</span></div>
+<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span><span class="preprocessor">    }                                                                           \</span></div>
+<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span><span class="preprocessor">                                                                                \</span></div>
+<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span><span class="preprocessor">    TOML11_FOR_EACH_VA_ARGS(                                                    \</span></div>
+<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span><span class="preprocessor">        DESIGNLAB_SUB_MACRO_ASSIGN_MEMBER_VARIABLE_TO_VALUE, __VA_ARGS__)       \</span></div>
+<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span><span class="preprocessor">    TOML11_FOR_EACH_VA_ARGS(                                                    \</span></div>
+<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span><span class="preprocessor">        DESIGNLAB_SUB_MACRO_ADD_COMMENT, __VA_ARGS__)                           \</span></div>
+<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span><span class="preprocessor">    return v;                                                                   \</span></div>
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span><span class="preprocessor">  }                                                                             \</span></div>
+<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span><span class="preprocessor">};                                                                              \</span></div>
+<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span><span class="preprocessor">                                                                                \</span></div>
+<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span><span class="preprocessor">}  </span><span class="comment">// namespace toml</span></div>
+<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span> </div>
+<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span> </div>
+<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_TOML_SERIALIZE_MACRO_H_</span></div>
 <div class="ttc" id="aimplicit__metafunction__for__toml11_8h_html"><div class="ttname"><a href="implicit__metafunction__for__toml11_8h.html">implicit_metafunction_for_toml11.h</a></div></div>
 <div class="ttc" id="amath__euler_8h_html"><div class="ttname"><a href="math__euler_8h.html">math_euler.h</a></div></div>
 <div class="ttc" id="amath__quaternion_8h_html"><div class="ttname"><a href="math__quaternion_8h.html">math_quaternion.h</a></div></div>
 <div class="ttc" id="amath__vector3_8h_html"><div class="ttname"><a href="math__vector3_8h.html">math_vector3.h</a></div></div>
 <div class="ttc" id="anamespacedesignlab_1_1toml__func_html"><div class="ttname"><a href="namespacedesignlab_1_1toml__func.html">designlab::toml_func</a></div><div class="ttdoc">tomlファイルのシリアライズ/デシリアライズを行うための関数群．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8cpp_source.html#l00010">toml_serialize_macro.cpp:11</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1toml__func_html_a0345568eeffa42f19cc64dbc8c0a2745"><div class="ttname"><a href="namespacedesignlab_1_1toml__func.html#a0345568eeffa42f19cc64dbc8c0a2745">designlab::toml_func::GetTomlValue</a></div><div class="ttdeci">T GetTomlValue(::toml::basic_value&lt; toml::preserve_comments, std::map &gt; v, const std::string &amp;var_str)</div><div class="ttdoc">ユーザーが直接呼ぶ関数． GetTomlValueImpl を利用してテンプレートの型を解決し， それに応じたGet関数を呼び出す．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00213">toml_serialize_macro.h:213</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1toml__func_html_a0345568eeffa42f19cc64dbc8c0a2745"><div class="ttname"><a href="namespacedesignlab_1_1toml__func.html#a0345568eeffa42f19cc64dbc8c0a2745">designlab::toml_func::GetTomlValue</a></div><div class="ttdeci">T GetTomlValue(::toml::basic_value&lt; toml::preserve_comments, std::map &gt; v, const std::string &amp;var_str)</div><div class="ttdoc">ユーザーが直接呼ぶ関数． GetTomlValueImpl を利用してテンプレートの型を解決し， それに応じたGet関数を呼び出す．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00207">toml_serialize_macro.h:207</a></div></div>
 <div class="ttc" id="anamespacedesignlab_1_1toml__func_html_a345146097e012d45742a2341a733b2d8"><div class="ttname"><a href="namespacedesignlab_1_1toml__func.html#a345146097e012d45742a2341a733b2d8">designlab::toml_func::sjis_to_utf8_vec</a></div><div class="ttdeci">std::vector&lt; std::string &gt; sjis_to_utf8_vec(const std::vector&lt; std::string &gt; &amp;str_vec)</div><div class="ttdoc">文字列のベクターをShift-jisからUTF-8に変換する．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8cpp_source.html#l00015">toml_serialize_macro.cpp:15</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1toml__func_html_ace0724744f33cfe29e5800255fa075d0"><div class="ttname"><a href="namespacedesignlab_1_1toml__func.html#ace0724744f33cfe29e5800255fa075d0">designlab::toml_func::SetTomlValue</a></div><div class="ttdeci">std::enable_if&lt; impl::is_toml11_available_type&lt; T &gt;::value &gt;::type SetTomlValue(::toml::basic_value&lt; toml::preserve_comments, std::map &gt; *v, const std::string &amp;str, const T &amp;value)</div><div class="ttdoc">tomlファイルに値を追加するための関数．   enum 型と vector3 型と euler_xyz 型以外の型に対応している．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00077">toml_serialize_macro.h:77</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1toml__func_html_ace0724744f33cfe29e5800255fa075d0"><div class="ttname"><a href="namespacedesignlab_1_1toml__func.html#ace0724744f33cfe29e5800255fa075d0">designlab::toml_func::SetTomlValue</a></div><div class="ttdeci">std::enable_if&lt; impl::is_toml11_available_type&lt; T &gt;::value &gt;::type SetTomlValue(::toml::basic_value&lt; toml::preserve_comments, std::map &gt; *v, const std::string &amp;str, const T &amp;value)</div><div class="ttdoc">tomlファイルに値を追加するための関数．   enum 型と vector3 型と euler_xyz 型以外の型に対応している．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00071">toml_serialize_macro.h:71</a></div></div>
 <div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdef"><b>Definition</b> <a href="com__type_8h_source.html#l00023">com_type.h:24</a></div></div>
 <div class="ttc" id="astructdesignlab_1_1impl_1_1has__output__operator_html"><div class="ttname"><a href="structdesignlab_1_1impl_1_1has__output__operator.html">designlab::impl::has_output_operator</a></div><div class="ttdoc">出力ストリームが実装されているか判断するメタ関数．</div><div class="ttdef"><b>Definition</b> <a href="implicit__metafunction__for__toml11_8h_source.html#l00070">implicit_metafunction_for_toml11.h:70</a></div></div>
 <div class="ttc" id="astructdesignlab_1_1impl_1_1is__vector__of__has__output__operator_html"><div class="ttname"><a href="structdesignlab_1_1impl_1_1is__vector__of__has__output__operator.html">designlab::impl::is_vector_of_has_output_operator</a></div><div class="ttdoc">出力ストリームが実装されている vector 型かどうかを判定するメタ関数．</div><div class="ttdef"><b>Definition</b> <a href="implicit__metafunction__for__toml11_8h_source.html#l00182">implicit_metafunction_for_toml11.h:182</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_328529863b9f932a63d4a25913375ada6_html_a045c042cd503731f4433ab823773b3a9"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_328529863b9f932a63d4a25913375ada6.html#a045c042cd503731f4433ab823773b3a9">designlab::toml_func::GetTomlValueImpl&lt; T, typename std::enable_if&lt;!impl::is_toml11_available_type&lt; T &gt;::value &amp;&amp;std::is_enum&lt; T &gt;::value &gt;::type &gt;::Get</a></div><div class="ttdeci">static T Get(::toml::basic_value&lt; toml::preserve_comments, std::map &gt; *v, const std::string &amp;var_str)</div><div class="ttdoc">tomlファイルから値を取得するための関数．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00154">toml_serialize_macro.h:154</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_33fc5982aea123e2d9ca55f2926b667d8_html_a1b3a6e1de1cf93c89f6db017c4ba127f"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_33fc5982aea123e2d9ca55f2926b667d8.html#a1b3a6e1de1cf93c89f6db017c4ba127f">designlab::toml_func::GetTomlValueImpl&lt; T, typename std::enable_if&lt;!impl::is_toml11_available_type&lt; T &gt;::value &amp;&amp;impl::is_vector_of_has_input_operator&lt; T &gt;::value &gt;::type &gt;::Get</a></div><div class="ttdeci">static T Get(::toml::basic_value&lt; toml::preserve_comments, std::map &gt; *v, const std::string &amp;var_str)</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00186">toml_serialize_macro.h:186</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_39d3e7579bcc5575292b80a1ace9292bc_html_a01d84cc5b8a22eadbe734a20e704bf37"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_39d3e7579bcc5575292b80a1ace9292bc.html#a01d84cc5b8a22eadbe734a20e704bf37">designlab::toml_func::GetTomlValueImpl&lt; T, typename std::enable_if&lt;!impl::is_toml11_available_type&lt; T &gt;::value &amp;&amp;impl::has_input_operator&lt; T &gt;::value &gt;::type &gt;::Get</a></div><div class="ttdeci">static T Get(::toml::basic_value&lt; toml::preserve_comments, std::map &gt; *v, const std::string &amp;var_str)</div><div class="ttdoc">tomlファイルから値を取得するための関数．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00172">toml_serialize_macro.h:172</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_3b07bd3c2acf053c0b37464b32d1a9cf3_html_a284f43b36a4c5c3f868bc9b84739ebd2"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_3b07bd3c2acf053c0b37464b32d1a9cf3.html#a284f43b36a4c5c3f868bc9b84739ebd2">designlab::toml_func::GetTomlValueImpl&lt; T, typename std::enable_if&lt; impl::is_toml11_available_type&lt; T &gt;::value &gt; ::type &gt;::Get</a></div><div class="ttdeci">static T Get(::toml::basic_value&lt; toml::preserve_comments, std::map &gt; *v, const std::string &amp;var_str)</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00137">toml_serialize_macro.h:137</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_get_toml_value_impl_html"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl.html">designlab::toml_func::GetTomlValueImpl</a></div><div class="ttdoc">プライマリ テンプレート．特殊化されない場合はコンパイルエラーになる．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00127">toml_serialize_macro.h:127</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_toml11_description_html"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_toml11_description.html">designlab::toml_func::Toml11Description</a></div><div class="ttdoc">tomlファイルに追加する変数の説明を追加するための構造体．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00049">toml_serialize_macro.h:50</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_toml11_description_html_a1fa90dcbef75cf2951a3392be3ee303b"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a1fa90dcbef75cf2951a3392be3ee303b">designlab::toml_func::Toml11Description::description</a></div><div class="ttdeci">std::string description</div><div class="ttdoc">説明，tomlファイルにはコメントとして追加される．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00061">toml_serialize_macro.h:61</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_toml11_description_html_a6f58ea58c5e606780e28328a1e1bd118"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a6f58ea58c5e606780e28328a1e1bd118">designlab::toml_func::Toml11Description::Toml11Description</a></div><div class="ttdeci">Toml11Description(const std::string &amp;t, const std::string &amp;d)</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00054">toml_serialize_macro.h:54</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_toml11_description_html_a7212008e9103ff5ef65a79e0a17e8c36"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a7212008e9103ff5ef65a79e0a17e8c36">designlab::toml_func::Toml11Description::kNoTable</a></div><div class="ttdeci">static const char kNoTable[]</div><div class="ttdoc">テーブルがない場合に指定する文字列．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00052">toml_serialize_macro.h:52</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_toml11_description_html_ab09e69de8c224b40fd41584638691063"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_toml11_description.html#ab09e69de8c224b40fd41584638691063">designlab::toml_func::Toml11Description::table_name</a></div><div class="ttdeci">std::string table_name</div><div class="ttdoc">テーブル名．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00060">toml_serialize_macro.h:60</a></div></div>
-<div class="ttc" id="atoml11__define_8h_html"><div class="ttname"><a href="toml11__define_8h.html">toml11_define.h</a></div><div class="ttdoc">ライブラリの toml11の設定を行うためのヘッダファイル．   #include &lt;toml.hpp&gt;はこのプロジェクトの中では書かず， このファイルをインクルードすること．</div></div>
+<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_328529863b9f932a63d4a25913375ada6_html_a045c042cd503731f4433ab823773b3a9"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_328529863b9f932a63d4a25913375ada6.html#a045c042cd503731f4433ab823773b3a9">designlab::toml_func::GetTomlValueImpl&lt; T, typename std::enable_if&lt;!impl::is_toml11_available_type&lt; T &gt;::value &amp;&amp;std::is_enum&lt; T &gt;::value &gt;::type &gt;::Get</a></div><div class="ttdeci">static T Get(::toml::basic_value&lt; toml::preserve_comments, std::map &gt; *v, const std::string &amp;var_str)</div><div class="ttdoc">tomlファイルから値を取得するための関数．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00148">toml_serialize_macro.h:148</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_33fc5982aea123e2d9ca55f2926b667d8_html_a1b3a6e1de1cf93c89f6db017c4ba127f"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_33fc5982aea123e2d9ca55f2926b667d8.html#a1b3a6e1de1cf93c89f6db017c4ba127f">designlab::toml_func::GetTomlValueImpl&lt; T, typename std::enable_if&lt;!impl::is_toml11_available_type&lt; T &gt;::value &amp;&amp;impl::is_vector_of_has_input_operator&lt; T &gt;::value &gt;::type &gt;::Get</a></div><div class="ttdeci">static T Get(::toml::basic_value&lt; toml::preserve_comments, std::map &gt; *v, const std::string &amp;var_str)</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00180">toml_serialize_macro.h:180</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_39d3e7579bcc5575292b80a1ace9292bc_html_a01d84cc5b8a22eadbe734a20e704bf37"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_39d3e7579bcc5575292b80a1ace9292bc.html#a01d84cc5b8a22eadbe734a20e704bf37">designlab::toml_func::GetTomlValueImpl&lt; T, typename std::enable_if&lt;!impl::is_toml11_available_type&lt; T &gt;::value &amp;&amp;impl::has_input_operator&lt; T &gt;::value &gt;::type &gt;::Get</a></div><div class="ttdeci">static T Get(::toml::basic_value&lt; toml::preserve_comments, std::map &gt; *v, const std::string &amp;var_str)</div><div class="ttdoc">tomlファイルから値を取得するための関数．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00166">toml_serialize_macro.h:166</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_3b07bd3c2acf053c0b37464b32d1a9cf3_html_a284f43b36a4c5c3f868bc9b84739ebd2"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_3b07bd3c2acf053c0b37464b32d1a9cf3.html#a284f43b36a4c5c3f868bc9b84739ebd2">designlab::toml_func::GetTomlValueImpl&lt; T, typename std::enable_if&lt; impl::is_toml11_available_type&lt; T &gt;::value &gt; ::type &gt;::Get</a></div><div class="ttdeci">static T Get(::toml::basic_value&lt; toml::preserve_comments, std::map &gt; *v, const std::string &amp;var_str)</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00131">toml_serialize_macro.h:131</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_get_toml_value_impl_html"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl.html">designlab::toml_func::GetTomlValueImpl</a></div><div class="ttdoc">プライマリ テンプレート．特殊化されない場合はコンパイルエラーになる．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00121">toml_serialize_macro.h:121</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_toml11_description_html"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_toml11_description.html">designlab::toml_func::Toml11Description</a></div><div class="ttdoc">tomlファイルに追加する変数の説明を追加するための構造体．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00043">toml_serialize_macro.h:44</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_toml11_description_html_a1fa90dcbef75cf2951a3392be3ee303b"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a1fa90dcbef75cf2951a3392be3ee303b">designlab::toml_func::Toml11Description::description</a></div><div class="ttdeci">std::string description</div><div class="ttdoc">説明，tomlファイルにはコメントとして追加される．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00055">toml_serialize_macro.h:55</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_toml11_description_html_a6f58ea58c5e606780e28328a1e1bd118"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a6f58ea58c5e606780e28328a1e1bd118">designlab::toml_func::Toml11Description::Toml11Description</a></div><div class="ttdeci">Toml11Description(const std::string &amp;t, const std::string &amp;d)</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00048">toml_serialize_macro.h:48</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_toml11_description_html_a7212008e9103ff5ef65a79e0a17e8c36"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a7212008e9103ff5ef65a79e0a17e8c36">designlab::toml_func::Toml11Description::kNoTable</a></div><div class="ttdeci">static const char kNoTable[]</div><div class="ttdoc">テーブルがない場合に指定する文字列．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00046">toml_serialize_macro.h:46</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_toml11_description_html_ab09e69de8c224b40fd41584638691063"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_toml11_description.html#ab09e69de8c224b40fd41584638691063">designlab::toml_func::Toml11Description::table_name</a></div><div class="ttdeci">std::string table_name</div><div class="ttdoc">テーブル名．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00054">toml_serialize_macro.h:54</a></div></div>
+<div class="ttc" id="atoml11__define_8h_html"><div class="ttname"><a href="toml11__define_8h.html">toml11_define.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

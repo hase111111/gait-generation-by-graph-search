@@ -83,7 +83,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="contents">
 <a href="node__creator__leg__up__down_8cpp.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Copyright(c) 2023 Design Engineering Laboratory, Saitama University</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Copyright(c) 2023-2025 Design Engineering Laboratory, Saitama University</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// Released under the MIT license</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// https://opensource.org/licenses/mit-license.php</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
@@ -332,99 +332,101 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    }</div>
 <div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
 <div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    <span class="comment">// 候補点を全列挙したのち，候補点が一つもなければ false．</span></div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <span class="keywordflow">if</span> (!is_candidate_pos) { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    <span class="comment">// 存在するなら，その中で最も適したものを結果として返し，true．</span></div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    (*output_ground_pos) = candidate_pos;</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>}</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span><span class="keywordtype">bool</span> NodeCreatorLegUpDown::IsAbleLegPos(<span class="keyword">const</span> RobotStateNode&amp; _node, <span class="keyword">const</span> <span class="keywordtype">int</span> leg_index)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <span class="keyword">const</span> <a class="code hl_enumeration" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495">enums::DiscreteLegPos</a> discrete_leg_pos =</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        <a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#ab7617bec21b4f953dc3b4641f58a0e2e">leg_func::GetDiscreteLegPos</a>(_node.leg_state, leg_index);  <span class="comment">// 脚位置を取得(1～7)</span></div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    <span class="comment">// まず最初に脚位置4のところにないか確かめる．</span></div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    <span class="keywordflow">if</span> ((_node.leg_reference_pos[leg_index] - _node.leg_pos[leg_index]).GetSquaredLength() &lt;</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5">math_util::Squared</a>(kLegMargin))</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    {</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        <span class="keywordflow">if</span> (discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a3a344159c7144969a66c510c5eb0040d">enums::DiscreteLegPos::kCenter</a>)</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        {</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        }</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        {</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        }</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    }</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    {</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        <span class="keywordflow">if</span> (discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a3a344159c7144969a66c510c5eb0040d">enums::DiscreteLegPos::kCenter</a>)</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        {</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>        }</div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    }</div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    <span class="comment">// 脚位置4と比較して前か後ろか．</span></div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    <span class="keywordflow">if</span> (_node.leg_reference_pos[leg_index].ProjectedXY()</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        .Cross(_node.leg_pos[leg_index].ProjectedXY()) *</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        _node.leg_pos[leg_index].ProjectedXY().Cross({ 1, 0 }) &gt; 0)</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    {</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        <span class="comment">// 前．</span></div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        <span class="keywordflow">if</span> (discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a7de5161d3d66930665695edb06796198">enums::DiscreteLegPos::kLowerBack</a> ||</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>            discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a1aa843cfb007a05d484edf751fdc905d">enums::DiscreteLegPos::kBack</a> ||</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>            discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a08c2c15252b53e4252ab6415b8aeac66">enums::DiscreteLegPos::kUpperBack</a>)</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>        {</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>        }</div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    }</div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    {</div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>        <span class="comment">// 後ろ．</span></div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>        <span class="keywordflow">if</span> (discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495ac197680fbf6de70bd3752b01a43d1ba7">enums::DiscreteLegPos::kLowerFront</a> ||</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>            discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a74b33dfe34e13923f9b235450de37871">enums::DiscreteLegPos::kFront</a> ||</div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>            discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a55546b3f938b81742b7d0c03e85a5c91">enums::DiscreteLegPos::kUpperFront</a>)</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>        {</div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>        }</div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    }</div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span> </div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span> </div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    <span class="comment">// 脚位置4と比較して上か下か．</span></div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    <span class="keywordflow">if</span> (discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495ac197680fbf6de70bd3752b01a43d1ba7">enums::DiscreteLegPos::kLowerFront</a> ||</div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a7de5161d3d66930665695edb06796198">enums::DiscreteLegPos::kLowerBack</a>)</div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    {</div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>        <span class="comment">// 脚位置4と比較して下．</span></div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        <span class="keywordflow">if</span> (_node.leg_reference_pos[leg_index].z - kHighMargin &gt;= _node.leg_pos[leg_index].z)</div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>        {</div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>        }</div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>    }</div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a55546b3f938b81742b7d0c03e85a5c91">enums::DiscreteLegPos::kUpperFront</a> ||</div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>             discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a08c2c15252b53e4252ab6415b8aeac66">enums::DiscreteLegPos::kUpperBack</a>)</div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    {</div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>        <span class="comment">// 脚位置4と比較して上．</span></div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>        <span class="keywordflow">if</span> (_node.leg_reference_pos[leg_index].z + kHighMargin &lt;= _node.leg_pos[leg_index].z)</div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>        {</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>        }</div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    }</div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>    {</div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>        <span class="comment">// 脚位置4と同じくらい．</span></div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>        <span class="keywordflow">if</span> (std::abs(_node.leg_reference_pos[leg_index].z - _node.leg_pos[leg_index].z) &lt;=</div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>            kHighMargin)</div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>        {</div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        }</div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>    }</div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span> </div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>}</div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span> </div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>}  <span class="comment">// namespace designlab</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    <span class="comment">// 候補点を全列挙したのち，候補点が一つもなければ false．</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    <span class="keywordflow">if</span> (!is_candidate_pos) { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    <span class="comment">// 存在するなら，その中で最も適したものを結果として返し，true．</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    (*output_ground_pos) = candidate_pos;</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>}</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span><span class="keywordtype">bool</span> NodeCreatorLegUpDown::IsAbleLegPos(<span class="keyword">const</span> RobotStateNode&amp; _node, <span class="keyword">const</span> <span class="keywordtype">int</span> leg_index)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    <span class="keyword">const</span> <a class="code hl_enumeration" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495">enums::DiscreteLegPos</a> discrete_leg_pos =</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        <a class="code hl_function" href="namespacedesignlab_1_1leg__func.html#ab7617bec21b4f953dc3b4641f58a0e2e">leg_func::GetDiscreteLegPos</a>(_node.leg_state, leg_index);  <span class="comment">// 脚位置を取得(1～7)</span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span> </div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    <span class="comment">// まず最初に脚位置4のところにないか確かめる．</span></div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="keywordflow">if</span> ((_node.leg_reference_pos[leg_index] - _node.leg_pos[leg_index]).GetSquaredLength() &lt;</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5">math_util::Squared</a>(kLegMargin))</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    {</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        <span class="keywordflow">if</span> (discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a3a344159c7144969a66c510c5eb0040d">enums::DiscreteLegPos::kCenter</a>)</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        {</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        }</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        {</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        }</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    }</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    {</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>        <span class="keywordflow">if</span> (discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a3a344159c7144969a66c510c5eb0040d">enums::DiscreteLegPos::kCenter</a>)</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>        {</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>        }</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    }</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    <span class="comment">// 脚位置4と比較して前か後ろか．</span></div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    <span class="keywordflow">if</span> (_node.leg_reference_pos[leg_index].ProjectedXY()</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        .Cross(_node.leg_pos[leg_index].ProjectedXY()) *</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        _node.leg_pos[leg_index].ProjectedXY().Cross({ 1, 0 }) &gt; 0)</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    {</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>        <span class="comment">// 前．</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>        <span class="keywordflow">if</span> (discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a7de5161d3d66930665695edb06796198">enums::DiscreteLegPos::kLowerBack</a> ||</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>            discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a1aa843cfb007a05d484edf751fdc905d">enums::DiscreteLegPos::kBack</a> ||</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>            discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a08c2c15252b53e4252ab6415b8aeac66">enums::DiscreteLegPos::kUpperBack</a>)</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>        {</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>        }</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    }</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    {</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>        <span class="comment">// 後ろ．</span></div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>        <span class="keywordflow">if</span> (discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495ac197680fbf6de70bd3752b01a43d1ba7">enums::DiscreteLegPos::kLowerFront</a> ||</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>            discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a74b33dfe34e13923f9b235450de37871">enums::DiscreteLegPos::kFront</a> ||</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>            discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a55546b3f938b81742b7d0c03e85a5c91">enums::DiscreteLegPos::kUpperFront</a>)</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>        {</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        }</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    }</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span> </div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    <span class="comment">// 脚位置4と比較して上か下か．</span></div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    <span class="keywordflow">if</span> (discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495ac197680fbf6de70bd3752b01a43d1ba7">enums::DiscreteLegPos::kLowerFront</a> ||</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>        discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a7de5161d3d66930665695edb06796198">enums::DiscreteLegPos::kLowerBack</a>)</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    {</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>        <span class="comment">// 脚位置4と比較して下．</span></div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>        <span class="keywordflow">if</span> (_node.leg_reference_pos[leg_index].z - kHighMargin &gt;= _node.leg_pos[leg_index].z)</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>        {</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>        }</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    }</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a55546b3f938b81742b7d0c03e85a5c91">enums::DiscreteLegPos::kUpperFront</a> ||</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>             discrete_leg_pos == <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#ab5710dabeacf5161415ee779fe947495a08c2c15252b53e4252ab6415b8aeac66">enums::DiscreteLegPos::kUpperBack</a>)</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    {</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>        <span class="comment">// 脚位置4と比較して上．</span></div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>        <span class="keywordflow">if</span> (_node.leg_reference_pos[leg_index].z + kHighMargin &lt;= _node.leg_pos[leg_index].z)</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>        {</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>        }</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>    }</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>    {</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>        <span class="comment">// 脚位置4と同じくらい．</span></div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>        <span class="keywordflow">if</span> (std::abs(_node.leg_reference_pos[leg_index].z - _node.leg_pos[leg_index].z) &lt;=</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>            kHighMargin)</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        {</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>        }</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>    }</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>}</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span> </div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>}  <span class="comment">// namespace designlab</span></div>
 <div class="ttc" id="aclassdesignlab_1_1_divided_map_state_html"><div class="ttname"><a href="classdesignlab_1_1_divided_map_state.html">designlab::DividedMapState</a></div><div class="ttdoc">マップを格子状に分割して管理するクラス．</div><div class="ttdef"><b>Definition</b> <a href="divided__map__state_8h_source.html#l00031">divided_map_state.h:32</a></div></div>
 <div class="ttc" id="aclassdesignlab_1_1_divided_map_state_html_a22c0df011d0506e6d5106c6acd931be9"><div class="ttname"><a href="classdesignlab_1_1_divided_map_state.html#a22c0df011d0506e6d5106c6acd931be9">designlab::DividedMapState::GetDividedMapIndexX</a></div><div class="ttdeci">constexpr int GetDividedMapIndexX(const float pos_x) const noexcept</div><div class="ttdoc">指定した座標を DividedMap のインデックスに変換する． 範囲外の値を指定した場合でも，値を丸めずに返す． そのため，IsInMap で範囲内に存在するかどうかを確認する必要がある．</div><div class="ttdef"><b>Definition</b> <a href="divided__map__state_8h_source.html#l00105">divided_map_state.h:105</a></div></div>
 <div class="ttc" id="aclassdesignlab_1_1_divided_map_state_html_a4fa0d0b29f758a1f23a6743c749a8013"><div class="ttname"><a href="classdesignlab_1_1_divided_map_state.html#a4fa0d0b29f758a1f23a6743c749a8013">designlab::DividedMapState::GetPointPos</a></div><div class="ttdeci">Vector3 GetPointPos(int x_index, int y_index, int divided_map_index) const</div><div class="ttdoc">格子状に切り分けられたマップから，脚設置可能点の実際の座標を取得する．   範囲外の値を指定した場合は，(0,0,0)を返す．</div><div class="ttdef"><b>Definition</b> <a href="divided__map__state_8cpp_source.html#l00088">divided_map_state.cpp:88</a></div></div>

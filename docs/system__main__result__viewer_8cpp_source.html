@@ -83,7 +83,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="contents">
 <a href="system__main__result__viewer_8cpp.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Copyright(c) 2023 Design Engineering Laboratory, Saitama University</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Copyright(c) 2023-2025 Design Engineering Laboratory, Saitama University</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// Released under the MIT license</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// https://opensource.org/licenses/mit-license.php</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
@@ -182,14 +182,14 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keywordtype">void</span> SystemMainResultViewer::OutputErrorLegPos(<span class="keyword">const</span> std::string&amp; file, <span class="keyword">const</span> std::vector&lt;RobotStateNode&gt;&amp; nodes)</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>{</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2">CmdIOUtil::Output</a>(<span class="stringliteral">&quot;異常値のデータを出力します&quot;</span>, <a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb">OutputDetail::kSystem</a>);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2">CmdIOUtil::Output</a>(<span class="stringliteral">&quot;Outputs data of abnormal values.&quot;</span>, <a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb">OutputDetail::kSystem</a>);</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="comment">// 後ろの .csv を削除する</span></div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    std::string file_name = file.substr(0, file.size() - 4);</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keyword">const</span> std::string output_path = file_name + <span class="stringliteral">&quot;_error_leg_pos.txt&quot;</span>;</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2">CmdIOUtil::Output</a>(<span class="stringliteral">&quot;出力先: &quot;</span> + output_path, <a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb">OutputDetail::kSystem</a>);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_function" href="classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2">CmdIOUtil::Output</a>(<span class="stringliteral">&quot;Output Directory: &quot;</span> + output_path, <a class="code hl_enumvalue" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb">OutputDetail::kSystem</a>);</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="comment">// すでにファイルが存在する場合は削除する．</span></div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordflow">if</span> (std::filesystem::exists(output_path))</div>
