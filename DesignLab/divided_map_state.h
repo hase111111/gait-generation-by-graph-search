@@ -14,8 +14,7 @@
 #include "math_vector3.h"
 
 
-namespace designlab
-{
+namespace designlab {
 
 //! @class DividedMapState
 //! @brief マップを格子状に分割して管理するクラス．
@@ -28,8 +27,7 @@ namespace designlab
 //! @n 座標はグローバル座標である．
 //! @subsubsection 参考
 //! @li https://atcoder.jp/contests/APG4b/tasks/APG4b_t (アクセス日 2023/12/28)
-class DividedMapState final
-{
+class DividedMapState final {
 public:
     //!< 1つのマスに存在する脚設置可能点の数は kDividedMapPointNum × kDividedMapPointNum 個．
     static constexpr int kDividedMapPointNum{ 4 };
@@ -70,17 +68,14 @@ public:
     //! @param[in] y グローバル座標．
     //! @retval true 範囲内に存在する．
     //! @retval false 範囲内に存在しない．
-    constexpr bool IsInMap(const float x, const float y) const
-    {
+    constexpr bool IsInMap(const float x, const float y) const noexcept {
         if (x < global_robot_com_.x + kDividedMapMinX ||
-            global_robot_com_.x + kDividedMapMaxX < x)
-        {
+            global_robot_com_.x + kDividedMapMaxX < x) {
             return false;
         }
 
         if (y < global_robot_com_.y + kDividedMapMinY ||
-            global_robot_com_.y + kDividedMapMaxY < y)
-        {
+            global_robot_com_.y + kDividedMapMaxY < y) {
             return false;
         }
 
@@ -91,8 +86,7 @@ public:
     //! @param[in] pos グローバル座標．
     //! @retval true 範囲内に存在する．
     //! @retval false 範囲内に存在しない．
-    constexpr bool IsInMap(const Vector3& pos) const noexcept
-    {
+    constexpr bool IsInMap(const Vector3& pos) const noexcept {
         return IsInMap(pos.x, pos.y);
     }
 
@@ -102,8 +96,7 @@ public:
     //! @see DividedMapState::IsInMap
     //! @param[in] pos_x グローバル座標のx座標．
     //! @return DividedMap のインデックス．
-    constexpr int GetDividedMapIndexX(const float pos_x) const noexcept
-    {
+    constexpr int GetDividedMapIndexX(const float pos_x) const noexcept {
         return static_cast<int>(
             (pos_x - global_robot_com_.x - kDividedMapMinX) *
             static_cast<float>(kDividedNum) / (kDividedMapMaxX - kDividedMapMinX));
@@ -115,16 +108,14 @@ public:
     //! @see DividedMapState::IsInMap
     //! @param[in] pos_y グローバル座標のy座標．
     //! @return DividedMap のインデックス．
-    constexpr int GetDividedMapIndexY(const float pos_y) const noexcept
-    {
+    constexpr int GetDividedMapIndexY(const float pos_y) const noexcept {
         return static_cast<int>(
             (pos_y - global_robot_com_.y - kDividedMapMinY) *
             static_cast<float>(kDividedNum) / (kDividedMapMaxY - kDividedMapMinY));
     }
 
     //! @brief 指定した座標がマップのインデックスの範囲内になるように丸める．
-    static constexpr int ClampDividedMapIndex(const int index) noexcept
-    {
+    static constexpr int ClampDividedMapIndex(const int index) noexcept {
         if (index < 0) { return 0; }
         if (kDividedNum <= index) { return kDividedNum - 1; }
 
@@ -167,8 +158,7 @@ private:
     //! @param[in] x_index x座標，切り分けられたタイルの位置で指定する．
     //! @param[in] y_index y座標，切り分けられたタイルの位置で指定する．
     //! @return 1次元の配列のインデックス．
-    constexpr int GetDividedMapIndex(const int x_index, const int y_index) const noexcept
-    {
+    constexpr int GetDividedMapIndex(const int x_index, const int y_index) const noexcept {
         return x_index * kDividedNum + y_index;
     }
 
@@ -176,10 +166,8 @@ private:
     //! @param[in] index マップのインデックス．
     //! @retval true 有効な値．
     //! @retval false 無効な値．
-    constexpr bool IsValidIndex(const int index) const noexcept
-    {
-        if (index < 0 || kDividedNum <= index)
-        {
+    constexpr bool IsValidIndex(const int index) const noexcept {
+        if (index < 0 || kDividedNum <= index) {
             return false;
         }
 
@@ -191,7 +179,7 @@ private:
     Vector3 global_robot_com_;  //!< ロボットの重心のグローバル座標．
 
     //!< マップが存在する領域を格子状に切り分けて，その中に存在する脚設置可能点を集めたもの．
-    std::vector<std::vector<Vector3> > divided_map_point_;
+    std::vector<std::vector<Vector3>> divided_map_point_;
 
     //!< 格子の中の最も高いz座標をまとめたもの，要素が存在しないなら，kMapMinZ が入る．
     std::vector<float> divided_map_top_z_;

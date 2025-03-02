@@ -10,21 +10,18 @@
 #include "math_util.h"
 
 
-namespace designlab
-{
+namespace designlab {
 
 DividedMapState::DividedMapState(const float min_z) :
     kMapMinZ(min_z),
     global_robot_com_{},
     divided_map_point_(math_util::Squared(kDividedNum)),
-    divided_map_top_z_(math_util::Squared(kDividedNum))
-{
+    divided_map_top_z_(math_util::Squared(kDividedNum)) {
     // コンストラクタで，配列のサイズを確保しておく．
     Clear();
 }
 
-void DividedMapState::Init(const MapState& map_state, const Vector3 global_robot_com)
-{
+void DividedMapState::Init(const MapState& map_state, const Vector3 global_robot_com) {
     // 配列のサイズが確保されているか確認．
     assert(divided_map_point_.size() == math_util::Squared(kDividedNum));
     assert(divided_map_top_z_.size() == math_util::Squared(kDividedNum));
@@ -36,8 +33,7 @@ void DividedMapState::Init(const MapState& map_state, const Vector3 global_robot
     // マップのデータ全てを参照し，切り分ける．
     const size_t kMapPointSize = map_state.GetMapPointSize();
 
-    for (size_t i = 0; i < kMapPointSize; ++i)
-    {
+    for (size_t i = 0; i < kMapPointSize; ++i) {
         // xy方向のブロック番号をそれぞれ求める．
         const designlab::Vector3 point = map_state.GetMapPoint(i);
 
@@ -48,8 +44,7 @@ void DividedMapState::Init(const MapState& map_state, const Vector3 global_robot
         const int y = GetDividedMapIndexY(point.y);
 
         // マップの範囲内にいる時のみ追加する．
-        if (IsValidIndex(x) && IsValidIndex(y))
-        {
+        if (IsValidIndex(x) && IsValidIndex(y)) {
             divided_map_point_[GetDividedMapIndex(x, y)].push_back(point);
 
             // 最大値を更新する．
@@ -59,73 +54,63 @@ void DividedMapState::Init(const MapState& map_state, const Vector3 global_robot
     }
 }
 
-void DividedMapState::Clear()
-{
+void DividedMapState::Clear() {
     // vectorの中身を全てクリアする．
-    for (auto& i : divided_map_point_)
-    {
+    for (auto& i : divided_map_point_) {
         i.clear();
     }
 
     // 最小値で埋める．
-    for (auto& i : divided_map_top_z_)
-    {
+    for (auto& i : divided_map_top_z_) {
         i = kMapMinZ;
     }
 }
 
-int DividedMapState::GetPointNum(const int x_index, const int y_index) const
-{
+int DividedMapState::GetPointNum(const int x_index, const int y_index) const {
     // 存在していなければ終了
-    if (!IsValidIndex(x_index) || !IsValidIndex(y_index))
-    {
+    if (!IsValidIndex(x_index) || !IsValidIndex(y_index)) {
         return 0;
     }
 
     return static_cast<int>(divided_map_point_[GetDividedMapIndex(x_index, y_index)].size());
 }
 
-Vector3 DividedMapState::GetPointPos(int x_index, int y_index, int devide_map_index) const
-{
+Vector3 DividedMapState::GetPointPos(
+    const int x_index, const int y_index, const int divide_map_index) const {
     // 存在していなければ終了．
-    if (!IsValidIndex(x_index) || !IsValidIndex(y_index))
-    {
+    if (!IsValidIndex(x_index) || !IsValidIndex(y_index)) {
         return Vector3{ 0, 0, 0 };
     }
 
     const size_t size = divided_map_point_[GetDividedMapIndex(x_index, y_index)].size();
 
-    if (devide_map_index < 0 || static_cast<int>(size) <= devide_map_index)
-    {
+    if (divide_map_index < 0 || static_cast<int>(size) <= divide_map_index) {
         return Vector3::GetZeroVec();
     }
 
     // 存在しているならば値を返す．
-    return divided_map_point_[GetDividedMapIndex(x_index, y_index)][devide_map_index];
+    return divided_map_point_[GetDividedMapIndex(x_index, y_index)][divide_map_index];
 }
 
-void DividedMapState::GetPointVector(int x_index, int y_index,
-                                     std::vector<Vector3>* point_vec) const
-{
-    if (point_vec == nullptr)
-    {
+void DividedMapState::GetPointVector(
+    const int x_index, const int y_index,
+    std::vector<Vector3>* point_vec) const {
+
+    if (point_vec == nullptr) {
         return;
     }
 
     // 存在していなければ終了．
-    if (!IsValidIndex(x_index) || !IsValidIndex(y_index))
-    {
+    if (!IsValidIndex(x_index) || !IsValidIndex(y_index)) {
         return;
     }
 
     (*point_vec) = divided_map_point_[GetDividedMapIndex(x_index, y_index)];
 }
 
-float DividedMapState::GetTopZ(int x_index, int y_index) const
-{
+float DividedMapState::GetTopZ(int x_index, int y_index) const {
     // 存在していなければ終了．
-    if (!IsValidIndex(x_index) || !IsValidIndex(y_index))
-    {
+    if (!IsValidIndex(x_index) || !IsValidIndex(y_index)) {
         return kMapMinZ;
     }
 
