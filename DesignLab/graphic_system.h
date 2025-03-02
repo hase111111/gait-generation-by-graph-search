@@ -18,8 +18,7 @@
 #include "interface_graphic_main.h"
 
 
-namespace designlab
-{
+namespace designlab {
 
 //! @class GraphicSystem
 //! @brief Dxlibの処理を行うクラス．
@@ -76,8 +75,7 @@ namespace designlab
 //! (例えば MyDxlibFinalize が呼ばれず，終了できていないときなど)
 //! その場合はタスクマネージャーから dxlib を落とすことで，
 //! 実行することが可能になる．
-class GraphicSystem final
-{
+class GraphicSystem final {
 public:
     //! @param[in] setting_ptr アプリケーションの設定を記録するクラスのポインタ．
     explicit GraphicSystem(const std::shared_ptr<const ApplicationSettingRecord> setting_ptr);
@@ -91,6 +89,12 @@ public:
     //! @brief グラフィックの表示を行うクラスを変更する．
     //! @param[in] graphic_main_ptr GraphicMainクラスのユニークポインタ．
     void ChangeGraphicMain(std::unique_ptr<IGraphicMain>&& graphic_main_ptr);
+
+    //! @brief 初期化が終わっているか．
+    //! @return 初期化が終わっているか．
+    inline bool IsInitialized() const {
+        return is_initialized_;
+    }
 
 private:
     //! @brief Dxlibの初期化処理を行う．
@@ -114,6 +118,9 @@ private:
 
     //! FPSを一定に制御するクラス．
     FpsController fps_controller_;
+
+    //! 初期化が終わっているか．
+    bool is_initialized_{ false };
 
     //! 複数の関数から非同期的に，同時にアクセスすると危険なので，
     //! それを防ぐために mutex を用いて排他制御を行う．

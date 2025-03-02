@@ -134,6 +134,9 @@ bool GraphicSystem::MyDxlibInit()
         dxlib_util::InitDxlib3DSetting(false);
     }
 
+    // 初期化終了フラグを立てる
+    is_initialized_ = true;
+
     return true;
 }
 
