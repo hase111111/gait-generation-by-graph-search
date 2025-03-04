@@ -16,13 +16,11 @@
 #include "simple_button.h"
 
 
-namespace designlab
-{
+namespace designlab {
 
 //! @class DxlibGuiDisplayNodeSwitcher
 //! @brief ノードの表示・切り替えを行うGUIのクラス．
-class DxlibGuiDisplayNodeSwitcher final : public AbstractDxlibGui
-{
+class DxlibGuiDisplayNodeSwitcher final : public AbstractDxlibGui {
 public:
     DxlibGuiDisplayNodeSwitcher(int window_x, int window_y);
 
@@ -89,7 +87,7 @@ private:
     size_t display_node_num_;  //!< 表示するノードの番号．
     int simulation_num_;       //!< 表示するシミュレーションの番号．
     bool do_auto_animation_;   //!< 自動再生中かどうか．
-    int animation_speed_;      //!< 再生速度．
+    int animation_speed_{ (kAnimeSpeedMax + kAnimeSpeedMin) / 2 };  //!< 再生速度．
     int counter_{ 0 };         //!< カウンター．
 
     bool in_animation_{ false };  //!< アニメーション中か．
