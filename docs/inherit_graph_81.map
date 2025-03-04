@@ -1,3 +1,3 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$structdesignlab_1_1_simulation_result_record.html" title="シミュレーションの結果を格納する構造体．" alt="" coords="5,5,188,48"/>
+<area shape="rect" id="Node000000" href="$structdesignlab_1_1_simulation_map_parameter.html" title="マップ生成時のモードとオプションを指定する構造体．" alt="" coords="5,5,176,48"/>
 </map>

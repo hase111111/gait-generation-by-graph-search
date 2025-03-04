@@ -1,11 +1,9 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$classdesignlab_1_1_i_hexapod_coordinate_converter.html" title="ロボットは重心位置・アクチュエータなど様々な点を基準とする座標系を持つ． これらを相互に変換する処理のインターフェース．" alt="" coords="5,5,206,48"/>
-<area shape="rect" id="Node000001" href="$classdesignlab_1_1_phantom_x_mk_i_i.html" title="PhantomX mk&#45;2 の状態を計算するクラス．" alt="" coords="254,113,421,140"/>
-<area shape="poly" id="edge41_Node000000_Node000001" title=" " alt="" coords="191,51,207,58,313,110,310,115,205,62,189,56"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_hexapod_joint_calculator.html" title="間接角度や角速度を計算する処理のインターフェース．" alt="" coords="23,72,188,115"/>
-<area shape="poly" id="edge42_Node000002_Node000001" title=" " alt="" coords="204,105,254,112,253,117,203,110"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_i_hexapod_posture_validator.html" title="6脚ロボットが有効な姿勢をとっているかを チェックする処理のインターフェース．" alt="" coords="14,139,197,181"/>
-<area shape="poly" id="edge43_Node000003_Node000001" title=" " alt="" coords="212,142,253,136,254,141,213,147"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_i_hexapod_state_presenter.html" title="6脚ロボットの状態を表示するクラス．" alt="" coords="21,205,190,248"/>
-<area shape="poly" id="edge44_Node000004_Node000001" title=" " alt="" coords="189,197,205,191,310,138,313,143,207,196,191,202"/>
+<area shape="rect" id="Node000000" href="$classdesignlab_1_1_i_graph_searcher.html" title="グラフ探索の処理のインターフェース．" alt="" coords="5,80,180,107"/>
+<area shape="rect" id="Node000001" href="$classdesignlab_1_1_graph_searcher_spot_turn.html" title="グラフ探索を行い，直進する動作を評価するクラス．" alt="" coords="240,5,412,48"/>
+<area shape="poly" id="edge38_Node000000_Node000001" title=" " alt="" coords="156,73,248,46,249,51,158,78"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graph_searcher_straight_move.html" title="グラフ探索を行い，直進する動作を評価するクラス．" alt="" coords="240,72,412,115"/>
+<area shape="poly" id="edge39_Node000000_Node000002" title=" " alt="" coords="195,91,240,91,240,96,195,96"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_graph_searcher_turn.html" title="グラフ探索を行い，直進する動作を評価するクラス．" alt="" coords="228,139,424,165"/>
+<area shape="poly" id="edge40_Node000000_Node000003" title=" " alt="" coords="164,108,270,136,269,141,163,114"/>
 </map>

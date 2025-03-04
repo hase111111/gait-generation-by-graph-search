@@ -1,3 +1,3 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$classdesignlab_1_1_toml_file_importer.html" title="tomlファイルを読み込んで構造体に変換するテンプレートクラス．" alt="" coords="5,5,217,32"/>
+<area shape="rect" id="Node000000" href="$classdesignlab_1_1_toml_file_exporter.html" title="TOMLファイルを出力するテンプレートクラス．" alt="" coords="5,5,219,32"/>
 </map>

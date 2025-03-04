@@ -1,19 +1,19 @@
 <map id="designlab::MapRenderer::SetNode" name="designlab::MapRenderer::SetNode">
 <area shape="rect" id="Node000001" title="ロボットの重心のグローバル座標を設定する． &#160;&#160;DividedMap はロボットの重心を中心にしているので， ロボットの重心のグローバル座標を設定する必要がある． &#160;&#160;代入と同時に DividedMap..." alt="" coords="5,205,167,248"/>
 <area shape="rect" id="Node000002" href="$classdesignlab_1_1_divided_map_state.html#a50647e278f9ee754cbfe5196153e2ba8" title="マップのデータを初期化する． ロボットの重心座標を中心にマップのデータを格子状に分割し， その中に存在する脚設置可能点を集める．" alt="" coords="215,205,396,248"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,224,200,224,200,229,167,229"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,224,199,224,199,229,167,229"/>
 <area shape="rect" id="Node000003" href="$classdesignlab_1_1_divided_map_state.html#a726a21449619c1d6980ed867c141992f" title="マップのデータを消去する．" alt="" coords="444,5,625,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="317,204,366,133,402,93,442,58,450,53,453,58,446,62,405,97,370,136,321,207"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="317,204,366,133,402,93,442,58,449,53,452,58,446,62,405,97,370,136,321,207"/>
 <area shape="rect" id="Node000004" href="$classdesignlab_1_1_divided_map_state.html#a22c0df011d0506e6d5106c6acd931be9" title="指定した座標を DividedMap のインデックスに変換する． 範囲外の値を指定した場合でも，値を丸めずに返す． そのため，IsInMap で範囲内に存在するかどうかを確認する必要がある．" alt="" coords="444,72,625,115"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="330,203,381,164,443,124,454,119,456,123,445,129,384,168,334,207"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="330,203,381,164,443,124,454,119,456,124,445,129,384,168,334,207"/>
 <area shape="rect" id="Node000005" href="$classdesignlab_1_1_divided_map_state.html#a8dcc229f5560978d2a082b326191d6ee" title="指定した座標を DividedMap のインデックスに変換する． 範囲外の値を指定した場合でも，値を丸めずに返す． そのため，IsInMap で範囲内に存在するかどうかを確認する必要がある．" alt="" coords="444,139,625,181"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="380,202,444,183,446,189,382,207"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="380,202,444,184,445,189,382,207"/>
 <area shape="rect" id="Node000006" href="$classdesignlab_1_1_map_state.html#a80c42812e6ff529ed9b468d0db52d757" title="脚設置可能点の座標を返す．" alt="" coords="465,205,605,248"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="396,224,450,224,450,229,396,229"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="396,224,449,224,449,229,396,229"/>
 <area shape="rect" id="Node000007" href="$classdesignlab_1_1_map_state.html#a221db2fa4a7021da6e9b240c209fa59c" title="脚設置可能点の総数を返す．" alt="" coords="465,272,605,315"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="382,246,451,266,449,271,380,251"/>
-<area shape="rect" id="Node000008" href="$classdesignlab_1_1_divided_map_state.html#a50c9ba4fb3821ba6a674f3657fe80f6f" title="指定した座標がマップの範囲内に存在するかどうかを返す．" alt="" coords="444,339,625,381"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="382,246,450,266,449,271,380,251"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_divided_map_state.html#a0481f063d66d9598442025a9658b69c9" title="指定した座標がマップの範囲内に存在するかどうかを返す．" alt="" coords="444,339,625,381"/>
 <area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="334,246,384,285,445,324,456,330,454,335,443,329,381,290,330,251"/>
 <area shape="rect" id="Node000009" href="$namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5" title="2乗した値を返す関数．" alt="" coords="466,405,603,448"/>
-<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="321,247,370,317,405,357,446,391,454,397,451,401,442,395,402,360,366,320,317,250"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="321,247,370,317,405,357,446,391,454,396,451,401,442,395,402,360,366,320,317,250"/>
 </map>

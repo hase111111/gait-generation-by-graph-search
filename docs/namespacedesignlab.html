@@ -213,6 +213,8 @@ $(function() {
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_gait_pattern_graph_tree.html">GaitPatternGraphTree</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structdesignlab_1_1_robot_state_node.html" title="グラフ構造のためのノード(頂点)．旧名 LNODE">RobotStateNode</a> 構造体をノードとする木構造のグラフのクラス．  <a href="classdesignlab_1_1_gait_pattern_graph_tree.html#details">[詳解]</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_gpg_builder_flat.html">GpgBuilderFlat</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_graph_com_plotter.html">GraphComPlotter</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_graphic_const.html">GraphicConst</a></td></tr>
@@ -394,6 +396,9 @@ $(function() {
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_node_creator_builder_body_rot.html">NodeCreatorBuilderBodyRot</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">ノード作成ビルダーのボディ回転クラス  <a href="classdesignlab_1_1_node_creator_builder_body_rot.html#details">[詳解]</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_node_creator_builder_ground_conforming_rot.html">NodeCreatorBuilderGroundConformingRot</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">波東さんが行った処理と同様の方法になるようにノード生成クラスを生成するクラス．  <a href="classdesignlab_1_1_node_creator_builder_ground_conforming_rot.html#details">[詳解]</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_node_creator_builder_straight_move.html">NodeCreatorBuilderStraightMove</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">波東さんが行った処理と同様の方法になるようにノード生成クラスを生成するクラス．  <a href="classdesignlab_1_1_node_creator_builder_straight_move.html#details">[詳解]</a><br /></td></tr>
@@ -606,6 +611,7 @@ Concepts</h2></td></tr>
 , <a class="el" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a54a0fd06169e7dc14648d41420e7385c">kComMove</a>
 , <br />
 &#160;&#160;<a class="el" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a6428915b783a686f1dfed18358d57bc7">kComUpDown</a>
+, <a class="el" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a60da076f38a666f1898180d360208672">kBodyRollRot</a>
 , <a class="el" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81a182913de9e1d9a06377ab8c7e93c9800">kBodyPitchRot</a>
 , <a class="el" href="namespacedesignlab.html#acc7368f4060dfdf3589ada8d62dd8a81ad3c33ddfb2a26d82caa154fcf33350a5">kBodyYawRot</a>
 <br />
@@ -873,6 +879,8 @@ Concepts</h2></td></tr>
 <tr><td class="fieldname"><a id="acc7368f4060dfdf3589ada8d62dd8a81a54a0fd06169e7dc14648d41420e7385c" name="acc7368f4060dfdf3589ada8d62dd8a81a54a0fd06169e7dc14648d41420e7385c"></a>kComMove&#160;</td><td class="fielddoc"><p>重心の平行移動．Center Of Massで重心のこと． </p>
 </td></tr>
 <tr><td class="fieldname"><a id="acc7368f4060dfdf3589ada8d62dd8a81a6428915b783a686f1dfed18358d57bc7" name="acc7368f4060dfdf3589ada8d62dd8a81a6428915b783a686f1dfed18358d57bc7"></a>kComUpDown&#160;</td><td class="fielddoc"><p>重心の上下移動． </p>
+</td></tr>
+<tr><td class="fieldname"><a id="acc7368f4060dfdf3589ada8d62dd8a81a60da076f38a666f1898180d360208672" name="acc7368f4060dfdf3589ada8d62dd8a81a60da076f38a666f1898180d360208672"></a>kBodyRollRot&#160;</td><td class="fielddoc"><p>ロール軸周りの回転． </p>
 </td></tr>
 <tr><td class="fieldname"><a id="acc7368f4060dfdf3589ada8d62dd8a81a182913de9e1d9a06377ab8c7e93c9800" name="acc7368f4060dfdf3589ada8d62dd8a81a182913de9e1d9a06377ab8c7e93c9800"></a>kBodyPitchRot&#160;</td><td class="fielddoc"><p>ピッチ軸周りの回転． </p>
 </td></tr>
