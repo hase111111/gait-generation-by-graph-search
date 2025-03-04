@@ -17,23 +17,12 @@
 #include "application_setting_record_validator.h"
 #include "boot_mode_selector.h"
 #include "cmdio_util.h"
-#include "gait_pattern_generator_basic.h"
-#include "gait_pattern_generator_revaluation.h"
-#include "gait_pattern_generator_switch_move.h"
-#include "gait_pattern_generator_thread.h"
-#include "graph_tree_creator.h"
-#include "graph_searcher_straight_move.h"
-#include "graph_searcher_spot_turn.h"
 #include "graphic_main_basic.h"
 #include "graphic_main_graph_viewer.h"
 #include "graphic_main_display_model.h"
 #include "graphic_main_robot_control.h"
 #include "graphic_system.h"
-#include "node_creator_builder_turn.h"
-#include "node_creator_builder_turn_spot.h"
-#include "node_creator_builder_straight_move.h"
-#include "node_creator_builder_body_rot.h"
-#include "node_creator_builder_ground_conforming_rot.h"
+#include "gpg_builder_flat.h"
 #include "map_creator_factory.h"
 #include "robot_operator_factory.h"
 #include "simulation_end_checker_factory.h"
@@ -151,14 +140,12 @@ int main() {
                 // シミュレーションシステムクラスを作成する．
                 auto phantomx_mk2 = LoadPhantomXMkII();
 
-                auto node_creator_builder = std::make_unique<NodeCreatorBuilderGroundConformingRot>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
-                auto graph_tree_creator = std::make_unique<GraphTreeCreator>(std::move(node_creator_builder));
+                const auto gpg_builder = std::make_unique<GpgBuilderFlat>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
+                auto gait_pattern_generator = gpg_builder->Build();
 
-                auto graph_searcher = std::make_unique<GraphSearcherStraightMove>(phantomx_mk2);
-
-                auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorBasic>(std::move(graph_tree_creator), std::move(graph_searcher), 5, 40000000);
-
-                const auto simulation_setting_record = TomlFileImporter<SimulationSettingRecord>{}.ImportOrUseDefault("./simulation_condition/simulation_setting.toml");
+                const auto simulation_setting_record =
+                    TomlFileImporter<SimulationSettingRecord>{}.ImportOrUseDefault(
+                        "./simulation_condition/simulation_setting.toml");
 
                 auto map_creator = MapCreatorFactory::Create(simulation_setting_record);
                 auto simulation_end_checker = SimulationEndCheckerFactory::Create(simulation_setting_record);
