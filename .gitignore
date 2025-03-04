@@ -363,7 +363,7 @@ MigrationBackup/
 FodyWeavers.xsd
 
 
-# Add by Hasegawa
+# User Addition
 *.csv
 DesignLab/Log.txt
 # DoxygenFile/
