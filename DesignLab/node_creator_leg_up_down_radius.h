@@ -24,7 +24,6 @@ namespace designlab
 
 //! @class NodeCreatorLegUpDownRadius
 //! @brief 脚の上げ下げをするエッジ(辺，ノードとノードを繋ぐ物)の処理をするクラス．
-//! @note 回転を考慮していないので注意．
 class NodeCreatorLegUpDownRadius final : public INodeCreator
 {
 public:

@@ -163,12 +163,13 @@ int main() {
                 auto map_creator = MapCreatorFactory::Create(simulation_setting_record);
                 auto simulation_end_checker = SimulationEndCheckerFactory::Create(simulation_setting_record);
                 auto robot_operator = RobotOperatorFactory::Create(simulation_setting_record);
-                auto node_initializer = std::make_unique<NodeInitializer>(simulation_setting_record.initial_positions,
-                                                                          simulation_setting_record.initial_posture,
-                                                                          simulation_setting_record.initial_move);
+                auto node_initializer =
+                    std::make_unique<NodeInitializer>(simulation_setting_record.initial_positions,
+                                                      simulation_setting_record.initial_posture,
+                                                      simulation_setting_record.initial_move);
                 auto result_exporter = std::make_shared<ResultFileExporter>(phantomx_mk2);
 
-                auto graphic_data_broker = std::make_shared<GraphicDataBroker>();
+                const auto graphic_data_broker = std::make_shared<GraphicDataBroker>();
 
                 system_main = std::make_unique<SystemMainSimulation>(
                   std::move(gait_pattern_generator),
@@ -198,7 +199,7 @@ int main() {
 
                 auto map_creator = MapCreatorFactory::Create(simulation_setting_record);
 
-                //system_main = std::make_unique<SystemMainGraphViewer>(
+                // system_main = std::make_unique<SystemMainGraphViewer>(
                 //    std::move(graph_tree_creator),
                 //    std::move(map_creator),
                 //    graphic_data_broker,

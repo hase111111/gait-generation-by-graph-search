@@ -34,7 +34,7 @@
     do_gui_display = true
     
     #GUI Image Quality．( "kLow" / "kMedium" / "kHigh" )
-    gui_display_quality = "kHigh"
+    gui_display_quality = "kMedium" 
     
     #Sets FPS. The range is from 15 to 60. The recommended value is 60.
     window_fps = 60

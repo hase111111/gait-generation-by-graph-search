@@ -1,7 +1,7 @@
 #Note that this file is not referenced by some settings.
 
 #This is the setting of the robot's operation method. (kNone / kStraightMoveVector / kStraightMovePosition / kSpotTurnLastPosture / kSpotTurnRotAxis / kTurn)
-operation_type = "kStraightMovePosition"
+operation_type = "kStraightMoveVector"
 
 [Param]
     
