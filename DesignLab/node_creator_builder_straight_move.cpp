@@ -64,7 +64,7 @@ void NodeCreatorBuilderStraightMove::Build(
     //          map, converter_ptr_, presenter_ptr_, checker_ptr_, kLegHierarchyChange);
 
     (*node_creator)[HexapodMove::kComMove] =
-        std::make_unique<NodeCreatorComMove>(
+        std::make_unique<NodeCreatorComMoveStraight>(
             map, converter_ptr_, presenter_ptr_, checker_ptr_, kLegHierarchyChange);
 }
 

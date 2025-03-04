@@ -40,7 +40,7 @@ std::unique_ptr<IGaitPatternGenerator> GpgBuilderFlat::Build() const {
 
     auto gait_pattern_generator =
         std::make_unique<GaitPatternGeneratorBasic>(
-            std::move(graph_tree_creator), std::move(graph_searcher), 5, 40000000);
+            std::move(graph_tree_creator), std::move(graph_searcher), 4, 40000000);
 
     return std::move(gait_pattern_generator);
 }
