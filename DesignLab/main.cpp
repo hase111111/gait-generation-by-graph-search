@@ -91,10 +91,10 @@ int main() {
     using enum OutputDetail;
 
     // 設定を読み込む．
-    auto application_setting_record = LoadApplicationSettingRecord();
+    auto app_setting_record = LoadApplicationSettingRecord();
 
     // 出力設定を初期化する．
-    InitOutputSetting(application_setting_record);
+    InitOutputSetting(app_setting_record);
 
     // タイトルを表示する．
     CmdIOUtil::OutputTitle("Free Gait Planning for a Hexapod Walking Robot by Graph Search", true);
@@ -102,7 +102,7 @@ int main() {
 
     // GUIを別のスレッドで実行する．
     // このスレッドへはGraphicDataBrokerを通してデータを渡す．
-    GraphicSystem graphic_system(application_setting_record);
+    GraphicSystem graphic_system(app_setting_record);
 
     // グラフィックシステムを別スレッドで実行する．
     boost::thread graphic_thread(&GraphicSystem::Main, &graphic_system);
@@ -119,13 +119,13 @@ int main() {
     // 処理を実行する．
     while (true) {
         // 起動モードを選択する．
-        BootMode boot_mode = application_setting_record->default_mode;
+        BootMode boot_mode = app_setting_record->default_mode;
 
-        if (application_setting_record->ask_about_modes) {
+        if (app_setting_record->ask_about_modes) {
             BootModeSelector boot_mode_selector;
 
             // デフォルトの起動モードを設定する．
-            boot_mode_selector.SetDefaultBootMode(application_setting_record->default_mode);
+            boot_mode_selector.SetDefaultBootMode(app_setting_record->default_mode);
 
             // 起動モードを選択する．
             boot_mode = boot_mode_selector.SelectBootMode();
@@ -140,20 +140,21 @@ int main() {
                 // シミュレーションシステムクラスを作成する．
                 auto phantomx_mk2 = LoadPhantomXMkII();
 
-                const auto gpg_builder = std::make_unique<GpgBuilderFlat>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
+                const auto gpg_builder =
+                    std::make_unique<GpgBuilderFlat>(phantomx_mk2, phantomx_mk2, phantomx_mk2);
                 auto gait_pattern_generator = gpg_builder->Build();
 
-                const auto simulation_setting_record =
+                const auto sim_setting_record =
                     TomlFileImporter<SimulationSettingRecord>{}.ImportOrUseDefault(
                         "./simulation_condition/simulation_setting.toml");
 
-                auto map_creator = MapCreatorFactory::Create(simulation_setting_record);
-                auto simulation_end_checker = SimulationEndCheckerFactory::Create(simulation_setting_record);
-                auto robot_operator = RobotOperatorFactory::Create(simulation_setting_record);
+                auto map_creator = MapCreatorFactory::Create(sim_setting_record);
+                auto simulation_end_checker = SimulationEndCheckerFactory::Create(sim_setting_record);
+                auto robot_operator = RobotOperatorFactory::Create(sim_setting_record);
                 auto node_initializer =
-                    std::make_unique<NodeInitializer>(simulation_setting_record.initial_positions,
-                                                      simulation_setting_record.initial_posture,
-                                                      simulation_setting_record.initial_move);
+                    std::make_unique<NodeInitializer>(sim_setting_record.initial_positions,
+                                                      sim_setting_record.initial_posture,
+                                                      sim_setting_record.initial_move);
                 auto result_exporter = std::make_shared<ResultFileExporter>(phantomx_mk2);
 
                 const auto graphic_data_broker = std::make_shared<GraphicDataBroker>();
@@ -165,10 +166,15 @@ int main() {
                   std::move(robot_operator),
                   std::move(node_initializer),
                   graphic_data_broker,
-                  application_setting_record,
+                  app_setting_record,
                   result_exporter);
 
-                auto graphic_main = std::make_unique<GraphicMainBasic>(graphic_data_broker, phantomx_mk2, phantomx_mk2, phantomx_mk2, application_setting_record);
+                auto graphic_main = std::make_unique<GraphicMainBasic>(
+                    graphic_data_broker,
+                    phantomx_mk2,
+                    phantomx_mk2,
+                    phantomx_mk2,
+                    app_setting_record);
 
                 graphic_system.ChangeGraphicMain(std::move(graphic_main));
 
@@ -190,12 +196,12 @@ int main() {
                 //    std::move(graph_tree_creator),
                 //    std::move(map_creator),
                 //    graphic_data_broker,
-                //    application_setting_record);
+                //    app_setting_record);
 
                 CmdIOUtil::Output("Viewer is not implemented yet.", kSystem);
 
                 std::unique_ptr<IGraphicMain> graphic_main_viewer =
-                    std::make_unique<GraphicMainGraphViewer>(graphic_data_broker, phantomx_mk2, phantomx_mk2, phantomx_mk2, application_setting_record);
+                    std::make_unique<GraphicMainGraphViewer>(graphic_data_broker, phantomx_mk2, phantomx_mk2, phantomx_mk2, app_setting_record);
 
                 graphic_system.ChangeGraphicMain(std::move(graphic_main_viewer));
 
@@ -209,7 +215,7 @@ int main() {
                     phantomx_mk2,
                     phantomx_mk2,
                     phantomx_mk2,
-                    application_setting_record);
+                    app_setting_record);
 
                 graphic_system.ChangeGraphicMain(std::move(graphic_main_test));
 
@@ -220,9 +226,9 @@ int main() {
                 auto phantomx_mk2 = LoadPhantomXMkII();
                 auto graphic_data_broker = std::make_shared<GraphicDataBroker>();
 
-                system_main = std::make_unique<SystemMainResultViewer>(graphic_data_broker, application_setting_record, phantomx_mk2, phantomx_mk2);
+                system_main = std::make_unique<SystemMainResultViewer>(graphic_data_broker, app_setting_record, phantomx_mk2, phantomx_mk2);
 
-                std::unique_ptr<IGraphicMain> graphic_main = std::make_unique<GraphicMainBasic>(graphic_data_broker, phantomx_mk2, phantomx_mk2, phantomx_mk2, application_setting_record);
+                std::unique_ptr<IGraphicMain> graphic_main = std::make_unique<GraphicMainBasic>(graphic_data_broker, phantomx_mk2, phantomx_mk2, phantomx_mk2, app_setting_record);
 
                 graphic_system.ChangeGraphicMain(std::move(graphic_main));
 
@@ -234,7 +240,7 @@ int main() {
                 system_main = std::make_unique<SystemMainRobotControl>(graphic_data_broker);
 
                 std::unique_ptr<IGraphicMain> graphic_main_robot_control =
-                    std::make_unique<GraphicMainRobotControl>(graphic_data_broker, phantomx_mk2, phantomx_mk2, phantomx_mk2, application_setting_record);
+                    std::make_unique<GraphicMainRobotControl>(graphic_data_broker, phantomx_mk2, phantomx_mk2, phantomx_mk2, app_setting_record);
 
                 graphic_system.ChangeGraphicMain(std::move(graphic_main_robot_control));
                 break;
