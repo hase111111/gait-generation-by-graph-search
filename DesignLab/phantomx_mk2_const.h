@@ -14,8 +14,7 @@
 #include "math_util.h"
 
 
-namespace designlab
-{
+namespace designlab {
 
 //! @class PhantomXMkIIConst
 //! @brief PhantomX mk-Ⅱ のパラメータを定数で表現したもの．
@@ -28,8 +27,7 @@ namespace designlab
 //! 簡単のため値をここにまとめたが，
 //! むやみにここの値を参照せずに PhantomXMkII を使うこと．
 //! @n 座標系はロボット前方にx軸，左方向にy軸，上方向にz軸をとる右手座標系である．
-class PhantomXMkIIConst final
-{
+class PhantomXMkIIConst final {
 private:
     constexpr static  int kPhantomXLegNum = 6;
 
@@ -95,8 +93,7 @@ public:
     //! @param[in] leg_index 脚の番号．
     //! @param[in] angle 判定する角度．
     //! @return 有効な範囲内なら true．
-    constexpr static bool IsValidCoxaAngle(const int leg_index, const float angle)
-    {
+    constexpr static bool IsValidCoxaAngle(const int leg_index, const float angle) noexcept {
         // 0 <= leg_index < kPhantomXLegNum であることを保証する．
         assert(0 <= leg_index);
         assert(leg_index < kPhantomXLegNum);
@@ -108,16 +105,14 @@ public:
     //! @brief 第2関節の角度が有効な範囲内かどうかを判定する．
     //! @param[in] angle 判定する角度．
     //! @return 有効な範囲内なら true．
-    constexpr static bool IsValidFemurAngle(const float angle)
-    {
+    constexpr static bool IsValidFemurAngle(const float angle) noexcept {
         return kFemurAngleMin <= angle && angle <= kFemurAngleMax;
     };
 
     //! @brief 第3関節の角度が有効な範囲内かどうかを判定する．
     //! @param[in] angle 判定する角度．
     //! @return 有効な範囲内なら true．
-    constexpr static bool IsValidTibiaAngle(const float angle)
-    {
+    constexpr static bool IsValidTibiaAngle(const float angle) noexcept {
         return kTibiaAngleMin <= angle && angle <= kTibiaAngleMax;
     };
 

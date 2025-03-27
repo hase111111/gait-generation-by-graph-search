@@ -18,8 +18,7 @@
 #include "phantomx_mk2_const.h"
 
 
-namespace designlab
-{
+namespace designlab {
 
 PhantomXMkII::PhantomXMkII(const PhantomXMkIIParameterRecord& parameter_record) :
     kBodyLiftingHeightMin(parameter_record.body_lifting_height_min),
@@ -49,13 +48,10 @@ PhantomXMkII::PhantomXMkII(const PhantomXMkIIParameterRecord& parameter_record) 
     kMaxLegRArray(InitMaxLegR()),
     kMinLegPosXY(InitMinLegPosXY()),
     kMaxLegPosXY(InitMaxLegPosXY()),
-    kMinLegDistance(50.0)
-{
-}
+    kMinLegDistance(50.0) {}
 
 HexapodJointState PhantomXMkII::CalculateJointState(
-    const int leg_index, const Vector3& leg_pos) const noexcept
-{
+    const int leg_index, const Vector3& leg_pos) const noexcept {
     // leg_indexは 0～5 である．
     assert(0 <= leg_index);
     assert(leg_index < HexapodConst::kLegNum);
@@ -83,22 +79,18 @@ HexapodJointState PhantomXMkII::CalculateJointState(
     {
         float coxa_joint_angle = std::atan2f(leg_pos.y, leg_pos.x);
 
-        if (leg_pos.y == 0 && leg_pos.x == 0)
-        {
+        if (leg_pos.y == 0 && leg_pos.x == 0) {
             coxa_joint_angle = PhantomXMkIIConst::kCoxaDefaultAngle[leg_index];
         }
 
-        if (!PhantomXMkIIConst::IsValidCoxaAngle(leg_index, coxa_joint_angle))
-        {
+        if (!PhantomXMkIIConst::IsValidCoxaAngle(leg_index, coxa_joint_angle)) {
             // 範囲外ならば，180度回転させた時に範囲内にあるかを調べる．
             if (PhantomXMkIIConst::IsValidCoxaAngle(
-                leg_index, coxa_joint_angle + std::numbers::pi_v<float>))
-            {
+                leg_index, coxa_joint_angle + std::numbers::pi_v<float>)) {
                 coxa_joint_angle += std::numbers::pi_v<float>;
             }
             else if (PhantomXMkIIConst::IsValidCoxaAngle(
-                leg_index, coxa_joint_angle - std::numbers::pi_v<float>))
-            {
+                leg_index, coxa_joint_angle - std::numbers::pi_v<float>)) {
                 coxa_joint_angle -= std::numbers::pi_v<float>;
             }
         }
@@ -118,8 +110,7 @@ HexapodJointState PhantomXMkII::CalculateJointState(
 
         if (!math_util::CanMakeTriangle((leg_pos - femur_joint_pos).GetLength(),
             PhantomXMkIIConst::kFemurLength,
-            PhantomXMkIIConst::kTibiaLength))
-        {
+            PhantomXMkIIConst::kTibiaLength)) {
             // そもそも脚先が脚の付け根から届かない場合，一番近い位置まで脚を伸ばす．
 
             const float angle_ft = std::atan2(
@@ -160,13 +151,11 @@ HexapodJointState PhantomXMkII::CalculateJointState(
 
             float angle_f = 0, angle_t = 0;
 
-            if (distance < distance_phase)
-            {
+            if (distance < distance_phase) {
                 angle_f = angle_ft;
                 angle_t = 0;
             }
-            else
-            {
+            else {
                 angle_f = angle_ft_phase;
                 angle_t = -std::numbers::pi_v<float>;
             }
@@ -269,45 +258,38 @@ HexapodJointState PhantomXMkII::CalculateJointState(
 
 bool PhantomXMkII::IsValidJointState(const int leg_index,
                                      const Vector3& leg_pos,
-                                     const HexapodJointState& joint_state) const noexcept
-{
+                                     const HexapodJointState& joint_state) const noexcept {
     assert(joint_state.joint_pos_leg_coordinate.size() == 4);
     assert(joint_state.joint_angle.size() == 3);
 
     // coxa関節の範囲内に存在しているかを確認する．
-    if (!PhantomXMkIIConst::IsValidCoxaAngle(leg_index, joint_state.joint_angle[0]))
-    {
+    if (!PhantomXMkIIConst::IsValidCoxaAngle(leg_index, joint_state.joint_angle[0])) {
         return false;
     }
 
     // femur関節の範囲内に存在しているかを確認する．
-    if (!PhantomXMkIIConst::IsValidFemurAngle(joint_state.joint_angle[1]))
-    {
+    if (!PhantomXMkIIConst::IsValidFemurAngle(joint_state.joint_angle[1])) {
         return false;
     }
 
     // tibia関節の範囲内に存在しているかを確認する．
-    if (!PhantomXMkIIConst::IsValidTibiaAngle(joint_state.joint_angle[2]))
-    {
+    if (!PhantomXMkIIConst::IsValidTibiaAngle(joint_state.joint_angle[2])) {
         return false;
     }
 
     // リンクの長さを確認する．
     if (!math_util::IsEqual((joint_state.joint_pos_leg_coordinate[0] -
-        joint_state.joint_pos_leg_coordinate[1]).GetLength(), PhantomXMkIIConst::kCoxaLength))
-    {
+        joint_state.joint_pos_leg_coordinate[1]).GetLength(), PhantomXMkIIConst::kCoxaLength)) {
         return false;
     }
 
     if (!math_util::IsEqual((joint_state.joint_pos_leg_coordinate[1] -
-        joint_state.joint_pos_leg_coordinate[2]).GetLength(), PhantomXMkIIConst::kFemurLength))
-    {
+        joint_state.joint_pos_leg_coordinate[2]).GetLength(), PhantomXMkIIConst::kFemurLength)) {
         return false;
     }
 
     if (!math_util::IsEqual((joint_state.joint_pos_leg_coordinate[2] -
-        joint_state.joint_pos_leg_coordinate[3]).GetLength(), PhantomXMkIIConst::kTibiaLength))
-    {
+        joint_state.joint_pos_leg_coordinate[3]).GetLength(), PhantomXMkIIConst::kTibiaLength)) {
         return false;
     }
 
@@ -323,20 +305,17 @@ Vector3 PhantomXMkII::ConvertGlobalToLegCoordinate(
     const int leg_index,
     const Vector3& center_of_mass_global,
     const Quaternion& robot_quat,
-    const bool consider_rot) const
-{
+    const bool consider_rot) const {
     // leg_indexは 0～5 である．
     assert(0 <= leg_index);
     assert(leg_index < HexapodConst::kLegNum);
 
-    if (consider_rot)
-    {
+    if (consider_rot) {
         return RotateVector3(converted_position - center_of_mass_global,
                              robot_quat.GetConjugate()) -
             GetLegBasePosRobotCoordinate(leg_index);
     }
-    else
-    {
+    else {
         return converted_position -
             center_of_mass_global -
             GetLegBasePosRobotCoordinate(leg_index);
@@ -348,19 +327,16 @@ Vector3 PhantomXMkII::ConvertLegToGlobalCoordinate(
     int leg_index,
     const Vector3& center_of_mass_global,
     const Quaternion& robot_quat,
-    const bool consider_rot) const
-{
+    const bool consider_rot) const {
     // leg_indexは 0～5 である．
     assert(0 <= leg_index);
     assert(leg_index < HexapodConst::kLegNum);
 
-    if (consider_rot)
-    {
+    if (consider_rot) {
         return RotateVector3(converted_position + GetLegBasePosRobotCoordinate(leg_index),
                              robot_quat) + center_of_mass_global;
     }
-    else
-    {
+    else {
         return converted_position +
             GetLegBasePosRobotCoordinate(leg_index) + center_of_mass_global;
     }
@@ -370,33 +346,27 @@ Vector3 PhantomXMkII::ConvertRobotToGlobalCoordinate(
     const Vector3& converted_position,
     const Vector3& center_of_mass_global,
     const Quaternion& robot_quat,
-    const bool consider_rot) const
-{
-    if (consider_rot)
-    {
+    const bool consider_rot) const {
+    if (consider_rot) {
         return RotateVector3(converted_position, robot_quat) + center_of_mass_global;
     }
-    else
-    {
+    else {
         return converted_position + center_of_mass_global;
     }
 }
 
 Vector3 PhantomXMkII::ConvertRobotToLegCoordinate(const Vector3& converted_position,
-                                                  const int leg_index) const
-{
+                                                  const int leg_index) const {
     return converted_position - GetLegBasePosRobotCoordinate(leg_index);
 }
 
 Vector3 PhantomXMkII::ConvertLegToRobotCoordinate(const Vector3& converted_position,
-                                                  const int leg_index) const
-{
+                                                  const int leg_index) const {
     return converted_position + GetLegBasePosRobotCoordinate(leg_index);
 }
 
 
-Vector3 PhantomXMkII::GetFreeLegPosLegCoordinate(const int leg_index) const noexcept
-{
+Vector3 PhantomXMkII::GetFreeLegPosLegCoordinate(const int leg_index) const noexcept {
     // leg_indexは 0～5 である．
     assert(0 <= leg_index);
     assert(leg_index < HexapodConst::kLegNum);
@@ -404,8 +374,7 @@ Vector3 PhantomXMkII::GetFreeLegPosLegCoordinate(const int leg_index) const noex
     return free_leg_pos_leg_coordinate_[leg_index];
 }
 
-Vector3 PhantomXMkII::GetLegBasePosRobotCoordinate(const int leg_index) const noexcept
-{
+Vector3 PhantomXMkII::GetLegBasePosRobotCoordinate(const int leg_index) const noexcept {
     // leg_indexは 0～5 である．
     assert(0 <= leg_index);
     assert(leg_index < HexapodConst::kLegNum);
@@ -414,49 +383,42 @@ Vector3 PhantomXMkII::GetLegBasePosRobotCoordinate(const int leg_index) const no
 }
 
 
-bool PhantomXMkII::IsLegInRange(const int leg_index, const Vector3& leg_pos) const
-{
+bool PhantomXMkII::IsLegInRange(const int leg_index, const Vector3& leg_pos) const {
     // leg_indexは 0～5 である．
     assert(0 <= leg_index);
     assert(leg_index < HexapodConst::kLegNum);
 
-    if (GetFreeLegPosLegCoordinate(leg_index).z < leg_pos.z)
-    {
+    if (GetFreeLegPosLegCoordinate(leg_index).z < leg_pos.z) {
         return false;
     }
 
     const Vector2 leg_pos_xy = leg_pos.ProjectedXY();  // 投射した脚先座標をえる．
 
     // 脚の角度が範囲内にあるか調べる．外積計算で間にあるか調べる
-    if (kMinLegPosXY[leg_index].Cross(leg_pos_xy) < 0.0f)
-    {
+    if (kMinLegPosXY[leg_index].Cross(leg_pos_xy) < 0.0f) {
         return false;
     }
-    if (kMaxLegPosXY[leg_index].Cross(leg_pos_xy) > 0.0f)
-    {
+
+    if (kMaxLegPosXY[leg_index].Cross(leg_pos_xy) > 0.0f) {
         return false;
     }
 
 
     // 脚を伸ばすことのできない範囲に伸ばしていないか調べる．
-    if (static_cast<int>(leg_pos.z) < -kMaxLegRSize || 0 < static_cast<int>(leg_pos.z))
-    {
+    if (static_cast<int>(leg_pos.z) < -kMaxLegRSize || 0 < static_cast<int>(leg_pos.z)) {
         return false;
     }
 
-    if (leg_pos_xy.GetSquaredLength() < math_util::Squared(kMinLegR))
-    {
+    if (leg_pos_xy.GetSquaredLength() < math_util::Squared(kMinLegR)) {
         return false;
     }
 
-    if (math_util::Squared(kMaxLegR) < leg_pos_xy.GetSquaredLength())
-    {
+    if (math_util::Squared(kMaxLegR) < leg_pos_xy.GetSquaredLength()) {
         return false;
     }
 
     if (math_util::Squared(kMaxLegRArray[-static_cast<int>(leg_pos.z)]) <
-        leg_pos_xy.GetSquaredLength())
-    {
+        leg_pos_xy.GetSquaredLength()) {
         return false;
     }
 
@@ -464,8 +426,7 @@ bool PhantomXMkII::IsLegInRange(const int leg_index, const Vector3& leg_pos) con
 }
 
 bool PhantomXMkII::IsLegInterfering(
-    const std::array<Vector3, HexapodConst::kLegNum>& leg_pos) const
-{
+    const std::array<Vector3, HexapodConst::kLegNum>& leg_pos) const {
     // 重心を原点とした，座標系において，脚の干渉を調べる．
 
     // 脚の干渉を調べる．
@@ -473,15 +434,13 @@ bool PhantomXMkII::IsLegInterfering(
     Vector2 joint_pos_xy[HexapodConst::kLegNum];  // 脚の根元の座標(ロボット座標系)．
 
     // 脚の根元の座標(ロボット座標系)を取得する．
-    for (int i = 0; i < HexapodConst::kLegNum; i++)
-    {
+    for (int i = 0; i < HexapodConst::kLegNum; i++) {
         joint_pos_xy[i] = GetLegBasePosRobotCoordinate(i).ProjectedXY();
         leg_pos_xy[i] = ConvertLegToRobotCoordinate(leg_pos[i], i).ProjectedXY();
     }
 
     // 隣の脚との干渉を調べる．
-    for (int i = 0; i < HexapodConst::kLegNum; i++)
-    {
+    for (int i = 0; i < HexapodConst::kLegNum; i++) {
         // 脚が交差しているか調べる．
         LineSegment2 line1(joint_pos_xy[i], leg_pos_xy[i]);
         LineSegment2 line2(joint_pos_xy[(i + 1) % HexapodConst::kLegNum],
@@ -490,8 +449,7 @@ bool PhantomXMkII::IsLegInterfering(
         if (line1.HasIntersection(line2)) { return true; }
 
         // 脚先の距離を確認する．
-        if (leg_pos_xy[i].GetDistanceFrom(leg_pos_xy[(i + 1) % HexapodConst::kLegNum]) < kMinLegDistance)
-        {
+        if (leg_pos_xy[i].GetDistanceFrom(leg_pos_xy[(i + 1) % HexapodConst::kLegNum]) < kMinLegDistance) {
             return true;
         }
     }
@@ -499,20 +457,17 @@ bool PhantomXMkII::IsLegInterfering(
     return false;
 }
 
-float PhantomXMkII::GetGroundHeightMarginMin() const noexcept
-{
+float PhantomXMkII::GetGroundHeightMarginMin() const noexcept {
     return kBodyLiftingHeightMin;
 }
 
-float PhantomXMkII::GetGroundHeightMarginMax() const noexcept
-{
+float PhantomXMkII::GetGroundHeightMarginMax() const noexcept {
     return kBodyLiftingHeightMax;
 }
 
 float PhantomXMkII::CalculateStabilityMargin(
     const leg_func::LegStateBit& leg_state,
-    const std::array<Vector3, HexapodConst::kLegNum>& leg_pos) const
-{
+    const std::array<Vector3, HexapodConst::kLegNum>& leg_pos) const {
     // std::min をカッコで囲んでいるのは，マクロの min と被るため．
     // (std::min) と書くと名前が衝突しない
 
@@ -524,10 +479,8 @@ float PhantomXMkII::CalculateStabilityMargin(
 
 
     // 接地脚のみ追加する．
-    for (int i = 0; i < HexapodConst::kLegNum; i++)
-    {
-        if (leg_func::IsGrounded(leg_state, i))
-        {
+    for (int i = 0; i < HexapodConst::kLegNum; i++) {
+        if (leg_func::IsGrounded(leg_state, i)) {
             ground_leg_pos[ground_leg_pos_num] = leg_pos[i].ProjectedXY() +
                 GetLegBasePosRobotCoordinate(i).ProjectedXY();
 
@@ -730,11 +683,11 @@ std::array<float, PhantomXMkII::kMaxLegRSize> PhantomXMkII::InitMaxLegR() const
                 }
 #endif
             }
+            }
         }
-    }
 
     return res;
-}
+    }
 
 std::array<Vector2, HexapodConst::kLegNum> PhantomXMkII::InitMinLegPosXY() const
 {
