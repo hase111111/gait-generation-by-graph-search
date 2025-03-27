@@ -11,11 +11,9 @@
 #include "toml_serialize_macro.h"
 
 
-namespace designlab
-{
+namespace designlab {
 
-struct XrR1ParameterRecord final
-{
+struct XrR1ParameterRecord final {
     //!  地面から胴体を持ち上げる高さ[mm]．最小ここまで下げられる．
     float body_lifting_height_min{ 40.f };
 
@@ -38,8 +36,7 @@ struct XrR1ParameterRecord final
 };
 
 
-DESIGNLAB_TOML11_DESCRIPTION_CLASS(XrR1ParameterRecord)
-{
+DESIGNLAB_TOML11_DESCRIPTION_CLASS(XrR1ParameterRecord) {
     DESIGNLAB_TOML11_FILE_NO_DESCRIPTION();
 
     DESIGNLAB_TOML11_TABLE_NO_DESCRIPTION();
