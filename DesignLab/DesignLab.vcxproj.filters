@@ -687,6 +687,12 @@
     <ClInclude Include="gpg_builder_flat.h">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
+    <ClInclude Include="xr_r1.h">
+      <Filter>ソース ファイル\Hexapod</Filter>
+    </ClInclude>
+    <ClInclude Include="xr_r1_const.h">
+      <Filter>ソース ファイル\Hexapod\Const</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
@@ -1024,6 +1030,9 @@
     </ClCompile>
     <ClCompile Include="gpg_builder_flat.cpp">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
+    </ClCompile>
+    <ClCompile Include="xr_r1.cpp">
+      <Filter>ソース ファイル\Hexapod</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

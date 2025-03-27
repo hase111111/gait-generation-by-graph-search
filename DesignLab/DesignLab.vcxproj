@@ -194,6 +194,8 @@
     <ClInclude Include="toml_directory_exporter.h" />
     <ClInclude Include="toml_serialize_macro.h" />
     <ClInclude Include="world_grid_renderer.h" />
+    <ClInclude Include="xr_r1.h" />
+    <ClInclude Include="xr_r1_const.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="abstract_dxlib_gui.cpp" />
@@ -308,6 +310,7 @@
     <ClCompile Include="toml_directory_exporter.cpp" />
     <ClCompile Include="toml_serialize_macro.cpp" />
     <ClCompile Include="world_grid_renderer.cpp" />
+    <ClCompile Include="xr_r1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
