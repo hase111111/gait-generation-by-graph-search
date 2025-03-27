@@ -2,7 +2,7 @@
 mode = "kFlat" 
 
 #マップ生成のオプション．複数指定したいならば足し合わせて指定すること．( kNone = 0 / kPerforated = 1 / kStep = 2 / kSlope = 4 / kTilt = 8 / kRough = 16 / kRadiation = 32 )
-option = 13
+option = 1
 
 [Basic]
     
@@ -38,7 +38,7 @@ option = 13
 [Perforated]
     
     #不整地上の足場を除外する割合．ホール率[%]．0～100の間にすること．
-    hole_rate = 0
+    hole_rate = 50
 
 [Radial]
     

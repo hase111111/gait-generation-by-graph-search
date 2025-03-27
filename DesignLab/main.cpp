@@ -33,6 +33,7 @@
 #include "toml_file_importer.h"
 #include "toml_directory_exporter.h"
 #include "phantomx_mk2.h"
+#include "xr_r1.h"
 
 
 // このプロジェクトがコンパイルされない場合はソリューションエクスプローラーから
@@ -79,6 +80,13 @@ auto LoadPhantomXMkII() {
         "./simulation_condition/phantomx_mk2.toml");
 
     return std::make_shared<PhantomXMkII>(record);
+}
+
+auto LoadXrR1() {
+    using designlab::XrR1;
+    using designlab::XrR1ParameterRecord;
+
+    return std::make_shared<XrR1>(XrR1ParameterRecord{});
 }
 
 }  // namespace
@@ -138,7 +146,7 @@ int main() {
         switch (boot_mode) {
             case BootMode::kSimulation: {
                 // シミュレーションシステムクラスを作成する．
-                auto phantomx_mk2 = LoadPhantomXMkII();
+                auto phantomx_mk2 = LoadXrR1();
 
                 const auto gpg_builder =
                     std::make_unique<GpgBuilderFlat>(phantomx_mk2, phantomx_mk2, phantomx_mk2);

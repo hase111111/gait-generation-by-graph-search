@@ -693,6 +693,9 @@
     <ClInclude Include="xr_r1_const.h">
       <Filter>ソース ファイル\Hexapod\Const</Filter>
     </ClInclude>
+    <ClInclude Include="xr_r1_parameter_record.h">
+      <Filter>ソース ファイル\Hexapod</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">

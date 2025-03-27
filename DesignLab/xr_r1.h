@@ -12,11 +12,10 @@
 #include "interface_hexapod_joint_calculator.h"
 #include "interface_hexapod_state_presenter.h"
 #include "interface_hexapod_posture_validator.h"
-#include "phantomx_mk2_parameter_record.h"
+#include "xr_r1_parameter_record.h"
 
 
-namespace designlab
-{
+namespace designlab {
 
 //! @class XR_R1
 //! @brief XiaoRGeek社のロボットXR_R1の状態を計算するクラス．
@@ -24,10 +23,9 @@ class XrR1 :
     public IHexapodCoordinateConverter,
     public IHexapodJointCalculator,
     public IHexapodStatePresenter,
-    public IHexapodPostureValidator
-{
+    public IHexapodPostureValidator {
 public:
-    explicit XrR1(const PhantomXMkIIParameterRecord& parameter_record);
+    explicit XrR1(const XrR1ParameterRecord& parameter_record);
 
 
     HexapodJointState CalculateJointState(
