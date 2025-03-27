@@ -13,16 +13,16 @@
 #include <string>
 #include <vector>
 
+#include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_joint_calculator.h"
+#include "interpolated_node_creator.h"
 #include "robot_state_node.h"
 #include "simulation_result_record.h"
 
 
-namespace designlab
-{
+namespace designlab {
 
-class ResultFileConst final
-{
+class ResultFileConst final {
 public:
     //! 出力先ディレクトリ(フォルダ)名．
     static const std::string kDirectoryPath;
@@ -41,17 +41,20 @@ public:
 
     //! マップ状態のファイル名 (プログラムの読み込み用)
     static const std::string kMapStateName;
+
+    //! 角度データのファイル名 (人間が見る用)
+    static const std::string kLegAngleName;
 };
 
 
 //! @class ResultFileExporter
 //! @brief 結果をファイルに出力するクラス．
 //! @n シミュレーション結果をファイルに出力する処理を全てこのクラスにまとめた．
-class ResultFileExporter final
-{
+class ResultFileExporter final {
 public:
     ResultFileExporter(
-        const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr);
+        const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
+        const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr);
 
     //! @brief resultフォルダがなければ作成する．また，フォルダ名を指定する．
     void CreateRootDirectory();
@@ -100,6 +103,8 @@ private:
 
     void ExportAllLegPosAllSuccessfulSimulation(const std::string& path) const;
 
+    void ExportAllLegAngle(const std::string& path) const;
+
     std::string GetHeader() const;
 
     std::string GetLegChangeStatus(
@@ -110,6 +115,8 @@ private:
 
     //! 計算機のポインタ．
     const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;
+
+    const std::unique_ptr<const InterpolatedNodeCreator> interpolated_node_creator_ptr_;
 };
 
 }  // namespace designlab

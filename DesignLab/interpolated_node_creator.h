@@ -17,13 +17,11 @@
 #include "robot_state_node.h"
 
 
-namespace designlab
-{
+namespace designlab {
 
 //! @class InterpolatedNodeCreator
 //! @brief 矩形軌道を生成し，ノード間を補間するクラス．
-class InterpolatedNodeCreator final
-{
+class InterpolatedNodeCreator final {
 public:
     explicit InterpolatedNodeCreator(const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr);
 

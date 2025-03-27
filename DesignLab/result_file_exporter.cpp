@@ -22,8 +22,7 @@
 #include "stopwatch.h"
 
 
-namespace designlab
-{
+namespace designlab {
 
 namespace sf = ::std::filesystem;  // 長すぎるので，filesystemの名前空間を短縮する．
 
@@ -41,21 +40,21 @@ const std::string ResultFileConst::kDetailFileName = "simulation_result_detail";
 
 const std::string ResultFileConst::kSuccessfulCount = "simulation_successful_count";
 
+const std::string ResultFileConst::kLegAngleName = "leg_angle";
+
 
 ResultFileExporter::ResultFileExporter(
-    const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr) :
-    calculator_ptr_(calculator_ptr)
-{
-}
+    const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
+    const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr) :
+    calculator_ptr_(calculator_ptr),
+    interpolated_node_creator_ptr_(std::make_unique<InterpolatedNodeCreator>(converter_ptr)) {}
 
 
-void ResultFileExporter::CreateRootDirectory()
-{
+void ResultFileExporter::CreateRootDirectory() {
     using enum OutputDetail;
 
     // 結果出力先フォルダがなければ作成する．
-    if (!sf::exists(ResultFileConst::kDirectoryPath))
-    {
+    if (!sf::exists(ResultFileConst::kDirectoryPath)) {
         CmdIOUtil::FormatOutput(kInfo,
             "結果出力先フォルダ {} が存在しないので作成します．",
             ResultFileConst::kDirectoryPath);
@@ -64,19 +63,16 @@ void ResultFileExporter::CreateRootDirectory()
     }
 }
 
-void ResultFileExporter::PushSimulationResult(const SimulationResultRecord& result)
-{
+void ResultFileExporter::PushSimulationResult(const SimulationResultRecord& result) {
     // 結果をセットする．
     result_list_.push_back(result);
 }
 
-void ResultFileExporter::Export() const
-{
+void ResultFileExporter::Export() const {
     using enum OutputDetail;
 
     // 結果出力先フォルダがなければ終了する．
-    if (!sf::exists(ResultFileConst::kDirectoryPath))
-    {
+    if (!sf::exists(ResultFileConst::kDirectoryPath)) {
         CmdIOUtil::Output("出力先フォルダがないので終了します．", kError);
         return;
     }
@@ -108,12 +104,13 @@ void ResultFileExporter::Export() const
     // 成功したシミュレーションのみを出力する．
     ExportAllLegPosAllSuccessfulSimulation(output_folder_path);
 
+    ExportAllLegAngle(output_folder_path);
+
     CmdIOUtil::Output("結果の出力が完了しました．", kInfo);
 }
 
 
-std::string ResultFileExporter::MakeOutputDirectory() const
-{
+std::string ResultFileExporter::MakeOutputDirectory() const {
     using enum OutputDetail;
 
     CmdIOUtil::Output("フォルダ名を入力してください．", kInfo);
@@ -125,8 +122,7 @@ std::string ResultFileExporter::MakeOutputDirectory() const
         input_result, stopwatch.GetNowTimeString());
 
     // 指定されたフォルダを作成する．
-    if (!sf::exists(folder_name))
-    {
+    if (!sf::exists(folder_name)) {
         sf::create_directory(folder_name);
         CmdIOUtil::Output(std::format("フォルダ {} を作成しました．", folder_name), kInfo);
     }
@@ -134,28 +130,25 @@ std::string ResultFileExporter::MakeOutputDirectory() const
     return folder_name;
 }
 
-void ResultFileExporter::ExportEachNodeList(const std::string& path) const
-{
+void ResultFileExporter::ExportEachNodeList(const std::string& path) const {
     using enum OutputDetail;
 
     CmdIOUtil::Output("NodeListを出力します．", kInfo);
 
-    for (size_t i = 0; i < result_list_.size(); ++i)
-    {
+    for (size_t i = 0; i < result_list_.size(); ++i) {
         // 出力先ファイルを作成する．
-        std::string output_file_name = std::format("{}\\{}{}.csv", path, ResultFileConst::kNodeListName, i + 1);
+        std::string output_file_name =
+            std::format("{}\\{}{}.csv", path, ResultFileConst::kNodeListName, i + 1);
 
         std::ofstream ofs(output_file_name);
 
         // ファイルが作成できなかった場合は，なにも出力しない．
-        if (!ofs)
-        {
+        if (!ofs) {
             CmdIOUtil::Output(std::format("ファイル {} を作成できませんでした．", output_file_name), kError);
             return;
         }
 
-        for (const auto& j : result_list_[i].graph_search_result_recorder)
-        {
+        for (const auto& j : result_list_[i].graph_search_result_recorder) {
             ofs << j.result_node << "\n";  // ノードを出力する．
         }
 
@@ -167,25 +160,21 @@ void ResultFileExporter::ExportEachNodeList(const std::string& path) const
     CmdIOUtil::Output("NodeListの出力が完了しました．", kInfo);
 }
 
-void ResultFileExporter::ExportEachMapState(const std::string& path) const
-{
+void ResultFileExporter::ExportEachMapState(const std::string& path) const {
     using enum designlab::OutputDetail;
 
     CmdIOUtil::Output("MapStateを出力します．", kInfo);
 
-    for (size_t i = 0; i < result_list_.size(); ++i)
-    {
+    for (size_t i = 0; i < result_list_.size(); ++i) {
         // 出力先ファイルを作成する．
         std::string output_file_name = std::format("{}\\{}{}.csv", path, ResultFileConst::kMapStateName, i + 1);
 
         MapFileExporter map_file_exporter;
 
-        if (map_file_exporter.ExportMap(output_file_name, result_list_[i].map_state))
-        {
+        if (map_file_exporter.ExportMap(output_file_name, result_list_[i].map_state)) {
             CmdIOUtil::Output("出力ファイル : " + output_file_name, kInfo);
         }
-        else
-        {
+        else {
             CmdIOUtil::Output("出力ファイル : " + output_file_name, kInfo);
         }
     }
@@ -193,22 +182,19 @@ void ResultFileExporter::ExportEachMapState(const std::string& path) const
     CmdIOUtil::Output("MapStateの出力が完了しました．", kInfo);
 }
 
-void ResultFileExporter::ExportEachSimulationDetail(const std::string& path) const
-{
+void ResultFileExporter::ExportEachSimulationDetail(const std::string& path) const {
     using enum designlab::OutputDetail;
 
     CmdIOUtil::Output("シミュレーション詳細を出力します．", kInfo);
 
-    for (size_t i = 0; i < result_list_.size(); ++i)
-    {
+    for (size_t i = 0; i < result_list_.size(); ++i) {
         // 出力先ファイルを作成する．
         std::string output_file_name = std::format("{}\\{}{}.csv", path, ResultFileConst::kDetailFileName, i + 1);
 
         std::ofstream ofs(output_file_name);
 
         // ファイルが作成できなかった場合は，なにも出力しない．
-        if (!ofs)
-        {
+        if (!ofs) {
             CmdIOUtil::Output(std::format("ファイル {} を作成できませんでした．", output_file_name), kError);
             return;
         }
@@ -228,10 +214,8 @@ void ResultFileExporter::ExportEachSimulationDetail(const std::string& path) con
         AverageCalculator<double> average_calculator;
 
         // 最初のノードは除く(計算時間0で固定のため)
-        if (recorder.graph_search_result_recorder.size() > 1)
-        {
-            for (size_t j = 1; j < recorder.graph_search_result_recorder.size(); ++j)
-            {
+        if (recorder.graph_search_result_recorder.size() > 1) {
+            for (size_t j = 1; j < recorder.graph_search_result_recorder.size(); ++j) {
                 const double time = recorder.graph_search_result_recorder[j].computation_time;
 
                 if (time > max_time) { max_time = time; }
@@ -279,14 +263,12 @@ void ResultFileExporter::ExportEachSimulationDetail(const std::string& path) con
 
 
         // 移動距離の統計を出力する．
-        if (recorder.graph_search_result_recorder.size() > 1)
-        {
+        if (recorder.graph_search_result_recorder.size() > 1) {
             float x_move_sum = 0.0f;
             float y_move_sum = 0.0f;
             float z_move_sum = 0.0f;
 
-            for (size_t j = 0; j != recorder.graph_search_result_recorder.size() - 1; ++j)
-            {
+            for (size_t j = 0; j != recorder.graph_search_result_recorder.size() - 1; ++j) {
                 RobotStateNode current_node = recorder.graph_search_result_recorder[j].result_node;
                 RobotStateNode next_node = recorder.graph_search_result_recorder[j + 1].result_node;
                 Vector3 com_dif = next_node.center_of_mass_global_coord - current_node.center_of_mass_global_coord;
@@ -332,8 +314,7 @@ void ResultFileExporter::ExportEachSimulationDetail(const std::string& path) con
     CmdIOUtil::Output("シミュレーション詳細の出力が完了しました．", kInfo);
 }
 
-void ResultFileExporter::ExportSuccessfulCount(const std::string& path) const
-{
+void ResultFileExporter::ExportSuccessfulCount(const std::string& path) const {
     using enum designlab::OutputDetail;
     using enum designlab::enums::SimulationResult;
 
@@ -345,8 +326,7 @@ void ResultFileExporter::ExportSuccessfulCount(const std::string& path) const
     std::ofstream ofs(output_file_name);
 
     // ファイルが作成できなかった場合は，なにも出力しない．
-    if (!ofs)
-    {
+    if (!ofs) {
         CmdIOUtil::Output(std::format("ファイルを作成できませんでした．"), kError);
         return;
     }
@@ -356,8 +336,7 @@ void ResultFileExporter::ExportSuccessfulCount(const std::string& path) const
     // 成功したシミュレーション数を数える．
     std::map<enums::SimulationResult, int> result_count;
 
-    for (const auto& i : result_list_)
-    {
+    for (const auto& i : result_list_) {
         result_count[i.simulation_result]++;
     }
 
@@ -373,28 +352,23 @@ void ResultFileExporter::ExportSuccessfulCount(const std::string& path) const
     ofs << std::format("ノード数制限を超えた, {} \n", result_count[kFailureByNodeLimitExceeded]);
 }
 
-void ResultFileExporter::ExportEachLegPos(const std::string& path) const
-{
+void ResultFileExporter::ExportEachLegPos(const std::string& path) const {
     // ディレクトリを作成する．
     std::string leg_pos_dir_path = path + "\\" + ResultFileConst::kLegDirectoryName;
 
-    if (!sf::exists(leg_pos_dir_path))
-    {
+    if (!sf::exists(leg_pos_dir_path)) {
         sf::create_directory(leg_pos_dir_path);
     }
 
     // ファイルを作成する．
-    for (size_t i = 0; i < result_list_.size(); ++i)
-    {
-        for (int j = 0; j < HexapodConst::kLegNum; j++)
-        {
+    for (size_t i = 0; i < result_list_.size(); ++i) {
+        for (int j = 0; j < HexapodConst::kLegNum; ++j) {
             std::string output_file_name = std::format("{}\\simulation{}_leg{}.csv", leg_pos_dir_path, i + 1, j + 1);
 
             std::ofstream ofs(output_file_name);
 
             // ファイルが作成できなかった場合は，なにも出力しない．
-            if (!ofs)
-            {
+            if (!ofs) {
                 CmdIOUtil::Output(std::format("ファイル {} を作成できませんでした．", output_file_name), OutputDetail::kError);
                 return;
             }
@@ -403,8 +377,7 @@ void ResultFileExporter::ExportEachLegPos(const std::string& path) const
 
             std::optional<Vector3> past_pos;
 
-            for (const auto& recorder : result_list_[i].graph_search_result_recorder)
-            {
+            for (const auto& recorder : result_list_[i].graph_search_result_recorder) {
                 const Vector3 current_pos = recorder.result_node.leg_pos[j];
 
                 // 変化がない場合はスキップする．
@@ -413,8 +386,7 @@ void ResultFileExporter::ExportEachLegPos(const std::string& path) const
                 // 高さが変化している and 平行に移動している場合は中継点も出力する．
                 if (past_pos.has_value() &&
                     current_pos.z != past_pos.value().z &&
-                    current_pos.ProjectedXY() != past_pos.value().ProjectedXY())
-                {
+                    current_pos.ProjectedXY() != past_pos.value().ProjectedXY()) {
                     if (current_pos.z < past_pos.value().z)
                     {
                         const Vector3 relay_point = Vector3(current_pos.x, current_pos.y, past_pos.value().z);
@@ -423,8 +395,7 @@ void ResultFileExporter::ExportEachLegPos(const std::string& path) const
                         // 接地時．
                         ofs << current_pos.GetLength() << "," << past_pos.value().z << ",true,g," << std::boolalpha << calculator_ptr_->IsValidJointState(j, relay_point, joint_state) << "\n";
                     }
-                    else
-                    {
+                    else {
                         const Vector3 relay_point = Vector3(past_pos.value().x, past_pos.value().y, current_pos.z);
                         const auto joint_state = calculator_ptr_->CalculateJointState(j, relay_point);
 
@@ -445,25 +416,21 @@ void ResultFileExporter::ExportEachLegPos(const std::string& path) const
     }
 }
 
-void ResultFileExporter::ExportAllLegPos(const std::string& path) const
-{
+void ResultFileExporter::ExportAllLegPos(const std::string& path) const {
     // ディレクトリを作成する．
     std::string leg_pos_dir_path = path + "\\" + ResultFileConst::kLegDirectoryName;
 
-    if (!sf::exists(leg_pos_dir_path))
-    {
+    if (!sf::exists(leg_pos_dir_path)) {
         sf::create_directory(leg_pos_dir_path);
     }
 
-    for (size_t i = 0; i < result_list_.size(); ++i)
-    {
+    for (size_t i = 0; i < result_list_.size(); ++i) {
         std::string output_file_name = std::format("{}\\simulation{}_all_leg.csv", leg_pos_dir_path, i + 1);
 
         std::ofstream ofs(output_file_name);
 
         // ファイルが作成できなかった場合は，なにも出力しない．
-        if (!ofs)
-        {
+        if (!ofs) {
             CmdIOUtil::Output(std::format("ファイル {} を作成できませんでした．", output_file_name), OutputDetail::kError);
             return;
         }
@@ -484,10 +451,8 @@ void ResultFileExporter::ExportAllLegPos(const std::string& path) const
                 // 高さが変化している and 平行に移動している場合は中継点も出力する．
                 if (past_pos.has_value() &&
                     current_pos.z != past_pos.value().z &&
-                   current_pos.ProjectedXY() != past_pos.value().ProjectedXY())
-                {
-                    if (current_pos.z < past_pos.value().z)
-                    {
+                   current_pos.ProjectedXY() != past_pos.value().ProjectedXY()) {
+                    if (current_pos.z < past_pos.value().z) {
                         const Vector3 relay_point = Vector3(current_pos.x, current_pos.y, past_pos.value().z);
                         const auto joint_state = calculator_ptr_->CalculateJointState(j, relay_point);
 
@@ -496,8 +461,7 @@ void ResultFileExporter::ExportAllLegPos(const std::string& path) const
                             std::boolalpha << calculator_ptr_->IsValidJointState(j, relay_point, joint_state) <<
                             "," << j << "\n";
                     }
-                    else
-                    {
+                    else {
                         const Vector3 relay_point = Vector3(past_pos.value().x, past_pos.value().y, current_pos.z);
                         const auto joint_state = calculator_ptr_->CalculateJointState(j, relay_point);
 
@@ -526,36 +490,31 @@ void ResultFileExporter::ExportEachLegPosAllSuccessfulSimulation(const std::stri
     // ディレクトリを作成する．
     std::string leg_pos_dir_path = path + "\\" + ResultFileConst::kLegDirectoryName;
 
-    if (!sf::exists(leg_pos_dir_path))
-    {
+    if (!sf::exists(leg_pos_dir_path)) {
         sf::create_directory(leg_pos_dir_path);
     }
 
     // ファイルを作成する．
 
-    for (int j = 0; j < HexapodConst::kLegNum; ++j)
-    {
+    for (int j = 0; j < HexapodConst::kLegNum; ++j) {
         std::string output_file_name = std::format("{}\\all_simulation_leg{}.csv", leg_pos_dir_path, j + 1);
 
         std::ofstream ofs(output_file_name);
 
         // ファイルが作成できなかった場合は，なにも出力しない．
-        if (!ofs)
-        {
+        if (!ofs) {
             CmdIOUtil::Output(std::format("ファイル {} を作成できませんでした．", output_file_name), OutputDetail::kError);
             return;
         }
 
         ofs << GetHeader() << "\n";
 
-        for (int k = 0; k < result_list_.size(); ++k)
-        {
+        for (int k = 0; k < result_list_.size(); ++k) {
             if (result_list_[k].simulation_result != enums::SimulationResult::kSuccess) { continue; }
 
             std::optional<Vector3> past_pos;
 
-            for (const auto& recorder : result_list_[k].graph_search_result_recorder)
-            {
+            for (const auto& recorder : result_list_[k].graph_search_result_recorder) {
                 const Vector3 current_pos = recorder.result_node.leg_pos[j];
 
                 // 変化がない場合はスキップする．
@@ -564,8 +523,7 @@ void ResultFileExporter::ExportEachLegPosAllSuccessfulSimulation(const std::stri
                 // 高さが変化している and 平行に移動している場合は中継点も出力する．
                 if (past_pos.has_value() &&
                     current_pos.z != past_pos.value().z &&
-                    current_pos.ProjectedXY() != past_pos.value().ProjectedXY())
-                {
+                    current_pos.ProjectedXY() != past_pos.value().ProjectedXY()) {
                     if (current_pos.z < past_pos.value().z)
                     {
                         const Vector3 relay_point = { current_pos.x, current_pos.y, past_pos.value().z };
@@ -575,8 +533,7 @@ void ResultFileExporter::ExportEachLegPosAllSuccessfulSimulation(const std::stri
                         // 接地時
                         ofs << current_pos.GetLength() << "," << past_pos.value().z << ",true,g," << std::boolalpha << calculator_ptr_->IsValidJointState(j, relay_point, joint_state) << "\n";
                     }
-                    else
-                    {
+                    else {
                         const Vector3 relay_point = Vector3(past_pos.value().x, past_pos.value().y, current_pos.z);
                         const auto joint_state = calculator_ptr_->CalculateJointState(j, relay_point);
 
@@ -599,17 +556,14 @@ void ResultFileExporter::ExportEachLegPosAllSuccessfulSimulation(const std::stri
     }
 }
 
-void ResultFileExporter::ExportAllLegPosAllSuccessfulSimulation(
-    const std::string& path) const
-{
+void ResultFileExporter::ExportAllLegPosAllSuccessfulSimulation(const std::string& path) const {
     using enum designlab::OutputDetail;
     using enum designlab::enums::SimulationResult;
 
     // ディレクトリを作成する．
     std::string leg_pos_dir_path = path + "\\" + ResultFileConst::kLegDirectoryName;
 
-    if (!sf::exists(leg_pos_dir_path))
-    {
+    if (!sf::exists(leg_pos_dir_path)) {
         sf::create_directory(leg_pos_dir_path);
     }
 
@@ -619,8 +573,7 @@ void ResultFileExporter::ExportAllLegPosAllSuccessfulSimulation(
     std::ofstream ofs(output_file_name);
 
     // ファイルが作成できなかった場合は，なにも出力しない．
-    if (!ofs)
-    {
+    if (!ofs) {
         CmdIOUtil::FormatOutput(kError,
             "ファイル {} を作成できませんでした．", output_file_name);
         return;
@@ -628,18 +581,14 @@ void ResultFileExporter::ExportAllLegPosAllSuccessfulSimulation(
 
     ofs << GetHeader() << "\n";
 
-    for (int j = 0; j < HexapodConst::kLegNum; ++j)
-    {
-        for (int k = 0; k < result_list_.size(); ++k)
-        {
+    for (int j = 0; j < HexapodConst::kLegNum; ++j) {
+        for (int k = 0; k < result_list_.size(); ++k) {
             if (result_list_[k].simulation_result != kSuccess) { continue; }
 
-            for (int l = 0; l < HexapodConst::kLegNum; ++l)
-            {
+            for (int l = 0; l < HexapodConst::kLegNum; ++l) {
                 std::optional<Vector3> past_pos;
 
-                for (const auto& recorder : result_list_[k].graph_search_result_recorder)
-                {
+                for (const auto& recorder : result_list_[k].graph_search_result_recorder) {
                     const Vector3 current_pos = recorder.result_node.leg_pos[l];
 
                     // 変化がない場合はスキップする．
@@ -648,18 +597,15 @@ void ResultFileExporter::ExportAllLegPosAllSuccessfulSimulation(
                     // 高さが変化している and 平行に移動している場合は中継点も出力する．
                     if (past_pos.has_value() &&
                         current_pos.z != past_pos.value().z &&
-                        current_pos.ProjectedXY() != past_pos.value().ProjectedXY())
-                    {
-                        if (current_pos.z < past_pos.value().z)
-                        {
+                        current_pos.ProjectedXY() != past_pos.value().ProjectedXY()) {
+                        if (current_pos.z < past_pos.value().z) {
                             const Vector3 relay_point = Vector3(current_pos.x, current_pos.y, past_pos.value().z);
                             const auto joint_state = calculator_ptr_->CalculateJointState(l, relay_point);
 
                             // 接地時
                             ofs << current_pos.GetLength() << "," << past_pos.value().z << ",true,g," << std::boolalpha << calculator_ptr_->IsValidJointState(l, relay_point, joint_state) << "," << l << "\n";
                         }
-                        else
-                        {
+                        else {
                             const Vector3 relay_point = Vector3(past_pos.value().x, past_pos.value().y, current_pos.z);
                             const auto joint_state = calculator_ptr_->CalculateJointState(l, relay_point);
 
@@ -681,13 +627,49 @@ void ResultFileExporter::ExportAllLegPosAllSuccessfulSimulation(
     }
 }
 
-std::string ResultFileExporter::GetHeader() const
-{
+void ResultFileExporter::ExportAllLegAngle(const std::string& path) const {
+    CmdIOUtil::InfoOutput("Outputs leg angles.");
+
+    for (int i = 0; i < result_list_.size(); ++i) {
+        std::ofstream ofs(
+            std::format("{}\\{}{}.csv", path, ResultFileConst::kLegAngleName, i + 1));
+
+        if (!ofs) {
+            CmdIOUtil::ErrorOutput("Failed to create file.");
+            return;
+        }
+
+        for (int j = 0; j < result_list_[i].graph_search_result_recorder.size() - 1; ++j) {
+            const auto& current = result_list_[i].graph_search_result_recorder[j].result_node;
+            const auto& next = result_list_[i].graph_search_result_recorder[j + 1].result_node;
+
+            // 補間ノードを作成する．
+            const auto interpolated_nodes =
+                interpolated_node_creator_ptr_->CreateInterpolatedNode(current, next);
+
+            for (const auto& node : interpolated_nodes) {
+                // 逆運動学で関節角度を計算する．
+                const auto joint_states = calculator_ptr_->CalculateAllJointState(node);
+
+                for (int k = 0; k < HexapodConst::kLegNum; ++k) {
+                    for (int l = 0; l < joint_states[k].joint_angle.size(); ++l) {
+                        ofs << math_util::ConvertRadToDeg(joint_states[k].joint_angle[l]) << ",";
+                    }
+                }
+
+                ofs << "\n";
+            }
+        }
+    }
+}
+
+std::string ResultFileExporter::GetHeader() const {
     return "x,z,relay,string,error,index";
 }
 
-std::string ResultFileExporter::GetLegChangeStatus(const std::optional<Vector3>& past, const Vector3& current) const
-{
+std::string ResultFileExporter::GetLegChangeStatus(
+    const std::optional<Vector3>& past,
+    const Vector3& current) const {
     if (!past.has_value()) { return "f"; }
 
     if (math_util::IsEqual(past.value().z, current.z)) { return "b"; }

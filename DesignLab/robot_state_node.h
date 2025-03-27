@@ -20,7 +20,6 @@
 #include "leg_state.h"
 #include "math_quaternion.h"
 #include "math_vector3.h"
-#include "robot_operation.h"
 
 
 namespace designlab

@@ -163,7 +163,7 @@ int main() {
                     std::make_unique<NodeInitializer>(sim_setting_record.initial_positions,
                                                       sim_setting_record.initial_posture,
                                                       sim_setting_record.initial_move);
-                auto result_exporter = std::make_shared<ResultFileExporter>(phantomx_mk2);
+                auto result_exporter = std::make_shared<ResultFileExporter>(phantomx_mk2, phantomx_mk2);
 
                 const auto graphic_data_broker = std::make_shared<GraphicDataBroker>();
 
