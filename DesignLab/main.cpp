@@ -216,7 +216,7 @@ int main() {
                 break;
             }
             case BootMode::kDisplayModel: {
-                auto phantomx_mk2 = LoadPhantomXMkII();
+                auto phantomx_mk2 = LoadXrR1();
 
                 std::unique_ptr<IGraphicMain> graphic_main_test =
                     std::make_unique<GraphicMainDisplayModel>(
@@ -231,7 +231,7 @@ int main() {
             }
             case BootMode::kResultViewer: {
                 // 結果表示システムクラスを作成する．
-                auto phantomx_mk2 = LoadPhantomXMkII();
+                auto phantomx_mk2 = LoadXrR1();
                 auto graphic_data_broker = std::make_shared<GraphicDataBroker>();
 
                 system_main = std::make_unique<SystemMainResultViewer>(graphic_data_broker, app_setting_record, phantomx_mk2, phantomx_mk2);

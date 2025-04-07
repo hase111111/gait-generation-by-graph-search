@@ -15,7 +15,7 @@ namespace designlab {
 
 struct XrR1ParameterRecord final {
     //!  地面から胴体を持ち上げる高さ[mm]．最小ここまで下げられる．
-    float body_lifting_height_min{ 40.f };
+    float body_lifting_height_min{ 50.f };
 
     //!  地面から胴体を持ち上げる高さ[mm]．最大ここまで上げられる．
     float body_lifting_height_max{ 160.f };
