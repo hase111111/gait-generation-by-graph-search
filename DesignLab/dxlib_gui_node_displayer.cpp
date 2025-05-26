@@ -86,13 +86,11 @@ DxlibGuiNodeDisplayer::DxlibGuiNodeDisplayer(
     button_.back()->SetActivateFunction([this]() { SetVisible(false); });
 }
 
-void DxlibGuiNodeDisplayer::SetNode(const RobotStateNode& node)
-{
+void DxlibGuiNodeDisplayer::SetNode(const RobotStateNode& node) {
     // ノードをセットする．
     display_node_ = node;
 
-    if (!calculator_ptr_)
-    {
+    if (!calculator_ptr_) {
         return;
     }
 
@@ -100,48 +98,39 @@ void DxlibGuiNodeDisplayer::SetNode(const RobotStateNode& node)
     joint_state_ = calculator_ptr_->CalculateAllJointState(display_node_);
 }
 
-void DxlibGuiNodeDisplayer::Update()
-{
+void DxlibGuiNodeDisplayer::Update() {
     // ボタンの更新を行う．
-    for (auto& button : button_)
-    {
+    for (auto& button : button_) {
         button->Update();
     }
 
-    if (!IsInWindow())
-    {
+    if (!IsInWindow()) {
         SetVisible(false);
     }
 }
 
-void DxlibGuiNodeDisplayer::Draw() const
-{
+void DxlibGuiNodeDisplayer::Draw() const {
     // 枠．
     DrawBackground("NodeDisplay");
 
     // テキスト．
-    if (display_type_ == DisplayMode::kDefualt)
-    {
+    if (display_type_ == DisplayMode::kDefualt) {
         DrawNodeInfo();
     }
-    else if (display_type_ == DisplayMode::kJointState)
-    {
+    else if (display_type_ == DisplayMode::kJointState) {
         DrawJointInfo();
     }
-    else if (display_type_ == DisplayMode::kGlobalPos)
-    {
+    else if (display_type_ == DisplayMode::kGlobalPos) {
         DrawGlobalPosInfo();
     }
 
     // ボタンを描画する．
-    for (auto& button : button_)
-    {
+    for (auto& button : button_) {
         button->Draw();
     }
 }
 
-void DxlibGuiNodeDisplayer::DrawNodeInfo() const
-{
+void DxlibGuiNodeDisplayer::DrawNodeInfo() const {
     using string_util::EnumToStringRemoveTopK;
 
     const unsigned int text_color = GetColor(10, 10, 10);
@@ -178,30 +167,25 @@ void DxlibGuiNodeDisplayer::DrawNodeInfo() const
     std::string str_leg_pos_left = "";
     std::string str_ground = "";
 
-    for (int i = 0; i < HexapodConst::kLegNum; i++)
-    {
-        if (leg_func::IsGrounded(display_node_.leg_state, i))
-        {
+    for (int i = 0; i < HexapodConst::kLegNum; i++) {
+        if (leg_func::IsGrounded(display_node_.leg_state, i)) {
             str_ground += "接地,";
         }
-        else
-        {
+        else {
             str_ground += "遊脚,";
         }
 
         const enums::DiscreteLegPos pos =
             leg_func::GetDiscreteLegPos(display_node_.leg_state, i);
 
-        if (i < HexapodConst::kLegNum / 2)
-        {
+        if (i < HexapodConst::kLegNum / 2) {
             str_leg_pos_right += std::format(
                 "{}-{}({}), ",
                 leg_name[i],
                 EnumToStringRemoveTopK(pos),
                 static_cast<int>(pos));
         }
-        else
-        {
+        else {
             str_leg_pos_left += std::format(
                 "{}-{}({}), ",
                 leg_name[i],
@@ -209,6 +193,7 @@ void DxlibGuiNodeDisplayer::DrawNodeInfo() const
                 static_cast<int>(pos));
         }
     }
+
     DrawFormatStringToHandle(
         text_pos_x,
         text_pos_y_min + text_interval_y * (text_line++),
@@ -276,8 +261,7 @@ void DxlibGuiNodeDisplayer::DrawNodeInfo() const
         text_color, font_handle_,
         "脚位置");
 
-    for (int i = 0; i < HexapodConst::kLegNum; i++)
-    {
+    for (int i = 0; i < HexapodConst::kLegNum; i++) {
         DrawFormatStringToHandle(
             text_pos_x,
             text_pos_y_min + text_interval_y * (text_line++),
@@ -288,18 +272,15 @@ void DxlibGuiNodeDisplayer::DrawNodeInfo() const
     }
 
     // 脚の基準座標を表示する．
-    for (int i = 0; i < HexapodConst::kLegNum; i++)
-    {
-        if (display_node_.leg_pos[i] == display_node_.leg_reference_pos[i])
-        {
+    for (int i = 0; i < HexapodConst::kLegNum; i++) {
+        if (display_node_.leg_pos[i] == display_node_.leg_reference_pos[i]) {
             DrawFormatStringToHandle(
                 text_pos_x,
                 text_pos_y_min + text_interval_y * (text_line++),
                 text_color_dark, font_handle_,
                 " %s脚の基準座標は現在の脚位置と同じです．", leg_name[i].c_str());
         }
-        else
-        {
+        else {
             DrawFormatStringToHandle(
                 text_pos_x,
                 text_pos_y_min + text_interval_y * (text_line++),
@@ -330,8 +311,7 @@ void DxlibGuiNodeDisplayer::DrawNodeInfo() const
         "指定がなければ単位は長さが[mm]，角度が[rad]");
 }
 
-void DxlibGuiNodeDisplayer::DrawJointInfo() const
-{
+void DxlibGuiNodeDisplayer::DrawJointInfo() const {
     using math_util::FloatingPointNumToString;
     using math_util::ConvertRadToDeg;
 
@@ -341,8 +321,7 @@ void DxlibGuiNodeDisplayer::DrawJointInfo() const
     const int text_pos_y_min = gui_top_pos_y_ + kTitleBarHeight + 10;
     const int text_interval_y = 20;
 
-    if (!calculator_ptr_)
-    {
+    if (!calculator_ptr_) {
         DrawFormatStringToHandle(
             text_pos_x,
             text_pos_y_min + text_interval_y * 0,
@@ -351,8 +330,8 @@ void DxlibGuiNodeDisplayer::DrawJointInfo() const
             "計算クラスが nullptr です");
         return;
     }
-    if (!checker_ptr_)
-    {
+
+    if (!checker_ptr_) {
         DrawFormatStringToHandle(
             text_pos_x,
             text_pos_y_min + text_interval_y * 0,
@@ -362,10 +341,8 @@ void DxlibGuiNodeDisplayer::DrawJointInfo() const
         return;
     }
 
-    for (int i = 0; i < HexapodConst::kLegNum; i++)
-    {
-        if (joint_state_[i].joint_angle.size() != 3)
-        {
+    for (int i = 0; i < HexapodConst::kLegNum; i++) {
+        if (joint_state_[i].joint_angle.size() != 3) {
             DrawFormatStringToHandle(
                 text_pos_x,
                 text_pos_y_min + text_interval_y * 0,
@@ -375,6 +352,7 @@ void DxlibGuiNodeDisplayer::DrawJointInfo() const
 
             return;
         }
+
         if (joint_state_[i].joint_pos_leg_coordinate.size() != 4)
         {
             DrawFormatStringToHandle(
@@ -391,8 +369,7 @@ void DxlibGuiNodeDisplayer::DrawJointInfo() const
     int text_line = 0;
 
 
-    for (int i = 0; i < HexapodConst::kLegNum; i++)
-    {
+    for (int i = 0; i < HexapodConst::kLegNum; i++) {
         const float coxa_angle_deg =
             ConvertRadToDeg(joint_state_[i].joint_angle[0]);
         const float femur_angle_deg =
@@ -430,8 +407,7 @@ void DxlibGuiNodeDisplayer::DrawJointInfo() const
 
 
         if (checker_ptr_->IsLegInRange(
-            i, joint_state_[i].joint_pos_leg_coordinate[3]))
-        {
+            i, joint_state_[i].joint_pos_leg_coordinate[3])) {
             DrawFormatStringToHandle(
                 text_pos_x,
                 text_pos_y_min + text_interval_y * (text_line++),
@@ -439,8 +415,7 @@ void DxlibGuiNodeDisplayer::DrawJointInfo() const
                 font_handle_,
                 "    近似値された可動域内にあります．");
         }
-        else
-        {
+        else {
             DrawFormatStringToHandle(
                 text_pos_x,
                 text_pos_y_min + text_interval_y * (text_line++),
@@ -459,43 +434,35 @@ void DxlibGuiNodeDisplayer::DrawJointInfo() const
             PhantomXMkIIConst::kCoxaDefaultAngle[i] +
             PhantomXMkIIConst::kCoxaAngleMax;
 
-        if (joint_state_[i].joint_angle[0] < coxa_min_angle)
-        {
+        if (joint_state_[i].joint_angle[0] < coxa_min_angle) {
             str += "coxa_min ";
         }
 
-        if (joint_state_[i].joint_angle[0] > coxa_max_angle)
-        {
+        if (joint_state_[i].joint_angle[0] > coxa_max_angle) {
             str += "coxa_max ";
         }
 
-        if (joint_state_[i].joint_angle[1] < PhantomXMkIIConst::kFemurAngleMin)
-        {
+        if (joint_state_[i].joint_angle[1] < PhantomXMkIIConst::kFemurAngleMin) {
             str += "femur_min ";
         }
 
-        if (joint_state_[i].joint_angle[1] > PhantomXMkIIConst::kFemurAngleMax)
-        {
+        if (joint_state_[i].joint_angle[1] > PhantomXMkIIConst::kFemurAngleMax) {
             str += "femur_max ";
         }
 
-        if (joint_state_[i].joint_angle[2] < PhantomXMkIIConst::kTibiaAngleMin)
-        {
+        if (joint_state_[i].joint_angle[2] < PhantomXMkIIConst::kTibiaAngleMin) {
             str += "tibia_min ";
         }
 
-        if (joint_state_[i].joint_angle[2] > PhantomXMkIIConst::kTibiaAngleMax)
-        {
+        if (joint_state_[i].joint_angle[2] > PhantomXMkIIConst::kTibiaAngleMax) {
             str += "tibia_max ";
         }
 
-        if (!joint_state_[i].is_in_range)
-        {
+        if (!joint_state_[i].is_in_range) {
             str += "脚先が届いていません ";
         }
 
-        if (!str.empty())
-        {
+        if (!str.empty()) {
             const size_t max_str_size = 30;
             if (str.size() > max_str_size) { str = str.substr(0, max_str_size); }
 
@@ -506,8 +473,7 @@ void DxlibGuiNodeDisplayer::DrawJointInfo() const
                 font_handle_,
                 "    実際の可動域の外です． %s", str.c_str());
         }
-        else
-        {
+        else {
             DrawFormatStringToHandle(
                 text_pos_x,
                 text_pos_y_min + text_interval_y * (text_line++),
@@ -518,8 +484,7 @@ void DxlibGuiNodeDisplayer::DrawJointInfo() const
     }
 }
 
-void DxlibGuiNodeDisplayer::DrawGlobalPosInfo() const
-{
+void DxlibGuiNodeDisplayer::DrawGlobalPosInfo() const {
     const unsigned int text_color = GetColor(10, 10, 10);
     const int text_pos_x = gui_left_pos_x_ + 10;
     const int text_pos_y_min = gui_top_pos_y_ + kTitleBarHeight + 10;
@@ -535,8 +500,7 @@ void DxlibGuiNodeDisplayer::DrawGlobalPosInfo() const
                              font_handle_,
                              "脚先座標(ローカル座標)");
 
-    for (int i = 0; i < HexapodConst::kLegNum; i++)
-    {
+    for (int i = 0; i < HexapodConst::kLegNum; i++) {
         DrawFormatStringToHandle(
             text_pos_x,
             text_pos_y_min + text_interval_y * (text_line++),
@@ -555,8 +519,7 @@ void DxlibGuiNodeDisplayer::DrawGlobalPosInfo() const
                              font_handle_,
                              "脚先座標(ロボット座標)");
 
-    for (int i = 0; i < HexapodConst::kLegNum; i++)
-    {
+    for (int i = 0; i < HexapodConst::kLegNum; i++) {
         const std::string str =
             converter_ptr_->ConvertLegToRobotCoordinate(
                 display_node_.leg_pos[i], i).ToString();
@@ -586,8 +549,7 @@ void DxlibGuiNodeDisplayer::DrawGlobalPosInfo() const
 
     ++text_line;
 
-    for (int i = 0; i < HexapodConst::kLegNum; i++)
-    {
+    for (int i = 0; i < HexapodConst::kLegNum; i++) {
         DrawFormatStringToHandle(
             text_pos_x,
             text_pos_y_min + text_interval_y * (text_line++),
@@ -605,9 +567,8 @@ void DxlibGuiNodeDisplayer::DrawGlobalPosInfo() const
 
     ++text_line;
 
-    // 脚先の付け根からの距離を表示する．
-    for (int i = 0; i < HexapodConst::kLegNum; i++)
-    {
+    // 脚先の付け根からの距離を表示する． 
+    for (int i = 0; i < HexapodConst::kLegNum; i++) {
         DrawFormatStringToHandle(
                     text_pos_x + width_ / 2 * (i % 2),
                     text_pos_y_min + text_interval_y * text_line,
@@ -621,8 +582,7 @@ void DxlibGuiNodeDisplayer::DrawGlobalPosInfo() const
     }
 }
 
-bool DxlibGuiNodeDisplayer::IsInWindow() const
-{
+bool DxlibGuiNodeDisplayer::IsInWindow() const {
     return gui_left_pos_x_ < window_x_ && gui_top_pos_y_ < window_y_ &&
         0 < gui_left_pos_x_ + width_ && 0 < gui_top_pos_y_ + height_;
 }
