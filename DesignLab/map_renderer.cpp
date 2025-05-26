@@ -19,7 +19,7 @@ MapRenderer::MapRenderer() :
     color_gray_(GetColor(180, 80, 80)),
     color_light_gray_(GetColor(200, 160, 160)),
     color_dark_gray_(GetColor(40, 40, 40)),
-    cube_size_(20.f)
+    cube_size_(15.f)
 {
 }
 

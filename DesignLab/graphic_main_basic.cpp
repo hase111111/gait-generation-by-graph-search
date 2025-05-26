@@ -187,7 +187,7 @@ void GraphicMainBasic::Draw() const
     // 移動軌跡を描画する．
     movement_locus_renderer_.Draw(display_node_switch_gui_->GetSimulationNum());
 
-    // robot_ground_point_renderer_.Draw(display_node_switch_gui_->GetSimulationNum());
+    robot_ground_point_renderer_.Draw(display_node_switch_gui_->GetSimulationNum());
 
     // 2DのGUIの描画．
     gui_updater_.Draw();

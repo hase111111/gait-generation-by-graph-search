@@ -40,15 +40,15 @@ RobotStateNode NodeInitializer::InitNode() const {
         res.leg_pos[i] = res.leg_reference_pos[i] = {
           160.f * cos(PhantomXMkIIConst::kCoxaDefaultAngle[i]),
           160.f * sin(PhantomXMkIIConst::kCoxaDefaultAngle[i]),
-          -30.0f  // - com_z
+          -com_z
         };
     }
 
     res.center_of_mass_global_coord = pos_;
 
     // 座標をランダマイズする．
-    res.center_of_mass_global_coord.x += math_util::GenerateRandomNumber(-30.f, 30.f);
-    res.center_of_mass_global_coord.y += math_util::GenerateRandomNumber(-30.f, 30.f);
+    //res.center_of_mass_global_coord.x += math_util::GenerateRandomNumber(-30.f, 30.f);
+    //res.center_of_mass_global_coord.y += math_util::GenerateRandomNumber(-30.f, 30.f);
 
     // 15 deg
     // res.leg_pos[0].z -= 20.0f;

@@ -15,7 +15,7 @@ namespace designlab {
 
 struct XrR1ParameterRecord final {
     //!  地面から胴体を持ち上げる高さ[mm]．最小ここまで下げられる．
-    float body_lifting_height_min{ 50.f };
+    float body_lifting_height_min{ 60.f };
 
     //!  地面から胴体を持ち上げる高さ[mm]．最大ここまで上げられる．
     float body_lifting_height_max{ 160.f };
@@ -26,7 +26,7 @@ struct XrR1ParameterRecord final {
 
 
     float min_leg_range{ 140.f };   //!< 脚の付け根から脚先までの最小距離[mm]
-    float max_leg_range{ 250.f };   //!< 脚の付け根から脚先までの最大距離[mm]
+    float max_leg_range{ 195.f };   //!< 脚の付け根から脚先までの最大距離[mm]
 
 
     float free_leg_height{ -30.f };  //!< 重心から見た遊脚高さ[mm]．
