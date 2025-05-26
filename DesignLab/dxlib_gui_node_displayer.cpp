@@ -21,8 +21,7 @@
 #include "phantomx_mk2_const.h"
 
 
-namespace designlab
-{
+namespace designlab {
 
 DxlibGuiNodeDisplayer::DxlibGuiNodeDisplayer(
     const int pos_x,
@@ -36,8 +35,7 @@ DxlibGuiNodeDisplayer::DxlibGuiNodeDisplayer(
     checker_ptr_(checker_ptr),
     display_type_(DisplayMode::kDefualt),
     window_x_(pos_x),
-    window_y_(pos_y)
-{
+    window_y_(pos_y) {
     // ボタンを作成する．
     const int button_size_x = 90;
     const int button_size_y = 30;
@@ -353,8 +351,7 @@ void DxlibGuiNodeDisplayer::DrawJointInfo() const {
             return;
         }
 
-        if (joint_state_[i].joint_pos_leg_coordinate.size() != 4)
-        {
+        if (joint_state_[i].joint_pos_leg_coordinate.size() != 4) {
             DrawFormatStringToHandle(
                 text_pos_x,
                 text_pos_y_min + text_interval_y * 0,
