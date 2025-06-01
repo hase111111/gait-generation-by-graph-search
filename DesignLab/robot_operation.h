@@ -33,8 +33,7 @@ namespace designlab
 //! @n C++ には enum と enum class という2通りの列挙体があるが，
 //! 安全のため enum class の使用をおすすめする．
 //! @n よくわからない場合は， RobotOperationType の記述を真似してみること．
-enum class RobotOperationType : int
-{
+enum class RobotOperationType : int {
     kNone,                  //!< 無効値．
     kStraightMoveVector,    //!< 直線移動をさせる（移動したい方向をベクトルで示す）
     kStraightMovePosition,  //!< 直線移動をさせる（移動したい座標を示す）
@@ -48,8 +47,7 @@ enum class RobotOperationType : int
 //! @brief 探索において目標となる座標や角度，評価する値についてまとめた構造体．
 //! @details
 //! 先行研究では target という名前だった．
-struct RobotOperation final
-{
+struct RobotOperation final {
     //!< 目標方向．正規化されたベクトル．
     Vector3 straight_move_vector{ 1.f, 0.f, 0.f };
 
@@ -77,8 +75,7 @@ private:
 };
 
 
-DESIGNLAB_TOML11_DESCRIPTION_CLASS(RobotOperation)
-{
+DESIGNLAB_TOML11_DESCRIPTION_CLASS(RobotOperation) {
     DESIGNLAB_TOML11_FILE_ADD_DESCRIPTION("Note that this file is not referenced by some settings.");
 
     DESIGNLAB_TOML11_TABLE_NO_DESCRIPTION();

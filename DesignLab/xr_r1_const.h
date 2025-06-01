@@ -14,15 +14,13 @@
 #include "math_util.h"
 
 
-namespace designlab
-{
+namespace designlab {
 
 //! @class XR_R1Const
 //! @brief XR-R1 のパラメータを定数で表現したもの．
 //! @details
 //! 座標系はロボット前方にx軸，左方向にy軸，上方向にz軸をとる右手座標系である．
-class XrR1Const final
-{
+class XrR1Const final {
 private:
     constexpr static  int kPhantomXLegNum = 6;
 
