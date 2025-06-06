@@ -72,7 +72,7 @@ void NodeCreatorBuilderBodyRot::Build(
       checker_ptr_,
       HexapodMove::kComMove);
 
-    (*node_creator)[HexapodMove::kComMove] = std::make_unique<NodeCreatorComMove>(
+    (*node_creator)[HexapodMove::kComMove] = std::make_unique<NodeCreatorComMoveStraight>(
       map,
       converter_ptr_,
       presenter_ptr_,

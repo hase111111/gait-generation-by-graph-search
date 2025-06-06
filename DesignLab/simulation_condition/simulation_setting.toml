@@ -37,7 +37,7 @@
 [Map]
     
     #マップの作成方法を設定します．( "kForSimulation" / "kFromFile" )
-    map_create_mode = "kFromFile" 
+    map_create_mode = "kForSimulation" 
     
     #マップの作成方法がファイルから読み込むモード ( FromFile ) の場合，マップの csvファイルの名前を設定します．
     map_file_name = "../result/expriment_50percent_hole_20250508_1716_58/map_state1.csv"

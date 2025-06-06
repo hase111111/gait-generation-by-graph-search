@@ -25,6 +25,7 @@
     <ClInclude Include="asyncable_data_test.h" />
     <ClInclude Include="document.h" />
     <ClInclude Include="dxlib_gui_robot_control.h" />
+    <ClInclude Include="gpg_builder_change_posture.h" />
     <ClInclude Include="gpg_builder_flat.h" />
     <ClInclude Include="graphic_main_robot_control.h" />
     <ClInclude Include="graph_com_plotter.h" />
@@ -210,6 +211,7 @@
     <ClCompile Include="gait_pattern_generator_switch_move.cpp" />
     <ClCompile Include="gait_pattern_generator_thread.cpp" />
     <ClCompile Include="gait_pattern_graph_tree.cpp" />
+    <ClCompile Include="gpg_builder_change_posture.cpp" />
     <ClCompile Include="gpg_builder_flat.cpp" />
     <ClCompile Include="graphic_main_robot_control.cpp" />
     <ClCompile Include="graph_com_plotter.cpp" />

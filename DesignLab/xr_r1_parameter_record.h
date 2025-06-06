@@ -21,18 +21,18 @@ struct XrR1ParameterRecord final {
     float body_lifting_height_max{ 160.f };
 
 
-    float movable_coxa_angle_min_deg{ -40.f };  //!< 脚の可動範囲の最小値[deg]
-    float movable_coxa_angle_max_deg{ 40.f };   //!< 脚の可動範囲の最大値[deg]
+    float movable_coxa_angle_min_deg{ -35.f };  //!< 脚の可動範囲の最小値[deg]
+    float movable_coxa_angle_max_deg{ 35.f };   //!< 脚の可動範囲の最大値[deg]
 
 
-    float min_leg_range{ 140.f };   //!< 脚の付け根から脚先までの最小距離[mm]
-    float max_leg_range{ 195.f };   //!< 脚の付け根から脚先までの最大距離[mm]
+    float min_leg_range{ 135.f };   //!< 脚の付け根から脚先までの最小距離[mm]
+    float max_leg_range{ 200.f };   //!< 脚の付け根から脚先までの最大距離[mm]
 
 
-    float free_leg_height{ -30.f };  //!< 重心から見た遊脚高さ[mm]．
+    float free_leg_height{ -40.f };  //!< 重心から見た遊脚高さ[mm]．
 
     //! 静的安全余裕．15mm程度が妥当な値となる．(先行研究より，MAXで40mm程度)
-    float stable_margin{ 15.f };
+    float stable_margin{ 10.f };
 };
 
 

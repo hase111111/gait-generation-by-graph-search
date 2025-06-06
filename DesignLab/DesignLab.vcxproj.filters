@@ -696,6 +696,9 @@
     <ClInclude Include="xr_r1_parameter_record.h">
       <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
+    <ClInclude Include="gpg_builder_change_posture.h">
+      <Filter>ソース ファイル\GaitPatternGenerator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
@@ -1036,6 +1039,9 @@
     </ClCompile>
     <ClCompile Include="xr_r1.cpp">
       <Filter>ソース ファイル\Hexapod</Filter>
+    </ClCompile>
+    <ClCompile Include="gpg_builder_change_posture.cpp">
+      <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

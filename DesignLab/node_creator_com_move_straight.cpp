@@ -25,9 +25,13 @@ NodeCreatorComMoveStraight::NodeCreatorComMoveStraight(
     checker_ptr_(checker_ptr) {
     for (size_t i = 0; i < kCandidateDirectionNum; ++i) {
         const float rad = static_cast<float>(i) * 2.f * std::numbers::pi_v<float> /
-            static_cast<float>(kCandidateDirectionNum);
+            static_cast<float>(kCandidateDirectionNum) + std::numbers::pi_v<float> / 16;
 
         candidate_directions_[i] = Vector3(std::cos(rad), std::sin(rad), 0.0f);
+
+        if (std::cos(rad) < 0.0f) {
+            candidate_directions_[i] *= -1.0f;  // x軸方向に負の値を持つ場合は反転する
+        }
     }
 }
 

@@ -42,8 +42,8 @@ public:
 
 private:
     static constexpr int kCandidateDirectionNum = 8;  //!< 候補となる移動方向の数．
-    static constexpr float kMaxMoveDistance = 60.f;  //!< 重心の移動距離の最大値．
-    static constexpr float kMoveDistanceStep = 10.f;  //!< 重心の移動距離の刻み幅．
+    static constexpr float kMaxMoveDistance = 70.f;  //!< 重心の移動距離の最大値．
+    static constexpr float kMoveDistanceStep = 5.f;  //!< 重心の移動距離の刻み幅．
 
     const DividedMapState map_;  //!< 地面の状態を格納したクラス．
     const HexapodMove next_move_;  //!< 次の動作．

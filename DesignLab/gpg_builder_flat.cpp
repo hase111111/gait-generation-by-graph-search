@@ -14,6 +14,7 @@
 #include "graph_tree_creator.h"
 #include "gait_pattern_generator_basic.h"
 #include "node_creator_builder_straight_move.h"
+#include "node_creator_builder_body_rot.h"
 
 namespace designlab {
 
@@ -31,7 +32,7 @@ GpgBuilderFlat::GpgBuilderFlat(
 
 std::unique_ptr<IGaitPatternGenerator> GpgBuilderFlat::Build() const {
     auto node_creator_builder =
-        std::make_unique<NodeCreatorBuilderStraightMove>(
+        std::make_unique<NodeCreatorBuilderBodyRot>(
             converter_ptr_, presenter_ptr_, checker_ptr_);
     auto graph_tree_creator =
         std::make_unique<GraphTreeCreator>(std::move(node_creator_builder));
@@ -40,7 +41,7 @@ std::unique_ptr<IGaitPatternGenerator> GpgBuilderFlat::Build() const {
 
     auto gait_pattern_generator =
         std::make_unique<GaitPatternGeneratorBasic>(
-            std::move(graph_tree_creator), std::move(graph_searcher), 4, 40000000);
+            std::move(graph_tree_creator), std::move(graph_searcher), 5, 50000000);
 
     return std::move(gait_pattern_generator);
 }
