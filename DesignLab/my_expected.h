@@ -20,8 +20,8 @@
 namespace designlab::nostd {
 
 // 自作の例外 bad_expected_access
-template <>
-class bad_expected_access<void> : public std::exception {
+template <typename T>
+class bad_expected_access : public std::exception {
  public:
   explicit bad_expected_access(const std::string& msg) : message_(msg) {}
   explicit bad_expected_access(const char* msg) : message_(msg) {}
@@ -31,9 +31,6 @@ class bad_expected_access<void> : public std::exception {
  private:
   std::string message_;
 };
-
-template <typename T>
-class bad_expected_access : public bad_expected_access<void> {};
 
 //! @brief 自作の expected クラス
 //! @tparam T 型 T は成功時の値の型
@@ -45,12 +42,29 @@ class expected {
   using error_type = E;
   using unexpected_type = unexpected<E>;
 
-  constexpr expected(const T& val) : storage_(val), has_value_(true) {}
-  constexpr expected(T&& val) : storage_(std::move(val)), has_value_(true) {}
-  constexpr expected(const unexpected<E>& err)
-      : storage_(err), has_value_(false) {}
-  constexpr expected(unexpected<E>&& err)
-      : storage_(std::move(err)), has_value_(false) {}
+  constexpr expected() : storage_(T{}), has_value_(true) {}
+  constexpr expected(const expected& rhs)
+      : storage_(rhs.storage_), has_value_(rhs.has_value_) {}
+  constexpr expected(expected&& rhs) noexcept
+      : storage_(std::move(rhs.storage_)), has_value_(rhs.has_value_) {}
+
+  template <class U, class G>
+  constexpr expected(const expected<U, G>& rhs)
+      : storage_(rhs.storage_), has_value_(rhs.has_value_) {}
+  template <class U, class G>
+  constexpr expected(const expected<U, G>&& rhs) noexcept
+      : storage_(std::move(rhs.storage_)), has_value_(rhs.has_value_) {}
+
+  template <class U = T>
+  constexpr expected(U&& v)
+    requires(std::is_constructible_v<T, U> &&
+             !std::is_same_v<expected, std::remove_cvref_t<U>> &&
+             !std::is_same_v<std::remove_cvref_t<U>, std::in_place_t>)
+      : storage_(v), has_value_(true) {}
+
+  template <class G>
+  constexpr expected(const unexpected<G>& e)
+      : storage_(unexpected(e.error())), has_value_(false) {}
 
   constexpr ~expected() = default;  //!< デストラクタ
 
