@@ -8,7 +8,6 @@
 #ifndef DESIGNLAB_CASSERT_DEFINE_H_
 #define DESIGNLAB_CASSERT_DEFINE_H_
 
-
 // Visual Studioでは，デバッグモードではアサートを有効化し，
 // リリースモードではアサートを無効化する．
 // しかし，このプログラムは処理が重いせいで，
@@ -24,7 +23,6 @@
 // 逆に，#define NDEBUG は，assertを無効化する．
 // これらの処理は，cassertのインクルードより前に行う必要がある．
 
-
 #ifndef _DEBUG  // if not define _DEBUG つまり，リリースモードの場合，
 
 // アサートを有効化する場合は，以下の行のコメント( // )をはずすこと
@@ -32,8 +30,6 @@
 
 #endif  // _DEBUG
 
-
 #include <cassert>
-
 
 #endif  // DESIGNLAB_CASSERT_DEFINE_H_

@@ -23,24 +23,21 @@
 namespace designlab {
 
 //! @struct RobotStateNode
-//! @brief グラフ構造のためのノード(頂点)．旧名 LNODE
+//! @brief グラフ構造のためのノード(頂点).
 //! @details
-//! この構造体は，グラフ構造のためのノード(頂点)である．
+//! この構造体は，グラフ構造のためのノード(頂点)である.
 //! @n ノードは，脚の状態，脚先の座標，脚接地の基準点の座標，重心の位置，
 //! ロールピッチヨーの回転角度，親ノードの番号，次の動作，深さを持つ．
 //! @n すなわちロボットの現在の状態を表している．
-//! しかし，脚の関節角度など一部の情報を持ってはいない．
-//! @n これは実時間内に，グラフ探索を終えるための工夫である．
+//! しかし，脚の関節角度など一部の情報を持ってはいない.
+//! @n これは実時間内に，グラフ探索を終えるための工夫である.
 //! @n 先行研究のプログラムに比べて大きく内容を変更したが，
 //! 基本的な構造は同じである．
 //! また，ロボットの座標系は通例，進行方向をXの正，ロボットの真上をZの正，
 //! y軸は右手座標系でとる．
-//! このプログラムもそのように統一する．
-//! @n 過去のプログラムではそれがバラバラになっていたため，
-//! 途中で座標系を変換する処理が多々あったが，
-//! 煩雑なうえ，時間がかかるので，全て統一する．
+//! そのため，このプログラムもそのように統一する.
 struct RobotStateNode final {
-  static constexpr int kNoParentIndex = -1;  //!< 親がいないことを表す値．
+  static constexpr int kNoParentIndex = -1;  //!< 親がいないことを表す値.
 
   constexpr RobotStateNode()
       : leg_state(0),
@@ -80,7 +77,7 @@ struct RobotStateNode final {
   //! @details 脚位置は脚の付け根からの相対座標で表現されている．
   //! @n 遊脚している脚は一緒に移動するが，
   //! 接地脚は移動しないため座標を変更してやる必要がある．
-  void ChangeGlobalCenterOfMass(const designlab::Vector3& new_com,
+  void ChangeGlobalCenterOfMass(const Vector3& new_com,
                                 bool do_change_leg_base_pos);
 
   //! @brief クォータニオンを変更し，胴体を回転させる関数．
@@ -88,7 +85,7 @@ struct RobotStateNode final {
   //! @param[in] new_posture 新しい姿勢．単位クォータニオン．
   void ChangePosture(
       const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
-      const designlab::Quaternion& new_posture);
+      const Quaternion& new_posture);
 
   //! @brief 自身を根ノードに変更する関数．
   //! @n depthを0に，parent_numを-1に初期化する．

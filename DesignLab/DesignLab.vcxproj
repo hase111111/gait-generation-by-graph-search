@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -25,6 +25,7 @@
     <ClInclude Include="asyncable_data_test.h" />
     <ClInclude Include="document.h" />
     <ClInclude Include="dxlib_gui_robot_control.h" />
+    <ClInclude Include="my_expected.h" />
     <ClInclude Include="gpg_builder_change_posture.h" />
     <ClInclude Include="gpg_builder_flat.h" />
     <ClInclude Include="graphic_main_robot_control.h" />
@@ -39,10 +40,13 @@
     <ClInclude Include="math_line_segment2_test.h" />
     <ClInclude Include="math_rotation_matrix_test.h" />
     <ClInclude Include="math_vector2_test.h" />
+    <ClInclude Include="my_expected_concept.h" />
+    <ClInclude Include="my_unexpected_test.h" />
     <ClInclude Include="node_creator_builder_body_rot.h" />
     <ClInclude Include="node_creator_builder_ground_conforming_rot.h" />
     <ClInclude Include="node_creator_leg_hierarchy_test.h" />
     <ClInclude Include="node_creator_leg_up_down_radius.h" />
+    <ClInclude Include="my_unexpected.h" />
     <ClInclude Include="serial_communication_thread.h" />
     <ClInclude Include="string_util_test.h" />
     <ClInclude Include="divided_map_state_test.h" />

@@ -160,8 +160,11 @@
     <Filter Include="ソース ファイル\Node\NodeCreator\LegChanger\Test">
       <UniqueIdentifier>{897f7064-b408-4c86-b169-9101b40752d7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Common\Standard">
+    <Filter Include="ソース ファイル\Common\StandardLibraryLike">
       <UniqueIdentifier>{d446f023-75a5-4f18-bc2a-9c0434ac1eaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Common\StandardLibraryLike\Test">
+      <UniqueIdentifier>{575afc69-7456-45f3-b0b1-6d9e80044961}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -329,9 +332,6 @@
     </ClInclude>
     <ClInclude Include="interface_node_creator.h">
       <Filter>ソース ファイル\Node\NodeCreator</Filter>
-    </ClInclude>
-    <ClInclude Include="cassert_define.h">
-      <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="math_util.h">
       <Filter>ソース ファイル\Common\Math</Filter>
@@ -700,7 +700,22 @@
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
     <ClInclude Include="make_array.h">
-      <Filter>ソース ファイル\Common\Standard</Filter>
+      <Filter>ソース ファイル\Common\StandardLibraryLike</Filter>
+    </ClInclude>
+    <ClInclude Include="cassert_define.h">
+      <Filter>ソース ファイル\Common\StandardLibraryLike</Filter>
+    </ClInclude>
+    <ClInclude Include="my_expected.h">
+      <Filter>ソース ファイル\Common\StandardLibraryLike</Filter>
+    </ClInclude>
+    <ClInclude Include="my_unexpected.h">
+      <Filter>ソース ファイル\Common\StandardLibraryLike</Filter>
+    </ClInclude>
+    <ClInclude Include="my_expected_concept.h">
+      <Filter>ソース ファイル\Common\StandardLibraryLike</Filter>
+    </ClInclude>
+    <ClInclude Include="my_unexpected_test.h">
+      <Filter>ソース ファイル\Common\StandardLibraryLike\Test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
