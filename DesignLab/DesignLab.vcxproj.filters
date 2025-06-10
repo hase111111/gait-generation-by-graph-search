@@ -160,6 +160,9 @@
     <Filter Include="ソース ファイル\Node\NodeCreator\LegChanger\Test">
       <UniqueIdentifier>{897f7064-b408-4c86-b169-9101b40752d7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Common\Standard">
+      <UniqueIdentifier>{d446f023-75a5-4f18-bc2a-9c0434ac1eaf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="leg_state.h">
@@ -398,9 +401,6 @@
     </ClInclude>
     <ClInclude Include="math_rot_converter.h">
       <Filter>ソース ファイル\Common\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="array_util.h">
-      <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="com_selector.h">
       <Filter>ソース ファイル\Node\CenterofMass</Filter>
@@ -698,6 +698,9 @@
     </ClInclude>
     <ClInclude Include="gpg_builder_change_posture.h">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="make_array.h">
+      <Filter>ソース ファイル\Common\Standard</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -75,7 +75,7 @@
     <ClInclude Include="math_util_test.h" />
     <ClInclude Include="math_vector3_test.h" />
     <ClInclude Include="node_creator_body_rot.h" />
-    <ClInclude Include="array_util.h" />
+    <ClInclude Include="make_array.h" />
     <ClInclude Include="asyncable_data.h" />
     <ClInclude Include="boot_mode_selector.h" />
     <ClInclude Include="cassert_define.h" />
