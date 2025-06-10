@@ -5,7 +5,7 @@ root = true
 
 # Visual C++ コード スタイルの設定
 
-cpp_generate_documentation_comments = xml
+cpp_generate_documentation_comments = doxygen
 
 # Visual C++ の書式設定
 
@@ -71,14 +71,22 @@ cpp_wrap_preserve_blocks = one_liners
 
 
 # Visual C++ クリーンアップ設定を含める
+
 cpp_include_cleanup_add_missing_error_tag_type = suggestion
 cpp_include_cleanup_remove_unused_error_tag_type = dimmed
+cpp_include_cleanup_sort_after_edits = false
+cpp_sort_includes_error_tag_type = none
+cpp_sort_includes_priority_case_sensitive = false
+cpp_sort_includes_priority_style = quoted
+cpp_includes_style = default
+cpp_includes_use_forward_slash = true
 
 
 # 保存時の文字コードおよび改行コード
 end_of_line = crlf
 charset = utf-8-bom
-
+insert_final_newline = true
+trim_trailing_whitespace = true
 
 # 辞書
 spelling_use_default_exclusion_dictionary = true
