@@ -22,7 +22,7 @@
 #include "graphic_main_graph_viewer.h"
 #include "graphic_main_robot_control.h"
 #include "graphic_system.h"
-#include "map_creator_factory.h"
+#include "map_creator_selector.h"
 #include "phantomx_mk2.h"
 #include "robot_operator_factory.h"
 #include "simulation_end_checker_factory.h"
@@ -151,7 +151,7 @@ int main() {
             TomlFileImporter<SimulationSettingRecord>{}.ImportOrUseDefault(
                 "./simulation_condition/simulation_setting.toml");
 
-        auto map_creator = MapCreatorFactory::Create(sim_setting_record);
+        auto map_creator = MapCreatorSelector{}.Select(sim_setting_record);
         auto simulation_end_checker =
             SimulationEndCheckerFactory::Create(sim_setting_record);
         auto robot_operator = RobotOperatorFactory::Create(sim_setting_record);
@@ -189,7 +189,8 @@ int main() {
         auto phantomx_mk2 = LoadPhantomXMkII();
         auto graphic_data_broker = std::make_shared<GraphicDataBroker>();
 
-        auto map_creator = MapCreatorFactory::Create(simulation_setting_record);
+        auto map_creator =
+            MapCreatorSelector{}.Select(simulation_setting_record);
 
         // system_main = std::make_unique<SystemMainGraphViewer>(
         //    std::move(graph_tree_creator),

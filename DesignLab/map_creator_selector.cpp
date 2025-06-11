@@ -1,11 +1,11 @@
 ﻿
-//! @file map_creator_factory.cpp
+//! @file map_creator_selector.cpp
 
 // Copyright(c) 2023-2025 Design Engineering Laboratory, Saitama University
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#include "map_creator_factory.h"
+#include "map_creator_selector.h"
 
 #include <memory>
 #include <string>
@@ -20,8 +20,8 @@
 
 namespace designlab {
 
-std::unique_ptr<IMapCreator> MapCreatorFactory::Create(
-    const SimulationSettingRecord& record) {
+std::unique_ptr<IMapCreator> MapCreatorSelector::Select(
+    const SimulationSettingRecord& record) const {
   std::unique_ptr<IMapCreator> map_creator;
 
   if (record.map_create_mode == enums::MapCreateMode::kFromFile) {
