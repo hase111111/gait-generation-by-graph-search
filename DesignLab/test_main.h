@@ -31,6 +31,7 @@
 #include "math_util_test.h"
 #include "math_vector2_test.h"
 #include "math_vector3_test.h"
+#include "my_expected_test.h"
 #include "my_unexpected_test.h"
 #include "node_creator_leg_hierarchy_test.h"
 #include "simulation_map_parameter_validator_test.h"

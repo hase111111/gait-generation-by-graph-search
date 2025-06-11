@@ -717,6 +717,9 @@
     <ClInclude Include="my_unexpected_test.h">
       <Filter>ソース ファイル\Common\StandardLibraryLike\Test</Filter>
     </ClInclude>
+    <ClInclude Include="my_expected_test.h">
+      <Filter>ソース ファイル\Common\StandardLibraryLike\Test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
