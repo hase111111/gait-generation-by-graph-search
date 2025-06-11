@@ -16,48 +16,48 @@
 namespace designlab {
 
 MapCreatorForSimulation::MapCreatorForSimulation(
-    const SimulationMapParameter& messenger)
-    : messenger_(messenger) {
+    const SimulationMapParameter& param)
+    : parameter_(param) {
   // map_min_x が map_max_x より小さいことを確認する．
-  assert(messenger_.map_min_x < messenger_.map_max_x);
+  assert(parameter_.map_min_x < parameter_.map_max_x);
 
   // map_min_y が map_max_y より小さいことを確認する．
-  assert(messenger_.map_min_y < messenger_.map_max_y);
+  assert(parameter_.map_min_y < parameter_.map_max_y);
 }
 
-MapState MapCreatorForSimulation::InitMap() {
+MapState MapCreatorForSimulation::InitMap() const {
   std::vector<Vector3> map_data;
 
-  switch (messenger_.mode) {
-    case enums::SimulationMapMode::kFlat: {
+  switch (parameter_.mode) {
+    case SimulationMapMode::kFlat: {
       CreateFlatMap(&map_data);
       break;
     }
-    case enums::SimulationMapMode::kVerticalStripe: {
+    case SimulationMapMode::kVerticalStripe: {
       CreateVerticalStripeMap(&map_data);
       break;
     }
-    case enums::SimulationMapMode::kHorizontalStripe: {
+    case SimulationMapMode::kHorizontalStripe: {
       CreateHorizontalStripeMap(&map_data);
       break;
     }
-    case enums::SimulationMapMode::kDiagonalStripe: {
+    case SimulationMapMode::kDiagonalStripe: {
       CreateDiagonalStripeMap(&map_data);
       break;
     }
-    case enums::SimulationMapMode::kMesh: {
+    case SimulationMapMode::kMesh: {
       CreateMeshMap(&map_data);
       break;
     }
-    case enums::SimulationMapMode::kLatticePoint: {
+    case SimulationMapMode::kLatticePoint: {
       CreateLatticePointMap(&map_data);
       break;
     }
-    case enums::SimulationMapMode::kCircle: {
+    case SimulationMapMode::kCircle: {
       CreateCircleMap(&map_data);
       break;
     }
-    case enums::SimulationMapMode::kDonut: {
+    case SimulationMapMode::kDonut: {
       CreateDonutMap(&map_data);
       break;
     }
@@ -70,38 +70,38 @@ MapState MapCreatorForSimulation::InitMap() {
 
   // オプション指定に基づき，Z座標を変更する．
 
-  if (messenger_.option &
-      static_cast<unsigned int>(enums::SimulationMapOption::kPerforated)) {
+  if (parameter_.option &
+      static_cast<unsigned int>(SimulationMapOption::kPerforated)) {
     // 穴あき地形にする．
     ChangeMapToPerforated(&map_data);
   }
 
-  if (messenger_.option &
-      static_cast<unsigned int>(enums::SimulationMapOption::kStep)) {
+  if (parameter_.option &
+      static_cast<unsigned int>(SimulationMapOption::kStep)) {
     // 階段状にする．
     ChangeMapToStep(&map_data);
   }
 
-  if (messenger_.option &
-      static_cast<unsigned int>(enums::SimulationMapOption::kSlope)) {
+  if (parameter_.option &
+      static_cast<unsigned int>(SimulationMapOption::kSlope)) {
     // 坂道にする．
     ChangeMapToSlope(&map_data);
   }
 
-  if (messenger_.option &
-      static_cast<unsigned int>(enums::SimulationMapOption::kTilt)) {
+  if (parameter_.option &
+      static_cast<unsigned int>(SimulationMapOption::kTilt)) {
     // 坂道にする．
     ChangeMapToTilt(&map_data);
   }
 
-  if (messenger_.option &
-      static_cast<unsigned int>(enums::SimulationMapOption::kRough)) {
+  if (parameter_.option &
+      static_cast<unsigned int>(SimulationMapOption::kRough)) {
     // デコボコにする．
     ChangeMapToRough(&map_data);
   }
 
-  if (messenger_.option &
-      static_cast<unsigned int>(enums::SimulationMapOption::kRadiation)) {
+  if (parameter_.option &
+      static_cast<unsigned int>(SimulationMapOption::kRadiation)) {
     // 放射状に穴をあける．
     ChangeMapToRadial(&map_data);
   }
@@ -110,7 +110,7 @@ MapState MapCreatorForSimulation::InitMap() {
 }
 
 void MapCreatorForSimulation::UpdateMap(
-    [[maybe_unused]] MapState* current_map) {
+    [[maybe_unused]] MapState* current_map) const {
   // マップを更新する必要がないので，何もしない．
 }
 
@@ -119,23 +119,23 @@ void MapCreatorForSimulation::CreateFlatMap(std::vector<Vector3>* map) const {
   assert(map->empty());    // map が空であることを確認する．
 
   // マップの xとyの存在範囲全体に脚設置可能点を敷き詰める．
-  const float x_max = (messenger_.map_max_x - messenger_.map_min_x) /
+  const float x_max = (parameter_.map_max_x - parameter_.map_min_x) /
                       MapState::kMapPointDistance;
-  const float y_max = (messenger_.map_max_y - messenger_.map_min_y) /
+  const float y_max = (parameter_.map_max_y - parameter_.map_min_y) /
                       MapState::kMapPointDistance;
 
   for (int x = 0; x < x_max; x++) {
     for (int y = 0; y < y_max; y++) {
       // ロボットの正面方向．
       const float x_pos =
-          messenger_.map_min_x + x * MapState::kMapPointDistance;
+          parameter_.map_min_x + x * MapState::kMapPointDistance;
 
       // ロボットの側面方向．
       const float y_pos =
-          messenger_.map_min_y + y * MapState::kMapPointDistance;
+          parameter_.map_min_y + y * MapState::kMapPointDistance;
 
       map->push_back(
-          {x_pos, y_pos, messenger_.base_z});  // 脚設置可能点を追加する．
+          {x_pos, y_pos, parameter_.base_z});  // 脚設置可能点を追加する．
     }
   }
 }
@@ -146,30 +146,30 @@ void MapCreatorForSimulation::CreateVerticalStripeMap(
   assert(map->empty());    // map が空であることを確認する．
 
   // マップの xとyの存在範囲全体に脚設置可能点を敷き詰める．
-  const float x_max = (messenger_.map_max_x - messenger_.map_min_x) /
+  const float x_max = (parameter_.map_max_x - parameter_.map_min_x) /
                       MapState::kMapPointDistance;
-  const float y_max = (messenger_.map_max_y - messenger_.map_min_y) /
+  const float y_max = (parameter_.map_max_y - parameter_.map_min_y) /
                       MapState::kMapPointDistance;
 
   for (int x = 0; x < x_max; x++) {
     for (int y = 0; y < y_max; y++) {
       // 縦じまをつくるために，一定間隔ごとに追加する．最初の待機場所の座標ならば無条件に追加する．
       const float x_rough =
-          (messenger_.map_start_rough_x - messenger_.map_min_x) /
+          (parameter_.map_start_rough_x - parameter_.map_min_x) /
           MapState::kMapPointDistance;
 
-      if (y % (messenger_.stripe_interval * 2) < messenger_.stripe_interval ||
+      if (y % (parameter_.stripe_interval * 2) < parameter_.stripe_interval ||
           x < x_rough) {
         // ロボットの正面方向．
         const float x_pos =
-            messenger_.map_min_x + x * MapState::kMapPointDistance;
+            parameter_.map_min_x + x * MapState::kMapPointDistance;
 
         // ロボットの側面方向．
         const float y_pos =
-            messenger_.map_min_y + y * MapState::kMapPointDistance;
+            parameter_.map_min_y + y * MapState::kMapPointDistance;
 
         map->push_back(
-            {x_pos, y_pos, messenger_.base_z});  // 脚設置可能点を追加する．
+            {x_pos, y_pos, parameter_.base_z});  // 脚設置可能点を追加する．
       }
     }
   }
@@ -181,30 +181,30 @@ void MapCreatorForSimulation::CreateHorizontalStripeMap(
   assert(map->empty());    // map が空であることを確認する．
 
   // マップの xとyの存在範囲全体に脚設置可能点を敷き詰める．
-  const float x_max = (messenger_.map_max_x - messenger_.map_min_x) /
+  const float x_max = (parameter_.map_max_x - parameter_.map_min_x) /
                       MapState::kMapPointDistance;
-  const float y_max = (messenger_.map_max_y - messenger_.map_min_y) /
+  const float y_max = (parameter_.map_max_y - parameter_.map_min_y) /
                       MapState::kMapPointDistance;
 
   for (int x = 0; x < x_max; x++) {
     for (int y = 0; y < y_max; y++) {
       // 縦じまをつくるために，一定間隔ごとに追加する．最初の待機場所の座標ならば無条件に追加する．
       const float x_rough =
-          (messenger_.map_start_rough_x - messenger_.map_min_x) /
+          (parameter_.map_start_rough_x - parameter_.map_min_x) /
           MapState::kMapPointDistance;
 
-      if (x % (messenger_.stripe_interval * 2) < messenger_.stripe_interval ||
+      if (x % (parameter_.stripe_interval * 2) < parameter_.stripe_interval ||
           x < x_rough) {
         // ロボットの正面方向．
         const float x_pos =
-            messenger_.map_min_x + x * MapState::kMapPointDistance;
+            parameter_.map_min_x + x * MapState::kMapPointDistance;
 
         // ロボットの側面方向．
         const float y_pos =
-            messenger_.map_min_y + y * MapState::kMapPointDistance;
+            parameter_.map_min_y + y * MapState::kMapPointDistance;
 
         map->push_back(
-            {x_pos, y_pos, messenger_.base_z});  // 脚設置可能点を追加する．
+            {x_pos, y_pos, parameter_.base_z});  // 脚設置可能点を追加する．
       }
     }
   }
@@ -216,37 +216,37 @@ void MapCreatorForSimulation::CreateDiagonalStripeMap(
   assert(map->empty());    // map が空であることを確認する．
 
   // マップの xとyの存在範囲全体に脚設置可能点を敷き詰める．
-  const float x_max = (messenger_.map_max_x - messenger_.map_min_x) /
+  const float x_max = (parameter_.map_max_x - parameter_.map_min_x) /
                       MapState::kMapPointDistance;
-  const float y_max = (messenger_.map_max_y - messenger_.map_min_y) /
+  const float y_max = (parameter_.map_max_y - parameter_.map_min_y) /
                       MapState::kMapPointDistance;
 
   for (int x = 0; x < x_max; x++) {
     for (int y = 0; y < y_max; y++) {
       // 斜めじまをつくるために，一定間隔ごとに追加する．最初の待機場所の座標ならば無条件に追加する．
       const bool x_in_stripe =
-          x % (messenger_.stripe_interval * 2) < messenger_.stripe_interval;
+          x % (parameter_.stripe_interval * 2) < parameter_.stripe_interval;
 
       const bool y_in_stripe =
-          y % (messenger_.stripe_interval * 2) < messenger_.stripe_interval;
+          y % (parameter_.stripe_interval * 2) < parameter_.stripe_interval;
 
       const bool do_create_map = x_in_stripe == y_in_stripe;
 
       const float x_rough =
-          (messenger_.map_start_rough_x - messenger_.map_min_x) /
+          (parameter_.map_start_rough_x - parameter_.map_min_x) /
           MapState::kMapPointDistance;
 
       if (do_create_map || x < x_rough) {
         // ロボットの正面方向．
         const float x_pos =
-            messenger_.map_min_x + x * MapState::kMapPointDistance;
+            parameter_.map_min_x + x * MapState::kMapPointDistance;
 
         // ロボットの側面方向．
         const float y_pos =
-            messenger_.map_min_y + y * MapState::kMapPointDistance;
+            parameter_.map_min_y + y * MapState::kMapPointDistance;
 
         map->push_back(
-            {x_pos, y_pos, messenger_.base_z});  // 脚設置可能点を追加する．
+            {x_pos, y_pos, parameter_.base_z});  // 脚設置可能点を追加する．
       }
     }
   }
@@ -257,9 +257,9 @@ void MapCreatorForSimulation::CreateMeshMap(std::vector<Vector3>* map) const {
   assert(map->empty());    // map が空であることを確認する．
 
   // マップの xとyの存在範囲全体に脚設置可能点を敷き詰める．
-  const float x_max = (messenger_.map_max_x - messenger_.map_min_x) /
+  const float x_max = (parameter_.map_max_x - parameter_.map_min_x) /
                       MapState::kMapPointDistance;
-  const float y_max = (messenger_.map_max_y - messenger_.map_min_y) /
+  const float y_max = (parameter_.map_max_y - parameter_.map_min_y) /
                       MapState::kMapPointDistance;
 
   for (int x = 0; x < x_max; x++) {
@@ -268,9 +268,9 @@ void MapCreatorForSimulation::CreateMeshMap(std::vector<Vector3>* map) const {
       // 最初の待機場所の座標ならば無条件に追加する．
       bool do_create_map;
 
-      if ((x % (messenger_.stripe_interval * 2) < messenger_.stripe_interval)) {
-        if ((y % (messenger_.stripe_interval * 2) <
-             messenger_.stripe_interval)) {
+      if ((x % (parameter_.stripe_interval * 2) < parameter_.stripe_interval)) {
+        if ((y % (parameter_.stripe_interval * 2) <
+             parameter_.stripe_interval)) {
           do_create_map = true;
         } else {
           do_create_map = false;
@@ -280,20 +280,20 @@ void MapCreatorForSimulation::CreateMeshMap(std::vector<Vector3>* map) const {
       }
 
       const float x_rough =
-          (messenger_.map_start_rough_x - messenger_.map_min_x) /
+          (parameter_.map_start_rough_x - parameter_.map_min_x) /
           MapState::kMapPointDistance;
 
       if (do_create_map || x < x_rough) {
         // ロボットの正面方向．
         const float x_pos =
-            messenger_.map_min_x + x * MapState::kMapPointDistance;
+            parameter_.map_min_x + x * MapState::kMapPointDistance;
 
         // ロボットの側面方向．
         const float y_pos =
-            messenger_.map_min_y + y * MapState::kMapPointDistance;
+            parameter_.map_min_y + y * MapState::kMapPointDistance;
 
         map->push_back(
-            {x_pos, y_pos, messenger_.base_z});  // 脚設置可能点を追加する．
+            {x_pos, y_pos, parameter_.base_z});  // 脚設置可能点を追加する．
       }
     }
   }
@@ -306,9 +306,9 @@ void MapCreatorForSimulation::CreateLatticePointMap(
 
   // マップの x と y の存在範囲全体に脚設置可能点を敷き詰める．
 
-  const float x_max = (messenger_.map_max_x - messenger_.map_min_x) /
+  const float x_max = (parameter_.map_max_x - parameter_.map_min_x) /
                       MapState::kMapPointDistance;
-  const float y_max = (messenger_.map_max_y - messenger_.map_min_y) /
+  const float y_max = (parameter_.map_max_y - parameter_.map_min_y) /
                       MapState::kMapPointDistance;
 
   for (int x = 0; x < x_max; x++) {
@@ -317,9 +317,9 @@ void MapCreatorForSimulation::CreateLatticePointMap(
       // 最初の待機場所の座標ならば無条件に追加する．
       bool do_create_map = false;
 
-      if ((x % (messenger_.stripe_interval * 2) < messenger_.stripe_interval)) {
-        if ((y % (messenger_.stripe_interval * 2) >=
-             messenger_.stripe_interval)) {
+      if ((x % (parameter_.stripe_interval * 2) < parameter_.stripe_interval)) {
+        if ((y % (parameter_.stripe_interval * 2) >=
+             parameter_.stripe_interval)) {
           do_create_map = false;
         } else {
           do_create_map = true;
@@ -328,20 +328,21 @@ void MapCreatorForSimulation::CreateLatticePointMap(
         do_create_map = false;
       }
 
-      float x_rough = (messenger_.map_start_rough_x - messenger_.map_min_x) /
-                      MapState::kMapPointDistance;
+      const float x_rough =
+          (parameter_.map_start_rough_x - parameter_.map_min_x) /
+          MapState::kMapPointDistance;
 
       if (do_create_map || x < x_rough) {
         // ロボットの正面方向．
         const float x_pos =
-            messenger_.map_min_x + x * MapState::kMapPointDistance;
+            parameter_.map_min_x + x * MapState::kMapPointDistance;
 
         // ロボットの側面方向．
         const float y_pos =
-            messenger_.map_min_y + y * MapState::kMapPointDistance;
+            parameter_.map_min_y + y * MapState::kMapPointDistance;
 
         // 脚設置可能点を追加する．
-        map->push_back({x_pos, y_pos, messenger_.base_z});
+        map->push_back({x_pos, y_pos, parameter_.base_z});
       }
     }
   }
@@ -353,10 +354,10 @@ void MapCreatorForSimulation::CreateCircleMap(std::vector<Vector3>* map) const {
   // 円が存在する範囲に脚設置可能点を敷き詰める．
   // その後，円の外側の脚設置可能点を削除する．
 
-  const float x_min = messenger_.circle_center.x - messenger_.circle_radius;
-  const float x_max = messenger_.circle_center.x + messenger_.circle_radius;
-  const float y_min = messenger_.circle_center.y - messenger_.circle_radius;
-  const float y_max = messenger_.circle_center.y + messenger_.circle_radius;
+  const float x_min = parameter_.circle_center.x - parameter_.circle_radius;
+  const float x_max = parameter_.circle_center.x + parameter_.circle_radius;
+  const float y_min = parameter_.circle_center.y - parameter_.circle_radius;
+  const float y_max = parameter_.circle_center.y + parameter_.circle_radius;
 
   for (int x = 0; x < (x_max - x_min) / MapState::kMapPointDistance; ++x) {
     for (int y = 0; y < (y_max - y_min) / MapState::kMapPointDistance; ++y) {
@@ -369,10 +370,10 @@ void MapCreatorForSimulation::CreateCircleMap(std::vector<Vector3>* map) const {
       // 脚設置可能点を追加する．
       const float distance =
           Vector2(x_pos, y_pos)
-              .GetDistanceFrom(messenger_.circle_center.ProjectedXY());
+              .GetDistanceFrom(parameter_.circle_center.ProjectedXY());
 
-      if (distance <= messenger_.circle_radius) {
-        map->push_back({x_pos, y_pos, messenger_.base_z});
+      if (distance <= parameter_.circle_radius) {
+        map->push_back({x_pos, y_pos, parameter_.base_z});
       }
     }
   }
@@ -384,10 +385,10 @@ void MapCreatorForSimulation::CreateDonutMap(std::vector<Vector3>* map) const {
   // ドーナツが存在する範囲に脚設置可能点を敷き詰める．
   // その後，ドーナツの外側の脚設置可能点を削除する．
 
-  const float x_min = messenger_.circle_center.x - messenger_.circle_radius;
-  const float x_max = messenger_.circle_center.x + messenger_.circle_radius;
-  const float y_min = messenger_.circle_center.y - messenger_.circle_radius;
-  const float y_max = messenger_.circle_center.y + messenger_.circle_radius;
+  const float x_min = parameter_.circle_center.x - parameter_.circle_radius;
+  const float x_max = parameter_.circle_center.x + parameter_.circle_radius;
+  const float y_min = parameter_.circle_center.y - parameter_.circle_radius;
+  const float y_max = parameter_.circle_center.y + parameter_.circle_radius;
 
   for (int x = 0; x < (x_max - x_min) / MapState::kMapPointDistance; ++x) {
     for (int y = 0; y < (y_max - y_min) / MapState::kMapPointDistance; ++y) {
@@ -400,11 +401,11 @@ void MapCreatorForSimulation::CreateDonutMap(std::vector<Vector3>* map) const {
       // 脚設置可能点を追加する．
       const float distance =
           Vector2(x_pos, y_pos)
-              .GetDistanceFrom(messenger_.circle_center.ProjectedXY());
+              .GetDistanceFrom(parameter_.circle_center.ProjectedXY());
 
-      if (messenger_.donut_radius <= distance &&
-          distance <= messenger_.circle_radius) {
-        map->push_back({x_pos, y_pos, messenger_.base_z});
+      if (parameter_.donut_radius <= distance &&
+          distance <= parameter_.circle_radius) {
+        map->push_back({x_pos, y_pos, parameter_.base_z});
       }
     }
   }
@@ -417,14 +418,14 @@ void MapCreatorForSimulation::ChangeMapToPerforated(
   // 厳密にホール率に合わせるために，まずはマップを stripe_interval
   // に合わせて区切って， 全部で何マスあるか調べる．
   const int cell_num_x =
-      static_cast<int>((messenger_.map_max_x - messenger_.map_start_rough_x) /
+      static_cast<int>((parameter_.map_max_x - parameter_.map_start_rough_x) /
                        MapState::kMapPointDistance) /
-      messenger_.stripe_interval;
+      parameter_.stripe_interval;
 
   const int cell_num_y =
-      static_cast<int>((messenger_.map_max_y - messenger_.map_min_y) /
+      static_cast<int>((parameter_.map_max_y - parameter_.map_min_y) /
                        MapState::kMapPointDistance) /
-      messenger_.stripe_interval;
+      parameter_.stripe_interval;
 
   const int cell_sum = cell_num_x * cell_num_y;
 
@@ -432,7 +433,7 @@ void MapCreatorForSimulation::ChangeMapToPerforated(
   std::vector<bool> do_perforated(cell_sum, false);
 
   // ホール率に合わせて，値を true に変更する．
-  const int hole_num = cell_sum * messenger_.hole_rate / 100;
+  const int hole_num = cell_sum * parameter_.hole_rate / 100;
 
   for (int i = 0; i < hole_num; i++) {
     do_perforated.at(i) = true;
@@ -445,20 +446,20 @@ void MapCreatorForSimulation::ChangeMapToPerforated(
   // マップに穴をあける．
   for (auto itr = (*map).begin(); itr != (*map).end();) {
     // 待機場所の外に対してのみ作業をする．
-    if ((*itr).x < messenger_.map_start_rough_x) {
+    if ((*itr).x < parameter_.map_start_rough_x) {
       itr++;
       continue;
     }
 
     // マスで区切るとどこに位置するかを調べる．
     const int cell_pos_x =
-        static_cast<int>(((*itr).x - messenger_.map_start_rough_x) /
+        static_cast<int>(((*itr).x - parameter_.map_start_rough_x) /
                          MapState::kMapPointDistance) /
-        messenger_.stripe_interval;
+        parameter_.stripe_interval;
 
-    const int cell_pos_y = static_cast<int>(((*itr).y - messenger_.map_min_y) /
+    const int cell_pos_y = static_cast<int>(((*itr).y - parameter_.map_min_y) /
                                             MapState::kMapPointDistance) /
-                           messenger_.stripe_interval;
+                           parameter_.stripe_interval;
 
     const int cell_index = cell_pos_x * cell_num_y + cell_pos_y;
 
@@ -484,14 +485,14 @@ void MapCreatorForSimulation::ChangeMapToStep(std::vector<Vector3>* map) const {
 
   for (auto& i : *map) {
     // 待機場所の外に対してのみ作業をする．
-    if (i.x > messenger_.map_start_rough_x) {
+    if (i.x > parameter_.map_start_rough_x) {
       // 階段の何段目かを計算する．待機場所のすぐ上が1段目なので1を足している．
       const int step_count =
-          1 + static_cast<int>((i.x - messenger_.map_start_rough_x) /
-                               messenger_.step_length);
+          1 + static_cast<int>((i.x - parameter_.map_start_rough_x) /
+                               parameter_.step_length);
 
       // 階段状にZ座標を変更する．
-      i.z += messenger_.step_height * step_count;
+      i.z += parameter_.step_height * step_count;
     }
   }
 }
@@ -502,10 +503,10 @@ void MapCreatorForSimulation::ChangeMapToSlope(
 
   for (auto& i : *map) {
     // 待機場所の外に対してのみ作業をする．
-    if (i.x > messenger_.map_start_rough_x) {
+    if (i.x > parameter_.map_start_rough_x) {
       // 階段状にZ座標を変更する．
-      i.z += (i.x - messenger_.map_start_rough_x) *
-             tan(math_util::ConvertDegToRad(messenger_.slope_angle));
+      i.z += (i.x - parameter_.map_start_rough_x) *
+             tan(math_util::ConvertDegToRad(parameter_.slope_angle));
     }
   }
 }
@@ -515,9 +516,9 @@ void MapCreatorForSimulation::ChangeMapToTilt(std::vector<Vector3>* map) const {
 
   for (auto& i : *map) {
     // 待機場所の外に対してのみ作業をする
-    if (i.x > messenger_.map_start_rough_x) {
+    if (i.x > parameter_.map_start_rough_x) {
       // 階段状にZ座標を変更する．
-      i.z += i.y * tan(math_util::ConvertDegToRad(messenger_.tilt_angle));
+      i.z += i.y * tan(math_util::ConvertDegToRad(parameter_.tilt_angle));
     }
   }
 }
@@ -529,14 +530,14 @@ void MapCreatorForSimulation::ChangeMapToRough(
   // まずはマップを STRIPE_INTERVAL
   // にあわせて区切って，全部で何マスあるか調べる．
   const int cell_num_x =
-      static_cast<int>((messenger_.map_start_rough_x - messenger_.map_min_x) /
+      static_cast<int>((parameter_.map_start_rough_x - parameter_.map_min_x) /
                        MapState::kMapPointDistance) /
-      messenger_.stripe_interval;
+      parameter_.stripe_interval;
 
   const int cell_num_y =
-      static_cast<int>((messenger_.map_max_y - messenger_.map_min_y) /
+      static_cast<int>((parameter_.map_max_y - parameter_.map_min_y) /
                        MapState::kMapPointDistance) /
-      messenger_.stripe_interval;
+      parameter_.stripe_interval;
 
   const int cell_sum = cell_num_x * cell_num_y;
 
@@ -546,23 +547,23 @@ void MapCreatorForSimulation::ChangeMapToRough(
   for (int i = 0; i < cell_sum; i++) {
     // ランダムなZ座標を入れる．
     change_z_length.push_back(math_util::GenerateRandomNumber(
-        messenger_.rough_min_height, messenger_.rough_max_height));
+        parameter_.rough_min_height, parameter_.rough_max_height));
   }
 
   for (auto& i : *map) {
-    if (i.x <= messenger_.map_start_rough_x) {
+    if (i.x <= parameter_.map_start_rough_x) {
       continue;
     }
 
     // マスで区切るとどこに位置するかを調べる．
     const int cell_pos_x =
-        static_cast<int>((i.x - messenger_.map_start_rough_x) /
+        static_cast<int>((i.x - parameter_.map_start_rough_x) /
                          MapState::kMapPointDistance) /
-        messenger_.stripe_interval;
+        parameter_.stripe_interval;
 
-    const int cell_pos_y = static_cast<int>((i.y - messenger_.map_min_y) /
+    const int cell_pos_y = static_cast<int>((i.y - parameter_.map_min_y) /
                                             MapState::kMapPointDistance) /
-                           messenger_.stripe_interval;
+                           parameter_.stripe_interval;
 
     const int cell_index = cell_pos_x * cell_num_y + cell_pos_y;
 
@@ -578,15 +579,15 @@ void MapCreatorForSimulation::ChangeMapToRadial(
   assert(map != nullptr);  // map が nullptr でないことを確認する．
 
   const float divided_angle =
-      std::numbers::pi_v<float> / messenger_.radial_division;
+      std::numbers::pi_v<float> / parameter_.radial_division;
 
   for (auto itr = (*map).begin(); itr != (*map).end();) {
     // 放射状の穴あけの中心からの角度を計算する．
     const float angle =
-        atan2((*itr).y - messenger_.radial_center.y,
-              (*itr).x - messenger_.radial_center.x) +
+        atan2((*itr).y - parameter_.radial_center.y,
+              (*itr).x - parameter_.radial_center.x) +
         std::numbers::pi_v<float> +
-        math_util::ConvertDegToRad(messenger_.radial_angle_offset);
+        math_util::ConvertDegToRad(parameter_.radial_angle_offset);
 
     if (static_cast<int>(angle / divided_angle) % 2 == 1) {
       const int i = static_cast<int>(
@@ -595,7 +596,7 @@ void MapCreatorForSimulation::ChangeMapToRadial(
           angle - i * divided_angle;  // 何番目の角度からの差を計算する．
 
       // 角度の差がホール率より小さい場合は消す．
-      if (angle_dif < divided_angle * messenger_.radial_hole_rate / 100) {
+      if (angle_dif < divided_angle * parameter_.radial_hole_rate / 100) {
         // 脚設置可能点を消してイテレータを更新する．
         itr = (*map).erase(itr);
       } else {

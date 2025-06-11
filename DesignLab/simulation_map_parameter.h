@@ -14,7 +14,7 @@
 #include "string_util.h"
 #include "toml_serialize_macro.h"
 
-namespace designlab::enums {
+namespace designlab {
 
 //! @enum SimulationMapMode
 //! @brief getMap関数のマップ生成のモードを指定する列挙体．
@@ -47,21 +47,17 @@ enum class SimulationMapOption : unsigned int {
   kRadiation = 1 << 5,  //!< 放射状の地形に変化させる．
 };
 
-}  // namespace designlab::enums
-
-namespace designlab {
-
 //! @struct SimulationMapParameter
 //! @brief マップ生成時のモードとオプションを指定する構造体．
 struct SimulationMapParameter final {
  public:
   constexpr SimulationMapParameter()
-      : mode(enums::SimulationMapMode::kFlat),
-        option(static_cast<unsigned int>(enums::SimulationMapOption::kNone)) {}
+      : mode(SimulationMapMode::kFlat),
+        option(static_cast<unsigned int>(SimulationMapOption::kNone)) {}
 
   //! @brief マップ生成のモードを指定する．
   //! @param[in] mode マップ生成のモードを指定する列挙体．
-  constexpr void SetMode(const enums::SimulationMapMode create_mode) {
+  constexpr void SetMode(const SimulationMapMode create_mode) {
     mode = create_mode;
   }
 
@@ -71,7 +67,7 @@ struct SimulationMapParameter final {
   //! @param[in] mode マップ生成のオプションを指定する列挙体を
   //! vectorで指定する．
   //! @n emptyであってはならない．
-  void SetOption(const std::vector<enums::SimulationMapOption> create_options) {
+  void SetOption(const std::vector<SimulationMapOption> create_options) {
     assert(!create_options.empty());
 
     for (const auto& i : create_options) {
@@ -135,7 +131,7 @@ struct SimulationMapParameter final {
   }
 
   //!< マップ生成のモードを指定する列挙体．
-  enums::SimulationMapMode mode{enums::SimulationMapMode::kFlat};
+  SimulationMapMode mode{SimulationMapMode::kFlat};
   unsigned int option{0};  //!< マップ生成のオプションを指定するbit．
 
   float base_z{0.0f};              //!< マップの基準となるZ座標．
@@ -174,14 +170,13 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationMapParameter) {
   DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
       mode, DESIGNLAB_TOML11_NO_TABLE,
       "生成するマップの種類．(\"" +
-          string_util::EnumValuesToString<enums::SimulationMapMode>("\" / \"") +
+          string_util::EnumValuesToString<SimulationMapMode>("\" / \"") +
           "\")");
   DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
       option, DESIGNLAB_TOML11_NO_TABLE,
       "マップ生成のオプション．複数指定したいならば足し合わせて指定すること．("
       " " +
-          string_util::EnumEntriesToString<enums::SimulationMapOption>(" / ") +
-          " )");
+          string_util::EnumEntriesToString<SimulationMapOption>(" / ") + " )");
 
   DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(base_z, "Basic",
                                             "マップの基準となるZ座標．");

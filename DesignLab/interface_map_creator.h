@@ -25,13 +25,13 @@ class IMapCreator {
   //! @n そのため，実機試験時はこちらの関数で初期化した後，
   //! UpdateMap() でマップを更新する必要がある．
   //! @return 初期化したマップ．
-  virtual MapState InitMap() = 0;
+  virtual MapState InitMap() const = 0;
 
   //! @brief マップの更新を行う．
   //! @details 実機を動作させる場合に，マップを読み直す必要がある．
   //! @n シミュレーションではこの機能は不要．
   //! @param[in,out] current_map 現在のマップを受け取り，更新したマップを返す．
-  virtual void UpdateMap(MapState* current_map) = 0;
+  virtual void UpdateMap(MapState* current_map) const = 0;
 };
 
 }  // namespace designlab

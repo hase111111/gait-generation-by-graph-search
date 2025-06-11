@@ -18,19 +18,18 @@
 namespace designlab {
 
 //! @class MapCreatorForSimulation
-//! @brief シミュレーション用のマップを生成するクラス．
+//! @brief シミュレーション用のマップを生成するクラス.
 //! @details
-//! MapStateクラスの初期化処理のなかで呼んで，マップを生成してくれるクラス．
-//! @n 先行研究のプログラムでは mainfunction.h で実装されていた処理である．
+//! MapState クラスの初期化処理の中で呼ばれ，マップを生成するクラス.
 class MapCreatorForSimulation final : public IMapCreator {
  public:
-  //! @brief コンストラクタで作成するマップ情報を与える
-  //! @param[in] param マップ生成のモードとオプションを指定する構造体．
+  //! @brief コンストラクタで作成するマップ情報を与える.
+  //! @param[in] param マップ生成のモードとオプションを指定する構造体.
   explicit MapCreatorForSimulation(const SimulationMapParameter& param);
 
-  MapState InitMap() override;
+  MapState InitMap() const override;
 
-  void UpdateMap(MapState* current_map) override;
+  void UpdateMap(MapState* current_map) const override;
 
  private:
   //! フラットなマップを生成する．
@@ -76,7 +75,7 @@ class MapCreatorForSimulation final : public IMapCreator {
   void ChangeMapToRadial(std::vector<Vector3>* map) const;
 
   //! マップ生成のモードを指定する列挙体．
-  const SimulationMapParameter messenger_;
+  const SimulationMapParameter parameter_;
 };
 
 }  // namespace designlab
