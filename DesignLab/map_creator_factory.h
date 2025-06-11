@@ -13,22 +13,19 @@
 #include "interface_map_creator.h"
 #include "simulation_setting_record.h"
 
-
-namespace designlab
-{
+namespace designlab {
 
 //! @class MapCreatorFactory
 //! @brief マップを生成するクラスを生成するクラス．
-class MapCreatorFactory final
-{
-public:
-    //! @brief マップを生成するクラスを生成する．
-    //! @param[in] record マップを生成する際の設定．
-    //! @return マップを生成するクラスのインスタンス．
-    static std::unique_ptr<IMapCreator> Create(const SimulationSettingRecord& record);
+class MapCreatorFactory final {
+ public:
+  //! @brief マップを生成するクラスを生成する．
+  //! @param[in] record マップを生成する際の設定．
+  //! @return マップを生成するクラスのインスタンス．
+  static std::unique_ptr<IMapCreator> Create(
+      const SimulationSettingRecord& record);
 };
 
 }  // namespace designlab
-
 
 #endif  // DESIGNLAB_MAP_CREATOR_FACTORY_H_
