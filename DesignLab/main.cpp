@@ -40,14 +40,13 @@
 namespace {
 
 auto LoadApplicationSettingRecord() {
-  using designlab::CmdIOUtil;
   using enum designlab::OutputDetail;
   using designlab::ApplicationSettingRecord;
   using designlab::ApplicationSettingRecordValidator;
   using designlab::TomlDirectoryExporter;
   using designlab::TomlFileImporter;
 
-  CmdIOUtil::SetOutputLimit(kSystem);
+  designlab::CmdIOUtil::SetOutputLimit(kSystem);
 
   TomlDirectoryExporter toml_directory_exporter;
   toml_directory_exporter.Export();
@@ -61,10 +60,8 @@ auto LoadApplicationSettingRecord() {
 
 void InitOutputSetting(
     std::shared_ptr<const designlab::ApplicationSettingRecord> setting) {
-  using designlab::CmdIOUtil;
-
-  CmdIOUtil::DoOutput(setting->do_cmd_output);
-  CmdIOUtil::SetOutputLimit(setting->cmd_output_detail);
+  designlab::CmdIOUtil::DoOutput(setting->do_cmd_output);
+  designlab::CmdIOUtil::SetOutputLimit(setting->cmd_output_detail);
 }
 
 auto LoadPhantomXMkII() {
