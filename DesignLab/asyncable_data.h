@@ -8,19 +8,13 @@
 #ifndef DESIGNLAB_ASYNCABLE_DATA_H_
 #define DESIGNLAB_ASYNCABLE_DATA_H_
 
+#include <boost/thread.hpp>
 #include <vector>
 
-#include <boost/thread.hpp>
+namespace designlab {
 
-
-// テンプレートの実装はヘッダーに書く.
-// https://qiita.com/i153/items/38f9688a9c80b2cb7da7 (アクセス日 2023/12/25)
-
-
-namespace designlab
-{
-
-template <typename T> concept CopyAssignable = std::is_copy_assignable<T>::value;
+template <typename T>
+concept CopyAssignable = std::is_copy_assignable<T>::value;
 
 //! @class AsyncableData
 //! @brief
@@ -51,68 +45,64 @@ template <typename T> concept CopyAssignable = std::is_copy_assignable<T>::value
 //! は有効的.
 //! @tparam T 非同期処理を行うデータ.代入を行うことができる型を指定すること.
 template <CopyAssignable T>
-class AsyncableData final
-{
-public:
-    AsyncableData() : update_count_(0) {}
-    explicit AsyncableData(const T& data) : data_(data), update_count_(0) {}
+class AsyncableData final {
+ public:
+  AsyncableData() : update_count_(0) {}
+  explicit AsyncableData(const T& data) : data_(data), update_count_(0) {}
 
-    AsyncableData(const AsyncableData&) = delete;   //!< コピーは禁止
-    AsyncableData& operator=(const AsyncableData&) = delete;   //!< コピー代入は禁止
-    AsyncableData(AsyncableData&&) = delete;    //!< ムーブは禁止
+  AsyncableData(const AsyncableData&) = delete;  //!< コピーは禁止
+  AsyncableData& operator=(const AsyncableData&) =
+      delete;                               //!< コピー代入は禁止
+  AsyncableData(AsyncableData&&) = delete;  //!< ムーブは禁止
 
-    //! @brief 値をコピーして返す.
-    //! @n この時,read lockをかける.
-    //! @n 当然,データの更新回数はインクリメントされない.
-    //! @return 値をそのまま返す.参照ではない.
-    T GetData() const
+  //! @brief 値をコピーして返す.
+  //! @n この時,read lockをかける.
+  //! @n 当然,データの更新回数はインクリメントされない.
+  //! @return 値をそのまま返す.参照ではない.
+  T GetData() const {
+    // 読み取り用のロックをかける.
+    // このスコープ { } を抜けるまでロックがかかる.(つまりこの関数が終わるまで)
+    boost::shared_lock<boost::shared_mutex> read_lock(mtx_);
+    return data_;
+  };
+
+  //! @brief 値を変更する.
+  //! @n この時,write lockをかける.
+  //! @n データの更新回数をインクリメントする.
+  //! @param[in] data セットする値.const参照渡しされる.
+  void SetData(const T& data) {
+    // 書き込み用のロックをかける.
+    // まずは,upgrade_lock を用意して,それを unique_lock に変更する.
+    boost::upgrade_lock<boost::shared_mutex> upgrade_lock(mtx_);
+
     {
-        // 読み取り用のロックをかける.
-        // このスコープ { } を抜けるまでロックがかかる.(つまりこの関数が終わるまで)
-        boost::shared_lock<boost::shared_mutex> read_lock(mtx_);
-        return data_;
-    };
+      boost::upgrade_to_unique_lock<boost::shared_mutex> write_lock(
+          upgrade_lock);
 
-    //! @brief 値を変更する.
-    //! @n この時,write lockをかける.
-    //! @n データの更新回数をインクリメントする.
-    //! @param[in] data セットする値.const参照渡しされる.
-    void SetData(const T& data)
-    {
-        // 書き込み用のロックをかける.
-        // まずは,upgrade_lock を用意して,それを unique_lock に変更する.
-        boost::upgrade_lock<boost::shared_mutex> upgrade_lock(mtx_);
+      data_ = data;
+      ++update_count_;
+    }
+  };
 
-        {
-            boost::upgrade_to_unique_lock<boost::shared_mutex> write_lock(upgrade_lock);
+  //! @brief データの更新回数を返す.
+  //! @n この時,read lockをかける.
+  //! @n この値を調べて,データの更新回数が変わっているかを確認することで,
+  //! データの更新が必要かを確認する.
+  //! @return データの更新回数.
+  int GetUpdateCount() const {
+    // 読み取り用のロックをかける.
+    // このスコープ { } を抜けるまでロックがかかる.(つまりこの関数が終わるまで)
+    boost::shared_lock<boost::shared_mutex> read_lock(mtx_);
+    return update_count_;
+  };
 
-            data_ = data;
-            ++update_count_;
-        }
-    };
+ private:
+  mutable boost::shared_mutex mtx_;  //!< ロック用の mutex.
 
-    //! @brief データの更新回数を返す.
-    //! @n この時,read lockをかける.
-    //! @n この値を調べて,データの更新回数が変わっているかを確認することで,
-    //! データの更新が必要かを確認する.
-    //! @return データの更新回数.
-    int GetUpdateCount() const
-    {
-        // 読み取り用のロックをかける.
-        // このスコープ { } を抜けるまでロックがかかる.(つまりこの関数が終わるまで)
-        boost::shared_lock<boost::shared_mutex> read_lock(mtx_);
-        return update_count_;
-    };
+  T data_;
 
-private:
-    mutable boost::shared_mutex mtx_;  //!< ロック用の mutex.
-
-    T data_;
-
-    int update_count_;
+  int update_count_;
 };
-
-
 
 //! @brief 非同期処理を行う際に,
 //! データの更新回数とデータをまとめて扱うための構造体.( vector 版)
@@ -121,121 +111,115 @@ private:
 //! vector を入れて AsyncableData を作成すると,こちらが呼ばれる.
 //! こちらもコピー・ムーブは禁止.
 template <typename T>
-class AsyncableData <std::vector<T> > final
-{
-public:
-    AsyncableData() : data_({}), update_count_(0) {}
-    explicit AsyncableData(const std::vector<T>& data) :
-        data_(data),
-        update_count_(0) {}
+class AsyncableData<std::vector<T> > final {
+ public:
+  AsyncableData() : data_({}), update_count_(0) {}
+  explicit AsyncableData(const std::vector<T>& data)
+      : data_(data), update_count_(0) {}
 
-    //! コピーは禁止.
-    AsyncableData(const AsyncableData&) = delete;
+  //! コピーは禁止.
+  AsyncableData(const AsyncableData&) = delete;
 
-    //! コピー代入は禁止.
-    AsyncableData& operator=(const AsyncableData&) = delete;
+  //! コピー代入は禁止.
+  AsyncableData& operator=(const AsyncableData&) = delete;
 
-    //! ムーブは禁止.
-    AsyncableData(AsyncableData&&) = delete;
+  //! ムーブは禁止.
+  AsyncableData(AsyncableData&&) = delete;
 
-    //! @brief 値をコピーして返す.
-    //! @n この時,read lockをかける.
-    //! @n 当然,データの更新回数はインクリメントされない.
-    //! @return 値のコピー.
-    std::vector<T> GetData() const
+  //! @brief 値をコピーして返す.
+  //! @n この時,read lockをかける.
+  //! @n 当然,データの更新回数はインクリメントされない.
+  //! @return 値のコピー.
+  std::vector<T> GetData() const {
+    // 読み取り用のロックをかける.
+    // このスコープ { } を抜けるまでロックがかかる.(つまりこの関数が終わるまで)
+    boost::shared_lock<boost::shared_mutex> read_lock(mtx_);
+    return data_;
+  };
+
+  //! @brief 値を変更する.
+  //! @n この時,write lockをかける.
+  //! @n データの更新回数をインクリメントする.
+  //! @param[in] data セットする値.const参照渡しされる.
+  void SetData(const std::vector<T>& data) {
+    // 書き込み用のロックをかける.まずは,upgrade_lockを用意して,
+    // それを unique_lock に変更する.
+    boost::upgrade_lock<boost::shared_mutex> upgrade_lock(mtx_);
+
     {
-        // 読み取り用のロックをかける.
-        // このスコープ { } を抜けるまでロックがかかる.(つまりこの関数が終わるまで)
-        boost::shared_lock<boost::shared_mutex> read_lock(mtx_);
-        return data_;
-    };
+      boost::upgrade_to_unique_lock<boost::shared_mutex> write_lock(
+          upgrade_lock);
 
-    //! @brief 値を変更する.
-    //! @n この時,write lockをかける.
-    //! @n データの更新回数をインクリメントする.
-    //! @param[in] data セットする値.const参照渡しされる.
-    void SetData(const std::vector<T>& data)
+      data_ = data;
+      ++update_count_;
+    }
+  };
+
+  //! @brief 最後尾に値を追加する.
+  //! @n この時,write lockをかける.
+  //! @n データの更新回数をインクリメントする.
+  //! @param[in] data 後ろに追加する値.const参照渡しされる.
+  void PushBack(const T& data) {
+    // 書き込み用のロックをかける.
+    // まずは,upgrade_lock を用意して,それを unique_lock に変更する.
+    boost::upgrade_lock<boost::shared_mutex> upgrade_lock(mtx_);
+
     {
-        // 書き込み用のロックをかける.まずは,upgrade_lockを用意して,
-        // それを unique_lock に変更する.
-        boost::upgrade_lock<boost::shared_mutex> upgrade_lock(mtx_);
+      boost::upgrade_to_unique_lock<boost::shared_mutex> write_lock(
+          upgrade_lock);
 
-        {
-            boost::upgrade_to_unique_lock<boost::shared_mutex> write_lock(upgrade_lock);
+      data_.push_back(data);
+      ++update_count_;
+    }
+  };
 
-            data_ = data;
-            ++update_count_;
-        }
-    };
+  //! @brief 値をすべて削除する.
+  //! @n この時,write lockをかける.
+  //! @n データの更新回数をインクリメントする.
+  void Clean() {
+    // 書き込み用のロックをかける.
+    // まずは,upgrade_lock を用意して,それを unique_lock に変更する.
+    boost::upgrade_lock<boost::shared_mutex> upgrade_lock(mtx_);
 
-    //! @brief 最後尾に値を追加する.
-    //! @n この時,write lockをかける.
-    //! @n データの更新回数をインクリメントする.
-    //! @param[in] data 後ろに追加する値.const参照渡しされる.
-    void PushBack(const T& data)
     {
-        // 書き込み用のロックをかける.
-        // まずは,upgrade_lock を用意して,それを unique_lock に変更する.
-        boost::upgrade_lock<boost::shared_mutex> upgrade_lock(mtx_);
+      boost::upgrade_to_unique_lock<boost::shared_mutex> write_lock(
+          upgrade_lock);
 
-        {
-            boost::upgrade_to_unique_lock<boost::shared_mutex> write_lock(upgrade_lock);
+      data_.clear();
+      ++update_count_;
+    }
+  };
 
-            data_.push_back(data);
-            ++update_count_;
-        }
-    };
+  //! @brief sizeを返す.要素の数を size_tで返す.
+  //! @n この時,read lockをかける.
+  //! @return 要素の数.
+  size_t GetSize() const {
+    // 読み取り用のロックをかける.
+    // このスコープ { } を抜けるまでロックがかかる.(つまりこの関数が終わるまで)
+    boost::shared_lock<boost::shared_mutex> read_lock(mtx_);
+    return data_.size();
+  };
 
-    //! @brief 値をすべて削除する.
-    //! @n この時,write lockをかける.
-    //! @n データの更新回数をインクリメントする.
-    void Clean()
-    {
-        // 書き込み用のロックをかける.
-        // まずは,upgrade_lock を用意して,それを unique_lock に変更する.
-        boost::upgrade_lock<boost::shared_mutex> upgrade_lock(mtx_);
+  //! @brief データの更新回数を返す.
+  //! @n この時,read lockをかける.
+  //! @n この値を調べて,データの更新回数が変わっているかを確認することで,
+  //! データの更新が必要かを確認する.
+  //! @return データの更新回数.
+  int GetUpdateCount() const {
+    // 読み取り用のロックをかける.
+    // このスコープ { } を抜けるまでロックがかかる.(つまりこの関数が終わるまで)
+    boost::shared_lock<boost::shared_mutex> read_lock(mtx_);
+    return update_count_;
+  };
 
-        {
-            boost::upgrade_to_unique_lock<boost::shared_mutex> write_lock(upgrade_lock);
+ private:
+  mutable boost::shared_mutex mtx_;  //!< ロック用の mutex.
 
-            data_.clear();
-            ++update_count_;
-        }
-    };
+  std::vector<T> data_;
 
-    //! @brief sizeを返す.要素の数を size_tで返す.
-    //! @n この時,read lockをかける.
-    //! @return 要素の数.
-    size_t GetSize() const
-    {
-        // 読み取り用のロックをかける.
-        // このスコープ { } を抜けるまでロックがかかる.(つまりこの関数が終わるまで)
-        boost::shared_lock<boost::shared_mutex> read_lock(mtx_);
-        return data_.size();
-    };
-
-    //! @brief データの更新回数を返す.
-    //! @n この時,read lockをかける.
-    //! @n この値を調べて,データの更新回数が変わっているかを確認することで,
-    //! データの更新が必要かを確認する.
-    //! @return データの更新回数.
-    int GetUpdateCount() const
-    {
-        // 読み取り用のロックをかける.
-        // このスコープ { } を抜けるまでロックがかかる.(つまりこの関数が終わるまで)
-        boost::shared_lock<boost::shared_mutex> read_lock(mtx_);
-        return update_count_;
-    };
-
-private:
-    mutable boost::shared_mutex mtx_;  //!< ロック用の mutex.
-
-    std::vector<T> data_;
-
-    int update_count_;
+  int update_count_;
 };
 
 }  // namespace designlab
-
 
 #endif  // DESIGNLAB_ASYNCABLE_DATA_H_
