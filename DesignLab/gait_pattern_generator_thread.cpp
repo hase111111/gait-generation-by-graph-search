@@ -14,7 +14,6 @@
 
 #include "cassert_define.h"
 #include "cmdio_util.h"
-#include "graph_search_const.h"
 #include "map_state.h"
 #include "string_util.h"
 

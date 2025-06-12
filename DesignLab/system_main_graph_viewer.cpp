@@ -18,7 +18,6 @@
 #include "cassert_define.h"
 #include "cmdio_util.h"
 #include "gait_pattern_generator_basic.h"
-#include "graph_search_const.h"
 #include "node_initializer.h"
 #include "phantomx_mk2.h"
 #include "string_util.h"
@@ -187,6 +186,7 @@ void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent,
 void SystemMainGraphViewer::OutputGraphStatus(
     const std::vector<RobotStateNode>& graph) const {
   const OutputDetail detail = OutputDetail::kInfo;
+  constexpr size_t kMaxDepth = 5;
 
   cmdio::OutputNewLine(1, detail);
   cmdio::OutputHorizontalLine("=", detail);
@@ -198,11 +198,9 @@ void SystemMainGraphViewer::OutputGraphStatus(
   if (graph.size() > 0) {
     // 深さごとのノード数を記録する.
 
-    std::vector<int> depth_num(GraphSearchConst::kMaxDepth + 1);
+    std::vector<int> depth_num(kMaxDepth + 1);
 
-    cmdio::Output(std::format("Maximum depth of graph search : {}",
-                              GraphSearchConst::kMaxDepth),
-                  detail);
+    cmdio::InfoOutputF("Maximum depth of graph search : {}", kMaxDepth);
 
     for (const auto& i : graph) {
       if (i.depth < depth_num.size()) {

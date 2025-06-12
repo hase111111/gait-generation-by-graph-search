@@ -11,7 +11,6 @@
 #include <boost/dynamic_bitset.hpp>
 
 #include "com_type.h"
-#include "graph_search_const.h"
 #include "leg_state.h"
 #include "math_util.h"
 

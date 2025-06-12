@@ -122,7 +122,6 @@
     <ClInclude Include="graphic_main_basic.h" />
     <ClInclude Include="graphic_main_graph_viewer.h" />
     <ClInclude Include="graphic_main_display_model.h" />
-    <ClInclude Include="graph_search_const.h" />
     <ClInclude Include="graph_searcher_straight_move.h" />
     <ClInclude Include="math_euler.h" />
     <ClInclude Include="graph_tree_creator.h" />
@@ -264,7 +263,6 @@
     <ClCompile Include="graphic_main_display_model.cpp" />
     <ClCompile Include="graph_searcher_straight_move.cpp" />
     <ClCompile Include="math_euler.cpp" />
-    <ClCompile Include="graph_search_const.cpp" />
     <ClCompile Include="graph_search_result_record.cpp" />
     <ClCompile Include="graph_tree_creator.cpp" />
     <ClCompile Include="interpolated_node_creator.cpp" />

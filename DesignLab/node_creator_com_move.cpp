@@ -7,7 +7,6 @@
 
 #include "node_creator_com_move.h"
 
-#include "graph_search_const.h"
 #include "leg_state.h"
 #include "math_util.h"
 
