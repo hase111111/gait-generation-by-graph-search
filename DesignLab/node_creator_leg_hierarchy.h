@@ -26,7 +26,7 @@ class NodeCreatorLegHierarchy final : public INodeCreator {
   //! @param[in] discrete_leg_pos_list 離散化された脚位置のリスト.
   NodeCreatorLegHierarchy(
       HexapodMove next_move,
-      const std::vector<enums::DiscreteLegPos>& discrete_leg_pos_list);
+      const std::vector<DiscreteLegPos>& discrete_leg_pos_list);
 
   ~NodeCreatorLegHierarchy() = default;
 
@@ -61,7 +61,7 @@ class NodeCreatorLegHierarchy final : public INodeCreator {
   const HexapodMove next_move_;  //!< 次の動作.
 
   //! 離散化された脚位置のリスト,このリストの中の値から脚の状態を変更する.
-  const std::vector<enums::DiscreteLegPos> discrete_leg_pos_list_;
+  const std::vector<DiscreteLegPos> discrete_leg_pos_list_;
 };
 
 }  // namespace designlab

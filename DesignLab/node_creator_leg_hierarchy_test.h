@@ -22,7 +22,7 @@ TEST_SUITE("NodeCreatorLegHierarchyTest")
     using designlab::RobotStateNode;
     using designlab::HexapodMove;
     using designlab::HexapodConst;
-    using designlab::enums::DiscreteLegPos;
+    using designlab::DiscreteLegPos;
     using designlab::enums::DiscreteComPos;
     using designlab::leg_func::MakeLegStateBit;
 

@@ -89,7 +89,7 @@ std::string RobotStateNode::ToString() const {
   res += "Hierarchy : ";
 
   for (int i = 0; i < HexapodConst::kLegNum; ++i) {
-    enums::DiscreteLegPos dis_leg_pos =
+    DiscreteLegPos dis_leg_pos =
         leg_func::GetDiscreteLegPos(leg_state, i);
     res += string_util::EnumToStringRemoveTopK(dis_leg_pos) + "(" +
            std::to_string(static_cast<int>(dis_leg_pos)) + ") ";

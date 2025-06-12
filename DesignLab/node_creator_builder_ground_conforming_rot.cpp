@@ -36,7 +36,7 @@ NodeCreatorBuilderGroundConformingRot::NodeCreatorBuilderGroundConformingRot(
 void NodeCreatorBuilderGroundConformingRot::Build(
     const DividedMapState& map,
     std::map<HexapodMove, std::unique_ptr<INodeCreator>>* node_creator) const {
-  using enum enums::DiscreteLegPos;
+  using enum DiscreteLegPos;
   using enum HexapodMove;
 
   assert(node_creator != nullptr);  // node_creator が nullptr でない.
@@ -47,7 +47,7 @@ void NodeCreatorBuilderGroundConformingRot::Build(
   // std::make_unique<クラス名>(クラスのコンストラクタの引数);
   // この場合,HexapodMove::???のノードを作成するクラスは,^~~~~~ である.
 
-  const auto hierarchy_list = std::vector<enums::DiscreteLegPos>{
+  const auto hierarchy_list = std::vector<DiscreteLegPos>{
       kBack,
       kCenter,
       kFront,

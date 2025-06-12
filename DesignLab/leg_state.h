@@ -87,7 +87,7 @@ constexpr LegStateBit kComStateMaskBit = (0b1111 << kShiftToComNum);
 LegStateBit MakeLegStateBit(
   enums::DiscreteComPos discrete_com_pos,
   const std::array<bool, HexapodConst::kLegNum>& is_ground,
-  const std::array<enums::DiscreteLegPos, HexapodConst::kLegNum>& leg_pos);
+  const std::array<DiscreteLegPos, HexapodConst::kLegNum>& leg_pos);
 
 
 //! @brief 脚番号 leg_index 0 ～ 5 に応じて,その脚が接地しているかを調べる.
@@ -130,7 +130,7 @@ void GetLiftedLegIndexByVector(const LegStateBit& leg_state, std::vector<int>* r
 //! @param[in] leg_state 現在の脚状態.
 //! @param[in] leg_index どの脚の状態を取得するか. 0 ～ 5 の整数で入力する.
 //! @return 離散化された脚の位置を返す.
-enums::DiscreteLegPos GetDiscreteLegPos(const LegStateBit& leg_state, int leg_index);
+DiscreteLegPos GetDiscreteLegPos(const LegStateBit& leg_state, int leg_index);
 
 //! @brief 現在の脚状態から重心パターンを取得する.
 //! @param[in] leg_state 現在の脚状態.
@@ -144,14 +144,14 @@ enums::DiscreteComPos GetDiscreteComPos(const LegStateBit& leg_state);
 //! @param[in] is_ground 脚が接地しているかを表す.接地しているならば true.
 //! 遊脚しているならば false.
 //! @param[in,out] leg_state 現在の脚状態,これをもとに新しい脚状態を作成する.
-void ChangeLegState(int leg_index, enums::DiscreteLegPos new_discretized_leg_pos,
+void ChangeLegState(int leg_index, DiscreteLegPos new_discretized_leg_pos,
                     bool is_ground, LegStateBit* leg_state);
 
 //! @brief 脚の状態を変更する.遊脚を表すビットはそのまま.
 //! @param[in] leg_index 脚の番号.0～5の範囲内でなければアサートで止まる.
 //! @param[in] new_discretized_leg_pos 新しい脚状態.
 //! @param[in,out] leg_state 現在の脚状態,これをもとに新しい脚状態を作成する.
-void ChangeDiscreteLegPos(int leg_index, enums::DiscreteLegPos new_discretized_leg_pos,
+void ChangeDiscreteLegPos(int leg_index, DiscreteLegPos new_discretized_leg_pos,
                           LegStateBit* leg_state);
 
 //! @brief 脚の接地・遊脚情報を変更する.

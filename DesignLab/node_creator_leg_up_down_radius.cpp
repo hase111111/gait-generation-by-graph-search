@@ -215,20 +215,20 @@ bool NodeCreatorLegUpDownRadius::IsGroundableLeg(
 
 bool NodeCreatorLegUpDownRadius::IsAbleLegPos(const RobotStateNode& _node,
                                               const int leg_index) const {
-  const enums::DiscreteLegPos discrete_leg_pos = leg_func::GetDiscreteLegPos(
+  const DiscreteLegPos discrete_leg_pos = leg_func::GetDiscreteLegPos(
       _node.leg_state, leg_index);  // 脚位置を取得(1～7)
 
   // まず最初に脚位置4のところにないか確かめる.
   if ((_node.leg_reference_pos[leg_index].ProjectedXY() -
        _node.leg_pos[leg_index].ProjectedXY())
           .GetSquaredLength() < math_util::Squared(kLegMargin)) {
-    if (discrete_leg_pos == enums::DiscreteLegPos::kCenter) {
+    if (discrete_leg_pos == DiscreteLegPos::kCenter) {
       return true;
     } else {
       return false;
     }
   } else {
-    if (discrete_leg_pos == enums::DiscreteLegPos::kCenter) {
+    if (discrete_leg_pos == DiscreteLegPos::kCenter) {
       return false;
     }
   }
@@ -239,23 +239,23 @@ bool NodeCreatorLegUpDownRadius::IsAbleLegPos(const RobotStateNode& _node,
           _node.leg_pos[leg_index].ProjectedXY().Cross({1, 0}) >
       0) {
     // 前.
-    if (discrete_leg_pos == enums::DiscreteLegPos::kLowerBack ||
-        discrete_leg_pos == enums::DiscreteLegPos::kBack ||
-        discrete_leg_pos == enums::DiscreteLegPos::kUpperBack) {
+    if (discrete_leg_pos == DiscreteLegPos::kLowerBack ||
+        discrete_leg_pos == DiscreteLegPos::kBack ||
+        discrete_leg_pos == DiscreteLegPos::kUpperBack) {
       return false;
     }
   } else {
     // 後ろ.
-    if (discrete_leg_pos == enums::DiscreteLegPos::kLowerFront ||
-        discrete_leg_pos == enums::DiscreteLegPos::kFront ||
-        discrete_leg_pos == enums::DiscreteLegPos::kUpperFront) {
+    if (discrete_leg_pos == DiscreteLegPos::kLowerFront ||
+        discrete_leg_pos == DiscreteLegPos::kFront ||
+        discrete_leg_pos == DiscreteLegPos::kUpperFront) {
       return false;
     }
   }
 
   // 脚位置4と半径を比較して上か下か.
-  if (discrete_leg_pos == enums::DiscreteLegPos::kLowerFront ||
-      discrete_leg_pos == enums::DiscreteLegPos::kLowerBack) {
+  if (discrete_leg_pos == DiscreteLegPos::kLowerFront ||
+      discrete_leg_pos == DiscreteLegPos::kLowerBack) {
     // 脚位置4と比較して下.
     if (_node.leg_reference_pos[leg_index].ProjectedXY().GetSquaredLength() -
             _node.leg_pos[leg_index].ProjectedXY().GetSquaredLength() -
@@ -263,8 +263,8 @@ bool NodeCreatorLegUpDownRadius::IsAbleLegPos(const RobotStateNode& _node,
         0) {
       return true;
     }
-  } else if (discrete_leg_pos == enums::DiscreteLegPos::kUpperFront ||
-             discrete_leg_pos == enums::DiscreteLegPos::kUpperBack) {
+  } else if (discrete_leg_pos == DiscreteLegPos::kUpperFront ||
+             discrete_leg_pos == DiscreteLegPos::kUpperBack) {
     // 脚位置4と比較して上.
     if (_node.leg_pos[leg_index].ProjectedXY().GetSquaredLength() -
             _node.leg_reference_pos[leg_index]

@@ -13,7 +13,7 @@ namespace designlab {
 
 NodeCreatorLegHierarchy::NodeCreatorLegHierarchy(
     const HexapodMove next_move,
-    const std::vector<enums::DiscreteLegPos>& discrete_leg_pos_list)
+    const std::vector<DiscreteLegPos>& discrete_leg_pos_list)
     : next_move_(next_move), discrete_leg_pos_list_(discrete_leg_pos_list) {
   assert(discrete_leg_pos_list.size() != 0);
 }

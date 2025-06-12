@@ -213,20 +213,20 @@ bool NodeCreatorLegUpDown2d::IsGroundableLeg(int now_leg_num,
 
 bool NodeCreatorLegUpDown2d::IsAbleLegPos(const RobotStateNode& node,
                                           const int leg_index) const {
-  const enums::DiscreteLegPos discrete_leg_pos = ConvertTo2D(
+  const DiscreteLegPos discrete_leg_pos = ConvertTo2D(
       leg_func::GetDiscreteLegPos(node.leg_state, leg_index));  // 脚位置を取得.
 
   // まず最初に脚位置4のところにないか確かめる.
   if ((node.leg_reference_pos[leg_index].ProjectedXY() -
        node.leg_pos[leg_index].ProjectedXY())
           .GetSquaredLength() < math_util::Squared(kLegMargin)) {
-    if (discrete_leg_pos == enums::DiscreteLegPos::kCenter) {
+    if (discrete_leg_pos == DiscreteLegPos::kCenter) {
       return true;
     } else {
       return false;
     }
   } else {
-    if (discrete_leg_pos == enums::DiscreteLegPos::kCenter) {
+    if (discrete_leg_pos == DiscreteLegPos::kCenter) {
       return false;
     }
   }
@@ -237,12 +237,12 @@ bool NodeCreatorLegUpDown2d::IsAbleLegPos(const RobotStateNode& node,
           node.leg_pos[leg_index].ProjectedXY().Cross({1, 0}) >
       0) {
     // 前.
-    if (discrete_leg_pos == enums::DiscreteLegPos::kBack) {
+    if (discrete_leg_pos == DiscreteLegPos::kBack) {
       return false;
     }
   } else {
     // 後ろ.
-    if (discrete_leg_pos == enums::DiscreteLegPos::kFront) {
+    if (discrete_leg_pos == DiscreteLegPos::kFront) {
       return false;
     }
   }
@@ -250,32 +250,32 @@ bool NodeCreatorLegUpDown2d::IsAbleLegPos(const RobotStateNode& node,
   return true;
 }
 
-enums::DiscreteLegPos NodeCreatorLegUpDown2d::ConvertTo2D(
-    enums::DiscreteLegPos leg_pos) const {
+DiscreteLegPos NodeCreatorLegUpDown2d::ConvertTo2D(
+    DiscreteLegPos leg_pos) const {
   switch (leg_pos) {
-    case enums::DiscreteLegPos::kBack:
-    case enums::DiscreteLegPos::kCenter:
-    case enums::DiscreteLegPos::kFront: {
+    case DiscreteLegPos::kBack:
+    case DiscreteLegPos::kCenter:
+    case DiscreteLegPos::kFront: {
       // 2Dの場合はそのまま返す.
       return leg_pos;
     }
 
-    case enums::DiscreteLegPos::kLowerBack:
-    case enums::DiscreteLegPos::kUpperBack: {
+    case DiscreteLegPos::kLowerBack:
+    case DiscreteLegPos::kUpperBack: {
       // 3Dの場合は2Dに変換する.
-      return enums::DiscreteLegPos::kBack;
+      return DiscreteLegPos::kBack;
     }
 
-    case enums::DiscreteLegPos::kLowerFront:
-    case enums::DiscreteLegPos::kUpperFront: {
+    case DiscreteLegPos::kLowerFront:
+    case DiscreteLegPos::kUpperFront: {
       // 同様に,3Dの場合は2Dに変換する.
-      return enums::DiscreteLegPos::kFront;
+      return DiscreteLegPos::kFront;
     }
 
     default: {
       // ここに来た場合はアサートを発生させる.
       assert(false);
-      return enums::DiscreteLegPos::kCenter;
+      return DiscreteLegPos::kCenter;
     }
   }
 }

@@ -82,7 +82,7 @@ void NodeCreatorComMoveStraight::Create(
 
       // discreate_leg_posを更新する.
       for (int j = 0; j < HexapodConst::kLegNum; j++) {
-        leg_func::ChangeDiscreteLegPos(j, enums::DiscreteLegPos::kCenter,
+        leg_func::ChangeDiscreteLegPos(j, DiscreteLegPos::kCenter,
                                        &next_node.leg_state);
       }
 

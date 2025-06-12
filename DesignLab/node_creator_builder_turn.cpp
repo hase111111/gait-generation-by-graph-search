@@ -32,11 +32,11 @@ void NodeCreatorBuilderTurn::Build(
   assert(node_creator != nullptr);  // node_creator が nullptr でない.
   assert(node_creator->size() == 0);  // node_creator は空でなければならない.
 
-  const auto hierarchy_list = std::vector<enums::DiscreteLegPos>{
-      enums::DiscreteLegPos::kBack,       enums::DiscreteLegPos::kCenter,
-      enums::DiscreteLegPos::kFront,      enums::DiscreteLegPos::kLowerBack,
-      enums::DiscreteLegPos::kLowerFront, enums::DiscreteLegPos::kUpperBack,
-      enums::DiscreteLegPos::kUpperFront};
+  const auto hierarchy_list = std::vector<DiscreteLegPos>{
+      DiscreteLegPos::kBack,       DiscreteLegPos::kCenter,
+      DiscreteLegPos::kFront,      DiscreteLegPos::kLowerBack,
+      DiscreteLegPos::kLowerFront, DiscreteLegPos::kUpperBack,
+      DiscreteLegPos::kUpperFront};
 
   (*node_creator)[HexapodMove::kLegHierarchyChange] =
       std::make_unique<NodeCreatorLegHierarchy>(HexapodMove::kLegUpDown,

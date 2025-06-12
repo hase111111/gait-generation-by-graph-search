@@ -25,9 +25,9 @@ RobotStateNode NodeInitializer::InitNode() const {
   // 脚状態.
   res.leg_state = leg_func::MakeLegStateBit(
       enums::DiscreteComPos::kCenterBack, {true, true, true, true, true, true},
-      {enums::DiscreteLegPos::kCenter, enums::DiscreteLegPos::kCenter,
-       enums::DiscreteLegPos::kCenter, enums::DiscreteLegPos::kCenter,
-       enums::DiscreteLegPos::kCenter, enums::DiscreteLegPos::kCenter});
+      {DiscreteLegPos::kCenter, DiscreteLegPos::kCenter,
+       DiscreteLegPos::kCenter, DiscreteLegPos::kCenter,
+       DiscreteLegPos::kCenter, DiscreteLegPos::kCenter});
 
   const float base_z = 0.0f;  // 地面のZ座標.
   [[maybe_unused]] const float com_z =

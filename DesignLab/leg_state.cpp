@@ -15,7 +15,7 @@ namespace designlab::leg_func
 LegStateBit MakeLegStateBit(
   const enums::DiscreteComPos discrete_com_pos,
   const std::array<bool, HexapodConst::kLegNum>& is_ground,
-  const std::array<enums::DiscreteLegPos, HexapodConst::kLegNum>& discretized_leg_pos)
+  const std::array<DiscreteLegPos, HexapodConst::kLegNum>& discretized_leg_pos)
 {
     LegStateBit res = 0;
 
@@ -134,7 +134,7 @@ void GetLiftedLegIndexByVector(const LegStateBit& leg_state, std::vector<int>* r
     }
 }
 
-enums::DiscreteLegPos GetDiscreteLegPos(const LegStateBit& leg_state, const int leg_index)
+DiscreteLegPos GetDiscreteLegPos(const LegStateBit& leg_state, const int leg_index)
 {
     // leg_indexは0～5の範囲にある必要がある.
     assert(0 <= leg_index);
@@ -145,7 +145,7 @@ enums::DiscreteLegPos GetDiscreteLegPos(const LegStateBit& leg_state, const int 
     const int res = static_cast<int>(
         ((leg_state & (kLegPosMaskBit << shift_num)) >> shift_num).to_ulong());
 
-    return static_cast<enums::DiscreteLegPos>(res);
+    return static_cast<DiscreteLegPos>(res);
 }
 
 enums::DiscreteComPos GetDiscreteComPos(const LegStateBit& leg_state)
@@ -159,7 +159,7 @@ enums::DiscreteComPos GetDiscreteComPos(const LegStateBit& leg_state)
 
 void ChangeLegState(
   const int leg_index,
-  const enums::DiscreteLegPos new_discretized_leg_pos,
+  const DiscreteLegPos new_discretized_leg_pos,
   const bool is_ground,
   LegStateBit* leg_state
 )
@@ -177,7 +177,7 @@ void ChangeLegState(
 
 void ChangeDiscreteLegPos(
   const int leg_index,
-  const enums::DiscreteLegPos new_discretized_leg_pos,
+  const DiscreteLegPos new_discretized_leg_pos,
   LegStateBit* leg_state
 )
 {

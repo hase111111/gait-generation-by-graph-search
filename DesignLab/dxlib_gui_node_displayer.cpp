@@ -173,7 +173,7 @@ void DxlibGuiNodeDisplayer::DrawNodeInfo() const {
             str_ground += "遊脚,";
         }
 
-        const enums::DiscreteLegPos pos =
+        const DiscreteLegPos pos =
             leg_func::GetDiscreteLegPos(display_node_.leg_state, i);
 
         if (i < HexapodConst::kLegNum / 2) {
