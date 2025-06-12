@@ -26,7 +26,7 @@ SimulationEndCheckerByPosture::SimulationEndCheckerByPosture(
 
 bool SimulationEndCheckerByPosture::IsEnd(const RobotStateNode& node) const
 {
-    // 角度を取得し，誤差を計算．
+    // 角度を取得し,誤差を計算.
     auto now = ToEulerXYZ(node.posture);
 
     float error_x = std::abs(now.x_angle - goal_euler_.x_angle);

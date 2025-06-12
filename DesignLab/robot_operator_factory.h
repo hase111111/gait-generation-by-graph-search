@@ -18,13 +18,13 @@ namespace designlab
 {
 
 //! @class RobotOperatorFactory
-//! @brief TargetUpdaterを生成するファクトリクラス．
+//! @brief TargetUpdaterを生成するファクトリクラス.
 class RobotOperatorFactory final
 {
 public:
-    //! @brief 設定ファイルからTargetUpdaterを生成する．
-    //! @param[in] setting 設定ファイルのデータ．
-    //! @return  生成したTargetUpdater．
+    //! @brief 設定ファイルからTargetUpdaterを生成する.
+    //! @param[in] setting 設定ファイルのデータ.
+    //! @return  生成したTargetUpdater.
     static std::unique_ptr<IRobotOperator> Create(
         const SimulationSettingRecord& setting);
 };

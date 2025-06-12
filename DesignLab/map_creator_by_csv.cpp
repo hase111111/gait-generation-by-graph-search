@@ -20,11 +20,11 @@ namespace designlab {
 
 MapCreatorByCsv::MapCreatorByCsv(const std::string& map_file_path)
     : map_file_path_(map_file_path) {
-  // ファイルが存在するか確認し，なければアサート．
+  // ファイルが存在するか確認し,なければアサート.
   if (const bool is_exist = std::filesystem::exists(map_file_path_);
       !is_exist) {
     std::string error_mes = std::format(
-        "map fileが存在しません．ファイルのパスは{}です．({}のコンストラクタ)",
+        "map fileが存在しません.ファイルのパスは{}です.({}のコンストラクタ)",
         map_file_path_, string_util::GetTypeName(*this));
 
     CmdIOUtil::Output(error_mes, OutputDetail::kError);
@@ -41,14 +41,14 @@ MapState MapCreatorByCsv::InitMap() const {
     CmdIOUtil::InfoOutput("Completed reading map file: " + map_file_path_);
     return result.value();
   } else {
-    // エラーが発生した場合は空のマップを返す．
+    // エラーが発生した場合は空のマップを返す.
     CmdIOUtil::ErrorOutput(result.error());
     return MapState();
   }
 }
 
 void MapCreatorByCsv::UpdateMap(MapState*) const {
-  // 何もしない．
+  // 何もしない.
 }
 
 }  // namespace designlab

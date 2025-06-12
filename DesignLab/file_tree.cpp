@@ -141,7 +141,7 @@ void FileTree::OutputFileTree(const FileTreeData& tree, int depth,
     // 空 かつ 空のディレクトリを表示しない設定 でないならば表示する
     if (!(not_display_empty && tree.file.empty() && tree.directory.empty()))
     {
-        // ディレクトリ名を出力する際に，パスの階層を削除する
+        // ディレクトリ名を出力する際に,パスの階層を削除する
 
         CmdIOUtil::Output(indent, OutputDetail::kSystem);
 

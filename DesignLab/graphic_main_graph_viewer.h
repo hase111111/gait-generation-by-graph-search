@@ -27,7 +27,7 @@ namespace designlab
 {
 
 //! @class GraphicMainGraphViewer
-//! @brief GraphViewerの画面を表示するクラス．
+//! @brief GraphViewerの画面を表示するクラス.
 class GraphicMainGraphViewer final : public IGraphicMain
 {
 public:

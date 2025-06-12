@@ -36,7 +36,7 @@ DxlibGuiCameraParameterDisplayer::DxlibGuiCameraParameterDisplayer(
 
 void DxlibGuiCameraParameterDisplayer::Update()
 {
-    // ボタンを更新する．
+    // ボタンを更新する.
     for (auto& i : button_)
     {
         i->Update();
@@ -50,10 +50,10 @@ void DxlibGuiCameraParameterDisplayer::Update()
 
 void DxlibGuiCameraParameterDisplayer::Draw() const
 {
-    // 枠．
+    // 枠.
     DrawBackground("CameraParameterDisplayer");
 
-    // ボタンを描画する．
+    // ボタンを描画する.
     for (const auto& i : button_)
     {
         i->Draw();

@@ -36,7 +36,7 @@ DxlibGuiNodeDisplayer::DxlibGuiNodeDisplayer(
     display_type_(DisplayMode::kDefualt),
     window_x_(pos_x),
     window_y_(pos_y) {
-    // ボタンを作成する．
+    // ボタンを作成する.
     const int button_size_x = 90;
     const int button_size_y = 30;
 
@@ -85,19 +85,19 @@ DxlibGuiNodeDisplayer::DxlibGuiNodeDisplayer(
 }
 
 void DxlibGuiNodeDisplayer::SetNode(const RobotStateNode& node) {
-    // ノードをセットする．
+    // ノードをセットする.
     display_node_ = node;
 
     if (!calculator_ptr_) {
         return;
     }
 
-    // 関節の角度をセットする．
+    // 関節の角度をセットする.
     joint_state_ = calculator_ptr_->CalculateAllJointState(display_node_);
 }
 
 void DxlibGuiNodeDisplayer::Update() {
-    // ボタンの更新を行う．
+    // ボタンの更新を行う.
     for (auto& button : button_) {
         button->Update();
     }
@@ -108,10 +108,10 @@ void DxlibGuiNodeDisplayer::Update() {
 }
 
 void DxlibGuiNodeDisplayer::Draw() const {
-    // 枠．
+    // 枠.
     DrawBackground("NodeDisplay");
 
-    // テキスト．
+    // テキスト.
     if (display_type_ == DisplayMode::kDefualt) {
         DrawNodeInfo();
     }
@@ -122,7 +122,7 @@ void DxlibGuiNodeDisplayer::Draw() const {
         DrawGlobalPosInfo();
     }
 
-    // ボタンを描画する．
+    // ボタンを描画する.
     for (auto& button : button_) {
         button->Draw();
     }
@@ -239,7 +239,7 @@ void DxlibGuiNodeDisplayer::DrawNodeInfo() const {
         display_node_.posture.v.y,
         display_node_.posture.v.z);
 
-    // オイラー角にして表示する．
+    // オイラー角にして表示する.
     const EulerXYZ euler = ToEulerXYZ(display_node_.posture);
 
     DrawFormatStringToHandle(
@@ -251,7 +251,7 @@ void DxlibGuiNodeDisplayer::DrawNodeInfo() const {
         math_util::ConvertRadToDeg(euler.y_angle),
         math_util::ConvertRadToDeg(euler.z_angle));
 
-    // 脚の位置を表示する．
+    // 脚の位置を表示する.
     ++text_line;
     DrawFormatStringToHandle(
         text_pos_x,
@@ -269,14 +269,14 @@ void DxlibGuiNodeDisplayer::DrawNodeInfo() const {
             display_node_.leg_pos[i].ToString().c_str());
     }
 
-    // 脚の基準座標を表示する．
+    // 脚の基準座標を表示する.
     for (int i = 0; i < HexapodConst::kLegNum; i++) {
         if (display_node_.leg_pos[i] == display_node_.leg_reference_pos[i]) {
             DrawFormatStringToHandle(
                 text_pos_x,
                 text_pos_y_min + text_interval_y * (text_line++),
                 text_color_dark, font_handle_,
-                " %s脚の基準座標は現在の脚位置と同じです．", leg_name[i].c_str());
+                " %s脚の基準座標は現在の脚位置と同じです.", leg_name[i].c_str());
         }
         else {
             DrawFormatStringToHandle(
@@ -291,7 +291,7 @@ void DxlibGuiNodeDisplayer::DrawNodeInfo() const {
         }
     }
 
-    // 深さと次の動作を表示する．
+    // 深さと次の動作を表示する.
     ++text_line;
 
     DrawFormatStringToHandle(
@@ -306,7 +306,7 @@ void DxlibGuiNodeDisplayer::DrawNodeInfo() const {
         text_pos_x,
         text_pos_y_min + text_interval_y * (text_line++),
         text_color, font_handle_,
-        "指定がなければ単位は長さが[mm]，角度が[rad]");
+        "指定がなければ単位は長さが[mm],角度が[rad]");
 }
 
 void DxlibGuiNodeDisplayer::DrawJointInfo() const {
@@ -346,7 +346,7 @@ void DxlibGuiNodeDisplayer::DrawJointInfo() const {
                 text_pos_y_min + text_interval_y * 0,
                 text_color,
                 font_handle_,
-                "間接の計算ができていない，またはされていません．");
+                "間接の計算ができていない,またはされていません.");
 
             return;
         }
@@ -357,7 +357,7 @@ void DxlibGuiNodeDisplayer::DrawJointInfo() const {
                 text_pos_y_min + text_interval_y * 0,
                 text_color,
                 font_handle_,
-                "間接の計算ができていない，またはされていません．");
+                "間接の計算ができていない,またはされていません.");
 
             return;
         }
@@ -410,7 +410,7 @@ void DxlibGuiNodeDisplayer::DrawJointInfo() const {
                 text_pos_y_min + text_interval_y * (text_line++),
                 text_color,
                 font_handle_,
-                "    近似値された可動域内にあります．");
+                "    近似値された可動域内にあります.");
         }
         else {
             DrawFormatStringToHandle(
@@ -418,7 +418,7 @@ void DxlibGuiNodeDisplayer::DrawJointInfo() const {
                 text_pos_y_min + text_interval_y * (text_line++),
                 error_text_color,
                 font_handle_,
-                "    近似値された可動域外です．");
+                "    近似値された可動域外です.");
         }
 
 
@@ -468,7 +468,7 @@ void DxlibGuiNodeDisplayer::DrawJointInfo() const {
                 text_pos_y_min + text_interval_y * (text_line++),
                 error_text_color,
                 font_handle_,
-                "    実際の可動域の外です． %s", str.c_str());
+                "    実際の可動域の外です. %s", str.c_str());
         }
         else {
             DrawFormatStringToHandle(
@@ -476,7 +476,7 @@ void DxlibGuiNodeDisplayer::DrawJointInfo() const {
                 text_pos_y_min + text_interval_y * (text_line++),
                 text_color,
                 font_handle_,
-                "    実際の可動域の内です．");
+                "    実際の可動域の内です.");
         }
     }
 }
@@ -564,7 +564,7 @@ void DxlibGuiNodeDisplayer::DrawGlobalPosInfo() const {
 
     ++text_line;
 
-    // 脚先の付け根からの距離を表示する． 
+    // 脚先の付け根からの距離を表示する. 
     for (int i = 0; i < HexapodConst::kLegNum; i++) {
         DrawFormatStringToHandle(
                     text_pos_x + width_ / 2 * (i % 2),

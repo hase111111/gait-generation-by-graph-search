@@ -157,7 +157,7 @@ RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node)
     using enum OutputDetail;
     using enum RobotOperationType;
 
-    // まず，現在の重心位置から最も近い点を探す．
+    // まず,現在の重心位置から最も近い点を探す.
     int most_near_index = 0;
     float min_distance = 100000.f;
 
@@ -175,7 +175,7 @@ RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node)
 
     CmdIOUtil::Output(std::format("most_near_index : {}", most_near_index), kDebug);
 
-    // 次の地点への角度を計算する．
+    // 次の地点への角度を計算する.
     const float euler_z_angle = NormalizeAngle(ToEulerXYZ(node.posture).z_angle);
     const Vector3 diff_vector = global_route_[most_near_index - 1] - global_route_[most_near_index];
     const float target_angle = NormalizeAngle(atan2(diff_vector.y, diff_vector.x));

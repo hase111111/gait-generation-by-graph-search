@@ -17,7 +17,7 @@ namespace designlab
 {
 
 //! @class SimulationEndCheckerByGoalTape
-//! @brief ゴールテープによるシミュレーション終了判定クラス．
+//! @brief ゴールテープによるシミュレーション終了判定クラス.
 class SimulationEndCheckerByGoalTape final : public ISimulationEndChecker
 {
 public:
@@ -26,7 +26,7 @@ public:
     bool IsEnd(const RobotStateNode& node) const override;
 
 private:
-    //! 直進のときに、Y方向にこの値だけ進めたら1シミュレーション終了．
+    //! 直進のときに、Y方向にこの値だけ進めたら1シミュレーション終了.
     const float kGoalTape;
 };
 

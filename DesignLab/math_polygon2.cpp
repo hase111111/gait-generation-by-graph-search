@@ -16,7 +16,7 @@ namespace designlab
 
 Polygon2::Polygon2(const std::vector<Vector2>& vertex)
 {
-    assert(vertex.size() <= kMaxVertexNum);  // 頂点数は最大値を超えてはいけない．
+    assert(vertex.size() <= kMaxVertexNum);  // 頂点数は最大値を超えてはいけない.
 
     for (int i = 0; i < static_cast<int>(vertex.size()); ++i)
     {
@@ -37,7 +37,7 @@ bool Polygon2::AddVertexCheckForDuplicates(const Vector2& v)
     vertex[static_cast<size_t>(vertex_num)] = v;
     ++vertex_num;
 
-    assert(vertex_num <= kMaxVertexNum);  // 頂点数は最大値を超えてはいけない．
+    assert(vertex_num <= kMaxVertexNum);  // 頂点数は最大値を超えてはいけない.
 
     return true;
 }
@@ -49,7 +49,7 @@ void Polygon2::RemoveVertex(const int i)
         return;
     }
 
-    // i番目の頂点を削除する．そして，i+1番目以降の頂点をi番目以降にコピーする．
+    // i番目の頂点を削除する.そして,i+1番目以降の頂点をi番目以降にコピーする.
     for (int j = i; j < GetVertexNum() - 1; ++j)
     {
         vertex[j] = vertex[j + 1];
@@ -64,13 +64,13 @@ bool Polygon2::IsConvex() const
 {
     const int num = GetVertexNum();
 
-    // 早期リターン．頂点数が3未満の場合は多角形ではない．
+    // 早期リターン.頂点数が3未満の場合は多角形ではない.
     if (num < 3)
     {
         return false;
     }
 
-    // 右回りか左回りかを調べる．
+    // 右回りか左回りかを調べる.
     const auto v1 = vertex[1] - vertex[0];
     const auto v2 = vertex[2] - vertex[1];
 
@@ -98,7 +98,7 @@ bool Polygon2::IsInside(const Vector2& point) const
 {
     const int num = GetVertexNum();
 
-    // 早期リターン．頂点数が3未満の場合は多角形ではない．
+    // 早期リターン.頂点数が3未満の場合は多角形ではない.
     if (num < 3)
     {
         return false;
@@ -106,7 +106,7 @@ bool Polygon2::IsInside(const Vector2& point) const
 
     int cnt = 0;
 
-    // 頂点が右回りか左回りかを調べる．
+    // 頂点が右回りか左回りかを調べる.
     bool is_left_turn = (vertex[1] - vertex[0]).Cross(vertex[2] - vertex[1]) > 0.0f;
 
     if (!is_left_turn)
@@ -118,7 +118,7 @@ bool Polygon2::IsInside(const Vector2& point) const
 
             if (v1.Cross(v2) == 0.0f && v1.Dot(v2) <= 0.0f)
             {
-                return true;  // 点が辺上にある．
+                return true;  // 点が辺上にある.
             }
 
             if (v1.y < v2.y)
@@ -146,7 +146,7 @@ bool Polygon2::IsInside(const Vector2& point) const
 
             if (v1.Cross(v2) == 0.0f && v1.Dot(v2) <= 0.0f)
             {
-                return true;  // 点が辺上にある．
+                return true;  // 点が辺上にある.
             }
 
             if (v1.y > v2.y)

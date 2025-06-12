@@ -36,8 +36,8 @@ namespace designlab
 {
 
 //! @class GraphicMainBasic
-//! @brief シミュレーションの一覧表示，ロボットの動きの軌跡の表示
-//! などベーシックな機能を提供するクラス．
+//! @brief シミュレーションの一覧表示,ロボットの動きの軌跡の表示
+//! などベーシックな機能を提供するクラス.
 class GraphicMainBasic final : public IGraphicMain
 {
 public:
@@ -57,49 +57,49 @@ public:
     void Draw() const override;
 
 private:
-    const int kNodeGetCount;  //!< ノードを取得する間隔．
+    const int kNodeGetCount;  //!< ノードを取得する間隔.
 
-    const int kInterpolatedAnimeCount;  //!< 補間されたノードの表示を切り替える間隔．
+    const int kInterpolatedAnimeCount;  //!< 補間されたノードの表示を切り替える間隔.
 
 
-    const std::shared_ptr<const GraphicDataBroker> broker_ptr_;  //!< データを受け取るクラス．
+    const std::shared_ptr<const GraphicDataBroker> broker_ptr_;  //!< データを受け取るクラス.
 
-    std::shared_ptr<Mouse> mouse_ptr_;  //!< マウスの情報を取得するクラス．
+    std::shared_ptr<Mouse> mouse_ptr_;  //!< マウスの情報を取得するクラス.
 
-    DxlibGuiUpdater gui_updater_;  //!< GUIをアクティブにするクラス．
-    Dxlib3dRendererGroup render_group_;  //!< 描画を行うクラス．
-    DxlibNodeSetterGroup node_setter_group_;  //!< ノードを設定するクラス．
+    DxlibGuiUpdater gui_updater_;  //!< GUIをアクティブにするクラス.
+    Dxlib3dRendererGroup render_group_;  //!< 描画を行うクラス.
+    DxlibNodeSetterGroup node_setter_group_;  //!< ノードを設定するクラス.
 
-    //!< ノードの表示を切り替えるGUI．
+    //!< ノードの表示を切り替えるGUI.
     std::shared_ptr<DxlibGuiDisplayNodeSwitcher> display_node_switch_gui_;
 
-    //!< ロボットの動きの軌跡を表示するクラス．
+    //!< ロボットの動きの軌跡を表示するクラス.
     MovementLocusRenderer movement_locus_renderer_;
 
-    //!< ロボットの足先の位置を表示するクラス．
+    //!< ロボットの足先の位置を表示するクラス.
     RobotGroundPointRenderer robot_ground_point_renderer_;
 
-    //!< マップを表示するクラス．
+    //!< マップを表示するクラス.
     std::shared_ptr<MapRenderer> map_renderer_ptr_;
 
-    InterpolatedNodeCreator interpolated_node_creator_;  //!< ノード間を補間するクラス．
+    InterpolatedNodeCreator interpolated_node_creator_;  //!< ノード間を補間するクラス.
 
 
-    MapState map_state_;  //!< 表示するマップ．
+    MapState map_state_;  //!< 表示するマップ.
 
-    std::vector<RobotStateNode> graph_;  //!< ロボットの動きの遷移を記録する配列．
+    std::vector<RobotStateNode> graph_;  //!< ロボットの動きの遷移を記録する配列.
 
-    size_t display_node_index_{ 0 };  //!< 描画しているノード．
+    size_t display_node_index_{ 0 };  //!< 描画しているノード.
 
-    int counter_{ 0 };  //!< このクラスが実行されてから何回 update 関数が呼ばれたかカウントする．
+    int counter_{ 0 };  //!< このクラスが実行されてから何回 update 関数が呼ばれたかカウントする.
 
-    std::vector<RobotStateNode> interpolated_node_;  //!< 補間されたノードを記録する配列．
+    std::vector<RobotStateNode> interpolated_node_;  //!< 補間されたノードを記録する配列.
 
-    int interpolated_anime_start_count_{ 0 };  //!< 補間されたノードを表示し始めるカウント．
+    int interpolated_anime_start_count_{ 0 };  //!< 補間されたノードを表示し始めるカウント.
 
 
-    int graph_update_count{ 0 };  //!< 処理部でのグラフの更新回数．
-    int map_update_count{ 0 };  //!< 処理部でのマップの更新回数．
+    int graph_update_count{ 0 };  //!< 処理部でのグラフの更新回数.
+    int map_update_count{ 0 };  //!< 処理部でのマップの更新回数.
 };
 
 }  // namespace designlab

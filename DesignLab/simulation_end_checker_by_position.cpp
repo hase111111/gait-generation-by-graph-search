@@ -21,7 +21,7 @@ SimulationEndCheckerByPosition::SimulationEndCheckerByPosition(
 
 bool SimulationEndCheckerByPosition::IsEnd(const RobotStateNode& node) const
 {
-    // 位置を取得し，誤差を計算．
+    // 位置を取得し,誤差を計算.
     const float dif = (node.center_of_mass_global_coord - goal_position_).GetLength();
 
     if (dif > allowable_error_)

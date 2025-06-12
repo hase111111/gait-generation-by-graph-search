@@ -8,7 +8,7 @@
 #ifndef DESIGNLAB_TEST_MAIN_H_
 #define DESIGNLAB_TEST_MAIN_H_
 
-// ↓テストを使用しない場合コメントアウトすること．
+// ↓テストを使用しない場合コメントアウトすること.
 
 // #define DESIGNLAB_USE_TEST
 
@@ -18,7 +18,7 @@
 
 #include <doctest.h>
 
-// 以下にテストコードが書かれたhファイルをインクルードすることで登録される．
+// 以下にテストコードが書かれたhファイルをインクルードすることで登録される.
 
 #include "asyncable_data_test.h"
 #include "divided_map_state_test.h"

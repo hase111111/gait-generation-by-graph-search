@@ -20,11 +20,11 @@ namespace designlab
 {
 
 //! @class IGaitPatternGenerator
-//! @brief グラフ探索による歩容パターン生成を行うクラスのインターフェース．
+//! @brief グラフ探索による歩容パターン生成を行うクラスのインターフェース.
 //! @details
-//! @n 波東さんのプログラムで言うところのPassFindingクラス．
-//! 実体は作成できないのでこれを継承してたクラスを使うこと．
-//! @n 継承をするクラスのデストラクタは virtualにしておく．
+//! @n 波東さんのプログラムで言うところのPassFindingクラス.
+//! 実体は作成できないのでこれを継承してたクラスを使うこと.
+//! @n 継承をするクラスのデストラクタは virtualにしておく.
 //!
 //! 参考
 //! @li C++ でデストラクタを virtual にしなくてはならない条件と理由
@@ -36,13 +36,13 @@ public:
     virtual ~IGaitPatternGenerator() = default;
 
 
-    //! @brief グラフ探索を行い，次の動作として最適なノードを返す．
-    //! @param[in] current_node 現在のロボットの状態を表すノード．
-    //! 親ノードを渡す必要がある．
-    //! @param[in] map 現在のマップの状態．
-    //! @param[in] operation ロボットの動作．
-    //! @param[out] output_node_ptr 結果のノードを代入するポインタ．
-    //! @return グラフ探索の結果を返す．成功か失敗か．
+    //! @brief グラフ探索を行い,次の動作として最適なノードを返す.
+    //! @param[in] current_node 現在のロボットの状態を表すノード.
+    //! 親ノードを渡す必要がある.
+    //! @param[in] map 現在のマップの状態.
+    //! @param[in] operation ロボットの動作.
+    //! @param[out] output_node_ptr 結果のノードを代入するポインタ.
+    //! @return グラフ探索の結果を返す.成功か失敗か.
     virtual GraphSearchResult GetNextNodeByGraphSearch(
       const RobotStateNode& current_node,
       const MapState& map,

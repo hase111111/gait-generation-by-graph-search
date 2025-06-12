@@ -25,15 +25,15 @@ void ComCandidatePolygonMaker::MakeCandidatePolygon(
     const RobotStateNode& node,
     std::array<ComPosAndPolygon, kMakePolygonNum>* output_poly) const
 {
-    assert(converter_ptr_ != nullptr);  // nullptr でないことを確認する．
-    assert(output_poly != nullptr);  // nullptr でないことを確認する．
+    assert(converter_ptr_ != nullptr);  // nullptr でないことを確認する.
+    assert(output_poly != nullptr);  // nullptr でないことを確認する.
 
-    // XY平面に射影した脚位置を算出する．(グローバル座標系)
+    // XY平面に射影した脚位置を算出する.(グローバル座標系)
     std::array<Vector2, HexapodConst::kLegNum> leg_pos_xy;
 
     for (int i = 0; i < HexapodConst::kLegNum; i++)
     {
-        // 脚位置(グローバル座標)をXY平面に射影する．
+        // 脚位置(グローバル座標)をXY平面に射影する.
         leg_pos_xy[i] = converter_ptr_->ConvertLegToGlobalCoordinate(
             node.leg_pos[i],
             i,
@@ -42,7 +42,7 @@ void ComCandidatePolygonMaker::MakeCandidatePolygon(
             true).ProjectedXY();
     }
 
-    // 中心を囲むように4角形を作成する．
+    // 中心を囲むように4角形を作成する.
     MakeCandidateBox(leg_pos_xy, 0, &(*output_poly)[0].polygon);
     (*output_poly)[0].com_pos = enums::DiscreteComPos::kFrontLeft;
     (*output_poly)[0].is_able = true;
@@ -67,10 +67,10 @@ void ComCandidatePolygonMaker::MakeCandidatePolygon(
     (*output_poly)[5].com_pos = enums::DiscreteComPos::kFront;
     (*output_poly)[5].is_able = true;
 
-    // 中心に3角形を作成する．
+    // 中心に3角形を作成する.
     MakeCandidateTriangle(leg_pos_xy, &(*output_poly)[6]);
 
-    // 生成した多角形が正しいかどうかをチェックし，異常なものは削除する．
+    // 生成した多角形が正しいかどうかをチェックし,異常なものは削除する.
     if (kDoCheckPolygon)
     {
         for (int i = 0; i < kMakePolygonNum; ++i)
@@ -88,7 +88,7 @@ void ComCandidatePolygonMaker::MakeCandidateBox(
     const int start_leg_num,
     Polygon2* output_poly) const
 {
-    // 脚位置を線で結ぶ．この交点から重心候補地点が存在する多角形を求める．
+    // 脚位置を線で結ぶ.この交点から重心候補地点が存在する多角形を求める.
     LineSegment2 leg_line_02(
         leg_pos[(start_leg_num + 0) % HexapodConst::kLegNum],
         leg_pos[(start_leg_num + 2) % HexapodConst::kLegNum]);
@@ -109,23 +109,23 @@ void ComCandidatePolygonMaker::MakeCandidateBox(
         leg_pos[(start_leg_num + 2) % HexapodConst::kLegNum],
         leg_pos[(start_leg_num + 5) % HexapodConst::kLegNum]);
 
-    // 交点(intersection)を求める．
+    // 交点(intersection)を求める.
     Vector2 intersection_02_14 = leg_line_02.GetIntersection(leg_line_14);
     Vector2 intersection_02_15 = leg_line_02.GetIntersection(leg_line_15);
     Vector2 intersection_03_14 = leg_line_03.GetIntersection(leg_line_14);
     Vector2 intersection_03_15 = leg_line_03.GetIntersection(leg_line_15);
 
-    // 中心と0番の脚位置を結んだ線分を求める．
+    // 中心と0番の脚位置を結んだ線分を求める.
     LineSegment2 leg_line_0_center(
         leg_pos[(start_leg_num + 0) % HexapodConst::kLegNum], intersection_03_14);
 
-    // 多角形生成．
+    // 多角形生成.
 
     (*output_poly).Reset();
 
     if (leg_line_0_center.HasIntersection(leg_line_25))
     {
-        // 交点がある場合，5角形の多角形を作成する．
+        // 交点がある場合,5角形の多角形を作成する.
         Vector2 intersection_03_25 = leg_line_03.GetIntersection(leg_line_25);
         Vector2 intersection_14_25 = leg_line_14.GetIntersection(leg_line_25);
 
@@ -137,7 +137,7 @@ void ComCandidatePolygonMaker::MakeCandidateBox(
     }
     else
     {
-        // 交点がない場合，既に求めた4点で，4角形の多角形を作成する．
+        // 交点がない場合,既に求めた4点で,4角形の多角形を作成する.
         (*output_poly).AddVertex(intersection_03_15);
         (*output_poly).AddVertex(intersection_02_15);
         (*output_poly).AddVertex(intersection_02_14);
@@ -153,12 +153,12 @@ void ComCandidatePolygonMaker::MakeCandidateTriangle(
     LineSegment2 leg_line_14(leg_pos[1], leg_pos[4]);
     LineSegment2 leg_line_25(leg_pos[2], leg_pos[5]);
 
-    // 交点(intersection)を求める．
+    // 交点(intersection)を求める.
     Vector2 intersection_03_14 = leg_line_03.GetIntersection(leg_line_14);
     Vector2 intersection_03_25 = leg_line_03.GetIntersection(leg_line_25);
     Vector2 intersection_14_25 = leg_line_14.GetIntersection(leg_line_25);
 
-    // 三角形を作成する．
+    // 三角形を作成する.
     output->polygon.Reset();
     output->polygon.AddVertex(intersection_03_14);
     output->polygon.AddVertex(intersection_03_25);
@@ -180,12 +180,12 @@ void ComCandidatePolygonMaker::MakeCandidateTriangle(
 
 bool ComCandidatePolygonMaker::IsAblePolygon(const Polygon2& poly) const
 {
-    // 生成されるのは 3 or 4 or 5角形のみ．
+    // 生成されるのは 3 or 4 or 5角形のみ.
     if (poly.GetVertexNum() == 3 ||
         poly.GetVertexNum() == 4 ||
         poly.GetVertexNum() == 5)
     {
-        // 凸多角形であるかを確認する．
+        // 凸多角形であるかを確認する.
         if (poly.IsConvex())
         {
             return true;

@@ -18,7 +18,7 @@
 namespace designlab {
 
 //! @class XR_R1
-//! @brief XiaoRGeek社のロボットXR_R1の状態を計算するクラス．
+//! @brief XiaoRGeek社のロボットXR_R1の状態を計算するクラス.
 class XrR1 :
     public IHexapodCoordinateConverter,
     public IHexapodJointCalculator,
@@ -83,17 +83,17 @@ public:
         const DividedMapState& devide_map) const override;
 
 private:
-    static constexpr int kMaxLegRSize{ 200 };   //!< kMaxLegRの配列のサイズ．
+    static constexpr int kMaxLegRSize{ 200 };   //!< kMaxLegRの配列のサイズ.
 
 
     std::array<float, kMaxLegRSize> InitMaxLegR() const;
     std::array<Vector2, HexapodConst::kLegNum> InitMinLegPosXY() const;
     std::array<Vector2, HexapodConst::kLegNum> InitMaxLegPosXY() const;
 
-    //! 地面から胴体を持ち上げる高さ[mm]．最小ここまで下げられる．
+    //! 地面から胴体を持ち上げる高さ[mm].最小ここまで下げられる.
     const float kBodyLiftingHeightMin;
 
-    //! 地面から胴体を持ち上げる高さ[mm]．最大ここまで上げられる．
+    //! 地面から胴体を持ち上げる高さ[mm].最大ここまで上げられる.
     const float kBodyLiftingHeightMax;
 
     const float kMovableCoxaAngleMin;   //!< 脚の可動範囲の最小値[rad]
@@ -102,26 +102,26 @@ private:
     const float kMinLegR;   //!< 脚の付け根から脚先までの最小距離[mm]
     const float kMaxLegR;   //!< 脚の付け根から脚先までの最大距離[mm]
 
-    const float kFreeLegHeight;  //!< 重心から見た遊脚高さ[mm]．
-    const float kStableMargin;   //!< 静的安全余裕．
+    const float kFreeLegHeight;  //!< 重心から見た遊脚高さ[mm].
+    const float kStableMargin;   //!< 静的安全余裕.
 
-    const float kMinLegDistance;  //! 脚先どうしの最小距離[mm]．
+    const float kMinLegDistance;  //! 脚先どうしの最小距離[mm].
 
-    //! 脚の付け根から脚先までの最大距離[mm]．
-    //! 脚の付け根と重心のz方向の距離の差をインデックスにする．
+    //! 脚の付け根から脚先までの最大距離[mm].
+    //! 脚の付け根と重心のz方向の距離の差をインデックスにする.
     std::array<float, kMaxLegRSize> kMaxLegRArray;
 
-    //! coxa jointの最小位置まで回した時の脚先座標．脚座標系のxyからみた座標．
+    //! coxa jointの最小位置まで回した時の脚先座標.脚座標系のxyからみた座標.
     std::array<Vector2, HexapodConst::kLegNum> kMinLegPosXY;
 
-    //! coxa jointの最大位置まで回した時の脚先座標．脚座標系のxyからみた座標．
+    //! coxa jointの最大位置まで回した時の脚先座標.脚座標系のxyからみた座標.
     std::array<Vector2, HexapodConst::kLegNum> kMaxLegPosXY;
 
 
-    //!< 脚の付け根の座標( leg base position )．ロボット座標系．
+    //!< 脚の付け根の座標( leg base position ).ロボット座標系.
     const std::array<Vector3, HexapodConst::kLegNum> leg_base_pos_robot_coordinate_;
 
-    //!< 遊脚する位置．脚座標系．
+    //!< 遊脚する位置.脚座標系.
     const std::array<Vector3, HexapodConst::kLegNum> free_leg_pos_leg_coordinate_;
 };
 

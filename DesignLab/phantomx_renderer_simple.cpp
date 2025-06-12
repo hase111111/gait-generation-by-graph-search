@@ -62,7 +62,7 @@ void PhantomXRendererSimple::Draw() const
 
 void PhantomXRendererSimple::DrawHexapodNormal() const
 {
-    //胴体を描画する．
+    //胴体を描画する.
     std::array<VECTOR, HexapodConst::kLegNum> vertex;
 
     for (int i = 0; i < HexapodConst::kLegNum; i++)
@@ -83,10 +83,10 @@ void PhantomXRendererSimple::DrawHexapodNormal() const
     //重心の描画
     DrawSphere3D(dxlib_util::ConvertToDxlibVec(draw_node_.center_of_mass_global_coord), kJointRadius * 1.5f, kSphereDivNum, kColorJoint, kColorJoint, TRUE);
 
-    //脚を描画する．
+    //脚を描画する.
     for (int i = 0; i < HexapodConst::kLegNum; i++)
     {
-        //脚の色を遊脚・接地で変更する．
+        //脚の色を遊脚・接地で変更する.
         const unsigned int kLegBaseColor = leg_func::IsGrounded(draw_node_.leg_state, i) ? kColorLeg : kColorLiftedLeg;
         const unsigned int kJointColor = leg_func::IsGrounded(draw_node_.leg_state, i) ? kColorJoint : kColorLiftedJoint;
 

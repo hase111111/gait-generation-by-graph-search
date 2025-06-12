@@ -21,10 +21,10 @@ namespace designlab
 {
 
 //! @class AbstractDxlibGui
-//! @brief Dxlibを使ったGUIの抽象クラス．
+//! @brief Dxlibを使ったGUIの抽象クラス.
 //! @details
-//! このクラスは，Dxlibを使ったGUIの抽象クラスである．
-//! このクラスを継承して，GUIを作成する．
+//! このクラスは,Dxlibを使ったGUIの抽象クラスである.
+//! このクラスを継承して,GUIを作成する.
 class AbstractDxlibGui :
     public IDxlibGui,
     public IDxlibClickable,
@@ -35,16 +35,16 @@ public:
     AbstractDxlibGui(int width, int height);
     virtual ~AbstractDxlibGui() = default;
 
-    //! @brief GUIの位置を設定する．
-    //! @n Dxlibの画面の座標は左上を原点とし，右下に行くほど値が大きくなる．
-    //! @n 横方向にx軸，縦方向にy軸をとる．
-    //! @param[in] pos_x GUIのx座標．
-    //! @param[in] pos_y GUIのy座標．
-    //! @param[in] option GUIのどの地点を起点に座標を設定するかを指定する．
-    //! defaultでは左上を起点とする．
-    //! @param[in] this_is_first_time この呼び出しが初めてかどうかを指定する．
-    //! defaultでは false．trueを指定すると，GUIの位置を設定するだけでなく，
-    //! GUIの初期位置を更新する．
+    //! @brief GUIの位置を設定する.
+    //! @n Dxlibの画面の座標は左上を原点とし,右下に行くほど値が大きくなる.
+    //! @n 横方向にx軸,縦方向にy軸をとる.
+    //! @param[in] pos_x GUIのx座標.
+    //! @param[in] pos_y GUIのy座標.
+    //! @param[in] option GUIのどの地点を起点に座標を設定するかを指定する.
+    //! defaultでは左上を起点とする.
+    //! @param[in] this_is_first_time この呼び出しが初めてかどうかを指定する.
+    //! defaultでは false.trueを指定すると,GUIの位置を設定するだけでなく,
+    //! GUIの初期位置を更新する.
     void SetPos(int pos_x, int pos_y,
                 unsigned int option = kDxlibGuiAnchorLeftTop,
                 bool this_is_first_time = false);
@@ -84,26 +84,26 @@ public:
 protected:
     void DrawBackground(const std::string& str) const;
 
-    std::vector<std::unique_ptr<SimpleButton>> button_;  //!< ボタンのリスト．
+    std::vector<std::unique_ptr<SimpleButton>> button_;  //!< ボタンのリスト.
 
-    static constexpr int kTitleBarHeight{ 32 };  //!< タイトルバーの高さ．
+    static constexpr int kTitleBarHeight{ 32 };  //!< タイトルバーの高さ.
 
-    const int width_;  //!< GUIの横幅．
-    const int height_;  //!< GUIの縦幅．
+    const int width_;  //!< GUIの横幅.
+    const int height_;  //!< GUIの縦幅.
 
-    //! GUIが表示されているかどうかのフラグ．
+    //! GUIが表示されているかどうかのフラグ.
     bool visible_{ true };
 
-    //!< ドラッグ中かどうかのフラグ．
+    //!< ドラッグ中かどうかのフラグ.
     bool is_dragging_{ false };
 
-    int gui_left_pos_x_{ 0 };  //!< GUIの左端の位置．
-    int gui_top_pos_y_{ 0 };   //!< GUIの上端の位置．
+    int gui_left_pos_x_{ 0 };  //!< GUIの左端の位置.
+    int gui_top_pos_y_{ 0 };   //!< GUIの上端の位置.
 
-    int init_pos_x_{ 0 };  //!< SetされたGUIの左上のX座標．
-    int init_pos_y_{ 0 };  //!< SetされたGUIの左上のY座標．
+    int init_pos_x_{ 0 };  //!< SetされたGUIの左上のX座標.
+    int init_pos_y_{ 0 };  //!< SetされたGUIの左上のY座標.
 
-    int font_handle_{ -1 };  //!< フォントハンドル．
+    int font_handle_{ -1 };  //!< フォントハンドル.
 };
 
 }  // namespace designlab

@@ -60,7 +60,7 @@ void NodeCreatorComMoveStraight::Create(
               candidate_directions_rotated[i] * j,
           false);
 
-      // IsLegInRange，IsStable，IsBodyInterfering を確認する．
+      // IsLegInRange,IsStable,IsBodyInterfering を確認する.
       if (checker_ptr_->IsAllLegInRange(next_node.leg_state,
                                         next_node.leg_pos) &&
           checker_ptr_->IsStable(next_node.leg_state, next_node.leg_pos) &&
@@ -80,7 +80,7 @@ void NodeCreatorComMoveStraight::Create(
 
       next_node.ChangeToNextNode(current_num, next_move_);
 
-      // discreate_leg_posを更新する．
+      // discreate_leg_posを更新する.
       for (int j = 0; j < HexapodConst::kLegNum; j++) {
         leg_func::ChangeDiscreteLegPos(j, enums::DiscreteLegPos::kCenter,
                                        &next_node.leg_state);

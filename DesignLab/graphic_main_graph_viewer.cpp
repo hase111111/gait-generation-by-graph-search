@@ -38,7 +38,7 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(
 {
     assert(broker_ptr_ != nullptr);
 
-    // 適当なノードを生成して，描画クラスを初期化する．
+    // 適当なノードを生成して,描画クラスを初期化する.
     NodeInitializer node_initializer{ Vector3{0.f, 0.f, 30.f}, EulerXYZ(), HexapodMove::kNone };
     RobotStateNode init_node = node_initializer.InitNode();
 
@@ -92,11 +92,11 @@ bool GraphicMainGraphViewer::Update()
 
     if (graph_update_count_ != broker_ptr_->graph.GetUpdateCount())
     {
-        graph_.clear();  // グラフを初期化する．
+        graph_.clear();  // グラフを初期化する.
 
-        graph_ = broker_ptr_->graph.GetData();  // データを更新する．
+        graph_ = broker_ptr_->graph.GetData();  // データを更新する.
 
-        // グラフの中身が空でないならば，表示するノードを初期化する．
+        // グラフの中身が空でないならば,表示するノードを初期化する.
         if (!graph_.empty())
         {
             display_node_index_ = 0;

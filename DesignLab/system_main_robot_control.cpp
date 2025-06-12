@@ -34,7 +34,7 @@ void SystemMainRobotControl::Main()
 
     while (true)
     {
-        // ファイルツリーを表示し，ファイルを選択する．
+        // ファイルツリーを表示し,ファイルを選択する.
         FileTree file_tree;
 
         std::string res_path;
@@ -44,16 +44,16 @@ void SystemMainRobotControl::Main()
             CmdIOUtil::Output("No data were found. Terminate.", kSystem);
             CmdIOUtil::OutputNewLine(1, kSystem);
 
-            //! ヒントを表示する．「kResultFileDirectoryPath の中にファイルを入れてください．」
+            //! ヒントを表示する.「kResultFileDirectoryPath の中にファイルを入れてください.」
             CmdIOUtil::Output(
                 "Please put the file in the directory. \"./" + kResultFileDirectoryPath + "\"", kSystem);
 
             break;
         }
 
-        // ファイルを読み込む．
+        // ファイルを読み込む.
 
-        std::vector<RobotStateNode> graph;  // データを受け取るための変数．
+        std::vector<RobotStateNode> graph;  // データを受け取るための変数.
         MapState map_state;
 
         if (result_importer_.ImportNodeListAndMapState(res_path, &graph, &map_state))
@@ -62,12 +62,12 @@ void SystemMainRobotControl::Main()
             MergeContinuousMove(&graph);
             DivideSwingAndStance(&graph);
 
-            // データを仲介人に渡す．
+            // データを仲介人に渡す.
             broker_ptr_->graph.SetData(graph);
             broker_ptr_->map_state.SetData(map_state);
             broker_ptr_->simulation_end_index.SetData({ graph.size() - 1 });
 
-            // データを表示する．
+            // データを表示する.
             CmdIOUtil::Output("Displays data.", kSystem);
             CmdIOUtil::OutputNewLine(1, kSystem);
             CmdIOUtil::WaitAnyKey();
@@ -94,7 +94,7 @@ void SystemMainRobotControl::Main()
 
 void SystemMainRobotControl::RemoveDoNotMoveNode(std::vector<RobotStateNode>* graph_ptr)
 {
-    // 脚先の座標のみを確認し，変更がない場合は削除する．
+    // 脚先の座標のみを確認し,変更がない場合は削除する.
     std::optional<RobotStateNode> prev_pos = std::nullopt;
 
     for (auto itr = graph_ptr->begin(); itr != graph_ptr->end();)
@@ -113,7 +113,7 @@ void SystemMainRobotControl::RemoveDoNotMoveNode(std::vector<RobotStateNode>* gr
 
 void SystemMainRobotControl::MergeContinuousMove(std::vector<RobotStateNode>* graph_ptr)
 {
-    // 胴体の平行移動を連続して行うノードをまとめる．
+    // 胴体の平行移動を連続して行うノードをまとめる.
     std::optional<RobotStateNode> prev_pos = std::nullopt;
 
     bool prv_is_body_move = false;
@@ -149,19 +149,19 @@ void SystemMainRobotControl::MergeContinuousMove(std::vector<RobotStateNode>* gr
 
 void SystemMainRobotControl::DivideSwingAndStance(std::vector<RobotStateNode>* graph_ptr)
 {
-    // 脚先の座標のみを確認し，変更がない場合は削除する．
+    // 脚先の座標のみを確認し,変更がない場合は削除する.
     std::optional<RobotStateNode> prev_pos = std::nullopt;
 
     for (auto itr = graph_ptr->begin(); itr != graph_ptr->end(); ++itr)
     {
-        // 前回のノードがないならば，更新して次へ．
+        // 前回のノードがないならば,更新して次へ.
         if (!prev_pos.has_value())
         {
             prev_pos = *itr;
             continue;
         }
 
-        // 脚先の座標のZ座標，つまり高さが変化しているかどうかを確認する．
+        // 脚先の座標のZ座標,つまり高さが変化しているかどうかを確認する.
         int swing_leg_num = 0;
         int stance_leg_num = 0;
 
@@ -178,14 +178,14 @@ void SystemMainRobotControl::DivideSwingAndStance(std::vector<RobotStateNode>* g
             }
         }
 
-        // 遊脚・接地を分ける．
+        // 遊脚・接地を分ける.
         if (swing_leg_num > 0 && stance_leg_num > 0)
         {
             RobotStateNode stance_node = prev_pos.value();
 
             for (int i = 0; i < HexapodConst::kLegNum; i++)
             {
-                // 前に遊脚，現在支持脚の場合のみ処理をする．
+                // 前に遊脚,現在支持脚の場合のみ処理をする.
                 if (!leg_func::IsGrounded(prev_pos.value().leg_state, i) && leg_func::IsGrounded((*itr).leg_state, i))
                 {
                     // 脚位置の変更
@@ -196,7 +196,7 @@ void SystemMainRobotControl::DivideSwingAndStance(std::vector<RobotStateNode>* g
                 }
             }
 
-            // ノードを挿入する．
+            // ノードを挿入する.
             itr = graph_ptr->insert(itr, stance_node);
         }
 
@@ -206,7 +206,7 @@ void SystemMainRobotControl::DivideSwingAndStance(std::vector<RobotStateNode>* g
 
 void SystemMainRobotControl::InitializeDirectory()
 {
-    // ディレクトリが存在しているか確認する．
+    // ディレクトリが存在しているか確認する.
     if (!std::filesystem::exists(kResultFileDirectoryPath))
     {
         std::filesystem::create_directory(kResultFileDirectoryPath);

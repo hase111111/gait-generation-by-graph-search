@@ -22,9 +22,9 @@ std::string GraphSearchResult::ToString() const
 
 std::string GraphSearchResultRecord::ToCsvString() const
 {
-    // std::boolalphaを使うと，bool値を文字列に変換できる．
-    // excelにおいて，数値を文字列として扱うためには，
-    // 数値の前にシングルクォーテーション ' をつける必要がある．
+    // std::boolalphaを使うと,bool値を文字列に変換できる.
+    // excelにおいて,数値を文字列として扱うためには,
+    // 数値の前にシングルクォーテーション ' をつける必要がある.
 
     std::stringstream stream;
 

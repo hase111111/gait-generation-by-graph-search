@@ -26,18 +26,18 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode>
 GraphSearcherStraightMove::SearchGraphTree(
     const GaitPatternGraphTree& graph, const RobotOperation& operation,
     const DividedMapState& divided_map_state, const int max_depth) const {
-  // ターゲットモードは直進である．
+  // ターゲットモードは直進である.
   assert(operation.operation_type ==
              RobotOperationType::kStraightMovePosition ||
          operation.operation_type == RobotOperationType::kStraightMoveVector);
 
   if (!graph.HasRoot()) {
     const GraphSearchResult result = {enums::Result::kFailure,
-                                      "ルートノードがありません．"};
+                                      "ルートノードがありません."};
     return {result, GraphSearchEvaluationValue{}, RobotStateNode{}};
   }
 
-  // 初期化．
+  // 初期化.
   Vector3 normalized_move_direction;
 
   if (operation.operation_type == RobotOperationType::kStraightMovePosition) {
@@ -76,12 +76,12 @@ GraphSearcherStraightMove::SearchGraphTree(
     log_move = log_depth == graph.GetNode(i).depth ? graph.GetNode(i).next_move
                                                    : log_move;
 
-    // 最大深さのノードのみを評価する．
+    // 最大深さのノードのみを評価する.
     if (graph.GetNode(i).depth != max_depth) {
       continue;
     }
 
-    // 評価値を計算する．
+    // 評価値を計算する.
     candidate_evaluation_value.value.at(kTagMoveForward) =
         GetMoveForwardEvaluationValue(graph.GetNode(i), graph.GetRootNode(),
                                       normalized_move_direction);
@@ -99,10 +99,10 @@ GraphSearcherStraightMove::SearchGraphTree(
     // GetZDiffEvaluationValue({ graph.GetNode(i).center_of_mass_global_coord.z
     // }, target_z_value);
 
-    // 評価値を比較する．
+    // 評価値を比較する.
     if (evaluator_.LeftIsBetter(candidate_evaluation_value,
                                 max_evaluation_value)) {
-      // 上回っている場合は更新する．
+      // 上回っている場合は更新する.
       CmdIOUtil::FormatOutput(OutputDetail::kDebug, "max_evaluation_value = {}",
                               max_evaluation_value.value[kTagZDiff]);
       max_evaluation_value = candidate_evaluation_value;
@@ -110,17 +110,17 @@ GraphSearcherStraightMove::SearchGraphTree(
     }
   }
 
-  // インデックスが範囲外ならば失敗．
+  // インデックスが範囲外ならば失敗.
   if (graph.GetGraphSize() <= max_evaluation_value_index) {
     const GraphSearchResult result = {enums::Result::kFailure,
-                                      "最大評価値のインデックスが範囲外です．"};
+                                      "最大評価値のインデックスが範囲外です."};
     return {result, GraphSearchEvaluationValue{}, RobotStateNode{}};
   }
 
   if (max_evaluation_value_index < 0) {
     const GraphSearchResult result = {
         enums::Result::kFailure,
-        std::format("葉ノードが存在しません．最大深さ : {}，動作 : {}",
+        std::format("葉ノードが存在しません.最大深さ : {},動作 : {}",
                     log_depth, string_util::EnumToStringRemoveTopK(log_move))};
 
     return {result, GraphSearchEvaluationValue{}, RobotStateNode{}};
@@ -143,12 +143,12 @@ GraphSearcherStraightMove::SearchGraphTreeVector(
   result_vector.resize(graph_vector.size());
 
   for (size_t i = 0; i < graph_vector.size(); i++) {
-    // グラフ探索の結果を格納する．
+    // グラフ探索の結果を格納する.
     result_vector[i] = SearchGraphTree(graph_vector[i], operation,
                                        divided_map_state, max_depth);
   }
 
-  // 最大評価値を持つものを探す．
+  // 最大評価値を持つものを探す.
   GraphSearchEvaluationValue max_evaluation_value =
       evaluator_.InitializeEvaluationValue();
   int max_evaluation_value_index = -1;
@@ -156,24 +156,24 @@ GraphSearcherStraightMove::SearchGraphTreeVector(
   for (int i = 0; i < result_vector.size(); i++) {
     const auto& [result, evaluation_value, _] = result_vector[i];
 
-    // 失敗しているものは無視する．
+    // 失敗しているものは無視する.
     if (result.result != enums::Result::kSuccess) {
       continue;
     }
 
-    // 評価値を比較する．
+    // 評価値を比較する.
     if (evaluator_.LeftIsBetter(evaluation_value, max_evaluation_value)) {
-      // 上回っている場合は更新する．
+      // 上回っている場合は更新する.
       max_evaluation_value = evaluation_value;
       max_evaluation_value_index = i;
     }
   }
 
-  // インデックスが範囲外ならば失敗．
+  // インデックスが範囲外ならば失敗.
   if (max_evaluation_value_index < 0 ||
       result_vector.size() <= max_evaluation_value_index) {
     const GraphSearchResult result = {enums::Result::kFailure,
-                                      "最大評価値のインデックスが範囲外です．"};
+                                      "最大評価値のインデックスが範囲外です."};
     return {result, GraphSearchEvaluationValue{}, RobotStateNode{}};
   }
 
@@ -238,13 +238,13 @@ float GraphSearcherStraightMove::InitTargetZValue(
 float GraphSearcherStraightMove::GetMoveForwardEvaluationValue(
     const RobotStateNode& node, const RobotStateNode& root_node,
     const Vector3& normalized_move_direction) const {
-  // 正規化されていることを確認する．
+  // 正規化されていることを確認する.
   assert(math_util::IsEqual(normalized_move_direction.GetSquaredLength(), 1.f));
 
   const Vector3 root_to_current =
       node.center_of_mass_global_coord - root_node.center_of_mass_global_coord;
 
-  // root_to_current の normalized_move_direction 方向の成分を取り出す．
+  // root_to_current の normalized_move_direction 方向の成分を取り出す.
   const float result = root_to_current.Dot(normalized_move_direction);
 
   return result;

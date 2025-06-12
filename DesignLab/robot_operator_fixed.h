@@ -15,13 +15,13 @@ namespace designlab
 {
 
 //! @class RobotOperatorFixed
-//! @brief 命令の更新をせず，初期化時の命令を送り続けるクラス．
+//! @brief 命令の更新をせず,初期化時の命令を送り続けるクラス.
 class RobotOperatorFixed : public IRobotOperator
 {
 public:
     RobotOperatorFixed() = delete;
 
-    //! @brief コンストラクタで指定した命令を常に返す．
+    //! @brief コンストラクタで指定した命令を常に返す.
     //! @param[in] operation ロボットへ送る命令.
     explicit RobotOperatorFixed(const RobotOperation& operation);
 

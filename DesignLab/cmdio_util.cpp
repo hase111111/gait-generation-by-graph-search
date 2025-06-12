@@ -35,15 +35,15 @@ void CmdIOUtil::SetOutputLimit(const OutputDetail limit)
 
     if (!is_initialized)
     {
-        // これを記述しておくと実行速度が早くなる．
-        // そのかわり printf を使用できなくなる．
+        // これを記述しておくと実行速度が早くなる.
+        // そのかわり printf を使用できなくなる.
         std::cin.tie(&std::cout);
         std::ios_base::sync_with_stdio(true);
 
         is_initialized = true;
     }
 
-    // 出力の許可範囲を設定したことを通知．
+    // 出力の許可範囲を設定したことを通知.
     FormatOutput(OutputDetail::kSystem, "Output limit is set to '{}'.", string_util::EnumToStringRemoveTopK(output_limit));
 }
 
@@ -58,7 +58,7 @@ void CmdIOUtil::Output(const std::string& str, const OutputDetail detail)
     assert(is_initialized);  // SetOutputLimitを呼んでから使用すること.
 
     // 出力を許可している かつ 出力する文字列の詳細が設定ファイルで許可されている場合
-    // または，出力を許可していない　かつ 出力する文字列の詳細がシステムメッセージの場合．
+    // または,出力を許可していない　かつ 出力する文字列の詳細がシステムメッセージの場合.
 
     if ((detail <= output_limit && do_output) || (detail == OutputDetail::kSystem && !do_output))
     {
@@ -68,24 +68,24 @@ void CmdIOUtil::Output(const std::string& str, const OutputDetail detail)
             return;
         }
 
-        // システムメッセージでない場合は，タグをつける．
+        // システムメッセージでない場合は,タグをつける.
         const std::string tag = (detail == OutputDetail::kSystem ? "" : " [" + string_util::EnumToStringRemoveTopK(detail) + "] ");
 
 #if defined(DESIGNLAB_USE_COLOR_OUTPUT)
 
-        if (detail == OutputDetail::kError) { std::cout << "\x1b[31m"; }  // 赤色．
-        if (detail == OutputDetail::kWarning) { std::cout << "\x1b[33m"; }  // 黄色．
-        if (detail == OutputDetail::kInfo) { std::cout << "\x1b[36m"; }  // シアン．
-        if (detail == OutputDetail::kDebug) { std::cout << "\x1b[32m"; }  // 緑色．
+        if (detail == OutputDetail::kError) { std::cout << "\x1b[31m"; }  // 赤色.
+        if (detail == OutputDetail::kWarning) { std::cout << "\x1b[33m"; }  // 黄色.
+        if (detail == OutputDetail::kInfo) { std::cout << "\x1b[36m"; }  // シアン.
+        if (detail == OutputDetail::kDebug) { std::cout << "\x1b[32m"; }  // 緑色.
 
 #endif  // DESIGNLAB_USE_COLOR_OUTPUT
 
         std::cout << tag;
 
-        // タグと同じ長さの空白を出力する．
+        // タグと同じ長さの空白を出力する.
         const std::string space(tag.size(), ' ');
 
-        // 改行ごとに文字列を取り出す．
+        // 改行ごとに文字列を取り出す.
         const auto line = string_util::Split(str, "\n");
 
         for (size_t i = 0; i < line.size(); i++)
@@ -101,7 +101,7 @@ void CmdIOUtil::Output(const std::string& str, const OutputDetail detail)
         }
 
 #if defined(DESIGNLAB_USE_COLOR_OUTPUT)
-        std::cout << "\x1b[0m";  // 色をリセット．
+        std::cout << "\x1b[0m";  // 色をリセット.
 #endif  // DESIGNLAB_USE_COLOR_OUTPUT
 
     }
@@ -116,7 +116,7 @@ void CmdIOUtil::SpacedOutput(const std::string& str, OutputDetail detail)
 
 void CmdIOUtil::OutputCenter(const std::string& str, const OutputDetail detail)
 {
-    // 改行ごとに文字列を取り出す．
+    // 改行ごとに文字列を取り出す.
     std::stringstream ss(str);
     std::string line;
 
@@ -144,7 +144,7 @@ void CmdIOUtil::OutputCenter(const std::string& str, const OutputDetail detail)
 
 void CmdIOUtil::OutputRight(const std::string& str, const OutputDetail detail)
 {
-    // 改行ごとに文字列を取り出す．
+    // 改行ごとに文字列を取り出す.
     std::stringstream ss(str);
     std::string line;
 
@@ -220,14 +220,14 @@ void CmdIOUtil::WaitAnyKey(const std::string& str)
 {
     Output(str, OutputDetail::kSystem);
 
-    // 何かキーを押すまで待機．
+    // 何かキーを押すまで待機.
     system("PAUSE");
 }
 
 int CmdIOUtil::InputInt(const int min, const int max,
                         const int default_num, const std::string& str)
 {
-    assert(min <= max);  // 最小値は最大値より小さい．
+    assert(min <= max);  // 最小値は最大値より小さい.
 
     FormatOutput(OutputDetail::kSystem, "{} ( {} ～ {} ) ", str, min, max);
 
@@ -239,7 +239,7 @@ int CmdIOUtil::InputInt(const int min, const int max,
 
     try
     {
-        res = std::stoi(input_str);  // 入力された文字列を int 型に変換．
+        res = std::stoi(input_str);  // 入力された文字列を int 型に変換.
 
         if (res < min || res > max)
         {
@@ -250,7 +250,7 @@ int CmdIOUtil::InputInt(const int min, const int max,
     }
     catch (...)
     {
-        // 整数値への変換で例外が発生した場合，ここに処理が飛ぶ．
+        // 整数値への変換で例外が発生した場合,ここに処理が飛ぶ.
         FormatOutput(OutputDetail::kSystem, "The entered value '{}' cannot be evaluated. Use the default value, '{}'.", input_str, default_num);
 
         res = default_num;

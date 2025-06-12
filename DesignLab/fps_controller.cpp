@@ -32,24 +32,24 @@ void FpsController::Wait()
         return;
     }
 
-    // 待つべき時間を取得して待つ．
+    // 待つべき時間を取得して待つ.
     int wait_time = 0;
 
     if (CheckNeedSkipDrawScreen(&wait_time))
     {
-        WaitTimer(wait_time);  // 取得した時間分待つ．
-        // Sleep(wait_time);    // windows API版．
+        WaitTimer(wait_time);  // 取得した時間分待つ.
+        // Sleep(wait_time);    // windows API版.
 
-        RegisterTime(GetNowCount());  // 現在の時刻を記録する．
+        RegisterTime(GetNowCount());  // 現在の時刻を記録する.
     }
     else
     {
-        // 時間オーバーしているので，コマ落ちの処理をする．
+        // 時間オーバーしているので,コマ落ちの処理をする.
 
-        // このフレームは理想的な処理をしたものとして，記録する．
+        // このフレームは理想的な処理をしたものとして,記録する.
         RegisterTime(time_list_.back() + kOneFrameTime);
 
-        need_skip_draw_screen_ = true;  // 描画を飛ばすフラグを立てる．
+        need_skip_draw_screen_ = true;  // 描画を飛ばすフラグを立てる.
     }
 }
 
@@ -61,7 +61,7 @@ bool FpsController::SkipDrawScene()
         return false;
     }
 
-    // スキップフラグが立っているならば，そのフラグを折り，シーンをスキップする．
+    // スキップフラグが立っているならば,そのフラグを折り,シーンをスキップする.
     if (need_skip_draw_screen_)
     {
         need_skip_draw_screen_ = false;
@@ -75,18 +75,18 @@ void FpsController::DrawFps() const
 {
     if (!TargetFpsIsValid())
     {
-        printfDx("FPS:%dは推奨されません．(FPSの調整は行われません．)\n",
+        printfDx("FPS:%dは推奨されません.(FPSの調整は行われません.)\n",
                  kTargetFpsValue);
         return;
     }
 
     if (time_list_.size() < 2)
     {
-        printfDx("計測中です．\n");
+        printfDx("計測中です.\n");
         return;
     }
 
-    // FPSを計算する．
+    // FPSを計算する.
     const int duration = (time_list_.back() - time_list_.front()) /
         static_cast<int>(time_list_.size() - 1);
 
@@ -96,11 +96,11 @@ void FpsController::DrawFps() const
 
 void FpsController::RegisterTime(const int now_time)
 {
-    time_list_.push_back(now_time);  // 現在の時刻を記憶．
+    time_list_.push_back(now_time);  // 現在の時刻を記憶.
 
     if (time_list_.size() > kListMax)
     {
-        // 器から漏れたら削除する．
+        // 器から漏れたら削除する.
         time_list_.pop_front();
     }
 }
@@ -108,42 +108,42 @@ void FpsController::RegisterTime(const int now_time)
 
 bool FpsController::CheckNeedSkipDrawScreen(int* time) const
 {
-    // 時刻を初期化．
+    // 時刻を初期化.
     (*time) = 0;
 
-    // 時刻リストが空なら，Wait時間は0秒．
+    // 時刻リストが空なら,Wait時間は0秒.
     if (time_list_.empty())
     {
         (*time) = 0;
         return true;
     }
 
-    // 実際にかかった時間を求める．
+    // 実際にかかった時間を求める.
     int actually_took_time = GetNowCount() - time_list_.back();
 
-    // 計算上かかるべき時間 - 実際にかかった時間　はすなわち待つべき時間．
+    // 計算上かかるべき時間 - 実際にかかった時間　はすなわち待つべき時間.
     int wait_time = kOneFrameTime - actually_took_time;
 
     if (wait_time >= 0)
     {
-        // 待ち時間が正の値であるとき，
-        // (つまり，かかるべき時間より実際にかかった時間が小さい時)はそのまま値を返す．
+        // 待ち時間が正の値であるとき,
+        // (つまり,かかるべき時間より実際にかかった時間が小さい時)はそのまま値を返す.
 
         (*time) = wait_time;
         return true;
     }
     else
     {
-        // 待ち時間が負の値であるとき．
+        // 待ち時間が負の値であるとき.
 
         if (static_cast<int>(abs(wait_time)) < kOneFrameTime)
         {
-            // １フレーム以上遅れていないならば，処理を行う．
+            // １フレーム以上遅れていないならば,処理を行う.
             return false;
         }
     }
 
-    // どれにも引っかからなかった場合０を返す．
+    // どれにも引っかからなかった場合０を返す.
     (*time) = 0;
     return true;
 }
@@ -151,13 +151,13 @@ bool FpsController::CheckNeedSkipDrawScreen(int* time) const
 
 bool FpsController::TargetFpsIsValid() const
 {
-    // マイナスの値は許容しない．
+    // マイナスの値は許容しない.
     if (kTargetFpsValue <= 0)
     {
         return false;
     }
 
-    // １秒間に１フレーム以上は許容しない．
+    // １秒間に１フレーム以上は許容しない.
     if (kTargetFpsValue > 60)
     {
         return false;

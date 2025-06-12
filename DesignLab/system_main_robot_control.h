@@ -29,23 +29,23 @@ public:
 
 private:
 
-    //! @brief ノードのうち，移動しないノードを削除する．
+    //! @brief ノードのうち,移動しないノードを削除する.
     void RemoveDoNotMoveNode(std::vector<RobotStateNode>* graph_ptr);
 
-    //! @brief 胴体の平行移動を連続して行うノードをまとめる．
+    //! @brief 胴体の平行移動を連続して行うノードをまとめる.
     void MergeContinuousMove(std::vector<RobotStateNode>* graph_ptr);
 
-    //! @brief ノードのうち，脚の上下運動を行うノードを，遊脚と接地に分ける．
+    //! @brief ノードのうち,脚の上下運動を行うノードを,遊脚と接地に分ける.
     void DivideSwingAndStance(std::vector<RobotStateNode>* graph_ptr);
 
-    //! @brief ディレクトリを作成する．
+    //! @brief ディレクトリを作成する.
     void InitializeDirectory();
 
     ResultFileImporter result_importer_;
 
     const std::shared_ptr<GraphicDataBroker> broker_ptr_;
 
-    const std::string kResultFileDirectoryPath{ "robot_control" };  //!< ファイルを読み込むディレクトリのパス．
+    const std::string kResultFileDirectoryPath{ "robot_control" };  //!< ファイルを読み込むディレクトリのパス.
 };
 
 }  // namespace designlab

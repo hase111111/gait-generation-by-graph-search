@@ -18,7 +18,7 @@ namespace designlab
 {
 
 //! @class SimulationEndCheckerByPosture
-//! @brief 最終姿勢によるシミュレーション終了判定クラス．
+//! @brief 最終姿勢によるシミュレーション終了判定クラス.
 class SimulationEndCheckerByPosture final : public ISimulationEndChecker
 {
 public:
@@ -27,10 +27,10 @@ public:
     bool IsEnd(const RobotStateNode& node) const override;
 
 private:
-    const Quaternion goal_orientation_;  //!< 目標姿勢．
-    const EulerXYZ goal_euler_;          //!< 目標姿勢．
+    const Quaternion goal_orientation_;  //!< 目標姿勢.
+    const EulerXYZ goal_euler_;          //!< 目標姿勢.
 
-    const float allowable_error_;        //!< 許容誤差．
+    const float allowable_error_;        //!< 許容誤差.
 };
 
 }  // namespace designlab

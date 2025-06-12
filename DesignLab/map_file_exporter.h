@@ -15,15 +15,15 @@
 namespace designlab {
 
 //! @class MapFileExporter
-//! @brief マップを csv に出力するクラス．
-//! @n マップには脚接地可能点が羅列されているので，1行ずつ出力する．
+//! @brief マップを csv に出力するクラス.
+//! @n マップには脚接地可能点が羅列されているので,1行ずつ出力する.
 class MapFileExporter final {
  public:
-  //! @brief マップを csv に出力する．
-  //! @param[in] file_path 出力するファイルのパス．
-  //! @param[in] map_state 出力するマップのデータ．
-  //! @retval true 出力に成功した場合．
-  //! @retval false 出力に失敗した場合．
+  //! @brief マップを csv に出力する.
+  //! @param[in] file_path 出力するファイルのパス.
+  //! @param[in] map_state 出力するマップのデータ.
+  //! @retval true 出力に成功した場合.
+  //! @retval false 出力に失敗した場合.
   bool ExportMap(const std::string& file_path,
                  const MapState& map_state) const noexcept;
 };

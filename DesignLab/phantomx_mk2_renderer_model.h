@@ -26,8 +26,8 @@ namespace designlab
 {
 
 //! @class PhantomXMkIIRendererModel
-//! @brief 3Dモデルを使用して PhantomX の描画を行うクラス．
-//! @todo リネームすること．
+//! @brief 3Dモデルを使用して PhantomX の描画を行うクラス.
+//! @todo リネームすること.
 class PhantomXMkIIRendererModel final : public IDxlib3dRenderer, public IDxlibNodeSetter
 {
 public:
@@ -50,18 +50,18 @@ private:
 
     void DrawJointAxis(int leg_index) const;
 
-    //! ロボットの脚先座標を計算するクラス．
+    //! ロボットの脚先座標を計算するクラス.
     const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
 
-    //! ロボットの間接位置を計算するクラス．
+    //! ロボットの間接位置を計算するクラス.
     const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;
 
-    //! 描画するロボットの状態．
+    //! 描画するロボットの状態.
     RobotStateNode draw_node_;
 
-    //! 描画するロボットのジョイントの状態．
+    //! 描画するロボットのジョイントの状態.
     std::array<HexapodJointState, HexapodConst::kLegNum> draw_joint_state_;
-    DisplayQuality display_quality_;  //!< 描画品質．
+    DisplayQuality display_quality_;  //!< 描画品質.
 };
 
 }  // namespace designlab

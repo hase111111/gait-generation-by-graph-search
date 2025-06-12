@@ -19,16 +19,16 @@ namespace designlab
 {
 
 //! @class DxlibNodeSetterGroup
-//! @brief DxLibでノードの設定を行うクラスをまとめるクラス．
+//! @brief DxLibでノードの設定を行うクラスをまとめるクラス.
 class DxlibNodeSetterGroup final
 {
 public:
-    //! @brief ノードの設定を行うクラスを登録する．
-    //! @param[in] setter ノードの設定を行うクラス．
+    //! @brief ノードの設定を行うクラスを登録する.
+    //! @param[in] setter ノードの設定を行うクラス.
     void Register(const std::shared_ptr<IDxlibNodeSetter>& setter);
 
-    //! @brief 登録済みの全てのクラスに対してノードの設定を行う．
-    //! @param[in] node ノード．
+    //! @brief 登録済みの全てのクラスに対してノードの設定を行う.
+    //! @param[in] node ノード.
     void SetNode(const RobotStateNode& node);
 
 private:

@@ -15,56 +15,55 @@
 #include "hexapod_next_move.h"
 #include "interface_node_creator.h"
 
-namespace designlab
-{
+namespace designlab {
 
 //! @class NodeCreatorLegHierarchy
-//! @brief 脚の階層構造を作るためのクラス．
-class NodeCreatorLegHierarchy final : public INodeCreator
-{
-public:
-    //! @brief コンストラクタ．
-    //! @param[in] next_move 次の動作．
-    //! @param[in] discrete_leg_pos_list 離散化された脚位置のリスト．
-    NodeCreatorLegHierarchy(
-        HexapodMove next_move,
-        const std::vector<enums::DiscreteLegPos>& discrete_leg_pos_list);
+//! @brief 脚の階層構造を作るためのクラス.
+class NodeCreatorLegHierarchy final : public INodeCreator {
+ public:
+  //! @brief コンストラクタ.
+  //! @param[in] next_move 次の動作.
+  //! @param[in] discrete_leg_pos_list 離散化された脚位置のリスト.
+  NodeCreatorLegHierarchy(
+      HexapodMove next_move,
+      const std::vector<enums::DiscreteLegPos>& discrete_leg_pos_list);
 
-    ~NodeCreatorLegHierarchy() = default;
+  ~NodeCreatorLegHierarchy() = default;
 
-    void Create(const RobotStateNode& current_node, int current_node_index,
-                std::vector<RobotStateNode>* output_nodes) const override;
+  void Create(const RobotStateNode& current_node, int current_node_index,
+              std::vector<RobotStateNode>* output_nodes) const override;
 
-private:
-    //! @brief 1脚が遊脚しているとき，その脚の状態を別の状態に変更する．
-    //! @param[in] current_node 現在のノード．
-    //! @param[in] current_node_index 現在のノードのインデックス．
-    //! @param[out] output_nodes 生成されたノードのリスト．
-    void Create1LegLifted(const RobotStateNode& current_node, int current_node_index,
-                          std::vector<RobotStateNode>* output_nodes) const;
+ private:
+  //! @brief 1脚が遊脚しているとき,その脚の状態を別の状態に変更する.
+  //! @param[in] current_node 現在のノード.
+  //! @param[in] current_node_index 現在のノードのインデックス.
+  //! @param[out] output_nodes 生成されたノードのリスト.
+  void Create1LegLifted(const RobotStateNode& current_node,
+                        int current_node_index,
+                        std::vector<RobotStateNode>* output_nodes) const;
 
-    //! @brief 2脚が遊脚しているとき，その脚の状態を別の状態に変更する．
-    //! @param[in] current_node 現在のノード．
-    //! @param[in] current_node_index 現在のノードのインデックス．
-    //! @param[out] output_nodes 生成されたノードのリスト．
-    void Create2LegLifted(const RobotStateNode& current_node, int current_node_index,
-                          std::vector<RobotStateNode>* output_nodes) const;
+  //! @brief 2脚が遊脚しているとき,その脚の状態を別の状態に変更する.
+  //! @param[in] current_node 現在のノード.
+  //! @param[in] current_node_index 現在のノードのインデックス.
+  //! @param[out] output_nodes 生成されたノードのリスト.
+  void Create2LegLifted(const RobotStateNode& current_node,
+                        int current_node_index,
+                        std::vector<RobotStateNode>* output_nodes) const;
 
-    //! @brief 3脚が遊脚しているとき，その脚の状態を別の状態に変更する．
-    //! @param[in] current_node 現在のノード．
-    //! @param[in] current_node_index 現在のノードのインデックス．
-    //! @param[out] output_nodes 生成されたノードのリスト．
-    void Create3LegLifted(const RobotStateNode& current_node, int current_node_index,
-                          std::vector<RobotStateNode>* output_nodes) const;
+  //! @brief 3脚が遊脚しているとき,その脚の状態を別の状態に変更する.
+  //! @param[in] current_node 現在のノード.
+  //! @param[in] current_node_index 現在のノードのインデックス.
+  //! @param[out] output_nodes 生成されたノードのリスト.
+  void Create3LegLifted(const RobotStateNode& current_node,
+                        int current_node_index,
+                        std::vector<RobotStateNode>* output_nodes) const;
 
+  const HexapodMove next_move_;  //!< 次の動作.
 
-    const HexapodMove next_move_;  //!< 次の動作．
-
-    //! 離散化された脚位置のリスト，このリストの中の値から脚の状態を変更する．
-    const std::vector<enums::DiscreteLegPos> discrete_leg_pos_list_;
+  //! 離散化された脚位置のリスト,このリストの中の値から脚の状態を変更する.
+  const std::vector<enums::DiscreteLegPos> discrete_leg_pos_list_;
 };
 
 }  // namespace designlab
-
 
 #endif  // DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_H_

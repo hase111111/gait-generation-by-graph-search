@@ -20,7 +20,7 @@ namespace designlab
 {
 
 //! @class DxlibGuiTerminal
-//! @brief ×ボタンを押して消えたGUIを復活させるためのクラス．
+//! @brief ×ボタンを押して消えたGUIを復活させるためのクラス.
 class DxlibGuiTerminal final : public IDxlibGui, public IDxlibClickable
 {
 public:

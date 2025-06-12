@@ -26,7 +26,7 @@ GaitPatternGeneratorBasic::GaitPatternGeneratorBasic(
     const int max_node_num) :
     graph_tree_creator_ptr_(std::move(graph_tree_creator)),
     graph_searcher_ptr_(std::move(graph_searcher)),
-    graph_tree_{ max_node_num },  // ここでメモリを確保する．
+    graph_tree_{ max_node_num },  // ここでメモリを確保する.
     max_depth_(max_depth)
 {
     assert(graph_tree_creator_ptr_ != nullptr);
@@ -46,14 +46,14 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodeByGraphSearch(
     assert(graph_tree_creator_ptr_ != nullptr);
     assert(graph_searcher_ptr_ != nullptr);
 
-    // 初期化処理を行う．
+    // 初期化処理を行う.
     DividedMapState divided_map;
     divided_map.Init(map_state, current_node.center_of_mass_global_coord);
 
     graph_tree_creator_ptr_->Init(divided_map);
 
 
-    // グラフ探索をするための，歩容パターングラフを生成する
+    // グラフ探索をするための,歩容パターングラフを生成する
     graph_tree_.Reset();
     graph_tree_.AddNode(current_node);
 

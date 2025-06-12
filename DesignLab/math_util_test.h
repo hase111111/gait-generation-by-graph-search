@@ -20,14 +20,14 @@ TEST_SUITE("math_util::IsEqual")
     using designlab::math_util::IsEqual;
     using designlab::MathConst;
 
-    TEST_CASE_TEMPLATE("値が等しい時，trueを返すべき", T, float, double)
+    TEST_CASE_TEMPLATE("値が等しい時,trueを返すべき", T, float, double)
     {
         CHECK(IsEqual(T(0.0), T(0.0)));
         CHECK(IsEqual(T(1.0), T(1.0)));
         CHECK(IsEqual(T(-1.0), T(-1.0)));
         CHECK(IsEqual(T(325.1), T(325.1)));
 
-        SUBCASE("誤差の範囲内で等しい時，trueを返すべき")
+        SUBCASE("誤差の範囲内で等しい時,trueを返すべき")
         {
             CHECK(IsEqual(T(0.0), T(0.0) + MathConst<T>::kAllowableError / 2));
             CHECK(IsEqual(T(0.0), T(0.0) - MathConst<T>::kAllowableError / 2));
@@ -38,14 +38,14 @@ TEST_SUITE("math_util::IsEqual")
         }
     }
 
-    TEST_CASE_TEMPLATE("値が等しくない時，falseを返すべき", T, float, double)
+    TEST_CASE_TEMPLATE("値が等しくない時,falseを返すべき", T, float, double)
     {
         CHECK_FALSE(IsEqual(T(0.0), T(1.0)));
         CHECK_FALSE(IsEqual(T(1.0), T(0.0)));
         CHECK_FALSE(IsEqual(T(-1.0), T(1.0)));
         CHECK_FALSE(IsEqual(T(325.1), T(325.2)));
 
-        SUBCASE("誤差の範囲を上回っている時，falseを返すべき")
+        SUBCASE("誤差の範囲を上回っている時,falseを返すべき")
         {
             CHECK_FALSE(IsEqual(T(0.0), T(0.0) + MathConst<T>::kAllowableError * 2));
             CHECK_FALSE(IsEqual(T(0.0), T(0.0) - MathConst<T>::kAllowableError * 2));
@@ -77,7 +77,7 @@ TEST_SUITE("math_util::CanMakeTriangle")
 {
     using designlab::math_util::CanMakeTriangle;
 
-    TEST_CASE_TEMPLATE("3角形を作ることが可能な時，trueを返すべき", T, int, float, double)
+    TEST_CASE_TEMPLATE("3角形を作ることが可能な時,trueを返すべき", T, int, float, double)
     {
         CHECK(CanMakeTriangle(T(1.0), T(1.0), T(1.0)));
         CHECK(CanMakeTriangle(T(2.0), T(2.0), T(3.0)));
@@ -91,7 +91,7 @@ TEST_SUITE("math_util::CanMakeTriangle")
         CHECK(CanMakeTriangle(T(5.0), T(4.0), T(3.0)));
     }
 
-    TEST_CASE_TEMPLATE("3角形を作ることが不可能な時，falseを返すべき", T, int, float, double)
+    TEST_CASE_TEMPLATE("3角形を作ることが不可能な時,falseを返すべき", T, int, float, double)
     {
         CHECK_FALSE(CanMakeTriangle(T(1.0), T(1.0), T(3.0)));
         CHECK_FALSE(CanMakeTriangle(T(1.0), T(3.0), T(1.0)));
@@ -119,12 +119,12 @@ TEST_SUITE("math_util::ConvertRadToDeg")
     using designlab::MathConst;
     using designlab::math_util::ConvertRadToDeg;
 
-    TEST_CASE_TEMPLATE("0 [rad]が渡された時，0 [deg]を返すべき", T, float, double)
+    TEST_CASE_TEMPLATE("0 [rad]が渡された時,0 [deg]を返すべき", T, float, double)
     {
         CHECK(ConvertRadToDeg(T(0.0)) == T(0.0));
     }
 
-    TEST_CASE_TEMPLATE("0 [rad] ～ 3.14 [rad]の範囲の値が渡された時，0 [deg] ～ 360 [deg]の範囲で変換すべき", T, float, double)
+    TEST_CASE_TEMPLATE("0 [rad] ～ 3.14 [rad]の範囲の値が渡された時,0 [deg] ～ 360 [deg]の範囲で変換すべき", T, float, double)
     {
         T rad1 = T(std::numbers::pi_v<float> / 6);
         T expected_deg1 = T(30.0);
@@ -179,7 +179,7 @@ TEST_SUITE("math_util::LimitRangeAngleDeg")
 {
     using designlab::math_util::LimitRangeAngleDeg;
 
-    TEST_CASE_TEMPLATE("[-180 [deg], 180 [deg] )の範囲の値が渡された時，そのまま返すべき", T, float, double)
+    TEST_CASE_TEMPLATE("[-180 [deg], 180 [deg] )の範囲の値が渡された時,そのまま返すべき", T, float, double)
     {
         CHECK(LimitRangeAngleDeg(T(-180.0)) == T(-180.0));
         CHECK(LimitRangeAngleDeg(T(-179.0)) == T(-179.0));
@@ -191,7 +191,7 @@ TEST_SUITE("math_util::LimitRangeAngleDeg")
         CHECK(LimitRangeAngleDeg(T(179.0)) == T(179.0));
     }
 
-    TEST_CASE_TEMPLATE("-180 [deg]未満の値が渡された時，[-180 [deg], 180 [deg] )の範囲に変換して返すべき", T, float, double)
+    TEST_CASE_TEMPLATE("-180 [deg]未満の値が渡された時,[-180 [deg], 180 [deg] )の範囲に変換して返すべき", T, float, double)
     {
         CHECK(LimitRangeAngleDeg(T(-181.0)) == T(179.0));
         CHECK(LimitRangeAngleDeg(T(-270.0)) == T(90.0));
@@ -210,7 +210,7 @@ TEST_SUITE("math_util::LimitRangeAngleDeg")
         CHECK(LimitRangeAngleDeg(T(-1080.0)) == T(0.0));
     }
 
-    TEST_CASE_TEMPLATE("180 [deg]以上の値が渡された時，[-180 [deg], 180 [deg] )の範囲に変換して返すべき", T, float, double)
+    TEST_CASE_TEMPLATE("180 [deg]以上の値が渡された時,[-180 [deg], 180 [deg] )の範囲に変換して返すべき", T, float, double)
     {
         CHECK(LimitRangeAngleDeg(T(180.0)) == T(-180.0));
         CHECK(LimitRangeAngleDeg(T(181.0)) == T(-179.0));

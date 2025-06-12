@@ -24,7 +24,7 @@ namespace designlab
 {
 
 //! @struct ApplicationSettingRecord
-//! @brief アプリの設定を記録する構造体．
+//! @brief アプリの設定を記録する構造体.
 struct ApplicationSettingRecord final
 {
     static constexpr int kWindowWidthMin{ 512 };
@@ -39,32 +39,32 @@ struct ApplicationSettingRecord final
     int version_minor{ 5 };  //!< バージョン番号(マイナー)
     int version_patch{ 0 };  //!< バージョン番号(パッチ)
 
-    //! 起動時にモード選択の確認をするかどうか．
+    //! 起動時にモード選択の確認をするかどうか.
     bool ask_about_modes{ true };
 
-    //! デフォルトの起動モード．
+    //! デフォルトの起動モード.
     BootMode default_mode{ BootMode::kSimulation };
 
-    //! 1シミュレーションごとにステップ実行をするかどうか．
+    //! 1シミュレーションごとにステップ実行をするかどうか.
     bool do_step_execution_each_simulation{ true };
 
-    //! 1動作ごとにステップ実行をするかどうか．
+    //! 1動作ごとにステップ実行をするかどうか.
     bool do_step_execution_each_gait{ false };
 
 
-    bool do_cmd_output{ true };  //!< コマンドラインに出力するかどうか．
+    bool do_cmd_output{ true };  //!< コマンドラインに出力するかどうか.
 
-    //! コマンドラインに出力する際，どこまで許可するか．
+    //! コマンドラインに出力する際,どこまで許可するか.
     OutputDetail cmd_output_detail{ OutputDetail::kInfo };
 
-    bool do_gui_display{ true };  //!< GUIを表示するかどうか．
+    bool do_gui_display{ true };  //!< GUIを表示するかどうか.
 
-    //! GUIを表示する際，どこまで許可するか．
+    //! GUIを表示する際,どこまで許可するか.
     DisplayQuality gui_display_quality{ DisplayQuality::kHigh };
 
-    int window_size_x{ 1600 };  //!< グラフィカルウィンドウの横幅．
-    int window_size_y{ 900 };   //!< グラフィカルウィンドウの縦幅．
-    int window_fps{ 60 };       //!< グラフィカルウィンドウのFPS．
+    int window_size_x{ 1600 };  //!< グラフィカルウィンドウの横幅.
+    int window_size_y{ 900 };   //!< グラフィカルウィンドウの縦幅.
+    int window_fps{ 60 };       //!< グラフィカルウィンドウのFPS.
 };
 
 
@@ -122,7 +122,7 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(ApplicationSettingRecord)
         do_gui_display, "Output", "Display GUI. ( true / false )");
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
         gui_display_quality, "Output",
-        std::format("GUI Image Quality．( \"{}\" )",
+        std::format("GUI Image Quality.( \"{}\" )",
         string_util::EnumValuesToString<DisplayQuality>("\" / \"")));
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
         window_size_x, "Output",

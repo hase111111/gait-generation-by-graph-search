@@ -91,7 +91,7 @@ void AbstractDxlibGui::SetVisible(bool visible)
 
 void AbstractDxlibGui::ClickedAction(const DxlibMouseState& state)
 {
-    // 各ボタンの処理．
+    // 各ボタンの処理.
     for (auto& button : button_)
     {
         if (button->CursorOnGui(state.cursor_x, state.cursor_y))

@@ -42,13 +42,13 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
   assert(current_node.IsLootNode());
   assert(output_node != nullptr);
 
-  // 初期化処理を行う．
+  // 初期化処理を行う.
   DividedMapState divided_map;
   divided_map.Init(map_state, current_node.center_of_mass_global_coord);
 
   graph_tree_creator_ptr_->Init(divided_map);
 
-  // グラフ探索をするための，歩容パターングラフを生成する．
+  // グラフ探索をするための,歩容パターングラフを生成する.
   graph_tree_.Reset();
   graph_tree_.AddNode(current_node);
 
@@ -65,21 +65,21 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
                           "The number of nodes in the graph tree is {}.",
                           graph_tree_.GetGraphSize());
 
-  // 深さ0のノードを配列にコピーする．
+  // 深さ0のノードを配列にコピーする.
   for (int i = 0; i < kThreadNum; i++) {
     graph_tree_array_[i].Reset();
     graph_tree_array_[i].AddNode(current_node);
   }
 
-  // 深さ1のノードを配列に分けてコピーする．
+  // 深さ1のノードを配列に分けてコピーする.
   for (int i = 1; i < graph_tree_.GetGraphSize(); i++) {
     if (graph_tree_.GetNode(i).depth == 1) {
-      // i を kThreadNum で割った余り番目の配列にコピーする．
+      // i を kThreadNum で割った余り番目の配列にコピーする.
       graph_tree_array_[i % kThreadNum].AddNode(graph_tree_.GetNode(i));
     }
   }
 
-  // スレッドを分けて，最大深さまで探索する．
+  // スレッドを分けて,最大深さまで探索する.
   boost::thread_group thread_group;
 
   for (size_t i = 0; i < kThreadNum; i++) {
@@ -97,7 +97,7 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
     }
   }
 
-  thread_group.join_all();  // 全てのスレッドが終了するまで待機する．
+  thread_group.join_all();  // 全てのスレッドが終了するまで待機する.
 
   CmdIOUtil::DebugOutput("Graph tree generation is complete.\n");
 
@@ -107,7 +107,7 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
                             i, graph_tree_array_[i].GetGraphSize());
   }
 
-  // グラフ探索を行う．
+  // グラフ探索を行う.
   CmdIOUtil::DebugOutput("Evaluates graph trees.");
 
   const auto [search_result, _, next_node] =

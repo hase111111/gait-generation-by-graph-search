@@ -48,24 +48,24 @@ kDxlibGuiAnchorRightBottom = kDxlibGuiAnchorRight | kDxlibGuiAnchorBottom;
 
 
 //! @class IDxlibGui
-//! @brief Dxlibの画面に表示するGUIのインターフェース．
+//! @brief Dxlibの画面に表示するGUIのインターフェース.
 class IDxlibGui
 {
 public:
     virtual ~IDxlibGui() = default;
 
-    //! @brief GUIの更新，毎フレーム実行すること．
+    //! @brief GUIの更新,毎フレーム実行すること.
     virtual void Update() = 0;
 
-    //! @brief GUIの描画．
+    //! @brief GUIの描画.
     virtual void Draw() const = 0;
 
-    //! @brief GUIの表示を行うかどうかを設定する．
-    //! @param[in] visible GUIの表示を行うかどうか．
+    //! @brief GUIの表示を行うかどうかを設定する.
+    //! @param[in] visible GUIの表示を行うかどうか.
     virtual void SetVisible(bool visible) = 0;
 
-    //! @brief GUIの表示を行うかどうかを返す．
-    //! @return GUIの表示を行うかどうか．
+    //! @brief GUIの表示を行うかどうかを返す.
+    //! @return GUIの表示を行うかどうか.
     [[nodiscard]] virtual bool IsVisible() const = 0;
 };
 

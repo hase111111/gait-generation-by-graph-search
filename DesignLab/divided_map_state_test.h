@@ -31,7 +31,7 @@ public:
     static constexpr float kMin{ -kMax };
     static constexpr float kInterval{ 10.f };
 
-    //! @brief kMin [mm] ～ kMax [mm]の範囲に kInterval [mm]間隔で脚設置可能点を生成する．
+    //! @brief kMin [mm] ～ kMax [mm]の範囲に kInterval [mm]間隔で脚設置可能点を生成する.
     MapState InitMap() override
     {
         std::vector<Vector3> map_point;
@@ -53,10 +53,10 @@ public:
     }
 
 private:
-    static_assert(kMax > DividedMapState::kDividedMapMaxX, "テストマップのサイズが足りません．");
-    static_assert(kMin < DividedMapState::kDividedMapMinX, "テストマップのサイズが足りません．");
-    static_assert(kMax > DividedMapState::kDividedMapMaxY, "テストマップのサイズが足りません．");
-    static_assert(kMin < DividedMapState::kDividedMapMinY, "テストマップのサイズが足りません．");
+    static_assert(kMax > DividedMapState::kDividedMapMaxX, "テストマップのサイズが足りません.");
+    static_assert(kMin < DividedMapState::kDividedMapMinX, "テストマップのサイズが足りません.");
+    static_assert(kMax > DividedMapState::kDividedMapMaxY, "テストマップのサイズが足りません.");
+    static_assert(kMin < DividedMapState::kDividedMapMinY, "テストマップのサイズが足りません.");
 };
 
 }  // namespace divided_map_state_test_internal
@@ -68,22 +68,22 @@ TEST_SUITE("DividedMapState::Init")
     using designlab::MapState;
     using designlab::Vector3;
 
-    TEST_CASE("マップの状態とロボットの重心座標を渡した時，マップを重心を中心に格子状に分割するべき")
+    TEST_CASE("マップの状態とロボットの重心座標を渡した時,マップを重心を中心に格子状に分割するべき")
     {
         using divided_map_state_test_internal::TestMapCreator;
 
-        // Act.テスト用のマップを生成する．
+        // Act.テスト用のマップを生成する.
         TestMapCreator test_map_creator;
         MapState map_state = test_map_creator.InitMap();
 
-        // Act.テスト用のロボットの重心座標を生成する．
+        // Act.テスト用のロボットの重心座標を生成する.
         const Vector3 global_robot_com(0, 0, 0);
 
-        // Arrange.テスト対象のクラスのメソッドを呼び出す．
+        // Arrange.テスト対象のクラスのメソッドを呼び出す.
         DividedMapState divided_map_state;
         divided_map_state.Init(map_state, global_robot_com);
 
-        // Assert.マップのサイズが正しいか確認する．
+        // Assert.マップのサイズが正しいか確認する.
         int center_index_x = divided_map_state.GetDividedMapIndexX(global_robot_com.x);
         int center_index_y = divided_map_state.GetDividedMapIndexX(global_robot_com.y);
 
@@ -99,7 +99,7 @@ TEST_SUITE("DividedMapState::ClampDividedMapIndex")
 {
     using designlab::DividedMapState;
 
-    TEST_CASE("0未満の値を渡した時，0を返すべき")
+    TEST_CASE("0未満の値を渡した時,0を返すべき")
     {
         CHECK_EQ(DividedMapState::ClampDividedMapIndex(-1), 0);
         CHECK_EQ(DividedMapState::ClampDividedMapIndex(-100), 0);
@@ -107,7 +107,7 @@ TEST_SUITE("DividedMapState::ClampDividedMapIndex")
         CHECK_EQ(DividedMapState::ClampDividedMapIndex(0), 0);
     }
 
-    TEST_CASE("最大値を渡した時，最大値 - 1を返すべき")
+    TEST_CASE("最大値を渡した時,最大値 - 1を返すべき")
     {
         CHECK_EQ(DividedMapState::ClampDividedMapIndex(DividedMapState::kDividedNum),
                  DividedMapState::kDividedNum - 1);

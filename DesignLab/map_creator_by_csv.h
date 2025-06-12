@@ -15,11 +15,11 @@
 namespace designlab {
 
 //! @class MapCreatorByCsv
-//! @brief CSV ファイルからマップを生成するクラス．
+//! @brief CSV ファイルからマップを生成するクラス.
 class MapCreatorByCsv final : public IMapCreator {
  public:
   //! @brief コンストラクタで作成するマップ情報を与える
-  //! @param[in] map_file_path マップのCSVファイルのパス．
+  //! @param[in] map_file_path マップのCSVファイルのパス.
   explicit MapCreatorByCsv(const std::string& map_file_path);
 
   MapState InitMap() const override;
@@ -27,7 +27,7 @@ class MapCreatorByCsv final : public IMapCreator {
   void UpdateMap(MapState* current_map) const override;
 
  private:
-  std::string map_file_path_;  //!< マップの CSV ファイルのパス．
+  std::string map_file_path_;  //!< マップの CSV ファイルのパス.
 };
 
 }  // namespace designlab

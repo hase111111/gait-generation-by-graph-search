@@ -19,15 +19,15 @@ TEST_SUITE("GraphSearchEvaluator")
     using GraphSearchEvaluationValue = designlab::GraphSearchEvaluationValue;
     using Tag = GraphSearchEvaluationValue::Tag;
 
-    constexpr Tag kFirstTag = 10;   // 1つ目の評価値のタグ．
-    constexpr Tag kSecondTag = 1;   // 2つ目の評価値のタグ．
+    constexpr Tag kFirstTag = 10;   // 1つ目の評価値のタグ.
+    constexpr Tag kSecondTag = 1;   // 2つ目の評価値のタグ.
 
 
     TEST_CASE("LeftIsBetterTest_WhenLeftIsBetter_ShouldReturnTrue")
     {
         SUBCASE("LowerValueIsBetter")
         {
-            // 評価値が小さいほど良い場合．
+            // 評価値が小さいほど良い場合.
             const GraphSearchEvaluator::EvaluationMethod evaluation_method =
             {
                 .is_lower_better = true,
@@ -54,7 +54,7 @@ TEST_SUITE("GraphSearchEvaluator")
 
         SUBCASE("HigherValueIsBetter")
         {
-            // 評価値が大きいほど良い場合．
+            // 評価値が大きいほど良い場合.
             const GraphSearchEvaluator::EvaluationMethod evaluation_method =
             {
                 .is_lower_better = false,
@@ -78,10 +78,10 @@ TEST_SUITE("GraphSearchEvaluator")
             CHECK(actual == expected);
         }
 
-        // 2つ目の評価値が低い評価だとしても，1つ目の評価値が高い評価ならば，そちらを優先する．
+        // 2つ目の評価値が低い評価だとしても,1つ目の評価値が高い評価ならば,そちらを優先する.
         SUBCASE("WhenFirstTagIsBetter")
         {
-            // 評価値が小さいほど良い場合．
+            // 評価値が小さいほど良い場合.
             const GraphSearchEvaluator::EvaluationMethod evaluation_method =
             {
                 .is_lower_better = false,
@@ -178,22 +178,22 @@ TEST_SUITE("GraphSearchEvaluator")
         right.value.at(kSecondTag) = 1.0f;
 
 
-        // 左側を優先する設定の場合は true を返す．
+        // 左側を優先する設定の場合は true を返す.
         SUBCASE("WhenReturnTrueCaseOfEqualIsTrue")
         {
             const bool actual = evaluator.LeftIsBetter(left, right, true);
 
-            const bool expected = true;  // 左側を優先する．
+            const bool expected = true;  // 左側を優先する.
 
             CHECK(actual == expected);
         }
 
-        // 左側を優先しない設定の場合は false を返す．
+        // 左側を優先しない設定の場合は false を返す.
         SUBCASE("WhenReturnTrueCaseOfEqualIsFalse")
         {
             const bool actual = evaluator.LeftIsBetter(left, right, false);
 
-            const bool expected = false;  // 左側を優先しない．
+            const bool expected = false;  // 左側を優先しない.
 
             CHECK(actual == expected);
         }
@@ -214,25 +214,25 @@ TEST_SUITE("GraphSearchEvaluator")
         left.value.at(kFirstTag) = 1.0f;
         left.value.at(kSecondTag) = 1.0f;
         GraphSearchEvaluationValue right = evaluator.InitializeEvaluationValue();
-        right.value.at(kFirstTag) = 0.5f;   // 差が margin 以下．
-        right.value.at(kSecondTag) = 1.5f;  // 差が margin 以下．
+        right.value.at(kFirstTag) = 0.5f;   // 差が margin 以下.
+        right.value.at(kSecondTag) = 1.5f;  // 差が margin 以下.
 
-        // 左側を優先する設定の場合は true を返す．
+        // 左側を優先する設定の場合は true を返す.
         SUBCASE("WhenLeftIsPreferred_ShouldReturnTrue")
         {
             const bool actual = evaluator.LeftIsBetter(left, right, true);
 
-            const bool expected = true;  // 左側を優先する．
+            const bool expected = true;  // 左側を優先する.
 
             CHECK(actual == expected);
         }
 
-        // 左側を優先しない設定の場合は false を返す．
+        // 左側を優先しない設定の場合は false を返す.
         SUBCASE("WhenRightIsPreferred_ShouldReturnFalse")
         {
             const bool actual = evaluator.LeftIsBetter(left, right, false);
 
-            const bool expected = false;  // 左側を優先しない．
+            const bool expected = false;  // 左側を優先しない.
 
             CHECK(actual == expected);
         }
@@ -240,7 +240,7 @@ TEST_SUITE("GraphSearchEvaluator")
 
     TEST_CASE("InitializeEvaluationValueTest_ShouldReturnMinEvaluationValue")
     {
-        // 初期値は評価が最低となる値あることを確認する．
+        // 初期値は評価が最低となる値あることを確認する.
 
         const GraphSearchEvaluator::EvaluationMethod evaluation_method_min =
         {
@@ -254,7 +254,7 @@ TEST_SUITE("GraphSearchEvaluator")
             .margin = 0.0f,
         };
 
-        // FirstTag は低い値，SecondTag は高い値を高く評価する．
+        // FirstTag は低い値,SecondTag は高い値を高く評価する.
         GraphSearchEvaluator evaluator({ { kFirstTag, evaluation_method_min }, { kSecondTag, evaluation_method_max } },
                                        { kFirstTag, kSecondTag });
 
@@ -262,8 +262,8 @@ TEST_SUITE("GraphSearchEvaluator")
 
         const GraphSearchEvaluationValue expected =
         {
-            .value = { { kFirstTag, GraphSearchEvaluationValue::kMaxEvaluationValue },  // 最低評価となるのは，最も高い値．
-                       { kSecondTag, GraphSearchEvaluationValue::kMinEvaluationValue } },  // 最低評価となるのは，最も低い値．
+            .value = { { kFirstTag, GraphSearchEvaluationValue::kMaxEvaluationValue },  // 最低評価となるのは,最も高い値.
+                       { kSecondTag, GraphSearchEvaluationValue::kMinEvaluationValue } },  // 最低評価となるのは,最も低い値.
         };
 
         CHECK(actual.value.at(kFirstTag) == expected.value.at(kFirstTag));

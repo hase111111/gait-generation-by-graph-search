@@ -25,7 +25,7 @@ Vector3 Vector3::GetNormalized() const noexcept
         return { 0.0f, 0.0f, 0.0f };
     }
 
-    // 割り算は遅いので，逆数をかける．
+    // 割り算は遅いので,逆数をかける.
     const float inv_length = 1.0f / GetLength;
     return *this * inv_length;
 }

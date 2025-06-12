@@ -20,13 +20,13 @@ namespace designlab
 
 void DxlibGuiUpdater::OpenTerminal()
 {
-    // 2回以上呼ばれたら何もしない．
+    // 2回以上呼ばれたら何もしない.
     if (is_terminal_opened_)
     {
         return;
     }
 
-    // ターミナルに渡すGUIのリストを作成．
+    // ターミナルに渡すGUIのリストを作成.
     std::vector<std::shared_ptr<IDxlibGui> > gui_list;
 
     for (const auto& i : gui_ptrs_)
@@ -34,7 +34,7 @@ void DxlibGuiUpdater::OpenTerminal()
         gui_list.push_back(i.second);
     }
 
-    // ターミナルを登録．
+    // ターミナルを登録.
     const auto terminal_ptr = std::make_shared<DxlibGuiTerminal>(gui_list);
     const int terminal_priority = kTopPriority + 1;
 
@@ -56,7 +56,7 @@ void DxlibGuiUpdater::Activate(const std::shared_ptr<const Mouse>& mouse_ptr)
 
 void DxlibGuiUpdater::Draw() const
 {
-    // 昇順にDrawする．
+    // 昇順にDrawする.
     for (auto i = gui_ptrs_.begin(); i != gui_ptrs_.end(); ++i)
     {
         if ((*i).second->IsVisible())
@@ -72,7 +72,7 @@ void DxlibGuiUpdater::RegisterGui(
 {
     assert(gui_ptr != nullptr);
 
-    // すでに同じポインタが登録されていたら何もしない．
+    // すでに同じポインタが登録されていたら何もしない.
     for (const auto& i : gui_ptrs_)
     {
         if (i.second == gui_ptr)
@@ -81,7 +81,7 @@ void DxlibGuiUpdater::RegisterGui(
         }
     }
 
-    // すでに同じ優先度のものがあったら，orderを1つずつずらす．
+    // すでに同じ優先度のものがあったら,orderを1つずつずらす.
     Priority p{ priority, 0 };
 
     while (gui_ptrs_.find(p) != gui_ptrs_.end())
@@ -89,7 +89,7 @@ void DxlibGuiUpdater::RegisterGui(
         p.order++;
     }
 
-    // 登録．
+    // 登録.
     gui_ptrs_[p] = gui_ptr;
 }
 
@@ -98,7 +98,7 @@ void DxlibGuiUpdater::RegisterClickable(
 {
     assert(clickable_ptr != nullptr);
 
-    // すでに同じポインタが登録されていたら何もしない．
+    // すでに同じポインタが登録されていたら何もしない.
     for (const auto& i : clickable_ptrs_)
     {
         if (i.second == clickable_ptr)
@@ -107,7 +107,7 @@ void DxlibGuiUpdater::RegisterClickable(
         }
     }
 
-    // すでに同じ優先度のものがあったら，orderを1つずつずらす.
+    // すでに同じ優先度のものがあったら,orderを1つずつずらす.
     Priority p{ priority, 0 };
 
     while (clickable_ptrs_.find(p) != clickable_ptrs_.end())
@@ -115,7 +115,7 @@ void DxlibGuiUpdater::RegisterClickable(
         p.order++;
     }
 
-    // 登録．
+    // 登録.
     clickable_ptrs_[p] = clickable_ptr;
 }
 
@@ -124,7 +124,7 @@ void DxlibGuiUpdater::RegisterDraggable(
 {
     assert(draggable_ptr != nullptr);
 
-    // すでに同じポインタが登録されていたら何もしない．
+    // すでに同じポインタが登録されていたら何もしない.
     for (const auto& i : draggable_ptrs_)
     {
         if (i.second == draggable_ptr)
@@ -133,7 +133,7 @@ void DxlibGuiUpdater::RegisterDraggable(
         }
     }
 
-    // すでに同じ優先度のものがあったら，orderを1つずつずらす．
+    // すでに同じ優先度のものがあったら,orderを1つずつずらす.
     Priority p{ priority, 0 };
 
     while (draggable_ptrs_.find(p) != draggable_ptrs_.end())
@@ -141,7 +141,7 @@ void DxlibGuiUpdater::RegisterDraggable(
         p.order++;
     }
 
-    // 登録．
+    // 登録.
     draggable_ptrs_[p] = draggable_ptr;
 }
 
@@ -150,7 +150,7 @@ void DxlibGuiUpdater::RegisterWheelHandler(
 {
     assert(wheel_handler_ptr != nullptr);
 
-    // すでに同じポインタが登録されていたら何もしない．
+    // すでに同じポインタが登録されていたら何もしない.
     for (const auto& i : wheel_handler_ptrs_)
     {
         if (i.second == wheel_handler_ptr)
@@ -159,7 +159,7 @@ void DxlibGuiUpdater::RegisterWheelHandler(
         }
     }
 
-    // すでに同じ優先度のものがあったら，orderを1つずつずらす．
+    // すでに同じ優先度のものがあったら,orderを1つずつずらす.
     Priority p{ priority, 0 };
 
     while (wheel_handler_ptrs_.find(p) != wheel_handler_ptrs_.end())
@@ -167,13 +167,13 @@ void DxlibGuiUpdater::RegisterWheelHandler(
         p.order++;
     }
 
-    // 登録．
+    // 登録.
     wheel_handler_ptrs_[p] = wheel_handler_ptr;
 }
 
 void DxlibGuiUpdater::UpdateGui()
 {
-    // 逆順にUpdateする．
+    // 逆順にUpdateする.
     for (auto i = gui_ptrs_.rbegin(); i != gui_ptrs_.rend(); ++i)
     {
         (*i).second->Update();
@@ -182,8 +182,8 @@ void DxlibGuiUpdater::UpdateGui()
 
 void DxlibGuiUpdater::ActivateClickable(const std::shared_ptr<const Mouse> mouse_ptr)
 {
-    // 優先度の高いものから順にクリック判定を行う．
-    // 昇順(増える順)に並んでいるので，rbegin から rend まで(降順に)走査する．
+    // 優先度の高いものから順にクリック判定を行う.
+    // 昇順(増える順)に並んでいるので,rbegin から rend まで(降順に)走査する.
 
     for (auto i = clickable_ptrs_.rbegin(); i != clickable_ptrs_.rend(); ++i)
     {
@@ -236,7 +236,7 @@ void DxlibGuiUpdater::ActivateDraggable(const std::shared_ptr<const Mouse> mouse
     }
     else if (pressing_count == 1)
     {
-        // 左クリックが押された瞬間，ドラッグを開始する
+        // 左クリックが押された瞬間,ドラッグを開始する
         for (auto i = draggable_ptrs_.rbegin(); i != draggable_ptrs_.rend(); ++i)
         {
             if ((*i).second->IsDraggable(
@@ -251,7 +251,7 @@ void DxlibGuiUpdater::ActivateDraggable(const std::shared_ptr<const Mouse> mouse
     }
     else if (pressing_count > 0)
     {
-        // 左クリックが押され続けているならばドラッグ判定を行う．
+        // 左クリックが押され続けているならばドラッグ判定を行う.
         if (now_dragging_gui_key_.has_value() &&
             draggable_ptrs_.count(now_dragging_gui_key_.value()) == 1)
         {
@@ -271,7 +271,7 @@ void DxlibGuiUpdater::ActivateWheelHandler(
     if (mouse_ptr->GetWheelRot() == 0) { return; }
 
     // 優先度の高いものから順にホイール操作判定を行う
-    // 昇順(増える順)に並んでいるので，rbeginからrendまで(降順に)走査する
+    // 昇順(増える順)に並んでいるので,rbeginからrendまで(降順に)走査する
 
     for (auto i = wheel_handler_ptrs_.rbegin(); i != wheel_handler_ptrs_.rend(); ++i)
     {

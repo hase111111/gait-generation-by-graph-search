@@ -21,17 +21,17 @@ namespace designlab
 DxlibGuiTerminal::DxlibGuiTerminal(std::vector<std::shared_ptr<IDxlibGui>> gui_list) :
     kTerminalWidth(static_cast<int>(gui_list.size() + 2)* kButtonSize)
 {
-    //! @todo 処理をまとめる．
+    //! @todo 処理をまとめる.
 
     gui_list_ = gui_list;
 
     // guiの数だけボタンを作成
     for (int i = 0; i < gui_list_.size(); ++i)
     {
-        // 型を取得する．
+        // 型を取得する.
         std::string class_name = string_util::GetTypeName(*gui_list_[i].get());
 
-        // typeidの返り値は"class DxlibGui～"という文字列になっているので，邪魔な文字を削除する．
+        // typeidの返り値は"class DxlibGui～"という文字列になっているので,邪魔な文字を削除する.
         const std::vector<std::string> unnecessary_words = { "DxlibGui", " ", "const", "*", "&" };
 
         for (const auto& word : unnecessary_words)
@@ -62,7 +62,7 @@ DxlibGuiTerminal::DxlibGuiTerminal(std::vector<std::shared_ptr<IDxlibGui>> gui_l
 
 void DxlibGuiTerminal::Update()
 {
-    // 各ボタンの更新．
+    // 各ボタンの更新.
     for (auto& button : button_list_)
     {
         button->Update();
@@ -79,7 +79,7 @@ void DxlibGuiTerminal::Draw() const
     {
         DrawTerminal();
 
-        // ボタンの描画．
+        // ボタンの描画.
         for (const auto& button : button_list_)
         {
             button->Draw();
@@ -91,12 +91,12 @@ void DxlibGuiTerminal::Draw() const
 
 void DxlibGuiTerminal::SetVisible([[maybe_unused]] bool visible)
 {
-    // 消えない．なので何もしない．
+    // 消えない.なので何もしない.
 }
 
 bool DxlibGuiTerminal::IsVisible() const
 {
-    // 消えない．なので常に true．
+    // 消えない.なので常に true.
     return true;
 }
 
@@ -104,7 +104,7 @@ void DxlibGuiTerminal::ClickedAction(const DxlibMouseState& state)
 {
     bool is_clicked = false;
 
-    // 各ボタンの処理．
+    // 各ボタンの処理.
     for (auto& button : button_list_)
     {
         if (button->CursorOnGui(state.cursor_x, state.cursor_y))
@@ -115,18 +115,18 @@ void DxlibGuiTerminal::ClickedAction(const DxlibMouseState& state)
         }
     }
 
-    // ボタンが押された場合は終了．
+    // ボタンが押された場合は終了.
     if (is_clicked)
     {
         return;
     }
 
-    // ターミナルの処理．
+    // ターミナルの処理.
     if (state.left_pushing_count == 1 && is_closed_)
     {
         is_closed_ = false;
 
-        // ボタンを表示．
+        // ボタンを表示.
         for (auto& button : button_list_)
         {
             button->SetVisible(true);
@@ -136,7 +136,7 @@ void DxlibGuiTerminal::ClickedAction(const DxlibMouseState& state)
     {
         is_closed_ = true;
 
-        // ボタンを非表示．
+        // ボタンを非表示.
         for (auto& button : button_list_)
         {
             button->SetVisible(false);
@@ -160,7 +160,7 @@ bool DxlibGuiTerminal::CursorOnGui(int cursor_x, int cursor_y) const noexcept
 
 void DxlibGuiTerminal::DrawClosedTerminal() const
 {
-    const int closed_box_width = kClosedTerminalWidth - 20;  // 四角形部分の幅．
+    const int closed_box_width = kClosedTerminalWidth - 20;  // 四角形部分の幅.
 
     const unsigned int base_color = GetColor(255, 255, 255);
     const unsigned int frame_color = GetColor(30, 30, 30);
@@ -187,7 +187,7 @@ void DxlibGuiTerminal::DrawClosedTerminal() const
 
 void DxlibGuiTerminal::DrawTerminal() const
 {
-    const int closed_box_width = kTerminalWidth - 20;  // 四角形部分の幅．
+    const int closed_box_width = kTerminalWidth - 20;  // 四角形部分の幅.
 
     const unsigned int base_color = GetColor(255, 255, 255);
     const unsigned int frame_color = GetColor(30, 30, 30);

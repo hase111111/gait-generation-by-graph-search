@@ -28,14 +28,14 @@ WorldGridRenderer::WorldGridRenderer() :
 
 void WorldGridRenderer::Draw() const
 {
-    // 格子線をどこまで描画するか．
+    // 格子線をどこまで描画するか.
     const float kGridMaxX = static_cast<float>(kMainGridNum) * kMainGridInterval;
     const float kGridMinX = -kGridMaxX;
     const float kGridMaxY = kGridMaxX;
     const float kGridMinY = -kGridMaxY;
 
 
-    // X軸とY軸の格子線を描画する．
+    // X軸とY軸の格子線を描画する.
     DrawLine3D(VGet(kGridMinX, 0.0f, kGridLineZPos),
                VGet(kGridMaxX, 0.0f, kGridLineZPos), kMainGridXColor);
 
@@ -43,16 +43,16 @@ void WorldGridRenderer::Draw() const
                VGet(0.0f, kGridMaxY, kGridLineZPos), kMainGridYColor);
 
 
-    // 格子線を 3D空間に描画する．
+    // 格子線を 3D空間に描画する.
 
-    const int kMainGridAlpha = 96;  // メインの格子線の透明度．
-    const int kSubGridAlpha = 32;  // サブの格子線の透明度．
+    const int kMainGridAlpha = 96;  // メインの格子線の透明度.
+    const int kSubGridAlpha = 32;  // サブの格子線の透明度.
 
     for (int i = 0; i < kMainGridNum + 1 + kMainGridNum; i++)
     {
-        SetDrawBlendMode(DX_BLENDMODE_ALPHA, kMainGridAlpha);  // 半透明にする．
+        SetDrawBlendMode(DX_BLENDMODE_ALPHA, kMainGridAlpha);  // 半透明にする.
 
-        // メインの格子線を描画する．
+        // メインの格子線を描画する.
         VECTOR start_pos = VGet(kGridMinX, kGridMinY + kMainGridInterval * i, kGridLineZPos);
         VECTOR end_pos = VGet(kGridMaxX, kGridMinY + kMainGridInterval * i, kGridLineZPos);
         DrawLine3D(start_pos, end_pos, kMainGridXColor);
@@ -62,10 +62,10 @@ void WorldGridRenderer::Draw() const
         DrawLine3D(start_pos, end_pos, kMainGridYColor);
 
 
-        // サブの格子線を描画する．
+        // サブの格子線を描画する.
         for (int j = 0; j < kSubGridDividedNum - 1; j++)
         {
-            SetDrawBlendMode(DX_BLENDMODE_ALPHA, kSubGridAlpha);  // 半透明にする．
+            SetDrawBlendMode(DX_BLENDMODE_ALPHA, kSubGridAlpha);  // 半透明にする.
 
             start_pos = VGet(kGridMinX, kGridMinY + kMainGridInterval * i + kMainGridInterval / kSubGridDividedNum * (j + 1), kGridLineZPos);
             end_pos = VGet(kGridMaxX, kGridMinY + kMainGridInterval * i + kMainGridInterval / kSubGridDividedNum * (j + 1), kGridLineZPos);
@@ -76,7 +76,7 @@ void WorldGridRenderer::Draw() const
             DrawLine3D(start_pos, end_pos, kSubGridYColor);
         }
 
-        SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);  // 半透明を解除する．これを忘れると描画がおかしくなる．
+        SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);  // 半透明を解除する.これを忘れると描画がおかしくなる.
     }
 }
 

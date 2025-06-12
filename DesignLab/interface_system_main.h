@@ -13,13 +13,13 @@ namespace designlab
 {
 
 //! @class ISystemMain
-//! @brief プログラムの面の処理のインターフェース．
+//! @brief プログラムの面の処理のインターフェース.
 class ISystemMain
 {
 public:
     virtual ~ISystemMain() = default;
 
-    //! @brief 主要な処理を行う関数．
+    //! @brief 主要な処理を行う関数.
     virtual void Main() = 0;
 };
 

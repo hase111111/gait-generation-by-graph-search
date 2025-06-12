@@ -21,7 +21,7 @@ namespace designlab
 {
 
 //! @class GraphSearcherStraightMove
-//! @brief グラフ探索を行い，直進する動作を評価するクラス．
+//! @brief グラフ探索を行い,直進する動作を評価するクラス.
 class GraphSearcherStraightMove final : public IGraphSearcher
 {
     using Tag = GraphSearchEvaluationValue::Tag;

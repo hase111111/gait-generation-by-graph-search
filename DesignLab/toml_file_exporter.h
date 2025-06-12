@@ -23,51 +23,51 @@
 namespace designlab
 {
 
-//! @brief into<T>を持つか判定するコンセプト．
+//! @brief into<T>を持つか判定するコンセプト.
 template <typename T>
 concept HasIntoToml = impl::has_into_toml<T>::value && std::is_default_constructible_v<T>;
 
 
 //! @class TomlFileExporter
-//! @brief TOMLファイルを出力するテンプレートクラス．
-//! @tparam T 出力するデータの型．
-//! 条件として，デフォルトコンストラクタを持つことと，
-//! toml::into<T>()が定義されていることが必要．
+//! @brief TOMLファイルを出力するテンプレートクラス.
+//! @tparam T 出力するデータの型.
+//! 条件として,デフォルトコンストラクタを持つことと,
+//! toml::into<T>()が定義されていることが必要.
 template <HasIntoToml T>
 class TomlFileExporter final
 {
 public:
-    //! @brief TOMLファイルを出力する．
-    //! @param[in] file_path 出力するファイルのパス．
-    //! @param[in] data 出力するデータ．
+    //! @brief TOMLファイルを出力する.
+    //! @param[in] file_path 出力するファイルのパス.
+    //! @param[in] data 出力するデータ.
     void Export(const std::string& file_path, const T& data)
     {
         const toml::basic_value<toml::preserve_comments, std::map> value(data);
-        std::string res_str = toml::format(value);  // 設定を文字列に変換．
+        std::string res_str = toml::format(value);  // 設定を文字列に変換.
 
-        InsertNewLine(&res_str);  // #をみたら，改行を挿入する．
+        InsertNewLine(&res_str);  // #をみたら,改行を挿入する.
 
-        IndentTable(&res_str);  // Tableの中身をインデントする．
+        IndentTable(&res_str);  // Tableの中身をインデントする.
 
         std::ofstream ofs;
         ofs.open(file_path);
 
-        // ファイルが開けなかったら何もしない．
+        // ファイルが開けなかったら何もしない.
         if (!ofs)
         {
             CmdIOUtil::Output("Failed to output TOML file. file_path : " + file_path, OutputDetail::kSystem);
             return;
         }
 
-        ofs.write(res_str.c_str(), res_str.length());  // ファイルに書き込む．
+        ofs.write(res_str.c_str(), res_str.length());  // ファイルに書き込む.
 
-        ofs.close();  // ファイルを閉じる．
+        ofs.close();  // ファイルを閉じる.
 
         CmdIOUtil::Output("TOML files are output. file_path : " + file_path, OutputDetail::kSystem);
     }
 
 private:
-    //! @brief @#をみたら，改行を挿入する．
+    //! @brief @#をみたら,改行を挿入する.
     void InsertNewLine(std::string* str)
     {
         if (str == nullptr)
@@ -98,8 +98,8 @@ private:
         *str = res_str;
     }
 
-    //! @brief Tableの中身をインデントする．
-    //! @param[in,out] str インデントする文字列．
+    //! @brief Tableの中身をインデントする.
+    //! @param[in,out] str インデントする文字列.
     void IndentTable(std::string* str)
     {
         if (str == nullptr)

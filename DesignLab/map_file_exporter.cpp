@@ -15,24 +15,24 @@ namespace designlab {
 
 bool MapFileExporter::ExportMap(const std::string& file_path,
                                 const MapState& map_state) const noexcept {
-  // ファイルを開く．
+  // ファイルを開く.
   std::ofstream ofs(file_path);
 
-  // ファイルが開けないならば false を返す．
+  // ファイルが開けないならば false を返す.
   if (!ofs.is_open()) {
-    CmdIOUtil::ErrorOutput("ファイルを開けませんでした．");
+    CmdIOUtil::ErrorOutput("ファイルを開けませんでした.");
 
     return false;
   }
 
-  // ファイルを1行ずつ書き込む．
+  // ファイルを1行ずつ書き込む.
   const size_t map_point_size = map_state.GetMapPointSize();
 
   for (size_t i = 0; i < map_point_size; ++i) {
     ofs << map_state.GetMapPoint(i) << std::endl;
   }
 
-  // ファイルを閉じる．
+  // ファイルを閉じる.
   ofs.close();
 
   return true;

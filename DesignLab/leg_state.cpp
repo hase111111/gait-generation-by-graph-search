@@ -19,17 +19,17 @@ LegStateBit MakeLegStateBit(
 {
     LegStateBit res = 0;
 
-    // bitに変換する．
+    // bitに変換する.
     LegStateBit discrete_com_pos_bit = static_cast<unsigned int>(discrete_com_pos);
-    res |= discrete_com_pos_bit << kShiftToComNum;  // 重心パターンの数値だけビットを立てる．
+    res |= discrete_com_pos_bit << kShiftToComNum;  // 重心パターンの数値だけビットを立てる.
 
     for (int i = 0; i < HexapodConst::kLegNum; i++)
     {
-        // 接地しているならば上位ビットを立てる．
+        // 接地しているならば上位ビットを立てる.
         size_t ground_bit_index = static_cast<size_t>(i + 1) * 4 - 1;
         if (is_ground[i]) { res[ground_bit_index] = true; }
 
-        // 脚のビットを立てる．
+        // 脚のビットを立てる.
         LegStateBit discrete_leg_pos_bit = static_cast<unsigned int>(discretized_leg_pos[i]);
         size_t shift_num = static_cast<size_t>(i) * 4;  // 4bitずつずらす
 
@@ -42,11 +42,11 @@ LegStateBit MakeLegStateBit(
 
 bool IsGrounded(const LegStateBit& leg_state, const int leg_index)
 {
-    // leg_indexは0～5の範囲にある必要がある．
+    // leg_indexは0～5の範囲にある必要がある.
     assert(0 <= leg_index);
     assert(leg_index < HexapodConst::kLegNum);
 
-    // 指定された脚の接地脚のビットが立っているか調べる．
+    // 指定された脚の接地脚のビットが立っているか調べる.
     size_t ground_bit_index = static_cast<size_t>(leg_index + 1) * 4 - 1;
 
     if (leg_state[ground_bit_index])
@@ -82,12 +82,12 @@ int GetGroundedLegNum(const LegStateBit& leg_state)
 {
     int res = 0;
 
-    // 脚の本数分ループする．
+    // 脚の本数分ループする.
     for (int i = 0; i < HexapodConst::kLegNum; i++)
     {
         if (IsGrounded(leg_state, i))
         {
-            // 接地している脚があればカウントアップする．
+            // 接地している脚があればカウントアップする.
             res++;
         }
     }
@@ -102,16 +102,16 @@ int GetLiftedLegNum(const LegStateBit& leg_state)
 
 void GetGroundedLegIndexByVector(const LegStateBit& leg_state, std::vector<int>* res_index)
 {
-    // res_index は nullptr でないこと，かつ空である必要がある．
+    // res_index は nullptr でないこと,かつ空である必要がある.
     assert(res_index != nullptr);
     assert((*res_index).size() == 0);
 
-    // 脚は6本あるので6回ループする．
+    // 脚は6本あるので6回ループする.
     for (int i = 0; i < HexapodConst::kLegNum; i++)
     {
         if (IsGrounded(leg_state, i))
         {
-            // 接地している脚の脚番号を vector に代入．
+            // 接地している脚の脚番号を vector に代入.
             (*res_index).push_back(i);
         }
     }
@@ -119,16 +119,16 @@ void GetGroundedLegIndexByVector(const LegStateBit& leg_state, std::vector<int>*
 
 void GetLiftedLegIndexByVector(const LegStateBit& leg_state, std::vector<int>* res_index)
 {
-    // res_index は nullptr でないこと，かつ空である必要がある.
+    // res_index は nullptr でないこと,かつ空である必要がある.
     assert(res_index != nullptr);
     assert((*res_index).size() == 0);
 
-    // 脚は6本あるので6回ループする．
+    // 脚は6本あるので6回ループする.
     for (int i = 0; i < HexapodConst::kLegNum; i++)
     {
         if (!IsGrounded(leg_state, i))
         {
-            // 浮いている脚の脚番号を vector に代入．
+            // 浮いている脚の脚番号を vector に代入.
             (*res_index).push_back(i);
         }
     }
@@ -136,7 +136,7 @@ void GetLiftedLegIndexByVector(const LegStateBit& leg_state, std::vector<int>* r
 
 enums::DiscreteLegPos GetDiscreteLegPos(const LegStateBit& leg_state, const int leg_index)
 {
-    // leg_indexは0～5の範囲にある必要がある．
+    // leg_indexは0～5の範囲にある必要がある.
     assert(0 <= leg_index);
     assert(leg_index < HexapodConst::kLegNum);
 
@@ -150,7 +150,7 @@ enums::DiscreteLegPos GetDiscreteLegPos(const LegStateBit& leg_state, const int 
 
 enums::DiscreteComPos GetDiscreteComPos(const LegStateBit& leg_state)
 {
-    // 重心パターンを保存するビットをマスクし，その値だけ取得できるように右へシフトする．
+    // 重心パターンを保存するビットをマスクし,その値だけ取得できるように右へシフトする.
     const int res = static_cast<int>(((leg_state & kComStateMaskBit) >> kShiftToComNum).to_ulong());
 
     return static_cast<enums::DiscreteComPos>(res);
@@ -164,7 +164,7 @@ void ChangeLegState(
   LegStateBit* leg_state
 )
 {
-    // leg_indexは0～5の範囲にある必要がある．
+    // leg_indexは0～5の範囲にある必要がある.
     assert(0 <= leg_index);
     assert(leg_index < HexapodConst::kLegNum);
 
@@ -181,27 +181,27 @@ void ChangeDiscreteLegPos(
   LegStateBit* leg_state
 )
 {
-    // leg_indexは0～5の範囲にある必要がある．
+    // leg_indexは0～5の範囲にある必要がある.
     assert(0 <= leg_index);
     assert(leg_index < HexapodConst::kLegNum);
 
-    // leg_state は nullptrではない．
+    // leg_state は nullptrではない.
     assert(leg_state != nullptr);
 
 
-    // 新しい脚状態を生成する．
-    const size_t shift_num = static_cast<size_t>(leg_index) * 4;  // 4bitずつずらす．
+    // 新しい脚状態を生成する.
+    const size_t shift_num = static_cast<size_t>(leg_index) * 4;  // 4bitずつずらす.
 
-    // 4bitのデータを変更する地点までマスクをずらす．
+    // 4bitのデータを変更する地点までマスクをずらす.
     const LegStateBit mask = kLegPosMaskBit << shift_num;
 
-    // bitに変換する．
+    // bitに変換する.
     const LegStateBit discreate_leg_pos_bit = static_cast<unsigned int>(new_discretized_leg_pos);
 
-    // 脚位置のデータは4bitづつ配置されているのでその位置まで移動する．
+    // 脚位置のデータは4bitづつ配置されているのでその位置まで移動する.
     const LegStateBit state = discreate_leg_pos_bit << shift_num;
 
-    // 浮いている脚の脚位置のみを変更（排他的論理和による特定ビットの交換．
+    // 浮いている脚の脚位置のみを変更（排他的論理和による特定ビットの交換.
     // 参考 : https://qiita.com/vivisuke/items/bc707190e008551ca07f (アクセス日 2023/12/27)
     LegStateBit res = ((*leg_state) ^ state) & mask;
     (*leg_state) ^= res;
@@ -209,7 +209,7 @@ void ChangeDiscreteLegPos(
 
 void ChangeGround(const int leg_index, const bool is_ground, LegStateBit* leg_state)
 {
-    // leg_indexは0～5の範囲にある必要がある．
+    // leg_indexは0～5の範囲にある必要がある.
     assert(0 <= leg_index);
     assert(leg_index < HexapodConst::kLegNum);
 
@@ -217,7 +217,7 @@ void ChangeGround(const int leg_index, const bool is_ground, LegStateBit* leg_st
     assert(leg_state != nullptr);
 
 
-    // 指定された脚の接地脚のビットを立てるか消すかする．
+    // 指定された脚の接地脚のビットを立てるか消すかする.
     const size_t ground_bit_index = static_cast<size_t>(leg_index + 1) * 4 - 1;
 
     if (is_ground)
@@ -232,7 +232,7 @@ void ChangeGround(const int leg_index, const bool is_ground, LegStateBit* leg_st
 
 void ChangeAllLegGround(const LegGroundedBit& is_ground_list, LegStateBit* leg_state)
 {
-    // leg_state は nullptrではない．
+    // leg_state は nullptrではない.
     assert(leg_state != nullptr);
 
     for (int i = 0; i < HexapodConst::kLegNum; i++)
@@ -243,7 +243,7 @@ void ChangeAllLegGround(const LegGroundedBit& is_ground_list, LegStateBit* leg_s
 
 void ChangeDiscreteComPos(const enums::DiscreteComPos new_com_pattern, LegStateBit* leg_state)
 {
-    // leg_state は nullptrではない．
+    // leg_state は nullptrではない.
     assert(leg_state != nullptr);
 
     const LegStateBit state = static_cast<unsigned int>(new_com_pattern) << kShiftToComNum;

@@ -15,16 +15,16 @@ namespace designlab
 {
 
 //! @class TomlDirectoryExporter
-//! @brief TOMLファイルを入れるディレクトリを作成し，
-//! TOMLファイル読み込みの準備をするクラス．
+//! @brief TOMLファイルを入れるディレクトリを作成し,
+//! TOMLファイル読み込みの準備をするクラス.
 class TomlDirectoryExporter final
 {
 public:
-    //! TOMLファイルを入れるディレクトリのパス．
+    //! TOMLファイルを入れるディレクトリのパス.
     static const char kTomlFileDirPath[];
 
-    //! @brief TOMLファイルを入れるディレクトリを作成し，
-    //! TOMLファイル読み込みの準備をする．
+    //! @brief TOMLファイルを入れるディレクトリを作成し,
+    //! TOMLファイル読み込みの準備をする.
     void Export();
 };
 

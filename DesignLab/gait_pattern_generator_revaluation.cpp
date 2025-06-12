@@ -30,16 +30,16 @@ GaitPatternGeneratorRevaluation::GaitPatternGeneratorRevaluation(
     joint_calculator_ptr_(joint_calculator_ptr),
     interpolated_node_creator_{ converter_ptr }
 {
-    // gpg_ptr_ は nullptrでない．
+    // gpg_ptr_ は nullptrでない.
     assert(gpg_ptr_ != nullptr);
 
-    // gpg_revaluation_ptr_ は nullptrでない．
+    // gpg_revaluation_ptr_ は nullptrでない.
     assert(gpg_revaluation_ptr_ != nullptr);
 
-    // converter_ptr_ は nullptrでない．
+    // converter_ptr_ は nullptrでない.
     assert(converter_ptr_ != nullptr);
 
-    // joint_calculator_ptr_ は nullptrでない．
+    // joint_calculator_ptr_ は nullptrでない.
     assert(joint_calculator_ptr_ != nullptr);
 }
 
@@ -57,18 +57,18 @@ GraphSearchResult GaitPatternGeneratorRevaluation::GetNextNodeByGraphSearch(
 
     if (result.result != enums::Result::kSuccess)
     {
-        // グラフ探索に失敗した場合は終了．
+        // グラフ探索に失敗した場合は終了.
         return result;
     }
 
-    // 成功した場合は，逆運動学計算で脚軌道生成が可能であるか確認する．
+    // 成功した場合は,逆運動学計算で脚軌道生成が可能であるか確認する.
     if (IsValidNode(current_node, *output_node))
     {
-        // 有効なノードである場合は，そのまま終了．
+        // 有効なノードである場合は,そのまま終了.
         return result;
     }
 
-    // 逆運動学計算で脚軌道生成が不可能な場合は，再評価を行う．
+    // 逆運動学計算で脚軌道生成が不可能な場合は,再評価を行う.
     return gpg_revaluation_ptr_->GetNextNodeByGraphSearch(
             current_node, map_state, operation, output_node);
 }
@@ -77,16 +77,16 @@ bool GaitPatternGeneratorRevaluation::IsValidNode(
     const RobotStateNode& current_node,
     const RobotStateNode& next_node) const
 {
-    // まず，next_nodeが有効なノードであるかを確認する．
+    // まず,next_nodeが有効なノードであるかを確認する.
     const auto joint = joint_calculator_ptr_->CalculateAllJointState(next_node);
 
     if (!joint_calculator_ptr_->IsValidAllJointState(next_node, joint))
     {
-        // 逆運動学計算に失敗した場合は無効なノードとする．
+        // 逆運動学計算に失敗した場合は無効なノードとする.
         return false;
     }
 
-    // 次に補間ノードを生成する．
+    // 次に補間ノードを生成する.
     const std::vector<RobotStateNode> interpolated_node =
         interpolated_node_creator_.CreateInterpolatedNode(current_node, next_node);
 
@@ -97,7 +97,7 @@ bool GaitPatternGeneratorRevaluation::IsValidNode(
 
         if (!joint_calculator_ptr_->IsValidAllJointState(node, joint_interpolated))
         {
-            // 逆運動学計算に失敗した場合は無効なノードとする．
+            // 逆運動学計算に失敗した場合は無効なノードとする.
             return false;
         }
     }

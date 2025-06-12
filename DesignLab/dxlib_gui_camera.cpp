@@ -24,8 +24,8 @@ DxlibGuiCamera::DxlibGuiCamera(const int window_x, const int window_y,
     window_y_(window_y),
     camera_(camera)
 {
-    const int button_distance = 10;  //!< ボタン同士の間隔．
-    const int button_size = 60;  //!< ボタンのサイズ．
+    const int button_distance = 10;  //!< ボタン同士の間隔.
+    const int button_size = 60;  //!< ボタンのサイズ.
 
     const int button_range = button_size + button_distance;
     const int left_pos_x = gui_left_pos_x_ + button_range / 2 + 15;
@@ -88,13 +88,13 @@ void DxlibGuiCamera::SetNode(const RobotStateNode& node)
 
 void DxlibGuiCamera::Update()
 {
-    // 各ボタンの処理．
+    // 各ボタンの処理.
     for (auto& button : button_)
     {
         button->Update();
     }
 
-    // カメラの更新．
+    // カメラの更新.
     camera_->Update();
 
     if (!IsInWindow())
@@ -107,7 +107,7 @@ void DxlibGuiCamera::Draw() const
 {
     DrawBackground("CameraGui");
 
-    // 全てのボタンの描画．
+    // 全てのボタンの描画.
     for (auto& button : button_)
     {
         button->Draw();

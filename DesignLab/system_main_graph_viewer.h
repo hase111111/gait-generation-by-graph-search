@@ -24,11 +24,11 @@ namespace designlab
 {
 
 //! @class SystemMainGraphViewer
-//! @brief グラフを表示するシステムのメインクラス．
+//! @brief グラフを表示するシステムのメインクラス.
 //! @details
-//! この研究の手法では木構造のグラフを作成する．
-//! どのようなグラフが作成されるかを確認するために，
-//! このグラフを表示するプログラムを作成した．
+//! この研究の手法では木構造のグラフを作成する.
+//! どのようなグラフが作成されるかを確認するために,
+//! このグラフを表示するプログラムを作成した.
 class SystemMainGraphViewer final : public ISystemMain
 {
 public:
@@ -41,23 +41,23 @@ public:
     void Main() override;
 
 private:
-    //! @brief グラフを作成する．
-    //! @param[in] parent 親ノード．
-    //! @param[out] graph 作成したグラフ．
+    //! @brief グラフを作成する.
+    //! @param[in] parent 親ノード.
+    //! @param[out] graph 作成したグラフ.
     void CreateGraph(const RobotStateNode parent, std::vector<RobotStateNode>* graph);
 
 
-    //! @brief グラフのステータスを表示する．
-    //! @n 全ノード数，木の深さ，各深さごとのノード数を表示する．
+    //! @brief グラフのステータスを表示する.
+    //! @n 全ノード数,木の深さ,各深さごとのノード数を表示する.
     //! @param[in] graph グラフ
     void OutputGraphStatus(const std::vector<RobotStateNode>& graph) const;
 
 
 
-    //! @brief グラフの中から1つのノードを選択する．
-    //! グラフが空の場合は，初期状態のノードを返す．
-    //! @param[in] graph グラフ．
-    //! @return 選択されたノード．
+    //! @brief グラフの中から1つのノードを選択する.
+    //! グラフが空の場合は,初期状態のノードを返す.
+    //! @param[in] graph グラフ.
+    //! @return 選択されたノード.
     RobotStateNode SelectNodeByInput(const std::vector<RobotStateNode>& graph) const;
 
 

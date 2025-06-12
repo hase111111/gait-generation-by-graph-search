@@ -19,18 +19,18 @@ namespace designlab
 {
 
 //! @class CameraDragger
-//! @brief マウスの入力でカメラを動かすクラス．
+//! @brief マウスの入力でカメラを動かすクラス.
 class CameraDragger final : public IDxlibDraggable, public IDxlibWheelHandler
 {
 public:
-    //! @param[in] camera_manager カメラの状態を管理するクラスをポインタで受け取る．
+    //! @param[in] camera_manager カメラの状態を管理するクラスをポインタで受け取る.
     explicit CameraDragger(const std::shared_ptr<DxlibCamera> camera);
 
     bool IsDraggable(
         [[maybe_unused]] int cursor_x,
         [[maybe_unused]] int cursor_y) const override
     {
-        // カメラの操作はどこをクリックしても可能．
+        // カメラの操作はどこをクリックしても可能.
         return true;
     };
 
@@ -46,26 +46,26 @@ public:
         [[maybe_unused]] int cursor_x,
         [[maybe_unused]] int cursor_y) const override
     {
-        // カメラの操作はどこをクリックしても可能．
+        // カメラの操作はどこをクリックしても可能.
         return true;
     };
 
     void RotMouseWheel(int rot) const override;
 
 private:
-    const float kCameraZoomSpeed{ 50.f };  //!< カメラのズーム速度．
+    const float kCameraZoomSpeed{ 50.f };  //!< カメラのズーム速度.
 
-    const float kCameraMoveSpeed{ 0.007f };  //!< カメラの移動速度．
+    const float kCameraMoveSpeed{ 0.007f };  //!< カメラの移動速度.
 
-    const float kCameraTargetMoveSpeed{ 3.f };  //!< カメラの注視点の移動速度．
+    const float kCameraTargetMoveSpeed{ 3.f };  //!< カメラの注視点の移動速度.
 
-    //! マウスの移動量がこの量以下ならば0とみなす．
+    //! マウスの移動量がこの量以下ならば0とみなす.
     const double kMouseMoveMargin{ 0.5 };
 
-    //! カメラの状態を管理するクラスのポインタ．
+    //! カメラの状態を管理するクラスのポインタ.
     const std::shared_ptr<DxlibCamera> camera_ptr_;
 
-    bool is_dragged_{ false };  //!< ドラッグ中かどうかのフラグ．
+    bool is_dragged_{ false };  //!< ドラッグ中かどうかのフラグ.
 };
 
 }  // namespace designlab

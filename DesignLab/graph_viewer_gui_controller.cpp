@@ -86,7 +86,7 @@ void GraphViewerGUIController::DrawGraphData() const
         DrawFormatString(kBoxMinX + 10, kBoxMinY + 30, kTextColor,
                          "表示ノード:%d番", *display_node_index_ptr_);
 
-        // 深さごとのノードの数．
+        // 深さごとのノードの数.
         for (size_t i = 0; i < graph_node_depth_data_.size(); i++)
         {
             DrawFormatString(
@@ -187,7 +187,7 @@ void GraphViewerGUIController::DrawNodeData(const RobotStateNode& node) const
     const unsigned int kBoxColor = GetColor(255, 255, 255);
     const unsigned int kBoxAlpha = 128;
 
-    // 枠．
+    // 枠.
     SetDrawBlendMode(DX_BLENDMODE_ALPHA, kBoxAlpha);
 
     DrawBox(
@@ -196,7 +196,7 @@ void GraphViewerGUIController::DrawNodeData(const RobotStateNode& node) const
 
     SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
-    // テキスト．
+    // テキスト.
     const unsigned int kTextColor = GetColor(10, 10, 10);
     const int kTextXPos = kBoxMinX + 10;
     const int kTextYMinPos = kBoxMinY + 10;
@@ -208,7 +208,7 @@ void GraphViewerGUIController::DrawNodeData(const RobotStateNode& node) const
         kTextXPos,
         kTextYMinPos + kTextYInterval * (text_line++),
         kTextColor,
-        "重心：%d，脚位置：%d,%d,%d,%d,%d,%d",
+        "重心：%d,脚位置：%d,%d,%d,%d,%d,%d",
         GetDiscreteComPos(node.leg_state),
         GetDiscreteLegPos(node.leg_state, 0),
         GetDiscreteLegPos(node.leg_state, 1),
@@ -217,7 +217,7 @@ void GraphViewerGUIController::DrawNodeData(const RobotStateNode& node) const
         GetDiscreteLegPos(node.leg_state, 4),
         GetDiscreteLegPos(node.leg_state, 5));
 
-    // 重心を表示する．
+    // 重心を表示する.
     DrawFormatString(
         kTextXPos,
         kTextYMinPos + kTextYInterval * (text_line++),
@@ -227,7 +227,7 @@ void GraphViewerGUIController::DrawNodeData(const RobotStateNode& node) const
         node.center_of_mass_global_coord.y,
         node.center_of_mass_global_coord.z);
 
-    // 遊脚か接地脚か．
+    // 遊脚か接地脚か.
     std::string str = "";
     for (int i = 0; i < HexapodConst::kLegNum; i++)
     {
@@ -248,7 +248,7 @@ void GraphViewerGUIController::DrawNodeData(const RobotStateNode& node) const
         "脚の状態：%s",
         str.c_str());
 
-    // 脚の位置を表示する．
+    // 脚の位置を表示する.
     for (int i = 0; i < HexapodConst::kLegNum; i++)
     {
         DrawFormatString(
@@ -261,7 +261,7 @@ void GraphViewerGUIController::DrawNodeData(const RobotStateNode& node) const
             node.leg_pos[i].z);
     }
 
-    // 深さと次の動作を表示する．
+    // 深さと次の動作を表示する.
     DrawFormatString(
         kTextXPos,
         kTextYMinPos + kTextYInterval * (text_line++),
@@ -274,14 +274,14 @@ void GraphViewerGUIController::DrawNodeData(const RobotStateNode& node) const
 
 void GraphViewerGUIController::InputNumber()
 {
-    // Cキーでリセット．
+    // Cキーでリセット.
     if (keyboard_.GetPressingCount(KEY_INPUT_C) == 1)
     {
         input_number_ = -1;
         return;
     }
 
-    // 数字入力．
+    // 数字入力.
     int input_number = -1;
 
     if (keyboard_.GetPressingCount(KEY_INPUT_0) == 1)

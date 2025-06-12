@@ -25,7 +25,7 @@ namespace designlab
 {
 
 //! @class DxlibGuiNodeDisplayer
-//! @brief ノードの情報を表示するGUIのクラス．
+//! @brief ノードの情報を表示するGUIのクラス.
 class DxlibGuiNodeDisplayer final :
     public AbstractDxlibGui,
     public IDxlibNodeSetter
@@ -60,20 +60,20 @@ private:
 
     bool IsInWindow() const;
 
-    //! 座標変換を行うクラス．
+    //! 座標変換を行うクラス.
     const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
 
-    //! 六脚歩行ロボットの状態を計算するクラス．
+    //! 六脚歩行ロボットの状態を計算するクラス.
     const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;
     const std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
 
-    RobotStateNode display_node_;  //!< 表示するノード．
+    RobotStateNode display_node_;  //!< 表示するノード.
 
-    //! 関節の角度．
+    //! 関節の角度.
     std::array<HexapodJointState, HexapodConst::kLegNum> joint_state_;
-    DisplayMode display_type_;  //!< 表示する情報の種類．
+    DisplayMode display_type_;  //!< 表示する情報の種類.
 
-    //! GUIの右下座標．
+    //! GUIの右下座標.
     const int window_x_, window_y_;
 };
 

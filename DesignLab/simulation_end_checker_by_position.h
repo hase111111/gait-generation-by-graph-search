@@ -15,7 +15,7 @@ namespace designlab
 {
 
 //! @class SimulationEndCheckerByPosition
-//! @brief 最終位置によるシミュレーション終了判定クラス．
+//! @brief 最終位置によるシミュレーション終了判定クラス.
 class SimulationEndCheckerByPosition final : public ISimulationEndChecker
 {
 public:
@@ -24,8 +24,8 @@ public:
     bool IsEnd(const RobotStateNode& node) const override;
 
 private:
-    const Vector3 goal_position_;  //!< 目標位置．
-    const float allowable_error_;  //!< 許容誤差．
+    const Vector3 goal_position_;  //!< 目標位置.
+    const float allowable_error_;  //!< 許容誤差.
 };
 
 }  // namespace designlab

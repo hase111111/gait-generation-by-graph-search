@@ -20,8 +20,8 @@ namespace designlab
 {
 
 //! @class ApproximatedMotionRangeRender
-//! @brief 6脚歩行ロボットの近似された脚の動作範囲を描画するクラス．
-//! @details 回転を考慮していないので注意．
+//! @brief 6脚歩行ロボットの近似された脚の動作範囲を描画するクラス.
+//! @details 回転を考慮していないので注意.
 class ApproximatedMotionRangeRender :
     public IDxlib3dRenderer,
     public IDxlibNodeSetter

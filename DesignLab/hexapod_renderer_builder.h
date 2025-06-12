@@ -22,16 +22,16 @@ namespace designlab
 {
 
 //! @class HexapodRendererBuilder
-//! @brief HexapodRendererクラスのインスタンスを作成するクラス．
+//! @brief HexapodRendererクラスのインスタンスを作成するクラス.
 class HexapodRendererBuilder final
 {
 public:
-    //! @brief HexapodRendererクラスのインスタンスを作成する．
-    //! static関数なので，HexapodRendererBuilder::Build()と呼び出す．
-    //! @param[in] converter_ptr 座標変換クラスのインスタンス．
-    //! @param[in] calculator_ptr 関節計算クラスのインスタンス．
-    //! @return HexapodRendererクラスのインスタンス．
-    //! あまりよくない気がするが，継承している2つのインターフェースで返すために，std::tupleで返す．
+    //! @brief HexapodRendererクラスのインスタンスを作成する.
+    //! static関数なので,HexapodRendererBuilder::Build()と呼び出す.
+    //! @param[in] converter_ptr 座標変換クラスのインスタンス.
+    //! @param[in] calculator_ptr 関節計算クラスのインスタンス.
+    //! @return HexapodRendererクラスのインスタンス.
+    //! あまりよくない気がするが,継承している2つのインターフェースで返すために,std::tupleで返す.
     static std::tuple<std::shared_ptr<IDxlib3dRenderer>, std::shared_ptr<IDxlibNodeSetter> > Build(
       const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
       const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,

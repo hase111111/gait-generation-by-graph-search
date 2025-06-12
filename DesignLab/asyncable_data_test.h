@@ -40,7 +40,7 @@ TEST_SUITE("AsyncableData")
 
             CHECK_EQ(data.GetUpdateCount(), 0);
 
-            CHECK_EQ(act, 1);   // 警告の抑制．
+            CHECK_EQ(act, 1);   // 警告の抑制.
         }
     }
 

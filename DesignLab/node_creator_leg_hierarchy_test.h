@@ -38,7 +38,7 @@ TEST_SUITE("NodeCreatorLegHierarchyTest")
         NodeCreatorLegHierarchy node_creator_leg_hierarchy{
             move, discrete_leg_pos };
 
-        // 1脚のみ遊脚させる．
+        // 1脚のみ遊脚させる.
         std::array<bool, HexapodConst::kLegNum> ground_leg = {
             false, true, true, true, true, true };
 

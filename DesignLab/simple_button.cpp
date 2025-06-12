@@ -66,7 +66,7 @@ void SimpleButton::SetPos(
 
 void SimpleButton::Update()
 {
-    // now_color_blue_を target_color_blue_ に近づける．
+    // now_color_blue_を target_color_blue_ に近づける.
     now_color_blue_ =
         math_util::ApproachTarget(now_color_blue_, target_color_blue_, 0.1f);
 
@@ -84,7 +84,7 @@ void SimpleButton::Draw() const
     const int str_color = GetColor(20, 20, 20);
     const int frame_size = 1;
 
-    // ベースを描画．
+    // ベースを描画.
     DrawBox(
       pos_middle_x - kSizeX / 2,
       pos_middle_y - kSizeY / 2,
@@ -93,7 +93,7 @@ void SimpleButton::Draw() const
       base_color,
       TRUE);
 
-    // その上にボタンを描画．
+    // その上にボタンを描画.
     DrawBox(
       pos_middle_x - kSizeX / 2 + frame_size,
       pos_middle_y - kSizeY / 2 + frame_size,
@@ -102,7 +102,7 @@ void SimpleButton::Draw() const
       button_color,
       TRUE);
 
-    // テキストを表示．
+    // テキストを表示.
     const int font_handle =
         FontLoader::GetIns()->GetFontHandle("font/Yu_Gothic_UI.dft");
 
@@ -146,7 +146,7 @@ bool SimpleButton::CursorOnGui(const int cursor_x, const int cursor_y) const noe
 
 int SimpleButton::GetFitButtonSizeX(const int now_size_x) const noexcept
 {
-    // 文字列の中からもっと横幅が大きいものを探す．
+    // 文字列の中からもっと横幅が大きいものを探す.
     const int font_handle =
         FontLoader::GetIns()->GetFontHandle("font/Yu_Gothic_UI.dft");
 
@@ -162,7 +162,7 @@ int SimpleButton::GetFitButtonSizeX(const int now_size_x) const noexcept
         }
     }
 
-    // 横幅が大きい文字列に合わせてボタンの横幅を変更する．
+    // 横幅が大きい文字列に合わせてボタンの横幅を変更する.
     if (now_size_x < max_width)
     {
         return max_width;

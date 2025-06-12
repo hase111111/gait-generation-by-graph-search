@@ -15,14 +15,14 @@ namespace designlab
 {
 
 //! @class IDxlibNodeSetter
-//! @brief DxLibのGuiやRendererでノードのセットを行うためのインターフェース．
+//! @brief DxLibのGuiやRendererでノードのセットを行うためのインターフェース.
 class IDxlibNodeSetter
 {
 public:
     virtual ~IDxlibNodeSetter() = default;
 
-    //! @brief ノードをセットする．
-    //! @param node ノード番号．
+    //! @brief ノードをセットする.
+    //! @param node ノード番号.
     virtual void SetNode(const RobotStateNode& node) = 0;
 };
 

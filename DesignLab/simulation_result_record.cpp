@@ -19,7 +19,7 @@ namespace designlab
 
 std::string SimulationResultRecord::ToCsvString() const
 {
-    // シミュレーションの最終的な結果の出力．
+    // シミュレーションの最終的な結果の出力.
     std::stringstream ss;
     ss << "Simulation Result," <<
         string_util::EnumToStringRemoveTopK(simulation_result) << std::endl;
@@ -33,7 +33,7 @@ std::string SimulationResultRecord::ToCsvString() const
     {
         ss << i << ",";
 
-        // グラフ探索の結果の出力．
+        // グラフ探索の結果の出力.
         ss << graph_search_result_recorder[i].ToCsvString() << ",";
 
         ss << std::endl;

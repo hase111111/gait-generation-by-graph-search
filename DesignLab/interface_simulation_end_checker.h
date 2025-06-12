@@ -15,15 +15,15 @@ namespace designlab
 {
 
 //! @class ISimulationEndChecker
-//! @brief シミュレーションの終了を判定するクラスのインターフェース．
+//! @brief シミュレーションの終了を判定するクラスのインターフェース.
 class ISimulationEndChecker
 {
 public:
     virtual ~ISimulationEndChecker() = default;
 
-    //! @brief シミュレーションの終了を判定する．
-    //! @param[in] node ロボットの状態．
-    //! @return シミュレーションを終了するなら true．
+    //! @brief シミュレーションの終了を判定する.
+    //! @param[in] node ロボットの状態.
+    //! @return シミュレーションを終了するなら true.
     virtual bool IsEnd(const RobotStateNode& node) const = 0;
 };
 

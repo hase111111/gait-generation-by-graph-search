@@ -95,27 +95,27 @@ bool GraphicMainBasic::Update()
     }
 
 
-    // ノードを読み出す時間になったら，仲介人からデータを読み出す．
+    // ノードを読み出す時間になったら,仲介人からデータを読み出す.
     if (counter_ % kNodeGetCount == 0 && graph_update_count != broker_ptr_->graph.GetUpdateCount())
     {
-        // 仲介人からデータを読み出す．
+        // 仲介人からデータを読み出す.
         graph_ = broker_ptr_->graph.GetData();
 
         std::vector<size_t> simu_end_index;
 
         simu_end_index = broker_ptr_->simulation_end_index.GetData();
 
-        // ノードの情報を表示するGUIに情報を伝達する．
+        // ノードの情報を表示するGUIに情報を伝達する.
         display_node_switch_gui_->SetGraphData(graph_.size(), simu_end_index);
 
 
-        // 移動軌跡を更新する．
+        // 移動軌跡を更新する.
         movement_locus_renderer_.SetMoveLocusPoint(graph_);
 
         movement_locus_renderer_.SetSimulationEndIndexes(simu_end_index);
 
 
-        // ロボットの接地点を更新する．
+        // ロボットの接地点を更新する.
         robot_ground_point_renderer_.SetNodeAndSimulationEndNodeIndex(graph_, simu_end_index);
 
 
@@ -123,15 +123,15 @@ bool GraphicMainBasic::Update()
     }
 
 
-    // ノードが存在しているのならば，各クラスに情報を伝達する
+    // ノードが存在しているのならば,各クラスに情報を伝達する
     if (!graph_.empty())
     {
-        // 表示ノードが更新されたら，表示するノードを変更する．
+        // 表示ノードが更新されたら,表示するノードを変更する.
         if (display_node_index_ != display_node_switch_gui_->GetDisplayNodeNum())
         {
             if (display_node_index_ > 0)
             {
-                // 0番目のアニメーションを指定する．
+                // 0番目のアニメーションを指定する.
                 interpolated_anime_start_count_ = 0;
 
                 interpolated_node_.clear();
@@ -141,11 +141,11 @@ bool GraphicMainBasic::Update()
                   graph_[display_node_switch_gui_->GetDisplayNodeNum()]);
             }
 
-            // 表示するノードを取得する．
+            // 表示するノードを取得する.
             display_node_index_ = display_node_switch_gui_->GetDisplayNodeNum();
             display_node_switch_gui_->InAnimation(true);
 
-            // ノードの情報を設定するGUIに情報を伝達する．
+            // ノードの情報を設定するGUIに情報を伝達する.
             node_setter_group_.SetNode(graph_.at(display_node_index_));
         }
 
@@ -153,7 +153,7 @@ bool GraphicMainBasic::Update()
             0 <= interpolated_anime_start_count_ &&
             interpolated_anime_start_count_ < interpolated_node_.size())
         {
-            // アニメーション中は interpolated_node_ の補完されたノードを表示する．
+            // アニメーション中は interpolated_node_ の補完されたノードを表示する.
             if (counter_ % kInterpolatedAnimeCount == 0)
             {
                 interpolated_anime_start_count_ += display_node_switch_gui_->GetAnimeSpeed();
@@ -172,9 +172,9 @@ bool GraphicMainBasic::Update()
         }
     }
 
-    ++counter_;  // カウンタを進める．
+    ++counter_;  // カウンタを進める.
 
-    gui_updater_.Activate(mouse_ptr_);  // GUIをアクティブにする．
+    gui_updater_.Activate(mouse_ptr_);  // GUIをアクティブにする.
 
     return true;
 }
@@ -184,12 +184,12 @@ void GraphicMainBasic::Draw() const
 {
     render_group_.Draw();
 
-    // 移動軌跡を描画する．
+    // 移動軌跡を描画する.
     movement_locus_renderer_.Draw(display_node_switch_gui_->GetSimulationNum());
 
     robot_ground_point_renderer_.Draw(display_node_switch_gui_->GetSimulationNum());
 
-    // 2DのGUIの描画．
+    // 2DのGUIの描画.
     gui_updater_.Draw();
 }
 

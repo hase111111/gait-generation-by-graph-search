@@ -36,11 +36,11 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
 
     if (!graph.HasRoot())
     {
-        const GraphSearchResult result = { enums::Result::kFailure, "ルートノードがありません．" };
+        const GraphSearchResult result = { enums::Result::kFailure, "ルートノードがありません." };
         return { result, GraphSearchEvaluationValue{}, RobotStateNode{} };
     }
 
-    // 初期化．
+    // 初期化.
     Quaternion target_quaternion;
 
     if (operation.operation_type == RobotOperationType::kSpotTurnLastPosture)
@@ -49,7 +49,7 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
     }
     else
     {
-        // 回転軸周りに20deg回転クォータニオンを作成する．
+        // 回転軸周りに20deg回転クォータニオンを作成する.
         const auto rot_quaternion = Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(20.0f), operation.spot_turn_rot_axis);
         target_quaternion = rot_quaternion * graph.GetRootNode().posture;
     }
@@ -62,20 +62,20 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
 
     for (int i = 0; i < graph.GetGraphSize(); i++)
     {
-        // 最大深さのノードのみを評価する．
+        // 最大深さのノードのみを評価する.
         if (graph.GetNode(i).depth != max_depth)
         {
             continue;
         }
 
-        // 評価値を計算する．
+        // 評価値を計算する.
         GraphSearchEvaluationValue candidate_evaluation_value = evaluator_.InitializeEvaluationValue();
 
         candidate_evaluation_value.value.at(kTagAmountOfTurn) = GetAmountOfTurnEvaluationValue(graph.GetNode(i), target_quaternion);
         candidate_evaluation_value.value.at(kTagLegRot) = GetLegRotEvaluationValue(graph.GetNode(i), graph.GetRootNode());
         candidate_evaluation_value.value.at(kTagZDiff) = GetZDiffEvaluationValue(graph.GetNode(i), target_z_value);
 
-        // 評価値を比較する．
+        // 評価値を比較する.
         if (evaluator_.LeftIsBetter(candidate_evaluation_value, max_evaluation_value))
         {
             max_evaluation_value = candidate_evaluation_value;
@@ -83,10 +83,10 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
         }
     }
 
-    // インデックスが範囲外ならば失敗．
+    // インデックスが範囲外ならば失敗.
     if (max_evaluation_value_index < 0 || graph.GetGraphSize() <= max_evaluation_value_index)
     {
-        const GraphSearchResult result = { enums::Result::kFailure, "最大評価値のインデックスが範囲外です．" };
+        const GraphSearchResult result = { enums::Result::kFailure, "最大評価値のインデックスが範囲外です." };
         return { result, GraphSearchEvaluationValue{}, RobotStateNode{} };
     }
 
@@ -110,7 +110,7 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
         result_vector.push_back(result);
     }
 
-    // 最大評価値を持つものを探す．
+    // 最大評価値を持つものを探す.
     GraphSearchEvaluationValue max_evaluation_value = evaluator_.InitializeEvaluationValue();
     int max_evaluation_value_index = -1;
 
@@ -130,10 +130,10 @@ std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode> GraphS
         }
     }
 
-    // インデックスが範囲外ならば失敗．
+    // インデックスが範囲外ならば失敗.
     if (max_evaluation_value_index < 0 || max_evaluation_value_index >= result_vector.size())
     {
-        const GraphSearchResult result = { enums::Result::kFailure, "最大評価値のインデックスが範囲外です．" };
+        const GraphSearchResult result = { enums::Result::kFailure, "最大評価値のインデックスが範囲外です." };
         return { result, GraphSearchEvaluationValue{}, RobotStateNode{} };
     }
 
@@ -199,11 +199,11 @@ float GraphSearcherSpotTurn::GetAmountOfTurnEvaluationValue(
     const RobotStateNode& node,
     const Quaternion& target_quat) const
 {
-    // 目標姿勢を Qt，現在の姿勢を Qc とする．
-    // Qt = Qc * Qd となるような Qd を求める．
-    // Qd = Qc^-1 * Qt となる．
+    // 目標姿勢を Qt,現在の姿勢を Qc とする.
+    // Qt = Qc * Qd となるような Qd を求める.
+    // Qd = Qc^-1 * Qt となる.
 
-    // 最終姿勢を表すクォータニオンとの差分を計算する．
+    // 最終姿勢を表すクォータニオンとの差分を計算する.
     const Quaternion target_to_current = node.posture.GetConjugate() * target_quat;
 
     return target_to_current.w;

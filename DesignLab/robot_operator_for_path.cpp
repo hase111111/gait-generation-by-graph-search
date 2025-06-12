@@ -14,9 +14,9 @@
 
 namespace
 {
-//! @todo あとで消す．
+//! @todo あとで消す.
 
-// -π～πの範囲に収める．
+// -π～πの範囲に収める.
 float NormalizeAngle(float angle)
 {
     while (angle > std::numbers::pi_v<float>)
@@ -66,7 +66,7 @@ RobotOperation RobotOperatorForPath::Update(const RobotStateNode& node)
     if (most_near_index_ > 0 &&
         (global_route_[most_near_index_ - 1].ProjectedXY() - node.center_of_mass_global_coord.ProjectedXY()).GetLength() < 150.f)
     {
-        // 旋回によって，most_near_index_の方を向く．
+        // 旋回によって,most_near_index_の方を向く.
         const auto diff = global_route_[most_near_index_].ProjectedXY() -
             node.center_of_mass_global_coord.ProjectedXY();
 

@@ -16,22 +16,23 @@
 namespace designlab {
 
 //! @class NodeCreatorBuilderGroundConformingRot
-//! @brief 波東さんが行った処理と同様の方法になるようにノード生成クラスを生成するクラス．
+//! @brief
+//! 波東さんが行った処理と同様の方法になるようにノード生成クラスを生成するクラス.
 class NodeCreatorBuilderGroundConformingRot final : public INodeCreatorBuilder {
-public:
-    NodeCreatorBuilderGroundConformingRot(
+ public:
+  NodeCreatorBuilderGroundConformingRot(
       const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
       const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
       const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr);
 
-    void Build(
-      const DividedMapState& map,
-      std::map<HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const override;
+  void Build(const DividedMapState& map,
+             std::map<HexapodMove, std::unique_ptr<INodeCreator> >*
+                 node_creator) const override;
 
-private:
-    const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
-    const std::shared_ptr<const IHexapodStatePresenter> presenter_ptr_;
-    const std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
+ private:
+  const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
+  const std::shared_ptr<const IHexapodStatePresenter> presenter_ptr_;
+  const std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
 };
 
 }  // namespace designlab

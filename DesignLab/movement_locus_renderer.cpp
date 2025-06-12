@@ -60,19 +60,19 @@ void MovementLocusRenderer::Draw(const size_t draw_simulation_num,
 
     for (size_t i = 0; i < kSize - 1; i++)
     {
-        // 範囲外アクセスを防ぐ．
+        // 範囲外アクセスを防ぐ.
         if (i < 0 && kSize - 1 <= i)
         {
             break;
         }
 
-        // 現在のシミュレーション回数．
+        // 現在のシミュレーション回数.
         size_t now_simulation_num = simulation_end_indexes_.size();
 
-        bool do_draw = true;  // 描画するかどうか．
+        bool do_draw = true;  // 描画するかどうか.
 
 
-        // 始点のインデックスがシミュレーション終了インデックスに含まれているならば描画を飛ばす．
+        // 始点のインデックスがシミュレーション終了インデックスに含まれているならば描画を飛ばす.
         for (size_t j = 0; j < simulation_end_indexes_.size(); j++)
         {
             if (i == simulation_end_indexes_[j])
@@ -87,12 +87,12 @@ void MovementLocusRenderer::Draw(const size_t draw_simulation_num,
             }
         }
 
-        // 始点と終点の座標を描画座標に変換する．
+        // 始点と終点の座標を描画座標に変換する.
         VECTOR start = dxlib_util::ConvertToDxlibVec(move_locus_point_.at(i));
         VECTOR end = dxlib_util::ConvertToDxlibVec(move_locus_point_.at(i + 1));
 
 
-        // 描画．
+        // 描画.
         if (do_draw)
         {
             int kDivNum = 6;

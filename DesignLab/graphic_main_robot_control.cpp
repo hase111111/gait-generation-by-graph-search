@@ -98,10 +98,10 @@ bool GraphicMainRobotControl::Update()
 
     if (!graph_.empty())
     {
-        // 表示するノードを取得する．
+        // 表示するノードを取得する.
         size_t display_node_index_ = display_node_switch_gui_->GetDisplayNodeNum();
 
-        // ノードの情報を設定するGUIに情報を伝達する．
+        // ノードの情報を設定するGUIに情報を伝達する.
         node_setter_group_.SetNode(graph_.at(display_node_index_));
     }
 

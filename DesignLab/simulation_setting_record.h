@@ -37,9 +37,9 @@ enum class RobotOperateMode : int
 
 enum class SimulationEndCheckMode : int
 {
-    kGoalTape,  //!< ゴールテープに到達したかどうか．
-    kPosture,   //!< 姿勢が一定の範囲内に収まっているかどうか．
-    kPosition,  //!< 目的の座標に到達したかどうか．
+    kGoalTape,  //!< ゴールテープに到達したかどうか.
+    kPosture,   //!< 姿勢が一定の範囲内に収まっているかどうか.
+    kPosition,  //!< 目的の座標に到達したかどうか.
 };
 
 }  // namespace designlab::enums
@@ -93,68 +93,68 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationSettingRecord)
     using enum HexapodMove;
 
     DESIGNLAB_TOML11_FILE_ADD_DESCRIPTION(
-        "シミュレーションを行う際の設定はこのファイルで設定します．");
+        "シミュレーションを行う際の設定はこのファイルで設定します.");
 
     DESIGNLAB_TOML11_TABLE_ADD_DESCRIPTION(
-      "Map", "マップについての設定です．",
-      "EndChecker", "終了条件についての設定です．",
-      "RobotOperator", "ロボットの操作方法の設定です．");
+      "Map", "マップについての設定です.",
+      "EndChecker", "終了条件についての設定です.",
+      "RobotOperator", "ロボットの操作方法の設定です.");
 
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_create_mode, "Map",
-                                              std::format("マップの作成方法を設定します．( \"{}\" )",
+                                              std::format("マップの作成方法を設定します.( \"{}\" )",
                                               string_util::EnumValuesToString<enums::MapCreateMode>("\" / \"")));
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(simulation_map_param_file_name, "Map",
                                               std::format("マップの作成方法がシミュレーション専用マップを出力するモード"
-                                              " ( {} ) の場合，マップのパラメータを記述した toml ファイルの名前を設定します．",
+                                              " ( {} ) の場合,マップのパラメータを記述した toml ファイルの名前を設定します.",
                                               string_util::EnumToStringRemoveTopK(kForSimulation)));
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_file_name, "Map",
-                                              std::format("マップの作成方法がファイルから読み込むモード ( {} ) の場合，"
-                                              "マップの csvファイルの名前を設定します．",
+                                              std::format("マップの作成方法がファイルから読み込むモード ( {} ) の場合,"
+                                              "マップの csvファイルの名前を設定します.",
                                               string_util::EnumToStringRemoveTopK(kFromFile)));
 
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(end_check_mode, "EndChecker",
-                                              std::format("どのような方法で終了させるかを設定します．( \"{}\" )",
+                                              std::format("どのような方法で終了させるかを設定します.( \"{}\" )",
                                               string_util::EnumValuesToString<enums::SimulationEndCheckMode>("\" / \"")));
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(goal_tape_position_x, "EndChecker",
-                                              std::format("終了条件がゴールテープに到達したか ( {} ) の場合，"
-                                              "ゴールテープのx座標を設定します．[mm]",
+                                              std::format("終了条件がゴールテープに到達したか ( {} ) の場合,"
+                                              "ゴールテープのx座標を設定します.[mm]",
                                               string_util::EnumToStringRemoveTopK(kGoalTape)));
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(target_posture, "EndChecker",
-        std::format("終了条件が目標姿勢となったか ( {} ) の場合，"
-                                              "目標の姿勢(xyzオイラー角)を設定します．[deg]",
+        std::format("終了条件が目標姿勢となったか ( {} ) の場合,"
+                                              "目標の姿勢(xyzオイラー角)を設定します.[deg]",
                                               string_util::EnumToStringRemoveTopK(kPosture)));
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(target_posture_allowable_error_deg, "EndChecker",
-        std::format("終了条件が目標姿勢となったか ( {} ) の場合，"
-                                              "目標の姿勢の角度の許容誤差を設定します．[deg]",
+        std::format("終了条件が目標姿勢となったか ( {} ) の場合,"
+                                              "目標の姿勢の角度の許容誤差を設定します.[deg]",
                                               string_util::EnumToStringRemoveTopK(kPosture)));
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(target_position, "EndChecker",
-        std::format("終了条件が目的の座標に到達したか ( {} ) の場合，"
-                                              "目標の座標を設定します．[mm]",
+        std::format("終了条件が目的の座標に到達したか ( {} ) の場合,"
+                                              "目標の座標を設定します.[mm]",
                                               string_util::EnumToStringRemoveTopK(kPosition)));
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(target_position_allowable_error, "EndChecker",
-        std::format("終了条件が目的の座標に到達したか ( {} ) の場合，"
-                                              "目標の座標の許容誤差を設定します．[mm]",
+        std::format("終了条件が目的の座標に到達したか ( {} ) の場合,"
+                                              "目標の座標の許容誤差を設定します.[mm]",
                                               string_util::EnumToStringRemoveTopK(kPosition)));
 
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(operate_mode, "RobotOperator",
-        std::format("ロボットの操作方法を設定します．( \"{}\" )",
+        std::format("ロボットの操作方法を設定します.( \"{}\" )",
                                               string_util::EnumValuesToString<enums::RobotOperateMode>("\" / \"")));
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(fixed_operate_file_name, "RobotOperator",
-        std::format("ロボットの操作方法が固定 ( {} ) の場合，"
-                                              "その操作方法を指定するファイルを設定します．",
+        std::format("ロボットの操作方法が固定 ( {} ) の場合,"
+                                              "その操作方法を指定するファイルを設定します.",
                                               string_util::EnumToStringRemoveTopK(enums::RobotOperateMode::kFixed)));
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(path_points, "RobotOperator",
-        std::format("ロボットの操作方法がパス ( {} ) の場合，そのパスを設定します．",
+        std::format("ロボットの操作方法がパス ( {} ) の場合,そのパスを設定します.",
                                               string_util::EnumToStringRemoveTopK(kForPath)));
 
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(initial_positions, "Initial",
-                                              "シミュレーション開始時のロボットの位置を設定します．[mm]．"
-                                              "地面にめり込んでいる場合には機能しないため，注意すること．");
+                                              "シミュレーション開始時のロボットの位置を設定します.[mm]."
+                                              "地面にめり込んでいる場合には機能しないため,注意すること.");
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(initial_posture, "Initial",
-                                              "シミュレーション開始時のロボットの姿勢を設定します．[deg]．"
-                                              "地面にめり込んでいる場合には機能しないため，注意すること．");
+                                              "シミュレーション開始時のロボットの姿勢を設定します.[deg]."
+                                              "地面にめり込んでいる場合には機能しないため,注意すること.");
     DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(initial_move, "Initial",
-                                              std::format("シミュレーション開始時のロボットの歩容を設定します．( \"{}\" )",
+                                              std::format("シミュレーション開始時のロボットの歩容を設定します.( \"{}\" )",
                                               string_util::EnumValuesToString<HexapodMove>("\" / \"")));
 };
 

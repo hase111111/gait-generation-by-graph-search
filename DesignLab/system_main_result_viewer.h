@@ -23,7 +23,7 @@ namespace designlab
 {
 
 //! @class SystemMainResultViewer
-//! @brief 結果を表示するシステムのクラス．
+//! @brief 結果を表示するシステムのクラス.
 class SystemMainResultViewer final : public ISystemMain
 {
 public:

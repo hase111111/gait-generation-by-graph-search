@@ -42,7 +42,7 @@ void SystemMainResultViewer::Main()
 
     while (true)
     {
-        // ファイルツリーを表示し，ファイルを選択する．
+        // ファイルツリーを表示し,ファイルを選択する.
         FileTree file_tree;
 
         std::string res_path;
@@ -54,22 +54,22 @@ void SystemMainResultViewer::Main()
             break;
         }
 
-        // ファイルを読み込む．
+        // ファイルを読み込む.
 
-        std::vector<RobotStateNode> graph;  // データを受け取るための変数．
+        std::vector<RobotStateNode> graph;  // データを受け取るための変数.
         MapState map_state;
 
         if (result_importer_.ImportNodeListAndMapState(res_path, &graph, &map_state))
         {
-            // 異常値を出力する．
+            // 異常値を出力する.
             // OutputErrorLegPos(res_path, graph);
 
-            // データを仲介人に渡す．
+            // データを仲介人に渡す.
             broker_ptr_->graph.SetData(graph);
             broker_ptr_->map_state.SetData(map_state);
             broker_ptr_->simulation_end_index.SetData({ graph.size() - 1 });
 
-            // データを表示する．
+            // データを表示する.
             CmdIOUtil::Output("Displays data.", kSystem);
             CmdIOUtil::OutputNewLine(1, kSystem);
             CmdIOUtil::WaitAnyKey();
@@ -105,13 +105,13 @@ void SystemMainResultViewer::OutputErrorLegPos(const std::string& file, const st
 
     CmdIOUtil::Output("Output Directory: " + output_path, OutputDetail::kSystem);
 
-    // すでにファイルが存在する場合は削除する．
+    // すでにファイルが存在する場合は削除する.
     if (std::filesystem::exists(output_path))
     {
         std::filesystem::remove(output_path);
     }
 
-    // まず，脚接地点が可動範囲外のノードを探す．
+    // まず,脚接地点が可動範囲外のノードを探す.
     std::vector<Vector2> error_leg_pos;
 
     for (int i = 0; i < nodes.size(); i++)
@@ -129,7 +129,7 @@ void SystemMainResultViewer::OutputErrorLegPos(const std::string& file, const st
         }
     }
 
-    // 次に脚軌道が可動範囲外を通過するノードを探す．
+    // 次に脚軌道が可動範囲外を通過するノードを探す.
     std::vector<Vector2> error_first;
     std::vector<Vector2> error_second;
     std::vector<Vector2> error_end;
@@ -138,7 +138,7 @@ void SystemMainResultViewer::OutputErrorLegPos(const std::string& file, const st
     {
         for (int j = 0; j < HexapodConst::kLegNum; j++)
         {
-            // 現在と次のノードがともに可動範囲内にない場合，スキップする．
+            // 現在と次のノードがともに可動範囲内にない場合,スキップする.
             HexapodJointState current_joint_state = joint_calculator_->CalculateJointState(j, nodes[i].leg_pos[j]);
             HexapodJointState next_joint_state = joint_calculator_->CalculateJointState(j, nodes[i + 1].leg_pos[j]);
 
@@ -148,12 +148,12 @@ void SystemMainResultViewer::OutputErrorLegPos(const std::string& file, const st
                 continue;
             }
 
-            // 補完するノードを生成する．
+            // 補完するノードを生成する.
             InterpolatedNodeCreator creator(converter_);
 
             std::vector<RobotStateNode> interpolated_nodes = creator.CreateInterpolatedNode(nodes[i], nodes[i + 1]);
 
-            // 補完ノードの中で可動範囲外になるノードを探す．
+            // 補完ノードの中で可動範囲外になるノードを探す.
             bool error = false;
 
             for (int k = 0; k < interpolated_nodes.size(); k++)
@@ -168,7 +168,7 @@ void SystemMainResultViewer::OutputErrorLegPos(const std::string& file, const st
                 }
             }
 
-            // 可動範囲外になるノードがあった場合，エラーとして記録する．
+            // 可動範囲外になるノードがあった場合,エラーとして記録する.
             if (error)
             {
                 const auto length = nodes[i].leg_pos[j].ProjectedXY().GetLength();
@@ -192,9 +192,9 @@ void SystemMainResultViewer::OutputErrorLegPos(const std::string& file, const st
         }
     }
 
-    // 結果をファイルに書き込む．
+    // 結果をファイルに書き込む.
 
-    // ファイルを開く．
+    // ファイルを開く.
     std::ofstream ofs(output_path);
 
     {
@@ -216,7 +216,7 @@ void SystemMainResultViewer::OutputErrorLegPos(const std::string& file, const st
         ofs << "]" << std::endl;
     }
 
-    // 中継点を出力する．
+    // 中継点を出力する.
     {
         ofs << "    x_position_first += [";
 

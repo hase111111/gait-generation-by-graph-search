@@ -18,15 +18,15 @@ namespace designlab
 {
 
 //! @class Dxlib3dRendererGroup
-//! @brief dxlib_renderer の draw 関数を呼ぶためのクラス．
+//! @brief dxlib_renderer の draw 関数を呼ぶためのクラス.
 class Dxlib3dRendererGroup final
 {
 public:
-    //! @brief 3D描画を行うクラスを登録する．
+    //! @brief 3D描画を行うクラスを登録する.
     void Register(const std::shared_ptr<IDxlib3dRenderer>& renderer);
 
-    //! @brief 登録されているクラスの draw 関数を呼ぶ．
-    //! @n また，Zソートを行う．
+    //! @brief 登録されているクラスの draw 関数を呼ぶ.
+    //! @n また,Zソートを行う.
     void Draw() const;
 
 private:

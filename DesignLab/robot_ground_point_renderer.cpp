@@ -32,7 +32,7 @@ void RobotGroundPointRenderer::SetNodeAndSimulationEndNodeIndex(
 {
     while (loaded_node_num_ < node.size())
     {
-        int simulation_num = 0;  // このノードのシミュレーション番号．
+        int simulation_num = 0;  // このノードのシミュレーション番号.
 
         for (size_t i = 0; i < simulation_end_node_index.size(); i++)
         {
@@ -44,14 +44,14 @@ void RobotGroundPointRenderer::SetNodeAndSimulationEndNodeIndex(
         }
 
 
-        // 現在のシミュレーション番号のデータがないならば追加する．
+        // 現在のシミュレーション番号のデータがないならば追加する.
         while (simulation_num >= ground_point_.size())
         {
             ground_point_.push_back({});
         }
 
 
-        // 接地点を計算し，記録する．
+        // 接地点を計算し,記録する.
         std::array<VectorAndIsGround, HexapodConst::kLegNum> ground_point;
 
         for (int i = 0; i < HexapodConst::kLegNum; i++)

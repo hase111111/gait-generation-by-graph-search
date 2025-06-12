@@ -20,54 +20,54 @@ namespace designlab
 {
 
 //! @enum RobotOperationType
-//! @brief Robotをどのように動かすかを表す列挙体．
+//! @brief Robotをどのように動かすかを表す列挙体.
 //! @details
 //! @subsubsection [列挙体について]
-//! 以下で定義されている RobotOperationType が列挙体に当たる．
+//! 以下で定義されている RobotOperationType が列挙体に当たる.
 //! イメージとしては以下に宣言された値しかとることのできない新しい
-//! 変数を定義するような形．
-//! @n こうすることで関数を特定のモードで動作させたいときなどに，
-//! 入力されたくない数字が入力されなくなる．
+//! 変数を定義するような形.
+//! @n こうすることで関数を特定のモードで動作させたいときなどに,
+//! 入力されたくない数字が入力されなくなる.
 //! @n また値に名前を付けることで何を想定してこの値が代入されたのかが
-//! 分かりやすくなるという利点がある．
-//! @n C++ には enum と enum class という2通りの列挙体があるが，
-//! 安全のため enum class の使用をおすすめする．
-//! @n よくわからない場合は， RobotOperationType の記述を真似してみること．
+//! 分かりやすくなるという利点がある.
+//! @n C++ には enum と enum class という2通りの列挙体があるが,
+//! 安全のため enum class の使用をおすすめする.
+//! @n よくわからない場合は, RobotOperationType の記述を真似してみること.
 enum class RobotOperationType : int {
-    kNone,                  //!< 無効値．
+    kNone,                  //!< 無効値.
     kStraightMoveVector,    //!< 直線移動をさせる（移動したい方向をベクトルで示す）
     kStraightMovePosition,  //!< 直線移動をさせる（移動したい座標を示す）
     kSpotTurnLastPosture,   //!< その場で旋回させる（最終的な姿勢 Posture を示す）
-    kSpotTurnRotAxis,       //!< その場で旋回させる（回転軸を示し，その軸周りの右ねじの回転）
-    kTurn,                  //!< 旋回中心と，旋回半径と，旋回方向を与えて旋回させる．
+    kSpotTurnRotAxis,       //!< その場で旋回させる（回転軸を示し,その軸周りの右ねじの回転）
+    kTurn,                  //!< 旋回中心と,旋回半径と,旋回方向を与えて旋回させる.
 };
 
 
 //! @struct RobotOperation
-//! @brief 探索において目標となる座標や角度，評価する値についてまとめた構造体．
+//! @brief 探索において目標となる座標や角度,評価する値についてまとめた構造体.
 //! @details
-//! 先行研究では target という名前だった．
+//! 先行研究では target という名前だった.
 struct RobotOperation final {
-    //!< 目標方向．正規化されたベクトル．
+    //!< 目標方向.正規化されたベクトル.
     Vector3 straight_move_vector{ 1.f, 0.f, 0.f };
 
-    //!< 目標位置（グローバル座標）．
+    //!< 目標位置（グローバル座標）.
     Vector3 straight_move_position{ 10000.f, 0.f, 0.f };
 
     //!< 目標姿勢 ( posture )
     Quaternion spot_turn_last_posture{ Quaternion::MakeByAngleAxis(0, Vector3::GetUpVec()) };
 
-    //!< 旋回時の回転軸．右ねじの回転．
+    //!< 旋回時の回転軸.右ねじの回転.
     Vector3 spot_turn_rot_axis{ Vector3::GetUpVec() };
 
-    Vector2 turn_center{ 0.f, 0.f };  //!< 旋回中心．
+    Vector2 turn_center{ 0.f, 0.f };  //!< 旋回中心.
 
-    float turn_radius{ 1000.f };  //!< 旋回半径．
+    float turn_radius{ 1000.f };  //!< 旋回半径.
 
-    bool turn_clockwise{ true };  //!< 旋回方向．
+    bool turn_clockwise{ true };  //!< 旋回方向.
 
 
-    //!< どうやって目標を評価するか．
+    //!< どうやって目標を評価するか.
     RobotOperationType operation_type{ kStraightMovePosition };
 
 private:

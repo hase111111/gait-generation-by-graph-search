@@ -43,7 +43,7 @@ SystemMainGraphViewer::SystemMainGraphViewer(
     assert(broker_ptr_ != nullptr);
     assert(setting_ptr_ != nullptr);
 
-    CmdIOUtil::OutputTitle("Graph Viewer Mode");  // タイトルを表示する．
+    CmdIOUtil::OutputTitle("Graph Viewer Mode");  // タイトルを表示する.
 
     map_state_ = map_creator_ptr_->InitMap();
 
@@ -55,7 +55,7 @@ void SystemMainGraphViewer::Main()
 {
     using enum OutputDetail;
 
-    // ノードを初期化する．
+    // ノードを初期化する.
     CmdIOUtil::InfoOutput("Initializes a node.");
 
     RobotStateNode first_node = NodeInitializer{ Vector3{0.f, 0.f, 30.f}, EulerXYZ {}, HexapodMove::kComUpDown }.InitNode();
@@ -67,20 +67,20 @@ void SystemMainGraphViewer::Main()
 
         if (graph.size() == 0)
         {
-            // グラフがない場合，
+            // グラフがない場合,
 
             CmdIOUtil::Output("No graphs have been generated yet.", kSystem);
 
             if (CmdIOUtil::InputYesNo("Do you want to create a graph?"))
             {
-                CreateGraph(first_node, &graph);  // グラフを作成する．
+                CreateGraph(first_node, &graph);  // グラフを作成する.
 
-                // グラフ木の値を仲介人にセットする．これでGUIにグラフが表示される．
+                // グラフ木の値を仲介人にセットする.これでGUIにグラフが表示される.
                 broker_ptr_->graph.SetData(graph);
             }
             else
             {
-                // 終了するか質問する．
+                // 終了するか質問する.
                 if (CmdIOUtil::InputYesNo("Do you wish to terminate?"))
                 {
                     break;
@@ -89,13 +89,13 @@ void SystemMainGraphViewer::Main()
         }
         else
         {
-            // グラフがある場合．
+            // グラフがある場合.
 
             CmdIOUtil::Output("Displays the operation menu.", kSystem);
 
-            // 操作メニューを表示する．
+            // 操作メニューを表示する.
 
-            // 操作をおこなう関数をラムダ式宣言し，関数ポインタで受け取る vector．
+            // 操作をおこなう関数をラムダ式宣言し,関数ポインタで受け取る vector.
             std::vector<std::function<void()>> func_list;
 
             func_list.push_back(
@@ -130,7 +130,7 @@ void SystemMainGraphViewer::Main()
 
             CmdIOUtil::OutputNewLine(1, kSystem);
             CmdIOUtil::Output("操作を選択してください", kSystem);
-            CmdIOUtil::Output("　0 : ノード選択し，そのノードを親にしてグラフを生成する", kSystem);
+            CmdIOUtil::Output("　0 : ノード選択し,そのノードを親にしてグラフを生成する", kSystem);
             CmdIOUtil::Output("　1 : ノード選択して表示する", kSystem);
             CmdIOUtil::Output("　2 : グラフを全削除する", kSystem);
             CmdIOUtil::Output("　3 : 終了する", kSystem);
@@ -138,9 +138,9 @@ void SystemMainGraphViewer::Main()
             int selected_index =
                 CmdIOUtil::InputInt(0, static_cast<int>(func_list.size()),
                                     static_cast<int>(func_list.size()),
-                                    "整数で操作を選択してください．範囲外の値の場合終了します．");
+                                    "整数で操作を選択してください.範囲外の値の場合終了します.");
 
-            // 選択された操作を実行する．
+            // 選択された操作を実行する.
             if (selected_index < func_list.size())
             {
                 func_list[selected_index]();
@@ -167,7 +167,7 @@ void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent, std::vector
     CmdIOUtil::Output("グラフ木を作成する", kSystem);
     CmdIOUtil::OutputNewLine(1, kSystem);
 
-    // グラフ探索をする．
+    // グラフ探索をする.
     RobotStateNode parent_node = parent;
     parent_node.ChangeLootNode();
 
@@ -189,7 +189,7 @@ void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent, std::vector
 
     stopwatch_.End();
 
-    // グラフ探索の結果を取得する．
+    // グラフ探索の結果を取得する.
     (*graph).clear();
 
     for (int i = 0; i < graph_tree.GetGraphSize(); i++)
@@ -198,7 +198,7 @@ void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent, std::vector
     }
 
 
-    // グラフ探索の結果を表示する．
+    // グラフ探索の結果を表示する.
     CmdIOUtil::OutputNewLine(1, kSystem);
     CmdIOUtil::Output("グラフ探索終了", kSystem);
     CmdIOUtil::Output(std::format("グラフ探索にかかった時間 : {}", stopwatch_.GetElapsedMilliSecondString()), kSystem);
@@ -220,7 +220,7 @@ void SystemMainGraphViewer::OutputGraphStatus(const std::vector<RobotStateNode>&
 
     if (graph.size() > 0)
     {
-        // 深さごとのノード数を記録する．
+        // 深さごとのノード数を記録する.
 
         std::vector<int> depth_num(GraphSearchConst::kMaxDepth + 1);
 
@@ -234,7 +234,7 @@ void SystemMainGraphViewer::OutputGraphStatus(const std::vector<RobotStateNode>&
             }
         }
 
-        // 深さごとのノード数を表示する．
+        // 深さごとのノード数を表示する.
 
         int depth_cnt = 0;
 
@@ -246,7 +246,7 @@ void SystemMainGraphViewer::OutputGraphStatus(const std::vector<RobotStateNode>&
     }
     else
     {
-        CmdIOUtil::Output("グラフが空なので，深さごとのノード数を表示できません．", detail);
+        CmdIOUtil::Output("グラフが空なので,深さごとのノード数を表示できません.", detail);
     }
 
     CmdIOUtil::OutputNewLine(1, detail);
@@ -264,7 +264,7 @@ RobotStateNode SystemMainGraphViewer::SelectNodeByInput(
 
     if (graph.size() == 0)
     {
-        CmdIOUtil::Output("グラフが空なので，初期状態のノードを返す", kSystem);
+        CmdIOUtil::Output("グラフが空なので,初期状態のノードを返す", kSystem);
 
         NodeInitializer node_initializer{ Vector3{0.f, 0.f, 30.f}, EulerXYZ(), HexapodMove::kNone };
         RobotStateNode first_node = node_initializer.InitNode();
@@ -273,15 +273,15 @@ RobotStateNode SystemMainGraphViewer::SelectNodeByInput(
     }
     else
     {
-        CmdIOUtil::Output("グラフの中から1つのノードを選択してください．", kSystem);
+        CmdIOUtil::Output("グラフの中から1つのノードを選択してください.", kSystem);
 
-        // ノードを選択する．
+        // ノードを選択する.
         int selected_node_index = CmdIOUtil::InputInt(0,
                                                       static_cast<int>(graph.size()) - 1,
                                                       0,
-                                                      "整数でノードを選択してください．");
+                                                      "整数でノードを選択してください.");
 
-        CmdIOUtil::Output(std::format("選択されたノード，{}番を親にします．",
+        CmdIOUtil::Output(std::format("選択されたノード,{}番を親にします.",
                           selected_node_index), kSystem);
 
         return graph[selected_node_index];

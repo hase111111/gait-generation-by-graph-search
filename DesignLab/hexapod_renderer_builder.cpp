@@ -21,7 +21,7 @@ std::tuple<std::shared_ptr<IDxlib3dRenderer>, std::shared_ptr<IDxlibNodeSetter> 
   const DisplayQuality display_quality
 )
 {
-    //! @todo IHexapodの type を見て、適切な renderer を返す．
+    //! @todo IHexapodの type を見て、適切な renderer を返す.
 
     if (display_quality == DisplayQuality::kHigh)
     {

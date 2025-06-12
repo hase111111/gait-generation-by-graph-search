@@ -18,16 +18,16 @@ namespace designlab
 {
 
 //! @class ResultFileImporter
-//! @brief 結果をファイルから読み込むクラス．
+//! @brief 結果をファイルから読み込むクラス.
 class ResultFileImporter final
 {
 public:
-    //! @brief ノードリストとマップの状態をファイルから読み込む．
-    //! @param[in] file_path ノードリストのパス．
-    //! @param[out] node_list ノードリスト．
-    //! @param[out] map_state マップの状態．
-    //! @retval true 成功．
-    //! @retval false 失敗．
+    //! @brief ノードリストとマップの状態をファイルから読み込む.
+    //! @param[in] file_path ノードリストのパス.
+    //! @param[out] node_list ノードリスト.
+    //! @param[out] map_state マップの状態.
+    //! @retval true 成功.
+    //! @retval false 失敗.
     bool ImportNodeListAndMapState(
       const std::string& file_path,
       std::vector<RobotStateNode>* node_list,

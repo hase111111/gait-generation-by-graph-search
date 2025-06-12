@@ -92,7 +92,7 @@ RotationMatrix3x3 ToRotationMatrix(const EulerXYZ& q)
     const auto mat_y = RotationMatrix3x3::CreateRotationMatrixY(q.y_angle);
     const auto mat_z = RotationMatrix3x3::CreateRotationMatrixZ(q.z_angle);
 
-    // X→Y→Zの順に回転する．
+    // X→Y→Zの順に回転する.
     return mat_z * mat_y * mat_x;
 }
 
@@ -109,7 +109,7 @@ EulerXYZ ToEulerXYZ(const RotationMatrix3x3& rot)
 
 EulerXYZ ToEulerXYZ(const Quaternion& q)
 {
-    // クォータニオンを回転行列に変換してから，回転行列をオイラー角に変換する．
+    // クォータニオンを回転行列に変換してから,回転行列をオイラー角に変換する.
     return ToEulerXYZ(ToRotationMatrix(q));
 }
 

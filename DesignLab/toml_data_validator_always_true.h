@@ -19,8 +19,8 @@ namespace designlab
 {
 
 //! @class TomlDataValidatorAlwaysTrue
-//! @brief 常に trueを返す ITomlDataValidator の実装クラス．
-//! @tparam T 検証対象の型．
+//! @brief 常に trueを返す ITomlDataValidator の実装クラス.
+//! @tparam T 検証対象の型.
 template <typename T>
 class TomlDataValidatorAlwaysTrue final : public ITomlDataValidator<T>
 {

@@ -43,7 +43,7 @@ void MapRenderer::Draw() const
     using dxlib_util::DrawCube3DWithTopPos;
     using dxlib_util::ConvertToDxlibVec;
 
-    const size_t map_point_size = map_.GetMapPointSize();  // マップの点の数．
+    const size_t map_point_size = map_.GetMapPointSize();  // マップの点の数.
 
     for (size_t i = 0; i < map_point_size; i++)
     {

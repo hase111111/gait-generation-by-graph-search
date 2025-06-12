@@ -20,14 +20,14 @@ TEST_SUITE("MapState::Constructor")
     using designlab::MapState;
     using designlab::Vector3;
 
-    TEST_CASE("デフォルトコンストラクタの呼び出し時，マップのサイズは0になるべき")
+    TEST_CASE("デフォルトコンストラクタの呼び出し時,マップのサイズは0になるべき")
     {
         MapState map_state;
 
         CHECK_EQ(map_state.GetMapPointSize(), 0);
     }
 
-    TEST_CASE("脚接地点を引数に渡した時，マップの要素は引数のと同じになるべき")
+    TEST_CASE("脚接地点を引数に渡した時,マップの要素は引数のと同じになるべき")
     {
         std::vector<Vector3> map_point = { {1, 2, 3}, {4, 5, 6} };
 
@@ -45,9 +45,9 @@ TEST_SUITE("MapState::Constructor")
         }
     }
 
-    TEST_CASE("コピーコンストラクタの呼び出し時，コピー元と同じになるべき")
+    TEST_CASE("コピーコンストラクタの呼び出し時,コピー元と同じになるべき")
     {
-        SUBCASE("初期化時，コピー元と同じデータサイズになるべき")
+        SUBCASE("初期化時,コピー元と同じデータサイズになるべき")
         {
             std::vector<Vector3> map_point = { {1, 2, 3}, {4, 5, 6} };
 
@@ -57,7 +57,7 @@ TEST_SUITE("MapState::Constructor")
             CHECK(map_state_copy.GetMapPointSize() == map_state.GetMapPointSize());
         }
 
-        SUBCASE("初期化時，コピー元と同じデータが取得できるべき")
+        SUBCASE("初期化時,コピー元と同じデータが取得できるべき")
         {
             std::vector<Vector3> map_point = { {1, 2, 3}, {4, 5, 6} };
 
@@ -75,7 +75,7 @@ TEST_SUITE("MapState::AssignmentOperator")
     using designlab::MapState;
     using designlab::Vector3;
 
-    TEST_CASE("代入した時，代入元と同じサイズになるべき")
+    TEST_CASE("代入した時,代入元と同じサイズになるべき")
     {
         std::vector<Vector3> map_point = { {1, 2, 3}, {4, 5, 6} };
 
@@ -85,7 +85,7 @@ TEST_SUITE("MapState::AssignmentOperator")
         CHECK(map_state_copy.GetMapPointSize() == map_state.GetMapPointSize());
     }
 
-    TEST_CASE("代入した時，代入元と同じデータが取得できるべき")
+    TEST_CASE("代入した時,代入元と同じデータが取得できるべき")
     {
         std::vector<Vector3> map_point = { {1, 2, 3}, {4, 5, 6} };
 
@@ -102,7 +102,7 @@ TEST_SUITE("MapState::SetMapPoint")
     using designlab::MapState;
     using designlab::Vector3;
 
-    TEST_CASE("0番目にデータをセットした時，マップのサイズは変わるべきでない")
+    TEST_CASE("0番目にデータをセットした時,マップのサイズは変わるべきでない")
     {
         std::vector<Vector3> map_point = { {1, 2, 3}, {4, 5, 6} };
         Vector3 map_point_set = { 7, 8, 9 };
@@ -114,7 +114,7 @@ TEST_SUITE("MapState::SetMapPoint")
         CHECK(map_state.GetMapPointSize() == map_point.size());
     }
 
-    TEST_CASE("0番目にデータをセットした時，0番の脚接地点が書き換わるべき")
+    TEST_CASE("0番目にデータをセットした時,0番の脚接地点が書き換わるべき")
     {
         std::vector<Vector3> map_point = { {1, 2, 3}, {4, 5, 6} };
         Vector3 map_point_set = { 7, 8, 9 };
@@ -133,7 +133,7 @@ TEST_SUITE("MapState::SetMapPointVec")
     using designlab::MapState;
     using designlab::Vector3;
 
-    TEST_CASE("3つの脚接地点をセットした時，マップのサイズは3になるべき")
+    TEST_CASE("3つの脚接地点をセットした時,マップのサイズは3になるべき")
     {
         SUBCASE("マップが空の時")
         {
@@ -159,7 +159,7 @@ TEST_SUITE("MapState::SetMapPointVec")
         }
     }
 
-    TEST_CASE("3つの脚接地点をセットした時，0番から順に脚接地点が書き換わるべき")
+    TEST_CASE("3つの脚接地点をセットした時,0番から順に脚接地点が書き換わるべき")
     {
         SUBCASE("マップが空の時")
         {
@@ -195,7 +195,7 @@ TEST_SUITE("MapState::AddMapPoint")
     using designlab::MapState;
     using designlab::Vector3;
 
-    TEST_CASE("2回呼び出した時，マップのサイズは2増えるべき")
+    TEST_CASE("2回呼び出した時,マップのサイズは2増えるべき")
     {
         std::vector<Vector3> map_point = { {1, 2, 3}, {4, 5, 6} };
 
@@ -209,7 +209,7 @@ TEST_SUITE("MapState::AddMapPoint")
         CHECK_EQ(map_state.GetMapPointSize(), 4);
     }
 
-    TEST_CASE("2回呼び出した時，追加した順番で脚接地可能点を取得できるべき")
+    TEST_CASE("2回呼び出した時,追加した順番で脚接地可能点を取得できるべき")
     {
         std::vector<Vector3> map_point = { {1, 2, 3}, {4, 5, 6} };
 
@@ -232,7 +232,7 @@ TEST_SUITE("MapState::ClearMapPoint")
 
     TEST_CASE("ClearMapPoint")
     {
-        SUBCASE("2つの脚接地点を消去した時，マップのサイズは0になるべき")
+        SUBCASE("2つの脚接地点を消去した時,マップのサイズは0になるべき")
         {
             std::vector<Vector3> map_point = { {1, 2, 3}, {4, 5, 6} };
 

@@ -31,7 +31,7 @@ namespace designlab
 {
 
 //! @class GraphicMainRobotControl
-//! @brief ロボットの制御を行うGUIの処理，描画を行うクラス．
+//! @brief ロボットの制御を行うGUIの処理,描画を行うクラス.
 class GraphicMainRobotControl final : public IGraphicMain
 {
 public:
@@ -47,27 +47,27 @@ public:
     void Draw() const override;
 
 private:
-    std::shared_ptr<Mouse> mouse_ptr_;  //!< マウスの位置を制御するクラス．
+    std::shared_ptr<Mouse> mouse_ptr_;  //!< マウスの位置を制御するクラス.
 
-    DxlibGuiUpdater gui_updater_;  //!< GUIの更新を行うクラス．
-    DxlibNodeSetterGroup node_setter_group_;  //!< ノードの設定を行うクラス．
-    Dxlib3dRendererGroup render_group_;  //!< 描画を行うクラス．
+    DxlibGuiUpdater gui_updater_;  //!< GUIの更新を行うクラス.
+    DxlibNodeSetterGroup node_setter_group_;  //!< ノードの設定を行うクラス.
+    Dxlib3dRendererGroup render_group_;  //!< 描画を行うクラス.
 
     const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
     const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;
 
     std::shared_ptr<DxlibGuiDisplayNodeSwitcher> display_node_switch_gui_;
-    MapState map_state_;  //!< マップの状態を保持するクラス．
-    DividedMapState divided_map_state_;  //!< 分割したマップの状態を保持するクラス．
+    MapState map_state_;  //!< マップの状態を保持するクラス.
+    DividedMapState divided_map_state_;  //!< 分割したマップの状態を保持するクラス.
 
-    std::vector<RobotStateNode> graph_;  //!< ロボットの動きの遷移を記録する配列．
+    std::vector<RobotStateNode> graph_;  //!< ロボットの動きの遷移を記録する配列.
 
     const std::shared_ptr<GraphicDataBroker> broker_;
 
-    const std::shared_ptr<MapRenderer> map_renderer_;  //!< マップを描画するクラス．
+    const std::shared_ptr<MapRenderer> map_renderer_;  //!< マップを描画するクラス.
 
-    int graph_update_count_{ 0 };  //!< グラフの更新回数．
-    int map_update_count_{ 0 };  //!< マップの更新回数．
+    int graph_update_count_{ 0 };  //!< グラフの更新回数.
+    int map_update_count_{ 0 };  //!< マップの更新回数.
 };
 
 }  // namespace designlab

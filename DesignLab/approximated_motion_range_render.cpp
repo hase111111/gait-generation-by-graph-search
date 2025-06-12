@@ -26,7 +26,7 @@ ApproximatedMotionRangeRender::ApproximatedMotionRangeRender(
 
 void ApproximatedMotionRangeRender::Draw() const
 {
-    // 描画を行うもののみを描画する．
+    // 描画を行うもののみを描画する.
     for (int i = 0; i < kDivNum; ++i)
     {
         for (int j = 0; j < kDivNum; ++j)
@@ -57,7 +57,7 @@ void ApproximatedMotionRangeRender::SetNode(const RobotStateNode& node)
 
 void ApproximatedMotionRangeRender::InitPosState()
 {
-    // まずは全ての点を範囲外に設定．
+    // まずは全ての点を範囲外に設定.
     for (int i = 0; i < kDivNum; ++i)
     {
         for (int j = 0; j < kDivNum; ++j)
@@ -69,9 +69,9 @@ void ApproximatedMotionRangeRender::InitPosState()
         }
     }
 
-    // center_ を中心として，近似された脚の動作範囲内であるかどうかを判定する．
+    // center_ を中心として,近似された脚の動作範囲内であるかどうかを判定する.
 
-    center_ = Vector3(0.f, -150.f, -100.f);  //! @todo 仮の値．
+    center_ = Vector3(0.f, -150.f, -100.f);  //! @todo 仮の値.
 
     for (int i = 0; i < kDivNum; ++i)
     {
@@ -92,14 +92,14 @@ void ApproximatedMotionRangeRender::InitPosState()
         }
     }
 
-    // 範囲内の点のうち，描画可能な点を設定する．
+    // 範囲内の点のうち,描画可能な点を設定する.
     for (int i = 0; i < kDivNum; ++i)
     {
         for (int j = 0; j < kDivNum; ++j)
         {
             for (int k = 0; k < kDivNum; ++k)
             {
-                // 自身と隣接する 8 + 9 + 9 = 26 点を調べ，範囲内が5点以下なら描画可能とする．
+                // 自身と隣接する 8 + 9 + 9 = 26 点を調べ,範囲内が5点以下なら描画可能とする.
                 if (pos_state_[i][j][k] == PosState::kNotInRange) { continue; }
 
                 int in_range_num = 0;

@@ -23,12 +23,12 @@ namespace designlab
 {
 
 //! @class GaitPatternGeneratorRevaluation
-//! @brief 再評価手法を実装したクラス．
+//! @brief 再評価手法を実装したクラス.
 class GaitPatternGeneratorRevaluation final : public IGaitPatternGenerator
 {
 public:
-    //! @param[in] gait_pattern_generator_ptr 通常時に使用するもの．
-    //! @param[in] gait_pattern_generator_revaluation_ptr 再評価時に使用するもの．
+    //! @param[in] gait_pattern_generator_ptr 通常時に使用するもの.
+    //! @param[in] gait_pattern_generator_revaluation_ptr 再評価時に使用するもの.
     GaitPatternGeneratorRevaluation(
       std::unique_ptr<IGaitPatternGenerator>&& gpg_ptr,
       std::unique_ptr<IGaitPatternGenerator>&& gpg_revaluation_ptr,

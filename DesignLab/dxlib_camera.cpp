@@ -28,11 +28,11 @@ DxlibCamera::DxlibCamera() :
     now_camera_state_{},
     goal_camera_state_{}
 {
-    SetCameraViewMode(enums::CameraViewMode::kTopView);  // カメラの初期位置をセットする．
+    SetCameraViewMode(enums::CameraViewMode::kTopView);  // カメラの初期位置をセットする.
 
-    SetCameraPosAndRot();  // カメラ位置をセットする．
+    SetCameraPosAndRot();  // カメラ位置をセットする.
 
-    InitCameraTargetLength();  // カメラの距離を初期化する．
+    InitCameraTargetLength();  // カメラの距離を初期化する.
 
     now_camera_state_.camera_quat =
         Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(-90.0f), Vector3::GetLeftVec()) *
@@ -42,13 +42,13 @@ DxlibCamera::DxlibCamera() :
 
 void DxlibCamera::Update()
 {
-    // カメラの距離を目標値に近づける．
+    // カメラの距離を目標値に近づける.
     now_camera_state_.length_camera_to_target = math_util::ApproachTarget(
         now_camera_state_.length_camera_to_target,
         goal_camera_state_.length_camera_to_target,
         0.1f);
 
-    // カメラの回転を目標値に近づける．
+    // カメラの回転を目標値に近づける.
     now_camera_state_.camera_quat = SlerpQuaternion(
         now_camera_state_.camera_quat,
         goal_camera_state_.camera_quat,
@@ -57,7 +57,7 @@ void DxlibCamera::Update()
     now_camera_state_.camera_quat = now_camera_state_.camera_quat.GetNormalized();
 
 
-    // カメラの注視点を目標値に近づける．
+    // カメラの注視点を目標値に近づける.
     if (camera_view_mode_ != enums::CameraViewMode::kFreeControlledAndMovableTarget)
     {
         now_camera_state_.target_pos = math_util::ApproachTarget(
@@ -74,7 +74,7 @@ void DxlibCamera::Update()
     }
 
 
-    // カメラ位置をセットする．
+    // カメラ位置をセットする.
     SetCameraPosAndRot();
 
     if (kOutputDebugLog)
@@ -99,7 +99,7 @@ void DxlibCamera::SetCameraViewMode(const enums::CameraViewMode mode)
 {
     camera_view_mode_ = mode;
 
-    // ゴール座標を更新する．
+    // ゴール座標を更新する.
     switch (mode)
     {
         case enums::CameraViewMode::kFrontView:
@@ -155,7 +155,7 @@ void DxlibCamera::SetCameraViewMode(const enums::CameraViewMode mode)
         }
 
         default:
-            assert(false);  // ここに来ることはない．
+            assert(false);  // ここに来ることはない.
             break;
     }
 }
@@ -163,7 +163,7 @@ void DxlibCamera::SetCameraViewMode(const enums::CameraViewMode mode)
 
 void DxlibCamera::InitCameraTargetLength()
 {
-    // 最大と最小の中間値を初期値とする．
+    // 最大と最小の中間値を初期値とする.
     goal_camera_state_.length_camera_to_target = kDefaultCameraZoom;
 }
 
@@ -172,13 +172,13 @@ void DxlibCamera::AddCameraToTargetLength(const float length_dif)
 {
     goal_camera_state_.length_camera_to_target += length_dif;
 
-    // カメラの距離が最大値を超えたら最大値にする．
+    // カメラの距離が最大値を超えたら最大値にする.
     if (GraphicConst::kCameraToTargetMax < goal_camera_state_.length_camera_to_target)
     {
         goal_camera_state_.length_camera_to_target = GraphicConst::kCameraToTargetMax;
     }
 
-    // カメラの距離が最小値を下回ったら最小値にする．
+    // カメラの距離が最小値を下回ったら最小値にする.
     if (goal_camera_state_.length_camera_to_target < GraphicConst::kCameraToTargetMin)
     {
         goal_camera_state_.length_camera_to_target = GraphicConst::kCameraToTargetMin;
@@ -188,8 +188,8 @@ void DxlibCamera::AddCameraToTargetLength(const float length_dif)
 
 void DxlibCamera::SetCameraPosAndRot()
 {
-    // カメラの位置をセットする．クォータニオンを用いて回転させ，
-    // Vector3 から dxlib::VECTOR に変換する．
+    // カメラの位置をセットする.クォータニオンを用いて回転させ,
+    // Vector3 から dxlib::VECTOR に変換する.
 
     Vector3 camera_target_dif =
         RotateVector3(kDefaultCameraFrontVec, now_camera_state_.camera_quat) *
@@ -207,7 +207,7 @@ void DxlibCamera::SetCameraPosAndRot()
         dxlib_util::ConvertToDxlibVec(now_camera_state_.target_pos),
         camera_upvec);
 
-    // ChangeLightTypeDirを使っているので，カメラ向きに合わせてライトの向きも変更する．
+    // ChangeLightTypeDirを使っているので,カメラ向きに合わせてライトの向きも変更する.
     VECTOR light_dir =
         dxlib_util::ConvertToDxlibVec(
             -RotateVector3(kDefaultCameraFrontVec, now_camera_state_.camera_quat));

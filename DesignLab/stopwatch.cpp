@@ -37,13 +37,13 @@ void Stopwatch::End()
 
 double Stopwatch::GetElapsedSeconds() const
 {
-    // 要した時間を計算．
+    // 要した時間を計算.
     const sc::system_clock::duration dur = end_time_ - start_time_;
 
-    // 秒に変換．
+    // 秒に変換.
     const std::int64_t sec = sc::duration_cast<sc::seconds>(dur).count();
 
-    // ミリ秒に変換．
+    // ミリ秒に変換.
     const std::int64_t milli_sec = sc::duration_cast<sc::milliseconds>(dur).count();
 
     return static_cast<double>(sec) + static_cast<double>(milli_sec) / 1000.0;
@@ -52,13 +52,13 @@ double Stopwatch::GetElapsedSeconds() const
 
 double Stopwatch::GetElapsedMilliSecond() const
 {
-    // 要した時間を計算．
+    // 要した時間を計算.
     const sc::system_clock::duration dur = end_time_ - start_time_;
 
-    // ミリ秒に変換．
+    // ミリ秒に変換.
     const std::int64_t milli_sec = sc::duration_cast<sc::milliseconds>(dur).count();
 
-    // マイクロ秒に変換．
+    // マイクロ秒に変換.
     const std::int64_t usec = sc::duration_cast<sc::microseconds>(dur).count();
 
     return static_cast<double>(milli_sec) + static_cast<double>(usec) / 1000.0;
@@ -67,10 +67,10 @@ double Stopwatch::GetElapsedMilliSecond() const
 
 double Stopwatch::GetElapsedMicroSecond() const
 {
-    // 要した時間を計算．
+    // 要した時間を計算.
     const sc::system_clock::duration dur = end_time_ - start_time_;
 
-    // マイクロ秒に変換．
+    // マイクロ秒に変換.
     const std::int64_t usec = sc::duration_cast<sc::microseconds>(dur).count();
 
     return static_cast<double>(usec);
@@ -95,7 +95,7 @@ std::string Stopwatch::GetElapsedMicroSecondString() const
 
 std::string Stopwatch::GetNowTimeString() const
 {
-    // 現在の日時をYYYY/MM/DD HH:MM形式の文字列で取得する．
+    // 現在の日時をYYYY/MM/DD HH:MM形式の文字列で取得する.
     sc::system_clock::time_point now = std::chrono::system_clock::now();
     time_t now_time = std::chrono::system_clock::to_time_t(now);
     std::tm now_tm;

@@ -21,7 +21,7 @@ namespace designlab
 {
 
 //! @class GraphSearcherSpotTurn
-//! @brief グラフ探索を行い，直進する動作を評価するクラス．
+//! @brief グラフ探索を行い,直進する動作を評価するクラス.
 class GraphSearcherSpotTurn final : public IGraphSearcher
 {
     using Tag = GraphSearchEvaluationValue::Tag;

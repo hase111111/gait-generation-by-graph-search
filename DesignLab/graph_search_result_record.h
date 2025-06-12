@@ -19,9 +19,9 @@ namespace designlab::enums
 {
 
 //! @enum Result
-//! @brief 成功か失敗かを表す列挙型．
-//! @details この列挙型は，関数の戻り値として使うことを想定している．
-//! 関数の戻り値として使うときに，bool型よりも意図が明確になると思ったため作成した．
+//! @brief 成功か失敗かを表す列挙型.
+//! @details この列挙型は,関数の戻り値として使うことを想定している.
+//! 関数の戻り値として使うときに,bool型よりも意図が明確になると思ったため作成した.
 enum class Result : int
 {
     kSuccess,
@@ -35,7 +35,7 @@ namespace designlab
 {
 
 //! @struct GraphSearchResult
-//! @brief グラフ探索の結果を表す構造体．
+//! @brief グラフ探索の結果を表す構造体.
 struct GraphSearchResult final
 {
     GraphSearchResult() :
@@ -48,16 +48,16 @@ struct GraphSearchResult final
         message(message)
     {};
 
-    enums::Result result;   //!< 成功か失敗か．
-    std::string message;    //!< 成功時・失敗時のメッセージ．
+    enums::Result result;   //!< 成功か失敗か.
+    std::string message;    //!< 成功時・失敗時のメッセージ.
 
     std::string ToString() const;
 };
 
 
 //! @struct GraphSearchResultRecord
-//! @brief グラフ探索の結果を格納する構造体．
-//! @note 変数をごちゃごちゃさせたくないので作成した．
+//! @brief グラフ探索の結果を格納する構造体.
+//! @note 変数をごちゃごちゃさせたくないので作成した.
 struct GraphSearchResultRecord final
 {
     GraphSearchResultRecord() :
@@ -76,20 +76,20 @@ struct GraphSearchResultRecord final
     }
 
 
-    //! @brief 構造体の内容をCSV形式の文字列にして返す． , (カンマ) で区切られる．
-    //! @return 構造体の内容をCSV形式の文字列にしたもの．
+    //! @brief 構造体の内容をCSV形式の文字列にして返す. , (カンマ) で区切られる.
+    //! @return 構造体の内容をCSV形式の文字列にしたもの.
     std::string ToCsvString() const;
 
-    //! @brief CSV形式のヘッダを返す．
-    //! @return CSV形式のヘッダ．
-    //! @todo 処理を一般化する．
+    //! @brief CSV形式のヘッダを返す.
+    //! @return CSV形式のヘッダ.
+    //! @todo 処理を一般化する.
     static std::string GetCsvHeader();
 
     RobotStateNode result_node;  //!< グラフ探索によって選択されたノード.
 
     double computation_time;  //!< グラフ探索にかかった計算時間 [milli sec]
 
-    GraphSearchResult graph_search_result;  //!< グラフ探索の結果，成功か失敗か．
+    GraphSearchResult graph_search_result;  //!< グラフ探索の結果,成功か失敗か.
 };
 
 }  // namespace designlab

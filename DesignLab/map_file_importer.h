@@ -18,7 +18,7 @@ namespace designlab {
 //! @class MapFileImporter
 //! @brief マップを csv に出力したものを読み込むクラス.
 //! @details マップには脚接地可能点が羅列されているので,
-//! 1行ずつ読み込み，それぞれマップに追加する.
+//! 1行ずつ読み込み,それぞれマップに追加する.
 class MapFileImporter final {
  public:
   //! @brief マップを csv に出力したものを読み込む.

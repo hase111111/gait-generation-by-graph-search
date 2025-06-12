@@ -31,11 +31,11 @@ StabilityMarginRenderer::StabilityMarginRenderer(
 
 void StabilityMarginRenderer::Draw() const
 {
-    Polygon2 polygon_xy;  // 平面に投影した多角形．
+    Polygon2 polygon_xy;  // 平面に投影した多角形.
 
-    std::vector<Vector3> polygon;  // 多角形の頂点．
+    std::vector<Vector3> polygon;  // 多角形の頂点.
 
-    Vector3 polygon_sum{ 0, 0, 0 };  // 多角形の頂点の合計，重心を求めるために使用する
+    Vector3 polygon_sum{ 0, 0, 0 };  // 多角形の頂点の合計,重心を求めるために使用する
 
 
     for (int i = 0; i < HexapodConst::kLegNum; ++i)
@@ -45,7 +45,7 @@ void StabilityMarginRenderer::Draw() const
             polygon.push_back(
               converter_ptr_->ConvertLegToGlobalCoordinate(node_.leg_pos[i], i, node_.center_of_mass_global_coord, node_.posture, true));
 
-            polygon.back() += Vector3{ 0, 0, 5 };  // わかりやすさのため，高さを少し上げる．
+            polygon.back() += Vector3{ 0, 0, 5 };  // わかりやすさのため,高さを少し上げる.
 
             polygon_xy.AddVertex(polygon.back().ProjectedXY());
 
@@ -53,11 +53,11 @@ void StabilityMarginRenderer::Draw() const
         }
     }
 
-    // 重心の座標．
+    // 重心の座標.
     const Vector3 center = polygon_sum / static_cast<float>(polygon.size());
 
 
-    // 多角形を描画する．
+    // 多角形を描画する.
     for (size_t i = 0; i < polygon.size(); ++i)
     {
         const VECTOR poly[3] = {
@@ -81,9 +81,9 @@ void StabilityMarginRenderer::Draw() const
         SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
     }
 
-    // 投射した重心を描画する．
+    // 投射した重心を描画する.
     VECTOR projected_center_pos = dxlib_util::ConvertToDxlibVec(
-      // わかりやすさのため，重心の高さを少し上げる．
+      // わかりやすさのため,重心の高さを少し上げる.
       { node_.center_of_mass_global_coord.x, node_.center_of_mass_global_coord.y, center.z + 10 });
 
     DrawSphere3D(projected_center_pos, 5, 10, 10, GetColor(255, 255, 255), TRUE);

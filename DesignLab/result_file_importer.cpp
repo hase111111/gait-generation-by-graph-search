@@ -26,21 +26,21 @@ bool ResultFileImporter::ImportNodeListAndMapState(
     const std::string& file_path, std::vector<RobotStateNode>* node_list,
     MapState* map_state) const
 {
-    // 引数の確認．
+    // 引数の確認.
     assert(node_list != nullptr);
     assert(node_list->empty());
     assert(map_state != nullptr);
     assert(map_state->GetMapPointSize() == 0);
 
 
-    // ファイルが存在するかどうかを確認．ないならば falseを返す．
+    // ファイルが存在するかどうかを確認.ないならば falseを返す.
     if (!fs::exists(file_path))
     {
         CmdIOUtil::ErrorOutput("The 'NodeList' file did not exist.");
         return false;
     }
 
-    // node_list1.csv ならば map_state1.csvも読み込む．
+    // node_list1.csv ならば map_state1.csvも読み込む.
     std::string map_file_path = file_path;
 
     map_file_path.replace(
@@ -68,10 +68,10 @@ bool ResultFileImporter::ImportNodeList(
     const std::string& file_path,
     std::vector<RobotStateNode>* node_list) const
 {
-    // ファイルを開く．
+    // ファイルを開く.
     std::ifstream ifs(file_path);
 
-    // ファイルが開けないならば falseを返す．
+    // ファイルが開けないならば falseを返す.
     if (!ifs.is_open())
     {
         CmdIOUtil::SystemOutput("Could not open the file.");
@@ -80,7 +80,7 @@ bool ResultFileImporter::ImportNodeList(
     }
 
 
-    // ファイルを読み込む．
+    // ファイルを読み込む.
     std::string str;
     std::vector<std::string> str_list;
 
@@ -89,11 +89,11 @@ bool ResultFileImporter::ImportNodeList(
         str_list.push_back(str);
     }
 
-    // ファイルを閉じる．
+    // ファイルを閉じる.
     ifs.close();
 
-    // ファイルの内容を解析する．
-    // ノードリストの読み込み．
+    // ファイルの内容を解析する.
+    // ノードリストの読み込み.
     for (const auto& i : str_list)
     {
         RobotStateNode node;
@@ -112,10 +112,10 @@ bool ResultFileImporter::ImportMapState(
 {
     assert(map_state != nullptr);
 
-    // ファイルを開く．
+    // ファイルを開く.
     std::ifstream ifs(file_path);
 
-    // ファイルが開けないならば falseを返す．
+    // ファイルが開けないならば falseを返す.
     if (!ifs.is_open())
     {
         CmdIOUtil::SystemOutput("Could not open the file.");
@@ -124,7 +124,7 @@ bool ResultFileImporter::ImportMapState(
     }
 
 
-    // ファイルを読み込む．
+    // ファイルを読み込む.
     std::string str;
     std::vector<std::string> str_list;
 
@@ -133,10 +133,10 @@ bool ResultFileImporter::ImportMapState(
         str_list.push_back(str);
     }
 
-    // ファイルを閉じる．
+    // ファイルを閉じる.
     ifs.close();
 
-    // ファイルの内容を解析する．
+    // ファイルの内容を解析する.
     (*map_state).ClearMapPoint();
 
     for (const auto& i : str_list)
@@ -154,7 +154,7 @@ bool ResultFileImporter::ImportMapState(
         {
             CmdIOUtil::FormatOutput(
                 OutputDetail::kWarning,
-                "読み込むことのできない行があったため無視します．「{}」",
+                "読み込むことのできない行があったため無視します.「{}」",
                 ss.str());
         }
     }

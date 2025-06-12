@@ -37,9 +37,9 @@ RotationMatrix3x3 RotationMatrix3x3::operator*(const RotationMatrix3x3& other) c
 
 RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixX(const float angle)
 {
-    // cosは重いので，使うときはキャッシュしておく．
+    // cosは重いので,使うときはキャッシュしておく.
     const float cos_angle = std::cos(angle);
-    const float sin_angle = std::sin(angle);  // 同上．
+    const float sin_angle = std::sin(angle);  // 同上.
 
     return RotationMatrix3x3(
       1.0f, 0.0f, 0.0f,
@@ -49,9 +49,9 @@ RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixX(const float angle)
 
 RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixY(const float angle)
 {
-    // cosは重いので，使うときはキャッシュしておく．
+    // cosは重いので,使うときはキャッシュしておく.
     const float cos_angle = std::cos(angle);
-    const float sin_angle = std::sin(angle);  // 同上．
+    const float sin_angle = std::sin(angle);  // 同上.
 
     return RotationMatrix3x3(
       cos_angle, 0.0f, sin_angle,
@@ -61,9 +61,9 @@ RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixY(const float angle)
 
 RotationMatrix3x3 RotationMatrix3x3::CreateRotationMatrixZ(const float angle)
 {
-    // cosは重いので，使うときはキャッシュしておく．
+    // cosは重いので,使うときはキャッシュしておく.
     const float cos_angle = std::cos(angle);
-    const float sin_angle = std::sin(angle);  // 同上．
+    const float sin_angle = std::sin(angle);  // 同上.
 
     return RotationMatrix3x3(
       cos_angle, -sin_angle, 0.0f,

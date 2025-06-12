@@ -35,7 +35,7 @@
 #include "xr_r1.h"
 
 // このプロジェクトがコンパイルされない場合はソリューションエクスプローラーから
-// DesignLabを右クリック →「スタートアッププロジェクトに設定」を選択．
+// DesignLabを右クリック →「スタートアッププロジェクトに設定」を選択.
 
 namespace {
 
@@ -89,58 +89,58 @@ auto LoadXrR1() {
 }  // namespace
 
 int main() {
-  // int main内では designlab:: を省略できる．
-  // 推奨されない書き方だが，可読性のため，ここでのみ使用する．
+  // int main内では designlab:: を省略できる.
+  // 推奨されない書き方だが,可読性のため,ここでのみ使用する.
   using namespace designlab;
   using enum OutputDetail;
 
-  // 設定を読み込む．
+  // 設定を読み込む.
   auto app_setting_record = LoadApplicationSettingRecord();
 
-  // 出力設定を初期化する．
+  // 出力設定を初期化する.
   InitOutputSetting(app_setting_record);
 
-  // タイトルを表示する．
+  // タイトルを表示する.
   CmdIOUtil::OutputTitle(
       "Free Gait Planning for a Hexapod Walking Robot by Graph Search", true);
 
-  // GUIを別のスレッドで実行する．
-  // このスレッドへはGraphicDataBrokerを通してデータを渡す．
+  // GUIを別のスレッドで実行する.
+  // このスレッドへはGraphicDataBrokerを通してデータを渡す.
   GraphicSystem graphic_system(app_setting_record);
 
-  // グラフィックシステムを別スレッドで実行する．
+  // グラフィックシステムを別スレッドで実行する.
   boost::thread graphic_thread(&GraphicSystem::Main, &graphic_system);
 
   CmdIOUtil::SystemOutput("Now Waiting for Dxlib to start.");
 
   while (!graphic_system.IsInitialized()) {
-    // Dxlibの初期化が終わるまで待機する．
+    // Dxlibの初期化が終わるまで待機する.
   }
 
   CmdIOUtil::SystemOutput("Dxlib has started.");
   CmdIOUtil::OutputNewLine(1, kSystem);
 
-  // 処理を実行する．
+  // 処理を実行する.
   while (true) {
-    // 起動モードを選択する．
+    // 起動モードを選択する.
     BootMode boot_mode = app_setting_record->default_mode;
 
     if (app_setting_record->ask_about_modes) {
       BootModeSelector boot_mode_selector;
 
-      // デフォルトの起動モードを設定する．
+      // デフォルトの起動モードを設定する.
       boot_mode_selector.SetDefaultBootMode(app_setting_record->default_mode);
 
-      // 起動モードを選択する．
+      // 起動モードを選択する.
       boot_mode = boot_mode_selector.SelectBootMode();
     }
 
-    // 選択が終わったら，選択されたモードに応じてシステムを作成する．
+    // 選択が終わったら,選択されたモードに応じてシステムを作成する.
     std::unique_ptr<ISystemMain> system_main;
 
     switch (boot_mode) {
       case BootMode::kSimulation: {
-        // シミュレーションシステムクラスを作成する．
+        // シミュレーションシステムクラスを作成する.
         auto phantomx_mk2 = LoadXrR1();
 
         const auto gpg_builder = std::make_unique<GpgBuilderFlat>(
@@ -179,7 +179,7 @@ int main() {
         break;
       }
       case BootMode::kViewer: {
-        // グラフビューアシステムクラスを作成する．
+        // グラフビューアシステムクラスを作成する.
 
         TomlFileImporter<SimulationSettingRecord> simulation_setting_importer;
         const SimulationSettingRecord simulation_setting_record =
@@ -221,7 +221,7 @@ int main() {
         break;
       }
       case BootMode::kResultViewer: {
-        // 結果表示システムクラスを作成する．
+        // 結果表示システムクラスを作成する.
         auto phantomx_mk2 = LoadXrR1();
         auto graphic_data_broker = std::make_shared<GraphicDataBroker>();
 
@@ -253,17 +253,17 @@ int main() {
         break;
       }
       default: {
-        assert(false);  // 無効なモードが指定された．
+        assert(false);  // 無効なモードが指定された.
         break;
       }
     }
 
-    // システムを実行する．
+    // システムを実行する.
     if (system_main) {
       system_main->Main();
     }
 
-    // もう一度実行するかどうかを選択する．
+    // もう一度実行するかどうかを選択する.
     CmdIOUtil::OutputHorizontalLine("=", kSystem);
     CmdIOUtil::OutputNewLine(1, kSystem);
 

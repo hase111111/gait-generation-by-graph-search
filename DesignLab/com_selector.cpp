@@ -24,13 +24,13 @@ bool ComSelector::GetComFromPolygon(
 {
     std::pair<bool, Vector2> com_candidate[kDiscretizationNum * kDiscretizationNum];
 
-    // 候補点を生成する．
+    // 候補点を生成する.
     if (!MakeComCandidatePoint(polygon, com_candidate))
     {
         return false;
     }
 
-    // 頂点から次の頂点へ向かう辺を正規化したベクトルを作成する．
+    // 頂点から次の頂点へ向かう辺を正規化したベクトルを作成する.
     std::vector<Vector2> edge_vec;
     edge_vec.resize(polygon.GetVertexNum());
 
@@ -40,18 +40,18 @@ bool ComSelector::GetComFromPolygon(
         edge_vec[i] = edge.GetNormalized();
     }
 
-    // 候補点を順番にチェックし，移動後の重心が安定余裕を満たすならば，
-    // その点を重心として採用する．
+    // 候補点を順番にチェックし,移動後の重心が安定余裕を満たすならば,
+    // その点を重心として採用する.
     for (int i = 0; i < kDiscretizationNum * kDiscretizationNum; ++i)
     {
         if (!IsInMargin(polygon, edge_vec, com_candidate[i].second))
         {
-            // 候補点が多角形の外側ならば次の候補点へ．
+            // 候補点が多角形の外側ならば次の候補点へ.
             com_candidate[i].first = false;
             continue;
         }
 
-        // 現在の重心を移動させたものを作成する．
+        // 現在の重心を移動させたものを作成する.
         Vector3 after_move_com_pos = { com_candidate[i].second.x,
             com_candidate[i].second.y,
             current_node.center_of_mass_global_coord.z };
@@ -66,7 +66,7 @@ bool ComSelector::GetComFromPolygon(
 
                 if (!checker_ptr_->IsLegInRange(j, after_move_leg_pos))
                 {
-                    // 脚が可動範囲外ならば次の候補点へ．
+                    // 脚が可動範囲外ならば次の候補点へ.
                     com_candidate[i].first = false;
                     continue;
                 }
@@ -74,7 +74,7 @@ bool ComSelector::GetComFromPolygon(
         }
     }
 
-    // 候補点の中から現在の重心から最も遠くに移動できるものを選択する．
+    // 候補点の中から現在の重心から最も遠くに移動できるものを選択する.
 
     const Vector2 k_rotate_center = { -10000, 0 };
     const float k_rotate_r = 10000;
@@ -99,7 +99,7 @@ bool ComSelector::GetComFromPolygon(
 
     if (min_index == -1)
     {
-        // 該当するものがなければ false を返す．
+        // 該当するものがなければ false を返す.
         return false;
     }
 
@@ -114,7 +114,7 @@ bool ComSelector::MakeComCandidatePoint(
     const Polygon2& polygon,
     std::pair<bool, Vector2> coms[kDiscretizationNum * kDiscretizationNum]) const
 {
-    // 波東さんの処理では多角形を囲むような四角形を作るので，まずはそれを作る．
+    // 波東さんの処理では多角形を囲むような四角形を作るので,まずはそれを作る.
     const float kMinX = polygon.GetMinX();
     const float kMaxX = polygon.GetMaxX();
     const float kMinY = polygon.GetMinY();
@@ -131,7 +131,7 @@ bool ComSelector::MakeComCandidatePoint(
     const float kDeltaWidth = kWidth / static_cast<float>(kDiscretizationNum);
     const float kDeltaHeight = kHeight / static_cast<float>(kDiscretizationNum);
 
-    // 上記の四角形の中にある点を全て候補に追加する．
+    // 上記の四角形の中にある点を全て候補に追加する.
     for (int x = 0; x < kDiscretizationNum; ++x)
     {
         for (int y = 0; y < kDiscretizationNum; ++y)
@@ -156,7 +156,7 @@ bool ComSelector::IsInMargin(const Polygon2& polygon,
 
         if (v_map.Cross(edge_vec[i]) > -kStabilityMargin)
         {
-            // 安定余裕を満たさないならば候補から削除する．
+            // 安定余裕を満たさないならば候補から削除する.
             return false;
         }
     }

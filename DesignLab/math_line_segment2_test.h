@@ -21,7 +21,7 @@ TEST_SUITE("LineSegment2")
 
     TEST_CASE("ConstructorTest_ShouldZeroForStartAndEnd")
     {
-        // デフォルトコンストラクタで初期化した場合，start と end が 0 で初期化される．
+        // デフォルトコンストラクタで初期化した場合,start と end が 0 で初期化される.
         const LineSegment2 line;
 
         CHECK_EQ(line.start, Vector2(0.0f, 0.0f));

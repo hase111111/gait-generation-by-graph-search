@@ -16,13 +16,13 @@
 #include "keyboard.h"
 #include "robot_state_node.h"
 
-//! @todo 仮置きのはずが，本実装になっているので，後で直す
+//! @todo 仮置きのはずが,本実装になっているので,後で直す
 
 namespace designlab
 {
 
 //! @class GraphViewerGUIController
-//! @brief グラフのノードのデータを表示するGUIのコントローラークラス．
+//! @brief グラフのノードのデータを表示するGUIのコントローラークラス.
 class GraphViewerGUIController final
 {
 public:
@@ -56,14 +56,14 @@ private:
 
     size_t* const display_node_index_ptr_;
 
-    //! 子ノードのリスト．
+    //! 子ノードのリスト.
     std::pair<int, std::vector<int>> children_list_ = { -1, {} };
 
-    //! 表示する子ノードのリストのインデックス．
+    //! 表示する子ノードのリストのインデックス.
     int display_children_list_index_ = 0;
 
-    std::vector<int> graph_node_depth_data_;  //!< 各深さごとのノード数のデータ．
-    int input_number_ = -1;  //!< 入力された数値．
+    std::vector<int> graph_node_depth_data_;  //!< 各深さごとのノード数のデータ.
+    int input_number_ = -1;  //!< 入力された数値.
 };
 
 }  // namespace designlab

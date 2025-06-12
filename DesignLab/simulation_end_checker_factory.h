@@ -18,13 +18,13 @@ namespace designlab
 {
 
 //! @class SimulationEndCheckerFactory
-//! @brief シミュレーションの終了を判定するクラスを生成するクラス．
+//! @brief シミュレーションの終了を判定するクラスを生成するクラス.
 class SimulationEndCheckerFactory final
 {
 public:
-    //! @brief シミュレーションの終了を判定するクラスを生成する．
-    //! @param[in] record シミュレーションの終了を判定する際の設定．
-    //! @return シミュレーションの終了を判定するクラスのインスタンス．
+    //! @brief シミュレーションの終了を判定するクラスを生成する.
+    //! @param[in] record シミュレーションの終了を判定する際の設定.
+    //! @return シミュレーションの終了を判定するクラスのインスタンス.
     static std::unique_ptr<ISimulationEndChecker> Create(const SimulationSettingRecord& record);
 };
 

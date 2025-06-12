@@ -18,7 +18,7 @@ namespace designlab
 {
 
 //! @class RobotOperatorForGpg
-//! @brief global path generator を行うための仮置きクラス．
+//! @brief global path generator を行うための仮置きクラス.
 class RobotOperatorForGpg final : public IRobotOperator
 {
 public:
@@ -29,10 +29,10 @@ public:
     RobotOperation Update(const RobotStateNode& node) override;
 
 private:
-    //!< 目標角度と現在の角度の許容誤差．
+    //!< 目標角度と現在の角度の許容誤差.
     static constexpr float kAllowableAngleError{ math_util::ConvertDegToRad(2.0f) };
 
-    std::vector<Vector3> global_route_;  //!< グローバルパス．
+    std::vector<Vector3> global_route_;  //!< グローバルパス.
 };
 
 }  // namespace designlab

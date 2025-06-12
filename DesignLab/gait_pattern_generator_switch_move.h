@@ -20,12 +20,12 @@ namespace designlab
 {
 
 //! @class GaitPatternGeneratorSwitchMove
-//! @brief 複数の種類の歩容パターンの生成方法を切り替えるためのクラス．
+//! @brief 複数の種類の歩容パターンの生成方法を切り替えるためのクラス.
 class GaitPatternGeneratorSwitchMove final : public IGaitPatternGenerator
 {
 public:
-    //! @param[in] gait_pattern_generator_for_straight 直進時に使用するもの．
-    //! @param[in] gait_pattern_generator_for_turn_spot その場旋回時に使用するもの．
+    //! @param[in] gait_pattern_generator_for_straight 直進時に使用するもの.
+    //! @param[in] gait_pattern_generator_for_turn_spot その場旋回時に使用するもの.
     GaitPatternGeneratorSwitchMove(
       std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_for_straight,
       std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_for_turn_spot);

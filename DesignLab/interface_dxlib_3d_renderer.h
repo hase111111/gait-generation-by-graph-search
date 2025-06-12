@@ -13,15 +13,15 @@ namespace designlab
 {
 
 //! @class IDxlib3dRenderer
-//! @brief DxLibの描画処理を行うクラスのインターフェース．
+//! @brief DxLibの描画処理を行うクラスのインターフェース.
 class IDxlib3dRenderer
 {
 public:
     virtual ~IDxlib3dRenderer() = default;
 
-    //! @brief 描画処理を行う．
-    //! const 関数にしているのは，
-    //! 描画処理の中でメンバ変数を変更しないようにするため．
+    //! @brief 描画処理を行う.
+    //! const 関数にしているのは,
+    //! 描画処理の中でメンバ変数を変更しないようにするため.
     virtual void Draw() const = 0;
 };
 
