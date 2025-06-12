@@ -59,11 +59,10 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
     return create_result;
   }
 
-  CmdIOUtil::DebugOutput(
-      "Graph tree generation has been completed to depth 1.");
-  CmdIOUtil::FormatOutput(OutputDetail::kDebug,
-                          "The number of nodes in the graph tree is {}.",
-                          graph_tree_.GetGraphSize());
+  cmdio::DebugOutput("Graph tree generation has been completed to depth 1.");
+  cmdio::OutputF(OutputDetail::kDebug,
+                 "The number of nodes in the graph tree is {}.",
+                 graph_tree_.GetGraphSize());
 
   // 深さ0のノードを配列にコピーする.
   for (int i = 0; i < kThreadNum; i++) {
@@ -84,12 +83,11 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
 
   for (size_t i = 0; i < kThreadNum; i++) {
     if (graph_tree_array_[i].GetGraphSize() > 1) {
-      CmdIOUtil::FormatOutput(OutputDetail::kDebug,
-                              "Starts graph tree generation in thread {}.", i);
-      CmdIOUtil::FormatOutput(
-          OutputDetail::kDebug,
-          "The number of nodes explored in thread {} is {}.", i,
-          graph_tree_array_[i].GetGraphSize());
+      cmdio::OutputF(OutputDetail::kDebug,
+                     "Starts graph tree generation in thread {}.", i);
+      cmdio::OutputF(OutputDetail::kDebug,
+                     "The number of nodes explored in thread {} is {}.", i,
+                     graph_tree_array_[i].GetGraphSize());
 
       thread_group.create_thread(boost::bind(
           &GraphTreeCreator::CreateGraphTree, graph_tree_creator_ptr_.get(), 1,
@@ -99,29 +97,29 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
 
   thread_group.join_all();  // 全てのスレッドが終了するまで待機する.
 
-  CmdIOUtil::DebugOutput("Graph tree generation is complete.\n");
+  cmdio::DebugOutput("Graph tree generation is complete.\n");
 
   for (size_t i = 0; i < kThreadNum; i++) {
-    CmdIOUtil::FormatOutput(OutputDetail::kDebug,
-                            "The number of nodes created in thread {} is {}.",
-                            i, graph_tree_array_[i].GetGraphSize());
+    cmdio::OutputF(OutputDetail::kDebug,
+                   "The number of nodes created in thread {} is {}.", i,
+                   graph_tree_array_[i].GetGraphSize());
   }
 
   // グラフ探索を行う.
-  CmdIOUtil::DebugOutput("Evaluates graph trees.");
+  cmdio::DebugOutput("Evaluates graph trees.");
 
   const auto [search_result, _, next_node] =
       graph_searcher_ptr_->SearchGraphTreeVector(graph_tree_array_, operation,
                                                  divided_map, max_depth_);
 
   if (search_result.result != enums::Result::kSuccess) {
-    CmdIOUtil::DebugOutput("Failed to evaluate the graph tree.");
+    cmdio::DebugOutput("Failed to evaluate the graph tree.");
     return search_result;
   }
 
   (*output_node) = next_node;
 
-  CmdIOUtil::DebugOutput(
+  cmdio::DebugOutput(
       "Graph tree evaluation is completed. Graph search succeeded.");
 
   return {enums::Result::kSuccess, std::string("")};

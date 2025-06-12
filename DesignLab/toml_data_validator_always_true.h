@@ -27,7 +27,7 @@ class TomlDataValidatorAlwaysTrue final : public ITomlDataValidator<T>
 public:
     std::tuple<bool, std::string> Validate([[maybe_unused]] const T& toml_data) const override
     {
-        CmdIOUtil::InfoOutput("(No validation is performed in the current configuration.)");
+        cmdio::InfoOutput("(No validation is performed in the current configuration.)");
         return { true, "" };
     }
 };

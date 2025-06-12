@@ -42,7 +42,7 @@ expected<MapState, std::string> MapFileImporter::ImportMap(
 
       map_point.push_back(point);
     } catch (...) {
-      CmdIOUtil::Output("読み込むことができないデータがあったため無視します.",
+      cmdio::Output("読み込むことができないデータがあったため無視します.",
                         OutputDetail::kWarning);
     }
   }

@@ -38,7 +38,7 @@ void SystemMainResultViewer::Main()
 {
     using enum OutputDetail;
 
-    CmdIOUtil::OutputTitle("Result Viewer System");
+    cmdio::OutputTitle("Result Viewer System");
 
     while (true)
     {
@@ -49,7 +49,7 @@ void SystemMainResultViewer::Main()
 
         if (!file_tree.SelectFile(ResultFileConst::kDirectoryPath, -1, "csv", ResultFileConst::kNodeListName, &res_path))
         {
-            CmdIOUtil::Output("No data were found. Terminate.", kError);
+            cmdio::Output("No data were found. Terminate.", kError);
 
             break;
         }
@@ -70,40 +70,40 @@ void SystemMainResultViewer::Main()
             broker_ptr_->simulation_end_index.SetData({ graph.size() - 1 });
 
             // データを表示する.
-            CmdIOUtil::Output("Displays data.", kSystem);
-            CmdIOUtil::OutputNewLine(1, kSystem);
-            CmdIOUtil::WaitAnyKey();
-            CmdIOUtil::OutputNewLine(1, kSystem);
-            CmdIOUtil::OutputHorizontalLine("=", kSystem);
+            cmdio::Output("Displays data.", kSystem);
+            cmdio::OutputNewLine(1, kSystem);
+            cmdio::WaitAnyKey();
+            cmdio::OutputNewLine(1, kSystem);
+            cmdio::OutputHorizontalLine("=", kSystem);
         }
         else
         {
-            CmdIOUtil::Output("Failed to read the file. Exit.", kError);
+            cmdio::Output("Failed to read the file. Exit.", kError);
         }
 
         // 終了するかどうかを選択
 
-        if (CmdIOUtil::InputYesNo("Do you want to exit this mode?"))
+        if (cmdio::InputYesNo("Do you want to exit this mode?"))
         {
-            CmdIOUtil::OutputNewLine(1, kSystem);
+            cmdio::OutputNewLine(1, kSystem);
 
             break;
         }
 
-        CmdIOUtil::OutputNewLine(1, kSystem);
+        cmdio::OutputNewLine(1, kSystem);
     }
 }
 
 void SystemMainResultViewer::OutputErrorLegPos(const std::string& file, const std::vector<RobotStateNode>& nodes)
 {
-    CmdIOUtil::Output("Outputs data of abnormal values.", OutputDetail::kSystem);
+    cmdio::Output("Outputs data of abnormal values.", OutputDetail::kSystem);
 
     // 後ろの .csv を削除する
     std::string file_name = file.substr(0, file.size() - 4);
 
     const std::string output_path = file_name + "_error_leg_pos.txt";
 
-    CmdIOUtil::Output("Output Directory: " + output_path, OutputDetail::kSystem);
+    cmdio::Output("Output Directory: " + output_path, OutputDetail::kSystem);
 
     // すでにファイルが存在する場合は削除する.
     if (std::filesystem::exists(output_path))

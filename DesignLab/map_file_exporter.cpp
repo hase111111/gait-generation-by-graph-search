@@ -20,7 +20,7 @@ bool MapFileExporter::ExportMap(const std::string& file_path,
 
   // ファイルが開けないならば false を返す.
   if (!ofs.is_open()) {
-    CmdIOUtil::ErrorOutput("ファイルを開けませんでした.");
+    cmdio::ErrorOutput("ファイルを開けませんでした.");
 
     return false;
   }

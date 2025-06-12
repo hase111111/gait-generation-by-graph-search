@@ -173,7 +173,7 @@ RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node)
         }
     }
 
-    CmdIOUtil::Output(std::format("most_near_index : {}", most_near_index), kDebug);
+    cmdio::Output(std::format("most_near_index : {}", most_near_index), kDebug);
 
     // 次の地点への角度を計算する.
     const float euler_z_angle = NormalizeAngle(ToEulerXYZ(node.posture).z_angle);
@@ -181,7 +181,7 @@ RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node)
     const float target_angle = NormalizeAngle(atan2(diff_vector.y, diff_vector.x));
     const float rot_dif = target_angle - euler_z_angle;
 
-    CmdIOUtil::Output(std::format("target_angle : {} / now_angle : {}",
+    cmdio::Output(std::format("target_angle : {} / now_angle : {}",
                       math_util::ConvertRadToDeg(target_angle),
                       math_util::ConvertRadToDeg(euler_z_angle)),
                       kDebug);
@@ -192,7 +192,7 @@ RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node)
         operation.operation_type = kSpotTurnLastPosture;
         operation.spot_turn_last_posture = Quaternion::MakeByAngleAxis(target_angle, Vector3::GetUpVec());
 
-        CmdIOUtil::Output(std::format("target_angle : {} / now_angle : {}",
+        cmdio::Output(std::format("target_angle : {} / now_angle : {}",
                           math_util::ConvertRadToDeg(target_angle),
                           math_util::ConvertRadToDeg(euler_z_angle)),
                           kDebug);
@@ -214,7 +214,7 @@ RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node)
             static_cast<float>(i + 1);
     }
 
-    CmdIOUtil::Output(std::format("target_vector : {}", target_vector.ToString()), kDebug);
+    cmdio::Output(std::format("target_vector : {}", target_vector.ToString()), kDebug);
 
     RobotOperation operation;
     operation.operation_type = kStraightMoveVector;

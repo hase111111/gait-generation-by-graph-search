@@ -30,7 +30,7 @@ void SystemMainRobotControl::Main()
 {
     using enum OutputDetail;
 
-    CmdIOUtil::OutputTitle("Result Viewer System");
+    cmdio::OutputTitle("Result Viewer System");
 
     while (true)
     {
@@ -41,11 +41,11 @@ void SystemMainRobotControl::Main()
 
         if (!file_tree.SelectFile(kResultFileDirectoryPath, -1, "csv", ResultFileConst::kNodeListName, &res_path))
         {
-            CmdIOUtil::Output("No data were found. Terminate.", kSystem);
-            CmdIOUtil::OutputNewLine(1, kSystem);
+            cmdio::Output("No data were found. Terminate.", kSystem);
+            cmdio::OutputNewLine(1, kSystem);
 
             //! ヒントを表示する.「kResultFileDirectoryPath の中にファイルを入れてください.」
-            CmdIOUtil::Output(
+            cmdio::Output(
                 "Please put the file in the directory. \"./" + kResultFileDirectoryPath + "\"", kSystem);
 
             break;
@@ -68,27 +68,27 @@ void SystemMainRobotControl::Main()
             broker_ptr_->simulation_end_index.SetData({ graph.size() - 1 });
 
             // データを表示する.
-            CmdIOUtil::Output("Displays data.", kSystem);
-            CmdIOUtil::OutputNewLine(1, kSystem);
-            CmdIOUtil::WaitAnyKey();
-            CmdIOUtil::OutputNewLine(1, kSystem);
-            CmdIOUtil::OutputHorizontalLine("=", kSystem);
+            cmdio::Output("Displays data.", kSystem);
+            cmdio::OutputNewLine(1, kSystem);
+            cmdio::WaitAnyKey();
+            cmdio::OutputNewLine(1, kSystem);
+            cmdio::OutputHorizontalLine("=", kSystem);
         }
         else
         {
-            CmdIOUtil::Output("Failed to load file. Exit.", kSystem);
+            cmdio::Output("Failed to load file. Exit.", kSystem);
         }
 
         // 終了するかどうかを選択
 
-        if (CmdIOUtil::InputYesNo("Do you want to exit this mode?"))
+        if (cmdio::InputYesNo("Do you want to exit this mode?"))
         {
-            CmdIOUtil::OutputNewLine(1, kSystem);
+            cmdio::OutputNewLine(1, kSystem);
 
             break;
         }
 
-        CmdIOUtil::OutputNewLine(1, kSystem);
+        cmdio::OutputNewLine(1, kSystem);
     }
 };
 

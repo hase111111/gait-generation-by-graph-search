@@ -50,8 +50,8 @@ class TomlFileImporter final {
   //! @return 読み込んだ構造体.失敗した場合は std::nulloptを返す.
   std::optional<T> Import(const std::string& file_path) const {
     if (do_output_message_) {
-      CmdIOUtil::OutputNewLine(1, OutputDetail::kSystem);
-      CmdIOUtil::SystemOutput("Loads a file. file_path : " + file_path);
+      cmdio::OutputNewLine(1, OutputDetail::kSystem);
+      cmdio::SystemOutput("Loads a file. file_path : " + file_path);
     }
 
     if (!FileIsExist(file_path)) {
@@ -75,8 +75,8 @@ class TomlFileImporter final {
     }
 
     if (do_output_message_) {
-      CmdIOUtil::SystemOutput("Loading completed successfully.");
-      CmdIOUtil::OutputNewLine(1, OutputDetail::kSystem);
+      cmdio::SystemOutput("Loading completed successfully.");
+      cmdio::OutputNewLine(1, OutputDetail::kSystem);
     }
 
     return data;
@@ -95,13 +95,13 @@ class TomlFileImporter final {
       return data.value();
     }
 
-    if (CmdIOUtil::InputYesNo("Do you want to output a default file?")) {
+    if (cmdio::InputYesNo("Do you want to output a default file?")) {
       TomlFileExporter<T> exporter;
       exporter.Export(file_path, T());
     }
 
-    CmdIOUtil::SystemOutput("Use default data.");
-    CmdIOUtil::OutputNewLine(1, OutputDetail::kSystem);
+    cmdio::SystemOutput("Use default data.");
+    cmdio::OutputNewLine(1, OutputDetail::kSystem);
 
     return T();
   }
@@ -109,20 +109,20 @@ class TomlFileImporter final {
  private:
   bool FileIsExist(const std::string& file_path) const {
     if (do_output_message_) {
-      CmdIOUtil::InfoOutput("Check if the file exists. ");
+      cmdio::InfoOutput("Check if the file exists. ");
     }
 
     if (!std::filesystem::exists(file_path)) {
       if (do_output_message_) {
-        CmdIOUtil::ErrorOutput("The file does not exist.");
-        CmdIOUtil::OutputNewLine(1, OutputDetail::kError);
+        cmdio::ErrorOutput("The file does not exist.");
+        cmdio::OutputNewLine(1, OutputDetail::kError);
       }
 
       return false;
     }
 
     if (do_output_message_) {
-      CmdIOUtil::InfoOutput("The file found.");
+      cmdio::InfoOutput("The file found.");
     }
 
     return true;
@@ -131,7 +131,7 @@ class TomlFileImporter final {
   bool ParseTomlFile(const std::string& file_path,
                      toml::value* toml_value) const {
     if (do_output_message_) {
-      CmdIOUtil::InfoOutput("Start parsing.");
+      cmdio::InfoOutput("Start parsing.");
     }
 
     try {
@@ -141,18 +141,18 @@ class TomlFileImporter final {
       *toml_value = toml::parse(ifs, file_path);
     } catch (toml::syntax_error err) {
       if (do_output_message_) {
-        CmdIOUtil::ErrorOutput("File parsing failed.");
-        CmdIOUtil::OutputNewLine(1, OutputDetail::kError);
-        CmdIOUtil::ErrorOutput("< Rows that failed to parse >");
-        CmdIOUtil::ErrorOutput(err.what());
-        CmdIOUtil::OutputNewLine(1, OutputDetail::kError);
+        cmdio::ErrorOutput("File parsing failed.");
+        cmdio::OutputNewLine(1, OutputDetail::kError);
+        cmdio::ErrorOutput("< Rows that failed to parse >");
+        cmdio::ErrorOutput(err.what());
+        cmdio::OutputNewLine(1, OutputDetail::kError);
       }
 
       return false;
     }
 
     if (do_output_message_) {
-      CmdIOUtil::InfoOutput("File parsing succeeded.");
+      cmdio::InfoOutput("File parsing succeeded.");
     }
 
     return true;
@@ -160,22 +160,22 @@ class TomlFileImporter final {
 
   bool SerializeTomlData(toml::value* toml_value, T* data) const {
     if (do_output_message_) {
-      CmdIOUtil::InfoOutput("Serialize data.");
+      cmdio::InfoOutput("Serialize data.");
     }
 
     try {
       *data = toml::from<T>::from_toml(*toml_value);
     } catch (...) {
       if (do_output_message_) {
-        CmdIOUtil::ErrorOutput("Data serialization failed.");
-        CmdIOUtil::OutputNewLine(1, OutputDetail::kError);
+        cmdio::ErrorOutput("Data serialization failed.");
+        cmdio::OutputNewLine(1, OutputDetail::kError);
       }
 
       return false;
     }
 
     if (do_output_message_) {
-      CmdIOUtil::InfoOutput("Data serialization succeeded.");
+      cmdio::InfoOutput("Data serialization succeeded.");
     }
 
     return true;
@@ -183,25 +183,25 @@ class TomlFileImporter final {
 
   bool ValidateData(const T& data) const {
     if (do_output_message_) {
-      CmdIOUtil::InfoOutput("Start data validation.");
+      cmdio::InfoOutput("Start data validation.");
     }
 
     const auto [is_valid, error_message] = validator_->Validate(data);
 
     if (!is_valid) {
       if (do_output_message_) {
-        CmdIOUtil::ErrorOutput("Data validation failed.");
-        CmdIOUtil::OutputNewLine(1, OutputDetail::kError);
-        CmdIOUtil::ErrorOutput("<Reasons for Failure to Verify>");
-        CmdIOUtil::ErrorOutput(error_message);
-        CmdIOUtil::OutputNewLine(1, OutputDetail::kError);
+        cmdio::ErrorOutput("Data validation failed.");
+        cmdio::OutputNewLine(1, OutputDetail::kError);
+        cmdio::ErrorOutput("<Reasons for Failure to Verify>");
+        cmdio::ErrorOutput(error_message);
+        cmdio::OutputNewLine(1, OutputDetail::kError);
       }
 
       return false;
     }
 
     if (do_output_message_) {
-      CmdIOUtil::InfoOutput("Data validation succeeded.");
+      cmdio::InfoOutput("Data validation succeeded.");
     }
 
     return true;

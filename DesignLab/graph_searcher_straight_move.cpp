@@ -58,8 +58,7 @@ GraphSearcherStraightMove::SearchGraphTree(
   const float target_z_value = InitTargetZValue(
       graph.GetRootNode(), divided_map_state, normalized_move_direction);
 
-  CmdIOUtil::FormatOutput(OutputDetail::kDebug, "target_z_value = {}",
-                          target_z_value);
+  cmdio::OutputF(OutputDetail::kDebug, "target_z_value = {}", target_z_value);
 
   GraphSearchEvaluationValue max_evaluation_value =
       evaluator_.InitializeEvaluationValue();
@@ -103,8 +102,8 @@ GraphSearcherStraightMove::SearchGraphTree(
     if (evaluator_.LeftIsBetter(candidate_evaluation_value,
                                 max_evaluation_value)) {
       // 上回っている場合は更新する.
-      CmdIOUtil::FormatOutput(OutputDetail::kDebug, "max_evaluation_value = {}",
-                              max_evaluation_value.value[kTagZDiff]);
+      cmdio::OutputF(OutputDetail::kDebug, "max_evaluation_value = {}",
+                     max_evaluation_value.value[kTagZDiff]);
       max_evaluation_value = candidate_evaluation_value;
       max_evaluation_value_index = i;
     }
@@ -120,8 +119,8 @@ GraphSearcherStraightMove::SearchGraphTree(
   if (max_evaluation_value_index < 0) {
     const GraphSearchResult result = {
         enums::Result::kFailure,
-        std::format("葉ノードが存在しません.最大深さ : {},動作 : {}",
-                    log_depth, string_util::EnumToStringRemoveTopK(log_move))};
+        std::format("葉ノードが存在しません.最大深さ : {},動作 : {}", log_depth,
+                    string_util::EnumToStringRemoveTopK(log_move))};
 
     return {result, GraphSearchEvaluationValue{}, RobotStateNode{}};
   }

@@ -25,7 +25,7 @@ bool do_output = true;
 
 bool is_initialized = false;
 
-void CmdIOUtil::SetOutputLimit(const OutputDetail limit) {
+void cmdio::SetOutputLimit(const OutputDetail limit) {
   output_limit = limit;
 
   if (!is_initialized) {
@@ -38,13 +38,13 @@ void CmdIOUtil::SetOutputLimit(const OutputDetail limit) {
   }
 
   // 出力の許可範囲を設定したことを通知.
-  FormatOutput(OutputDetail::kSystem, "Output limit is set to '{}'.",
-               string_util::EnumToStringRemoveTopK(output_limit));
+  OutputF(OutputDetail::kSystem, "Output limit is set to '{}'.",
+          string_util::EnumToStringRemoveTopK(output_limit));
 }
 
-void CmdIOUtil::DoOutput(const bool do_output_) { do_output = do_output_; }
+void cmdio::DoOutput(const bool do_output_) { do_output = do_output_; }
 
-void CmdIOUtil::Output(const std::string& str, const OutputDetail detail) {
+void cmdio::Output(const std::string& str, const OutputDetail detail) {
   assert(is_initialized);  // SetOutputLimitを呼んでから使用すること.
 
   // 出力を許可している かつ
@@ -108,14 +108,13 @@ void CmdIOUtil::Output(const std::string& str, const OutputDetail detail) {
   }
 }
 
-void CmdIOUtil::SpacedOutput(const std::string& str, OutputDetail detail) {
+void cmdio::SpacedOutput(const std::string& str, OutputDetail detail) {
   OutputNewLine(1, detail);
   Output(str, detail);
   OutputNewLine(1, detail);
 }
 
-void CmdIOUtil::OutputCenter(const std::string& str,
-                             const OutputDetail detail) {
+void cmdio::OutputCenter(const std::string& str, const OutputDetail detail) {
   // 改行ごとに文字列を取り出す.
   std::stringstream ss(str);
   std::string line;
@@ -138,7 +137,7 @@ void CmdIOUtil::OutputCenter(const std::string& str,
   }
 }
 
-void CmdIOUtil::OutputRight(const std::string& str, const OutputDetail detail) {
+void cmdio::OutputRight(const std::string& str, const OutputDetail detail) {
   // 改行ごとに文字列を取り出す.
   std::stringstream ss(str);
   std::string line;
@@ -161,7 +160,7 @@ void CmdIOUtil::OutputRight(const std::string& str, const OutputDetail detail) {
   }
 }
 
-void CmdIOUtil::OutputNewLine(const int num, const OutputDetail detail) {
+void cmdio::OutputNewLine(const int num, const OutputDetail detail) {
   if (num <= 0) {
     return;
   }
@@ -171,8 +170,8 @@ void CmdIOUtil::OutputNewLine(const int num, const OutputDetail detail) {
   }
 }
 
-void CmdIOUtil::OutputHorizontalLine(const std::string& line_visual,
-                                     const OutputDetail detail) {
+void cmdio::OutputHorizontalLine(const std::string& line_visual,
+                                 const OutputDetail detail) {
   if (line_visual.size() != 1) {
     return;
   }
@@ -186,8 +185,7 @@ void CmdIOUtil::OutputHorizontalLine(const std::string& line_visual,
   Output(str, detail);
 }
 
-void CmdIOUtil::OutputTitle(const std::string& title_name,
-                            bool output_copy_right) {
+void cmdio::OutputTitle(const std::string& title_name, bool output_copy_right) {
   OutputDetail detail = OutputDetail::kSystem;
 
   OutputNewLine(1, detail);
@@ -205,18 +203,18 @@ void CmdIOUtil::OutputTitle(const std::string& title_name,
   OutputNewLine(1, detail);
 }
 
-void CmdIOUtil::WaitAnyKey(const std::string& str) {
+void cmdio::WaitAnyKey(const std::string& str) {
   Output(str, OutputDetail::kSystem);
 
   // 何かキーを押すまで待機.
   system("PAUSE");
 }
 
-int CmdIOUtil::InputInt(const int min, const int max, const int default_num,
-                        const std::string& str) {
+int cmdio::InputInt(const int min, const int max, const int default_num,
+                    const std::string& str) {
   assert(min <= max);  // 最小値は最大値より小さい.
 
-  FormatOutput(OutputDetail::kSystem, "{} ( {} ～ {} ) ", str, min, max);
+  OutputF(OutputDetail::kSystem, "{} ( {} ～ {} ) ", str, min, max);
 
   std::string input_str;
   std::cout << ">>" << std::flush;
@@ -228,19 +226,19 @@ int CmdIOUtil::InputInt(const int min, const int max, const int default_num,
     res = std::stoi(input_str);  // 入力された文字列を int 型に変換.
 
     if (res < min || res > max) {
-      FormatOutput(OutputDetail::kSystem,
-                   "The entered value '{}' is out of range. Use the default "
-                   "value, '{}'.",
-                   input_str, default_num);
+      OutputF(OutputDetail::kSystem,
+              "The entered value '{}' is out of range. Use the default "
+              "value, '{}'.",
+              input_str, default_num);
 
       res = default_num;
     }
   } catch (...) {
     // 整数値への変換で例外が発生した場合,ここに処理が飛ぶ.
-    FormatOutput(OutputDetail::kSystem,
-                 "The entered value '{}' cannot be evaluated. Use the default "
-                 "value, '{}'.",
-                 input_str, default_num);
+    OutputF(OutputDetail::kSystem,
+            "The entered value '{}' cannot be evaluated. Use the default "
+            "value, '{}'.",
+            input_str, default_num);
 
     res = default_num;
   }
@@ -248,7 +246,7 @@ int CmdIOUtil::InputInt(const int min, const int max, const int default_num,
   return res;
 }
 
-bool CmdIOUtil::InputYesNo(const std::string& str) {
+bool cmdio::InputYesNo(const std::string& str) {
   Output(str + " ( y / n ) ", OutputDetail::kSystem);
 
   while (true) {
@@ -264,14 +262,13 @@ bool CmdIOUtil::InputYesNo(const std::string& str) {
       return false;
     }
 
-    FormatOutput(
-        OutputDetail::kSystem,
-        "The entered value '{}' cannot be evaluated. Enter 'y' or 'n'.",
-        input_str);
+    OutputF(OutputDetail::kSystem,
+            "The entered value '{}' cannot be evaluated. Enter 'y' or 'n'.",
+            input_str);
   }
 }
 
-std::string CmdIOUtil::InputDirName(const std::string& str) {
+std::string cmdio::InputDirName(const std::string& str) {
   Output(str, OutputDetail::kSystem);
 
   const std::vector<std::string> invalid_chars = {"\\", "/", ":", "*", "?",
@@ -301,10 +298,10 @@ std::string CmdIOUtil::InputDirName(const std::string& str) {
     }
 
     if (input_str.length() > kMaxDirNameLength) {
-      FormatOutput(OutputDetail::kSystem,
-                   "The entered value '{}' is too long. Enter a value of {} "
-                   "characters or less.",
-                   input_str, kMaxDirNameLength);
+      OutputF(OutputDetail::kSystem,
+              "The entered value '{}' is too long. Enter a value of {} "
+              "characters or less.",
+              input_str, kMaxDirNameLength);
       is_invalid = false;
     }
 

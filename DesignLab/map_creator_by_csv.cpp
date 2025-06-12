@@ -27,7 +27,7 @@ MapCreatorByCsv::MapCreatorByCsv(const std::string& map_file_path)
         "map fileが存在しません.ファイルのパスは{}です.({}のコンストラクタ)",
         map_file_path_, string_util::GetTypeName(*this));
 
-    CmdIOUtil::Output(error_mes, OutputDetail::kError);
+    cmdio::Output(error_mes, OutputDetail::kError);
 
     assert(false);
   }
@@ -38,11 +38,11 @@ MapState MapCreatorByCsv::InitMap() const {
 
   if (const auto result = map_file_importer.ImportMap(map_file_path_);
       result.has_value()) {
-    CmdIOUtil::InfoOutput("Completed reading map file: " + map_file_path_);
+    cmdio::InfoOutput("Completed reading map file: " + map_file_path_);
     return result.value();
   } else {
     // エラーが発生した場合は空のマップを返す.
-    CmdIOUtil::ErrorOutput(result.error());
+    cmdio::ErrorOutput(result.error());
     return MapState();
   }
 }

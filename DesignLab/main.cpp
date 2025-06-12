@@ -46,7 +46,7 @@ auto LoadApplicationSettingRecord() {
   using designlab::TomlDirectoryExporter;
   using designlab::TomlFileImporter;
 
-  designlab::CmdIOUtil::SetOutputLimit(kSystem);
+  designlab::cmdio::SetOutputLimit(kSystem);
 
   TomlDirectoryExporter toml_directory_exporter;
   toml_directory_exporter.Export();
@@ -60,8 +60,8 @@ auto LoadApplicationSettingRecord() {
 
 void InitOutputSetting(
     std::shared_ptr<const designlab::ApplicationSettingRecord> setting) {
-  designlab::CmdIOUtil::DoOutput(setting->do_cmd_output);
-  designlab::CmdIOUtil::SetOutputLimit(setting->cmd_output_detail);
+  designlab::cmdio::DoOutput(setting->do_cmd_output);
+  designlab::cmdio::SetOutputLimit(setting->cmd_output_detail);
 }
 
 auto LoadPhantomXMkII() {
@@ -98,7 +98,7 @@ int main() {
   InitOutputSetting(app_setting_record);
 
   // タイトルを表示する.
-  CmdIOUtil::OutputTitle(
+  cmdio::OutputTitle(
       "Free Gait Planning for a Hexapod Walking Robot by Graph Search", true);
 
   // GUIを別のスレッドで実行する.
@@ -108,14 +108,14 @@ int main() {
   // グラフィックシステムを別スレッドで実行する.
   boost::thread graphic_thread(&GraphicSystem::Main, &graphic_system);
 
-  CmdIOUtil::SystemOutput("Now Waiting for Dxlib to start.");
+  cmdio::SystemOutput("Now Waiting for Dxlib to start.");
 
   while (!graphic_system.IsInitialized()) {
     // Dxlibの初期化が終わるまで待機する.
   }
 
-  CmdIOUtil::SystemOutput("Dxlib has started.");
-  CmdIOUtil::OutputNewLine(1, kSystem);
+  cmdio::SystemOutput("Dxlib has started.");
+  cmdio::OutputNewLine(1, kSystem);
 
   // 処理を実行する.
   while (true) {
@@ -195,7 +195,7 @@ int main() {
         //    graphic_data_broker,
         //    app_setting_record);
 
-        CmdIOUtil::Output("Viewer is not implemented yet.", kSystem);
+        cmdio::Output("Viewer is not implemented yet.", kSystem);
 
         std::unique_ptr<IGraphicMain> graphic_main_viewer =
             std::make_unique<GraphicMainGraphViewer>(
@@ -261,20 +261,20 @@ int main() {
     }
 
     // もう一度実行するかどうかを選択する.
-    CmdIOUtil::OutputHorizontalLine("=", kSystem);
-    CmdIOUtil::OutputNewLine(1, kSystem);
+    cmdio::OutputHorizontalLine("=", kSystem);
+    cmdio::OutputNewLine(1, kSystem);
 
-    if (!CmdIOUtil::InputYesNo("Continue?")) {
+    if (!cmdio::InputYesNo("Continue?")) {
       break;
     }
 
-    CmdIOUtil::OutputNewLine(1, kSystem);
-    CmdIOUtil::OutputHorizontalLine("=", kSystem);
-    CmdIOUtil::OutputNewLine(1, kSystem);
+    cmdio::OutputNewLine(1, kSystem);
+    cmdio::OutputHorizontalLine("=", kSystem);
+    cmdio::OutputNewLine(1, kSystem);
   }
 
-  CmdIOUtil::Output("Waiting for Dxlib to exit; press the X button on the GUI.",
-                    kSystem);
+  cmdio::Output("Waiting for Dxlib to exit; press the X button on the GUI.",
+                kSystem);
   graphic_thread.join();
 
   return 0;
