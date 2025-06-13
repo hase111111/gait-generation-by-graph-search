@@ -57,7 +57,7 @@ GraphSearcherStraightMove::SearchGraphTree(
   const float target_z_value = InitTargetZValue(
       graph.GetRootNode(), divided_map_state, normalized_move_direction);
 
-  cmdio::OutputF(OutputDetail::kDebug, "target_z_value = {}", target_z_value);
+  cmdio::DebugOutputF("target_z_value = {}", target_z_value);
 
   GraphSearchEvaluationValue max_evaluation_value =
       evaluator_.InitializeEvaluationValue();

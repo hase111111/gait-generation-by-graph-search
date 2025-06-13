@@ -273,8 +273,8 @@ int main() {
     cmdio::OutputNewLine(1, kSystem);
   }
 
-  cmdio::Output("Waiting for Dxlib to exit; press the X button on the GUI.",
-                kSystem);
+  cmdio::SystemOutput(
+      "Waiting for Dxlib to exit; press the X button on the GUI.");
   graphic_thread.join();
 
   return 0;

@@ -72,7 +72,11 @@ RobotStateNode NodeInitializer::InitNode() const {
   // res.leg_pos[3].z -= 57.0f;
 
   // ロールピッチヨーで回転を表現する.ロボットの重心を中心にして回転する.
-  res.posture = ToQuaternion(posture_);
+  const auto posture = EulerXYZ{math_util::ConvertDegToRad(posture_.x_angle),
+                                math_util::ConvertDegToRad(posture_.y_angle),
+                                math_util::ConvertDegToRad(posture_.z_angle)};
+
+  res.posture = ToQuaternion(posture);
 
   res.next_move = move_;
   res.parent_index = -1;

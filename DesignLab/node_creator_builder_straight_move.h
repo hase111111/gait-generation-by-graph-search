@@ -16,8 +16,7 @@
 namespace designlab {
 
 //! @class NodeCreatorBuilderStraightMove
-//! @brief
-//! 波東さんが行った処理と同様の方法になるようにノード生成クラスを生成するクラス.
+//! @brief 第5報の直進動作を行うノードを生成するクラス.
 class NodeCreatorBuilderStraightMove final : public INodeCreatorBuilder {
  public:
   NodeCreatorBuilderStraightMove(

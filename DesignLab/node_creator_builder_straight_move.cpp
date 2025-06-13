@@ -10,13 +10,10 @@
 #include <vector>
 
 #include "cassert_define.h"
-#include "node_creator_body_rot.h"
-#include "node_creator_com_move.h"
 #include "node_creator_com_move_straight.h"
 #include "node_creator_com_up_down.h"
 #include "node_creator_leg_hierarchy.h"
 #include "node_creator_leg_up_down.h"
-#include "node_creator_leg_up_down_radius.h"
 
 namespace designlab {
 
@@ -45,23 +42,16 @@ void NodeCreatorBuilderStraightMove::Build(
   const auto hierarchy_list = std::vector<DiscreteLegPos>{
       kBack, kCenter, kFront, kLowerBack, kLowerFront, kUpperBack, kUpperFront};
 
-  (*node_creator)[HexapodMove::kLegHierarchyChange] =
+  (*node_creator)[kLegHierarchyChange] =
       std::make_unique<NodeCreatorLegHierarchy>(kLegUpDown, hierarchy_list);
 
-  (*node_creator)[HexapodMove::kLegUpDown] =
-      std::make_unique<NodeCreatorLegUpDownRadius>(
-          map, converter_ptr_, presenter_ptr_, checker_ptr_, kComUpDown);
+  (*node_creator)[kLegUpDown] = std::make_unique<NodeCreatorLegUpDown>(
+      map, converter_ptr_, presenter_ptr_, checker_ptr_, kComUpDown);
 
-  (*node_creator)[HexapodMove::kComUpDown] =
-      std::make_unique<NodeCreatorComUpDown>(
-          map, converter_ptr_, presenter_ptr_, checker_ptr_, kComMove);
+  (*node_creator)[kComUpDown] = std::make_unique<NodeCreatorComUpDown>(
+      map, converter_ptr_, presenter_ptr_, checker_ptr_, kComMove);
 
-  // (*node_creator)[HexapodMove::kComMove] =
-  //     std::make_unique<NodeCreatorComMoveStraight>(
-  //          map, converter_ptr_, presenter_ptr_, checker_ptr_,
-  //          kLegHierarchyChange);
-
-  (*node_creator)[HexapodMove::kComMove] = std::make_unique<NodeCreatorComMove>(
+  (*node_creator)[kComMove] = std::make_unique<NodeCreatorComMoveStraight>(
       map, converter_ptr_, presenter_ptr_, checker_ptr_, kLegHierarchyChange);
 }
 

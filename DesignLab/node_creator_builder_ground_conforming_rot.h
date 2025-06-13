@@ -16,8 +16,6 @@
 namespace designlab {
 
 //! @class NodeCreatorBuilderGroundConformingRot
-//! @brief
-//! 波東さんが行った処理と同様の方法になるようにノード生成クラスを生成するクラス.
 class NodeCreatorBuilderGroundConformingRot final : public INodeCreatorBuilder {
  public:
   NodeCreatorBuilderGroundConformingRot(
