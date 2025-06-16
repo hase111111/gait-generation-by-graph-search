@@ -50,8 +50,13 @@ void MapRenderer::Draw() const {
     }
 
     for (int k = 0; k < *num; k++) {
-      DrawCube3DWithTopPos(ConvertToDxlibVec(divided_map_.GetPointPos(i, j, k)),
-                           cube_size_,
+      // 脚設置可能点を描画する.
+      const auto point_pos = divided_map_.GetPointPos(i, j, k);
+      if (!point_pos) {
+        continue;  // このマスに脚設置可能点が存在しない場合はスキップ.
+      }
+
+      DrawCube3DWithTopPos(ConvertToDxlibVec(*point_pos), cube_size_,
                            (i + j) % 2 == 0 ? color_light_gray_ : color_gray_);
     }
   }

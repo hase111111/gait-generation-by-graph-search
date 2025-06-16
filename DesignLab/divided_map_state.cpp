@@ -80,11 +80,12 @@ nostd::expected<int, std::string> DividedMapState::GetPointNum(
       divided_map_point_[GetDividedMapIndex(x_index, y_index)].size());
 }
 
-Vector3 DividedMapState::GetPointPos(const int x_index, const int y_index,
-                                     const int divide_map_index) const {
+nostd::expected<Vector3, std::string> DividedMapState::GetPointPos(
+    const int x_index, const int y_index, const int divide_map_index) const {
   // 存在していなければ終了.
   if (!IsValidIndex(x_index) || !IsValidIndex(y_index)) {
-    return Vector3{0, 0, 0};
+    return nostd::unexpected<std::string>(
+        "DividedMapState::GetPointPos: Invalid index.");
   }
 
   const size_t size =

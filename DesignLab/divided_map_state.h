@@ -131,7 +131,7 @@ class DividedMapState final {
   }
 
   //! @brief 格子状に切り分けられたマップから,脚設置可能点の数を取得する.
-  //! @n 範囲外の値を指定した場合は,0を返す.
+  //! @n 範囲外の値を指定した場合は, unexpected を返す.
   //! @param[in] x_index X座標,切り分けられたタイルの位置で指定する.
   //! @param[in] y_index Y座標,切り分けられたタイルの位置で指定する.
   //! @return 脚設置可能点の数.
@@ -139,12 +139,13 @@ class DividedMapState final {
 
   //! @brief
   //! 格子状に切り分けられたマップから,脚設置可能点の実際の座標を取得する.
-  //! @n 範囲外の値を指定した場合は,(0,0,0)を返す.
+  //! @n 範囲外の値を指定した場合は, unexpected を返す.
   //! @param[in] x_index x座標,切り分けられたタイルの位置で指定する.
   //! @param[in] y_index y座標,切り分けられたタイルの位置で指定する.
   //! @param[in] divided_map_index 何番目の脚設置可能点か.
   //! @return 脚設置可能点の座標.
-  Vector3 GetPointPos(int x_index, int y_index, int divided_map_index) const;
+  nostd::expected<Vector3, std::string> GetPointPos(
+      int x_index, int y_index, int divided_map_index) const;
 
   //! @brief 格子状に切り分けられたマップから,脚設置可能点の vector を取得する
   //! @n 範囲外の値を指定した場合は,空の vector を返す.

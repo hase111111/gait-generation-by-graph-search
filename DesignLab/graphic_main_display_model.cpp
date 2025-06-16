@@ -244,18 +244,20 @@ void GraphicMainDisplayModel::MoveLeg() {
           map_y--;
         }
 
-        const auto pos_num = divided_map_state_.GetPointNum(map_x, map_y);
-        if (!pos_num) {
+        const auto map_pos =
+            divided_map_state_.GetPointNum(map_x, map_y)
+                .and_then([&](int pos_num) {
+                  return divided_map_state_.GetPointPos(
+                      map_x, map_y, divided_map_tile_index_ % pos_num);
+                });
+        if (!map_pos) {
           continue;
         }
-
-        Vector3 map_pos = divided_map_state_.GetPointPos(
-            map_x, map_y, divided_map_tile_index_ % *pos_num);
 
         ++divided_map_tile_index_;
 
         robot_.leg_pos[i] = converter_ptr_->ConvertGlobalToLegCoordinate(
-            map_pos, i, robot_.center_of_mass_global_coord, robot_.posture,
+            *map_pos, i, robot_.center_of_mass_global_coord, robot_.posture,
             true);
       }
 

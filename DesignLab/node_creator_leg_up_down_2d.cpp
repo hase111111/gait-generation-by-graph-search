@@ -152,12 +152,16 @@ bool NodeCreatorLegUpDown2d::IsGroundableLeg(int now_leg_num,
 
       for (int n = 0; n < *pos_num; n++) {
         // 脚設置可能点の座標を取り出す.
-        Vector3 map_point_pos = map_.GetPointPos(x, y, n);
+        const auto map_point_pos_exp = map_.GetPointPos(x, y, n);
+        if (!map_point_pos_exp) {
+          continue;  // このマスに脚設置可能点が存在しない場合はスキップ.
+        }
 
-        map_point_pos = converter_ptr_->ConvertGlobalToLegCoordinate(
-            map_point_pos, now_leg_num,
-            current_node.center_of_mass_global_coord, current_node.posture,
-            true);
+        const Vector3 map_point_pos =
+            converter_ptr_->ConvertGlobalToLegCoordinate(
+                *map_point_pos_exp, now_leg_num,
+                current_node.center_of_mass_global_coord, current_node.posture,
+                true);
 
         // 脚位置を更新したノードを作成する.
         RobotStateNode new_node = current_node;
