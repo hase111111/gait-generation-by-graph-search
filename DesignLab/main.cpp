@@ -23,6 +23,8 @@
 #include "graphic_main_robot_control.h"
 #include "graphic_system.h"
 #include "map_creator_selector.h"
+#include "node_creator_builder_body_rot.h"
+#include "node_creator_builder_straight_move.h"
 #include "phantomx_mk2.h"
 #include "robot_operator_factory.h"
 #include "simulation_end_checker_factory.h"
@@ -183,24 +185,24 @@ int main() {
             simulation_setting_importer.ImportOrUseDefault(
                 "./simulation_condition/simulation_setting.toml");
 
-        auto phantomx_mk2 = LoadPhantomXMkII();
+        auto hexapod_param = LoadXrR1();
         auto graphic_data_broker = std::make_shared<GraphicDataBroker>();
 
         auto map_creator =
             MapCreatorSelector{}.Select(simulation_setting_record);
+        auto node_creator_builder = std::make_unique<NodeCreatorBuilderBodyRot>(
+            hexapod_param, hexapod_param, hexapod_param);
+        auto graph_tree_creator =
+            std::make_unique<GraphTreeCreator>(std::move(node_creator_builder));
 
-        // system_main = std::make_unique<SystemMainGraphViewer>(
-        //    std::move(graph_tree_creator),
-        //    std::move(map_creator),
-        //    graphic_data_broker,
-        //    app_setting_record);
-
-        cmdio::Output("Viewer is not implemented yet.", kSystem);
+        system_main = std::make_unique<SystemMainGraphViewer>(
+            std::move(graph_tree_creator), std::move(map_creator),
+            graphic_data_broker, app_setting_record);
 
         std::unique_ptr<IGraphicMain> graphic_main_viewer =
             std::make_unique<GraphicMainGraphViewer>(
-                graphic_data_broker, phantomx_mk2, phantomx_mk2, phantomx_mk2,
-                app_setting_record);
+                graphic_data_broker, hexapod_param, hexapod_param,
+                hexapod_param, app_setting_record);
 
         graphic_system.ChangeGraphicMain(std::move(graphic_main_viewer));
 

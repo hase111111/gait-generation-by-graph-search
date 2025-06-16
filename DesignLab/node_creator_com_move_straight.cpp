@@ -9,6 +9,8 @@
 
 #include <numbers>
 
+#include "math_util.h"
+
 namespace designlab {
 
 NodeCreatorComMoveStraight::NodeCreatorComMoveStraight(
@@ -23,15 +25,11 @@ NodeCreatorComMoveStraight::NodeCreatorComMoveStraight(
       presenter_ptr_(presenter_ptr),
       checker_ptr_(checker_ptr) {
   for (size_t i = 0; i < kCandidateDirectionNum; ++i) {
-    const float rad = static_cast<float>(i) * 2.f * std::numbers::pi_v<float> /
-                          static_cast<float>(kCandidateDirectionNum) +
-                      std::numbers::pi_v<float> / 16;
+    const float deg = 360.0f / kCandidateDirectionNum * i +
+                      360 / (kCandidateDirectionNum * 2.0f);
+    const float rad = math_util::ConvertDegToRad(deg);
 
     candidate_directions_[i] = Vector3(std::cos(rad), std::sin(rad), 0.0f);
-
-    if (std::cos(rad) < 0.0f) {
-      candidate_directions_[i] *= -1.0f;  // x軸方向に負の値を持つ場合は反転する
-    }
   }
 }
 
@@ -73,6 +71,7 @@ void NodeCreatorComMoveStraight::Create(
     }
 
     if (is_able) {
+      // 次のノードの重心座標を更新する.
       next_node.ChangeGlobalCenterOfMass(
           current_node.center_of_mass_global_coord +
               candidate_directions_rotated[i] * static_cast<float>(able_count),

@@ -42,10 +42,10 @@ RobotStateNode NodeInitializer::InitNode() const {
   res.center_of_mass_global_coord = pos_;
 
   // 座標をランダマイズする.
-  res.center_of_mass_global_coord.x +=
-      math_util::GenerateRandomNumber(-30.f, 30.f);
-  res.center_of_mass_global_coord.y +=
-      math_util::GenerateRandomNumber(-30.f, 30.f);
+  // res.center_of_mass_global_coord.x +=
+  //    math_util::GenerateRandomNumber(-30.f, 30.f);
+  // res.center_of_mass_global_coord.y +=
+  //    math_util::GenerateRandomNumber(-30.f, 30.f);
 
   // 15 deg
   // res.leg_pos[0].z -= 20.0f;

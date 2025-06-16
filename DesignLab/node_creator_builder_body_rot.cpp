@@ -57,17 +57,16 @@ void NodeCreatorBuilderBodyRot::Build(
   (*node_creator)[HexapodMove::kComUpDown] =
       std::make_unique<NodeCreatorComUpDown>(map, converter_ptr_,
                                              presenter_ptr_, checker_ptr_,
-                                             HexapodMove::kComMove);
-
-  (*node_creator)[HexapodMove::kComMove] =
-      std::make_unique<NodeCreatorComMoveStraight>(map, converter_ptr_,
-                                                   presenter_ptr_, checker_ptr_,
-                                                   HexapodMove::kBodyPitchRot);
-
+                                             HexapodMove::kBodyPitchRot);
   (*node_creator)[HexapodMove::kBodyPitchRot] =
       std::make_unique<NodeCreatorBodyRot>(map, converter_ptr_, checker_ptr_,
                                            Vector3::GetLeftVec(),
-                                           HexapodMove::kLegHierarchyChange);
+                                           HexapodMove::kComMove);
+
+  (*node_creator)[HexapodMove::kComMove] =
+      std::make_unique<NodeCreatorComMoveStraight>(
+          map, converter_ptr_, presenter_ptr_, checker_ptr_,
+          HexapodMove::kLegHierarchyChange);
 }
 
 }  // namespace designlab

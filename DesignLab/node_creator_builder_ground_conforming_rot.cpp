@@ -48,15 +48,15 @@ void NodeCreatorBuilderGroundConformingRot::Build(
   // この場合,HexapodMove::???のノードを作成するクラスは,^~~~~~ である.
 
   const auto hierarchy_list = std::vector<DiscreteLegPos>{
-      kBack,
-      kCenter,
-      kFront,
-  };
+      DiscreteLegPos::kBack,       DiscreteLegPos::kCenter,
+      DiscreteLegPos::kFront,      DiscreteLegPos::kLowerBack,
+      DiscreteLegPos::kLowerFront, DiscreteLegPos::kUpperBack,
+      DiscreteLegPos::kUpperFront};
 
   (*node_creator)[kLegHierarchyChange] =
       std::make_unique<NodeCreatorLegHierarchy>(kLegUpDown, hierarchy_list);
 
-  (*node_creator)[kLegUpDown] = std::make_unique<NodeCreatorLegUpDown2d>(
+  (*node_creator)[kLegUpDown] = std::make_unique<NodeCreatorLegUpDown>(
       map, converter_ptr_, presenter_ptr_, checker_ptr_, kComUpDown);
 
   (*node_creator)[kComUpDown] = std::make_unique<NodeCreatorComUpDown>(
@@ -64,13 +64,10 @@ void NodeCreatorBuilderGroundConformingRot::Build(
 
   (*node_creator)[HexapodMove::kComMove] =
       std::make_unique<NodeCreatorComMoveStraight>(
-          map, converter_ptr_, presenter_ptr_, checker_ptr_, kBodyRollRot);
+          map, converter_ptr_, presenter_ptr_, checker_ptr_, kBodyPitchRot);
 
   (*node_creator)[kBodyPitchRot] = std::make_unique<NodeCreatorBodyRot>(
       map, converter_ptr_, checker_ptr_, Vector3{0, 1, 0}, kLegHierarchyChange);
-
-  (*node_creator)[kBodyRollRot] = std::make_unique<NodeCreatorBodyRot>(
-      map, converter_ptr_, checker_ptr_, Vector3{1, 0, 0}, kLegHierarchyChange);
 }
 
 }  // namespace designlab

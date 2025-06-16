@@ -50,7 +50,7 @@ void SystemMainGraphViewer::Main() {
   cmdio::InfoOutput("Initializes a node.");
 
   RobotStateNode first_node =
-      NodeInitializer{Vector3{0.f, 0.f, 30.f}, EulerXYZ{},
+      NodeInitializer{Vector3{0.f, 0.f, 60.f}, EulerXYZ{},
                       HexapodMove::kComUpDown}
           .InitNode();
   std::vector<RobotStateNode> graph;
@@ -151,7 +151,7 @@ void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent,
   DividedMapState divided_map;
   divided_map.Init(map_state_, parent_node.center_of_mass_global_coord);
 
-  GaitPatternGraphTree graph_tree(1000000);
+  GaitPatternGraphTree graph_tree(10000000);
   graph_tree.Reset();
   graph_tree.AddNode(parent_node);
 
