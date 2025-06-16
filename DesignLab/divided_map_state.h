@@ -8,10 +8,12 @@
 #ifndef DESIGNLAB_DIVIDED_MAP_STATE_H_
 #define DESIGNLAB_DIVIDED_MAP_STATE_H_
 
+#include <string>
 #include <vector>
 
 #include "map_state.h"
 #include "math_vector3.h"
+#include "my_expected.h"
 
 namespace designlab {
 
@@ -133,7 +135,7 @@ class DividedMapState final {
   //! @param[in] x_index X座標,切り分けられたタイルの位置で指定する.
   //! @param[in] y_index Y座標,切り分けられたタイルの位置で指定する.
   //! @return 脚設置可能点の数.
-  int GetPointNum(int x_index, int y_index) const;
+  nostd::expected<int, std::string> GetPointNum(int x_index, int y_index) const;
 
   //! @brief
   //! 格子状に切り分けられたマップから,脚設置可能点の実際の座標を取得する.
@@ -201,16 +203,14 @@ class DividedMapState final {
   static_assert(kDividedAreaLength > 0.0f,
                 "kDividedAreaLengthは正の実数である必要があります.");
 
-  static_assert(kDividedNum > 0,
-                "kDividedNum は正の整数である必要があります.");
+  static_assert(kDividedNum > 0, "kDividedNum は正の整数である必要があります.");
 
   static_assert(
       kDividedMapMaxX > kDividedMapMinX,
       " kDividedMapMaxX は kDividedMapMinX より大きい必要があります.");
 
-  static_assert(
-      kDividedMapMaxY > kDividedMapMinY,
-      "kDividedMapMaxY は kDividedMapMinY より大きい必要があります.");
+  static_assert(kDividedMapMaxY > kDividedMapMinY,
+                "kDividedMapMaxY は kDividedMapMinY より大きい必要があります.");
 };
 
 }  // namespace designlab

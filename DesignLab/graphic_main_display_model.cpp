@@ -244,10 +244,13 @@ void GraphicMainDisplayModel::MoveLeg() {
           map_y--;
         }
 
+        const auto pos_num = divided_map_state_.GetPointNum(map_x, map_y);
+        if (!pos_num) {
+          continue;
+        }
+
         Vector3 map_pos = divided_map_state_.GetPointPos(
-            map_x, map_y,
-            divided_map_tile_index_ %
-                divided_map_state_.GetPointNum(map_x, map_y));
+            map_x, map_y, divided_map_tile_index_ % *pos_num);
 
         ++divided_map_tile_index_;
 

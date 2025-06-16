@@ -143,9 +143,12 @@ bool NodeCreatorLegUpDownRadius::IsGroundableLeg(
   // 範囲内の点を全て調べる.
   for (int x = min_x_dev; x < max_x_dev; x++) {
     for (int y = min_y_dev; y < max_y_dev; y++) {
-      const int kPosNum = map_.GetPointNum(x, y);
+      const auto pos_num = map_.GetPointNum(x, y);
+      if (!pos_num) {
+        continue;  // このマスに脚設置可能点が存在しない場合はスキップ.
+      }
 
-      for (int n = 0; n < kPosNum; n++) {
+      for (int n = 0; n < *pos_num; n++) {
         // 脚設置可能点の座標を取り出す.
         Vector3 map_point_pos = map_.GetPointPos(x, y, n);
         map_point_pos = converter_ptr_->ConvertGlobalToLegCoordinate(

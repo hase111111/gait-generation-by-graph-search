@@ -68,10 +68,12 @@ void DividedMapState::Clear() {
   }
 }
 
-int DividedMapState::GetPointNum(const int x_index, const int y_index) const {
+nostd::expected<int, std::string> DividedMapState::GetPointNum(
+    const int x_index, const int y_index) const {
   // 存在していなければ終了
   if (!IsValidIndex(x_index) || !IsValidIndex(y_index)) {
-    return 0;
+    return nostd::unexpected<std::string>(
+        "DividedMapState::GetPointNum: Invalid index.");
   }
 
   return static_cast<int>(
