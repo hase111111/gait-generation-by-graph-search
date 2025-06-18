@@ -10,32 +10,28 @@
 
 #include <vector>
 
-#include "math_util.h"
 #include "interface_robot_operator.h"
+#include "math_util.h"
 
-
-namespace designlab
-{
+namespace designlab {
 
 //! @class RobotOperatorForGpg
 //! @brief global path generator を行うための仮置きクラス.
-class RobotOperatorForGpg final : public IRobotOperator
-{
-public:
-    RobotOperatorForGpg();
+class RobotOperatorForGpg final : public IRobotOperator {
+ public:
+  RobotOperatorForGpg();
 
-    RobotOperation Init() const override;
+  RobotOperation Init() const override;
 
-    RobotOperation Update(const RobotStateNode& node) override;
+  RobotOperation Update(const RobotStateNode& node) override;
 
-private:
-    //!< 目標角度と現在の角度の許容誤差.
-    static constexpr float kAllowableAngleError{ math_util::ConvertDegToRad(2.0f) };
+ private:
+  //!< 目標角度と現在の角度の許容誤差.
+  static constexpr float kAllowableAngleError{math_util::ConvertDegToRad(2.0f)};
 
-    std::vector<Vector3> global_route_;  //!< グローバルパス.
+  std::vector<Vector3> global_route_;  //!< グローバルパス.
 };
 
 }  // namespace designlab
-
 
 #endif  // DESIGNLAB_ROBOT_OPERATOR_FOR_GPG_H_

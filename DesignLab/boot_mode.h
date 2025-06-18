@@ -8,23 +8,19 @@
 #ifndef DESIGNLAB_BOOT_MODE_H_
 #define DESIGNLAB_BOOT_MODE_H_
 
-
-namespace designlab
-{
+namespace designlab {
 
 //! @enum BootMode
 //! @brief 起動モードを表す列挙型.
 //! @see BootModeSelector
-enum class BootMode : int
-{
-    kSimulation = 0,    //!< シミュレーションモード.
-    kViewer,            //!< ビューワーモード.
-    kDisplayModel,      //!< ディスプレイモード.
-    kResultViewer,      //!< リザルトビューワーモード.
-    kRobotControl,      //!< ロボットコントロールモード.
+enum class BootMode : int {
+  kSimulation = 0,  //!< シミュレーションモード.
+  kViewer,          //!< ビューワーモード.
+  kDisplayModel,    //!< ディスプレイモード.
+  kResultViewer,    //!< リザルトビューワーモード.
+  kRobotControl,    //!< ロボットコントロールモード.
 };
 
 }  // namespace designlab
-
 
 #endif  // DESIGNLAB_BOOT_MODE_H_

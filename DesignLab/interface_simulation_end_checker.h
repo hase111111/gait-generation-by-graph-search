@@ -10,24 +10,20 @@
 
 #include "robot_state_node.h"
 
-
-namespace designlab
-{
+namespace designlab {
 
 //! @class ISimulationEndChecker
 //! @brief シミュレーションの終了を判定するクラスのインターフェース.
-class ISimulationEndChecker
-{
-public:
-    virtual ~ISimulationEndChecker() = default;
+class ISimulationEndChecker {
+ public:
+  virtual ~ISimulationEndChecker() = default;
 
-    //! @brief シミュレーションの終了を判定する.
-    //! @param[in] node ロボットの状態.
-    //! @return シミュレーションを終了するなら true.
-    virtual bool IsEnd(const RobotStateNode& node) const = 0;
+  //! @brief シミュレーションの終了を判定する.
+  //! @param[in] node ロボットの状態.
+  //! @return シミュレーションを終了するなら true.
+  virtual bool IsEnd(const RobotStateNode& node) const = 0;
 };
 
 }  // namespace designlab
-
 
 #endif  // DESIGNLAB_INTERFACE_SIMULATION_END_CHECKER_H_

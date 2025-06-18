@@ -68,7 +68,8 @@
 //!
 //! また,変数名をローマ字で書いたり,過度に省略したりするのは控えるべき.
 //! (例えば int sushi; とか std::string tkg;など.寿司は仕方ないが...)
-//! 固有名詞は全部書く,逆に init (初期化)や num (ナンバー)などよく使うものは省略すべき.
+//! 固有名詞は全部書く,逆に init (初期化)や num
+//! (ナンバー)などよく使うものは省略すべき.
 //! func(関数)等は見ればわかるので書かないように CalcFunc() → Calc()
 //! 多少長くなっても何しているか分かりやすいほうが見やすなる.(特に関数において).
 //! @n
@@ -84,9 +85,9 @@
 //! @li rot (rotation 回転)
 //! @li sub (subtraction 減算)
 //!
-//! 関数においては動詞→目的語となるように付けること.(例えば GetData() とか MakeMap() とか)
-//! また,bool型の場合は質問形式で命名するとよい.
-//! bool is_empty = false; とか bool IsOddNumber(const int num); など.
+//! 関数においては動詞→目的語となるように付けること.(例えば GetData() とか
+//! MakeMap() とか) また,bool型の場合は質問形式で命名するとよい. bool is_empty =
+//! false; とか bool IsOddNumber(const int num); など.
 //! @n
 //! @n なぜこのような命名規則を導入するのかというと,
 //! 自分の書いたプログラムを他人に読んでもらうとき,
@@ -96,7 +97,8 @@
 //! @anchor anchor_class
 //! @section ●クラスについて
 //! @n 基本的にメンバ変数は全て private: に入れておくこと.
-//! 面倒だが,値をとったり設定したりしたいなら,Get??? や Set??? 関数を作って,それを使うこと.
+//! 面倒だが,値をとったり設定したりしたいなら,Get??? や Set???
+//! 関数を作って,それを使うこと.
 //! @code
 //! //sample_class.h
 //!
@@ -144,8 +146,8 @@
 //!
 //! #pragma once
 //!
-//! //値渡しの場合はhの引数には const をつけなくてよい.(実装を h と cpp に分ける場合のみ)
-//! int AddNum(int num1, int num2);
+//! //値渡しの場合はhの引数には const をつけなくてよい.(実装を h と cpp
+//! に分ける場合のみ) int AddNum(int num1, int num2);
 //!
 //! //参照渡しの場合はhの引数にも const をつけること.
 //! int CalcAverage(const std::vector<int>& nums);
@@ -219,20 +221,24 @@
 //!
 //! 3.14159.....
 //! @endcode
-//! C++には constexprという機能があり,これを使うとコンパイル時に定数を計算してくれるため,
+//! C++には
+//! constexprという機能があり,これを使うとコンパイル時に定数を計算してくれるため,
 //! 実行時の負荷が減る.
 //! 使用可能であるならばこれを使うべき.
 //! @see designlab::PhantomXMkIIConst
 //!
 //! @anchor anchor_array
 //! @section ●配列について
-//! C言語において通常使われる int _array[10]; のような配列の使用は最小限にしたほうが良い.
+//! C言語において通常使われる int _array[10];
+//! のような配列の使用は最小限にしたほうが良い.
 //! なぜなら,このプログラムでも過去にそれによるスタックオーバーフローが起きていたためである.
-//! (time[1000]という配列に時間を記録していたため, 1000回以上のループができなくなっていた.)
+//! (time[1000]という配列に時間を記録していたため,
+//! 1000回以上のループができなくなっていた.)
 //! とりあえず大きな配列を作っておいて,その中にデータを記録するのは拡張性が低いし,
 //! 見つけづらいバグの温床になるため,
 //! std::vector (動的な配列) を積極的に使うことを推奨する.
-//! @n new/delete は個人的には絶対に使いたくない.なぜならば,メモリリークの温床になるからである.
+//! @n new/delete
+//! は個人的には絶対に使いたくない.なぜならば,メモリリークの温床になるからである.
 //! 動的配列は vector や map などのコンテナを使うこと.
 //! @code
 //! //sample_vector.h
@@ -272,14 +278,16 @@
 //!
 //! @anchor anchor_for
 //! @section ●for文について
-//! for文に使用する変数は i → j → k とすること.通例そのような命名をすることが多いためである.
+//! for文に使用する変数は i → j → k
+//! とすること.通例そのような命名をすることが多いためである.
 //! また,for文の中でサイズの大きなクラスや構造体を宣言するのはやめること.
 //! 非常に負荷がかかるためである.
 //!
 //! @anchor anchor_header
 //! @section ●ヘッダーについて
 //! 必ず,インクルードガードを書くこと.@#ifndef ～ @#endifのこと.
-//! @#pragma once と書くと,インクルードガードを書かなくてもインクルードガードの機能が働く.
+//! @#pragma once
+//! と書くと,インクルードガードを書かなくてもインクルードガードの機能が働く.
 //! しかし,これはC++の機能ではないので非推奨.(実際にはほとんどのコンパイラで使えるが,
 //! 一部のコンパイラでは使えない.特にこだわりがないならばどちらを使ってもよい.)
 //! @n
@@ -347,7 +355,8 @@
 //!     kDiv = 4,
 //! };
 //!
-//! int CalculateNumber(const int num1, const int num2, const CalculateMode mode)
+//! int CalculateNumber(const int num1, const int num2, const CalculateMode
+//! mode)
 //! {
 //!     if(mode == CalculateMode::kAdd){ return num1 + num2;}
 //!     else if(mode == CalculateMode::kSub){ return num1 - num2;}
@@ -366,11 +375,11 @@
 //! @section●構造体について
 //! @n C++で書かれているのでわざわざ typedef しなくてもよい.
 //! C++においては struct はクラスと同じ扱いになる.
-//! (ただし,デフォルトのアクセス指定子が異なる.クラスは private,structは public )
+//! (ただし,デフォルトのアクセス指定子が異なる.クラスは private,structは public
+//! )
 //! @nそのため,structを継承したクラスを作ることもできる.(非推奨だが)
 //! @n 構造体を使用する場合は,メンバ変数は全て public にしておき,
 //! そのようなクラスを作成したい場合に構造体を使うとよい.
 //! @see designlab::ApplicationSettingRecord
 //! @see designlab::Vector3
 //! @see designlab::Vector2
-

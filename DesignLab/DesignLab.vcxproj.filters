@@ -118,9 +118,6 @@
     <Filter Include="ソース ファイル\Common\Test">
       <UniqueIdentifier>{2b307fe3-198f-429d-ba96-648ccd6295ea}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\System\Simulation\Setting">
-      <UniqueIdentifier>{24e512b5-5bf6-4133-8f62-e4201200e5e1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\System\Simulation\EndChecker">
       <UniqueIdentifier>{f054ece9-6b6f-4d15-a4f1-10bc603ff2d6}</UniqueIdentifier>
     </Filter>
@@ -162,6 +159,21 @@
     </Filter>
     <Filter Include="ソース ファイル\Common\StandardLibraryLike\Test">
       <UniqueIdentifier>{575afc69-7456-45f3-b0b1-6d9e80044961}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\System">
+      <UniqueIdentifier>{d8c5560c-b28f-4130-a75d-4626ead454b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\System\Simulation">
+      <UniqueIdentifier>{50b80199-d3bf-4b6d-b3a4-6912a7a012d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\System\Simulation\Setting">
+      <UniqueIdentifier>{24e512b5-5bf6-4133-8f62-e4201200e5e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\System\Simulation\RobotOperator">
+      <UniqueIdentifier>{91976a20-136f-4604-848d-1321c1bebe6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\System\Simulation\EndChecker">
+      <UniqueIdentifier>{b0892486-cadc-452c-87ee-105eca36185f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -285,12 +297,6 @@
     <ClInclude Include="application_setting_record.h">
       <Filter>ソース ファイル\System\ApplicationSetting</Filter>
     </ClInclude>
-    <ClInclude Include="system_main_simulation.h">
-      <Filter>ソース ファイル\System\Simulation</Filter>
-    </ClInclude>
-    <ClInclude Include="boot_mode.h">
-      <Filter>ソース ファイル\System</Filter>
-    </ClInclude>
     <ClInclude Include="robot_ground_point_renderer.h">
       <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClInclude>
@@ -351,9 +357,6 @@
     <ClInclude Include="file_tree.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
-    <ClInclude Include="interface_system_main.h">
-      <Filter>ソース ファイル\System</Filter>
-    </ClInclude>
     <ClInclude Include="result_file_exporter.h">
       <Filter>ソース ファイル\GaitPatternGenerator\Result</Filter>
     </ClInclude>
@@ -368,9 +371,6 @@
     </ClInclude>
     <ClInclude Include="model_loader.h">
       <Filter>ソース ファイル\Graphic\Common\Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="boot_mode_selector.h">
-      <Filter>ソース ファイル\System</Filter>
     </ClInclude>
     <ClInclude Include="phantomx_renderer_simple.h">
       <Filter>ソース ファイル\Graphic\3DRender\HexapodRender</Filter>
@@ -483,9 +483,6 @@
     <ClInclude Include="gait_pattern_graph_tree_test.h">
       <Filter>ソース ファイル\Node\Test</Filter>
     </ClInclude>
-    <ClInclude Include="test_main.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="gait_pattern_generator_switch_move.h">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
@@ -514,19 +511,10 @@
       <Filter>ソース ファイル\Common\Test</Filter>
     </ClInclude>
     <ClInclude Include="simulation_setting_record.h">
-      <Filter>ソース ファイル\System\Simulation\Setting</Filter>
+      <Filter>ヘッダー ファイル\System\Simulation\Setting</Filter>
     </ClInclude>
     <ClInclude Include="dxlib_gui_camera_parameter_displayer.h">
       <Filter>ソース ファイル\Graphic\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="simulation_end_checker_by_goal_tape.h">
-      <Filter>ソース ファイル\System\Simulation\EndChecker</Filter>
-    </ClInclude>
-    <ClInclude Include="interface_simulation_end_checker.h">
-      <Filter>ソース ファイル\System\Simulation\EndChecker</Filter>
-    </ClInclude>
-    <ClInclude Include="simulation_end_checker_factory.h">
-      <Filter>ソース ファイル\System\Simulation\EndChecker</Filter>
     </ClInclude>
     <ClInclude Include="toml11_define.h">
       <Filter>ソース ファイル\Common\TomlFileIO</Filter>
@@ -534,20 +522,8 @@
     <ClInclude Include="toml_serialize_macro.h">
       <Filter>ソース ファイル\Common\TomlFileIO</Filter>
     </ClInclude>
-    <ClInclude Include="simulation_end_checker_by_posture.h">
-      <Filter>ソース ファイル\System\Simulation\EndChecker</Filter>
-    </ClInclude>
-    <ClInclude Include="simulation_end_checker_by_position.h">
-      <Filter>ソース ファイル\System\Simulation\EndChecker</Filter>
-    </ClInclude>
     <ClInclude Include="application_setting_record_validator.h">
       <Filter>ソース ファイル\System\ApplicationSetting</Filter>
-    </ClInclude>
-    <ClInclude Include="interface_robot_operator.h">
-      <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
-    </ClInclude>
-    <ClInclude Include="robot_operator_for_gpg.h">
-      <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClInclude>
     <ClInclude Include="toml_file_importer.h">
       <Filter>ソース ファイル\Common\TomlFileIO</Filter>
@@ -564,15 +540,6 @@
     <ClInclude Include="toml_directory_exporter.h">
       <Filter>ソース ファイル\Common\TomlFileIO</Filter>
     </ClInclude>
-    <ClInclude Include="robot_operator_fixed.h">
-      <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
-    </ClInclude>
-    <ClInclude Include="robot_operator_factory.h">
-      <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
-    </ClInclude>
-    <ClInclude Include="robot_operation.h">
-      <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
-    </ClInclude>
     <ClInclude Include="simulation_map_parameter.h">
       <Filter>ソース ファイル\Map\MapCreator\Parameter</Filter>
     </ClInclude>
@@ -587,9 +554,6 @@
     </ClInclude>
     <ClInclude Include="node_creator_com_move_straight.h">
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
-    </ClInclude>
-    <ClInclude Include="robot_operator_for_path.h">
-      <Filter>ソース ファイル\System\Simulation\RobotOperator</Filter>
     </ClInclude>
     <ClInclude Include="phantomx_mk2_parameter_record.h">
       <Filter>ソース ファイル\Hexapod</Filter>
@@ -669,9 +633,6 @@
     <ClInclude Include="loop_util_test.h">
       <Filter>ソース ファイル\Common\Test</Filter>
     </ClInclude>
-    <ClInclude Include="document.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="node_creator_builder_ground_conforming_rot.h">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
@@ -713,6 +674,57 @@
     </ClInclude>
     <ClInclude Include="map_creator_selector.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="test_main.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="document.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_system_main.h">
+      <Filter>ヘッダー ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="boot_mode_selector.h">
+      <Filter>ヘッダー ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="boot_mode.h">
+      <Filter>ヘッダー ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="system_main_simulation.h">
+      <Filter>ヘッダー ファイル\System\Simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_robot_operator.h">
+      <Filter>ヘッダー ファイル\System\Simulation\RobotOperator</Filter>
+    </ClInclude>
+    <ClInclude Include="robot_operation.h">
+      <Filter>ヘッダー ファイル\System\Simulation\RobotOperator</Filter>
+    </ClInclude>
+    <ClInclude Include="robot_operator_factory.h">
+      <Filter>ヘッダー ファイル\System\Simulation\RobotOperator</Filter>
+    </ClInclude>
+    <ClInclude Include="robot_operator_fixed.h">
+      <Filter>ヘッダー ファイル\System\Simulation\RobotOperator</Filter>
+    </ClInclude>
+    <ClInclude Include="robot_operator_for_gpg.h">
+      <Filter>ヘッダー ファイル\System\Simulation\RobotOperator</Filter>
+    </ClInclude>
+    <ClInclude Include="robot_operator_for_path.h">
+      <Filter>ヘッダー ファイル\System\Simulation\RobotOperator</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_simulation_end_checker.h">
+      <Filter>ヘッダー ファイル\System\Simulation\EndChecker</Filter>
+    </ClInclude>
+    <ClInclude Include="simulation_end_checker_factory.h">
+      <Filter>ヘッダー ファイル\System\Simulation\EndChecker</Filter>
+    </ClInclude>
+    <ClInclude Include="simulation_end_checker_by_posture.h">
+      <Filter>ヘッダー ファイル\System\Simulation\EndChecker</Filter>
+    </ClInclude>
+    <ClInclude Include="simulation_end_checker_by_position.h">
+      <Filter>ヘッダー ファイル\System\Simulation\EndChecker</Filter>
+    </ClInclude>
+    <ClInclude Include="simulation_end_checker_by_goal_tape.h">
+      <Filter>ヘッダー ファイル\System\Simulation\EndChecker</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1053,7 +1065,7 @@
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClCompile>
     <ClCompile Include="map_creator_selector.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Map\MapCreator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
