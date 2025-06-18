@@ -175,6 +175,18 @@
     <Filter Include="ヘッダー ファイル\System\Simulation\EndChecker">
       <UniqueIdentifier>{b0892486-cadc-452c-87ee-105eca36185f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\System\RobotControl">
+      <UniqueIdentifier>{0a7f3b4e-1685-477f-b6e9-adc0f6c90c35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\System\ResultViewer">
+      <UniqueIdentifier>{30aadd85-746f-4572-9436-c999137d11ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\System\GraphViewer">
+      <UniqueIdentifier>{82ee7b42-ebd1-4648-b534-99d2f4bda047}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\System\ApplicationSetting">
+      <UniqueIdentifier>{3e567410-8fb8-434e-bd60-88cb6897dc08}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="leg_state.h">
@@ -294,9 +306,6 @@
     <ClInclude Include="output_detail.h">
       <Filter>ソース ファイル\Common\CommandIO</Filter>
     </ClInclude>
-    <ClInclude Include="application_setting_record.h">
-      <Filter>ソース ファイル\System\ApplicationSetting</Filter>
-    </ClInclude>
     <ClInclude Include="robot_ground_point_renderer.h">
       <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClInclude>
@@ -308,12 +317,6 @@
     </ClInclude>
     <ClInclude Include="phantomx_mk2.h">
       <Filter>ソース ファイル\Hexapod</Filter>
-    </ClInclude>
-    <ClInclude Include="system_main_graph_viewer.h">
-      <Filter>ソース ファイル\System\GraphViewer</Filter>
-    </ClInclude>
-    <ClInclude Include="system_main_result_viewer.h">
-      <Filter>ソース ファイル\System\ResultViewer</Filter>
     </ClInclude>
     <ClInclude Include="graphic_main_basic.h">
       <Filter>ソース ファイル\Graphic\Main</Filter>
@@ -522,9 +525,6 @@
     <ClInclude Include="toml_serialize_macro.h">
       <Filter>ソース ファイル\Common\TomlFileIO</Filter>
     </ClInclude>
-    <ClInclude Include="application_setting_record_validator.h">
-      <Filter>ソース ファイル\System\ApplicationSetting</Filter>
-    </ClInclude>
     <ClInclude Include="toml_file_importer.h">
       <Filter>ソース ファイル\Common\TomlFileIO</Filter>
     </ClInclude>
@@ -596,9 +596,6 @@
     </ClInclude>
     <ClInclude Include="serial_communication_thread.h">
       <Filter>ソース ファイル\SerialCommunication</Filter>
-    </ClInclude>
-    <ClInclude Include="system_main_robot_control.h">
-      <Filter>ソース ファイル\System\RobotControl</Filter>
     </ClInclude>
     <ClInclude Include="dxlib_gui_robot_control.h">
       <Filter>ソース ファイル\Graphic\GUI</Filter>
@@ -725,6 +722,21 @@
     </ClInclude>
     <ClInclude Include="simulation_end_checker_by_goal_tape.h">
       <Filter>ヘッダー ファイル\System\Simulation\EndChecker</Filter>
+    </ClInclude>
+    <ClInclude Include="system_main_robot_control.h">
+      <Filter>ヘッダー ファイル\System\RobotControl</Filter>
+    </ClInclude>
+    <ClInclude Include="system_main_result_viewer.h">
+      <Filter>ヘッダー ファイル\System\ResultViewer</Filter>
+    </ClInclude>
+    <ClInclude Include="system_main_graph_viewer.h">
+      <Filter>ヘッダー ファイル\System\GraphViewer</Filter>
+    </ClInclude>
+    <ClInclude Include="application_setting_record.h">
+      <Filter>ヘッダー ファイル\System\ApplicationSetting</Filter>
+    </ClInclude>
+    <ClInclude Include="application_setting_record_validator.h">
+      <Filter>ヘッダー ファイル\System\ApplicationSetting</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
