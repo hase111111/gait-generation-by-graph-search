@@ -590,8 +590,8 @@ void MapCreatorForSimulation::ChangeMapToRadial(
         math_util::ConvertDegToRad(parameter_.radial_angle_offset);
 
     if (static_cast<int>(angle / divided_angle) % 2 == 1) {
-      const int i = static_cast<int>(
-          angle / divided_angle);  // 何番目の角度かを計算する.
+      const int i =
+          static_cast<int>(angle / divided_angle);  // 何番目の角度かを計算する.
       const float angle_dif =
           angle - i * divided_angle;  // 何番目の角度からの差を計算する.
 

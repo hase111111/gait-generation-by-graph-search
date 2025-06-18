@@ -55,12 +55,6 @@
     <Filter Include="ソース ファイル\Common\Math">
       <UniqueIdentifier>{2ecd7e50-7391-4ce6-9425-ac046f85323a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Hexapod\Const">
-      <UniqueIdentifier>{5d2a3518-4270-4b4b-8180-2b681ea74da1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Node\CenterofMass">
-      <UniqueIdentifier>{9e53a133-1381-4a6b-a2d3-780dcb9a3771}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Node\NodeCreator\NodeCreatorBuilder">
       <UniqueIdentifier>{30b74562-fe8b-4e29-9c01-b027f9861224}</UniqueIdentifier>
     </Filter>
@@ -103,12 +97,6 @@
     <Filter Include="ソース ファイル\Graphic\Interface">
       <UniqueIdentifier>{686ea2ca-ca07-416f-b8da-79761b5b6465}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Node\Test">
-      <UniqueIdentifier>{6abfc652-16b7-4965-813b-9bf99d8feb01}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Map\Test">
-      <UniqueIdentifier>{cfea5932-4b68-4d6a-8bfd-65f88c2a0fe8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Map\FileIo">
       <UniqueIdentifier>{fb25e45b-efe3-41d2-a4eb-466f76c14f6c}</UniqueIdentifier>
     </Filter>
@@ -130,9 +118,6 @@
     <Filter Include="ソース ファイル\Map\MapCreator\Parameter">
       <UniqueIdentifier>{c791aefb-7715-470d-b459-535a83a92da9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Map\MapCreator\Parameter\Test">
-      <UniqueIdentifier>{a613336f-29f0-4470-9f7e-eb2fb6ba5730}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Common\TomlFileIO">
       <UniqueIdentifier>{284aef02-d7ee-4c87-ae71-bdae3c76e934}</UniqueIdentifier>
     </Filter>
@@ -150,9 +135,6 @@
     </Filter>
     <Filter Include="ソース ファイル\System\RobotControl">
       <UniqueIdentifier>{06cb33da-eddd-4c1e-bda0-3c6604b38800}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Node\NodeCreator\LegChanger\Test">
-      <UniqueIdentifier>{897f7064-b408-4c86-b169-9101b40752d7}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Common\StandardLibraryLike">
       <UniqueIdentifier>{d446f023-75a5-4f18-bc2a-9c0434ac1eaf}</UniqueIdentifier>
@@ -187,17 +169,65 @@
     <Filter Include="ヘッダー ファイル\System\ApplicationSetting">
       <UniqueIdentifier>{3e567410-8fb8-434e-bd60-88cb6897dc08}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\SerialComminication">
+      <UniqueIdentifier>{cea0ba7c-f810-4664-8e8c-c375e9ad459f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Node">
+      <UniqueIdentifier>{f861bdbf-7468-450a-8176-52beae82c437}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Node\Test">
+      <UniqueIdentifier>{6abfc652-16b7-4965-813b-9bf99d8feb01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Node\NodeCreator">
+      <UniqueIdentifier>{d3d43210-edea-492e-a4ba-9c0cf5be2985}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Node\NodeCreator\ComChanger">
+      <UniqueIdentifier>{69a612e9-9f37-4f19-a9c9-b4beb1a63926}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Node\NodeCreator\LegChanger">
+      <UniqueIdentifier>{d29de45a-8722-49e3-aa69-280f0a5933d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Node\NodeCreator\LegChanger\Test">
+      <UniqueIdentifier>{897f7064-b408-4c86-b169-9101b40752d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Node\NodeCreator\NodeCreatorBuilder">
+      <UniqueIdentifier>{aa11e44f-4f9c-461f-8916-c8747d7d7dbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Node\LegState">
+      <UniqueIdentifier>{6f3533c9-21ab-45f4-9038-8d2f25282e5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Node\CenterOfMass">
+      <UniqueIdentifier>{f8082819-2a69-4bc7-9826-b3c16c7b5713}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Node\CenterOfMass">
+      <UniqueIdentifier>{9e53a133-1381-4a6b-a2d3-780dcb9a3771}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Map">
+      <UniqueIdentifier>{3d38bf95-392e-4d97-83bc-e58b081ed3a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Map\Test">
+      <UniqueIdentifier>{cfea5932-4b68-4d6a-8bfd-65f88c2a0fe8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Map\FileIO">
+      <UniqueIdentifier>{f31c7657-3605-4790-8269-f1dfefae3a1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Map\MapCreator">
+      <UniqueIdentifier>{e172f4d2-294f-4b7c-a5e0-43c85591c67c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Map\MapCreator\Parameter">
+      <UniqueIdentifier>{f8c02e6e-1fe6-415f-9110-ca2fc94a28c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Map\MapCreator\Parameter\Test">
+      <UniqueIdentifier>{a613336f-29f0-4470-9f7e-eb2fb6ba5730}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Haxapod">
+      <UniqueIdentifier>{349abca8-963a-498a-8039-dbfbf5d38e80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Haxapod\Const">
+      <UniqueIdentifier>{9c8b95af-b164-4976-acab-5c88763a7029}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="leg_state.h">
-      <Filter>ソース ファイル\Node\LegState</Filter>
-    </ClInclude>
-    <ClInclude Include="com_type.h">
-      <Filter>ソース ファイル\Node\CenterofMass</Filter>
-    </ClInclude>
-    <ClInclude Include="map_state.h">
-      <Filter>ソース ファイル\Map</Filter>
-    </ClInclude>
     <ClInclude Include="graphic_system.h">
       <Filter>ソース ファイル\Graphic</Filter>
     </ClInclude>
@@ -209,15 +239,6 @@
     </ClInclude>
     <ClInclude Include="map_renderer.h">
       <Filter>ソース ファイル\Graphic\3DRender</Filter>
-    </ClInclude>
-    <ClInclude Include="hexapod_const.h">
-      <Filter>ソース ファイル\Hexapod\Const</Filter>
-    </ClInclude>
-    <ClInclude Include="robot_state_node.h">
-      <Filter>ソース ファイル\Node</Filter>
-    </ClInclude>
-    <ClInclude Include="dead_lock_checker.h">
-      <Filter>ソース ファイル\Node</Filter>
     </ClInclude>
     <ClInclude Include="graphic_main_display_model.h">
       <Filter>ソース ファイル\Graphic\Main</Filter>
@@ -234,12 +255,6 @@
     <ClInclude Include="math_line_segment2.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
-    <ClInclude Include="com_candidate_polygon_maker.h">
-      <Filter>ソース ファイル\Node\CenterofMass</Filter>
-    </ClInclude>
-    <ClInclude Include="hexapod_next_move.h">
-      <Filter>ソース ファイル\Node</Filter>
-    </ClInclude>
     <ClInclude Include="graphic_main_graph_viewer.h">
       <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClInclude>
@@ -248,18 +263,6 @@
     </ClInclude>
     <ClInclude Include="graph_searcher_straight_move.h">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
-    </ClInclude>
-    <ClInclude Include="node_creator_leg_hierarchy.h">
-      <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
-    </ClInclude>
-    <ClInclude Include="node_creator_leg_up_down.h">
-      <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
-    </ClInclude>
-    <ClInclude Include="node_creator_com_up_down.h">
-      <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
-    </ClInclude>
-    <ClInclude Include="node_creator_com_move.h">
-      <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClInclude>
     <ClInclude Include="gait_pattern_generator_basic.h">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
@@ -315,38 +318,17 @@
     <ClInclude Include="stability_margin_renderer.h">
       <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClInclude>
-    <ClInclude Include="phantomx_mk2.h">
-      <Filter>ソース ファイル\Hexapod</Filter>
-    </ClInclude>
     <ClInclude Include="graphic_main_basic.h">
       <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClInclude>
-    <ClInclude Include="interpolated_node_creator.h">
-      <Filter>ソース ファイル\Node</Filter>
-    </ClInclude>
-    <ClInclude Include="discrete_leg_pos.h">
-      <Filter>ソース ファイル\Node\LegState</Filter>
-    </ClInclude>
-    <ClInclude Include="discrete_com_pos.h">
-      <Filter>ソース ファイル\Node\CenterofMass</Filter>
-    </ClInclude>
     <ClInclude Include="interface_gait_pattern_generator.h">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
-    </ClInclude>
-    <ClInclude Include="interface_node_creator.h">
-      <Filter>ソース ファイル\Node\NodeCreator</Filter>
     </ClInclude>
     <ClInclude Include="math_util.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
     <ClInclude Include="interface_graphic_main.h">
       <Filter>ソース ファイル\Graphic\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="interface_node_creator_builder.h">
-      <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
-    </ClInclude>
-    <ClInclude Include="node_creator_builder_straight_move.h">
-      <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
     <ClInclude Include="graphic_data_broker.h">
       <Filter>ソース ファイル\Graphic</Filter>
@@ -384,9 +366,6 @@
     <ClInclude Include="phantomx_mk2_renderer_model.h">
       <Filter>ソース ファイル\Graphic\3DRender\HexapodRender</Filter>
     </ClInclude>
-    <ClInclude Include="phantomx_mk2_const.h">
-      <Filter>ソース ファイル\Hexapod\Const</Filter>
-    </ClInclude>
     <ClInclude Include="graph_tree_creator.h">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphTreeCreator</Filter>
     </ClInclude>
@@ -398,33 +377,6 @@
     </ClInclude>
     <ClInclude Include="math_rot_converter.h">
       <Filter>ソース ファイル\Common\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="com_selector.h">
-      <Filter>ソース ファイル\Node\CenterofMass</Filter>
-    </ClInclude>
-    <ClInclude Include="divided_map_state.h">
-      <Filter>ソース ファイル\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="node_initializer.h">
-      <Filter>ソース ファイル\Node</Filter>
-    </ClInclude>
-    <ClInclude Include="interface_hexapod_joint_calculator.h">
-      <Filter>ソース ファイル\Hexapod</Filter>
-    </ClInclude>
-    <ClInclude Include="interface_hexapod_coordinate_converter.h">
-      <Filter>ソース ファイル\Hexapod</Filter>
-    </ClInclude>
-    <ClInclude Include="interface_hexapod_state_presenter.h">
-      <Filter>ソース ファイル\Hexapod</Filter>
-    </ClInclude>
-    <ClInclude Include="interface_hexapod_posture_validator.h">
-      <Filter>ソース ファイル\Hexapod</Filter>
-    </ClInclude>
-    <ClInclude Include="node_creator_body_rot.h">
-      <Filter>ソース ファイル\Node\NodeCreator</Filter>
-    </ClInclude>
-    <ClInclude Include="node_creator_builder_turn.h">
-      <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
     <ClInclude Include="font_loader.h">
       <Filter>ソース ファイル\Graphic\Common\Resource</Filter>
@@ -440,12 +392,6 @@
     </ClInclude>
     <ClInclude Include="graph_searcher_spot_turn.h">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
-    </ClInclude>
-    <ClInclude Include="gait_pattern_graph_tree.h">
-      <Filter>ソース ファイル\Node</Filter>
-    </ClInclude>
-    <ClInclude Include="node_creator_builder_turn_spot.h">
-      <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
     <ClInclude Include="interface_dxlib_clickable.h">
       <Filter>ソース ファイル\Graphic\Interface</Filter>
@@ -480,35 +426,17 @@
     <ClInclude Include="graph_viewer_gui_controller.h">
       <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="node_creator_leg_up_down_2d.h">
-      <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
-    </ClInclude>
     <ClInclude Include="gait_pattern_graph_tree_test.h">
-      <Filter>ソース ファイル\Node\Test</Filter>
+      <Filter>ヘッダー ファイル\Node\Test</Filter>
     </ClInclude>
     <ClInclude Include="gait_pattern_generator_switch_move.h">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
     <ClInclude Include="map_state_test.h">
-      <Filter>ソース ファイル\Map\Test</Filter>
-    </ClInclude>
-    <ClInclude Include="map_file_importer.h">
-      <Filter>ソース ファイル\Map\FileIo</Filter>
-    </ClInclude>
-    <ClInclude Include="map_file_exporter.h">
-      <Filter>ソース ファイル\Map\FileIo</Filter>
+      <Filter>ヘッダー ファイル\Map\Test</Filter>
     </ClInclude>
     <ClInclude Include="divided_map_state_test.h">
-      <Filter>ソース ファイル\Map\Test</Filter>
-    </ClInclude>
-    <ClInclude Include="map_creator_by_csv.h">
-      <Filter>ソース ファイル\Map\MapCreator</Filter>
-    </ClInclude>
-    <ClInclude Include="interface_map_creator.h">
-      <Filter>ソース ファイル\Map\MapCreator</Filter>
-    </ClInclude>
-    <ClInclude Include="map_creator_for_simulation.h">
-      <Filter>ソース ファイル\Map\MapCreator</Filter>
+      <Filter>ヘッダー ファイル\Map\Test</Filter>
     </ClInclude>
     <ClInclude Include="string_util_test.h">
       <Filter>ソース ファイル\Common\Test</Filter>
@@ -540,23 +468,11 @@
     <ClInclude Include="toml_directory_exporter.h">
       <Filter>ソース ファイル\Common\TomlFileIO</Filter>
     </ClInclude>
-    <ClInclude Include="simulation_map_parameter.h">
-      <Filter>ソース ファイル\Map\MapCreator\Parameter</Filter>
-    </ClInclude>
-    <ClInclude Include="simulation_map_parameter_validator.h">
-      <Filter>ソース ファイル\Map\MapCreator\Parameter</Filter>
-    </ClInclude>
     <ClInclude Include="simulation_map_parameter_validator_test.h">
-      <Filter>ソース ファイル\Map\MapCreator\Parameter\Test</Filter>
+      <Filter>ヘッダー ファイル\Map\MapCreator\Parameter\Test</Filter>
     </ClInclude>
     <ClInclude Include="singleton.h">
       <Filter>ソース ファイル\Graphic\Common\Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="node_creator_com_move_straight.h">
-      <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
-    </ClInclude>
-    <ClInclude Include="phantomx_mk2_parameter_record.h">
-      <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
     <ClInclude Include="math_vector3_test.h">
       <Filter>ソース ファイル\Common\Math\Test</Filter>
@@ -594,9 +510,6 @@
     <ClInclude Include="graph_searcher_turn.h">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClInclude>
-    <ClInclude Include="serial_communication_thread.h">
-      <Filter>ソース ファイル\SerialCommunication</Filter>
-    </ClInclude>
     <ClInclude Include="dxlib_gui_robot_control.h">
       <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClInclude>
@@ -606,17 +519,8 @@
     <ClInclude Include="approximated_motion_range_render.h">
       <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClInclude>
-    <ClInclude Include="interpolate_validator.h">
-      <Filter>ソース ファイル\Node</Filter>
-    </ClInclude>
-    <ClInclude Include="node_creator_leg_up_down_radius.h">
-      <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
-    </ClInclude>
-    <ClInclude Include="node_creator_builder_body_rot.h">
-      <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
-    </ClInclude>
     <ClInclude Include="node_creator_leg_hierarchy_test.h">
-      <Filter>ソース ファイル\Node\NodeCreator\LegChanger\Test</Filter>
+      <Filter>ヘッダー ファイル\Node\NodeCreator\LegChanger\Test</Filter>
     </ClInclude>
     <ClInclude Include="abstract_dxlib_gui.h">
       <Filter>ソース ファイル\Graphic\GUI</Filter>
@@ -630,20 +534,8 @@
     <ClInclude Include="loop_util_test.h">
       <Filter>ソース ファイル\Common\Test</Filter>
     </ClInclude>
-    <ClInclude Include="node_creator_builder_ground_conforming_rot.h">
-      <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
-    </ClInclude>
     <ClInclude Include="gpg_builder_flat.h">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
-    </ClInclude>
-    <ClInclude Include="xr_r1.h">
-      <Filter>ソース ファイル\Hexapod</Filter>
-    </ClInclude>
-    <ClInclude Include="xr_r1_const.h">
-      <Filter>ソース ファイル\Hexapod\Const</Filter>
-    </ClInclude>
-    <ClInclude Include="xr_r1_parameter_record.h">
-      <Filter>ソース ファイル\Hexapod</Filter>
     </ClInclude>
     <ClInclude Include="gpg_builder_change_posture.h">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
@@ -668,9 +560,6 @@
     </ClInclude>
     <ClInclude Include="my_expected_test.h">
       <Filter>ソース ファイル\Common\StandardLibraryLike\Test</Filter>
-    </ClInclude>
-    <ClInclude Include="map_creator_selector.h">
-      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="test_main.h">
       <Filter>ヘッダー ファイル</Filter>
@@ -738,13 +627,163 @@
     <ClInclude Include="application_setting_record_validator.h">
       <Filter>ヘッダー ファイル\System\ApplicationSetting</Filter>
     </ClInclude>
+    <ClInclude Include="serial_communication_thread.h">
+      <Filter>ヘッダー ファイル\SerialComminication</Filter>
+    </ClInclude>
+    <ClInclude Include="robot_state_node.h">
+      <Filter>ヘッダー ファイル\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="node_initializer.h">
+      <Filter>ヘッダー ファイル\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="interpolated_node_creator.h">
+      <Filter>ヘッダー ファイル\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="interpolate_validator.h">
+      <Filter>ヘッダー ファイル\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="hexapod_next_move.h">
+      <Filter>ヘッダー ファイル\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="gait_pattern_graph_tree.h">
+      <Filter>ヘッダー ファイル\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="dead_lock_checker.h">
+      <Filter>ヘッダー ファイル\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_node_creator.h">
+      <Filter>ヘッダー ファイル\Node\NodeCreator</Filter>
+    </ClInclude>
+    <ClInclude Include="node_creator_body_rot.h">
+      <Filter>ヘッダー ファイル\Node\NodeCreator</Filter>
+    </ClInclude>
+    <ClInclude Include="node_creator_com_move.h">
+      <Filter>ヘッダー ファイル\Node\NodeCreator\ComChanger</Filter>
+    </ClInclude>
+    <ClInclude Include="node_creator_com_up_down.h">
+      <Filter>ヘッダー ファイル\Node\NodeCreator\ComChanger</Filter>
+    </ClInclude>
+    <ClInclude Include="node_creator_com_move_straight.h">
+      <Filter>ヘッダー ファイル\Node\NodeCreator\ComChanger</Filter>
+    </ClInclude>
+    <ClInclude Include="node_creator_leg_up_down_radius.h">
+      <Filter>ヘッダー ファイル\Node\NodeCreator\LegChanger</Filter>
+    </ClInclude>
+    <ClInclude Include="node_creator_leg_up_down_2d.h">
+      <Filter>ヘッダー ファイル\Node\NodeCreator\LegChanger</Filter>
+    </ClInclude>
+    <ClInclude Include="node_creator_leg_up_down.h">
+      <Filter>ヘッダー ファイル\Node\NodeCreator\LegChanger</Filter>
+    </ClInclude>
+    <ClInclude Include="node_creator_leg_hierarchy.h">
+      <Filter>ヘッダー ファイル\Node\NodeCreator\LegChanger</Filter>
+    </ClInclude>
+    <ClInclude Include="node_creator_builder_turn_spot.h">
+      <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
+    </ClInclude>
+    <ClInclude Include="node_creator_builder_turn.h">
+      <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
+    </ClInclude>
+    <ClInclude Include="node_creator_builder_straight_move.h">
+      <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
+    </ClInclude>
+    <ClInclude Include="node_creator_builder_ground_conforming_rot.h">
+      <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
+    </ClInclude>
+    <ClInclude Include="node_creator_builder_body_rot.h">
+      <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_node_creator_builder.h">
+      <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
+    </ClInclude>
+    <ClInclude Include="leg_state.h">
+      <Filter>ヘッダー ファイル\Node\LegState</Filter>
+    </ClInclude>
+    <ClInclude Include="discrete_leg_pos.h">
+      <Filter>ヘッダー ファイル\Node\LegState</Filter>
+    </ClInclude>
+    <ClInclude Include="discrete_com_pos.h">
+      <Filter>ヘッダー ファイル\Node\CenterOfMass</Filter>
+    </ClInclude>
+    <ClInclude Include="com_type.h">
+      <Filter>ヘッダー ファイル\Node\CenterOfMass</Filter>
+    </ClInclude>
+    <ClInclude Include="com_selector.h">
+      <Filter>ヘッダー ファイル\Node\CenterOfMass</Filter>
+    </ClInclude>
+    <ClInclude Include="com_candidate_polygon_maker.h">
+      <Filter>ヘッダー ファイル\Node\CenterOfMass</Filter>
+    </ClInclude>
+    <ClInclude Include="map_state.h">
+      <Filter>ヘッダー ファイル\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="divided_map_state.h">
+      <Filter>ヘッダー ファイル\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="map_creator_selector.h">
+      <Filter>ヘッダー ファイル\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="map_file_exporter.h">
+      <Filter>ヘッダー ファイル\Map\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="map_file_importer.h">
+      <Filter>ヘッダー ファイル\Map\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="map_creator_for_simulation.h">
+      <Filter>ヘッダー ファイル\Map\MapCreator</Filter>
+    </ClInclude>
+    <ClInclude Include="map_creator_by_csv.h">
+      <Filter>ヘッダー ファイル\Map\MapCreator</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_map_creator.h">
+      <Filter>ヘッダー ファイル\Map\MapCreator</Filter>
+    </ClInclude>
+    <ClInclude Include="simulation_map_parameter_validator.h">
+      <Filter>ヘッダー ファイル\Map\MapCreator\Parameter</Filter>
+    </ClInclude>
+    <ClInclude Include="simulation_map_parameter.h">
+      <Filter>ヘッダー ファイル\Map\MapCreator\Parameter</Filter>
+    </ClInclude>
+    <ClInclude Include="xr_r1_parameter_record.h">
+      <Filter>ヘッダー ファイル\Haxapod</Filter>
+    </ClInclude>
+    <ClInclude Include="xr_r1.h">
+      <Filter>ヘッダー ファイル\Haxapod</Filter>
+    </ClInclude>
+    <ClInclude Include="phantomx_mk2_parameter_record.h">
+      <Filter>ヘッダー ファイル\Haxapod</Filter>
+    </ClInclude>
+    <ClInclude Include="phantomx_mk2.h">
+      <Filter>ヘッダー ファイル\Haxapod</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_hexapod_state_presenter.h">
+      <Filter>ヘッダー ファイル\Haxapod</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_hexapod_posture_validator.h">
+      <Filter>ヘッダー ファイル\Haxapod</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_hexapod_joint_calculator.h">
+      <Filter>ヘッダー ファイル\Haxapod</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_hexapod_coordinate_converter.h">
+      <Filter>ヘッダー ファイル\Haxapod</Filter>
+    </ClInclude>
+    <ClInclude Include="hexapod_const.h">
+      <Filter>ヘッダー ファイル\Haxapod\Const</Filter>
+    </ClInclude>
+    <ClInclude Include="phantomx_mk2_const.h">
+      <Filter>ヘッダー ファイル\Haxapod\Const</Filter>
+    </ClInclude>
+    <ClInclude Include="xr_r1_const.h">
+      <Filter>ヘッダー ファイル\Haxapod\Const</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
       <Filter>ソース ファイル\Node\LegState</Filter>
     </ClCompile>
     <ClCompile Include="com_type.cpp">
-      <Filter>ソース ファイル\Node\CenterofMass</Filter>
+      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClCompile>
     <ClCompile Include="graphic_system.cpp">
       <Filter>ソース ファイル\Graphic</Filter>
@@ -771,7 +810,7 @@
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
     <ClCompile Include="com_candidate_polygon_maker.cpp">
-      <Filter>ソース ファイル\Node\CenterofMass</Filter>
+      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClCompile>
     <ClCompile Include="math_line_segment2.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
@@ -918,7 +957,7 @@
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
     <ClCompile Include="com_selector.cpp">
-      <Filter>ソース ファイル\Node\CenterofMass</Filter>
+      <Filter>ソース ファイル\Node\CenterOfMass</Filter>
     </ClCompile>
     <ClCompile Include="divided_map_state.cpp">
       <Filter>ソース ファイル\Map</Filter>

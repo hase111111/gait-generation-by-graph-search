@@ -8,9 +8,7 @@
 #ifndef DESIGNLAB_HEXAPOD_CONST_H_
 #define DESIGNLAB_HEXAPOD_CONST_H_
 
-
-namespace designlab
-{
+namespace designlab {
 
 //! @class HexapodConst
 //! @brief Hexapodの定数をまとめたクラス.
@@ -21,21 +19,19 @@ namespace designlab
 //! HexapodConst h;  // コンパイルエラー
 //! @endcode
 //! @n 先行研究のマクロをまとめたもの,徐々にここから値を消していく.
-class HexapodConst final
-{
-public:
-    //! コンストラクタとコピーコンストラクタを削除し,実体を生成できないようにする.
-    HexapodConst() = delete;
-    HexapodConst(const HexapodConst& other) = delete;               //!< 削除する.
-    HexapodConst& operator=(const HexapodConst& other) = delete;    //!< 削除する.
-    HexapodConst(HexapodConst&& other) = delete;                    //!< 削除する.
+class HexapodConst final {
+ public:
+  //! コンストラクタとコピーコンストラクタを削除し,実体を生成できないようにする.
+  HexapodConst() = delete;
+  HexapodConst(const HexapodConst& other) = delete;  //!< 削除する.
+  HexapodConst& operator=(const HexapodConst& other) = delete;  //!< 削除する.
+  HexapodConst(HexapodConst&& other) = delete;  //!< 削除する.
 
-    //! Hexapodの脚の本数を表す.これを変更しても脚の本数が変更できるわけではない.
-    //! マジックナンバーをなくすことが目的.
-    constexpr static int kLegNum = 6;
+  //! Hexapodの脚の本数を表す.これを変更しても脚の本数が変更できるわけではない.
+  //! マジックナンバーをなくすことが目的.
+  constexpr static int kLegNum = 6;
 };
 
 }  // namespace designlab
-
 
 #endif  // DESIGNLAB_HEXAPOD_CONST_H_

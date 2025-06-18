@@ -202,8 +202,8 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationMapParameter) {
 
   DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
       step_height, "Step", "段差高さ[mm].負の値にすると下りの階段になる.");
-  DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
-      step_length, "Step", "階段の奥行[mm].正の値にすること.");
+  DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(step_length, "Step",
+                                            "階段の奥行[mm].正の値にすること.");
 
   DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(slope_angle, "Slope",
                                             "斜面の傾斜角[deg].");
