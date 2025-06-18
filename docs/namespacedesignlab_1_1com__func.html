@@ -80,52 +80,52 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>重心タイプに関する名前空間．Center of Mass Function の略．  
+<p>重心タイプに関する名前空間.Center of Mass Function の略.  
 <a href="namespacedesignlab_1_1com__func.html#details">[詳解]</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 型定義</h2></td></tr>
 <tr class="memitem:abd7df5746c85b666170dcacc650f2d3c" id="r_abd7df5746c85b666170dcacc650f2d3c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1com__func.html#abd7df5746c85b666170dcacc650f2d3c">LegGroundedMap</a> = boost::bimaps::bimap&lt; <a class="el" href="namespacedesignlab_1_1leg__func.html#a412eba2f9bdfb755114f63da0545ac61">leg_func::LegGroundedBit</a>, int &gt;</td></tr>
-<tr class="memdesc:abd7df5746c85b666170dcacc650f2d3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の接地パターンを表す型．leftがビットのデータ，rightが int型の番号． <br  />
- bimaps::bimap は，左右の型の両方からアクセスできる map． key→value，value→keyの両方が可能． <br  />
- 前述の通り脚の接地パターンは36通りある． <br  />
- それぞれの接地パターンに対応する数値を割り振って管理をしやすくするために， bimapを用いている．  <br /></td></tr>
+<tr class="memdesc:abd7df5746c85b666170dcacc650f2d3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の接地パターンを表す型.leftがビットのデータ,rightが int型の番号. <br  />
+ bimaps::bimap は,左右の型の両方からアクセスできる map. key→value,value→keyの両方が可能. <br  />
+ 前述の通り脚の接地パターンは36通りある. <br  />
+ それぞれの接地パターンに対応する数値を割り振って管理をしやすくするために, bimapを用いている.  <br /></td></tr>
 <tr class="separator:abd7df5746c85b666170dcacc650f2d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0df88b064de1e0af873e96555ad4e1b1" id="r_a0df88b064de1e0af873e96555ad4e1b1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1com__func.html#a0df88b064de1e0af873e96555ad4e1b1">LegGroundedMapValue</a> = LegGroundedMap::value_type</td></tr>
-<tr class="memdesc:a0df88b064de1e0af873e96555ad4e1b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の接地パターンを表すマップの値の型．  <br /></td></tr>
+<tr class="memdesc:a0df88b064de1e0af873e96555ad4e1b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の接地パターンを表すマップの値の型.  <br /></td></tr>
 <tr class="separator:a0df88b064de1e0af873e96555ad4e1b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 関数</h2></td></tr>
 <tr class="memitem:a32f26cf991322f7e7cc4ea68213967a7" id="r_a32f26cf991322f7e7cc4ea68213967a7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1com__func.html#a32f26cf991322f7e7cc4ea68213967a7">GetLegGroundPatternNum</a> ()</td></tr>
-<tr class="memdesc:a32f26cf991322f7e7cc4ea68213967a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の接地パターンの総数を返す．  <br /></td></tr>
+<tr class="memdesc:a32f26cf991322f7e7cc4ea68213967a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の接地パターンの総数を返す.  <br /></td></tr>
 <tr class="separator:a32f26cf991322f7e7cc4ea68213967a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8308ef390790e3e3e12858dcb553e224" id="r_a8308ef390790e3e3e12858dcb553e224"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedesignlab_1_1leg__func.html#a412eba2f9bdfb755114f63da0545ac61">leg_func::LegGroundedBit</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1com__func.html#a8308ef390790e3e3e12858dcb553e224">GetLegGroundedBitFromLegGroundPatternIndex</a> (int leg_ground_pattern_index)</td></tr>
-<tr class="memdesc:a8308ef390790e3e3e12858dcb553e224"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の接地パターンの番号から，その番号に該当する接地パターンを返す．  <br /></td></tr>
+<tr class="memdesc:a8308ef390790e3e3e12858dcb553e224"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の接地パターンの番号から,その番号に該当する接地パターンを返す.  <br /></td></tr>
 <tr class="separator:a8308ef390790e3e3e12858dcb553e224"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05a453333f804b587fdc1b14ade6adde" id="r_a05a453333f804b587fdc1b14ade6adde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1com__func.html#a05a453333f804b587fdc1b14ade6adde">RemoveLegGroundPatternFromCom</a> (<a class="el" href="namespacedesignlab_1_1enums.html#aae667c8a4db0938ece7d037c80ea858e">enums::DiscreteComPos</a> discrete_com_pos, boost::dynamic_bitset&lt;&gt; *output)</td></tr>
-<tr class="memdesc:a05a453333f804b587fdc1b14ade6adde"><td class="mdescLeft">&#160;</td><td class="mdescRight">離散化された重心位置から，その重心位置では取り得ない脚接地パターンを falseにする．  <br /></td></tr>
+<tr class="memdesc:a05a453333f804b587fdc1b14ade6adde"><td class="mdescLeft">&#160;</td><td class="mdescRight">離散化された重心位置から,その重心位置では取り得ない脚接地パターンを falseにする.  <br /></td></tr>
 <tr class="separator:a05a453333f804b587fdc1b14ade6adde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0397b4df03e5663553ae9b3d383e3d0" id="r_aa0397b4df03e5663553ae9b3d383e3d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1com__func.html#aa0397b4df03e5663553ae9b3d383e3d0">RemoveLegGroundPatternFromNotGroundableLeg</a> (int not_groundable_leg_index, boost::dynamic_bitset&lt;&gt; *output)</td></tr>
-<tr class="memdesc:aa0397b4df03e5663553ae9b3d383e3d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">接地できない脚番号から， その脚が接地できない場合に取り得ない接地パターンを falseにする．  <br /></td></tr>
+<tr class="memdesc:aa0397b4df03e5663553ae9b3d383e3d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">接地できない脚番号から, その脚が接地できない場合に取り得ない接地パターンを falseにする.  <br /></td></tr>
 <tr class="separator:aa0397b4df03e5663553ae9b3d383e3d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4f5fda73fce48453c9bd16789dd3929" id="r_ad4f5fda73fce48453c9bd16789dd3929"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1com__func.html#ad4f5fda73fce48453c9bd16789dd3929">RemoveLegGroundPatternFromNotFreeLeg</a> (int not_lift_leg_index, boost::dynamic_bitset&lt;&gt; *output)</td></tr>
-<tr class="memdesc:ad4f5fda73fce48453c9bd16789dd3929"><td class="mdescLeft">&#160;</td><td class="mdescRight">遊脚できない脚番号から， その脚が遊脚できない場合に取り得ない接地パターンを falseにする．  <br /></td></tr>
+<tr class="memdesc:ad4f5fda73fce48453c9bd16789dd3929"><td class="mdescLeft">&#160;</td><td class="mdescRight">遊脚できない脚番号から, その脚が遊脚できない場合に取り得ない接地パターンを falseにする.  <br /></td></tr>
 <tr class="separator:ad4f5fda73fce48453c9bd16789dd3929"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>重心タイプに関する名前空間．Center of Mass Function の略． </p>
-<p>leg_stateの上位ビットにて表されているもの．詳細は波東さんの修論で BFSinHierarchy・CreateComCandidate・PassFindingと様々なファイルに跨る処理 をまとめたくて作ったもの． <br  />
- 重心位置はざっくり離散化して，8通り， <br  />
- 脚の接地パターン(どの脚を上げるか，下げるか)は36通りある． <br  />
- 離散化した重心位置から取ることができない接地パターンを予め取り除くのがこれら関数の役割． <br  />
+<div class="textblock"><p>重心タイプに関する名前空間.Center of Mass Function の略. </p>
+<p>leg_stateの上位ビットにて表されているもの.詳細は波東さんの修論で BFSinHierarchy・CreateComCandidate・PassFindingと様々なファイルに跨る処理 をまとめたくて作ったもの. <br  />
+ 重心位置はざっくり離散化して,8通り, <br  />
+ 脚の接地パターン(どの脚を上げるか,下げるか)は36通りある. <br  />
+離散化した重心位置から取ることができない接地パターンを予め取り除くのがこれら関数の役割. <br  />
 <br  />
- 脚の接地パターンは， <br  />
- ・全接地 1通り． <br  />
- ・1本遊脚 6通り． <br  />
- ・2本遊脚 15通り． <br  />
- ・3本遊脚 20通り → 実現可能なものは14通り． <br  />
- なので全部で36通りある． </p>
+ 脚の接地パターンは, <br  />
+ ・全接地 1通り. <br  />
+ ・1本遊脚 6通り. <br  />
+ ・2本遊脚 15通り. <br  />
+ ・3本遊脚 20通り → 実現可能なものは14通り. <br  />
+ なので全部で36通りある. </p>
 </div><h2 class="groupheader">型定義詳解</h2>
 <a id="abd7df5746c85b666170dcacc650f2d3c" name="abd7df5746c85b666170dcacc650f2d3c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abd7df5746c85b666170dcacc650f2d3c">&#9670;&#160;</a></span>LegGroundedMap</h2>
@@ -139,12 +139,12 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>脚の接地パターンを表す型．leftがビットのデータ，rightが int型の番号． <br  />
- bimaps::bimap は，左右の型の両方からアクセスできる map． key→value，value→keyの両方が可能． <br  />
- 前述の通り脚の接地パターンは36通りある． <br  />
- それぞれの接地パターンに対応する数値を割り振って管理をしやすくするために， bimapを用いている． </p>
+<p>脚の接地パターンを表す型.leftがビットのデータ,rightが int型の番号. <br  />
+ bimaps::bimap は,左右の型の両方からアクセスできる map. key→value,value→keyの両方が可能. <br  />
+ 前述の通り脚の接地パターンは36通りある. <br  />
+ それぞれの接地パターンに対応する数値を割り振って管理をしやすくするために, bimapを用いている. </p>
 
-<p class="definition"> <a class="el" href="com__type_8h_source.html">com_type.h</a> の <a class="el" href="com__type_8h_source.html#l00061">61</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="com__type_8h_source.html">com_type.h</a> の <a class="el" href="com__type_8h_source.html#l00056">56</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -160,9 +160,9 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>脚の接地パターンを表すマップの値の型． </p>
+<p>脚の接地パターンを表すマップの値の型. </p>
 
-<p class="definition"> <a class="el" href="com__type_8h_source.html">com_type.h</a> の <a class="el" href="com__type_8h_source.html#l00064">64</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="com__type_8h_source.html">com_type.h</a> の <a class="el" href="com__type_8h_source.html#l00059">59</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -183,29 +183,29 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>脚の接地パターンの番号から，その番号に該当する接地パターンを返す． </p>
+<p>脚の接地パターンの番号から,その番号に該当する接地パターンを返す. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">leg_ground_pattern_index</td><td>脚の接地パターンの番号． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_ground_pattern_index</td><td>脚の接地パターンの番号. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>戻り値</dt><dd>脚の接地パターン． <br  />
- 6bitのビット列．1が接地で，0が遊脚となる． </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>脚の接地パターン. <br  />
+ 6bitのビット列.1が接地で,0が遊脚となる. </dd></dl>
 
-<p class="definition"> <a class="el" href="com__type_8cpp_source.html">com_type.cpp</a> の <a class="el" href="com__type_8cpp_source.html#l00234">234</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="com__type_8cpp_source.html">com_type.cpp</a> の <a class="el" href="com__type_8cpp_source.html#l00206">206</a> 行目に定義があります。</p>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacedesignlab_1_1com__func_a8308ef390790e3e3e12858dcb553e224_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1com__func_a8308ef390790e3e3e12858dcb553e224_icgraph" alt=""/></div>
 <map name="anamespacedesignlab_1_1com__func_a8308ef390790e3e3e12858dcb553e224_icgraph" id="anamespacedesignlab_1_1com__func_a8308ef390790e3e3e12858dcb553e224_icgraph">
-<area shape="rect" title="脚の接地パターンの番号から，その番号に該当する接地パターンを返す．" alt="" coords="231,64,425,123"/>
-<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down.html#a861b8e2c2efd6673f70c53881848d442" title="現在のノードから次のノード群を生成する．" alt="" coords="5,5,183,48"/>
-<area shape="poly" title=" " alt="" coords="216,64,171,51,172,46,217,59"/>
-<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down2d.html#a06c92f273cd957c7108ae2632bcd8339" title="現在のノードから次のノード群を生成する．" alt="" coords="5,72,183,115"/>
-<area shape="poly" title=" " alt="" coords="216,96,183,96,183,91,216,91"/>
-<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down_radius.html#a4d2c69510f3b456ce4cb21c2a58e9b45" title="現在のノードから次のノード群を生成する．" alt="" coords="5,139,183,181"/>
-<area shape="poly" title=" " alt="" coords="217,128,172,141,171,135,216,123"/>
+<area shape="rect" title="脚の接地パターンの番号から,その番号に該当する接地パターンを返す." alt="" coords="231,64,425,123"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down.html#a861b8e2c2efd6673f70c53881848d442" title="現在のノードから次のノード群を生成する." alt="" coords="5,5,183,48"/>
+<area shape="poly" title=" " alt="" coords="215,64,171,51,172,46,217,59"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down2d.html#a06c92f273cd957c7108ae2632bcd8339" title="現在のノードから次のノード群を生成する." alt="" coords="5,72,183,115"/>
+<area shape="poly" title=" " alt="" coords="215,96,183,96,183,91,215,91"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down_radius.html#a4d2c69510f3b456ce4cb21c2a58e9b45" title="現在のノードから次のノード群を生成する." alt="" coords="5,139,183,181"/>
+<area shape="poly" title=" " alt="" coords="217,128,172,141,171,135,215,123"/>
 </map>
 </div>
 
@@ -226,34 +226,34 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>脚の接地パターンの総数を返す． </p>
-<dl class="section return"><dt>戻り値</dt><dd>脚の接地パターンの総数． </dd></dl>
+<p>脚の接地パターンの総数を返す. </p>
+<dl class="section return"><dt>戻り値</dt><dd>脚の接地パターンの総数. </dd></dl>
 
-<p class="definition"> <a class="el" href="com__type_8cpp_source.html">com_type.cpp</a> の <a class="el" href="com__type_8cpp_source.html#l00229">229</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="com__type_8cpp_source.html">com_type.cpp</a> の <a class="el" href="com__type_8cpp_source.html#l00204">204</a> 行目に定義があります。</p>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacedesignlab_1_1com__func_a32f26cf991322f7e7cc4ea68213967a7_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1com__func_a32f26cf991322f7e7cc4ea68213967a7_icgraph" alt=""/></div>
 <map name="anamespacedesignlab_1_1com__func_a32f26cf991322f7e7cc4ea68213967a7_icgraph" id="anamespacedesignlab_1_1com__func_a32f26cf991322f7e7cc4ea68213967a7_icgraph">
-<area shape="rect" title="脚の接地パターンの総数を返す．" alt="" coords="516,147,698,190"/>
-<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down.html#a861b8e2c2efd6673f70c53881848d442" title="現在のノードから次のノード群を生成する．" alt="" coords="5,110,183,153"/>
-<area shape="poly" title=" " alt="" coords="501,184,371,190,300,187,230,179,154,156,155,151,231,174,301,182,371,184,501,179"/>
-<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down2d.html#a06c92f273cd957c7108ae2632bcd8339" title="現在のノードから次のノード群を生成する．" alt="" coords="5,177,183,219"/>
-<area shape="poly" title=" " alt="" coords="548,199,509,213,468,223,394,232,318,232,246,226,183,218,183,213,246,221,318,226,393,226,468,218,508,208,546,194"/>
-<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down_radius.html#a4d2c69510f3b456ce4cb21c2a58e9b45" title="現在のノードから次のノード群を生成する．" alt="" coords="5,39,183,82"/>
-<area shape="poly" title=" " alt="" coords="583,137,562,108,535,78,503,51,467,30,427,17,386,10,343,8,301,10,221,23,155,42,153,36,220,18,300,5,343,3,386,5,428,12,469,25,506,46,539,75,566,105,587,133"/>
-<area shape="rect" href="namespacedesignlab_1_1com__func.html#a05a453333f804b587fdc1b14ade6adde" title="離散化された重心位置から，その重心位置では取り得ない脚接地パターンを falseにする．" alt="" coords="231,39,468,82"/>
-<area shape="poly" title=" " alt="" coords="557,142,514,118,467,97,435,85,437,80,469,92,516,114,559,137"/>
-<area shape="rect" href="namespacedesignlab_1_1com__func.html#ad4f5fda73fce48453c9bd16789dd3929" title="遊脚できない脚番号から， その脚が遊脚できない場合に取り得ない接地パターンを falseにする．" alt="" coords="244,290,455,349"/>
+<area shape="rect" title="脚の接地パターンの総数を返す." alt="" coords="516,147,698,190"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down.html#a861b8e2c2efd6673f70c53881848d442" title="現在のノードから次のノード群を生成する." alt="" coords="5,110,183,153"/>
+<area shape="poly" title=" " alt="" coords="500,184,371,190,300,187,230,179,154,156,155,151,231,174,300,182,371,184,500,179"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down2d.html#a06c92f273cd957c7108ae2632bcd8339" title="現在のノードから次のノード群を生成する." alt="" coords="5,177,183,219"/>
+<area shape="poly" title=" " alt="" coords="547,199,509,213,468,223,394,232,318,232,246,226,183,218,183,213,246,221,318,226,393,226,468,218,508,208,546,194"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down_radius.html#a4d2c69510f3b456ce4cb21c2a58e9b45" title="現在のノードから次のノード群を生成する." alt="" coords="5,39,183,82"/>
+<area shape="poly" title=" " alt="" coords="582,136,561,108,534,78,503,51,467,30,427,17,386,10,343,8,301,10,221,23,155,42,153,36,220,18,300,5,343,3,386,5,428,12,469,25,506,46,538,74,565,104,586,132"/>
+<area shape="rect" href="namespacedesignlab_1_1com__func.html#a05a453333f804b587fdc1b14ade6adde" title="離散化された重心位置から,その重心位置では取り得ない脚接地パターンを falseにする." alt="" coords="231,39,468,82"/>
+<area shape="poly" title=" " alt="" coords="556,142,467,97,435,85,437,80,469,92,559,137"/>
+<area shape="rect" href="namespacedesignlab_1_1com__func.html#ad4f5fda73fce48453c9bd16789dd3929" title="遊脚できない脚番号から, その脚が遊脚できない場合に取り得ない接地パターンを falseにする." alt="" coords="244,290,455,349"/>
 <area shape="poly" title=" " alt="" coords="571,202,524,238,469,274,433,292,430,287,467,269,521,234,568,198"/>
-<area shape="rect" href="namespacedesignlab_1_1com__func.html#aa0397b4df03e5663553ae9b3d383e3d0" title="接地できない脚番号から， その脚が接地できない場合に取り得ない接地パターンを falseにする．" alt="" coords="244,106,455,165"/>
-<area shape="poly" title=" " alt="" coords="501,158,454,152,455,146,501,152"/>
-<area shape="poly" title=" " alt="" coords="256,89,175,112,173,107,255,84"/>
-<area shape="poly" title=" " alt="" coords="239,92,232,96,217,113,209,130,201,148,184,167,166,179,163,174,181,163,196,146,204,128,212,110,229,92,236,87"/>
-<area shape="poly" title=" " alt="" coords="216,63,183,63,183,58,216,58"/>
-<area shape="poly" title=" " alt="" coords="229,136,183,136,183,130,230,131"/>
-<area shape="poly" title=" " alt="" coords="231,167,184,179,183,174,229,162"/>
-<area shape="poly" title=" " alt="" coords="232,104,169,85,170,80,233,99"/>
+<area shape="rect" href="namespacedesignlab_1_1com__func.html#aa0397b4df03e5663553ae9b3d383e3d0" title="接地できない脚番号から, その脚が接地できない場合に取り得ない接地パターンを falseにする." alt="" coords="244,106,455,165"/>
+<area shape="poly" title=" " alt="" coords="500,158,454,152,455,146,501,152"/>
+<area shape="poly" title=" " alt="" coords="256,89,175,112,173,107,254,84"/>
+<area shape="poly" title=" " alt="" coords="239,92,232,96,217,113,209,130,201,148,184,167,166,179,163,174,181,163,196,146,204,128,212,110,229,92,236,88"/>
+<area shape="poly" title=" " alt="" coords="215,63,183,63,183,58,215,58"/>
+<area shape="poly" title=" " alt="" coords="229,136,183,136,183,130,229,131"/>
+<area shape="poly" title=" " alt="" coords="230,168,184,179,183,174,228,162"/>
+<area shape="poly" title=" " alt="" coords="231,104,169,85,170,80,233,99"/>
 </map>
 </div>
 
@@ -285,25 +285,25 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>離散化された重心位置から，その重心位置では取り得ない脚接地パターンを falseにする． </p>
+<p>離散化された重心位置から,その重心位置では取り得ない脚接地パターンを falseにする. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">discrete_com_pos</td><td>離散化された重心位置． </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">output</td><td>脚接地パターンが実行可能ならば true， 不可能なら falseにした bool型の配列． <br  />
- 引数の重心位置では取り得ない脚接地パターンを falseに変更する． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">discrete_com_pos</td><td>離散化された重心位置. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">output</td><td>脚接地パターンが実行可能ならば true, 不可能なら falseにした bool型の配列. <br  />
+ 引数の重心位置では取り得ない脚接地パターンを falseに変更する. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="com__type_8cpp_source.html">com_type.cpp</a> の <a class="el" href="com__type_8cpp_source.html#l00246">246</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="com__type_8cpp_source.html">com_type.cpp</a> の <a class="el" href="com__type_8cpp_source.html#l00216">216</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacedesignlab_1_1com__func_a05a453333f804b587fdc1b14ade6adde_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1com__func_a05a453333f804b587fdc1b14ade6adde_cgraph" alt=""/></div>
 <map name="anamespacedesignlab_1_1com__func_a05a453333f804b587fdc1b14ade6adde_cgraph" id="anamespacedesignlab_1_1com__func_a05a453333f804b587fdc1b14ade6adde_cgraph">
-<area shape="rect" title="離散化された重心位置から，その重心位置では取り得ない脚接地パターンを falseにする．" alt="" coords="5,5,243,48"/>
-<area shape="rect" href="namespacedesignlab_1_1com__func.html#a32f26cf991322f7e7cc4ea68213967a7" title="脚の接地パターンの総数を返す．" alt="" coords="291,5,473,48"/>
-<area shape="poly" title=" " alt="" coords="243,24,276,24,276,29,243,29"/>
+<area shape="rect" title="離散化された重心位置から,その重心位置では取り得ない脚接地パターンを falseにする." alt="" coords="5,5,243,48"/>
+<area shape="rect" href="namespacedesignlab_1_1com__func.html#a32f26cf991322f7e7cc4ea68213967a7" title="脚の接地パターンの総数を返す." alt="" coords="291,5,473,48"/>
+<area shape="poly" title=" " alt="" coords="243,24,275,24,275,29,243,29"/>
 </map>
 </div>
 <div class="dynheader">
@@ -311,13 +311,13 @@ $(function() {
 <div class="dyncontent">
 <div class="center"><img src="namespacedesignlab_1_1com__func_a05a453333f804b587fdc1b14ade6adde_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1com__func_a05a453333f804b587fdc1b14ade6adde_icgraph" alt=""/></div>
 <map name="anamespacedesignlab_1_1com__func_a05a453333f804b587fdc1b14ade6adde_icgraph" id="anamespacedesignlab_1_1com__func_a05a453333f804b587fdc1b14ade6adde_icgraph">
-<area shape="rect" title="離散化された重心位置から，その重心位置では取り得ない脚接地パターンを falseにする．" alt="" coords="231,72,468,115"/>
-<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down.html#a861b8e2c2efd6673f70c53881848d442" title="現在のノードから次のノード群を生成する．" alt="" coords="5,5,183,48"/>
-<area shape="poly" title=" " alt="" coords="250,70,178,51,179,46,252,65"/>
-<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down2d.html#a06c92f273cd957c7108ae2632bcd8339" title="現在のノードから次のノード群を生成する．" alt="" coords="5,72,183,115"/>
-<area shape="poly" title=" " alt="" coords="216,96,183,96,183,91,216,91"/>
-<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down_radius.html#a4d2c69510f3b456ce4cb21c2a58e9b45" title="現在のノードから次のノード群を生成する．" alt="" coords="5,139,183,181"/>
-<area shape="poly" title=" " alt="" coords="252,121,179,141,178,135,250,116"/>
+<area shape="rect" title="離散化された重心位置から,その重心位置では取り得ない脚接地パターンを falseにする." alt="" coords="231,72,468,115"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down.html#a861b8e2c2efd6673f70c53881848d442" title="現在のノードから次のノード群を生成する." alt="" coords="5,5,183,48"/>
+<area shape="poly" title=" " alt="" coords="250,70,178,51,179,46,251,65"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down2d.html#a06c92f273cd957c7108ae2632bcd8339" title="現在のノードから次のノード群を生成する." alt="" coords="5,72,183,115"/>
+<area shape="poly" title=" " alt="" coords="215,96,183,96,183,91,215,91"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down_radius.html#a4d2c69510f3b456ce4cb21c2a58e9b45" title="現在のノードから次のノード群を生成する." alt="" coords="5,139,183,181"/>
+<area shape="poly" title=" " alt="" coords="251,122,179,141,178,135,250,117"/>
 </map>
 </div>
 
@@ -349,25 +349,25 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>遊脚できない脚番号から， その脚が遊脚できない場合に取り得ない接地パターンを falseにする． </p>
+<p>遊脚できない脚番号から, その脚が遊脚できない場合に取り得ない接地パターンを falseにする. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">not_lift_leg_index</td><td>遊脚できない脚の脚番号． </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">output</td><td>脚接地パターンが実行可能ならば true， 不可能なら falseにした bool型の配列． <br  />
- 引数で指定した脚が遊脚できない場合に取り得ない接地パターンを falseに変更する． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">not_lift_leg_index</td><td>遊脚できない脚の脚番号. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">output</td><td>脚接地パターンが実行可能ならば true, 不可能なら falseにした bool型の配列. <br  />
+ 引数で指定した脚が遊脚できない場合に取り得ない接地パターンを falseに変更する. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="com__type_8cpp_source.html">com_type.cpp</a> の <a class="el" href="com__type_8cpp_source.html#l00277">277</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="com__type_8cpp_source.html">com_type.cpp</a> の <a class="el" href="com__type_8cpp_source.html#l00243">243</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacedesignlab_1_1com__func_ad4f5fda73fce48453c9bd16789dd3929_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1com__func_ad4f5fda73fce48453c9bd16789dd3929_cgraph" alt=""/></div>
 <map name="anamespacedesignlab_1_1com__func_ad4f5fda73fce48453c9bd16789dd3929_cgraph" id="anamespacedesignlab_1_1com__func_ad4f5fda73fce48453c9bd16789dd3929_cgraph">
-<area shape="rect" title="遊脚できない脚番号から， その脚が遊脚できない場合に取り得ない接地パターンを falseにする．" alt="" coords="5,5,216,64"/>
-<area shape="rect" href="namespacedesignlab_1_1com__func.html#a32f26cf991322f7e7cc4ea68213967a7" title="脚の接地パターンの総数を返す．" alt="" coords="264,13,446,56"/>
-<area shape="poly" title=" " alt="" coords="216,32,249,32,249,37,216,37"/>
+<area shape="rect" title="遊脚できない脚番号から, その脚が遊脚できない場合に取り得ない接地パターンを falseにする." alt="" coords="5,5,216,64"/>
+<area shape="rect" href="namespacedesignlab_1_1com__func.html#a32f26cf991322f7e7cc4ea68213967a7" title="脚の接地パターンの総数を返す." alt="" coords="264,13,446,56"/>
+<area shape="poly" title=" " alt="" coords="216,32,248,32,248,37,216,37"/>
 </map>
 </div>
 
@@ -399,25 +399,25 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>接地できない脚番号から， その脚が接地できない場合に取り得ない接地パターンを falseにする． </p>
+<p>接地できない脚番号から, その脚が接地できない場合に取り得ない接地パターンを falseにする. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">not_groundable_leg_index</td><td>接地できない脚の脚番号． </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">output</td><td>脚接地パターンが実行可能ならば true， 不可能なら falseにした bool型の配列． <br  />
- 引数で指定した脚が接地できない場合に，取り得ない接地パターンを falseに変更する． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">not_groundable_leg_index</td><td>接地できない脚の脚番号. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">output</td><td>脚接地パターンが実行可能ならば true, 不可能なら falseにした bool型の配列. <br  />
+ 引数で指定した脚が接地できない場合に,取り得ない接地パターンを falseに変更する. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="com__type_8cpp_source.html">com_type.cpp</a> の <a class="el" href="com__type_8cpp_source.html#l00261">261</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="com__type_8cpp_source.html">com_type.cpp</a> の <a class="el" href="com__type_8cpp_source.html#l00229">229</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacedesignlab_1_1com__func_aa0397b4df03e5663553ae9b3d383e3d0_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1com__func_aa0397b4df03e5663553ae9b3d383e3d0_cgraph" alt=""/></div>
 <map name="anamespacedesignlab_1_1com__func_aa0397b4df03e5663553ae9b3d383e3d0_cgraph" id="anamespacedesignlab_1_1com__func_aa0397b4df03e5663553ae9b3d383e3d0_cgraph">
-<area shape="rect" title="接地できない脚番号から， その脚が接地できない場合に取り得ない接地パターンを falseにする．" alt="" coords="5,5,216,64"/>
-<area shape="rect" href="namespacedesignlab_1_1com__func.html#a32f26cf991322f7e7cc4ea68213967a7" title="脚の接地パターンの総数を返す．" alt="" coords="264,13,446,56"/>
-<area shape="poly" title=" " alt="" coords="216,32,249,32,249,37,216,37"/>
+<area shape="rect" title="接地できない脚番号から, その脚が接地できない場合に取り得ない接地パターンを falseにする." alt="" coords="5,5,216,64"/>
+<area shape="rect" href="namespacedesignlab_1_1com__func.html#a32f26cf991322f7e7cc4ea68213967a7" title="脚の接地パターンの総数を返す." alt="" coords="264,13,446,56"/>
+<area shape="poly" title=" " alt="" coords="216,32,248,32,248,37,216,37"/>
 </map>
 </div>
 <div class="dynheader">
@@ -425,13 +425,13 @@ $(function() {
 <div class="dyncontent">
 <div class="center"><img src="namespacedesignlab_1_1com__func_aa0397b4df03e5663553ae9b3d383e3d0_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1com__func_aa0397b4df03e5663553ae9b3d383e3d0_icgraph" alt=""/></div>
 <map name="anamespacedesignlab_1_1com__func_aa0397b4df03e5663553ae9b3d383e3d0_icgraph" id="anamespacedesignlab_1_1com__func_aa0397b4df03e5663553ae9b3d383e3d0_icgraph">
-<area shape="rect" title="接地できない脚番号から， その脚が接地できない場合に取り得ない接地パターンを falseにする．" alt="" coords="231,64,441,123"/>
-<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down.html#a861b8e2c2efd6673f70c53881848d442" title="現在のノードから次のノード群を生成する．" alt="" coords="5,5,183,48"/>
-<area shape="poly" title=" " alt="" coords="216,63,173,51,175,46,217,58"/>
-<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down2d.html#a06c92f273cd957c7108ae2632bcd8339" title="現在のノードから次のノード群を生成する．" alt="" coords="5,72,183,115"/>
-<area shape="poly" title=" " alt="" coords="216,96,183,96,183,91,216,91"/>
-<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down_radius.html#a4d2c69510f3b456ce4cb21c2a58e9b45" title="現在のノードから次のノード群を生成する．" alt="" coords="5,139,183,181"/>
-<area shape="poly" title=" " alt="" coords="217,129,175,141,173,135,216,124"/>
+<area shape="rect" title="接地できない脚番号から, その脚が接地できない場合に取り得ない接地パターンを falseにする." alt="" coords="231,64,441,123"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down.html#a861b8e2c2efd6673f70c53881848d442" title="現在のノードから次のノード群を生成する." alt="" coords="5,5,183,48"/>
+<area shape="poly" title=" " alt="" coords="215,63,173,51,175,46,216,58"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down2d.html#a06c92f273cd957c7108ae2632bcd8339" title="現在のノードから次のノード群を生成する." alt="" coords="5,72,183,115"/>
+<area shape="poly" title=" " alt="" coords="215,96,183,96,183,91,215,91"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_leg_up_down_radius.html#a4d2c69510f3b456ce4cb21c2a58e9b45" title="現在のノードから次のノード群を生成する." alt="" coords="5,139,183,181"/>
+<area shape="poly" title=" " alt="" coords="216,129,175,141,173,135,215,124"/>
 </map>
 </div>
 

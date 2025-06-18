@@ -1,5 +1,5 @@
 <map id="designlab::PhantomXMkII::ConvertRobotToGlobalCoordinate" name="designlab::PhantomXMkII::ConvertRobotToGlobalCoordinate">
-<area shape="rect" id="Node000001" title="ロボット座標系で表現されている座標を，グローバル座標系に変換する．" alt="" coords="248,5,467,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a2d84fda12ddad344e7de4c0e023ffd4f" title="胴体が地面と干渉しているかどうかを判定する．" alt="" coords="5,5,200,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="233,29,200,29,200,24,233,24"/>
+<area shape="rect" id="Node000001" title="ロボット座標系で表現されている座標を,グローバル座標系に変換する." alt="" coords="248,5,467,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a2d84fda12ddad344e7de4c0e023ffd4f" title="胴体が地面と干渉しているかどうかを判定する." alt="" coords="5,5,200,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,29,200,29,200,24,232,24"/>
 </map>

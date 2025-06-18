@@ -1,0 +1,1051 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: designlab::nostd::expected&lt; T, E &gt; クラステンプレート</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacedesignlab.html">designlab</a></li><li class="navelem"><a class="el" href="namespacedesignlab_1_1nostd.html">nostd</a></li><li class="navelem"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">公開型</a> &#124;
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="classdesignlab_1_1nostd_1_1expected-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">designlab::nostd::expected&lt; T, E &gt; クラステンプレート<span class="mlabels"><span class="mlabel">final</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>自作の expected クラス  
+ <a href="classdesignlab_1_1nostd_1_1expected.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="my__expected_8h_source.html">my_expected.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+公開型</h2></td></tr>
+<tr class="memitem:a1dd27582715090c197d15b4d6f1dad60" id="r_a1dd27582715090c197d15b4d6f1dad60"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#a1dd27582715090c197d15b4d6f1dad60">value_type</a> = T</td></tr>
+<tr class="separator:a1dd27582715090c197d15b4d6f1dad60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5613b43a0e69eb7785a57fdd8e3d7309" id="r_a5613b43a0e69eb7785a57fdd8e3d7309"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#a5613b43a0e69eb7785a57fdd8e3d7309">error_type</a> = E</td></tr>
+<tr class="separator:a5613b43a0e69eb7785a57fdd8e3d7309"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87ac663a5e3e2e4b85418a985d513b09" id="r_a87ac663a5e3e2e4b85418a985d513b09"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#a87ac663a5e3e2e4b85418a985d513b09">unexpected_type</a> = <a class="el" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&lt; E &gt;</td></tr>
+<tr class="separator:a87ac663a5e3e2e4b85418a985d513b09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a97f40c2d87f04c0b690f197e02b49abb" id="r_a97f40c2d87f04c0b690f197e02b49abb"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#a97f40c2d87f04c0b690f197e02b49abb">expected</a> ()</td></tr>
+<tr class="memdesc:a97f40c2d87f04c0b690f197e02b49abb"><td class="mdescLeft">&#160;</td><td class="mdescRight">デフォルトコンストラクタ  <br /></td></tr>
+<tr class="separator:a97f40c2d87f04c0b690f197e02b49abb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a834a2606876283734b10fc830751ba" id="r_a7a834a2606876283734b10fc830751ba"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#a7a834a2606876283734b10fc830751ba">expected</a> (const <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a> &amp;rhs)</td></tr>
+<tr class="separator:a7a834a2606876283734b10fc830751ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4669c2433c2c1d3ab69ffb2ccf701556" id="r_a4669c2433c2c1d3ab69ffb2ccf701556"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#a4669c2433c2c1d3ab69ffb2ccf701556">expected</a> (<a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a> &amp;&amp;rhs) noexcept</td></tr>
+<tr class="separator:a4669c2433c2c1d3ab69ffb2ccf701556"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0eb41ee87953166c675dd5356f772f41" id="r_a0eb41ee87953166c675dd5356f772f41"><td class="memTemplParams" colspan="2">template&lt;class U , class G &gt; <br />
+requires (std::is_constructible_v&lt;T, const U&amp;&gt; &amp;&amp; std::is_constructible_v&lt;E, const G&amp;&gt; &amp;&amp; !<a class="el" href="namespacedesignlab_1_1nostd.html#a22a5884f1ae7edd6638cfa20788cd383">converts_from_any_cvref</a>&lt;T, <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt;U, G&gt;&amp;&gt; &amp;&amp; !std::is_constructible_v&lt;<a class="el" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&lt;E&gt;, <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt;U, G&gt;&amp;&gt; &amp;&amp; !std::is_constructible_v&lt;<a class="el" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&lt;E&gt;, <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt;U, G&gt;&gt; &amp;&amp; !std::is_constructible_v&lt;<a class="el" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&lt;E&gt;, const <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt;U, G&gt;&amp;&gt; &amp;&amp; !std::is_constructible_v&lt;<a class="el" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&lt;E&gt;, const <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt;U, G&gt;&gt;)</td></tr>
+<tr class="memitem:a0eb41ee87953166c675dd5356f772f41"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#a0eb41ee87953166c675dd5356f772f41">expected</a> (const <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt; U, G &gt; &amp;rhs)</td></tr>
+<tr class="separator:a0eb41ee87953166c675dd5356f772f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62337f5f79829a77c0b997ed42083fb7" id="r_a62337f5f79829a77c0b997ed42083fb7"><td class="memTemplParams" colspan="2">template&lt;class U , class G &gt; <br />
+requires (std::is_constructible_v&lt;T, U&gt; &amp;&amp; std::is_constructible_v&lt;E, G&gt; &amp;&amp; !<a class="el" href="namespacedesignlab_1_1nostd.html#a22a5884f1ae7edd6638cfa20788cd383">converts_from_any_cvref</a>&lt;T, <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt;U, G&gt;&gt; &amp;&amp; !std::is_constructible_v&lt;<a class="el" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&lt;E&gt;, <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt;U, G&gt;&amp;&gt; &amp;&amp; !std::is_constructible_v&lt;<a class="el" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&lt;E&gt;, <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt;U, G&gt;&gt; &amp;&amp; !std::is_constructible_v&lt;<a class="el" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&lt;E&gt;, const <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt;U, G&gt;&amp;&gt; &amp;&amp; !std::is_constructible_v&lt;<a class="el" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&lt;E&gt;, const <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt;U, G&gt;&gt;)</td></tr>
+<tr class="memitem:a62337f5f79829a77c0b997ed42083fb7"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#a62337f5f79829a77c0b997ed42083fb7">expected</a> (const <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt; U, G &gt; &amp;&amp;rhs) noexcept</td></tr>
+<tr class="separator:a62337f5f79829a77c0b997ed42083fb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aee22326af54a05b7755d05ca8bd341" id="r_a6aee22326af54a05b7755d05ca8bd341"><td class="memTemplParams" colspan="2">template&lt;class U  = T&gt; <br />
+requires (std::is_constructible_v&lt;T, U&gt; &amp;&amp; !std::is_same_v&lt;<a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>, std::remove_cvref_t&lt;U&gt;&gt; &amp;&amp; !std::is_same_v&lt;std::remove_cvref_t&lt;U&gt;, std::in_place_t&gt;)</td></tr>
+<tr class="memitem:a6aee22326af54a05b7755d05ca8bd341"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#a6aee22326af54a05b7755d05ca8bd341">expected</a> (U &amp;&amp;v)</td></tr>
+<tr class="separator:a6aee22326af54a05b7755d05ca8bd341"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76ed8ebf4e03f9753d43d000cd57fd3a" id="r_a76ed8ebf4e03f9753d43d000cd57fd3a"><td class="memTemplParams" colspan="2">template&lt;class G &gt; </td></tr>
+<tr class="memitem:a76ed8ebf4e03f9753d43d000cd57fd3a"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#a76ed8ebf4e03f9753d43d000cd57fd3a">expected</a> (const <a class="el" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&lt; G &gt; &amp;e)</td></tr>
+<tr class="separator:a76ed8ebf4e03f9753d43d000cd57fd3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af712259bdc5d21d03de8b7f2d3b10bca" id="r_af712259bdc5d21d03de8b7f2d3b10bca"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#af712259bdc5d21d03de8b7f2d3b10bca">~expected</a> ()=default</td></tr>
+<tr class="memdesc:af712259bdc5d21d03de8b7f2d3b10bca"><td class="mdescLeft">&#160;</td><td class="mdescRight">デストラクタ  <br /></td></tr>
+<tr class="separator:af712259bdc5d21d03de8b7f2d3b10bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71ead73c7c3e7ec6900b6169c7cc7e05" id="r_a71ead73c7c3e7ec6900b6169c7cc7e05"><td class="memItemLeft" align="right" valign="top">constexpr const T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#a71ead73c7c3e7ec6900b6169c7cc7e05">operator-&gt;</a> () const noexcept</td></tr>
+<tr class="memdesc:a71ead73c7c3e7ec6900b6169c7cc7e05"><td class="mdescLeft">&#160;</td><td class="mdescRight">正常値のポインタを返す.  <br /></td></tr>
+<tr class="separator:a71ead73c7c3e7ec6900b6169c7cc7e05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adeee58559346e12497dfa84428f30cf3" id="r_adeee58559346e12497dfa84428f30cf3"><td class="memItemLeft" align="right" valign="top">constexpr T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#adeee58559346e12497dfa84428f30cf3">operator-&gt;</a> () noexcept</td></tr>
+<tr class="memdesc:adeee58559346e12497dfa84428f30cf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">正常値のポインタを返す.  <br /></td></tr>
+<tr class="separator:adeee58559346e12497dfa84428f30cf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac179dedf6b233657425722c6580f48d" id="r_aac179dedf6b233657425722c6580f48d"><td class="memItemLeft" align="right" valign="top">constexpr const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#aac179dedf6b233657425722c6580f48d">operator*</a> () const &amp;noexcept</td></tr>
+<tr class="memdesc:aac179dedf6b233657425722c6580f48d"><td class="mdescLeft">&#160;</td><td class="mdescRight">正常値を参照する.  <br /></td></tr>
+<tr class="separator:aac179dedf6b233657425722c6580f48d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78a43bf87035ad942d32e1892352ee2a" id="r_a78a43bf87035ad942d32e1892352ee2a"><td class="memItemLeft" align="right" valign="top">constexpr T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#a78a43bf87035ad942d32e1892352ee2a">operator*</a> () &amp;noexcept</td></tr>
+<tr class="memdesc:a78a43bf87035ad942d32e1892352ee2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">正常値を参照する.  <br /></td></tr>
+<tr class="separator:a78a43bf87035ad942d32e1892352ee2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc4d465fce1dee6ebfe72d6f61eedb5a" id="r_abc4d465fce1dee6ebfe72d6f61eedb5a"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#abc4d465fce1dee6ebfe72d6f61eedb5a">operator bool</a> () const noexcept</td></tr>
+<tr class="separator:abc4d465fce1dee6ebfe72d6f61eedb5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1262f20ac4965758deb788fe46f22041" id="r_a1262f20ac4965758deb788fe46f22041"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#a1262f20ac4965758deb788fe46f22041">has_value</a> () const noexcept</td></tr>
+<tr class="memdesc:a1262f20ac4965758deb788fe46f22041"><td class="mdescLeft">&#160;</td><td class="mdescRight">正常値を持っている場合に true を返す.  <br /></td></tr>
+<tr class="separator:a1262f20ac4965758deb788fe46f22041"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39a61f6050dc79e3d6b1940bc5b5aaaf" id="r_a39a61f6050dc79e3d6b1940bc5b5aaaf"><td class="memItemLeft" align="right" valign="top">constexpr const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#a39a61f6050dc79e3d6b1940bc5b5aaaf">value</a> () const</td></tr>
+<tr class="memdesc:a39a61f6050dc79e3d6b1940bc5b5aaaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">正常値を返す.  <br /></td></tr>
+<tr class="separator:a39a61f6050dc79e3d6b1940bc5b5aaaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae34a4a7f71a55a9d497482169b7d0226" id="r_ae34a4a7f71a55a9d497482169b7d0226"><td class="memItemLeft" align="right" valign="top">constexpr T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#ae34a4a7f71a55a9d497482169b7d0226">value</a> ()</td></tr>
+<tr class="memdesc:ae34a4a7f71a55a9d497482169b7d0226"><td class="mdescLeft">&#160;</td><td class="mdescRight">正常値を返す.  <br /></td></tr>
+<tr class="separator:ae34a4a7f71a55a9d497482169b7d0226"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a297ee3769cc9b7d52d80dc56428204e3" id="r_a297ee3769cc9b7d52d80dc56428204e3"><td class="memItemLeft" align="right" valign="top">constexpr const E &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#a297ee3769cc9b7d52d80dc56428204e3">error</a> () const</td></tr>
+<tr class="memdesc:a297ee3769cc9b7d52d80dc56428204e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">失敗時の値を返す.  <br /></td></tr>
+<tr class="separator:a297ee3769cc9b7d52d80dc56428204e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fb15bbdc3edebcec9b97407380abfdb" id="r_a1fb15bbdc3edebcec9b97407380abfdb"><td class="memItemLeft" align="right" valign="top">constexpr E &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#a1fb15bbdc3edebcec9b97407380abfdb">error</a> ()</td></tr>
+<tr class="memdesc:a1fb15bbdc3edebcec9b97407380abfdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">失敗時の値を返す.  <br /></td></tr>
+<tr class="separator:a1fb15bbdc3edebcec9b97407380abfdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab053559b4821f62ce8f6bd5440a5fb42" id="r_ab053559b4821f62ce8f6bd5440a5fb42"><td class="memTemplParams" colspan="2">template&lt;class U &gt; <br />
+requires (std::is_constructible_v&lt;T, U&gt; &amp;&amp; std::is_copy_constructible_v&lt;T&gt;)</td></tr>
+<tr class="memitem:ab053559b4821f62ce8f6bd5440a5fb42"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#ab053559b4821f62ce8f6bd5440a5fb42">value_or</a> (U &amp;&amp;v) const &amp;</td></tr>
+<tr class="separator:ab053559b4821f62ce8f6bd5440a5fb42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb35014480d8ba52982c5140c07e123c" id="r_acb35014480d8ba52982c5140c07e123c"><td class="memTemplParams" colspan="2">template&lt;class G  = E&gt; <br />
+requires (std::is_constructible_v&lt;E, G&gt; &amp;&amp; std::is_copy_constructible_v&lt;E&gt;)</td></tr>
+<tr class="memitem:acb35014480d8ba52982c5140c07e123c"><td class="memTemplItemLeft" align="right" valign="top">constexpr E&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#acb35014480d8ba52982c5140c07e123c">error_or</a> (G &amp;&amp;e) const &amp;</td></tr>
+<tr class="separator:acb35014480d8ba52982c5140c07e123c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87aee6aeb6afdd2593e4ce5b56b501db" id="r_a87aee6aeb6afdd2593e4ce5b56b501db"><td class="memTemplParams" colspan="2">template&lt;class Return &gt; </td></tr>
+<tr class="memitem:a87aee6aeb6afdd2593e4ce5b56b501db"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt; Return, E &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#a87aee6aeb6afdd2593e4ce5b56b501db">and_then</a> (const std::function&lt; <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt; Return, E &gt;(T)&gt; &amp;func) const &amp;</td></tr>
+<tr class="separator:a87aee6aeb6afdd2593e4ce5b56b501db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d9eeb2caa4c3b5b82765d2f3203e2f3" id="r_a3d9eeb2caa4c3b5b82765d2f3203e2f3"><td class="memTemplParams" colspan="2">template&lt;class Func , class Ret  = std::invoke_result_t&lt;Func, T&gt;&gt; <br />
+requires (std::is_invocable_r_v&lt;Ret, Func, T&gt; &amp;&amp; std::is_same_v&lt;typename Ret::error_type, E&gt; &amp;&amp; std::is_same_v&lt;std::remove_cvref_t&lt;Ret&gt;, <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt;typename Ret::value_type, E&gt;&gt;)</td></tr>
+<tr class="memitem:a3d9eeb2caa4c3b5b82765d2f3203e2f3"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#a3d9eeb2caa4c3b5b82765d2f3203e2f3">and_then</a> (Func &amp;&amp;func) const &amp;</td></tr>
+<tr class="separator:a3d9eeb2caa4c3b5b82765d2f3203e2f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;impl::IsExpected T, typename E&gt;<br />
+class designlab::nostd::expected&lt; T, E &gt;</div><p>自作の expected クラス </p>
+<dl class="tparams"><dt>テンプレート引数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>型 T は成功時の値の型 </td></tr>
+    <tr><td class="paramname">E</td><td>型 E は失敗時の値の型 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00046">46</a> 行目に定義があります。</p>
+</div><h2 class="groupheader">型定義メンバ詳解</h2>
+<a id="a5613b43a0e69eb7785a57fdd8e3d7309" name="a5613b43a0e69eb7785a57fdd8e3d7309"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5613b43a0e69eb7785a57fdd8e3d7309">&#9670;&#160;</a></span>error_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::error_type =  E</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00049">49</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a87ac663a5e3e2e4b85418a985d513b09" name="a87ac663a5e3e2e4b85418a985d513b09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87ac663a5e3e2e4b85418a985d513b09">&#9670;&#160;</a></span>unexpected_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::unexpected_type =  <a class="el" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&lt;E&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00050">50</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a1dd27582715090c197d15b4d6f1dad60" name="a1dd27582715090c197d15b4d6f1dad60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dd27582715090c197d15b4d6f1dad60">&#9670;&#160;</a></span>value_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::value_type =  T</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00048">48</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">構築子と解体子</h2>
+<a id="a97f40c2d87f04c0b690f197e02b49abb" name="a97f40c2d87f04c0b690f197e02b49abb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97f40c2d87f04c0b690f197e02b49abb">&#9670;&#160;</a></span>expected() <span class="overload">[1/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::expected </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>デフォルトコンストラクタ </p>
+<p>T はデフォルトコンストラクタが必要 </p>
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00054">54</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a7a834a2606876283734b10fc830751ba" name="a7a834a2606876283734b10fc830751ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a834a2606876283734b10fc830751ba">&#9670;&#160;</a></span>expected() <span class="overload">[2/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::expected </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt; T, E &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00058">58</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a4669c2433c2c1d3ab69ffb2ccf701556" name="a4669c2433c2c1d3ab69ffb2ccf701556"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4669c2433c2c1d3ab69ffb2ccf701556">&#9670;&#160;</a></span>expected() <span class="overload">[3/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::expected </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt; T, E &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00061">61</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a0eb41ee87953166c675dd5356f772f41" name="a0eb41ee87953166c675dd5356f772f41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0eb41ee87953166c675dd5356f772f41">&#9670;&#160;</a></span>expected() <span class="overload">[4/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+<div class="memtemplate">
+template&lt;class U , class G &gt; <br />
+requires (std::is_constructible_v&lt;T, const U&amp;&gt; &amp;&amp; std::is_constructible_v&lt;E, const G&amp;&gt; &amp;&amp; !<a class="el" href="namespacedesignlab_1_1nostd.html#a22a5884f1ae7edd6638cfa20788cd383">converts_from_any_cvref</a>&lt;T, <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt;U, G&gt;&amp;&gt; &amp;&amp; !std::is_constructible_v&lt;<a class="el" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&lt;E&gt;, <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt;U, G&gt;&amp;&gt; &amp;&amp; !std::is_constructible_v&lt;<a class="el" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&lt;E&gt;, <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt;U, G&gt;&gt; &amp;&amp; !std::is_constructible_v&lt;<a class="el" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&lt;E&gt;, const <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt;U, G&gt;&amp;&gt; &amp;&amp; !std::is_constructible_v&lt;<a class="el" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&lt;E&gt;, const <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt;U, G&gt;&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::expected </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt; U, G &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00066">66</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a62337f5f79829a77c0b997ed42083fb7" name="a62337f5f79829a77c0b997ed42083fb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62337f5f79829a77c0b997ed42083fb7">&#9670;&#160;</a></span>expected() <span class="overload">[5/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+<div class="memtemplate">
+template&lt;class U , class G &gt; <br />
+requires (std::is_constructible_v&lt;T, U&gt; &amp;&amp; std::is_constructible_v&lt;E, G&gt; &amp;&amp; !<a class="el" href="namespacedesignlab_1_1nostd.html#a22a5884f1ae7edd6638cfa20788cd383">converts_from_any_cvref</a>&lt;T, <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt;U, G&gt;&gt; &amp;&amp; !std::is_constructible_v&lt;<a class="el" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&lt;E&gt;, <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt;U, G&gt;&amp;&gt; &amp;&amp; !std::is_constructible_v&lt;<a class="el" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&lt;E&gt;, <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt;U, G&gt;&gt; &amp;&amp; !std::is_constructible_v&lt;<a class="el" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&lt;E&gt;, const <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt;U, G&gt;&amp;&gt; &amp;&amp; !std::is_constructible_v&lt;<a class="el" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&lt;E&gt;, const <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt;U, G&gt;&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::expected </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt; U, G &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00077">77</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a6aee22326af54a05b7755d05ca8bd341" name="a6aee22326af54a05b7755d05ca8bd341"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6aee22326af54a05b7755d05ca8bd341">&#9670;&#160;</a></span>expected() <span class="overload">[6/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+<div class="memtemplate">
+template&lt;class U  = T&gt; <br />
+requires (std::is_constructible_v&lt;T, U&gt; &amp;&amp; !std::is_same_v&lt;<a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>, std::remove_cvref_t&lt;U&gt;&gt; &amp;&amp; !std::is_same_v&lt;std::remove_cvref_t&lt;U&gt;, std::in_place_t&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::expected </td>
+          <td>(</td>
+          <td class="paramtype">U &amp;&amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00087">87</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a76ed8ebf4e03f9753d43d000cd57fd3a" name="a76ed8ebf4e03f9753d43d000cd57fd3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76ed8ebf4e03f9753d43d000cd57fd3a">&#9670;&#160;</a></span>expected() <span class="overload">[7/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+<div class="memtemplate">
+template&lt;class G &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::expected </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&lt; G &gt; &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00094">94</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="af712259bdc5d21d03de8b7f2d3b10bca" name="af712259bdc5d21d03de8b7f2d3b10bca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af712259bdc5d21d03de8b7f2d3b10bca">&#9670;&#160;</a></span>~expected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::~<a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>デストラクタ </p>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a87aee6aeb6afdd2593e4ce5b56b501db" name="a87aee6aeb6afdd2593e4ce5b56b501db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87aee6aeb6afdd2593e4ce5b56b501db">&#9670;&#160;</a></span>and_then() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+<div class="memtemplate">
+template&lt;class Return &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt; Return, E &gt; <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::and_then </td>
+          <td>(</td>
+          <td class="paramtype">const std::function&lt; <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt; Return, E &gt;(T)&gt; &amp;&#160;</td>
+          <td class="paramname"><em>func</em></td><td>)</td>
+          <td> const &amp;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00176">176</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1nostd_1_1expected_a87aee6aeb6afdd2593e4ce5b56b501db_cgraph.png" border="0" usemap="#aclassdesignlab_1_1nostd_1_1expected_a87aee6aeb6afdd2593e4ce5b56b501db_cgraph" alt=""/></div>
+<map name="aclassdesignlab_1_1nostd_1_1expected_a87aee6aeb6afdd2593e4ce5b56b501db_cgraph" id="aclassdesignlab_1_1nostd_1_1expected_a87aee6aeb6afdd2593e4ce5b56b501db_cgraph">
+<area shape="rect" title=" " alt="" coords="5,39,183,81"/>
+<area shape="rect" href="classdesignlab_1_1nostd_1_1expected.html#a297ee3769cc9b7d52d80dc56428204e3" title="失敗時の値を返す." alt="" coords="231,5,408,48"/>
+<area shape="poly" title=" " alt="" coords="182,44,215,39,215,45,183,50"/>
+<area shape="rect" href="classdesignlab_1_1nostd_1_1expected.html#a39a61f6050dc79e3d6b1940bc5b5aaaf" title="正常値を返す." alt="" coords="231,72,408,115"/>
+<area shape="poly" title=" " alt="" coords="183,70,215,75,215,81,182,76"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3d9eeb2caa4c3b5b82765d2f3203e2f3" name="a3d9eeb2caa4c3b5b82765d2f3203e2f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d9eeb2caa4c3b5b82765d2f3203e2f3">&#9670;&#160;</a></span>and_then() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+<div class="memtemplate">
+template&lt;class Func , class Ret  = std::invoke_result_t&lt;Func, T&gt;&gt; <br />
+requires (std::is_invocable_r_v&lt;Ret, Func, T&gt; &amp;&amp; std::is_same_v&lt;typename Ret::error_type, E&gt; &amp;&amp; std::is_same_v&lt;std::remove_cvref_t&lt;Ret&gt;, <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">expected</a>&lt;typename Ret::value_type, E&gt;&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::and_then </td>
+          <td>(</td>
+          <td class="paramtype">Func &amp;&amp;&#160;</td>
+          <td class="paramname"><em>func</em></td><td>)</td>
+          <td> const &amp;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00187">187</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1nostd_1_1expected_a3d9eeb2caa4c3b5b82765d2f3203e2f3_cgraph.png" border="0" usemap="#aclassdesignlab_1_1nostd_1_1expected_a3d9eeb2caa4c3b5b82765d2f3203e2f3_cgraph" alt=""/></div>
+<map name="aclassdesignlab_1_1nostd_1_1expected_a3d9eeb2caa4c3b5b82765d2f3203e2f3_cgraph" id="aclassdesignlab_1_1nostd_1_1expected_a3d9eeb2caa4c3b5b82765d2f3203e2f3_cgraph">
+<area shape="rect" title=" " alt="" coords="5,39,183,81"/>
+<area shape="rect" href="classdesignlab_1_1nostd_1_1expected.html#a297ee3769cc9b7d52d80dc56428204e3" title="失敗時の値を返す." alt="" coords="231,5,408,48"/>
+<area shape="poly" title=" " alt="" coords="182,44,215,39,215,45,183,50"/>
+<area shape="rect" href="classdesignlab_1_1nostd_1_1expected.html#a39a61f6050dc79e3d6b1940bc5b5aaaf" title="正常値を返す." alt="" coords="231,72,408,115"/>
+<area shape="poly" title=" " alt="" coords="183,70,215,75,215,81,182,76"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1fb15bbdc3edebcec9b97407380abfdb" name="a1fb15bbdc3edebcec9b97407380abfdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fb15bbdc3edebcec9b97407380abfdb">&#9670;&#160;</a></span>error() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr E &amp; <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::error </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>失敗時の値を返す. </p>
+<p><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#a1262f20ac4965758deb788fe46f22041" title="正常値を持っている場合に true を返す.">has_value()</a> が false のときのみ呼び出すこと. </p><dl class="exception"><dt>例外</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classdesignlab_1_1nostd_1_1bad__expected__access.html">bad_expected_access</a></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00154">154</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a297ee3769cc9b7d52d80dc56428204e3" name="a297ee3769cc9b7d52d80dc56428204e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a297ee3769cc9b7d52d80dc56428204e3">&#9670;&#160;</a></span>error() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const E &amp; <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::error </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>失敗時の値を返す. </p>
+<p><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#a1262f20ac4965758deb788fe46f22041" title="正常値を持っている場合に true を返す.">has_value()</a> が false のときのみ呼び出すこと. </p><dl class="exception"><dt>例外</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classdesignlab_1_1nostd_1_1bad__expected__access.html">bad_expected_access</a></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00145">145</a> 行目に定義があります。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1nostd_1_1expected_a297ee3769cc9b7d52d80dc56428204e3_icgraph.png" border="0" usemap="#aclassdesignlab_1_1nostd_1_1expected_a297ee3769cc9b7d52d80dc56428204e3_icgraph" alt=""/></div>
+<map name="aclassdesignlab_1_1nostd_1_1expected_a297ee3769cc9b7d52d80dc56428204e3_icgraph" id="aclassdesignlab_1_1nostd_1_1expected_a297ee3769cc9b7d52d80dc56428204e3_icgraph">
+<area shape="rect" title="失敗時の値を返す." alt="" coords="231,72,408,115"/>
+<area shape="rect" href="classdesignlab_1_1nostd_1_1expected.html#a87aee6aeb6afdd2593e4ce5b56b501db" title=" " alt="" coords="5,5,183,48"/>
+<area shape="poly" title=" " alt="" coords="230,70,168,51,170,46,231,65"/>
+<area shape="rect" href="classdesignlab_1_1nostd_1_1expected.html#a3d9eeb2caa4c3b5b82765d2f3203e2f3" title=" " alt="" coords="5,72,183,115"/>
+<area shape="poly" title=" " alt="" coords="215,96,183,96,183,91,215,91"/>
+<area shape="rect" href="classdesignlab_1_1nostd_1_1expected.html#acb35014480d8ba52982c5140c07e123c" title=" " alt="" coords="5,139,183,181"/>
+<area shape="poly" title=" " alt="" coords="231,122,170,141,168,135,230,117"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="acb35014480d8ba52982c5140c07e123c" name="acb35014480d8ba52982c5140c07e123c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb35014480d8ba52982c5140c07e123c">&#9670;&#160;</a></span>error_or()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+<div class="memtemplate">
+template&lt;class G  = E&gt; <br />
+requires (std::is_constructible_v&lt;E, G&gt; &amp;&amp; std::is_copy_constructible_v&lt;E&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr E <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::error_or </td>
+          <td>(</td>
+          <td class="paramtype">G &amp;&amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td> const &amp;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00168">168</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1nostd_1_1expected_acb35014480d8ba52982c5140c07e123c_cgraph.png" border="0" usemap="#aclassdesignlab_1_1nostd_1_1expected_acb35014480d8ba52982c5140c07e123c_cgraph" alt=""/></div>
+<map name="aclassdesignlab_1_1nostd_1_1expected_acb35014480d8ba52982c5140c07e123c_cgraph" id="aclassdesignlab_1_1nostd_1_1expected_acb35014480d8ba52982c5140c07e123c_cgraph">
+<area shape="rect" title=" " alt="" coords="5,39,183,81"/>
+<area shape="rect" href="classdesignlab_1_1nostd_1_1expected.html#a297ee3769cc9b7d52d80dc56428204e3" title="失敗時の値を返す." alt="" coords="231,5,408,48"/>
+<area shape="poly" title=" " alt="" coords="182,44,215,39,215,45,183,50"/>
+<area shape="rect" href="classdesignlab_1_1nostd_1_1expected.html#a1262f20ac4965758deb788fe46f22041" title="正常値を持っている場合に true を返す." alt="" coords="231,72,408,115"/>
+<area shape="poly" title=" " alt="" coords="183,70,215,75,215,81,182,76"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1262f20ac4965758deb788fe46f22041" name="a1262f20ac4965758deb788fe46f22041"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1262f20ac4965758deb788fe46f22041">&#9670;&#160;</a></span>has_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::has_value </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>正常値を持っている場合に true を返す. </p>
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00124">124</a> 行目に定義があります。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1nostd_1_1expected_a1262f20ac4965758deb788fe46f22041_icgraph.png" border="0" usemap="#aclassdesignlab_1_1nostd_1_1expected_a1262f20ac4965758deb788fe46f22041_icgraph" alt=""/></div>
+<map name="aclassdesignlab_1_1nostd_1_1expected_a1262f20ac4965758deb788fe46f22041_icgraph" id="aclassdesignlab_1_1nostd_1_1expected_a1262f20ac4965758deb788fe46f22041_icgraph">
+<area shape="rect" title="正常値を持っている場合に true を返す." alt="" coords="231,39,408,81"/>
+<area shape="rect" href="classdesignlab_1_1nostd_1_1expected.html#acb35014480d8ba52982c5140c07e123c" title=" " alt="" coords="5,5,183,48"/>
+<area shape="poly" title=" " alt="" coords="215,47,183,42,184,37,216,42"/>
+<area shape="rect" href="classdesignlab_1_1nostd_1_1expected.html#ab053559b4821f62ce8f6bd5440a5fb42" title=" " alt="" coords="5,72,183,115"/>
+<area shape="poly" title=" " alt="" coords="216,78,184,83,183,78,215,73"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="abc4d465fce1dee6ebfe72d6f61eedb5a" name="abc4d465fce1dee6ebfe72d6f61eedb5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc4d465fce1dee6ebfe72d6f61eedb5a">&#9670;&#160;</a></span>operator bool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::operator bool </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00121">121</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a78a43bf87035ad942d32e1892352ee2a" name="a78a43bf87035ad942d32e1892352ee2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78a43bf87035ad942d32e1892352ee2a">&#9670;&#160;</a></span>operator*() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr T &amp; <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::operator* </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> &amp;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>正常値を参照する. </p>
+<p>正常値を持ってない場合は未定義動作になるので注意. </p>
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00119">119</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="aac179dedf6b233657425722c6580f48d" name="aac179dedf6b233657425722c6580f48d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac179dedf6b233657425722c6580f48d">&#9670;&#160;</a></span>operator*() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const T &amp; <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::operator* </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const &amp;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>正常値を参照する. </p>
+<p>正常値を持ってない場合は未定義動作になるので注意. </p>
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00113">113</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a71ead73c7c3e7ec6900b6169c7cc7e05" name="a71ead73c7c3e7ec6900b6169c7cc7e05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71ead73c7c3e7ec6900b6169c7cc7e05">&#9670;&#160;</a></span>operator-&gt;() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const T * <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::operator-&gt; </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>正常値のポインタを返す. </p>
+<p>正常値を持ってない場合は未定義動作になるので注意. </p>
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00101">101</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="adeee58559346e12497dfa84428f30cf3" name="adeee58559346e12497dfa84428f30cf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adeee58559346e12497dfa84428f30cf3">&#9670;&#160;</a></span>operator-&gt;() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr T * <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::operator-&gt; </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>正常値のポインタを返す. </p>
+<p>正常値を持ってない場合は未定義動作になるので注意. </p>
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00107">107</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ae34a4a7f71a55a9d497482169b7d0226" name="ae34a4a7f71a55a9d497482169b7d0226"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae34a4a7f71a55a9d497482169b7d0226">&#9670;&#160;</a></span>value() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr T &amp; <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::value </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>正常値を返す. </p>
+<p><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#a1262f20ac4965758deb788fe46f22041" title="正常値を持っている場合に true を返す.">has_value()</a> が true のときのみ呼び出すこと. </p><dl class="exception"><dt>例外</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classdesignlab_1_1nostd_1_1bad__expected__access.html">bad_expected_access</a></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00137">137</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a39a61f6050dc79e3d6b1940bc5b5aaaf" name="a39a61f6050dc79e3d6b1940bc5b5aaaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39a61f6050dc79e3d6b1940bc5b5aaaf">&#9670;&#160;</a></span>value() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const T &amp; <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::value </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>正常値を返す. </p>
+<p><a class="el" href="classdesignlab_1_1nostd_1_1expected.html#a1262f20ac4965758deb788fe46f22041" title="正常値を持っている場合に true を返す.">has_value()</a> が true のときのみ呼び出すこと. </p><dl class="exception"><dt>例外</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classdesignlab_1_1nostd_1_1bad__expected__access.html">bad_expected_access</a></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00129">129</a> 行目に定義があります。</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1nostd_1_1expected_a39a61f6050dc79e3d6b1940bc5b5aaaf_icgraph.png" border="0" usemap="#aclassdesignlab_1_1nostd_1_1expected_a39a61f6050dc79e3d6b1940bc5b5aaaf_icgraph" alt=""/></div>
+<map name="aclassdesignlab_1_1nostd_1_1expected_a39a61f6050dc79e3d6b1940bc5b5aaaf_icgraph" id="aclassdesignlab_1_1nostd_1_1expected_a39a61f6050dc79e3d6b1940bc5b5aaaf_icgraph">
+<area shape="rect" title="正常値を返す." alt="" coords="231,39,408,81"/>
+<area shape="rect" href="classdesignlab_1_1nostd_1_1expected.html#a87aee6aeb6afdd2593e4ce5b56b501db" title=" " alt="" coords="5,5,183,48"/>
+<area shape="poly" title=" " alt="" coords="215,47,183,42,184,37,216,42"/>
+<area shape="rect" href="classdesignlab_1_1nostd_1_1expected.html#a3d9eeb2caa4c3b5b82765d2f3203e2f3" title=" " alt="" coords="5,72,183,115"/>
+<area shape="poly" title=" " alt="" coords="216,78,184,83,183,78,215,73"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab053559b4821f62ce8f6bd5440a5fb42" name="ab053559b4821f62ce8f6bd5440a5fb42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab053559b4821f62ce8f6bd5440a5fb42">&#9670;&#160;</a></span>value_or()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;impl::IsExpected T, typename E &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; <br />
+requires (std::is_constructible_v&lt;T, U&gt; &amp;&amp; std::is_copy_constructible_v&lt;T&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr T <a class="el" href="classdesignlab_1_1nostd_1_1expected.html">designlab::nostd::expected</a>&lt; T, E &gt;::value_or </td>
+          <td>(</td>
+          <td class="paramtype">U &amp;&amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td> const &amp;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="my__expected_8h_source.html">my_expected.h</a> の <a class="el" href="my__expected_8h_source.html#l00161">161</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdesignlab_1_1nostd_1_1expected_ab053559b4821f62ce8f6bd5440a5fb42_cgraph.png" border="0" usemap="#aclassdesignlab_1_1nostd_1_1expected_ab053559b4821f62ce8f6bd5440a5fb42_cgraph" alt=""/></div>
+<map name="aclassdesignlab_1_1nostd_1_1expected_ab053559b4821f62ce8f6bd5440a5fb42_cgraph" id="aclassdesignlab_1_1nostd_1_1expected_ab053559b4821f62ce8f6bd5440a5fb42_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,183,48"/>
+<area shape="rect" href="classdesignlab_1_1nostd_1_1expected.html#a1262f20ac4965758deb788fe46f22041" title="正常値を持っている場合に true を返す." alt="" coords="231,5,408,48"/>
+<area shape="poly" title=" " alt="" coords="183,24,215,24,215,29,183,29"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>DesignLab/<a class="el" href="my__expected_8h_source.html">my_expected.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

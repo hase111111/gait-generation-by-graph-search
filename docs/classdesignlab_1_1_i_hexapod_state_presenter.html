@@ -80,7 +80,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>6脚ロボットの状態を表示するクラス．  
+<p>6脚ロボットの状態を表示するクラス.  
  <a href="classdesignlab_1_1_i_hexapod_state_presenter.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="interface__hexapod__state__presenter_8h_source.html">interface_hexapod_state_presenter.h</a>&gt;</code></p>
@@ -89,9 +89,11 @@ designlab::IHexapodStatePresenter の継承関係図</div>
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_i_hexapod_state_presenter__inherit__graph.png" border="0" usemap="#adesignlab_1_1_i_hexapod_state_presenter_inherit__map" alt="Inheritance graph"/></div>
 <map name="adesignlab_1_1_i_hexapod_state_presenter_inherit__map" id="adesignlab_1_1_i_hexapod_state_presenter_inherit__map">
-<area shape="rect" title="6脚ロボットの状態を表示するクラス．" alt="" coords="5,5,175,48"/>
-<area shape="rect" href="classdesignlab_1_1_phantom_x_mk_i_i.html" title="PhantomX mk&#45;2 の状態を計算するクラス．" alt="" coords="6,96,174,123"/>
-<area shape="poly" title=" " alt="" coords="93,63,93,95,87,95,87,63"/>
+<area shape="rect" title="6脚ロボットの状態を表示するクラス." alt="" coords="86,5,255,48"/>
+<area shape="rect" href="classdesignlab_1_1_phantom_x_mk_i_i.html" title="PhantomX mk&#45;2 の状態を計算するクラス." alt="" coords="5,96,173,123"/>
+<area shape="poly" title=" " alt="" coords="140,61,104,97,100,94,137,57"/>
+<area shape="rect" href="classdesignlab_1_1_xr_r1.html" title=" " alt="" coords="197,96,309,123"/>
+<area shape="poly" title=" " alt="" coords="204,57,242,94,238,97,201,61"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
@@ -100,20 +102,20 @@ designlab::IHexapodStatePresenter の継承関係図</div>
 <tr class="memitem:ad124052a0f31b18fee8646b1ba1b9226" id="r_ad124052a0f31b18fee8646b1ba1b9226"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_state_presenter.html#ad124052a0f31b18fee8646b1ba1b9226">~IHexapodStatePresenter</a> ()=default</td></tr>
 <tr class="separator:ad124052a0f31b18fee8646b1ba1b9226"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba50aeb5639e4217ac58b784f3846ca1" id="r_aba50aeb5639e4217ac58b784f3846ca1"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_state_presenter.html#aba50aeb5639e4217ac58b784f3846ca1">GetFreeLegPosLegCoordinate</a> (int leg_index) const noexcept=0</td></tr>
-<tr class="memdesc:aba50aeb5639e4217ac58b784f3846ca1"><td class="mdescLeft">&#160;</td><td class="mdescRight">遊脚する位置を返す，脚座標系．  <br /></td></tr>
+<tr class="memdesc:aba50aeb5639e4217ac58b784f3846ca1"><td class="mdescLeft">&#160;</td><td class="mdescRight">遊脚する位置を返す,脚座標系.  <br /></td></tr>
 <tr class="separator:aba50aeb5639e4217ac58b784f3846ca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99f6ffa0668eaecfffcb47f6b38481dd" id="r_a99f6ffa0668eaecfffcb47f6b38481dd"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_state_presenter.html#a99f6ffa0668eaecfffcb47f6b38481dd">GetLegBasePosRobotCoordinate</a> (int leg_index) const noexcept=0</td></tr>
-<tr class="memdesc:a99f6ffa0668eaecfffcb47f6b38481dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の付け根の座標(leg base position )を取得する．ロボット座標系．  <br /></td></tr>
+<tr class="memdesc:a99f6ffa0668eaecfffcb47f6b38481dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚の付け根の座標(leg base position )を取得する.ロボット座標系.  <br /></td></tr>
 <tr class="separator:a99f6ffa0668eaecfffcb47f6b38481dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e216cda64b6ed42fa57902bb4406080" id="r_a7e216cda64b6ed42fa57902bb4406080"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_state_presenter.html#a7e216cda64b6ed42fa57902bb4406080">GetGroundHeightMarginMin</a> () const noexcept=0</td></tr>
-<tr class="memdesc:a7e216cda64b6ed42fa57902bb4406080"><td class="mdescLeft">&#160;</td><td class="mdescRight">地面の最大高さと重心位置を最小どれだけ離すかを返す．  <br /></td></tr>
+<tr class="memdesc:a7e216cda64b6ed42fa57902bb4406080"><td class="mdescLeft">&#160;</td><td class="mdescRight">地面の最大高さと重心位置を最小どれだけ離すかを返す.  <br /></td></tr>
 <tr class="separator:a7e216cda64b6ed42fa57902bb4406080"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0e320e7e8d6db0755519760030b2062" id="r_ad0e320e7e8d6db0755519760030b2062"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_state_presenter.html#ad0e320e7e8d6db0755519760030b2062">GetGroundHeightMarginMax</a> () const noexcept=0</td></tr>
-<tr class="memdesc:ad0e320e7e8d6db0755519760030b2062"><td class="mdescLeft">&#160;</td><td class="mdescRight">地面の最大高さと重心位置を最大どれだけ離すかを返す．  <br /></td></tr>
+<tr class="memdesc:ad0e320e7e8d6db0755519760030b2062"><td class="mdescLeft">&#160;</td><td class="mdescRight">地面の最大高さと重心位置を最大どれだけ離すかを返す.  <br /></td></tr>
 <tr class="separator:ad0e320e7e8d6db0755519760030b2062"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>6脚ロボットの状態を表示するクラス． </p>
+<div class="textblock"><p>6脚ロボットの状態を表示するクラス. </p>
 
 <p class="definition"> <a class="el" href="interface__hexapod__state__presenter_8h_source.html">interface_hexapod_state_presenter.h</a> の <a class="el" href="interface__hexapod__state__presenter_8h_source.html#l00019">19</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">構築子と解体子</h2>
@@ -167,16 +169,16 @@ designlab::IHexapodStatePresenter の継承関係図</div>
 </table>
 </div><div class="memdoc">
 
-<p>遊脚する位置を返す，脚座標系． </p>
+<p>遊脚する位置を返す,脚座標系. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">leg_index</td><td>脚番号． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_index</td><td>脚番号. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>戻り値</dt><dd>遊脚する位置．脚座標系． </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>遊脚する位置.脚座標系. </dd></dl>
 
-<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i.html#ac284a810420fd8f69883cdb22d611704">designlab::PhantomXMkII</a>で実装されています。</p>
+<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i.html#ac284a810420fd8f69883cdb22d611704">designlab::PhantomXMkII</a>, <a class="el" href="classdesignlab_1_1_xr_r1.html#a7497d83856d3e8470191f2961bb6a54d">designlab::XrR1</a>で実装されています。</p>
 
 </div>
 </div>
@@ -203,10 +205,10 @@ designlab::IHexapodStatePresenter の継承関係図</div>
 </table>
 </div><div class="memdoc">
 
-<p>地面の最大高さと重心位置を最大どれだけ離すかを返す． </p>
-<dl class="section return"><dt>戻り値</dt><dd>地面の最大高さと重心位置との最大距離 [mm]． </dd></dl>
+<p>地面の最大高さと重心位置を最大どれだけ離すかを返す. </p>
+<dl class="section return"><dt>戻り値</dt><dd>地面の最大高さと重心位置との最大距離 [mm]. </dd></dl>
 
-<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a346bba4678638b033dcc6f07b3a5389f">designlab::PhantomXMkII</a>で実装されています。</p>
+<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a346bba4678638b033dcc6f07b3a5389f">designlab::PhantomXMkII</a>, <a class="el" href="classdesignlab_1_1_xr_r1.html#a264a08b1d9ea02df7007303f1ee1f44d">designlab::XrR1</a>で実装されています。</p>
 
 </div>
 </div>
@@ -233,10 +235,10 @@ designlab::IHexapodStatePresenter の継承関係図</div>
 </table>
 </div><div class="memdoc">
 
-<p>地面の最大高さと重心位置を最小どれだけ離すかを返す． </p>
-<dl class="section return"><dt>戻り値</dt><dd>地面の最大高さと重心位置との最小距離 [mm]． </dd></dl>
+<p>地面の最大高さと重心位置を最小どれだけ離すかを返す. </p>
+<dl class="section return"><dt>戻り値</dt><dd>地面の最大高さと重心位置との最小距離 [mm]. </dd></dl>
 
-<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a52a929d7f1610aa2f074d6b84c386bdf">designlab::PhantomXMkII</a>で実装されています。</p>
+<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a52a929d7f1610aa2f074d6b84c386bdf">designlab::PhantomXMkII</a>, <a class="el" href="classdesignlab_1_1_xr_r1.html#a6d0c406b79dcf84c40ca7737f889d206">designlab::XrR1</a>で実装されています。</p>
 
 </div>
 </div>
@@ -264,16 +266,16 @@ designlab::IHexapodStatePresenter の継承関係図</div>
 </table>
 </div><div class="memdoc">
 
-<p>脚の付け根の座標(leg base position )を取得する．ロボット座標系． </p>
+<p>脚の付け根の座標(leg base position )を取得する.ロボット座標系. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">leg_index</td><td>脚番号． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_index</td><td>脚番号. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>戻り値</dt><dd>脚の付け根の座標．ロボット座標系． </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>脚の付け根の座標.ロボット座標系. </dd></dl>
 
-<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i.html#afb11bfbb9551917334442fa9a9e38ffd">designlab::PhantomXMkII</a>で実装されています。</p>
+<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i.html#afb11bfbb9551917334442fa9a9e38ffd">designlab::PhantomXMkII</a>, <a class="el" href="classdesignlab_1_1_xr_r1.html#af0f68fb46ee7ec585055a9590fb7c6c6">designlab::XrR1</a>で実装されています。</p>
 
 </div>
 </div>

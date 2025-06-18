@@ -1,7 +1,7 @@
 <map id="designlab::SimpleButton" name="designlab::SimpleButton">
-<area shape="rect" id="Node000001" title="Dxlibのウィンドウのボタンの処理・描画を管理するクラス．" alt="" coords="80,80,243,107"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_dxlib_gui.html" title="Dxlibの画面に表示するGUIのインターフェース．" alt="" coords="5,5,142,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,40,148,78,145,82,98,44"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_i_dxlib_clickable.html" title="クリック可能なGUIのインターフェース．" alt="" coords="166,5,336,32"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="226,43,179,82,175,78,223,39"/>
+<area shape="rect" id="Node000001" title="Dxlibのウィンドウのボタンの処理・描画を管理するクラス." alt="" coords="80,80,243,107"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_dxlib_gui.html" title="Dxlibの画面に表示するGUIのインターフェース." alt="" coords="5,5,142,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,40,148,78,145,82,99,44"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_i_dxlib_clickable.html" title="クリック可能なGUIのインターフェース." alt="" coords="166,5,336,32"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="225,44,179,82,175,78,222,40"/>
 </map>

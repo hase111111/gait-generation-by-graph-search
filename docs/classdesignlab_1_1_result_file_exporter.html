@@ -80,34 +80,34 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>結果をファイルに出力するクラス． <br  />
- シミュレーション結果をファイルに出力する処理を全てこのクラスにまとめた．  
+<p>結果をファイルに出力するクラス. <br  />
+ シミュレーション結果をファイルに出力する処理を全てこのクラスにまとめた.  
  <a href="classdesignlab_1_1_result_file_exporter.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="result__file__exporter_8h_source.html">result_file_exporter.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
-<tr class="memitem:a7d8e32c999f8c4c55f016629d115441f" id="r_a7d8e32c999f8c4c55f016629d115441f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_result_file_exporter.html#a7d8e32c999f8c4c55f016629d115441f">ResultFileExporter</a> (const std::shared_ptr&lt; const <a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculator.html">IHexapodJointCalculator</a> &gt; &amp;calculator_ptr)</td></tr>
-<tr class="separator:a7d8e32c999f8c4c55f016629d115441f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3279fe9c9a2bfabb91eb2a21251c3f57" id="r_a3279fe9c9a2bfabb91eb2a21251c3f57"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_result_file_exporter.html#a3279fe9c9a2bfabb91eb2a21251c3f57">ResultFileExporter</a> (const std::shared_ptr&lt; const <a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculator.html">IHexapodJointCalculator</a> &gt; &amp;calculator_ptr, const std::shared_ptr&lt; const <a class="el" href="classdesignlab_1_1_i_hexapod_coordinate_converter.html">IHexapodCoordinateConverter</a> &gt; &amp;converter_ptr)</td></tr>
+<tr class="separator:a3279fe9c9a2bfabb91eb2a21251c3f57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdec2e0ea262c131c22f9570ff7d97c6" id="r_abdec2e0ea262c131c22f9570ff7d97c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_result_file_exporter.html#abdec2e0ea262c131c22f9570ff7d97c6">CreateRootDirectory</a> ()</td></tr>
-<tr class="memdesc:abdec2e0ea262c131c22f9570ff7d97c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">resultフォルダがなければ作成する．また，フォルダ名を指定する．  <br /></td></tr>
+<tr class="memdesc:abdec2e0ea262c131c22f9570ff7d97c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">resultフォルダがなければ作成する.また,フォルダ名を指定する.  <br /></td></tr>
 <tr class="separator:abdec2e0ea262c131c22f9570ff7d97c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a501f744c8528b83d521dd56b9f6033c7" id="r_a501f744c8528b83d521dd56b9f6033c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_result_file_exporter.html#a501f744c8528b83d521dd56b9f6033c7">PushSimulationResult</a> (const <a class="el" href="structdesignlab_1_1_simulation_result_record.html">SimulationResultRecord</a> &amp;simulation_result)</td></tr>
-<tr class="memdesc:a501f744c8528b83d521dd56b9f6033c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">シミュレーション結果を追加する．  <br /></td></tr>
+<tr class="memdesc:a501f744c8528b83d521dd56b9f6033c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">シミュレーション結果を追加する.  <br /></td></tr>
 <tr class="separator:a501f744c8528b83d521dd56b9f6033c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0ccf5803f3a4596b246366c83027dee" id="r_aa0ccf5803f3a4596b246366c83027dee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_result_file_exporter.html#aa0ccf5803f3a4596b246366c83027dee">Export</a> () const</td></tr>
-<tr class="memdesc:aa0ccf5803f3a4596b246366c83027dee"><td class="mdescLeft">&#160;</td><td class="mdescRight">結果をファイルに出力する．  <br /></td></tr>
+<tr class="memdesc:aa0ccf5803f3a4596b246366c83027dee"><td class="mdescLeft">&#160;</td><td class="mdescRight">結果をファイルに出力する.  <br /></td></tr>
 <tr class="separator:aa0ccf5803f3a4596b246366c83027dee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>結果をファイルに出力するクラス． <br  />
- シミュレーション結果をファイルに出力する処理を全てこのクラスにまとめた． </p>
+<div class="textblock"><p>結果をファイルに出力するクラス. <br  />
+ シミュレーション結果をファイルに出力する処理を全てこのクラスにまとめた. </p>
 
-<p class="definition"> <a class="el" href="result__file__exporter_8h_source.html">result_file_exporter.h</a> の <a class="el" href="result__file__exporter_8h_source.html#l00050">50</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="result__file__exporter_8h_source.html">result_file_exporter.h</a> の <a class="el" href="result__file__exporter_8h_source.html#l00053">53</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">構築子と解体子</h2>
-<a id="a7d8e32c999f8c4c55f016629d115441f" name="a7d8e32c999f8c4c55f016629d115441f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d8e32c999f8c4c55f016629d115441f">&#9670;&#160;</a></span>ResultFileExporter()</h2>
+<a id="a3279fe9c9a2bfabb91eb2a21251c3f57" name="a3279fe9c9a2bfabb91eb2a21251c3f57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3279fe9c9a2bfabb91eb2a21251c3f57">&#9670;&#160;</a></span>ResultFileExporter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -116,13 +116,23 @@ $(function() {
           <td class="memname">designlab::ResultFileExporter::ResultFileExporter </td>
           <td>(</td>
           <td class="paramtype">const std::shared_ptr&lt; const <a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculator.html">IHexapodJointCalculator</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>calculator_ptr</em></td><td>)</td>
+          <td class="paramname"><em>calculator_ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::shared_ptr&lt; const <a class="el" href="classdesignlab_1_1_i_hexapod_coordinate_converter.html">IHexapodCoordinateConverter</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>converter_ptr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="result__file__exporter_8cpp_source.html">result_file_exporter.cpp</a> の <a class="el" href="result__file__exporter_8cpp_source.html#l00045">45</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="result__file__exporter_8cpp_source.html">result_file_exporter.cpp</a> の <a class="el" href="result__file__exporter_8cpp_source.html#l00043">43</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -142,23 +152,23 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>resultフォルダがなければ作成する．また，フォルダ名を指定する． </p>
+<p>resultフォルダがなければ作成する.また,フォルダ名を指定する. </p>
 
-<p class="definition"> <a class="el" href="result__file__exporter_8cpp_source.html">result_file_exporter.cpp</a> の <a class="el" href="result__file__exporter_8cpp_source.html#l00052">52</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="result__file__exporter_8cpp_source.html">result_file_exporter.cpp</a> の <a class="el" href="result__file__exporter_8cpp_source.html#l00050">50</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_result_file_exporter_abdec2e0ea262c131c22f9570ff7d97c6_cgraph.png" border="0" usemap="#aclassdesignlab_1_1_result_file_exporter_abdec2e0ea262c131c22f9570ff7d97c6_cgraph" alt=""/></div>
 <map name="aclassdesignlab_1_1_result_file_exporter_abdec2e0ea262c131c22f9570ff7d97c6_cgraph" id="aclassdesignlab_1_1_result_file_exporter_abdec2e0ea262c131c22f9570ff7d97c6_cgraph">
-<area shape="rect" title="resultフォルダがなければ作成する．また，フォルダ名を指定する．" alt="" coords="5,39,197,81"/>
-<area shape="rect" href="classdesignlab_1_1_cmd_i_o_util.html#ac1e70caf5bcc19c4ab42106c3e1dc9ab" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="245,39,388,81"/>
+<area shape="rect" title="resultフォルダがなければ作成する.また,フォルダ名を指定する." alt="" coords="5,39,197,81"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a18eaad4770c65620da0d19bf3508f6a5" title="コマンドラインに文字を出力する関数, format した文字列を出力する. &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される." alt="" coords="245,47,419,73"/>
 <area shape="poly" title=" " alt="" coords="197,57,229,57,229,63,197,63"/>
-<area shape="rect" href="classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="436,39,579,81"/>
-<area shape="poly" title=" " alt="" coords="388,57,421,57,421,63,388,63"/>
-<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数． &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている． &#160;&#160;例えば，" alt="" coords="627,5,815,48"/>
-<area shape="poly" title=" " alt="" coords="579,46,611,41,612,46,580,51"/>
-<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数．指定した文字で文字列を分割する． &#160;&#160;分割した結果，空白が含まれる場合や文字列がない場合は，そのまま返す． &#160;&#160;最後が区切り文字で終わる場合は，それを無視する．" alt="" coords="651,72,791,115"/>
-<area shape="poly" title=" " alt="" coords="580,69,635,77,635,83,579,74"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="467,47,633,73"/>
+<area shape="poly" title=" " alt="" coords="420,57,451,57,451,63,420,63"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="681,5,869,48"/>
+<area shape="poly" title=" " alt="" coords="633,45,665,40,666,46,634,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="705,72,845,115"/>
+<area shape="poly" title=" " alt="" coords="634,70,690,78,689,83,633,75"/>
 </map>
 </div>
 
@@ -179,25 +189,25 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>結果をファイルに出力する． </p>
+<p>結果をファイルに出力する. </p>
 
-<p class="definition"> <a class="el" href="result__file__exporter_8cpp_source.html">result_file_exporter.cpp</a> の <a class="el" href="result__file__exporter_8cpp_source.html#l00073">73</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="result__file__exporter_8cpp_source.html">result_file_exporter.cpp</a> の <a class="el" href="result__file__exporter_8cpp_source.html#l00068">68</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_result_file_exporter_aa0ccf5803f3a4596b246366c83027dee_cgraph.png" border="0" usemap="#aclassdesignlab_1_1_result_file_exporter_aa0ccf5803f3a4596b246366c83027dee_cgraph" alt=""/></div>
 <map name="aclassdesignlab_1_1_result_file_exporter_aa0ccf5803f3a4596b246366c83027dee_cgraph" id="aclassdesignlab_1_1_result_file_exporter_aa0ccf5803f3a4596b246366c83027dee_cgraph">
-<area shape="rect" title="結果をファイルに出力する．" alt="" coords="5,39,197,81"/>
-<area shape="rect" href="classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="245,39,388,81"/>
+<area shape="rect" title="結果をファイルに出力する." alt="" coords="5,39,197,81"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="245,47,411,73"/>
 <area shape="poly" title=" " alt="" coords="197,57,229,57,229,63,197,63"/>
-<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数． &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている． &#160;&#160;例えば，" alt="" coords="436,5,623,48"/>
-<area shape="poly" title=" " alt="" coords="388,46,420,41,421,46,389,51"/>
-<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数．指定した文字で文字列を分割する． &#160;&#160;分割した結果，空白が含まれる場合や文字列がない場合は，そのまま返す． &#160;&#160;最後が区切り文字で終わる場合は，それを無視する．" alt="" coords="460,72,600,115"/>
-<area shape="poly" title=" " alt="" coords="389,69,444,77,443,83,388,74"/>
-<area shape="rect" href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと，その要素を列挙した文字列を返す関数．" alt="" coords="671,39,823,81"/>
-<area shape="poly" title=" " alt="" coords="624,38,656,43,655,49,623,44"/>
-<area shape="poly" title=" " alt="" coords="706,39,704,29,711,20,725,14,747,12,770,14,784,21,782,25,769,20,747,17,727,19,714,24,709,30,711,38"/>
-<area shape="poly" title=" " alt="" coords="600,80,656,71,656,77,601,85"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="459,5,646,48"/>
+<area shape="poly" title=" " alt="" coords="411,45,443,40,444,46,412,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="483,72,623,115"/>
+<area shape="poly" title=" " alt="" coords="412,70,467,78,467,83,411,75"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと,その要素を列挙した文字列を返す関数." alt="" coords="694,39,846,81"/>
+<area shape="poly" title=" " alt="" coords="647,38,679,43,678,49,646,44"/>
+<area shape="poly" title=" " alt="" coords="729,39,727,29,734,20,748,14,770,12,793,14,807,21,805,25,792,20,770,17,750,19,737,24,732,30,734,38"/>
+<area shape="poly" title=" " alt="" coords="623,80,679,71,679,77,624,85"/>
 </map>
 </div>
 
@@ -219,7 +229,7 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>シミュレーション結果を追加する． </p>
+<p>シミュレーション結果を追加する. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">simulation_result</td><td>シミュレーションの結果 </td></tr>
@@ -227,7 +237,7 @@ $(function() {
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="result__file__exporter_8cpp_source.html">result_file_exporter.cpp</a> の <a class="el" href="result__file__exporter_8cpp_source.html#l00067">67</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="result__file__exporter_8cpp_source.html">result_file_exporter.cpp</a> の <a class="el" href="result__file__exporter_8cpp_source.html#l00062">62</a> 行目に定義があります。</p>
 
 </div>
 </div>

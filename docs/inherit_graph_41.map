@@ -1,9 +1,16 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$classdesignlab_1_1_i_graph_searcher.html" title="グラフ探索の処理のインターフェース．" alt="" coords="5,80,180,107"/>
-<area shape="rect" id="Node000001" href="$classdesignlab_1_1_graph_searcher_spot_turn.html" title="グラフ探索を行い，直進する動作を評価するクラス．" alt="" coords="240,5,412,48"/>
-<area shape="poly" id="edge38_Node000000_Node000001" title=" " alt="" coords="156,73,248,46,249,51,158,78"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graph_searcher_straight_move.html" title="グラフ探索を行い，直進する動作を評価するクラス．" alt="" coords="240,72,412,115"/>
-<area shape="poly" id="edge39_Node000000_Node000002" title=" " alt="" coords="195,91,240,91,240,96,195,96"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_graph_searcher_turn.html" title="グラフ探索を行い，直進する動作を評価するクラス．" alt="" coords="228,139,424,165"/>
-<area shape="poly" id="edge40_Node000000_Node000003" title=" " alt="" coords="164,108,270,136,269,141,163,114"/>
+<area shape="rect" id="Node000000" href="$classdesignlab_1_1_i_hexapod_coordinate_converter.html" title="ロボットは重心位置・アクチュエータなど様々な点を基準とする座標系を持つ. これらを相互に変換する処理のインターフェース." alt="" coords="5,139,206,181"/>
+<area shape="rect" id="Node000001" href="$classdesignlab_1_1_phantom_x_mk_i_i.html" title="PhantomX mk&#45;2 の状態を計算するクラス." alt="" coords="254,84,421,111"/>
+<area shape="poly" id="edge41_Node000000_Node000001" title=" " alt="" coords="201,131,284,109,286,114,202,137"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_xr_r1.html" title=" " alt="" coords="282,139,393,165"/>
+<area shape="poly" id="edge42_Node000000_Node000003" title=" " alt="" coords="221,153,281,151,282,157,221,159"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_hexapod_joint_calculator.html" title="間接角度や角速度を計算する処理のインターフェース." alt="" coords="23,205,188,248"/>
+<area shape="poly" id="edge43_Node000002_Node000001" title=" " alt="" coords="199,195,204,191,219,175,227,159,236,142,252,125,281,109,283,114,255,129,240,145,232,161,224,178,207,195,202,199"/>
+<area shape="poly" id="edge44_Node000002_Node000003" title=" " alt="" coords="188,197,292,163,294,169,189,203"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_i_hexapod_posture_validator.html" title="6脚ロボットが有効な姿勢をとっているかを チェックする処理のインターフェース." alt="" coords="14,5,197,48"/>
+<area shape="poly" id="edge45_Node000004_Node000001" title=" " alt="" coords="193,51,292,81,290,86,192,56"/>
+<area shape="poly" id="edge46_Node000004_Node000003" title=" " alt="" coords="201,54,207,58,223,74,232,90,240,105,255,121,284,136,282,140,252,125,236,109,227,93,219,77,204,62,198,58"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_i_hexapod_state_presenter.html" title="6脚ロボットの状態を表示するクラス." alt="" coords="21,72,190,115"/>
+<area shape="poly" id="edge47_Node000005_Node000001" title=" " alt="" coords="205,92,253,93,253,99,205,98"/>
+<area shape="poly" id="edge48_Node000005_Node000003" title=" " alt="" coords="206,116,282,135,281,141,204,121"/>
 </map>

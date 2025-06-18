@@ -1,13 +1,13 @@
 <map id="designlab::leg_func::ChangeGround" name="designlab::leg_func::ChangeGround">
-<area shape="rect" id="Node000001" title="脚の接地・遊脚情報を変更する．" alt="" coords="430,105,562,148"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__func.html#ad818e831df8eb0f0eb141e7fb62ad689" title="全ての脚の接地・遊脚情報を変更する．" alt="" coords="231,72,382,115"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="415,115,382,109,383,104,416,110"/>
-<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1leg__func.html#af8887609c397b32b722ccc0994a17d01" title="脚の情報を変更する．" alt="" coords="240,139,373,181"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="416,143,373,151,372,146,415,138"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_node_creator_leg_up_down.html#a861b8e2c2efd6673f70c53881848d442" title="現在のノードから次のノード群を生成する．" alt="" coords="5,5,183,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,70,164,51,165,46,223,65"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_node_creator_leg_up_down2d.html#a06c92f273cd957c7108ae2632bcd8339" title="現在のノードから次のノード群を生成する．" alt="" coords="5,72,183,115"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="216,96,183,96,183,91,216,91"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_node_creator_leg_up_down_radius.html#a4d2c69510f3b456ce4cb21c2a58e9b45" title="現在のノードから次のノード群を生成する．" alt="" coords="5,139,183,181"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="223,122,165,141,164,135,222,117"/>
+<area shape="rect" id="Node000001" title="脚の接地・遊脚情報を変更する." alt="" coords="430,105,562,148"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__func.html#ad818e831df8eb0f0eb141e7fb62ad689" title="全ての脚の接地・遊脚情報を変更する." alt="" coords="231,72,382,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="414,115,382,109,383,104,415,110"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1leg__func.html#a03f3262b2403978dc84dec86917b2d1c" title="脚の情報を変更する." alt="" coords="240,139,373,181"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="415,144,373,151,372,146,414,138"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_node_creator_leg_up_down.html#a861b8e2c2efd6673f70c53881848d442" title="現在のノードから次のノード群を生成する." alt="" coords="5,5,183,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="221,69,164,51,165,46,223,64"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_node_creator_leg_up_down2d.html#a06c92f273cd957c7108ae2632bcd8339" title="現在のノードから次のノード群を生成する." alt="" coords="5,72,183,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="215,96,183,96,183,91,215,91"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_node_creator_leg_up_down_radius.html#a4d2c69510f3b456ce4cb21c2a58e9b45" title="現在のノードから次のノード群を生成する." alt="" coords="5,139,183,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="223,122,165,141,164,135,221,117"/>
 </map>

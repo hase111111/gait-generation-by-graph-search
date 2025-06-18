@@ -1,21 +1,21 @@
 <map id="designlab::GraphSearcherTurn::SearchGraphTreeVector" name="designlab::GraphSearcherTurn::SearchGraphTreeVector">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,72,199,115"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graph_search_evaluator.html#afec9e5848a45da7d934104e85140169f" title="評価値を初期化する． 自身の持つ評価方法を用いて，評価値を初期化する．" alt="" coords="466,5,679,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,77,451,41,451,46,200,82"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_graph_search_evaluator.html#ae225cfba0b80231e46ed4865b9c2013e" title="2つの評価値を比較する．左側の評価値が良い場合は true を返す．" alt="" coords="466,72,679,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="199,91,451,91,451,96,199,96"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_graph_searcher_turn.html#ac22fbad22f153e4d367575fe6cc55197" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="247,172,418,215"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="154,113,269,163,267,168,152,118"/>
-<area shape="poly" id="edge9_Node000004_Node000002" title=" " alt="" coords="348,170,396,114,429,84,465,58,474,52,477,57,467,62,432,88,400,118,352,173"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graph_search_evaluator.html#afec9e5848a45da7d934104e85140169f" title="評価値を初期化する. 自身の持つ評価方法を用いて,評価値を初期化する." alt="" coords="466,5,679,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,77,450,41,451,47,200,82"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_graph_search_evaluator.html#ae225cfba0b80231e46ed4865b9c2013e" title="2つの評価値を比較する.左側の評価値が良い場合は true を返す." alt="" coords="466,72,679,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="199,91,450,91,450,96,199,96"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_graph_searcher_turn.html#ac22fbad22f153e4d367575fe6cc55197" title="グラフを受け取り,その中から最適な次の動作を出力する." alt="" coords="247,172,418,215"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="154,113,268,163,266,168,152,118"/>
+<area shape="poly" id="edge9_Node000004_Node000002" title=" " alt="" coords="348,170,396,114,429,84,465,58,474,53,476,57,467,62,432,88,400,118,352,173"/>
 <area shape="poly" id="edge10_Node000004_Node000003" title=" " alt="" coords="372,169,465,124,482,118,484,123,467,129,374,174"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#af2594414411d9eb5e9103d30dffe9714" title="グラフのノードの総数を返す．" alt="" coords="480,205,665,248"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="419,203,466,209,465,214,418,208"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#ac9d24a79c7d5e3db0eb943cd9ecd446d" title="グラフのノードの参照を返す．" alt="" coords="480,272,665,315"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#af2594414411d9eb5e9103d30dffe9714" title="グラフのノードの総数を返す." alt="" coords="480,205,665,248"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="419,203,465,209,465,214,418,208"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#ac9d24a79c7d5e3db0eb943cd9ecd446d" title="グラフのノードの参照を返す." alt="" coords="480,272,665,315"/>
 <area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="374,213,467,258,484,264,482,269,465,262,372,218"/>
-<area shape="rect" id="Node000007" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#a7d5f0968cb4718d9baf449222e0ec7d8" title="指定したノードの親ノードの参照を返す．depthは親ノードの深さを指定する．" alt="" coords="480,339,665,381"/>
-<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="352,213,400,269,432,299,467,324,477,330,474,334,465,329,429,303,396,272,348,217"/>
-<area shape="rect" id="Node000008" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#a58dc796c0ec1334efff0cbcaee77eb6e" title="グラフの根ノードの参照を返す．" alt="" coords="480,405,665,448"/>
-<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="345,214,362,252,389,300,424,349,468,391,474,395,471,400,464,395,420,353,384,303,357,254,340,216"/>
-<area shape="rect" id="Node000009" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#adfa3cd34663f368fe3e9e76962b38898" title="グラフが根ノードを持つかどうかを返す． &#160;&#160;根ノードとは，親を持たないノードのこと． &#160;&#160;一番最初に追加するノードは必ず根になるため， 根を持つかどうかはノードの総数が0でないかどうかで判定できる．" alt="" coords="480,139,665,181"/>
-<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="418,179,465,172,466,177,419,184"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#a7d5f0968cb4718d9baf449222e0ec7d8" title="指定したノードの親ノードの参照を返す.depthは親ノードの深さを指定する." alt="" coords="480,339,665,381"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="352,213,400,269,432,299,467,324,476,329,474,334,465,329,429,303,396,272,348,217"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#a58dc796c0ec1334efff0cbcaee77eb6e" title="グラフの根ノードの参照を返す." alt="" coords="480,405,665,448"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="345,214,362,252,389,300,424,349,468,391,473,395,470,399,464,395,420,353,384,303,357,254,340,216"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_gait_pattern_graph_tree.html#adfa3cd34663f368fe3e9e76962b38898" title="グラフが根ノードを持つかどうかを返す. &#160;&#160;根ノードとは,親を持たないノードのこと. &#160;&#160;一番最初に追加するノードは必ず根になるため, 根を持つかどうかはノードの総数が0でないかどうかで判定できる." alt="" coords="480,139,665,181"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="418,179,465,172,465,178,419,184"/>
 </map>

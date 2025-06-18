@@ -1,0 +1,13 @@
+<map id="designlab::cmdio::ErrorOutput" name="designlab::cmdio::ErrorOutput">
+<area shape="rect" id="Node000001" title="コマンドラインに文字を出力する関数. Error 用の出力." alt="" coords="5,47,200,73"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="248,47,414,73"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,57,232,57,232,63,200,63"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="462,5,649,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="414,45,446,40,447,46,415,50"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="486,72,626,115"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="415,70,470,78,470,83,414,75"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと,その要素を列挙した文字列を返す関数." alt="" coords="697,39,849,81"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="650,38,682,43,681,49,649,44"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="732,39,730,29,737,20,751,14,773,12,796,14,810,21,808,25,795,20,773,17,753,19,740,24,735,30,737,38"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="626,80,682,71,682,77,627,85"/>
+</map>

@@ -80,7 +80,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>非同期処理を行う際に，データの更新回数とデータをまとめて扱うためのクラス．  
+<p>非同期処理を行う際に,データの更新回数とデータをまとめて扱うためのクラス.  
  <a href="classdesignlab_1_1_asyncable_data.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="asyncable__data_8h_source.html">asyncable_data.h</a>&gt;</code></p>
@@ -101,41 +101,41 @@ $(function() {
 <tr class="memdesc:a9952baed9609122303659682593f9e51"><td class="mdescLeft">&#160;</td><td class="mdescRight">ムーブは禁止  <br /></td></tr>
 <tr class="separator:a9952baed9609122303659682593f9e51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c7246c553509aa27b2041e0adf9bb2d" id="r_a7c7246c553509aa27b2041e0adf9bb2d"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_asyncable_data.html#a7c7246c553509aa27b2041e0adf9bb2d">GetData</a> () const</td></tr>
-<tr class="memdesc:a7c7246c553509aa27b2041e0adf9bb2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">値をコピーして返す． <br  />
- この時，read lockをかける． <br  />
- 当然，データの更新回数はインクリメントされない．  <br /></td></tr>
+<tr class="memdesc:a7c7246c553509aa27b2041e0adf9bb2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">値をコピーして返す. <br  />
+ この時,read lockをかける. <br  />
+ 当然,データの更新回数はインクリメントされない.  <br /></td></tr>
 <tr class="separator:a7c7246c553509aa27b2041e0adf9bb2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7548f30d5efbe1ec703876acabe98977" id="r_a7548f30d5efbe1ec703876acabe98977"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_asyncable_data.html#a7548f30d5efbe1ec703876acabe98977">SetData</a> (const T &amp;data)</td></tr>
-<tr class="memdesc:a7548f30d5efbe1ec703876acabe98977"><td class="mdescLeft">&#160;</td><td class="mdescRight">値を変更する． <br  />
- この時，write lockをかける． <br  />
- データの更新回数をインクリメントする．  <br /></td></tr>
+<tr class="memdesc:a7548f30d5efbe1ec703876acabe98977"><td class="mdescLeft">&#160;</td><td class="mdescRight">値を変更する. <br  />
+ この時,write lockをかける. <br  />
+ データの更新回数をインクリメントする.  <br /></td></tr>
 <tr class="separator:a7548f30d5efbe1ec703876acabe98977"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60c9d3e15548a1c0513b08fb4b77202f" id="r_a60c9d3e15548a1c0513b08fb4b77202f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_asyncable_data.html#a60c9d3e15548a1c0513b08fb4b77202f">GetUpdateCount</a> () const</td></tr>
-<tr class="memdesc:a60c9d3e15548a1c0513b08fb4b77202f"><td class="mdescLeft">&#160;</td><td class="mdescRight">データの更新回数を返す． <br  />
- この時，read lockをかける． <br  />
- この値を調べて，データの更新回数が変わっているかを確認することで， データの更新が必要かを確認する．  <br /></td></tr>
+<tr class="memdesc:a60c9d3e15548a1c0513b08fb4b77202f"><td class="mdescLeft">&#160;</td><td class="mdescRight">データの更新回数を返す. <br  />
+ この時,read lockをかける. <br  />
+ この値を調べて,データの更新回数が変わっているかを確認することで, データの更新が必要かを確認する.  <br /></td></tr>
 <tr class="separator:a60c9d3e15548a1c0513b08fb4b77202f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;CopyAssignable T&gt;<br />
-class designlab::AsyncableData&lt; T &gt;</div><p>非同期処理を行う際に，データの更新回数とデータをまとめて扱うためのクラス． </p>
-<p>この構造体は，データの更新回数とデータをまとめて扱うためのクラス． 値の変更を行う際に，データの更新回数をインクリメント(++のこと)することで， データの更新回数をカウントする． <br  />
- また，値の参照と変更を行う際にミューテックスを用いて， 同時に変更されることを防ぐ．ミューテックスについては以下を参照．</p>
+class designlab::AsyncableData&lt; T &gt;</div><p>非同期処理を行う際に,データの更新回数とデータをまとめて扱うためのクラス. </p>
+<p>この構造体は,データの更新回数とデータをまとめて扱うためのクラス. 値の変更を行う際に,データの更新回数をインクリメント(++のこと)することで, データの更新回数をカウントする. <br  />
+ また,値の参照と変更を行う際にミューテックスを用いて, 同時に変更されることを防ぐ.ミューテックスについては以下を参照.</p>
 <p><b></b>[非同期処理について] <br  />
- 非同期処理 (並列・同時に処理を行うこと) を行う際に， 一つのにデータに同じタイミングで操作すると危険(未定義処理になり， 成功か失敗かが不定になる)． このクラスはそれを防ぐために boost::shared_mutex を使用している． このクラス内では read lock, write lockを使っている．</p>
+ 非同期処理 (並列・同時に処理を行うこと) を行う際に, 一つのにデータに同じタイミングで操作すると危険(未定義処理になり, 成功か失敗かが不定になる). このクラスはそれを防ぐために boost::shared_mutex を使用している. このクラス内では read lock, write lockを使っている.</p>
 <p><b></b>[参考] </p><ul>
 <li><a href="https://iorate.hatenablog.com/entry/20130222/1361538198">https://iorate.hatenablog.com/entry/20130222/1361538198</a> (アクセス日 2023/12/25) </li>
 <li><a href="https://www.mathkuro.com/c-cpp/boost/how-to-use-boost-thread/#toc10">https://www.mathkuro.com/c-cpp/boost/how-to-use-boost-thread/#toc10</a> (アクセス日 2023/12/25)</li>
 </ul>
 <p><br  />
- メンバのm_mtxについている mutable は， constなメンバ関数 (メンバの値を変更できないメンバ関数)においても変更できるようになるメンバ変数を表 す．通常絶対使うべきではないが，今回のような場合(boost::shared_mutexを使う場合) は有効的． </p><dl class="tparams"><dt>テンプレート引数</dt><dd>
+ メンバのm_mtxについている mutable は, constなメンバ関数 (メンバの値を変更できないメンバ関数)においても変更できるようになるメンバ変数を表 す.通常絶対使うべきではないが,今回のような場合(boost::shared_mutexを使う場合) は有効的. </p><dl class="tparams"><dt>テンプレート引数</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td>非同期処理を行うデータ．代入を行うことができる型を指定すること． </td></tr>
+    <tr><td class="paramname">T</td><td>非同期処理を行うデータ.代入を行うことができる型を指定すること. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="asyncable__data_8h_source.html">asyncable_data.h</a> の <a class="el" href="asyncable__data_8h_source.html#l00054">54</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="asyncable__data_8h_source.html">asyncable_data.h</a> の <a class="el" href="asyncable__data_8h_source.html#l00048">48</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">構築子と解体子</h2>
 <a id="a892babc369ce63ab433a580143a9265d" name="a892babc369ce63ab433a580143a9265d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a892babc369ce63ab433a580143a9265d">&#9670;&#160;</a></span>AsyncableData() <span class="overload">[1/4]</span></h2>
@@ -162,7 +162,7 @@ template&lt;CopyAssignable T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="asyncable__data_8h_source.html">asyncable_data.h</a> の <a class="el" href="asyncable__data_8h_source.html#l00057">57</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="asyncable__data_8h_source.html">asyncable_data.h</a> の <a class="el" href="asyncable__data_8h_source.html#l00050">50</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -192,7 +192,7 @@ template&lt;CopyAssignable T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="asyncable__data_8h_source.html">asyncable_data.h</a> の <a class="el" href="asyncable__data_8h_source.html#l00058">58</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="asyncable__data_8h_source.html">asyncable_data.h</a> の <a class="el" href="asyncable__data_8h_source.html#l00051">51</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -282,12 +282,12 @@ template&lt;CopyAssignable T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>値をコピーして返す． <br  />
- この時，read lockをかける． <br  />
- 当然，データの更新回数はインクリメントされない． </p>
-<dl class="section return"><dt>戻り値</dt><dd>値をそのまま返す．参照ではない． </dd></dl>
+<p>値をコピーして返す. <br  />
+ この時,read lockをかける. <br  />
+ 当然,データの更新回数はインクリメントされない. </p>
+<dl class="section return"><dt>戻り値</dt><dd>値をそのまま返す.参照ではない. </dd></dl>
 
-<p class="definition"> <a class="el" href="asyncable__data_8h_source.html">asyncable_data.h</a> の <a class="el" href="asyncable__data_8h_source.html#l00068">68</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="asyncable__data_8h_source.html">asyncable_data.h</a> の <a class="el" href="asyncable__data_8h_source.html#l00062">62</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -316,12 +316,12 @@ template&lt;CopyAssignable T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>データの更新回数を返す． <br  />
- この時，read lockをかける． <br  />
- この値を調べて，データの更新回数が変わっているかを確認することで， データの更新が必要かを確認する． </p>
-<dl class="section return"><dt>戻り値</dt><dd>データの更新回数． </dd></dl>
+<p>データの更新回数を返す. <br  />
+ この時,read lockをかける. <br  />
+ この値を調べて,データの更新回数が変わっているかを確認することで, データの更新が必要かを確認する. </p>
+<dl class="section return"><dt>戻り値</dt><dd>データの更新回数. </dd></dl>
 
-<p class="definition"> <a class="el" href="asyncable__data_8h_source.html">asyncable_data.h</a> の <a class="el" href="asyncable__data_8h_source.html#l00099">99</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="asyncable__data_8h_source.html">asyncable_data.h</a> の <a class="el" href="asyncable__data_8h_source.html#l00092">92</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -381,17 +381,17 @@ template&lt;CopyAssignable T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>値を変更する． <br  />
- この時，write lockをかける． <br  />
- データの更新回数をインクリメントする． </p>
+<p>値を変更する. <br  />
+ この時,write lockをかける. <br  />
+ データの更新回数をインクリメントする. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>セットする値．const参照渡しされる． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>セットする値.const参照渡しされる. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="asyncable__data_8h_source.html">asyncable_data.h</a> の <a class="el" href="asyncable__data_8h_source.html#l00080">80</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="asyncable__data_8h_source.html">asyncable_data.h</a> の <a class="el" href="asyncable__data_8h_source.html#l00073">73</a> 行目に定義があります。</p>
 
 </div>
 </div>

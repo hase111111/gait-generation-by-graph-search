@@ -94,35 +94,31 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="robot__state__node_8h.html">robot_state_node.h</a>&quot;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_dead_lock_checker.html">   29</a></span><span class="keyword">class </span><a class="code hl_class" href="classdesignlab_1_1_dead_lock_checker.html">DeadLockChecker</a> final</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_dead_lock_checker.html#a63e79bf9a46cb90509d022e512b674fd">AddNode</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a>&amp; node);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_dead_lock_checker.html#aac293568de69a6bd716123f033c8f164">IsDeadLock</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a> {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_dead_lock_checker.html">   28</a></span><span class="keyword">class </span><a class="code hl_class" href="classdesignlab_1_1_dead_lock_checker.html">DeadLockChecker</a> final {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_dead_lock_checker.html#a63e79bf9a46cb90509d022e512b674fd">AddNode</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a>&amp; node);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  [[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_dead_lock_checker.html#aac293568de69a6bd716123f033c8f164">IsDeadLock</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> kMaxDataNum = 30;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> kMaxDataNum = 30;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    std::deque&lt;RobotStateNode&gt; node_vec_;  </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  std::deque&lt;RobotStateNode&gt; node_vec_;  </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>};</div>
 </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>}  <span class="comment">// namespace designlab</span></div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_DEAD_LOCK_CHECKER_H_</span></div>
-<div class="ttc" id="aclassdesignlab_1_1_dead_lock_checker_html"><div class="ttname"><a href="classdesignlab_1_1_dead_lock_checker.html">designlab::DeadLockChecker</a></div><div class="ttdoc">動作のループを感知するクラス．</div><div class="ttdef"><b>Definition</b> <a href="dead__lock__checker_8h_source.html#l00029">dead_lock_checker.h:30</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_dead_lock_checker_html_a63e79bf9a46cb90509d022e512b674fd"><div class="ttname"><a href="classdesignlab_1_1_dead_lock_checker.html#a63e79bf9a46cb90509d022e512b674fd">designlab::DeadLockChecker::AddNode</a></div><div class="ttdeci">void AddNode(const RobotStateNode &amp;node)</div><div class="ttdoc">ロボットが行った動作を追加する．上限数を超えたら，古いものから削除する．</div><div class="ttdef"><b>Definition</b> <a href="dead__lock__checker_8cpp_source.html#l00014">dead_lock_checker.cpp:14</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_dead_lock_checker_html_aac293568de69a6bd716123f033c8f164"><div class="ttname"><a href="classdesignlab_1_1_dead_lock_checker.html#aac293568de69a6bd716123f033c8f164">designlab::DeadLockChecker::IsDeadLock</a></div><div class="ttdeci">bool IsDeadLock() const</div><div class="ttdoc">直近に行った動作を比較して，ロボットが正しく動作できているか判断する．</div><div class="ttdef"><b>Definition</b> <a href="dead__lock__checker_8cpp_source.html#l00027">dead_lock_checker.cpp:27</a></div></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_DEAD_LOCK_CHECKER_H_</span></div>
+<div class="ttc" id="aclassdesignlab_1_1_dead_lock_checker_html"><div class="ttname"><a href="classdesignlab_1_1_dead_lock_checker.html">designlab::DeadLockChecker</a></div><div class="ttdoc">動作のループを感知するクラス.</div><div class="ttdef"><b>Definition</b> <a href="dead__lock__checker_8h_source.html#l00028">dead_lock_checker.h:28</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_dead_lock_checker_html_a63e79bf9a46cb90509d022e512b674fd"><div class="ttname"><a href="classdesignlab_1_1_dead_lock_checker.html#a63e79bf9a46cb90509d022e512b674fd">designlab::DeadLockChecker::AddNode</a></div><div class="ttdeci">void AddNode(const RobotStateNode &amp;node)</div><div class="ttdoc">ロボットが行った動作を追加する.上限数を超えたら,古いものから削除する.</div><div class="ttdef"><b>Definition</b> <a href="dead__lock__checker_8cpp_source.html#l00012">dead_lock_checker.cpp:12</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_dead_lock_checker_html_aac293568de69a6bd716123f033c8f164"><div class="ttname"><a href="classdesignlab_1_1_dead_lock_checker.html#aac293568de69a6bd716123f033c8f164">designlab::DeadLockChecker::IsDeadLock</a></div><div class="ttdeci">bool IsDeadLock() const</div><div class="ttdoc">直近に行った動作を比較して,ロボットが正しく動作できているか判断する.</div><div class="ttdef"><b>Definition</b> <a href="dead__lock__checker_8cpp_source.html#l00022">dead_lock_checker.cpp:22</a></div></div>
 <div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00017">abstract_dxlib_gui.cpp:18</a></div></div>
 <div class="ttc" id="arobot__state__node_8h_html"><div class="ttname"><a href="robot__state__node_8h.html">robot_state_node.h</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_robot_state_node_html"><div class="ttname"><a href="structdesignlab_1_1_robot_state_node.html">designlab::RobotStateNode</a></div><div class="ttdoc">グラフ構造のためのノード(頂点)．旧名 LNODE</div><div class="ttdef"><b>Definition</b> <a href="robot__state__node_8h_source.html#l00046">robot_state_node.h:47</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_robot_state_node_html"><div class="ttname"><a href="structdesignlab_1_1_robot_state_node.html">designlab::RobotStateNode</a></div><div class="ttdoc">グラフ構造のためのノード(頂点).</div><div class="ttdef"><b>Definition</b> <a href="robot__state__node_8h_source.html#l00039">robot_state_node.h:39</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

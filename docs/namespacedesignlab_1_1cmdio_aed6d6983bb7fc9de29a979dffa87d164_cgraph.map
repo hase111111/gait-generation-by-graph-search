@@ -1,0 +1,16 @@
+<map id="designlab::cmdio::InputYesNo" name="designlab::cmdio::InputYesNo">
+<area shape="rect" id="Node000001" title="yesかnoを入力させる関数.返り値で yes なら true, no なら false を返す. &#160;&#160;出力される文字列は,必ず OutputDetail::kSystem で出力される." alt="" coords="5,47,200,73"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="470,47,636,73"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,57,454,57,454,63,200,63"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1cmdio.html#a18eaad4770c65620da0d19bf3508f6a5" title="コマンドラインに文字を出力する関数, format した文字列を出力する. &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される." alt="" coords="248,72,422,99"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="200,68,233,72,232,77,200,73"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="684,5,872,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="636,45,668,40,669,46,637,50"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="708,72,848,115"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="637,70,693,78,692,83,636,75"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと,その要素を列挙した文字列を返す関数." alt="" coords="920,39,1071,81"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="873,38,904,43,904,49,872,44"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="954,39,952,29,959,20,974,14,995,12,1019,14,1033,21,1030,25,1017,20,995,17,975,19,962,24,957,30,959,38"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="848,80,904,71,905,77,849,85"/>
+<area shape="poly" id="edge8_Node000006_Node000002" title=" " alt="" coords="422,73,454,69,455,74,423,78"/>
+</map>

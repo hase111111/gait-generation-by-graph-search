@@ -1,11 +1,9 @@
 <map id="クラス階層図" name="クラス階層図">
-<area shape="rect" id="Node000000" href="$classdesignlab_1_1_i_hexapod_coordinate_converter.html" title="ロボットは重心位置・アクチュエータなど様々な点を基準とする座標系を持つ． これらを相互に変換する処理のインターフェース．" alt="" coords="5,5,206,48"/>
-<area shape="rect" id="Node000001" href="$classdesignlab_1_1_phantom_x_mk_i_i.html" title="PhantomX mk&#45;2 の状態を計算するクラス．" alt="" coords="254,113,421,140"/>
-<area shape="poly" id="edge41_Node000000_Node000001" title=" " alt="" coords="191,51,207,58,313,110,310,115,205,62,189,56"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_hexapod_joint_calculator.html" title="間接角度や角速度を計算する処理のインターフェース．" alt="" coords="23,72,188,115"/>
-<area shape="poly" id="edge42_Node000002_Node000001" title=" " alt="" coords="204,105,254,112,253,117,203,110"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_i_hexapod_posture_validator.html" title="6脚ロボットが有効な姿勢をとっているかを チェックする処理のインターフェース．" alt="" coords="14,139,197,181"/>
-<area shape="poly" id="edge43_Node000003_Node000001" title=" " alt="" coords="212,142,253,136,254,141,213,147"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_i_hexapod_state_presenter.html" title="6脚ロボットの状態を表示するクラス．" alt="" coords="21,205,190,248"/>
-<area shape="poly" id="edge44_Node000004_Node000001" title=" " alt="" coords="189,197,205,191,310,138,313,143,207,196,191,202"/>
+<area shape="rect" id="Node000000" href="$classdesignlab_1_1_i_map_creator.html" title="マップ生成クラスのインターフェース." alt="" coords="5,64,160,91"/>
+<area shape="rect" id="Node000001" href="$classdesignlab_1_1_map_creator_by_csv.html" title="CSV ファイルからマップを生成するクラス." alt="" coords="208,5,396,32"/>
+<area shape="poly" id="edge49_Node000000_Node000001" title=" " alt="" coords="149,57,248,30,250,35,151,62"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_map_creator_for_simulation.html" title="シミュレーション用のマップを生成するクラス." alt="" coords="217,56,387,99"/>
+<area shape="poly" id="edge50_Node000000_Node000002" title=" " alt="" coords="175,75,216,75,216,80,175,80"/>
+<area shape="rect" id="Node000003" href="$classdivided__map__state__test__internal_1_1_test_map_creator.html" title=" " alt="" coords="217,123,387,165"/>
+<area shape="poly" id="edge51_Node000000_Node000003" title=" " alt="" coords="145,93,230,119,228,125,143,98"/>
 </map>

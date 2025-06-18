@@ -74,9 +74,10 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">クラス</a> &#124;
 <a href="#namespaces">名前空間</a> &#124;
-<a href="#define-members">マクロ定義</a>  </div>
+<a href="#define-members">マクロ定義</a> &#124;
+<a href="#func-members">関数</a> &#124;
+<a href="#var-members">変数</a>  </div>
   <div class="headertitle"><div class="title">cmdio_util.h ファイル</div></div>
 </div><!--header-->
 <div class="contents">
@@ -88,21 +89,125 @@ $(function() {
 </div>
 <p><a href="cmdio__util_8h_source.html">[ソースコード]</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-クラス</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_cmd_i_o_util.html">designlab::CmdIOUtil</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">標準入出力の std::cout，std::cinを使った コマンドライン入出力を行うシングルトンクラス．  <a href="classdesignlab_1_1_cmd_i_o_util.html#details">[詳解]</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 名前空間</h2></td></tr>
 <tr class="memitem:namespacedesignlab" id="r_namespacedesignlab"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab.html">designlab</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacedesignlab_1_1cmdio" id="r_namespacedesignlab_1_1cmdio"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html">designlab::cmdio</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 マクロ定義</h2></td></tr>
 <tr class="memitem:af250f9b6f809c2773313d978bcb8b711" id="r_af250f9b6f809c2773313d978bcb8b711"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cmdio__util_8h.html#af250f9b6f809c2773313d978bcb8b711">DESIGNLAB_USE_COLOR_OUTPUT</a></td></tr>
 <tr class="separator:af250f9b6f809c2773313d978bcb8b711"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+関数</h2></td></tr>
+<tr class="memitem:aebcb2e345f3e1255aa6b141a14aebd95" id="r_aebcb2e345f3e1255aa6b141a14aebd95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#aebcb2e345f3e1255aa6b141a14aebd95">designlab::cmdio::SetOutputLimit</a> (<a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a> limit)</td></tr>
+<tr class="memdesc:aebcb2e345f3e1255aa6b141a14aebd95"><td class="mdescLeft">&#160;</td><td class="mdescRight">出力するメッセージをどこまで許可するかを設定する関数. <br  />
+ この関数を呼び出してから出ないと,他の関数を使えない. <br  />
+ 例えば kError に設定すると, kError 未満の出力( kInfo とか kDebug とかはされない. <br  />
+ 逆に kDebug に設定すると,すべての出力がされる. <br  />
+ 1度呼び出したら,プログラム終了まで設定は有効となる.  <br /></td></tr>
+<tr class="separator:aebcb2e345f3e1255aa6b141a14aebd95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2b8e0f238d7d3a3573657f0f0a6f438" id="r_ad2b8e0f238d7d3a3573657f0f0a6f438"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#ad2b8e0f238d7d3a3573657f0f0a6f438">designlab::cmdio::DoOutput</a> (bool <a class="el" href="namespacedesignlab.html#a5afa1946897c446cbb48aaa10f8d86c8">do_output</a>)</td></tr>
+<tr class="memdesc:ad2b8e0f238d7d3a3573657f0f0a6f438"><td class="mdescLeft">&#160;</td><td class="mdescRight">そもそも出力をするかを設定する関数. <br  />
+ false に設定しても システムメッセージは出力される.  <br /></td></tr>
+<tr class="separator:ad2b8e0f238d7d3a3573657f0f0a6f438"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae16089dfba0d5bcfdd33b6ddc8efbfbf" id="r_ae16089dfba0d5bcfdd33b6ddc8efbfbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf">designlab::cmdio::Output</a> (const std::string &amp;str, <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a> detail)</td></tr>
+<tr class="memdesc:ae16089dfba0d5bcfdd33b6ddc8efbfbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. <br  />
+ SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される.  <br /></td></tr>
+<tr class="separator:ae16089dfba0d5bcfdd33b6ddc8efbfbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4971c383359543790b7f519e709fe9dd" id="r_a4971c383359543790b7f519e709fe9dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a4971c383359543790b7f519e709fe9dd">designlab::cmdio::DebugOutput</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:a4971c383359543790b7f519e709fe9dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. Debug 用の出力.  <br /></td></tr>
+<tr class="separator:a4971c383359543790b7f519e709fe9dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e9740d909801245329252626e4252ae" id="r_a9e9740d909801245329252626e4252ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a9e9740d909801245329252626e4252ae">designlab::cmdio::InfoOutput</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:a9e9740d909801245329252626e4252ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. Info 用の出力.  <br /></td></tr>
+<tr class="separator:a9e9740d909801245329252626e4252ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a773c2d724a24b05daba5382fd4bf42" id="r_a5a773c2d724a24b05daba5382fd4bf42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a5a773c2d724a24b05daba5382fd4bf42">designlab::cmdio::WarningOutput</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:a5a773c2d724a24b05daba5382fd4bf42"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. Warning 用の出力.  <br /></td></tr>
+<tr class="separator:a5a773c2d724a24b05daba5382fd4bf42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2580b68e1aa0d6f45bedd166a68b6cd8" id="r_a2580b68e1aa0d6f45bedd166a68b6cd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a2580b68e1aa0d6f45bedd166a68b6cd8">designlab::cmdio::ErrorOutput</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:a2580b68e1aa0d6f45bedd166a68b6cd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. Error 用の出力.  <br /></td></tr>
+<tr class="separator:a2580b68e1aa0d6f45bedd166a68b6cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f803a29165fa043ed5b033d21174a84" id="r_a7f803a29165fa043ed5b033d21174a84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a7f803a29165fa043ed5b033d21174a84">designlab::cmdio::SystemOutput</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:a7f803a29165fa043ed5b033d21174a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. System 用の出力.  <br /></td></tr>
+<tr class="separator:a7f803a29165fa043ed5b033d21174a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d59a4e2fa0f33ec8a1df18e037aa51a" id="r_a3d59a4e2fa0f33ec8a1df18e037aa51a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a3d59a4e2fa0f33ec8a1df18e037aa51a">designlab::cmdio::SpacedOutput</a> (const std::string &amp;str, <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a> detail)</td></tr>
+<tr class="memdesc:a3d59a4e2fa0f33ec8a1df18e037aa51a"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. <br  />
+ 前と後ろに改行を挿入する.  <br /></td></tr>
+<tr class="separator:a3d59a4e2fa0f33ec8a1df18e037aa51a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18eaad4770c65620da0d19bf3508f6a5" id="r_a18eaad4770c65620da0d19bf3508f6a5"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a18eaad4770c65620da0d19bf3508f6a5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a18eaad4770c65620da0d19bf3508f6a5">designlab::cmdio::OutputF</a> (<a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a> detail, const std::format_string&lt; Args... &gt; str, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a18eaad4770c65620da0d19bf3508f6a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数, format した文字列を出力する. <br  />
+ <a class="el" href="namespacedesignlab_1_1cmdio.html#aebcb2e345f3e1255aa6b141a14aebd95" title="出力するメッセージをどこまで許可するかを設定する関数.   この関数を呼び出してから出ないと,他の関数を使えない.   例えば kError に設定すると, kError 未満の出力( kInfo とか...">SetOutputLimit()</a> で設定した出力の許可範囲内であれば出力される.  <br /></td></tr>
+<tr class="separator:a18eaad4770c65620da0d19bf3508f6a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a2dcd75e12ba0190bf2938f03ba8a46" id="r_a7a2dcd75e12ba0190bf2938f03ba8a46"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a7a2dcd75e12ba0190bf2938f03ba8a46"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a7a2dcd75e12ba0190bf2938f03ba8a46">designlab::cmdio::DebugOutputF</a> (const std::format_string&lt; Args... &gt; str, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a7a2dcd75e12ba0190bf2938f03ba8a46"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. Debug 用の出力. format した文字列を出力する.  <br /></td></tr>
+<tr class="separator:a7a2dcd75e12ba0190bf2938f03ba8a46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6059e28df01199fe0205905b9a0d3a7a" id="r_a6059e28df01199fe0205905b9a0d3a7a"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a6059e28df01199fe0205905b9a0d3a7a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a6059e28df01199fe0205905b9a0d3a7a">designlab::cmdio::InfoOutputF</a> (const std::format_string&lt; Args... &gt; str, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a6059e28df01199fe0205905b9a0d3a7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. Info 用の出力. format した文字列を出力する.  <br /></td></tr>
+<tr class="separator:a6059e28df01199fe0205905b9a0d3a7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36c61c2450dd3180e3d8d0965049f786" id="r_a36c61c2450dd3180e3d8d0965049f786"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a36c61c2450dd3180e3d8d0965049f786"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a36c61c2450dd3180e3d8d0965049f786">designlab::cmdio::WarningOutputF</a> (const std::format_string&lt; Args... &gt; str, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a36c61c2450dd3180e3d8d0965049f786"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. Warning 用の出力. format した文字列を出力する.  <br /></td></tr>
+<tr class="separator:a36c61c2450dd3180e3d8d0965049f786"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a816ad14579fc0ffc19475ff1a320704c" id="r_a816ad14579fc0ffc19475ff1a320704c"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a816ad14579fc0ffc19475ff1a320704c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a816ad14579fc0ffc19475ff1a320704c">designlab::cmdio::ErrorOutputF</a> (const std::format_string&lt; Args... &gt; str, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a816ad14579fc0ffc19475ff1a320704c"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. Error 用の出力. format した文字列を出力する.  <br /></td></tr>
+<tr class="separator:a816ad14579fc0ffc19475ff1a320704c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a536190ccb50f1f7182547138b0d04724" id="r_a536190ccb50f1f7182547138b0d04724"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a536190ccb50f1f7182547138b0d04724"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a536190ccb50f1f7182547138b0d04724">designlab::cmdio::SystemOutputF</a> (const std::format_string&lt; Args... &gt; str, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a536190ccb50f1f7182547138b0d04724"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. System 用の出力. format した文字列を出力する.  <br /></td></tr>
+<tr class="separator:a536190ccb50f1f7182547138b0d04724"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1144b4d7e79c9623898dfda69c96853" id="r_ac1144b4d7e79c9623898dfda69c96853"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:ac1144b4d7e79c9623898dfda69c96853"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#ac1144b4d7e79c9623898dfda69c96853">designlab::cmdio::SpacedOutputF</a> (<a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a> detail, const std::format_string&lt; Args... &gt; str, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:ac1144b4d7e79c9623898dfda69c96853"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数, format した文字列を出力する. <br  />
+ SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される.  <br /></td></tr>
+<tr class="separator:ac1144b4d7e79c9623898dfda69c96853"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53517d90c6e49e06907cdf04b9979cdc" id="r_a53517d90c6e49e06907cdf04b9979cdc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a53517d90c6e49e06907cdf04b9979cdc">designlab::cmdio::OutputCenter</a> (const std::string &amp;str, <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a> detail)</td></tr>
+<tr class="memdesc:a53517d90c6e49e06907cdf04b9979cdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">中央に文字を出力する関数. 文字列が長すぎる場合は普通に左詰めで出力される.  <br /></td></tr>
+<tr class="separator:a53517d90c6e49e06907cdf04b9979cdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c8bce312d4541906ad912f79317b013" id="r_a8c8bce312d4541906ad912f79317b013"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a8c8bce312d4541906ad912f79317b013">designlab::cmdio::OutputRight</a> (const std::string &amp;str, <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a> detail)</td></tr>
+<tr class="memdesc:a8c8bce312d4541906ad912f79317b013"><td class="mdescLeft">&#160;</td><td class="mdescRight">右端に文字を出力する関数. 文字列が長すぎる場合は普通に左詰めで出力される.  <br /></td></tr>
+<tr class="separator:a8c8bce312d4541906ad912f79317b013"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8ed2785f4f2ed80a29f9b6d3a3d1d4a" id="r_aa8ed2785f4f2ed80a29f9b6d3a3d1d4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#aa8ed2785f4f2ed80a29f9b6d3a3d1d4a">designlab::cmdio::OutputNewLine</a> (int num, <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a> detail)</td></tr>
+<tr class="memdesc:aa8ed2785f4f2ed80a29f9b6d3a3d1d4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインで改行をする関数.  <br /></td></tr>
+<tr class="separator:aa8ed2785f4f2ed80a29f9b6d3a3d1d4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e349377c9ecf3763014ca8436fa44f6" id="r_a4e349377c9ecf3763014ca8436fa44f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a4e349377c9ecf3763014ca8436fa44f6">designlab::cmdio::OutputHorizontalLine</a> (const std::string &amp;line_visual, <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a> detail)</td></tr>
+<tr class="memdesc:a4e349377c9ecf3763014ca8436fa44f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに水平線を出力する関数.  <br /></td></tr>
+<tr class="separator:a4e349377c9ecf3763014ca8436fa44f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac156719fff45c1e6da33d779eee8a4a" id="r_aac156719fff45c1e6da33d779eee8a4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#aac156719fff45c1e6da33d779eee8a4a">designlab::cmdio::OutputTitle</a> (const std::string &amp;title_name, bool output_copy_right=false)</td></tr>
+<tr class="memdesc:aac156719fff45c1e6da33d779eee8a4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインにこのソフトのタイトルを出力する関数. <br  />
+ 出力される文字列は,必ず <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb" title="システムメッセージ,常に出力する.">OutputDetail::kSystem</a> で出力される.  <br /></td></tr>
+<tr class="separator:aac156719fff45c1e6da33d779eee8a4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e74f3cc38e6d4898b17864e2a652ba3" id="r_a6e74f3cc38e6d4898b17864e2a652ba3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a6e74f3cc38e6d4898b17864e2a652ba3">designlab::cmdio::WaitAnyKey</a> (const std::string &amp;str=&quot;Waiting for input.&quot;)</td></tr>
+<tr class="memdesc:a6e74f3cc38e6d4898b17864e2a652ba3"><td class="mdescLeft">&#160;</td><td class="mdescRight">入力待ちをする関数. <br  />
+ 出力される文字列は, 必ず <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb" title="システムメッセージ,常に出力する.">OutputDetail::kSystem</a> で出力される.  <br /></td></tr>
+<tr class="separator:a6e74f3cc38e6d4898b17864e2a652ba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d31f2f5b66b9dfb6e4074750145adee" id="r_a9d31f2f5b66b9dfb6e4074750145adee"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a9d31f2f5b66b9dfb6e4074750145adee">designlab::cmdio::InputInt</a> (int min, int max, int default_num, const std::string &amp;str=&quot;Please enter an integer.&quot;)</td></tr>
+<tr class="memdesc:a9d31f2f5b66b9dfb6e4074750145adee"><td class="mdescLeft">&#160;</td><td class="mdescRight">整数を入力させる関数. <br  />
+ 出力される文字列は, 必ず <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb" title="システムメッセージ,常に出力する.">OutputDetail::kSystem</a> で出力される.  <br /></td></tr>
+<tr class="separator:a9d31f2f5b66b9dfb6e4074750145adee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed6d6983bb7fc9de29a979dffa87d164" id="r_aed6d6983bb7fc9de29a979dffa87d164"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#aed6d6983bb7fc9de29a979dffa87d164">designlab::cmdio::InputYesNo</a> (const std::string &amp;str=&quot;Are you sure?&quot;)</td></tr>
+<tr class="memdesc:aed6d6983bb7fc9de29a979dffa87d164"><td class="mdescLeft">&#160;</td><td class="mdescRight">yesかnoを入力させる関数.返り値で yes なら true, no なら false を返す. <br  />
+ 出力される文字列は,必ず <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb" title="システムメッセージ,常に出力する.">OutputDetail::kSystem</a> で出力される.  <br /></td></tr>
+<tr class="separator:aed6d6983bb7fc9de29a979dffa87d164"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3535a9fd6b29ff73e46d201486d7d9dd" id="r_a3535a9fd6b29ff73e46d201486d7d9dd"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a3535a9fd6b29ff73e46d201486d7d9dd">designlab::cmdio::InputDirName</a> (const std::string &amp;str=&quot;Enter a directory name. (Japanese is not recommended).&quot;)</td></tr>
+<tr class="memdesc:a3535a9fd6b29ff73e46d201486d7d9dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">ディレクトリ名を入力させる関数. <br  />
+ 出力される文字列は,必ず <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb" title="システムメッセージ,常に出力する.">OutputDetail::kSystem</a> で出力される. <br  />
+ ディレクトリ名には次の文字は使えない. <br  />
+ \ / : * ? " &lt; &gt; | <br  />
+ ディレクトリ名は空白を含めることができない.  <br /></td></tr>
+<tr class="separator:a3535a9fd6b29ff73e46d201486d7d9dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+変数</h2></td></tr>
+<tr class="memitem:ae5b638fb923fbfa58dff531e65a03dfd" id="r_ae5b638fb923fbfa58dff531e65a03dfd"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#ae5b638fb923fbfa58dff531e65a03dfd">designlab::cmdio::kHorizontalLineLength</a> = 100</td></tr>
+<tr class="memdesc:ae5b638fb923fbfa58dff531e65a03dfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">水平線の長さ.  <br /></td></tr>
+<tr class="separator:ae5b638fb923fbfa58dff531e65a03dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">マクロ定義詳解</h2>
 <a id="af250f9b6f809c2773313d978bcb8b711" name="af250f9b6f809c2773313d978bcb8b711"></a>
@@ -117,7 +222,7 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00026">26</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00025">25</a> 行目に定義があります。</p>
 
 </div>
 </div>

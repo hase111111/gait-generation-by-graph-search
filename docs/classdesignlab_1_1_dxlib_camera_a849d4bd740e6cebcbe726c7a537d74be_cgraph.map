@@ -1,13 +1,13 @@
 <map id="designlab::DxlibCamera::Update" name="designlab::DxlibCamera::Update">
-<area shape="rect" id="Node000001" title="カメラの位置などの更新を行う．毎フレーム実行すること．" alt="" coords="5,35,164,77"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a0bb65d79aff7212b0ea64882f22b9b1b" title="目標値に値を近づける関数． 描画用なので，線形でなく，適当に値を近づける． そのため，計算に使いたいなら作り直すこと．" alt="" coords="232,5,369,48"/>
+<area shape="rect" id="Node000001" title="カメラの位置などの更新を行う.毎フレーム実行すること." alt="" coords="5,35,164,77"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a0bb65d79aff7212b0ea64882f22b9b1b" title="目標値に値を近づける関数. 描画用なので,線形でなく,適当に値を近づける. そのため,計算に使いたいなら作り直すこと." alt="" coords="232,5,369,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,43,216,35,217,41,164,48"/>
-<area shape="rect" id="Node000003" href="$namespacedesignlab.html#aa6386f09017c25f59fbdf0fa7088ec90" title="球面線形補間を行う．" alt="" coords="212,72,389,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,64,197,69,196,74,164,69"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaternion.html#afaac2f3922f46f7286a2e650f791cec4" title="クォータニオンの内積を返す． クォータニオンを4次元のベクトルとみなし，ベクトルの内積を求める．" alt="" coords="437,43,612,69"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="389,71,422,67,422,72,390,76"/>
-<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1math__util.html#a92c055e0799991e88871e2a5d4f09280" title="C++において，小数同士の計算は誤差が出てしまう． 誤差込みで値が等しいか調べる．" alt="" coords="456,93,593,136"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="390,94,441,101,441,106,389,100"/>
-<area shape="rect" id="Node000005" href="$structdesignlab_1_1_vector3.html#aa0a76dfe9dc375fd09561734cf782f63" title="自分・引数 の内積の結果を返す．" alt="" coords="660,43,818,69"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab.html#aa6386f09017c25f59fbdf0fa7088ec90" title="球面線形補間を行う." alt="" coords="212,72,389,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,64,196,69,196,74,164,69"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaternion.html#afaac2f3922f46f7286a2e650f791cec4" title="クォータニオンの内積を返す. クォータニオンを4次元のベクトルとみなし,ベクトルの内積を求める." alt="" coords="437,43,612,69"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="389,71,421,67,422,72,390,76"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1math__util.html#a92c055e0799991e88871e2a5d4f09280" title="C++において,小数同士の計算は誤差が出てしまう. 誤差込みで値が等しいか調べる." alt="" coords="456,93,593,136"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="390,94,441,101,440,106,389,100"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_vector3.html#aa0a76dfe9dc375fd09561734cf782f63" title="自分・引数 の内積の結果を返す." alt="" coords="660,43,818,69"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="613,53,645,53,645,59,613,59"/>
 </map>

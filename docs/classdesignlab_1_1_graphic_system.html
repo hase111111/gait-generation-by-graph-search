@@ -80,7 +80,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Dxlibの処理を行うクラス．  
+<p>Dxlibの処理を行うクラス.  
  <a href="classdesignlab_1_1_graphic_system.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="graphic__system_8h_source.html">graphic_system.h</a>&gt;</code></p>
@@ -90,28 +90,28 @@ $(function() {
 <tr class="memitem:a404713b7dfc58337a08233ef250e5f3e" id="r_a404713b7dfc58337a08233ef250e5f3e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_graphic_system.html#a404713b7dfc58337a08233ef250e5f3e">GraphicSystem</a> (const std::shared_ptr&lt; const <a class="el" href="structdesignlab_1_1_application_setting_record.html">ApplicationSettingRecord</a> &gt; setting_ptr)</td></tr>
 <tr class="separator:a404713b7dfc58337a08233ef250e5f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec744433d787f7ddec01c4eadc2348be" id="r_aec744433d787f7ddec01c4eadc2348be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_graphic_system.html#aec744433d787f7ddec01c4eadc2348be">Main</a> ()</td></tr>
-<tr class="memdesc:aec744433d787f7ddec01c4eadc2348be"><td class="mdescLeft">&#160;</td><td class="mdescRight">ウィンドウの表示を行う関数． boost::thread にこの関数を渡して並列処理を行う． <br  />
- メンバ関数の MyDxlibInit 関数に失敗した場合，終了する．  <br /></td></tr>
+<tr class="memdesc:aec744433d787f7ddec01c4eadc2348be"><td class="mdescLeft">&#160;</td><td class="mdescRight">ウィンドウの表示を行う関数. boost::thread にこの関数を渡して並列処理を行う. <br  />
+ メンバ関数の MyDxlibInit 関数に失敗した場合,終了する.  <br /></td></tr>
 <tr class="separator:aec744433d787f7ddec01c4eadc2348be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1c52ef330ffade157f8cb5f56bff10e" id="r_ab1c52ef330ffade157f8cb5f56bff10e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_graphic_system.html#ab1c52ef330ffade157f8cb5f56bff10e">ChangeGraphicMain</a> (std::unique_ptr&lt; <a class="el" href="classdesignlab_1_1_i_graphic_main.html">IGraphicMain</a> &gt; &amp;&amp;graphic_main_ptr)</td></tr>
-<tr class="memdesc:ab1c52ef330ffade157f8cb5f56bff10e"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフィックの表示を行うクラスを変更する．  <br /></td></tr>
+<tr class="memdesc:ab1c52ef330ffade157f8cb5f56bff10e"><td class="mdescLeft">&#160;</td><td class="mdescRight">グラフィックの表示を行うクラスを変更する.  <br /></td></tr>
 <tr class="separator:ab1c52ef330ffade157f8cb5f56bff10e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28cb34c79a1e02b56cea9431f034790f" id="r_a28cb34c79a1e02b56cea9431f034790f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_graphic_system.html#a28cb34c79a1e02b56cea9431f034790f">IsInitialized</a> () const</td></tr>
-<tr class="memdesc:a28cb34c79a1e02b56cea9431f034790f"><td class="mdescLeft">&#160;</td><td class="mdescRight">初期化が終わっているか．  <br /></td></tr>
+<tr class="memdesc:a28cb34c79a1e02b56cea9431f034790f"><td class="mdescLeft">&#160;</td><td class="mdescRight">初期化が終わっているか.  <br /></td></tr>
 <tr class="separator:a28cb34c79a1e02b56cea9431f034790f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>Dxlibの処理を行うクラス． </p>
-<p>Dxlib(デラックス ライブラリ)とは，C++の iostream だけではできない処理である， ウィンドウを表示して，描画を行う処理を行うためのライブラリである． <br  />
- 主にゲームプログラミングをする際に， ウィンドウを表示するためのライブラリとして使用される． Dxlib以外にも OpenCVなどにもウィンドウを表示する機能があるが， 今回のプログラムではDxlibを用いて結果を表示する． Dxlibは Windows API とかいうWindowsのアプリケーションを作るための機能を， 使いやすくしてくれるライブラリである． </p>
+<div class="textblock"><p>Dxlibの処理を行うクラス. </p>
+<p>Dxlib(デラックス ライブラリ)とは,C++の iostream だけではできない処理である, ウィンドウを表示して,描画を行う処理を行うためのライブラリである. <br  />
+ 主にゲームプログラミングをする際に, ウィンドウを表示するためのライブラリとして使用される. Dxlib以外にも OpenCVなどにもウィンドウを表示する機能があるが, 今回のプログラムではDxlibを用いて結果を表示する. Dxlibは Windows API とかいうWindowsのアプリケーションを作るための機能を, 使いやすくしてくれるライブラリである. </p>
 <h3><a class="anchor" id="参考ページ"></a>
 参考ページ</h3>
 <ul>
-<li><a href="https://dixq.net/rp2/">https://dixq.net/rp2/</a> ←C++用の資料．少々難しい． </li>
-<li><a href="https://dixq.net/g/">https://dixq.net/g/</a> ←C言語用の資料． </li>
-<li><a href="https://dxlib.xsrv.jp/dxfunc.html">https://dxlib.xsrv.jp/dxfunc.html</a> ←公式の関数のリファレンス(関数の目次)．</li>
+<li><a href="https://dixq.net/rp2/">https://dixq.net/rp2/</a> ←C++用の資料.少々難しい. </li>
+<li><a href="https://dixq.net/g/">https://dixq.net/g/</a> ←C言語用の資料. </li>
+<li><a href="https://dxlib.xsrv.jp/dxfunc.html">https://dxlib.xsrv.jp/dxfunc.html</a> ←公式の関数のリファレンス(関数の目次).</li>
 </ul>
-<p>Dxlibを非同期処理で動かすことで，別スレッドで行っている グラフ探索の処理をもとにロボットの状態を表示する． しかし，Dxlibは非同期処理を考慮して設計されていないので， 動かし方によってはうまく動作しない． このプロジェクトではこの関数の中でのみDxlibの処理を動かすことで エラーを防いでいるが，予期せぬエラーが発生する可能性がある． </p>
+<p>Dxlibを非同期処理で動かすことで,別スレッドで行っている グラフ探索の処理をもとにロボットの状態を表示する. しかし,Dxlibは非同期処理を考慮して設計されていないので, 動かし方によってはうまく動作しない. このプロジェクトではこの関数の中でのみDxlibの処理を動かすことで エラーを防いでいるが,予期せぬエラーが発生する可能性がある. </p>
 
 <p class="definition"> <a class="el" href="graphic__system_8h_source.html">graphic_system.h</a> の <a class="el" href="graphic__system_8h_source.html#l00078">78</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">構築子と解体子</h2>
@@ -140,7 +140,7 @@ $(function() {
 </div><div class="memdoc">
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">setting_ptr</td><td>アプリケーションの設定を記録するクラスのポインタ． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">setting_ptr</td><td>アプリケーションの設定を記録するクラスのポインタ. </td></tr>
   </table>
   </dd>
 </dl>
@@ -166,10 +166,10 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>グラフィックの表示を行うクラスを変更する． </p>
+<p>グラフィックの表示を行うクラスを変更する. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">graphic_main_ptr</td><td>GraphicMainクラスのユニークポインタ． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">graphic_main_ptr</td><td>GraphicMainクラスのユニークポインタ. </td></tr>
   </table>
   </dd>
 </dl>
@@ -180,9 +180,9 @@ $(function() {
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_graphic_system_ab1c52ef330ffade157f8cb5f56bff10e_icgraph.png" border="0" usemap="#aclassdesignlab_1_1_graphic_system_ab1c52ef330ffade157f8cb5f56bff10e_icgraph" alt=""/></div>
 <map name="aclassdesignlab_1_1_graphic_system_ab1c52ef330ffade157f8cb5f56bff10e_icgraph" id="aclassdesignlab_1_1_graphic_system_ab1c52ef330ffade157f8cb5f56bff10e_icgraph">
-<area shape="rect" title="グラフィックの表示を行うクラスを変更する．" alt="" coords="103,5,277,48"/>
+<area shape="rect" title="グラフィックの表示を行うクラスを変更する." alt="" coords="103,5,277,48"/>
 <area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,55,40"/>
-<area shape="poly" title=" " alt="" coords="88,29,55,29,55,24,88,24"/>
+<area shape="poly" title=" " alt="" coords="87,29,55,29,55,24,87,24"/>
 </map>
 </div>
 
@@ -211,8 +211,8 @@ $(function() {
 </table>
 </div><div class="memdoc">
 
-<p>初期化が終わっているか． </p>
-<dl class="section return"><dt>戻り値</dt><dd>初期化が終わっているか． </dd></dl>
+<p>初期化が終わっているか. </p>
+<dl class="section return"><dt>戻り値</dt><dd>初期化が終わっているか. </dd></dl>
 
 <p class="definition"> <a class="el" href="graphic__system_8h_source.html">graphic_system.h</a> の <a class="el" href="graphic__system_8h_source.html#l00095">95</a> 行目に定義があります。</p>
 <div class="dynheader">
@@ -220,7 +220,7 @@ $(function() {
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_graphic_system_a28cb34c79a1e02b56cea9431f034790f_icgraph.png" border="0" usemap="#aclassdesignlab_1_1_graphic_system_a28cb34c79a1e02b56cea9431f034790f_icgraph" alt=""/></div>
 <map name="aclassdesignlab_1_1_graphic_system_a28cb34c79a1e02b56cea9431f034790f_icgraph" id="aclassdesignlab_1_1_graphic_system_a28cb34c79a1e02b56cea9431f034790f_icgraph">
-<area shape="rect" title="初期化が終わっているか．" alt="" coords="103,5,277,48"/>
+<area shape="rect" title="初期化が終わっているか." alt="" coords="103,5,277,48"/>
 <area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,55,40"/>
 <area shape="poly" title=" " alt="" coords="87,29,55,29,55,24,87,24"/>
 </map>
@@ -243,8 +243,8 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>ウィンドウの表示を行う関数． boost::thread にこの関数を渡して並列処理を行う． <br  />
- メンバ関数の MyDxlibInit 関数に失敗した場合，終了する． </p>
+<p>ウィンドウの表示を行う関数. boost::thread にこの関数を渡して並列処理を行う. <br  />
+ メンバ関数の MyDxlibInit 関数に失敗した場合,終了する. </p>
 
 <p class="definition"> <a class="el" href="graphic__system_8cpp_source.html">graphic_system.cpp</a> の <a class="el" href="graphic__system_8cpp_source.html#l00032">32</a> 行目に定義があります。</p>
 

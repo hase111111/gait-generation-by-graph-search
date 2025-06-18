@@ -1,7 +1,7 @@
 <map id="designlab::impl::has_input_operator&lt; T, U &gt;" name="designlab::impl::has_input_operator&lt; T, U &gt;">
-<area shape="rect" id="Node000001" title="入力ストリームが実装されているか判断するメタ関数．" alt="" coords="5,80,164,123"/>
-<area shape="rect" id="Node000003" href="$structdesignlab_1_1impl_1_1is__vector__of__has__input__operator_3_01std_1_1vector_3_01_t_01_4_01_4.html" title="入力ストリームが実装されている vector 型かどうかを判定するメタ関数．" alt="" coords="11,171,158,245"/>
+<area shape="rect" id="Node000001" title="入力ストリームが実装されているか判断するメタ関数." alt="" coords="5,80,164,123"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1impl_1_1is__vector__of__has__input__operator_3_01std_1_1vector_3_01_t_01_4_01_4.html" title="入力ストリームが実装されている vector 型かどうかを判定するメタ関数." alt="" coords="11,171,158,245"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="87,138,87,170,82,170,82,138"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="31,5,138,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,47,87,80,82,80,82,47"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,48,87,80,82,80,82,48"/>
 </map>

@@ -1,14 +1,14 @@
 <map id="designlab::TomlFileImporter::Import" name="designlab::TomlFileImporter::Import">
-<area shape="rect" id="Node000001" title="指定したファイルパスのファイルを読み込み，構造体に変換する．" alt="" coords="5,39,186,81"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_cmd_i_o_util.html#a563e04e0ce3cf7b6c988a94b887a74b9" title="コマンドラインで改行をする関数．" alt="" coords="234,5,377,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,43,218,38,219,43,186,48"/>
-<area shape="rect" id="Node000007" href="$classdesignlab_1_1_cmd_i_o_util.html#a0ebb5b245f90bcc0d1849400d1faa7d2" title="コマンドラインに文字を出力する関数．System用の出力．" alt="" coords="234,72,377,115"/>
-<area shape="poly" id="edge5_Node000001_Node000007" title=" " alt="" coords="186,72,219,77,218,82,185,77"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="425,39,568,81"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="378,37,410,42,409,47,377,42"/>
-<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数． &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている． &#160;&#160;例えば，" alt="" coords="616,5,804,48"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="568,46,600,41,601,46,569,51"/>
-<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数．指定した文字で文字列を分割する． &#160;&#160;分割した結果，空白が含まれる場合や文字列がない場合は，そのまま返す． &#160;&#160;最後が区切り文字で終わる場合は，それを無視する．" alt="" coords="640,72,780,115"/>
-<area shape="poly" id="edge4_Node000003_Node000006" title=" " alt="" coords="569,69,624,77,624,83,568,74"/>
-<area shape="poly" id="edge6_Node000007_Node000003" title=" " alt="" coords="377,78,409,73,410,78,378,83"/>
+<area shape="rect" id="Node000001" title="指定したファイルパスのファイルを読み込み,構造体に変換する." alt="" coords="5,39,186,81"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1cmdio.html#aa8ed2785f4f2ed80a29f9b6d3a3d1d4a" title="コマンドラインで改行をする関数." alt="" coords="237,5,403,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,44,221,39,222,44,186,49"/>
+<area shape="rect" id="Node000007" href="$namespacedesignlab_1_1cmdio.html#a7f803a29165fa043ed5b033d21174a84" title="コマンドラインに文字を出力する関数. System 用の出力." alt="" coords="234,72,406,115"/>
+<area shape="poly" id="edge5_Node000001_Node000007" title=" " alt="" coords="186,71,218,76,218,81,185,76"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="454,47,620,73"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="404,37,439,42,438,48,403,42"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="668,5,856,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="620,45,652,40,653,46,621,50"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="692,72,832,115"/>
+<area shape="poly" id="edge4_Node000003_Node000006" title=" " alt="" coords="621,70,677,78,676,83,620,75"/>
+<area shape="poly" id="edge6_Node000007_Node000003" title=" " alt="" coords="406,77,438,72,439,78,407,83"/>
 </map>

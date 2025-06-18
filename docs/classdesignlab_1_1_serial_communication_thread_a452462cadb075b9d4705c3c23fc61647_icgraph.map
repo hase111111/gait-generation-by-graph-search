@@ -1,9 +1,9 @@
 <map id="designlab::SerialCommunicationThread::EndThread" name="designlab::SerialCommunicationThread::EndThread">
-<area shape="rect" id="Node000001" title="シリアル通信のスレッドを終了する．" alt="" coords="503,39,710,81"/>
+<area shape="rect" id="Node000001" title="シリアル通信のスレッドを終了する." alt="" coords="503,39,710,81"/>
 <area shape="rect" id="Node000002" href="$classdesignlab_1_1_serial_communication_thread.html#ad6a5c0b28c7f63c0924a5c27f39d199d" title=" " alt="" coords="248,5,455,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="488,47,455,43,456,38,489,42"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="487,47,455,43,456,38,488,42"/>
 <area shape="rect" id="Node000004" href="$classdesignlab_1_1_dxlib_gui_robot_control.html#a9abeb40f1a15e3c6a5e0cb7b5363eb44" title=" " alt="" coords="250,72,453,115"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="489,78,453,83,453,77,488,73"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_dxlib_gui_robot_control.html#a1af38aed3eb6e1a916c257e6ed3945f0" title="コンストラクタでWindowのサイズと，カメラの管理を行うクラスを受け取る．" alt="" coords="5,5,200,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="233,29,200,29,200,24,233,24"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="488,78,453,83,453,77,487,73"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_dxlib_gui_robot_control.html#a1af38aed3eb6e1a916c257e6ed3945f0" title="コンストラクタでWindowのサイズと,カメラの管理を行うクラスを受け取る." alt="" coords="5,5,200,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="232,29,200,29,200,24,232,24"/>
 </map>

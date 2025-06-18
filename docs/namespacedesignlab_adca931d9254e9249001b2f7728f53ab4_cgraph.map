@@ -1,6 +1,6 @@
 <map id="designlab::DESIGNLAB_TOML11_DESCRIPTION_CLASS" name="designlab::DESIGNLAB_TOML11_DESCRIPTION_CLASS">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,29,226,72"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと，その要素を列挙した文字列を返す関数．" alt="" coords="274,29,425,72"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと,その要素を列挙した文字列を返す関数." alt="" coords="274,29,425,72"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,48,258,48,258,53,226,53"/>
 <area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="305,29,303,19,311,10,326,5,349,3,374,5,389,11,387,16,373,10,349,8,327,10,314,15,308,21,310,28"/>
 </map>

@@ -1,0 +1,9 @@
+<map id="designlab::nostd::expected::error" name="designlab::nostd::expected::error">
+<area shape="rect" id="Node000001" title="失敗時の値を返す." alt="" coords="231,72,408,115"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1nostd_1_1expected.html#a87aee6aeb6afdd2593e4ce5b56b501db" title=" " alt="" coords="5,5,183,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="230,70,168,51,170,46,231,65"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1nostd_1_1expected.html#a3d9eeb2caa4c3b5b82765d2f3203e2f3" title=" " alt="" coords="5,72,183,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,96,183,96,183,91,215,91"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1nostd_1_1expected.html#acb35014480d8ba52982c5140c07e123c" title=" " alt="" coords="5,139,183,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="231,122,170,141,168,135,230,117"/>
+</map>

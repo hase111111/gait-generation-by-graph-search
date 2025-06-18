@@ -1,13 +1,13 @@
 <map id="designlab::NodeInitializer::InitNode" name="designlab::NodeInitializer::InitNode">
-<area shape="rect" id="Node000001" title="ノードの初期化を行う．" alt="" coords="5,72,171,115"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a4374f6439315f4043228252eecb07dfe" title="指定した範囲内の乱数を生成する．" alt="" coords="219,5,394,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,69,219,50,221,55,161,74"/>
-<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1leg__func.html#addb03f2c129476bc73065ee52708dcd5" title="脚状態を作成して返す関数．脚状態は重心パターン， 脚の接地・遊脚，離散化した脚位置のデータが含まれる．" alt="" coords="240,72,373,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,91,225,91,225,96,171,96"/>
-<area shape="rect" id="Node000004" href="$namespacedesignlab.html#aa1c6fabbe9cbddd910f4578751c0ec86" title="回転角行列からクォータニオンへの変換．" alt="" coords="226,139,387,165"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="170,113,241,132,239,137,169,118"/>
-<area shape="rect" id="Node000005" href="$structdesignlab_1_1_quaternion.html#a45dfcf48edea7b439e7d189d0d105bfa" title="自身を正規化する．ノルムが１になる．" alt="" coords="442,131,589,173"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="388,149,427,149,427,155,388,155"/>
-<area shape="rect" id="Node000006" href="$structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="637,131,785,173"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="590,149,622,149,622,155,590,155"/>
+<area shape="rect" id="Node000001" title="ノードの初期化を行う." alt="" coords="5,72,171,115"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a71ec8fe6a47e6e7618a53957fd0b8b10" title="角度を [deg] から [rad] に変換する関数." alt="" coords="231,5,368,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,69,215,50,217,55,158,74"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1leg__func.html#a9f76c1f720cc8c1682a091dd0b7d659e" title="脚状態を作成して返す関数.脚状態は重心パターン, 脚の接地・遊脚,離散化した脚位置のデータが含まれる." alt="" coords="233,72,366,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,91,218,91,218,96,171,96"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab.html#aa1c6fabbe9cbddd910f4578751c0ec86" title="回転角行列からクォータニオンへの変換." alt="" coords="219,139,380,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="168,113,235,132,234,137,166,118"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_quaternion.html#a45dfcf48edea7b439e7d189d0d105bfa" title="自身を正規化する.ノルムが１になる." alt="" coords="428,131,575,173"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="380,149,413,149,413,155,380,155"/>
+<area shape="rect" id="Node000006" href="$structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す. &#160;&#160;クォータニオンの正規化とは,ノルムを1にすることを表す. &#160;&#160;クォータニオンqの正規化は,q / |q| で求められる." alt="" coords="623,131,771,173"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="576,149,607,149,607,155,576,155"/>
 </map>

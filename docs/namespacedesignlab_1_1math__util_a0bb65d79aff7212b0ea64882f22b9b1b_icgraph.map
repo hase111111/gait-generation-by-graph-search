@@ -1,7 +1,7 @@
 <map id="designlab::math_util::ApproachTarget" name="designlab::math_util::ApproachTarget">
-<area shape="rect" id="Node000001" title="目標値に値を近づける関数． 描画用なので，線形でなく，適当に値を近づける． そのため，計算に使いたいなら作り直すこと．" alt="" coords="216,39,353,81"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib_camera.html#a849d4bd740e6cebcbe726c7a537d74be" title="カメラの位置などの更新を行う．毎フレーム実行すること．" alt="" coords="7,5,166,48"/>
+<area shape="rect" id="Node000001" title="目標値に値を近づける関数. 描画用なので,線形でなく,適当に値を近づける. そのため,計算に使いたいなら作り直すこと." alt="" coords="216,39,353,81"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib_camera.html#a849d4bd740e6cebcbe726c7a537d74be" title="カメラの位置などの更新を行う.毎フレーム実行すること." alt="" coords="7,5,166,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,49,166,43,167,37,201,43"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_simple_button.html#a457f013b6ca3c46f96c23a2946aeb2fa" title="GUIの更新，毎フレーム実行すること．" alt="" coords="5,72,168,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="202,77,169,82,168,77,201,71"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_simple_button.html#a457f013b6ca3c46f96c23a2946aeb2fa" title="GUIの更新,毎フレーム実行すること." alt="" coords="5,72,168,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="201,77,169,82,168,77,200,71"/>
 </map>

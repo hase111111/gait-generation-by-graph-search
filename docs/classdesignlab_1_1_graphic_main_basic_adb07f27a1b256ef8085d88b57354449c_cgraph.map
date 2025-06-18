@@ -1,13 +1,20 @@
 <map id="designlab::GraphicMainBasic::Draw" name="designlab::GraphicMainBasic::Draw">
-<area shape="rect" id="Node000001" title="描画を行う． ここでは描画系の処理のみを行い内部のデータを 更新しないため const を付けている．" alt="" coords="5,72,196,115"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib3d_renderer_group.html#ad9244776a48fabba9ef1b648bd750a73" title="登録されているクラスの draw 関数を呼ぶ． &#160;&#160;また，Zソートを行う．" alt="" coords="244,5,423,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,69,241,50,243,55,178,74"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_dxlib_gui_updater.html#a6f381c10ed8d90a143acc33065d1a0fe" title="登録済みのGUIのDraw関数を実行する．" alt="" coords="244,72,423,115"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="196,91,229,91,229,96,196,96"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_movement_locus_renderer.html#afd3d34ef797bea9d399ae0e5428eb125" title="ロボットの移動軌跡を描画する．" alt="" coords="244,139,423,181"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="178,113,243,131,241,137,176,118"/>
-<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1dxlib__util.html#a5f59136031be16081cffcef06767b9e5" title="デフォルトだと描画処理を書いた順に描画されるが， これをZバッファを使用して奥行きを考慮して描画するようにする． 毎フレーム実行する必要がある．" alt="" coords="473,5,608,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="424,24,458,24,458,29,424,29"/>
-<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1dxlib__util.html#aceffcb5f4496686bed7db7fc55488958" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する． &#160;&#160;ロボット座標系は右手座標系， Dxlibは左手座標系（工学は右手・ゲームライブラリは左手が多い）なのでyを..." alt="" coords="471,139,609,181"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="423,157,456,157,456,163,423,163"/>
+<area shape="rect" id="Node000001" title="描画を行う. ここでは描画系の処理のみを行い内部のデータを 更新しないため const を付けている." alt="" coords="5,105,196,148"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib3d_renderer_group.html#ad9244776a48fabba9ef1b648bd750a73" title="登録されているクラスの draw 関数を呼ぶ. &#160;&#160;また,Zソートを行う." alt="" coords="249,5,429,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,102,243,58,258,51,260,56,245,62,147,107"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_dxlib_gui_updater.html#a6f381c10ed8d90a143acc33065d1a0fe" title="登録済みのGUIのDraw関数を実行する." alt="" coords="250,72,428,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="196,111,234,105,234,111,197,116"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_movement_locus_renderer.html#afd3d34ef797bea9d399ae0e5428eb125" title="ロボットの移動軌跡を描画する." alt="" coords="250,139,428,181"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="197,137,234,143,234,148,196,143"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_robot_ground_point_renderer.html#af62ae053ae0c6f182fb2c2dddfcaf2cc" title=" " alt="" coords="244,205,434,248"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="147,146,245,191,260,197,258,202,243,196,144,151"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1dxlib__util.html#a5f59136031be16081cffcef06767b9e5" title="デフォルトだと描画処理を書いた順に描画されるが, これをZバッファを使用して奥行きを考慮して描画するようにする. 毎フレーム実行する必要がある." alt="" coords="502,5,637,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="429,24,486,24,486,29,429,29"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1dxlib__util.html#aceffcb5f4496686bed7db7fc55488958" title="Dxlibの座標を示すVECTORと,このプログラムで使用しているVectorを変換する. &#160;&#160;ロボット座標系は右手座標系, Dxlibは左手座標系（工学は右手・ゲームライブラリは左手が多い）なのでyを..." alt="" coords="501,139,639,181"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="428,157,485,157,485,163,428,163"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="414,202,485,182,487,187,416,207"/>
+<area shape="rect" id="Node000008" href="$namespacedesignlab_1_1dxlib__util.html#a170cac2fc964414af49c550aee6583c8" title="3D空間に立方体を描画する.立方体の上面の中心の座標から描画する." alt="" coords="482,205,657,248"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="434,224,466,224,466,229,434,229"/>
+<area shape="rect" id="Node000009" href="$namespacedesignlab_1_1dxlib__util.html#aec08fe28b57053d60e3085bd20ce8b25" title="3D空間に立方体を描画する." alt="" coords="705,205,841,248"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="658,224,690,224,690,229,658,229"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="designlab::MovementLocusRenderer::Draw" name="designlab::MovementLocusRenderer::Draw">
-<area shape="rect" id="Node000001" title="ロボットの移動軌跡を描画する．" alt="" coords="244,5,422,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graphic_main_basic.html#adb07f27a1b256ef8085d88b57354449c" title="描画を行う． ここでは描画系の処理のみを行い内部のデータを 更新しないため const を付けている．" alt="" coords="5,5,196,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,29,196,29,196,24,229,24"/>
+<area shape="rect" id="Node000001" title="ロボットの移動軌跡を描画する." alt="" coords="244,5,422,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graphic_main_basic.html#adb07f27a1b256ef8085d88b57354449c" title="描画を行う. ここでは描画系の処理のみを行い内部のデータを 更新しないため const を付けている." alt="" coords="5,5,196,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="228,29,196,29,196,24,228,24"/>
 </map>

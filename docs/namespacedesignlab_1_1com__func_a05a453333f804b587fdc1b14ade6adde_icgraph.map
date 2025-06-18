@@ -1,9 +1,9 @@
 <map id="designlab::com_func::RemoveLegGroundPatternFromCom" name="designlab::com_func::RemoveLegGroundPatternFromCom">
-<area shape="rect" id="Node000001" title="離散化された重心位置から，その重心位置では取り得ない脚接地パターンを falseにする．" alt="" coords="231,72,468,115"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_node_creator_leg_up_down.html#a861b8e2c2efd6673f70c53881848d442" title="現在のノードから次のノード群を生成する．" alt="" coords="5,5,183,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="250,70,178,51,179,46,252,65"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_node_creator_leg_up_down2d.html#a06c92f273cd957c7108ae2632bcd8339" title="現在のノードから次のノード群を生成する．" alt="" coords="5,72,183,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,96,183,96,183,91,216,91"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_node_creator_leg_up_down_radius.html#a4d2c69510f3b456ce4cb21c2a58e9b45" title="現在のノードから次のノード群を生成する．" alt="" coords="5,139,183,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="252,121,179,141,178,135,250,116"/>
+<area shape="rect" id="Node000001" title="離散化された重心位置から,その重心位置では取り得ない脚接地パターンを falseにする." alt="" coords="231,72,468,115"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_node_creator_leg_up_down.html#a861b8e2c2efd6673f70c53881848d442" title="現在のノードから次のノード群を生成する." alt="" coords="5,5,183,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="250,70,178,51,179,46,251,65"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_node_creator_leg_up_down2d.html#a06c92f273cd957c7108ae2632bcd8339" title="現在のノードから次のノード群を生成する." alt="" coords="5,72,183,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,96,183,96,183,91,215,91"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_node_creator_leg_up_down_radius.html#a4d2c69510f3b456ce4cb21c2a58e9b45" title="現在のノードから次のノード群を生成する." alt="" coords="5,139,183,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="251,122,179,141,178,135,250,117"/>
 </map>

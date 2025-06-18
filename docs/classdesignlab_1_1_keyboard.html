@@ -80,7 +80,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Dxlibのキーボード入力を取得するクラス．  
+<p>Dxlibのキーボード入力を取得するクラス.  
  <a href="classdesignlab_1_1_keyboard.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="keyboard_8h_source.html">keyboard.h</a>&gt;</code></p>
@@ -90,17 +90,17 @@ $(function() {
 <tr class="memitem:a6e63e10795d82095e9b10d028b7db1da" id="r_a6e63e10795d82095e9b10d028b7db1da"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_keyboard.html#a6e63e10795d82095e9b10d028b7db1da">Keyboard</a> ()</td></tr>
 <tr class="separator:a6e63e10795d82095e9b10d028b7db1da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4de4653768e58f705d44ff44d8d0b02d" id="r_a4de4653768e58f705d44ff44d8d0b02d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_keyboard.html#a4de4653768e58f705d44ff44d8d0b02d">Update</a> ()</td></tr>
-<tr class="memdesc:a4de4653768e58f705d44ff44d8d0b02d"><td class="mdescLeft">&#160;</td><td class="mdescRight">キー入力を更新する． これを毎フレーム実行しないと，キー入力を取得できない．  <br /></td></tr>
+<tr class="memdesc:a4de4653768e58f705d44ff44d8d0b02d"><td class="mdescLeft">&#160;</td><td class="mdescRight">キー入力を更新する. これを毎フレーム実行しないと,キー入力を取得できない.  <br /></td></tr>
 <tr class="separator:a4de4653768e58f705d44ff44d8d0b02d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53aed0e7983485620faf2e0df42022ea" id="r_a53aed0e7983485620faf2e0df42022ea"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_keyboard.html#a53aed0e7983485620faf2e0df42022ea">GetPressingCount</a> (const int key_code) const</td></tr>
-<tr class="memdesc:a53aed0e7983485620faf2e0df42022ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">keyCodeのキーが押されているフレーム数を取得する．  <br /></td></tr>
+<tr class="memdesc:a53aed0e7983485620faf2e0df42022ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">keyCodeのキーが押されているフレーム数を取得する.  <br /></td></tr>
 <tr class="separator:a53aed0e7983485620faf2e0df42022ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25fd98e1aaee8045fbfb9422e4fece3b" id="r_a25fd98e1aaee8045fbfb9422e4fece3b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_keyboard.html#a25fd98e1aaee8045fbfb9422e4fece3b">GetReleasingCount</a> (const int key_code) const</td></tr>
-<tr class="memdesc:a25fd98e1aaee8045fbfb9422e4fece3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">keyCodeのキーが離されているフレーム数を取得する．  <br /></td></tr>
+<tr class="memdesc:a25fd98e1aaee8045fbfb9422e4fece3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">keyCodeのキーが離されているフレーム数を取得する.  <br /></td></tr>
 <tr class="separator:a25fd98e1aaee8045fbfb9422e4fece3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>Dxlibのキーボード入力を取得するクラス． </p>
+<div class="textblock"><p>Dxlibのキーボード入力を取得するクラス. </p>
 
 <p class="definition"> <a class="el" href="keyboard_8h_source.html">keyboard.h</a> の <a class="el" href="keyboard_8h_source.html#l00019">19</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">構築子と解体子</h2>
@@ -140,14 +140,14 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>keyCodeのキーが押されているフレーム数を取得する． </p>
+<p>keyCodeのキーが押されているフレーム数を取得する. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">keyCode</td><td>どのキーを調べたいか， 例えばZキーだったら，KEY_INPUT_Z となる． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">keyCode</td><td>どのキーを調べたいか, 例えばZキーだったら,KEY_INPUT_Z となる. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>戻り値</dt><dd>押されているフレーム数．異常な key_code が渡された場合は-1を返す． </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>押されているフレーム数.異常な key_code が渡された場合は-1を返す. </dd></dl>
 
 <p class="definition"> <a class="el" href="keyboard_8cpp_source.html">keyboard.cpp</a> の <a class="el" href="keyboard_8cpp_source.html#l00058">58</a> 行目に定義があります。</p>
 <div class="dynheader">
@@ -155,9 +155,9 @@ $(function() {
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_keyboard_a53aed0e7983485620faf2e0df42022ea_icgraph.png" border="0" usemap="#aclassdesignlab_1_1_keyboard_a53aed0e7983485620faf2e0df42022ea_icgraph" alt=""/></div>
 <map name="aclassdesignlab_1_1_keyboard_a53aed0e7983485620faf2e0df42022ea_icgraph" id="aclassdesignlab_1_1_keyboard_a53aed0e7983485620faf2e0df42022ea_icgraph">
-<area shape="rect" title="keyCodeのキーが押されているフレーム数を取得する．" alt="" coords="254,5,393,48"/>
-<area shape="rect" href="classdesignlab_1_1_graphic_main_display_model.html#a123284fa5272d199b738b977eaf99898" title="描画画面の更新を行う．純粋仮想関数のため， 継承先では必ず override する必要がある．" alt="" coords="5,5,206,48"/>
-<area shape="poly" title=" " alt="" coords="239,29,206,29,206,24,239,24"/>
+<area shape="rect" title="keyCodeのキーが押されているフレーム数を取得する." alt="" coords="254,5,393,48"/>
+<area shape="rect" href="classdesignlab_1_1_graphic_main_display_model.html#a123284fa5272d199b738b977eaf99898" title="描画画面の更新を行う.純粋仮想関数のため, 継承先では必ず override する必要がある." alt="" coords="5,5,206,48"/>
+<area shape="poly" title=" " alt="" coords="238,29,206,29,206,24,238,24"/>
 </map>
 </div>
 
@@ -179,14 +179,14 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>keyCodeのキーが離されているフレーム数を取得する． </p>
+<p>keyCodeのキーが離されているフレーム数を取得する. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">keyCode</td><td>どのキーを調べたいか， 例えばZキーだったら，KEY_INPUT_Z となる． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">keyCode</td><td>どのキーを調べたいか, 例えばZキーだったら,KEY_INPUT_Z となる. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>戻り値</dt><dd>離されているフレーム数．異常な key_code が渡された場合は-1を返す． </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>離されているフレーム数.異常な key_code が渡された場合は-1を返す. </dd></dl>
 
 <p class="definition"> <a class="el" href="keyboard_8cpp_source.html">keyboard.cpp</a> の <a class="el" href="keyboard_8cpp_source.html#l00068">68</a> 行目に定義があります。</p>
 
@@ -207,7 +207,7 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>キー入力を更新する． これを毎フレーム実行しないと，キー入力を取得できない． </p>
+<p>キー入力を更新する. これを毎フレーム実行しないと,キー入力を取得できない. </p>
 
 <p class="definition"> <a class="el" href="keyboard_8cpp_source.html">keyboard.cpp</a> の <a class="el" href="keyboard_8cpp_source.html#l00025">25</a> 行目に定義があります。</p>
 <div class="dynheader">
@@ -215,11 +215,11 @@ $(function() {
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_keyboard_a4de4653768e58f705d44ff44d8d0b02d_icgraph.png" border="0" usemap="#aclassdesignlab_1_1_keyboard_a4de4653768e58f705d44ff44d8d0b02d_icgraph" alt=""/></div>
 <map name="aclassdesignlab_1_1_keyboard_a4de4653768e58f705d44ff44d8d0b02d_icgraph" id="aclassdesignlab_1_1_keyboard_a4de4653768e58f705d44ff44d8d0b02d_icgraph">
-<area shape="rect" title="キー入力を更新する． これを毎フレーム実行しないと，キー入力を取得できない．" alt="" coords="289,39,428,81"/>
+<area shape="rect" title="キー入力を更新する. これを毎フレーム実行しないと,キー入力を取得できない." alt="" coords="289,39,428,81"/>
 <area shape="rect" href="classdesignlab_1_1_graph_viewer_g_u_i_controller.html#a838c8aefbbb4fb37d89798d1f2bcc9b5" title=" " alt="" coords="5,5,241,48"/>
-<area shape="poly" title=" " alt="" coords="274,51,241,46,242,41,275,45"/>
-<area shape="rect" href="classdesignlab_1_1_graphic_main_display_model.html#a123284fa5272d199b738b977eaf99898" title="描画画面の更新を行う．純粋仮想関数のため， 継承先では必ず override する必要がある．" alt="" coords="23,72,223,115"/>
-<area shape="poly" title=" " alt="" coords="275,74,224,82,223,76,274,69"/>
+<area shape="poly" title=" " alt="" coords="273,51,241,46,242,41,274,45"/>
+<area shape="rect" href="classdesignlab_1_1_graphic_main_display_model.html#a123284fa5272d199b738b977eaf99898" title="描画画面の更新を行う.純粋仮想関数のため, 継承先では必ず override する必要がある." alt="" coords="23,72,223,115"/>
+<area shape="poly" title=" " alt="" coords="274,75,224,82,223,76,273,69"/>
 </map>
 </div>
 

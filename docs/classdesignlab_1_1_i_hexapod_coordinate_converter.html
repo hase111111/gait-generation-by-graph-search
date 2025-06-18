@@ -80,7 +80,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>ロボットは重心位置・アクチュエータなど様々な点を基準とする座標系を持つ． これらを相互に変換する処理のインターフェース．  
+<p>ロボットは重心位置・アクチュエータなど様々な点を基準とする座標系を持つ. これらを相互に変換する処理のインターフェース.  
  <a href="classdesignlab_1_1_i_hexapod_coordinate_converter.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="interface__hexapod__coordinate__converter_8h_source.html">interface_hexapod_coordinate_converter.h</a>&gt;</code></p>
@@ -89,41 +89,43 @@ designlab::IHexapodCoordinateConverter の継承関係図</div>
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_i_hexapod_coordinate_converter__inherit__graph.png" border="0" usemap="#adesignlab_1_1_i_hexapod_coordinate_converter_inherit__map" alt="Inheritance graph"/></div>
 <map name="adesignlab_1_1_i_hexapod_coordinate_converter_inherit__map" id="adesignlab_1_1_i_hexapod_coordinate_converter_inherit__map">
-<area shape="rect" title="ロボットは重心位置・アクチュエータなど様々な点を基準とする座標系を持つ． これらを相互に変換する処理のインターフェース．" alt="" coords="5,5,206,48"/>
-<area shape="rect" href="classdesignlab_1_1_phantom_x_mk_i_i.html" title="PhantomX mk&#45;2 の状態を計算するクラス．" alt="" coords="22,96,189,123"/>
-<area shape="poly" title=" " alt="" coords="108,63,108,95,103,95,103,63"/>
+<area shape="rect" title="ロボットは重心位置・アクチュエータなど様々な点を基準とする座標系を持つ. これらを相互に変換する処理のインターフェース." alt="" coords="70,5,271,48"/>
+<area shape="rect" href="classdesignlab_1_1_phantom_x_mk_i_i.html" title="PhantomX mk&#45;2 の状態を計算するクラス." alt="" coords="5,96,173,123"/>
+<area shape="poly" title=" " alt="" coords="140,61,104,97,100,94,137,57"/>
+<area shape="rect" href="classdesignlab_1_1_xr_r1.html" title=" " alt="" coords="197,96,309,123"/>
+<area shape="poly" title=" " alt="" coords="204,57,242,94,238,97,201,61"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:a22ef75b9b8d9afe3ef5933e8d727955b" id="r_a22ef75b9b8d9afe3ef5933e8d727955b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_coordinate_converter.html#a22ef75b9b8d9afe3ef5933e8d727955b">~IHexapodCoordinateConverter</a> ()=default</td></tr>
-<tr class="memdesc:a22ef75b9b8d9afe3ef5933e8d727955b"><td class="mdescLeft">&#160;</td><td class="mdescRight">継承するクラスはデストラクタを virtualにすること．  <br /></td></tr>
+<tr class="memdesc:a22ef75b9b8d9afe3ef5933e8d727955b"><td class="mdescLeft">&#160;</td><td class="mdescRight">継承するクラスはデストラクタを virtualにすること.  <br /></td></tr>
 <tr class="separator:a22ef75b9b8d9afe3ef5933e8d727955b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8295b3c4d51d1c48dbe01b37b23d94f4" id="r_a8295b3c4d51d1c48dbe01b37b23d94f4"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_coordinate_converter.html#a8295b3c4d51d1c48dbe01b37b23d94f4">ConvertGlobalToLegCoordinate</a> (const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;converted_position, int leg_index, const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;center_of_mass_global, const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;robot_quat, bool consider_rot) const =0</td></tr>
-<tr class="memdesc:a8295b3c4d51d1c48dbe01b37b23d94f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">グローバル座標系で表現されている座標を，脚座標系に変換する．  <br /></td></tr>
+<tr class="memdesc:a8295b3c4d51d1c48dbe01b37b23d94f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">グローバル座標系で表現されている座標を,脚座標系に変換する.  <br /></td></tr>
 <tr class="separator:a8295b3c4d51d1c48dbe01b37b23d94f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aadbc8561508541269270a9a0e841272b" id="r_aadbc8561508541269270a9a0e841272b"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_coordinate_converter.html#aadbc8561508541269270a9a0e841272b">ConvertLegToGlobalCoordinate</a> (const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;converted_position, int leg_index, const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;center_of_mass_global, const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;robot_quat, bool consider_rot) const =0</td></tr>
-<tr class="memdesc:aadbc8561508541269270a9a0e841272b"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚座標系で表現されている座標を，グローバル座標系に変換する．  <br /></td></tr>
+<tr class="memdesc:aadbc8561508541269270a9a0e841272b"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚座標系で表現されている座標を,グローバル座標系に変換する.  <br /></td></tr>
 <tr class="separator:aadbc8561508541269270a9a0e841272b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab50a98d841ca5b49871f0db44849ea80" id="r_ab50a98d841ca5b49871f0db44849ea80"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_coordinate_converter.html#ab50a98d841ca5b49871f0db44849ea80">ConvertRobotToGlobalCoordinate</a> (const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;converted_position, const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;center_of_mass_global, const <a class="el" href="structdesignlab_1_1_quaternion.html">Quaternion</a> &amp;robot_quat, bool consider_rot) const =0</td></tr>
-<tr class="memdesc:ab50a98d841ca5b49871f0db44849ea80"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボット座標系で表現されている座標を，グローバル座標系に変換する．  <br /></td></tr>
+<tr class="memdesc:ab50a98d841ca5b49871f0db44849ea80"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボット座標系で表現されている座標を,グローバル座標系に変換する.  <br /></td></tr>
 <tr class="separator:ab50a98d841ca5b49871f0db44849ea80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b5ef449c5ee14689db1e4346281aabb" id="r_a3b5ef449c5ee14689db1e4346281aabb"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_coordinate_converter.html#a3b5ef449c5ee14689db1e4346281aabb">ConvertRobotToLegCoordinate</a> (const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;converted_position, int leg_index) const =0</td></tr>
-<tr class="memdesc:a3b5ef449c5ee14689db1e4346281aabb"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボット座標系で表現されている座標を，脚座標系に変換する．  <br /></td></tr>
+<tr class="memdesc:a3b5ef449c5ee14689db1e4346281aabb"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボット座標系で表現されている座標を,脚座標系に変換する.  <br /></td></tr>
 <tr class="separator:a3b5ef449c5ee14689db1e4346281aabb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bf6ddf64f65e05ad33345e83cf60fca" id="r_a0bf6ddf64f65e05ad33345e83cf60fca"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_coordinate_converter.html#a0bf6ddf64f65e05ad33345e83cf60fca">ConvertLegToRobotCoordinate</a> (const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;converted_position, int leg_index) const =0</td></tr>
-<tr class="memdesc:a0bf6ddf64f65e05ad33345e83cf60fca"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚座標系で表現されている座標を，ロボット座標系に変換する．  <br /></td></tr>
+<tr class="memdesc:a0bf6ddf64f65e05ad33345e83cf60fca"><td class="mdescLeft">&#160;</td><td class="mdescRight">脚座標系で表現されている座標を,ロボット座標系に変換する.  <br /></td></tr>
 <tr class="separator:a0bf6ddf64f65e05ad33345e83cf60fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>ロボットは重心位置・アクチュエータなど様々な点を基準とする座標系を持つ． これらを相互に変換する処理のインターフェース． </p>
-<p>プログラムには3つの座標系が存在している， </p><ul>
-<li>グローバル座標系 (Global Coordinate) マップの原点を原点とする座標系， 座標軸はマップの座標軸と同じ． </li>
-<li>ロボット座標系 (Robot Coordinate) ロボットの重心を原点とする座標系， 座標軸はロボットの姿勢に合わせる． </li>
-<li>脚座標系 (Leg Coordinate) 脚の付け根を原点とする座標系， 座標軸はロボットの姿勢に合わせる(ローカル座標系と同じ)．</li>
+<div class="textblock"><p>ロボットは重心位置・アクチュエータなど様々な点を基準とする座標系を持つ. これらを相互に変換する処理のインターフェース. </p>
+<p>プログラムには3つの座標系が存在している, </p><ul>
+<li>グローバル座標系 (Global Coordinate) マップの原点を原点とする座標系, 座標軸はマップの座標軸と同じ. </li>
+<li>ロボット座標系 (Robot Coordinate) ロボットの重心を原点とする座標系, 座標軸はロボットの姿勢に合わせる. </li>
+<li>脚座標系 (Leg Coordinate) 脚の付け根を原点とする座標系, 座標軸はロボットの姿勢に合わせる(ローカル座標系と同じ).</li>
 </ul>
-<p>運動学の教科書とか読む感じ， この座標系の取り方とは違うのだが，先行研究で使われた手法であり， 実用上問題ないのでこのまま． </p>
+<p>運動学の教科書とか読む感じ, この座標系の取り方とは違うのだが,先行研究で使われた手法であり, 実用上問題ないのでこのまま. </p>
 
 <p class="definition"> <a class="el" href="interface__hexapod__coordinate__converter_8h_source.html">interface_hexapod_coordinate_converter.h</a> の <a class="el" href="interface__hexapod__coordinate__converter_8h_source.html#l00033">33</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">構築子と解体子</h2>
@@ -150,7 +152,7 @@ designlab::IHexapodCoordinateConverter の継承関係図</div>
 </table>
 </div><div class="memdoc">
 
-<p>継承するクラスはデストラクタを virtualにすること． </p>
+<p>継承するクラスはデストラクタを virtualにすること. </p>
 
 </div>
 </div>
@@ -207,20 +209,20 @@ designlab::IHexapodCoordinateConverter の継承関係図</div>
 </table>
 </div><div class="memdoc">
 
-<p>グローバル座標系で表現されている座標を，脚座標系に変換する． </p>
+<p>グローバル座標系で表現されている座標を,脚座標系に変換する. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">converted_position</td><td>変換対象．グローバル座標系． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">leg_index</td><td>脚番号． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">center_of_mass_global</td><td>ロボットの重心の座標．グローバル座標系． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">robot_rot</td><td>ロボットの姿勢．角度はrad. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">consider_rot</td><td>ロボットの姿勢を考慮するかどうか． falseなら回転を考慮しない． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">converted_position</td><td>変換対象.グローバル座標系. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_index</td><td>脚番号. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">center_of_mass_global</td><td>ロボットの重心の座標.グローバル座標系. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">robot_rot</td><td>ロボットの姿勢.角度はrad. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">consider_rot</td><td>ロボットの姿勢を考慮するかどうか. falseなら回転を考慮しない. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>戻り値</dt><dd>脚座標系の座標．脚先座標系とは脚の付け根を原点とし， 軸はロボット座標系と同様な座標系． </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>脚座標系の座標.脚先座標系とは脚の付け根を原点とし, 軸はロボット座標系と同様な座標系. </dd></dl>
 
-<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a0630fa1d537f7e00aa422a83c98ebdda">designlab::PhantomXMkII</a>で実装されています。</p>
+<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a0630fa1d537f7e00aa422a83c98ebdda">designlab::PhantomXMkII</a>, <a class="el" href="classdesignlab_1_1_xr_r1.html#ab8d9f18cf8e18a69baeb8d85625b92b8">designlab::XrR1</a>で実装されています。</p>
 
 </div>
 </div>
@@ -276,20 +278,20 @@ designlab::IHexapodCoordinateConverter の継承関係図</div>
 </table>
 </div><div class="memdoc">
 
-<p>脚座標系で表現されている座標を，グローバル座標系に変換する． </p>
+<p>脚座標系で表現されている座標を,グローバル座標系に変換する. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">converted_position</td><td>変換対象．脚座標系． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">leg_index</td><td>脚番号． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">center_of_mass_global</td><td>ロボットの重心の座標．グローバル座標系． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">robot_rot</td><td>ロボットの姿勢．角度は[rad]. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">consider_rot</td><td>ロボットの姿勢を考慮するかどうか． falseなら回転を考慮しない． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">converted_position</td><td>変換対象.脚座標系. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_index</td><td>脚番号. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">center_of_mass_global</td><td>ロボットの重心の座標.グローバル座標系. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">robot_rot</td><td>ロボットの姿勢.角度は[rad]. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">consider_rot</td><td>ロボットの姿勢を考慮するかどうか. falseなら回転を考慮しない. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>戻り値</dt><dd>グローバル座標系の座標． </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>グローバル座標系の座標. </dd></dl>
 
-<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a028f4e024ebebca50325beef3444bfc5">designlab::PhantomXMkII</a>で実装されています。</p>
+<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a028f4e024ebebca50325beef3444bfc5">designlab::PhantomXMkII</a>, <a class="el" href="classdesignlab_1_1_xr_r1.html#afe76db199dbd6111b1e04e92c29643f8">designlab::XrR1</a>で実装されています。</p>
 
 </div>
 </div>
@@ -327,9 +329,9 @@ designlab::IHexapodCoordinateConverter の継承関係図</div>
 </table>
 </div><div class="memdoc">
 
-<p>脚座標系で表現されている座標を，ロボット座標系に変換する． </p>
+<p>脚座標系で表現されている座標を,ロボット座標系に変換する. </p>
 
-<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a27befb91ff5b1954cd31a3a46d70e995">designlab::PhantomXMkII</a>で実装されています。</p>
+<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a27befb91ff5b1954cd31a3a46d70e995">designlab::PhantomXMkII</a>, <a class="el" href="classdesignlab_1_1_xr_r1.html#ad2adc2dcabd9cc66ce772d7a7fa91e25">designlab::XrR1</a>で実装されています。</p>
 
 </div>
 </div>
@@ -379,19 +381,19 @@ designlab::IHexapodCoordinateConverter の継承関係図</div>
 </table>
 </div><div class="memdoc">
 
-<p>ロボット座標系で表現されている座標を，グローバル座標系に変換する． </p>
+<p>ロボット座標系で表現されている座標を,グローバル座標系に変換する. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">converted_position</td><td>変換対象．ロボット座標系． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">center_of_mass_global</td><td>ロボットの重心の座標．グローバル座標系． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">robot_rot</td><td>ロボットの姿勢．角度は[rad]. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">consider_rot</td><td>ロボットの姿勢を考慮するかどうか． falseなら回転を考慮しない． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">converted_position</td><td>変換対象.ロボット座標系. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">center_of_mass_global</td><td>ロボットの重心の座標.グローバル座標系. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">robot_rot</td><td>ロボットの姿勢.角度は[rad]. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">consider_rot</td><td>ロボットの姿勢を考慮するかどうか. falseなら回転を考慮しない. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>戻り値</dt><dd>グローバル座標系の座標． </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>グローバル座標系の座標. </dd></dl>
 
-<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i.html#ae4b923566d06eef5f765b1e7afdd57ae">designlab::PhantomXMkII</a>で実装されています。</p>
+<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i.html#ae4b923566d06eef5f765b1e7afdd57ae">designlab::PhantomXMkII</a>, <a class="el" href="classdesignlab_1_1_xr_r1.html#af24aba96b533bd1d87d5b904a88aabdb">designlab::XrR1</a>で実装されています。</p>
 
 </div>
 </div>
@@ -429,9 +431,9 @@ designlab::IHexapodCoordinateConverter の継承関係図</div>
 </table>
 </div><div class="memdoc">
 
-<p>ロボット座標系で表現されている座標を，脚座標系に変換する． </p>
+<p>ロボット座標系で表現されている座標を,脚座標系に変換する. </p>
 
-<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a23f271c79b8151dbb64c4e441b19e1d6">designlab::PhantomXMkII</a>で実装されています。</p>
+<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i.html#a23f271c79b8151dbb64c4e441b19e1d6">designlab::PhantomXMkII</a>, <a class="el" href="classdesignlab_1_1_xr_r1.html#afbb860994e9b08d659d1c245ab0f96b0">designlab::XrR1</a>で実装されています。</p>
 
 </div>
 </div>

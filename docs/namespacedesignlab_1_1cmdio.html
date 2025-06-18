@@ -1,0 +1,2207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: designlab::cmdio 名前空間</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacedesignlab.html">designlab</a></li><li class="navelem"><a class="el" href="namespacedesignlab_1_1cmdio.html">cmdio</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">関数</a> &#124;
+<a href="#var-members">変数</a>  </div>
+  <div class="headertitle"><div class="title">designlab::cmdio 名前空間</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+関数</h2></td></tr>
+<tr class="memitem:aebcb2e345f3e1255aa6b141a14aebd95" id="r_aebcb2e345f3e1255aa6b141a14aebd95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#aebcb2e345f3e1255aa6b141a14aebd95">SetOutputLimit</a> (<a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a> limit)</td></tr>
+<tr class="memdesc:aebcb2e345f3e1255aa6b141a14aebd95"><td class="mdescLeft">&#160;</td><td class="mdescRight">出力するメッセージをどこまで許可するかを設定する関数. <br  />
+ この関数を呼び出してから出ないと,他の関数を使えない. <br  />
+ 例えば kError に設定すると, kError 未満の出力( kInfo とか kDebug とかはされない. <br  />
+ 逆に kDebug に設定すると,すべての出力がされる. <br  />
+ 1度呼び出したら,プログラム終了まで設定は有効となる.  <br /></td></tr>
+<tr class="separator:aebcb2e345f3e1255aa6b141a14aebd95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2b8e0f238d7d3a3573657f0f0a6f438" id="r_ad2b8e0f238d7d3a3573657f0f0a6f438"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#ad2b8e0f238d7d3a3573657f0f0a6f438">DoOutput</a> (bool <a class="el" href="namespacedesignlab.html#a5afa1946897c446cbb48aaa10f8d86c8">do_output</a>)</td></tr>
+<tr class="memdesc:ad2b8e0f238d7d3a3573657f0f0a6f438"><td class="mdescLeft">&#160;</td><td class="mdescRight">そもそも出力をするかを設定する関数. <br  />
+ false に設定しても システムメッセージは出力される.  <br /></td></tr>
+<tr class="separator:ad2b8e0f238d7d3a3573657f0f0a6f438"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae16089dfba0d5bcfdd33b6ddc8efbfbf" id="r_ae16089dfba0d5bcfdd33b6ddc8efbfbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf">Output</a> (const std::string &amp;str, <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a> detail)</td></tr>
+<tr class="memdesc:ae16089dfba0d5bcfdd33b6ddc8efbfbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. <br  />
+ SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される.  <br /></td></tr>
+<tr class="separator:ae16089dfba0d5bcfdd33b6ddc8efbfbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4971c383359543790b7f519e709fe9dd" id="r_a4971c383359543790b7f519e709fe9dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a4971c383359543790b7f519e709fe9dd">DebugOutput</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:a4971c383359543790b7f519e709fe9dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. Debug 用の出力.  <br /></td></tr>
+<tr class="separator:a4971c383359543790b7f519e709fe9dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e9740d909801245329252626e4252ae" id="r_a9e9740d909801245329252626e4252ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a9e9740d909801245329252626e4252ae">InfoOutput</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:a9e9740d909801245329252626e4252ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. Info 用の出力.  <br /></td></tr>
+<tr class="separator:a9e9740d909801245329252626e4252ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a773c2d724a24b05daba5382fd4bf42" id="r_a5a773c2d724a24b05daba5382fd4bf42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a5a773c2d724a24b05daba5382fd4bf42">WarningOutput</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:a5a773c2d724a24b05daba5382fd4bf42"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. Warning 用の出力.  <br /></td></tr>
+<tr class="separator:a5a773c2d724a24b05daba5382fd4bf42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2580b68e1aa0d6f45bedd166a68b6cd8" id="r_a2580b68e1aa0d6f45bedd166a68b6cd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a2580b68e1aa0d6f45bedd166a68b6cd8">ErrorOutput</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:a2580b68e1aa0d6f45bedd166a68b6cd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. Error 用の出力.  <br /></td></tr>
+<tr class="separator:a2580b68e1aa0d6f45bedd166a68b6cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f803a29165fa043ed5b033d21174a84" id="r_a7f803a29165fa043ed5b033d21174a84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a7f803a29165fa043ed5b033d21174a84">SystemOutput</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:a7f803a29165fa043ed5b033d21174a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. System 用の出力.  <br /></td></tr>
+<tr class="separator:a7f803a29165fa043ed5b033d21174a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d59a4e2fa0f33ec8a1df18e037aa51a" id="r_a3d59a4e2fa0f33ec8a1df18e037aa51a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a3d59a4e2fa0f33ec8a1df18e037aa51a">SpacedOutput</a> (const std::string &amp;str, <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a> detail)</td></tr>
+<tr class="memdesc:a3d59a4e2fa0f33ec8a1df18e037aa51a"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. <br  />
+ 前と後ろに改行を挿入する.  <br /></td></tr>
+<tr class="separator:a3d59a4e2fa0f33ec8a1df18e037aa51a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18eaad4770c65620da0d19bf3508f6a5" id="r_a18eaad4770c65620da0d19bf3508f6a5"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a18eaad4770c65620da0d19bf3508f6a5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a18eaad4770c65620da0d19bf3508f6a5">OutputF</a> (<a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a> detail, const std::format_string&lt; Args... &gt; str, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a18eaad4770c65620da0d19bf3508f6a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数, format した文字列を出力する. <br  />
+ <a class="el" href="namespacedesignlab_1_1cmdio.html#aebcb2e345f3e1255aa6b141a14aebd95" title="出力するメッセージをどこまで許可するかを設定する関数.   この関数を呼び出してから出ないと,他の関数を使えない.   例えば kError に設定すると, kError 未満の出力( kInfo とか...">SetOutputLimit()</a> で設定した出力の許可範囲内であれば出力される.  <br /></td></tr>
+<tr class="separator:a18eaad4770c65620da0d19bf3508f6a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a2dcd75e12ba0190bf2938f03ba8a46" id="r_a7a2dcd75e12ba0190bf2938f03ba8a46"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a7a2dcd75e12ba0190bf2938f03ba8a46"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a7a2dcd75e12ba0190bf2938f03ba8a46">DebugOutputF</a> (const std::format_string&lt; Args... &gt; str, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a7a2dcd75e12ba0190bf2938f03ba8a46"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. Debug 用の出力. format した文字列を出力する.  <br /></td></tr>
+<tr class="separator:a7a2dcd75e12ba0190bf2938f03ba8a46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6059e28df01199fe0205905b9a0d3a7a" id="r_a6059e28df01199fe0205905b9a0d3a7a"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a6059e28df01199fe0205905b9a0d3a7a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a6059e28df01199fe0205905b9a0d3a7a">InfoOutputF</a> (const std::format_string&lt; Args... &gt; str, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a6059e28df01199fe0205905b9a0d3a7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. Info 用の出力. format した文字列を出力する.  <br /></td></tr>
+<tr class="separator:a6059e28df01199fe0205905b9a0d3a7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36c61c2450dd3180e3d8d0965049f786" id="r_a36c61c2450dd3180e3d8d0965049f786"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a36c61c2450dd3180e3d8d0965049f786"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a36c61c2450dd3180e3d8d0965049f786">WarningOutputF</a> (const std::format_string&lt; Args... &gt; str, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a36c61c2450dd3180e3d8d0965049f786"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. Warning 用の出力. format した文字列を出力する.  <br /></td></tr>
+<tr class="separator:a36c61c2450dd3180e3d8d0965049f786"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a816ad14579fc0ffc19475ff1a320704c" id="r_a816ad14579fc0ffc19475ff1a320704c"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a816ad14579fc0ffc19475ff1a320704c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a816ad14579fc0ffc19475ff1a320704c">ErrorOutputF</a> (const std::format_string&lt; Args... &gt; str, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a816ad14579fc0ffc19475ff1a320704c"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. Error 用の出力. format した文字列を出力する.  <br /></td></tr>
+<tr class="separator:a816ad14579fc0ffc19475ff1a320704c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a536190ccb50f1f7182547138b0d04724" id="r_a536190ccb50f1f7182547138b0d04724"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a536190ccb50f1f7182547138b0d04724"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a536190ccb50f1f7182547138b0d04724">SystemOutputF</a> (const std::format_string&lt; Args... &gt; str, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a536190ccb50f1f7182547138b0d04724"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数. System 用の出力. format した文字列を出力する.  <br /></td></tr>
+<tr class="separator:a536190ccb50f1f7182547138b0d04724"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1144b4d7e79c9623898dfda69c96853" id="r_ac1144b4d7e79c9623898dfda69c96853"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:ac1144b4d7e79c9623898dfda69c96853"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#ac1144b4d7e79c9623898dfda69c96853">SpacedOutputF</a> (<a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a> detail, const std::format_string&lt; Args... &gt; str, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:ac1144b4d7e79c9623898dfda69c96853"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに文字を出力する関数, format した文字列を出力する. <br  />
+ SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される.  <br /></td></tr>
+<tr class="separator:ac1144b4d7e79c9623898dfda69c96853"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53517d90c6e49e06907cdf04b9979cdc" id="r_a53517d90c6e49e06907cdf04b9979cdc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a53517d90c6e49e06907cdf04b9979cdc">OutputCenter</a> (const std::string &amp;str, <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a> detail)</td></tr>
+<tr class="memdesc:a53517d90c6e49e06907cdf04b9979cdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">中央に文字を出力する関数. 文字列が長すぎる場合は普通に左詰めで出力される.  <br /></td></tr>
+<tr class="separator:a53517d90c6e49e06907cdf04b9979cdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c8bce312d4541906ad912f79317b013" id="r_a8c8bce312d4541906ad912f79317b013"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a8c8bce312d4541906ad912f79317b013">OutputRight</a> (const std::string &amp;str, <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a> detail)</td></tr>
+<tr class="memdesc:a8c8bce312d4541906ad912f79317b013"><td class="mdescLeft">&#160;</td><td class="mdescRight">右端に文字を出力する関数. 文字列が長すぎる場合は普通に左詰めで出力される.  <br /></td></tr>
+<tr class="separator:a8c8bce312d4541906ad912f79317b013"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8ed2785f4f2ed80a29f9b6d3a3d1d4a" id="r_aa8ed2785f4f2ed80a29f9b6d3a3d1d4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#aa8ed2785f4f2ed80a29f9b6d3a3d1d4a">OutputNewLine</a> (int num, <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a> detail)</td></tr>
+<tr class="memdesc:aa8ed2785f4f2ed80a29f9b6d3a3d1d4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインで改行をする関数.  <br /></td></tr>
+<tr class="separator:aa8ed2785f4f2ed80a29f9b6d3a3d1d4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e349377c9ecf3763014ca8436fa44f6" id="r_a4e349377c9ecf3763014ca8436fa44f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a4e349377c9ecf3763014ca8436fa44f6">OutputHorizontalLine</a> (const std::string &amp;line_visual, <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a> detail)</td></tr>
+<tr class="memdesc:a4e349377c9ecf3763014ca8436fa44f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインに水平線を出力する関数.  <br /></td></tr>
+<tr class="separator:a4e349377c9ecf3763014ca8436fa44f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac156719fff45c1e6da33d779eee8a4a" id="r_aac156719fff45c1e6da33d779eee8a4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#aac156719fff45c1e6da33d779eee8a4a">OutputTitle</a> (const std::string &amp;title_name, bool output_copy_right=false)</td></tr>
+<tr class="memdesc:aac156719fff45c1e6da33d779eee8a4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">コマンドラインにこのソフトのタイトルを出力する関数. <br  />
+ 出力される文字列は,必ず <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb" title="システムメッセージ,常に出力する.">OutputDetail::kSystem</a> で出力される.  <br /></td></tr>
+<tr class="separator:aac156719fff45c1e6da33d779eee8a4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e74f3cc38e6d4898b17864e2a652ba3" id="r_a6e74f3cc38e6d4898b17864e2a652ba3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a6e74f3cc38e6d4898b17864e2a652ba3">WaitAnyKey</a> (const std::string &amp;str=&quot;Waiting for input.&quot;)</td></tr>
+<tr class="memdesc:a6e74f3cc38e6d4898b17864e2a652ba3"><td class="mdescLeft">&#160;</td><td class="mdescRight">入力待ちをする関数. <br  />
+ 出力される文字列は, 必ず <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb" title="システムメッセージ,常に出力する.">OutputDetail::kSystem</a> で出力される.  <br /></td></tr>
+<tr class="separator:a6e74f3cc38e6d4898b17864e2a652ba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d31f2f5b66b9dfb6e4074750145adee" id="r_a9d31f2f5b66b9dfb6e4074750145adee"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a9d31f2f5b66b9dfb6e4074750145adee">InputInt</a> (int min, int max, int default_num, const std::string &amp;str=&quot;Please enter an integer.&quot;)</td></tr>
+<tr class="memdesc:a9d31f2f5b66b9dfb6e4074750145adee"><td class="mdescLeft">&#160;</td><td class="mdescRight">整数を入力させる関数. <br  />
+ 出力される文字列は, 必ず <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb" title="システムメッセージ,常に出力する.">OutputDetail::kSystem</a> で出力される.  <br /></td></tr>
+<tr class="separator:a9d31f2f5b66b9dfb6e4074750145adee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed6d6983bb7fc9de29a979dffa87d164" id="r_aed6d6983bb7fc9de29a979dffa87d164"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#aed6d6983bb7fc9de29a979dffa87d164">InputYesNo</a> (const std::string &amp;str=&quot;Are you sure?&quot;)</td></tr>
+<tr class="memdesc:aed6d6983bb7fc9de29a979dffa87d164"><td class="mdescLeft">&#160;</td><td class="mdescRight">yesかnoを入力させる関数.返り値で yes なら true, no なら false を返す. <br  />
+ 出力される文字列は,必ず <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb" title="システムメッセージ,常に出力する.">OutputDetail::kSystem</a> で出力される.  <br /></td></tr>
+<tr class="separator:aed6d6983bb7fc9de29a979dffa87d164"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3535a9fd6b29ff73e46d201486d7d9dd" id="r_a3535a9fd6b29ff73e46d201486d7d9dd"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#a3535a9fd6b29ff73e46d201486d7d9dd">InputDirName</a> (const std::string &amp;str=&quot;Enter a directory name. (Japanese is not recommended).&quot;)</td></tr>
+<tr class="memdesc:a3535a9fd6b29ff73e46d201486d7d9dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">ディレクトリ名を入力させる関数. <br  />
+ 出力される文字列は,必ず <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb" title="システムメッセージ,常に出力する.">OutputDetail::kSystem</a> で出力される. <br  />
+ ディレクトリ名には次の文字は使えない. <br  />
+ \ / : * ? " &lt; &gt; | <br  />
+ ディレクトリ名は空白を含めることができない.  <br /></td></tr>
+<tr class="separator:a3535a9fd6b29ff73e46d201486d7d9dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+変数</h2></td></tr>
+<tr class="memitem:ae5b638fb923fbfa58dff531e65a03dfd" id="r_ae5b638fb923fbfa58dff531e65a03dfd"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1cmdio.html#ae5b638fb923fbfa58dff531e65a03dfd">kHorizontalLineLength</a> = 100</td></tr>
+<tr class="memdesc:ae5b638fb923fbfa58dff531e65a03dfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">水平線の長さ.  <br /></td></tr>
+<tr class="separator:ae5b638fb923fbfa58dff531e65a03dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a4971c383359543790b7f519e709fe9dd" name="a4971c383359543790b7f519e709fe9dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4971c383359543790b7f519e709fe9dd">&#9670;&#160;</a></span>DebugOutput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::DebugOutput </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>コマンドラインに文字を出力する関数. Debug 用の出力. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>出力する文字列. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00051">51</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a4971c383359543790b7f519e709fe9dd_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a4971c383359543790b7f519e709fe9dd_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a4971c383359543790b7f519e709fe9dd_cgraph" id="anamespacedesignlab_1_1cmdio_a4971c383359543790b7f519e709fe9dd_cgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数. Debug 用の出力." alt="" coords="5,47,209,73"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="257,47,423,73"/>
+<area shape="poly" title=" " alt="" coords="209,57,241,57,241,63,209,63"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="471,5,658,48"/>
+<area shape="poly" title=" " alt="" coords="423,45,455,40,456,46,424,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="495,72,635,115"/>
+<area shape="poly" title=" " alt="" coords="424,70,479,78,479,83,423,75"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと,その要素を列挙した文字列を返す関数." alt="" coords="706,39,858,81"/>
+<area shape="poly" title=" " alt="" coords="659,38,691,43,690,49,658,44"/>
+<area shape="poly" title=" " alt="" coords="741,39,739,29,746,20,760,14,782,12,805,14,819,21,817,25,804,20,782,17,762,19,749,24,744,30,746,38"/>
+<area shape="poly" title=" " alt="" coords="635,80,691,71,691,77,636,85"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a4971c383359543790b7f519e709fe9dd_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a4971c383359543790b7f519e709fe9dd_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a4971c383359543790b7f519e709fe9dd_icgraph" id="anamespacedesignlab_1_1cmdio_a4971c383359543790b7f519e709fe9dd_icgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数. Debug 用の出力." alt="" coords="292,13,495,40"/>
+<area shape="rect" href="classdesignlab_1_1_gait_pattern_generator_thread.html#af6729bdafbd310f762733e7fa10f8df5" title="グラフ探索を行い,次の動作として最適なノードを返す." alt="" coords="5,5,244,48"/>
+<area shape="poly" title=" " alt="" coords="276,29,244,29,244,24,276,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7a2dcd75e12ba0190bf2938f03ba8a46" name="a7a2dcd75e12ba0190bf2938f03ba8a46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a2dcd75e12ba0190bf2938f03ba8a46">&#9670;&#160;</a></span>DebugOutputF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::DebugOutputF </td>
+          <td>(</td>
+          <td class="paramtype">const std::format_string&lt; Args... &gt;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>コマンドラインに文字を出力する関数. Debug 用の出力. format した文字列を出力する. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>出力する文字列. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00102">102</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a7a2dcd75e12ba0190bf2938f03ba8a46_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a7a2dcd75e12ba0190bf2938f03ba8a46_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a7a2dcd75e12ba0190bf2938f03ba8a46_cgraph" id="anamespacedesignlab_1_1cmdio_a7a2dcd75e12ba0190bf2938f03ba8a46_cgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数. Debug 用の出力. format した文字列を出力する." alt="" coords="5,47,217,73"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a18eaad4770c65620da0d19bf3508f6a5" title="コマンドラインに文字を出力する関数, format した文字列を出力する. &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される." alt="" coords="265,47,439,73"/>
+<area shape="poly" title=" " alt="" coords="217,57,249,57,249,63,217,63"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="487,47,653,73"/>
+<area shape="poly" title=" " alt="" coords="440,57,471,57,471,63,440,63"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="701,5,889,48"/>
+<area shape="poly" title=" " alt="" coords="653,45,685,40,686,46,654,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="725,72,865,115"/>
+<area shape="poly" title=" " alt="" coords="654,70,710,78,709,83,653,75"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a7a2dcd75e12ba0190bf2938f03ba8a46_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a7a2dcd75e12ba0190bf2938f03ba8a46_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a7a2dcd75e12ba0190bf2938f03ba8a46_icgraph" id="anamespacedesignlab_1_1cmdio_a7a2dcd75e12ba0190bf2938f03ba8a46_icgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数. Debug 用の出力. format した文字列を出力する." alt="" coords="512,21,723,48"/>
+<area shape="rect" href="classdesignlab_1_1_graph_searcher_straight_move.html#a64643a2293909dc6b0166a916c5b26ee" title="グラフを受け取り,その中から最適な次の動作を出力する." alt="" coords="259,13,464,56"/>
+<area shape="poly" title=" " alt="" coords="497,37,465,37,465,32,497,32"/>
+<area shape="rect" href="classdesignlab_1_1_graph_searcher_straight_move.html#a012acb8e429cb97dc3843f2d80e16a70" title=" " alt="" coords="5,5,211,64"/>
+<area shape="poly" title=" " alt="" coords="243,37,211,37,211,32,243,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad2b8e0f238d7d3a3573657f0f0a6f438" name="ad2b8e0f238d7d3a3573657f0f0a6f438"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2b8e0f238d7d3a3573657f0f0a6f438">&#9670;&#160;</a></span>DoOutput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::DoOutput </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>do_output</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>そもそも出力をするかを設定する関数. <br  />
+ false に設定しても システムメッセージは出力される. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">do_output</td><td>出力をするかどうか. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00045">45</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a2580b68e1aa0d6f45bedd166a68b6cd8" name="a2580b68e1aa0d6f45bedd166a68b6cd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2580b68e1aa0d6f45bedd166a68b6cd8">&#9670;&#160;</a></span>ErrorOutput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::ErrorOutput </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>コマンドラインに文字を出力する関数. Error 用の出力. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>出力する文字列. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00069">69</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a2580b68e1aa0d6f45bedd166a68b6cd8_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a2580b68e1aa0d6f45bedd166a68b6cd8_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a2580b68e1aa0d6f45bedd166a68b6cd8_cgraph" id="anamespacedesignlab_1_1cmdio_a2580b68e1aa0d6f45bedd166a68b6cd8_cgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数. Error 用の出力." alt="" coords="5,47,200,73"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="248,47,414,73"/>
+<area shape="poly" title=" " alt="" coords="200,57,232,57,232,63,200,63"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="462,5,649,48"/>
+<area shape="poly" title=" " alt="" coords="414,45,446,40,447,46,415,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="486,72,626,115"/>
+<area shape="poly" title=" " alt="" coords="415,70,470,78,470,83,414,75"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと,その要素を列挙した文字列を返す関数." alt="" coords="697,39,849,81"/>
+<area shape="poly" title=" " alt="" coords="650,38,682,43,681,49,649,44"/>
+<area shape="poly" title=" " alt="" coords="732,39,730,29,737,20,751,14,773,12,796,14,810,21,808,25,795,20,773,17,753,19,740,24,735,30,737,38"/>
+<area shape="poly" title=" " alt="" coords="626,80,682,71,682,77,627,85"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a2580b68e1aa0d6f45bedd166a68b6cd8_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a2580b68e1aa0d6f45bedd166a68b6cd8_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a2580b68e1aa0d6f45bedd166a68b6cd8_icgraph" id="anamespacedesignlab_1_1cmdio_a2580b68e1aa0d6f45bedd166a68b6cd8_icgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数. Error 用の出力." alt="" coords="491,80,685,107"/>
+<area shape="rect" href="classdesignlab_1_1_map_file_exporter.html#a2fd8caf415eace3f7311589edcc2e69d" title="マップを csv に出力する." alt="" coords="256,5,435,48"/>
+<area shape="poly" title=" " alt="" coords="521,78,425,51,426,46,523,73"/>
+<area shape="rect" href="classdesignlab_1_1_result_file_importer.html#a6d2660954a38564ea358b2fb6da71036" title="ノードリストとマップの状態をファイルから読み込む." alt="" coords="248,72,443,115"/>
+<area shape="poly" title=" " alt="" coords="475,96,443,96,443,91,475,91"/>
+<area shape="rect" href="classdesignlab_1_1_map_creator_by_csv.html#aef84033a37e91a160fc5d2d718088b45" title="マップの初期化を行う." alt="" coords="251,139,440,181"/>
+<area shape="poly" title=" " alt="" coords="523,114,426,141,425,135,521,109"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_result_viewer.html#a7140a7e2d4cb4c62f7ff84f828afcdd2" title="主要な処理を行う関数." alt="" coords="5,39,200,81"/>
+<area shape="poly" title=" " alt="" coords="232,80,200,76,200,71,232,75"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_robot_control.html#a3106f05f7fcc8e37f07177433135f06f" title="主要な処理を行う関数." alt="" coords="7,105,198,148"/>
+<area shape="poly" title=" " alt="" coords="232,112,199,116,198,111,231,106"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a816ad14579fc0ffc19475ff1a320704c" name="a816ad14579fc0ffc19475ff1a320704c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a816ad14579fc0ffc19475ff1a320704c">&#9670;&#160;</a></span>ErrorOutputF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::ErrorOutputF </td>
+          <td>(</td>
+          <td class="paramtype">const std::format_string&lt; Args... &gt;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>コマンドラインに文字を出力する関数. Error 用の出力. format した文字列を出力する. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>出力する文字列. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00128">128</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a816ad14579fc0ffc19475ff1a320704c_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a816ad14579fc0ffc19475ff1a320704c_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a816ad14579fc0ffc19475ff1a320704c_cgraph" id="anamespacedesignlab_1_1cmdio_a816ad14579fc0ffc19475ff1a320704c_cgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数. Error 用の出力. format した文字列を出力する." alt="" coords="5,47,208,73"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a18eaad4770c65620da0d19bf3508f6a5" title="コマンドラインに文字を出力する関数, format した文字列を出力する. &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される." alt="" coords="256,47,430,73"/>
+<area shape="poly" title=" " alt="" coords="208,57,240,57,240,63,208,63"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="478,47,644,73"/>
+<area shape="poly" title=" " alt="" coords="431,57,462,57,462,63,431,63"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="692,5,880,48"/>
+<area shape="poly" title=" " alt="" coords="644,45,676,40,677,46,645,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="716,72,856,115"/>
+<area shape="poly" title=" " alt="" coords="645,70,701,78,700,83,644,75"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9e9740d909801245329252626e4252ae" name="a9e9740d909801245329252626e4252ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e9740d909801245329252626e4252ae">&#9670;&#160;</a></span>InfoOutput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::InfoOutput </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>コマンドラインに文字を出力する関数. Info 用の出力. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>出力する文字列. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00057">57</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a9e9740d909801245329252626e4252ae_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a9e9740d909801245329252626e4252ae_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a9e9740d909801245329252626e4252ae_cgraph" id="anamespacedesignlab_1_1cmdio_a9e9740d909801245329252626e4252ae_cgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数. Info 用の出力." alt="" coords="5,47,192,73"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="240,47,406,73"/>
+<area shape="poly" title=" " alt="" coords="192,57,224,57,224,63,192,63"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="454,5,641,48"/>
+<area shape="poly" title=" " alt="" coords="406,45,438,40,439,46,407,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="478,72,618,115"/>
+<area shape="poly" title=" " alt="" coords="407,70,462,78,462,83,406,75"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと,その要素を列挙した文字列を返す関数." alt="" coords="689,39,841,81"/>
+<area shape="poly" title=" " alt="" coords="642,38,674,43,673,49,641,44"/>
+<area shape="poly" title=" " alt="" coords="724,39,722,29,729,20,743,14,765,12,788,14,802,21,800,25,787,20,765,17,745,19,732,24,727,30,729,38"/>
+<area shape="poly" title=" " alt="" coords="618,80,674,71,674,77,619,85"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a9e9740d909801245329252626e4252ae_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a9e9740d909801245329252626e4252ae_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a9e9740d909801245329252626e4252ae_icgraph" id="anamespacedesignlab_1_1cmdio_a9e9740d909801245329252626e4252ae_icgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数. Info 用の出力." alt="" coords="246,80,432,107"/>
+<area shape="rect" href="classdesignlab_1_1_map_creator_by_csv.html#aef84033a37e91a160fc5d2d718088b45" title="マップの初期化を行う." alt="" coords="7,5,196,48"/>
+<area shape="poly" title=" " alt="" coords="273,78,179,51,181,46,274,73"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_graph_viewer.html#a19d272521cd15d5e493e24ef5834c218" title="主要な処理を行う関数." alt="" coords="5,72,198,115"/>
+<area shape="poly" title=" " alt="" coords="230,96,198,96,198,91,230,91"/>
+<area shape="rect" href="classdesignlab_1_1_toml_data_validator_always_true.html#a05d04f289f552a9aca3973b0f002667c" title="TOMLファイルのデータの検証を行う." alt="" coords="6,139,197,181"/>
+<area shape="poly" title=" " alt="" coords="274,114,181,141,179,135,273,109"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6059e28df01199fe0205905b9a0d3a7a" name="a6059e28df01199fe0205905b9a0d3a7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6059e28df01199fe0205905b9a0d3a7a">&#9670;&#160;</a></span>InfoOutputF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::InfoOutputF </td>
+          <td>(</td>
+          <td class="paramtype">const std::format_string&lt; Args... &gt;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>コマンドラインに文字を出力する関数. Info 用の出力. format した文字列を出力する. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>出力する文字列. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00111">111</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a6059e28df01199fe0205905b9a0d3a7a_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a6059e28df01199fe0205905b9a0d3a7a_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a6059e28df01199fe0205905b9a0d3a7a_cgraph" id="anamespacedesignlab_1_1cmdio_a6059e28df01199fe0205905b9a0d3a7a_cgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数. Info 用の出力. format した文字列を出力する." alt="" coords="5,47,200,73"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a18eaad4770c65620da0d19bf3508f6a5" title="コマンドラインに文字を出力する関数, format した文字列を出力する. &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される." alt="" coords="248,47,422,73"/>
+<area shape="poly" title=" " alt="" coords="200,57,232,57,232,63,200,63"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="470,47,636,73"/>
+<area shape="poly" title=" " alt="" coords="423,57,454,57,454,63,423,63"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="684,5,872,48"/>
+<area shape="poly" title=" " alt="" coords="636,45,668,40,669,46,637,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="708,72,848,115"/>
+<area shape="poly" title=" " alt="" coords="637,70,693,78,692,83,636,75"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3535a9fd6b29ff73e46d201486d7d9dd" name="a3535a9fd6b29ff73e46d201486d7d9dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3535a9fd6b29ff73e46d201486d7d9dd">&#9670;&#160;</a></span>InputDirName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string designlab::cmdio::InputDirName </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em> = <code>&quot;Enter&#160;a&#160;directory&#160;name.&#160;(Japanese&#160;is&#160;not&#160;recommended).&quot;</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ディレクトリ名を入力させる関数. <br  />
+ 出力される文字列は,必ず <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb" title="システムメッセージ,常に出力する.">OutputDetail::kSystem</a> で出力される. <br  />
+ ディレクトリ名には次の文字は使えない. <br  />
+ \ / : * ? " &lt; &gt; | <br  />
+ ディレクトリ名は空白を含めることができない. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>入力待ちをする際に出力する文字列. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>入力されたディレクトリ名. </dd></dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00271">271</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a3535a9fd6b29ff73e46d201486d7d9dd_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a3535a9fd6b29ff73e46d201486d7d9dd_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a3535a9fd6b29ff73e46d201486d7d9dd_cgraph" id="anamespacedesignlab_1_1cmdio_a3535a9fd6b29ff73e46d201486d7d9dd_cgraph">
+<area shape="rect" title="ディレクトリ名を入力させる関数. &#160;&#160;出力される文字列は,必ず OutputDetail::kSystem で出力される. &#160;&#160;ディレクトリ名には次の文字は使えない...." alt="" coords="5,47,211,73"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="481,47,647,73"/>
+<area shape="poly" title=" " alt="" coords="177,43,258,32,346,27,433,32,490,40,489,46,433,37,346,32,259,37,177,49"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a18eaad4770c65620da0d19bf3508f6a5" title="コマンドラインに文字を出力する関数, format した文字列を出力する. &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される." alt="" coords="259,47,433,73"/>
+<area shape="poly" title=" " alt="" coords="211,57,243,57,243,63,211,63"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a7f803a29165fa043ed5b033d21174a84" title="コマンドラインに文字を出力する関数. System 用の出力." alt="" coords="260,97,432,140"/>
+<area shape="poly" title=" " alt="" coords="166,71,245,91,244,96,164,76"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="695,5,883,48"/>
+<area shape="poly" title=" " alt="" coords="647,45,679,40,680,46,648,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="719,72,859,115"/>
+<area shape="poly" title=" " alt="" coords="648,70,704,78,703,83,647,75"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと,その要素を列挙した文字列を返す関数." alt="" coords="931,39,1082,81"/>
+<area shape="poly" title=" " alt="" coords="884,38,915,43,915,49,883,44"/>
+<area shape="poly" title=" " alt="" coords="965,39,963,29,970,20,985,14,1006,12,1030,14,1044,21,1041,25,1028,20,1006,17,986,19,973,24,968,30,970,38"/>
+<area shape="poly" title=" " alt="" coords="859,80,915,71,916,77,860,85"/>
+<area shape="poly" title=" " alt="" coords="434,57,465,57,465,63,434,63"/>
+<area shape="poly" title=" " alt="" coords="427,94,496,75,498,80,428,99"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9d31f2f5b66b9dfb6e4074750145adee" name="a9d31f2f5b66b9dfb6e4074750145adee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d31f2f5b66b9dfb6e4074750145adee">&#9670;&#160;</a></span>InputInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int designlab::cmdio::InputInt </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>min</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>max</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>default_num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em> = <code>&quot;Please&#160;enter&#160;an&#160;integer.&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>整数を入力させる関数. <br  />
+ 出力される文字列は, 必ず <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb" title="システムメッセージ,常に出力する.">OutputDetail::kSystem</a> で出力される. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">min</td><td>入力する整数の最小値. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">max</td><td>入力する整数の最大値. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">default_num</td><td>デフォルトで入力する整数. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>入力待ちをする際に出力する文字列. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>入力された整数. </dd></dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00213">213</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a9d31f2f5b66b9dfb6e4074750145adee_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a9d31f2f5b66b9dfb6e4074750145adee_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a9d31f2f5b66b9dfb6e4074750145adee_cgraph" id="anamespacedesignlab_1_1cmdio_a9d31f2f5b66b9dfb6e4074750145adee_cgraph">
+<area shape="rect" title="整数を入力させる関数. &#160;&#160;出力される文字列は, 必ず OutputDetail::kSystem で出力される." alt="" coords="5,47,175,73"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a18eaad4770c65620da0d19bf3508f6a5" title="コマンドラインに文字を出力する関数, format した文字列を出力する. &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される." alt="" coords="223,47,397,73"/>
+<area shape="poly" title=" " alt="" coords="175,57,207,57,207,63,175,63"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="445,47,611,73"/>
+<area shape="poly" title=" " alt="" coords="398,57,429,57,429,63,398,63"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="659,5,847,48"/>
+<area shape="poly" title=" " alt="" coords="611,45,643,40,644,46,612,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="683,72,823,115"/>
+<area shape="poly" title=" " alt="" coords="612,70,668,78,667,83,611,75"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a9d31f2f5b66b9dfb6e4074750145adee_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a9d31f2f5b66b9dfb6e4074750145adee_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a9d31f2f5b66b9dfb6e4074750145adee_icgraph" id="anamespacedesignlab_1_1cmdio_a9d31f2f5b66b9dfb6e4074750145adee_icgraph">
+<area shape="rect" title="整数を入力させる関数. &#160;&#160;出力される文字列は, 必ず OutputDetail::kSystem で出力される." alt="" coords="488,80,657,107"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_graph_viewer.html#a19d272521cd15d5e493e24ef5834c218" title="主要な処理を行う関数." alt="" coords="248,5,440,48"/>
+<area shape="poly" title=" " alt="" coords="509,78,419,51,420,46,510,73"/>
+<area shape="rect" href="classdesignlab_1_1_boot_mode_selector.html#a25198a56b9874d8200c77f4b5bbbe9a5" title="起動モードを選択する. &#160;&#160;BootModeが int 型をもとにしているかつ, 0から始まることを前提にしているので, うまく動作しない場合は,BootModeの定義を見直すこと." alt="" coords="248,72,440,115"/>
+<area shape="poly" title=" " alt="" coords="473,96,440,96,440,91,473,91"/>
+<area shape="rect" href="classdesignlab_1_1_file_tree.html#a733878741b1e145e088254478a06d6e5" title="ディレクトリの中から,ファイルを一つ選択する." alt="" coords="279,139,409,181"/>
+<area shape="poly" title=" " alt="" coords="510,114,410,144,408,139,508,109"/>
+<area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="78,80,127,107"/>
+<area shape="poly" title=" " alt="" coords="233,96,128,96,128,91,233,91"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_result_viewer.html#a7140a7e2d4cb4c62f7ff84f828afcdd2" title="主要な処理を行う関数." alt="" coords="5,135,200,177"/>
+<area shape="poly" title=" " alt="" coords="263,161,200,160,200,155,264,156"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_robot_control.html#a3106f05f7fcc8e37f07177433135f06f" title="主要な処理を行う関数." alt="" coords="7,201,198,244"/>
+<area shape="poly" title=" " alt="" coords="265,183,188,203,187,198,263,178"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aed6d6983bb7fc9de29a979dffa87d164" name="aed6d6983bb7fc9de29a979dffa87d164"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed6d6983bb7fc9de29a979dffa87d164">&#9670;&#160;</a></span>InputYesNo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool designlab::cmdio::InputYesNo </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em> = <code>&quot;Are&#160;you&#160;sure?&quot;</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>yesかnoを入力させる関数.返り値で yes なら true, no なら false を返す. <br  />
+ 出力される文字列は,必ず <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb" title="システムメッセージ,常に出力する.">OutputDetail::kSystem</a> で出力される. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>入力待ちをする際に出力する文字列. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>戻り値</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">true</td><td>入力されたのが yes ならば true. </td></tr>
+    <tr><td class="paramname">false</td><td>入力されたのが no ならば false. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00249">249</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_aed6d6983bb7fc9de29a979dffa87d164_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_aed6d6983bb7fc9de29a979dffa87d164_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_aed6d6983bb7fc9de29a979dffa87d164_cgraph" id="anamespacedesignlab_1_1cmdio_aed6d6983bb7fc9de29a979dffa87d164_cgraph">
+<area shape="rect" title="yesかnoを入力させる関数.返り値で yes なら true, no なら false を返す. &#160;&#160;出力される文字列は,必ず OutputDetail::kSystem で出力される." alt="" coords="5,47,200,73"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="470,47,636,73"/>
+<area shape="poly" title=" " alt="" coords="200,57,454,57,454,63,200,63"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a18eaad4770c65620da0d19bf3508f6a5" title="コマンドラインに文字を出力する関数, format した文字列を出力する. &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される." alt="" coords="248,72,422,99"/>
+<area shape="poly" title=" " alt="" coords="200,68,233,72,232,77,200,73"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="684,5,872,48"/>
+<area shape="poly" title=" " alt="" coords="636,45,668,40,669,46,637,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="708,72,848,115"/>
+<area shape="poly" title=" " alt="" coords="637,70,693,78,692,83,636,75"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと,その要素を列挙した文字列を返す関数." alt="" coords="920,39,1071,81"/>
+<area shape="poly" title=" " alt="" coords="873,38,904,43,904,49,872,44"/>
+<area shape="poly" title=" " alt="" coords="954,39,952,29,959,20,974,14,995,12,1019,14,1033,21,1030,25,1017,20,995,17,975,19,962,24,957,30,959,38"/>
+<area shape="poly" title=" " alt="" coords="848,80,904,71,905,77,849,85"/>
+<area shape="poly" title=" " alt="" coords="422,73,454,69,455,74,423,78"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_aed6d6983bb7fc9de29a979dffa87d164_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_aed6d6983bb7fc9de29a979dffa87d164_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_aed6d6983bb7fc9de29a979dffa87d164_icgraph" id="anamespacedesignlab_1_1cmdio_aed6d6983bb7fc9de29a979dffa87d164_icgraph">
+<area shape="rect" title="yesかnoを入力させる関数.返り値で yes なら true, no なら false を返す. &#160;&#160;出力される文字列は,必ず OutputDetail::kSystem で出力される." alt="" coords="782,227,977,253"/>
+<area shape="rect" href="classdesignlab_1_1_toml_file_importer.html#a8ca4fd7bec19dce42d1ab1dfc895ff88" title="指定したファイルパスのファイルを読み込み,構造体に変換する. 読込に失敗した場合は,デフォルトの構造体を返す. また,読込に失敗した場合には, デフォルトの構造体をファイルに出力するかどうかをユーザに問..." alt="" coords="535,64,715,107"/>
+<area shape="poly" title=" " alt="" coords="853,217,801,169,768,143,733,121,709,110,711,105,736,116,771,139,804,165,857,214"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_graph_viewer.html#a19d272521cd15d5e493e24ef5834c218" title="主要な処理を行う関数." alt="" coords="529,131,721,173"/>
+<area shape="poly" title=" " alt="" coords="823,224,688,177,690,172,825,219"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_result_viewer.html#a7140a7e2d4cb4c62f7ff84f828afcdd2" title="主要な処理を行う関数." alt="" coords="271,248,466,291"/>
+<area shape="poly" title=" " alt="" coords="767,234,646,232,516,239,452,250,451,245,516,233,646,226,767,229"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_robot_control.html#a3106f05f7fcc8e37f07177433135f06f" title="主要な処理を行う関数." alt="" coords="273,344,464,387"/>
+<area shape="poly" title=" " alt="" coords="861,268,810,324,775,351,735,372,667,390,595,397,526,395,464,388,465,382,526,389,595,391,666,385,733,367,772,347,806,320,857,264"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの. &#160;&#160;目標地点へ着くか,歩容計画に失敗した場合に,シミュレーションを終える. &#160;&#160;また,規定の回数シミュレーションしたら終了する." alt="" coords="516,315,734,357"/>
+<area shape="poly" title=" " alt="" coords="836,263,735,305,702,317,700,312,733,300,834,258"/>
+<area shape="rect" href="classdesignlab_1_1_file_tree.html#a733878741b1e145e088254478a06d6e5" title="ディレクトリの中から,ファイルを一つ選択する." alt="" coords="560,248,690,291"/>
+<area shape="poly" title=" " alt="" coords="767,256,691,265,690,259,766,250"/>
+<area shape="rect" href="classdesignlab_1_1_robot_operator_factory.html#ac4216aad634bb9cbab1202a055b43975" title="設定ファイルからTargetUpdaterを生成する." alt="" coords="284,97,453,140"/>
+<area shape="poly" title=" " alt="" coords="520,102,454,110,453,105,519,96"/>
+<area shape="rect" href="classdesignlab_1_1_graphic_main_display_model.html#af42c7a85c4334dec044d664a36cf7f34" title=" " alt="" coords="5,123,221,165"/>
+<area shape="poly" title=" " alt="" coords="530,115,517,121,494,139,484,147,469,155,406,168,342,174,279,172,221,167,222,161,279,167,341,168,405,163,467,150,481,143,491,135,515,116,528,110"/>
+<area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="88,9,138,36"/>
+<area shape="poly" title=" " alt="" coords="571,59,521,38,467,21,373,10,279,9,197,15,139,22,138,16,197,9,279,4,373,4,469,16,523,33,573,54"/>
+<area shape="rect" href="classdesignlab_1_1_map_creator_selector.html#ab8c4100a5e925b66dcdc7de6ec1354bc" title="マップを生成するクラスを生成する." alt="" coords="269,31,468,73"/>
+<area shape="poly" title=" " alt="" coords="519,74,468,68,469,62,520,69"/>
+<area shape="poly" title=" " alt="" coords="288,81,270,88,172,125,170,120,268,83,286,76"/>
+<area shape="poly" title=" " alt="" coords="253,42,138,28,139,23,253,36"/>
+<area shape="poly" title=" " alt="" coords="545,272,466,272,466,267,545,267"/>
+<area shape="poly" title=" " alt="" coords="546,295,517,305,418,346,416,341,515,300,544,290"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae16089dfba0d5bcfdd33b6ddc8efbfbf" name="ae16089dfba0d5bcfdd33b6ddc8efbfbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae16089dfba0d5bcfdd33b6ddc8efbfbf">&#9670;&#160;</a></span>Output()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::Output </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a>&#160;</td>
+          <td class="paramname"><em>detail</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コマンドラインに文字を出力する関数. <br  />
+ SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>出力する文字列. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">detail</td><td>出力する文字列の詳細. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00047">47</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_ae16089dfba0d5bcfdd33b6ddc8efbfbf_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_ae16089dfba0d5bcfdd33b6ddc8efbfbf_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_ae16089dfba0d5bcfdd33b6ddc8efbfbf_cgraph" id="anamespacedesignlab_1_1cmdio_ae16089dfba0d5bcfdd33b6ddc8efbfbf_cgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="5,47,172,73"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="220,5,407,48"/>
+<area shape="poly" title=" " alt="" coords="172,45,203,40,204,46,172,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="243,72,384,115"/>
+<area shape="poly" title=" " alt="" coords="172,70,228,78,227,83,172,75"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと,その要素を列挙した文字列を返す関数." alt="" coords="455,39,606,81"/>
+<area shape="poly" title=" " alt="" coords="408,38,440,43,439,49,407,44"/>
+<area shape="poly" title=" " alt="" coords="489,39,488,29,495,20,509,14,531,12,554,14,568,21,566,25,553,20,531,17,510,19,498,24,493,30,494,38"/>
+<area shape="poly" title=" " alt="" coords="383,80,439,71,440,77,384,85"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_ae16089dfba0d5bcfdd33b6ddc8efbfbf_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_ae16089dfba0d5bcfdd33b6ddc8efbfbf_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_ae16089dfba0d5bcfdd33b6ddc8efbfbf_icgraph" id="anamespacedesignlab_1_1cmdio_ae16089dfba0d5bcfdd33b6ddc8efbfbf_icgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="1326,1091,1492,1118"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a4971c383359543790b7f519e709fe9dd" title="コマンドラインに文字を出力する関数. Debug 用の出力." alt="" coords="1075,207,1278,234"/>
+<area shape="poly" title=" " alt="" coords="1405,1076,1400,907,1393,787,1382,657,1366,528,1344,410,1314,313,1296,276,1276,248,1262,236,1266,232,1280,244,1301,273,1319,311,1349,409,1371,527,1388,657,1399,786,1405,906,1410,1075"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a2580b68e1aa0d6f45bedd166a68b6cd8" title="コマンドラインに文字を出力する関数. Error 用の出力." alt="" coords="810,99,1005,126"/>
+<area shape="poly" title=" " alt="" coords="1403,1076,1389,875,1362,579,1344,430,1323,299,1300,200,1288,168,1276,149,1243,124,1205,106,1163,95,1121,89,1037,91,966,101,965,96,1037,85,1121,84,1164,90,1206,101,1245,119,1280,145,1293,166,1305,199,1328,298,1349,429,1367,578,1394,875,1409,1075"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_result_viewer.html#a7140a7e2d4cb4c62f7ff84f828afcdd2" title="主要な処理を行う関数." alt="" coords="281,1032,475,1075"/>
+<area shape="poly" title=" " alt="" coords="1404,1075,1390,866,1364,553,1346,396,1326,258,1302,154,1289,119,1276,100,1250,80,1215,63,1174,48,1128,35,1022,17,908,9,793,11,687,24,640,34,599,47,564,63,537,81,511,111,487,153,467,204,450,264,422,403,403,554,391,706,385,845,382,1032,376,1032,379,845,386,706,398,554,417,402,444,263,462,203,483,150,506,108,533,77,561,58,597,42,639,29,687,18,793,6,908,4,1023,12,1129,30,1176,43,1217,58,1252,76,1280,96,1294,117,1307,152,1331,257,1352,395,1369,553,1396,865,1409,1075"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_robot_control.html#a3106f05f7fcc8e37f07177433135f06f" title="主要な処理を行う関数." alt="" coords="282,1116,474,1159"/>
+<area shape="poly" title=" " alt="" coords="1386,1130,1339,1168,1310,1186,1279,1199,1222,1215,1164,1226,1046,1239,927,1240,811,1232,702,1218,603,1200,450,1162,451,1157,604,1195,703,1213,812,1227,927,1235,1046,1234,1164,1221,1221,1209,1277,1194,1308,1181,1336,1164,1382,1126"/>
+<area shape="rect" href="classdesignlab_1_1_result_file_exporter.html#aa0ccf5803f3a4596b246366c83027dee" title="結果をファイルに出力する." alt="" coords="1081,258,1272,300"/>
+<area shape="poly" title=" " alt="" coords="1404,1076,1395,921,1374,695,1357,579,1336,471,1309,382,1293,347,1276,321,1255,303,1258,299,1280,317,1298,345,1314,380,1341,470,1363,578,1379,695,1401,921,1409,1076"/>
+<area shape="rect" href="classdesignlab_1_1_toml_file_exporter.html#a095f0d7b33e267b1669a18aa6860522c" title="TOMLファイルを出力する." alt="" coords="1085,2000,1268,2043"/>
+<area shape="poly" title=" " alt="" coords="1410,1133,1404,1304,1385,1558,1368,1690,1346,1812,1317,1913,1300,1953,1280,1983,1258,2002,1255,1998,1276,1980,1295,1950,1312,1911,1341,1810,1363,1689,1379,1557,1398,1304,1405,1133"/>
+<area shape="rect" href="classdesignlab_1_1_map_file_importer.html#ae1f28fd6c1d0cedc5d215ccd47efe60f" title="マップを csv に出力したものを読み込む." alt="" coords="1088,644,1265,687"/>
+<area shape="poly" title=" " alt="" coords="1404,1076,1398,1001,1379,901,1362,847,1340,794,1312,745,1276,701,1262,690,1265,685,1280,697,1316,742,1345,792,1367,845,1384,899,1403,1000,1410,1075"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a9e9740d909801245329252626e4252ae" title="コマンドラインに文字を出力する関数. Info 用の出力." alt="" coords="814,150,1001,176"/>
+<area shape="poly" title=" " alt="" coords="1406,1076,1404,896,1400,768,1390,629,1375,491,1351,366,1336,311,1319,264,1299,225,1276,197,1242,172,1204,154,1162,144,1119,138,1035,141,964,152,963,146,1034,135,1119,133,1163,138,1205,149,1245,167,1280,193,1303,222,1324,262,1341,309,1356,365,1380,491,1396,629,1405,768,1410,896,1411,1076"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_graph_viewer.html#a19d272521cd15d5e493e24ef5834c218" title="主要な処理を行う関数." alt="" coords="542,800,734,843"/>
+<area shape="poly" title=" " alt="" coords="1403,1076,1395,1016,1380,931,1355,830,1320,721,1271,611,1241,558,1207,509,1169,463,1126,422,1078,387,1026,359,960,332,931,324,903,320,876,320,849,327,820,339,790,358,763,389,738,438,715,500,695,568,663,703,645,800,640,800,658,702,690,566,710,498,733,436,759,386,787,354,818,334,847,322,875,315,903,314,932,319,961,327,1028,354,1081,383,1129,418,1172,459,1211,505,1245,556,1276,609,1325,719,1360,829,1385,930,1400,1015,1408,1075"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a3535a9fd6b29ff73e46d201486d7d9dd" title="ディレクトリ名を入力させる関数. &#160;&#160;出力される文字列は,必ず OutputDetail::kSystem で出力される. &#160;&#160;ディレクトリ名には次の文字は使えない...." alt="" coords="805,1040,1010,1067"/>
+<area shape="poly" title=" " alt="" coords="1310,1096,1278,1092,1010,1066,1011,1061,1278,1087,1311,1091"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#aed6d6983bb7fc9de29a979dffa87d164" title="yesかnoを入力させる関数.返り値で yes なら true, no なら false を返す. &#160;&#160;出力される文字列は,必ず OutputDetail::kSystem で出力される." alt="" coords="810,990,1005,1016"/>
+<area shape="poly" title=" " alt="" coords="1356,1088,1277,1064,1135,1036,1005,1017,1006,1011,1136,1031,1279,1059,1357,1083"/>
+<area shape="rect" href="classdesignlab_1_1_file_tree.html#a733878741b1e145e088254478a06d6e5" title="ディレクトリの中から,ファイルを一つ選択する." alt="" coords="573,939,703,982"/>
+<area shape="poly" title=" " alt="" coords="1376,1084,1331,1054,1277,1027,1200,1002,1120,983,1040,970,960,962,815,956,703,959,703,953,815,951,961,957,1040,965,1121,978,1202,997,1279,1022,1333,1049,1379,1079"/>
+<area shape="rect" href="classdesignlab_1_1_map_creator_by_csv.html#af886237c7efec7562463866380a89a74" title="コンストラクタで作成するマップ情報を与える" alt="" coords="1082,1142,1271,1184"/>
+<area shape="poly" title=" " alt="" coords="1339,1125,1264,1144,1263,1139,1338,1119"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a53517d90c6e49e06907cdf04b9979cdc" title="中央に文字を出力する関数. 文字列が長すぎる場合は普通に左詰めで出力される." alt="" coords="1093,1331,1260,1374"/>
+<area shape="poly" title=" " alt="" coords="1396,1133,1350,1209,1317,1253,1280,1293,1252,1315,1223,1333,1220,1328,1249,1311,1276,1289,1313,1249,1345,1206,1392,1130"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a18eaad4770c65620da0d19bf3508f6a5" title="コマンドラインに文字を出力する関数, format した文字列を出力する. &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される." alt="" coords="1089,711,1264,738"/>
+<area shape="poly" title=" " alt="" coords="1389,1079,1184,740,1188,737,1394,1076"/>
+<area shape="rect" href="classdesignlab_1_1_boot_mode_selector.html#a25198a56b9874d8200c77f4b5bbbe9a5" title="起動モードを選択する. &#160;&#160;BootModeが int 型をもとにしているかつ, 0から始まることを前提にしているので, うまく動作しない場合は,BootModeの定義を見直すこと." alt="" coords="542,1832,733,1875"/>
+<area shape="poly" title=" " alt="" coords="1408,1133,1392,1263,1365,1447,1348,1542,1328,1630,1305,1705,1280,1758,1228,1829,1202,1856,1175,1877,1112,1910,1027,1940,961,1960,906,1968,852,1963,787,1940,771,1929,761,1916,753,1902,739,1889,718,1878,720,1873,742,1885,757,1899,766,1913,774,1925,790,1935,853,1957,906,1963,960,1955,1026,1935,1110,1905,1172,1872,1199,1852,1224,1826,1276,1755,1300,1703,1323,1629,1343,1541,1360,1446,1387,1262,1402,1133"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a4e349377c9ecf3763014ca8436fa44f6" title="コマンドラインに水平線を出力する関数." alt="" coords="824,1091,991,1134"/>
+<area shape="poly" title=" " alt="" coords="1310,1109,991,1114,991,1108,1310,1103"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#aa8ed2785f4f2ed80a29f9b6d3a3d1d4a" title="コマンドラインで改行をする関数." alt="" coords="1093,1563,1260,1606"/>
+<area shape="poly" title=" " alt="" coords="1405,1134,1390,1199,1365,1288,1329,1387,1306,1435,1280,1482,1244,1528,1206,1565,1203,1561,1240,1525,1276,1479,1301,1433,1324,1385,1360,1286,1385,1198,1400,1132"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a3d59a4e2fa0f33ec8a1df18e037aa51a" title="コマンドラインに文字を出力する関数. &#160;&#160;前と後ろに改行を挿入する." alt="" coords="822,1715,993,1758"/>
+<area shape="poly" title=" " alt="" coords="1408,1134,1396,1254,1372,1421,1355,1505,1334,1582,1309,1644,1295,1668,1280,1686,1249,1710,1214,1728,1177,1741,1139,1749,1062,1755,993,1752,994,1747,1062,1750,1138,1744,1176,1735,1212,1723,1246,1705,1276,1682,1291,1665,1304,1642,1329,1580,1350,1504,1367,1420,1391,1253,1403,1133"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a8c8bce312d4541906ad912f79317b013" title="右端に文字を出力する関数. 文字列が長すぎる場合は普通に左詰めで出力される." alt="" coords="1093,1426,1260,1468"/>
+<area shape="poly" title=" " alt="" coords="1403,1134,1387,1186,1362,1252,1327,1323,1305,1356,1280,1388,1255,1410,1227,1427,1224,1423,1252,1406,1276,1384,1300,1353,1322,1320,1357,1250,1382,1184,1398,1132"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a7f803a29165fa043ed5b033d21174a84" title="コマンドラインに文字を出力する関数. System 用の出力." alt="" coords="1090,1630,1263,1672"/>
+<area shape="poly" title=" " alt="" coords="1407,1134,1391,1240,1364,1385,1347,1459,1327,1526,1305,1581,1280,1620,1265,1632,1261,1628,1276,1616,1300,1579,1322,1524,1342,1458,1359,1384,1386,1240,1402,1133"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a6e74f3cc38e6d4898b17864e2a652ba3" title="入力待ちをする関数. &#160;&#160;出力される文字列は, 必ず OutputDetail::kSystem で出力される." alt="" coords="538,1259,738,1286"/>
+<area shape="poly" title=" " alt="" coords="1394,1133,1348,1191,1316,1220,1279,1243,1206,1270,1130,1289,1052,1300,975,1305,901,1305,832,1302,717,1289,718,1284,832,1296,901,1300,975,1300,1052,1295,1129,1284,1205,1265,1277,1238,1313,1216,1344,1187,1390,1129"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a5a773c2d724a24b05daba5382fd4bf42" title="コマンドラインに文字を出力する関数. Warning 用の出力." alt="" coords="1089,2067,1264,2110"/>
+<area shape="poly" title=" " alt="" coords="1411,1133,1407,1317,1401,1449,1391,1593,1375,1738,1352,1870,1337,1929,1321,1981,1302,2024,1280,2057,1266,2069,1263,2065,1276,2053,1297,2021,1316,1979,1332,1928,1347,1869,1369,1737,1385,1593,1396,1449,1402,1317,1405,1133"/>
+<area shape="rect" href="classdesignlab_1_1_gait_pattern_generator_thread.html#af6729bdafbd310f762733e7fa10f8df5" title="グラフ探索を行い,次の動作として最適なノードを返す." alt="" coords="788,200,1027,243"/>
+<area shape="poly" title=" " alt="" coords="1059,224,1027,224,1027,218,1059,218"/>
+<area shape="rect" href="classdesignlab_1_1_map_file_exporter.html#a2fd8caf415eace3f7311589edcc2e69d" title="マップを csv に出力する." alt="" coords="548,91,727,134"/>
+<area shape="poly" title=" " alt="" coords="794,115,728,115,728,110,794,110"/>
+<area shape="rect" href="classdesignlab_1_1_result_file_importer.html#a6d2660954a38564ea358b2fb6da71036" title="ノードリストとマップの状態をファイルから読み込む." alt="" coords="540,158,735,200"/>
+<area shape="poly" title=" " alt="" coords="824,132,789,140,716,160,714,155,788,135,823,127"/>
+<area shape="rect" href="classdesignlab_1_1_map_creator_by_csv.html#aef84033a37e91a160fc5d2d718088b45" title="マップの初期化を行う." alt="" coords="544,224,732,267"/>
+<area shape="poly" title=" " alt="" coords="798,135,790,140,774,157,766,175,759,195,742,214,724,226,721,222,739,210,754,192,761,173,769,154,787,136,795,130"/>
+<area shape="poly" title=" " alt="" coords="538,213,537,214,517,243,499,281,467,378,441,497,421,626,394,872,383,1032,378,1032,389,871,415,625,436,496,462,377,494,279,513,240,533,211,534,209"/>
+<area shape="poly" title=" " alt="" coords="538,213,537,214,519,247,506,288,499,337,496,392,499,514,510,647,521,780,526,904,524,960,518,1010,507,1053,489,1089,474,1106,455,1118,452,1114,470,1101,485,1086,502,1051,513,1009,519,959,521,904,516,780,505,647,494,515,490,392,493,336,501,287,514,245,533,211,534,210"/>
+<area shape="rect" href="classdesignlab_1_1_toml_file_importer.html#a8ca4fd7bec19dce42d1ab1dfc895ff88" title="指定したファイルパスのファイルを読み込み,構造体に変換する. 読込に失敗した場合は,デフォルトの構造体を返す. また,読込に失敗した場合には, デフォルトの構造体をファイルに出力するかどうかをユーザに問..." alt="" coords="548,1899,728,1942"/>
+<area shape="poly" title=" " alt="" coords="1070,2046,1005,2054,933,2057,859,2051,787,2035,748,2017,712,1993,657,1944,660,1940,715,1989,751,2012,789,2030,860,2046,934,2051,1005,2049,1069,2041"/>
+<area shape="rect" href="classdesignlab_1_1_robot_operator_factory.html#ac4216aad634bb9cbab1202a055b43975" title="設定ファイルからTargetUpdaterを生成する." alt="" coords="294,1899,462,1942"/>
+<area shape="poly" title=" " alt="" coords="532,1923,463,1923,463,1918,532,1918"/>
+<area shape="rect" href="classdesignlab_1_1_graphic_main_display_model.html#af42c7a85c4334dec044d664a36cf7f34" title=" " alt="" coords="5,1752,221,1795"/>
+<area shape="poly" title=" " alt="" coords="536,1892,533,1889,521,1874,514,1858,510,1826,506,1797,499,1784,485,1772,450,1753,412,1741,371,1734,330,1732,251,1740,183,1754,181,1749,250,1734,330,1727,372,1729,413,1736,452,1748,489,1768,503,1781,511,1795,516,1825,519,1856,525,1871,537,1885,540,1888"/>
+<area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="88,1848,138,1875"/>
+<area shape="poly" title=" " alt="" coords="548,1949,486,1961,415,1969,341,1968,268,1956,226,1941,187,1919,129,1878,132,1873,190,1915,228,1936,269,1951,341,1963,414,1963,485,1955,547,1943"/>
+<area shape="rect" href="classdesignlab_1_1_map_creator_selector.html#ab8c4100a5e925b66dcdc7de6ec1354bc" title="マップを生成するクラスを生成する." alt="" coords="278,1782,478,1824"/>
+<area shape="poly" title=" " alt="" coords="549,1896,534,1890,470,1858,414,1827,417,1823,472,1854,536,1885,551,1891"/>
+<area shape="poly" title=" " alt="" coords="263,1793,221,1788,222,1783,263,1788"/>
+<area shape="poly" title=" " alt="" coords="265,1831,139,1859,137,1854,263,1826"/>
+<area shape="poly" title=" " alt="" coords="814,183,789,191,765,202,741,215,711,226,709,221,739,210,763,198,787,186,813,178"/>
+<area shape="poly" title=" " alt="" coords="802,181,790,190,769,216,756,241,750,266,749,291,750,347,749,379,743,414,647,801,642,800,738,413,743,378,745,347,743,291,745,265,751,239,764,213,786,187,799,177"/>
+<area shape="rect" href="classdesignlab_1_1_toml_data_validator_always_true.html#a05d04f289f552a9aca3973b0f002667c" title="TOMLファイルのデータの検証を行う." alt="" coords="543,291,733,334"/>
+<area shape="poly" title=" " alt="" coords="802,183,790,190,773,211,766,234,760,258,742,281,725,293,722,288,738,277,755,255,761,232,768,209,787,186,799,179"/>
+<area shape="poly" title=" " alt="" coords="870,984,810,954,775,940,740,930,682,917,636,911,591,914,536,930,494,950,456,978,399,1034,395,1030,452,974,491,946,534,925,590,909,637,906,683,912,741,925,777,935,812,949,872,979"/>
+<area shape="poly" title=" " alt="" coords="824,1023,789,1031,457,1118,456,1113,788,1026,823,1018"/>
+<area shape="poly" title=" " alt="" coords="799,1022,790,1030,771,1061,758,1101,750,1149,747,1203,752,1324,764,1455,777,1587,782,1709,780,1764,773,1813,761,1855,742,1889,730,1901,726,1897,738,1885,756,1853,768,1812,775,1764,777,1709,771,1587,759,1456,747,1324,742,1203,745,1148,753,1100,766,1059,786,1027,795,1018"/>
+<area shape="poly" title=" " alt="" coords="868,984,787,929,763,907,739,885,678,846,681,841,742,881,766,903,790,925,871,979"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの. &#160;&#160;目標地点へ着くか,歩容計画に失敗した場合に,シミュレーションを終える. &#160;&#160;また,規定の回数シミュレーションしたら終了する." alt="" coords="269,1470,487,1512"/>
+<area shape="poly" title=" " alt="" coords="799,1023,790,1030,768,1063,759,1095,760,1128,766,1162,772,1196,773,1230,765,1265,742,1300,717,1320,692,1330,666,1332,641,1331,615,1329,589,1331,563,1338,537,1354,525,1367,519,1379,513,1405,508,1433,501,1446,489,1460,472,1471,469,1467,485,1456,496,1443,503,1431,508,1404,514,1377,521,1364,533,1350,561,1333,588,1325,615,1324,641,1326,666,1327,691,1324,715,1315,738,1296,760,1263,768,1230,767,1197,761,1163,755,1129,754,1095,763,1060,786,1027,795,1019"/>
+<area shape="poly" title=" " alt="" coords="803,989,703,973,704,968,804,984"/>
+<area shape="poly" title=" " alt="" coords="563,990,440,1034,439,1029,561,985"/>
+<area shape="poly" title=" " alt="" coords="560,987,537,1002,520,1023,513,1044,506,1066,489,1089,467,1105,444,1118,441,1114,464,1101,485,1085,501,1064,508,1043,516,1021,533,998,557,982"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#aac156719fff45c1e6da33d779eee8a4a" title="コマンドラインにこのソフトのタイトルを出力する関数. &#160;&#160;出力される文字列は,必ず OutputDetail::kSystem で出力される." alt="" coords="555,1411,721,1454"/>
+<area shape="poly" title=" " alt="" coords="1079,1369,722,1423,721,1417,1078,1364"/>
+<area shape="poly" title=" " alt="" coords="603,1401,566,1354,533,1299,522,1270,517,1244,515,1197,510,1153,501,1130,485,1106,468,1090,448,1078,451,1073,471,1086,489,1103,506,1128,515,1152,520,1197,522,1243,527,1269,537,1297,571,1351,607,1397"/>
+<area shape="poly" title=" " alt="" coords="606,1401,396,1161,400,1158,610,1398"/>
+<area shape="poly" title=" " alt="" coords="540,1457,476,1472,475,1467,538,1452"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_graph_viewer.html#a65b7327f93f60efed220a004216001f3" title=" " alt="" coords="270,1403,486,1446"/>
+<area shape="poly" title=" " alt="" coords="539,1432,486,1430,486,1425,539,1427"/>
+<area shape="poly" title=" " alt="" coords="1075,703,1073,701,1054,676,1041,652,1032,629,1028,605,1029,559,1037,513,1047,466,1052,418,1046,367,1038,341,1024,314,1009,293,991,275,950,246,953,241,994,270,1013,289,1029,311,1043,339,1051,366,1057,418,1052,467,1043,514,1034,560,1034,605,1038,627,1046,650,1058,674,1077,697,1079,699"/>
+<area shape="poly" title=" " alt="" coords="1172,753,1157,812,1130,888,1111,927,1088,965,1061,1000,1028,1031,1009,1042,1006,1038,1025,1026,1057,997,1084,962,1107,924,1125,885,1152,811,1167,752"/>
+<area shape="poly" title=" " alt="" coords="1162,752,1108,835,1071,884,1028,929,982,965,937,992,935,987,979,961,1025,925,1067,880,1104,832,1158,749"/>
+<area shape="poly" title=" " alt="" coords="1172,754,1159,812,1137,895,1104,993,1060,1100,1003,1209,969,1261,931,1311,890,1358,845,1400,795,1437,741,1468,679,1491,613,1504,547,1508,487,1507,487,1501,547,1503,612,1498,678,1486,739,1463,792,1433,841,1396,886,1354,927,1308,964,1258,998,1206,1055,1098,1099,991,1132,893,1154,811,1167,753"/>
+<area shape="rect" href="classdesignlab_1_1_result_file_exporter.html#abdec2e0ea262c131c22f9570ff7d97c6" title="resultフォルダがなければ作成する.また,フォルダ名を指定する." alt="" coords="812,619,1003,662"/>
+<area shape="poly" title=" " alt="" coords="1095,709,1074,702,1049,689,1026,676,994,665,995,660,1028,671,1052,684,1076,697,1096,704"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a7a2dcd75e12ba0190bf2938f03ba8a46" title="コマンドラインに文字を出力する関数. Debug 用の出力. format した文字列を出力する." alt="" coords="802,368,1013,395"/>
+<area shape="poly" title=" " alt="" coords="1075,703,1073,701,1048,664,1040,626,1042,589,1049,552,1056,515,1057,480,1049,444,1039,426,1025,409,1010,398,1014,393,1029,405,1043,424,1054,442,1063,479,1061,516,1054,553,1047,590,1045,626,1053,662,1077,697,1079,699"/>
+<area shape="rect" href="classdesignlab_1_1_graph_searcher_straight_move.html#a64643a2293909dc6b0166a916c5b26ee" title="グラフを受け取り,その中から最適な次の動作を出力する." alt="" coords="535,359,740,402"/>
+<area shape="poly" title=" " alt="" coords="1075,703,1073,701,1056,679,1045,657,1039,634,1037,611,1042,567,1053,522,1063,479,1066,437,1063,416,1055,397,1043,377,1025,359,1006,348,978,342,906,340,822,348,741,361,740,356,822,343,906,334,979,336,1008,343,1028,354,1047,374,1060,394,1068,415,1071,436,1068,479,1058,523,1048,567,1043,611,1045,633,1050,655,1061,676,1077,697,1079,699"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a816ad14579fc0ffc19475ff1a320704c" title="コマンドラインに文字を出力する関数. Error 用の出力. format した文字列を出力する." alt="" coords="806,686,1009,712"/>
+<area shape="poly" title=" " alt="" coords="1073,717,1009,711,1009,706,1074,712"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a6059e28df01199fe0205905b9a0d3a7a" title="コマンドラインに文字を出力する関数. Info 用の出力. format した文字列を出力する." alt="" coords="810,736,1005,763"/>
+<area shape="poly" title=" " alt="" coords="1074,737,1005,743,1005,738,1074,731"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a9d31f2f5b66b9dfb6e4074750145adee" title="整数を入力させる関数. &#160;&#160;出力される文字列は, 必ず OutputDetail::kSystem で出力される." alt="" coords="823,888,992,915"/>
+<area shape="poly" title=" " alt="" coords="1143,749,931,890,928,886,1140,745"/>
+<area shape="poly" title=" " alt="" coords="1170,754,1077,1130,1066,1190,1059,1238,1050,1285,1029,1343,889,1559,742,1771,707,1806,671,1834,668,1830,703,1802,738,1768,884,1556,1024,1341,1045,1284,1054,1237,1061,1190,1072,1129,1165,752"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#aebcb2e345f3e1255aa6b141a14aebd95" title="出力するメッセージをどこまで許可するかを設定する関数. &#160;&#160;この関数を呼び出してから出ないと,他の関数を使えない. &#160;&#160;例えば kError に設定すると, kError 未満の出力( kInfo とか..." alt="" coords="814,486,1001,528"/>
+<area shape="poly" title=" " alt="" coords="1077,704,1073,701,1057,681,1049,661,1048,620,1046,580,1039,561,1025,542,999,525,1002,521,1028,538,1044,559,1051,579,1053,620,1055,660,1062,678,1077,697,1080,700"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a536190ccb50f1f7182547138b0d04724" title="コマンドラインに文字を出力する関数. System 用の出力. format した文字列を出力する." alt="" coords="821,419,994,462"/>
+<area shape="poly" title=" " alt="" coords="1075,703,1073,701,1053,672,1044,644,1044,615,1048,586,1051,558,1051,530,1043,503,1025,476,1010,463,993,455,995,450,1013,459,1029,472,1048,501,1056,530,1057,559,1053,587,1049,615,1050,643,1057,670,1077,697,1079,700"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a36c61c2450dd3180e3d8d0965049f786" title="コマンドラインに文字を出力する関数. Warning 用の出力. format した文字列を出力する." alt="" coords="820,552,995,595"/>
+<area shape="poly" title=" " alt="" coords="1079,706,1073,701,1055,678,1048,654,1042,631,1025,609,994,592,997,587,1028,605,1047,629,1053,653,1059,676,1077,697,1082,701"/>
+<area shape="poly" title=" " alt="" coords="786,384,741,384,741,378,786,378"/>
+<area shape="poly" title=" " alt="" coords="837,886,788,872,704,846,706,841,789,867,839,881"/>
+<area shape="poly" title=" " alt="" coords="828,922,704,949,703,944,827,916"/>
+<area shape="poly" title=" " alt="" coords="856,924,819,947,803,962,791,979,777,1011,767,1050,757,1144,758,1254,764,1372,770,1490,772,1601,764,1697,756,1737,743,1771,730,1790,715,1807,680,1834,677,1830,711,1803,726,1787,738,1769,750,1736,759,1696,766,1601,764,1490,758,1372,752,1254,752,1143,761,1049,771,1009,786,976,799,958,816,943,853,920"/>
+<area shape="poly" title=" " alt="" coords="527,1858,138,1864,138,1859,527,1853"/>
+<area shape="poly" title=" " alt="" coords="809,463,790,476,755,513,725,556,701,602,682,649,657,737,644,801,639,800,651,735,677,647,697,600,721,553,751,510,787,472,806,459"/>
+<area shape="poly" title=" " alt="" coords="809,1104,475,1067,476,1062,809,1099"/>
+<area shape="poly" title=" " alt="" coords="809,1120,474,1136,474,1131,809,1114"/>
+<area shape="poly" title=" " alt="" coords="808,1097,787,1081,771,1062,762,1044,756,1008,753,970,748,950,738,928,703,882,664,846,668,842,706,879,743,926,753,948,759,969,761,1007,767,1042,775,1059,790,1077,812,1092"/>
+<area shape="poly" title=" " alt="" coords="892,1149,869,1194,835,1246,793,1299,742,1344,714,1360,687,1369,639,1374,590,1379,564,1386,537,1401,522,1415,513,1430,504,1445,489,1460,467,1472,465,1467,485,1456,500,1442,509,1427,517,1412,533,1397,562,1382,589,1373,638,1369,686,1364,711,1355,739,1340,789,1295,831,1243,864,1191,888,1147"/>
+<area shape="poly" title=" " alt="" coords="809,1091,787,1081,749,1059,714,1033,659,984,662,980,717,1029,752,1054,790,1077,811,1086"/>
+<area shape="poly" title=" " alt="" coords="887,1148,791,1306,779,1331,771,1353,761,1373,742,1394,714,1413,711,1408,739,1390,757,1370,766,1351,774,1329,786,1303,882,1146"/>
+<area shape="poly" title=" " alt="" coords="1137,1555,968,1417,856,1332,739,1249,615,1173,486,1107,427,1078,429,1073,488,1102,618,1169,742,1245,859,1327,971,1413,1140,1551"/>
+<area shape="poly" title=" " alt="" coords="1078,1597,956,1600,886,1595,812,1586,737,1570,664,1546,595,1512,533,1468,503,1420,461,1332,386,1161,391,1158,466,1329,508,1417,537,1464,598,1507,666,1541,738,1565,812,1581,886,1590,956,1594,1078,1592"/>
+<area shape="poly" title=" " alt="" coords="1082,1614,1077,1619,1059,1645,1052,1671,1052,1697,1055,1724,1058,1750,1057,1777,1048,1803,1029,1829,1000,1852,972,1864,945,1869,917,1870,859,1866,826,1867,789,1874,741,1890,706,1901,705,1896,739,1885,788,1869,825,1862,859,1861,918,1864,944,1864,970,1859,997,1847,1025,1825,1044,1801,1052,1776,1053,1751,1050,1724,1047,1698,1047,1671,1055,1643,1073,1616,1078,1610"/>
+<area shape="poly" title=" " alt="" coords="1131,1555,1099,1522,1072,1482,1063,1453,1057,1419,1054,1338,1065,1144,1070,1046,1067,957,1062,918,1054,884,1041,856,1025,834,991,809,952,792,910,783,866,779,823,781,780,786,706,802,705,797,779,781,822,776,866,774,911,777,953,787,993,804,1029,831,1046,853,1059,883,1067,917,1073,957,1075,1047,1070,1145,1060,1338,1063,1419,1068,1452,1077,1479,1103,1519,1135,1551"/>
+<area shape="poly" title=" " alt="" coords="1090,1614,1076,1620,1053,1635,1028,1648,890,1684,832,1695,778,1701,724,1700,667,1692,605,1675,534,1648,487,1621,446,1584,414,1547,390,1514,395,1511,418,1543,450,1581,490,1616,536,1643,606,1669,668,1686,724,1695,777,1696,831,1690,889,1679,1026,1643,1050,1631,1073,1615,1088,1609"/>
+<area shape="poly" title=" " alt="" coords="1141,1554,1073,1482,944,1336,821,1190,654,984,658,981,825,1187,948,1332,1077,1479,1145,1550"/>
+<area shape="poly" title=" " alt="" coords="1083,1561,716,1457,717,1452,1084,1556"/>
+<area shape="poly" title=" " alt="" coords="1082,1615,1077,1620,1063,1638,1056,1657,1054,1695,1052,1734,1044,1753,1028,1772,993,1784,918,1801,734,1838,733,1833,917,1796,991,1779,1025,1768,1039,1750,1047,1732,1049,1695,1051,1656,1058,1636,1073,1616,1079,1611"/>
+<area shape="rect" href="classdesignlab_1_1_toml_file_importer.html#a4960e633876bd88dc7433696943734e8" title="指定したファイルパスのファイルを読み込み,構造体に変換する." alt="" coords="817,1883,998,1926"/>
+<area shape="poly" title=" " alt="" coords="1082,1614,1077,1619,1057,1650,1049,1680,1049,1710,1053,1741,1057,1771,1057,1803,1049,1834,1029,1866,1000,1888,997,1884,1025,1863,1044,1832,1052,1802,1052,1772,1048,1741,1044,1711,1044,1680,1052,1648,1073,1616,1078,1610"/>
+<area shape="poly" title=" " alt="" coords="1081,1616,1076,1620,1060,1639,1053,1658,1045,1678,1028,1698,995,1718,992,1713,1025,1694,1041,1676,1048,1656,1056,1636,1073,1616,1078,1612"/>
+<area shape="poly" title=" " alt="" coords="802,1913,728,1918,728,1912,801,1908"/>
+<area shape="poly" title=" " alt="" coords="807,1761,731,1774,652,1783,583,1784,555,1780,534,1772,513,1755,492,1727,450,1654,412,1575,385,1514,390,1512,417,1573,454,1652,497,1724,517,1751,536,1767,556,1775,583,1779,652,1778,730,1769,806,1756"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ac1144b4d7e79c9623898dfda69c96853" title="コマンドラインに文字を出力する関数, format した文字列を出力する. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="552,1715,723,1758"/>
+<area shape="poly" title=" " alt="" coords="806,1739,724,1739,724,1734,806,1734"/>
+<area shape="poly" title=" " alt="" coords="551,1710,533,1699,485,1653,443,1602,410,1553,388,1514,393,1511,415,1550,447,1599,488,1650,537,1694,554,1705"/>
+<area shape="poly" title=" " alt="" coords="1078,1447,721,1437,721,1432,1078,1442"/>
+<area shape="poly" title=" " alt="" coords="1171,1688,1156,1747,1129,1817,1110,1853,1087,1886,1060,1916,1028,1940,988,1959,945,1971,900,1976,855,1975,769,1964,698,1945,700,1940,770,1959,855,1970,900,1970,944,1966,986,1954,1025,1935,1057,1912,1083,1883,1106,1850,1124,1815,1151,1745,1166,1687"/>
+<area shape="poly" title=" " alt="" coords="1076,1624,1072,1619,1056,1590,1046,1554,1040,1511,1038,1464,1042,1358,1052,1243,1062,1130,1065,1025,1061,979,1054,938,1042,904,1025,878,1012,871,987,864,913,851,734,832,734,826,914,846,989,859,1014,866,1028,874,1047,902,1059,937,1067,978,1070,1025,1067,1130,1058,1244,1047,1358,1043,1464,1045,1511,1051,1553,1061,1588,1077,1616,1081,1620"/>
+<area shape="poly" title=" " alt="" coords="1076,1623,1072,1619,1060,1598,1052,1572,1044,1507,1045,1430,1050,1347,1055,1264,1055,1188,1046,1125,1037,1100,1025,1081,1009,1068,1012,1064,1029,1077,1042,1098,1051,1124,1060,1188,1060,1264,1055,1347,1050,1430,1050,1506,1057,1571,1065,1596,1077,1616,1080,1620"/>
+<area shape="poly" title=" " alt="" coords="1162,1687,1140,1728,1111,1776,1073,1825,1028,1867,996,1885,993,1880,1025,1862,1069,1821,1106,1773,1136,1726,1157,1685"/>
+<area shape="poly" title=" " alt="" coords="549,1254,533,1242,519,1225,512,1208,507,1174,504,1140,497,1123,485,1106,467,1090,445,1078,448,1073,470,1086,489,1103,502,1121,509,1139,512,1173,517,1206,524,1222,537,1239,552,1250"/>
+<area shape="poly" title=" " alt="" coords="567,1256,534,1243,463,1202,406,1162,409,1157,466,1198,536,1238,569,1251"/>
+<area shape="poly" title=" " alt="" coords="551,1295,537,1306,523,1325,516,1343,514,1381,511,1420,504,1440,489,1460,474,1471,471,1467,485,1456,499,1437,506,1419,508,1381,511,1342,518,1322,533,1303,547,1291"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a53517d90c6e49e06907cdf04b9979cdc" name="a53517d90c6e49e06907cdf04b9979cdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53517d90c6e49e06907cdf04b9979cdc">&#9670;&#160;</a></span>OutputCenter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::OutputCenter </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a>&#160;</td>
+          <td class="paramname"><em>detail</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>中央に文字を出力する関数. 文字列が長すぎる場合は普通に左詰めで出力される. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>出力する文字列. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">detail</td><td>出力する文字列の詳細. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00117">117</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a53517d90c6e49e06907cdf04b9979cdc_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a53517d90c6e49e06907cdf04b9979cdc_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a53517d90c6e49e06907cdf04b9979cdc_cgraph" id="anamespacedesignlab_1_1cmdio_a53517d90c6e49e06907cdf04b9979cdc_cgraph">
+<area shape="rect" title="中央に文字を出力する関数. 文字列が長すぎる場合は普通に左詰めで出力される." alt="" coords="5,39,172,81"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="220,47,386,73"/>
+<area shape="poly" title=" " alt="" coords="172,57,204,57,204,63,172,63"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="434,5,621,48"/>
+<area shape="poly" title=" " alt="" coords="386,45,418,40,419,46,387,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="458,72,598,115"/>
+<area shape="poly" title=" " alt="" coords="387,70,442,78,442,83,386,75"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと,その要素を列挙した文字列を返す関数." alt="" coords="669,39,821,81"/>
+<area shape="poly" title=" " alt="" coords="622,38,654,43,653,49,621,44"/>
+<area shape="poly" title=" " alt="" coords="704,39,702,29,709,20,723,14,745,12,768,14,782,21,780,25,767,20,745,17,725,19,712,24,707,30,709,38"/>
+<area shape="poly" title=" " alt="" coords="598,80,654,71,654,77,599,85"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a53517d90c6e49e06907cdf04b9979cdc_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a53517d90c6e49e06907cdf04b9979cdc_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a53517d90c6e49e06907cdf04b9979cdc_icgraph" id="anamespacedesignlab_1_1cmdio_a53517d90c6e49e06907cdf04b9979cdc_icgraph">
+<area shape="rect" title="中央に文字を出力する関数. 文字列が長すぎる場合は普通に左詰めで出力される." alt="" coords="486,105,652,148"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#aac156719fff45c1e6da33d779eee8a4a" title="コマンドラインにこのソフトのタイトルを出力する関数. &#160;&#160;出力される文字列は,必ず OutputDetail::kSystem で出力される." alt="" coords="272,105,438,148"/>
+<area shape="poly" title=" " alt="" coords="470,129,438,129,438,124,470,124"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_result_viewer.html#a7140a7e2d4cb4c62f7ff84f828afcdd2" title="主要な処理を行う関数." alt="" coords="17,5,212,48"/>
+<area shape="poly" title=" " alt="" coords="301,100,223,62,191,51,193,46,225,58,303,95"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_robot_control.html#a3106f05f7fcc8e37f07177433135f06f" title="主要な処理を行う関数." alt="" coords="19,72,210,115"/>
+<area shape="poly" title=" " alt="" coords="256,116,210,109,211,104,257,110"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの. &#160;&#160;目標地点へ着くか,歩容計画に失敗した場合に,シミュレーションを終える. &#160;&#160;また,規定の回数シミュレーションしたら終了する." alt="" coords="5,139,224,181"/>
+<area shape="poly" title=" " alt="" coords="256,143,224,147,224,142,256,138"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_graph_viewer.html#a65b7327f93f60efed220a004216001f3" title=" " alt="" coords="7,205,222,248"/>
+<area shape="poly" title=" " alt="" coords="303,158,225,196,193,207,191,202,223,191,301,153"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a18eaad4770c65620da0d19bf3508f6a5" name="a18eaad4770c65620da0d19bf3508f6a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18eaad4770c65620da0d19bf3508f6a5">&#9670;&#160;</a></span>OutputF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::OutputF </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a>&#160;</td>
+          <td class="paramname"><em>detail</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::format_string&lt; Args... &gt;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コマンドラインに文字を出力する関数, format した文字列を出力する. <br  />
+ <a class="el" href="namespacedesignlab_1_1cmdio.html#aebcb2e345f3e1255aa6b141a14aebd95" title="出力するメッセージをどこまで許可するかを設定する関数.   この関数を呼び出してから出ないと,他の関数を使えない.   例えば kError に設定すると, kError 未満の出力( kInfo とか...">SetOutputLimit()</a> で設定した出力の許可範囲内であれば出力される. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>出力する文字列. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">detail</td><td>出力する文字列の詳細. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>出力する文字列に埋め込む変数. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00091">91</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a18eaad4770c65620da0d19bf3508f6a5_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a18eaad4770c65620da0d19bf3508f6a5_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a18eaad4770c65620da0d19bf3508f6a5_cgraph" id="anamespacedesignlab_1_1cmdio_a18eaad4770c65620da0d19bf3508f6a5_cgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数, format した文字列を出力する. &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される." alt="" coords="5,47,180,73"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="228,47,394,73"/>
+<area shape="poly" title=" " alt="" coords="180,57,212,57,212,63,180,63"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="442,5,629,48"/>
+<area shape="poly" title=" " alt="" coords="394,45,426,40,427,46,395,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="466,72,606,115"/>
+<area shape="poly" title=" " alt="" coords="395,70,450,78,450,83,394,75"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと,その要素を列挙した文字列を返す関数." alt="" coords="677,39,829,81"/>
+<area shape="poly" title=" " alt="" coords="630,38,662,43,661,49,629,44"/>
+<area shape="poly" title=" " alt="" coords="712,39,710,29,717,20,731,14,753,12,776,14,790,21,788,25,775,20,753,17,733,19,720,24,715,30,717,38"/>
+<area shape="poly" title=" " alt="" coords="606,80,662,71,662,77,607,85"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a18eaad4770c65620da0d19bf3508f6a5_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a18eaad4770c65620da0d19bf3508f6a5_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a18eaad4770c65620da0d19bf3508f6a5_icgraph" id="anamespacedesignlab_1_1cmdio_a18eaad4770c65620da0d19bf3508f6a5_icgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数, format した文字列を出力する. &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される." alt="" coords="1075,367,1249,393"/>
+<area shape="rect" href="classdesignlab_1_1_result_file_exporter.html#abdec2e0ea262c131c22f9570ff7d97c6" title="resultフォルダがなければ作成する.また,フォルダ名を指定する." alt="" coords="812,5,1003,48"/>
+<area shape="poly" title=" " alt="" coords="1154,352,1143,291,1119,213,1102,172,1081,132,1056,94,1025,62,1002,47,1005,43,1028,58,1060,91,1086,129,1107,169,1124,211,1148,290,1159,351"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a7a2dcd75e12ba0190bf2938f03ba8a46" title="コマンドラインに文字を出力する関数. Debug 用の出力. format した文字列を出力する." alt="" coords="802,72,1013,99"/>
+<area shape="poly" title=" " alt="" coords="1152,352,1137,302,1112,239,1075,174,1052,145,1025,119,993,102,995,97,1028,115,1056,141,1079,171,1116,236,1142,300,1157,351"/>
+<area shape="rect" href="classdesignlab_1_1_graph_searcher_straight_move.html#a64643a2293909dc6b0166a916c5b26ee" title="グラフを受け取り,その中から最適な次の動作を出力する." alt="" coords="529,89,734,132"/>
+<area shape="poly" title=" " alt="" coords="1150,353,1133,310,1108,257,1072,205,1050,183,1025,164,1004,153,975,144,900,131,816,122,734,117,735,111,816,116,901,125,976,139,1006,148,1028,159,1053,179,1076,202,1112,254,1138,307,1155,351"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a816ad14579fc0ffc19475ff1a320704c" title="コマンドラインに文字を出力する関数. Error 用の出力. format した文字列を出力する." alt="" coords="806,173,1009,200"/>
+<area shape="poly" title=" " alt="" coords="1144,354,1125,321,1098,283,1065,245,1025,214,1001,203,1004,198,1028,210,1068,241,1102,280,1129,318,1149,351"/>
+<area shape="rect" href="classdesignlab_1_1_gait_pattern_generator_thread.html#af6729bdafbd310f762733e7fa10f8df5" title="グラフ探索を行い,次の動作として最適なノードを返す." alt="" coords="788,224,1027,267"/>
+<area shape="poly" title=" " alt="" coords="1133,358,1085,319,1025,281,999,270,1001,265,1028,276,1088,314,1137,354"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a6059e28df01199fe0205905b9a0d3a7a" title="コマンドラインに文字を出力する関数. Info 用の出力. format した文字列を出力する." alt="" coords="810,291,1005,317"/>
+<area shape="poly" title=" " alt="" coords="1113,363,1026,332,982,321,983,315,1027,327,1115,358"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a3535a9fd6b29ff73e46d201486d7d9dd" title="ディレクトリ名を入力させる関数. &#160;&#160;出力される文字列は,必ず OutputDetail::kSystem で出力される. &#160;&#160;ディレクトリ名には次の文字は使えない...." alt="" coords="805,341,1010,368"/>
+<area shape="poly" title=" " alt="" coords="1059,372,1010,368,1011,362,1059,367"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a9d31f2f5b66b9dfb6e4074750145adee" title="整数を入力させる関数. &#160;&#160;出力される文字列は, 必ず OutputDetail::kSystem で出力される." alt="" coords="823,443,992,469"/>
+<area shape="poly" title=" " alt="" coords="1107,401,1027,427,963,445,962,440,1026,421,1105,396"/>
+<area shape="rect" href="classdesignlab_1_1_boot_mode_selector.html#a25198a56b9874d8200c77f4b5bbbe9a5" title="起動モードを選択する. &#160;&#160;BootModeが int 型をもとにしているかつ, 0から始まることを前提にしているので, うまく動作しない場合は,BootModeの定義を見直すこと." alt="" coords="536,360,727,403"/>
+<area shape="poly" title=" " alt="" coords="1060,383,727,384,727,378,1060,378"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#aed6d6983bb7fc9de29a979dffa87d164" title="yesかnoを入力させる関数.返り値で yes なら true, no なら false を返す. &#160;&#160;出力される文字列は,必ず OutputDetail::kSystem で出力される." alt="" coords="810,560,1005,587"/>
+<area shape="poly" title=" " alt="" coords="1149,409,1129,442,1102,480,1068,519,1028,550,1004,562,1001,557,1025,546,1065,515,1098,477,1125,439,1144,406"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの. &#160;&#160;目標地点へ着くか,歩容計画に失敗した場合に,シミュレーションを終える. &#160;&#160;また,規定の回数シミュレーションしたら終了する." alt="" coords="522,728,740,771"/>
+<area shape="poly" title=" " alt="" coords="1158,410,1145,465,1121,535,1104,572,1083,607,1058,639,1028,667,998,688,969,701,942,708,916,710,858,711,789,719,736,730,735,725,788,713,858,705,915,705,941,702,968,696,995,684,1025,663,1054,636,1078,604,1099,569,1116,533,1140,464,1153,408"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#aebcb2e345f3e1255aa6b141a14aebd95" title="出力するメッセージをどこまで許可するかを設定する関数. &#160;&#160;この関数を呼び出してから出ないと,他の関数を使えない. &#160;&#160;例えば kError に設定すると, kError 未満の出力( kInfo とか..." alt="" coords="814,611,1001,653"/>
+<area shape="poly" title=" " alt="" coords="1153,409,1136,452,1110,503,1074,556,1052,580,1028,601,1002,616,1000,611,1025,596,1048,576,1070,553,1105,501,1131,449,1149,407"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a536190ccb50f1f7182547138b0d04724" title="コマンドラインに文字を出力する関数. System 用の出力. format した文字列を出力する." alt="" coords="821,493,994,536"/>
+<area shape="poly" title=" " alt="" coords="1137,406,1088,446,1028,484,995,497,993,492,1025,479,1085,441,1133,402"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a36c61c2450dd3180e3d8d0965049f786" title="コマンドラインに文字を出力する関数. Warning 用の出力. format した文字列を出力する." alt="" coords="820,728,995,771"/>
+<area shape="poly" title=" " alt="" coords="1159,409,1148,471,1124,552,1107,595,1086,637,1060,676,1028,711,997,732,994,727,1025,707,1055,673,1081,634,1102,593,1119,550,1143,470,1154,408"/>
+<area shape="poly" title=" " alt="" coords="787,99,735,104,734,99,786,94"/>
+<area shape="rect" href="classdesignlab_1_1_graph_searcher_straight_move.html#a012acb8e429cb97dc3843f2d80e16a70" title=" " alt="" coords="269,81,474,140"/>
+<area shape="poly" title=" " alt="" coords="513,113,474,113,474,108,513,108"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_graph_viewer.html#a19d272521cd15d5e493e24ef5834c218" title="主要な処理を行う関数." alt="" coords="535,493,727,536"/>
+<area shape="poly" title=" " alt="" coords="827,476,728,497,727,492,826,471"/>
+<area shape="poly" title=" " alt="" coords="839,441,788,427,712,406,713,401,789,421,841,436"/>
+<area shape="rect" href="classdesignlab_1_1_file_tree.html#a733878741b1e145e088254478a06d6e5" title="ディレクトリの中から,ファイルを一つ選択する." alt="" coords="566,427,696,469"/>
+<area shape="poly" title=" " alt="" coords="807,456,697,453,697,447,807,450"/>
+<area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="88,560,138,587"/>
+<area shape="poly" title=" " alt="" coords="520,375,460,375,396,381,331,395,270,417,221,449,179,489,146,530,125,561,120,558,142,527,175,486,218,445,267,412,330,389,395,376,460,370,520,370"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_result_viewer.html#a7140a7e2d4cb4c62f7ff84f828afcdd2" title="主要な処理を行う関数." alt="" coords="274,427,469,469"/>
+<area shape="poly" title=" " alt="" coords="550,451,469,451,469,445,550,445"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_robot_control.html#a3106f05f7fcc8e37f07177433135f06f" title="主要な処理を行う関数." alt="" coords="276,493,467,536"/>
+<area shape="poly" title=" " alt="" coords="552,471,458,495,457,490,550,466"/>
+<area shape="poly" title=" " alt="" coords="826,559,727,538,728,532,827,554"/>
+<area shape="poly" title=" " alt="" coords="796,555,787,550,770,534,762,516,754,499,739,483,718,472,696,463,698,458,721,467,742,479,758,496,766,514,774,531,790,546,799,551"/>
+<area shape="poly" title=" " alt="" coords="795,579,639,575,570,566,521,550,503,535,495,517,487,500,472,483,453,472,456,468,476,479,492,497,500,515,507,532,523,546,571,561,639,569,795,574"/>
+<area shape="poly" title=" " alt="" coords="795,590,641,603,572,603,521,595,505,587,495,577,486,567,473,557,435,539,437,534,475,552,490,563,499,573,509,582,523,589,572,597,641,598,795,585"/>
+<area shape="rect" href="classdesignlab_1_1_toml_file_importer.html#a8ca4fd7bec19dce42d1ab1dfc895ff88" title="指定したファイルパスのファイルを読み込み,構造体に変換する. 読込に失敗した場合は,デフォルトの構造体を返す. また,読込に失敗した場合には, デフォルトの構造体をファイルに出力するかどうかをユーザに問..." alt="" coords="541,661,721,704"/>
+<area shape="poly" title=" " alt="" coords="804,595,790,601,775,611,766,622,757,633,742,645,705,663,702,658,739,640,753,629,762,618,772,607,787,596,802,590"/>
+<area shape="poly" title=" " alt="" coords="798,595,790,601,778,614,771,628,766,657,762,687,755,703,742,718,726,730,723,725,739,714,750,700,757,686,761,656,766,626,773,611,787,597,795,590"/>
+<area shape="poly" title=" " alt="" coords="585,655,533,625,473,601,378,582,282,573,198,572,138,574,138,569,198,567,282,568,379,576,475,596,535,620,587,650"/>
+<area shape="rect" href="classdesignlab_1_1_robot_operator_factory.html#ac4216aad634bb9cbab1202a055b43975" title="設定ファイルからTargetUpdaterを生成する." alt="" coords="287,611,456,653"/>
+<area shape="poly" title=" " alt="" coords="525,665,456,651,457,646,526,660"/>
+<area shape="rect" href="classdesignlab_1_1_graphic_main_display_model.html#af42c7a85c4334dec044d664a36cf7f34" title=" " alt="" coords="5,707,221,749"/>
+<area shape="poly" title=" " alt="" coords="545,712,523,719,499,728,475,735,417,741,372,741,269,735,221,734,221,728,269,729,372,735,417,736,473,729,497,723,521,713,543,706"/>
+<area shape="rect" href="classdesignlab_1_1_map_creator_selector.html#ab8c4100a5e925b66dcdc7de6ec1354bc" title="マップを生成するクラスを生成する." alt="" coords="272,677,471,720"/>
+<area shape="poly" title=" " alt="" coords="526,692,472,695,471,690,526,686"/>
+<area shape="poly" title=" " alt="" coords="281,674,268,668,192,627,133,589,135,585,194,622,270,663,284,669"/>
+<area shape="poly" title=" " alt="" coords="256,714,221,718,221,713,256,709"/>
+<area shape="poly" title=" " alt="" coords="806,517,728,517,728,512,806,512"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4e349377c9ecf3763014ca8436fa44f6" name="a4e349377c9ecf3763014ca8436fa44f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e349377c9ecf3763014ca8436fa44f6">&#9670;&#160;</a></span>OutputHorizontalLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::OutputHorizontalLine </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>line_visual</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a>&#160;</td>
+          <td class="paramname"><em>detail</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コマンドラインに水平線を出力する関数. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">line_visual</td><td>水平線の見た目.'-'ならば水平線,'='ならば二重水平線. <br  />
+ 2文字以上の文字列を入れると動作しない. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">detail</td><td>出力する文字列の詳細. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00173">173</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a4e349377c9ecf3763014ca8436fa44f6_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a4e349377c9ecf3763014ca8436fa44f6_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a4e349377c9ecf3763014ca8436fa44f6_cgraph" id="anamespacedesignlab_1_1cmdio_a4e349377c9ecf3763014ca8436fa44f6_cgraph">
+<area shape="rect" title="コマンドラインに水平線を出力する関数." alt="" coords="5,39,172,81"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="220,47,386,73"/>
+<area shape="poly" title=" " alt="" coords="172,57,204,57,204,63,172,63"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="434,5,621,48"/>
+<area shape="poly" title=" " alt="" coords="386,45,418,40,419,46,387,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="458,72,598,115"/>
+<area shape="poly" title=" " alt="" coords="387,70,442,78,442,83,386,75"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと,その要素を列挙した文字列を返す関数." alt="" coords="669,39,821,81"/>
+<area shape="poly" title=" " alt="" coords="622,38,654,43,653,49,621,44"/>
+<area shape="poly" title=" " alt="" coords="704,39,702,29,709,20,723,14,745,12,768,14,782,21,780,25,767,20,745,17,725,19,712,24,707,30,709,38"/>
+<area shape="poly" title=" " alt="" coords="598,80,654,71,654,77,599,85"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a4e349377c9ecf3763014ca8436fa44f6_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a4e349377c9ecf3763014ca8436fa44f6_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a4e349377c9ecf3763014ca8436fa44f6_icgraph" id="anamespacedesignlab_1_1cmdio_a4e349377c9ecf3763014ca8436fa44f6_icgraph">
+<area shape="rect" title="コマンドラインに水平線を出力する関数." alt="" coords="512,152,678,195"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_graph_viewer.html#a19d272521cd15d5e493e24ef5834c218" title="主要な処理を行う関数." alt="" coords="272,5,464,48"/>
+<area shape="poly" title=" " alt="" coords="559,143,514,105,463,69,427,51,430,46,465,64,518,101,562,139"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_result_viewer.html#a7140a7e2d4cb4c62f7ff84f828afcdd2" title="主要な処理を行う関数." alt="" coords="17,107,212,149"/>
+<area shape="poly" title=" " alt="" coords="545,146,506,127,463,113,399,104,333,102,270,105,212,112,212,107,269,100,333,96,400,98,465,108,508,122,548,142"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_robot_control.html#a3106f05f7fcc8e37f07177433135f06f" title="主要な処理を行う関数." alt="" coords="19,173,210,216"/>
+<area shape="poly" title=" " alt="" coords="497,180,211,193,210,188,496,175"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの. &#160;&#160;目標地点へ着くか,歩容計画に失敗した場合に,シミュレーションを終える. &#160;&#160;また,規定の回数シミュレーションしたら終了する." alt="" coords="5,307,224,349"/>
+<area shape="poly" title=" " alt="" coords="571,209,525,256,497,279,465,297,405,318,343,331,281,337,224,338,224,333,281,331,342,325,404,313,463,292,494,275,522,252,567,205"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#aac156719fff45c1e6da33d779eee8a4a" title="コマンドラインにこのソフトのタイトルを出力する関数. &#160;&#160;出力される文字列は,必ず OutputDetail::kSystem で出力される." alt="" coords="285,240,451,283"/>
+<area shape="poly" title=" " alt="" coords="525,203,426,242,424,237,523,198"/>
+<area shape="rect" href="classdesignlab_1_1_file_tree.html#a733878741b1e145e088254478a06d6e5" title="ディレクトリの中から,ファイルを一つ選択する." alt="" coords="303,123,433,165"/>
+<area shape="poly" title=" " alt="" coords="496,163,433,155,434,150,497,158"/>
+<area shape="poly" title=" " alt="" coords="327,232,279,197,222,164,195,152,197,147,225,159,282,192,330,228"/>
+<area shape="poly" title=" " alt="" coords="269,238,198,219,199,214,270,233"/>
+<area shape="poly" title=" " alt="" coords="270,290,199,309,198,303,269,285"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_graph_viewer.html#a65b7327f93f60efed220a004216001f3" title=" " alt="" coords="7,240,222,283"/>
+<area shape="poly" title=" " alt="" coords="269,264,222,264,222,259,269,259"/>
+<area shape="poly" title=" " alt="" coords="287,142,212,137,212,131,288,136"/>
+<area shape="poly" title=" " alt="" coords="288,163,211,178,210,173,287,157"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa8ed2785f4f2ed80a29f9b6d3a3d1d4a" name="aa8ed2785f4f2ed80a29f9b6d3a3d1d4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8ed2785f4f2ed80a29f9b6d3a3d1d4a">&#9670;&#160;</a></span>OutputNewLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::OutputNewLine </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a>&#160;</td>
+          <td class="paramname"><em>detail</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コマンドラインで改行をする関数. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">num</td><td>改行する回数.0以下の値を入れると何もしない. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">detail</td><td>出力する文字列の詳細. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00163">163</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_aa8ed2785f4f2ed80a29f9b6d3a3d1d4a_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_aa8ed2785f4f2ed80a29f9b6d3a3d1d4a_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_aa8ed2785f4f2ed80a29f9b6d3a3d1d4a_cgraph" id="anamespacedesignlab_1_1cmdio_aa8ed2785f4f2ed80a29f9b6d3a3d1d4a_cgraph">
+<area shape="rect" title="コマンドラインで改行をする関数." alt="" coords="5,39,172,81"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="220,47,386,73"/>
+<area shape="poly" title=" " alt="" coords="172,57,204,57,204,63,172,63"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="434,5,621,48"/>
+<area shape="poly" title=" " alt="" coords="386,45,418,40,419,46,387,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="458,72,598,115"/>
+<area shape="poly" title=" " alt="" coords="387,70,442,78,442,83,386,75"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと,その要素を列挙した文字列を返す関数." alt="" coords="669,39,821,81"/>
+<area shape="poly" title=" " alt="" coords="622,38,654,43,653,49,621,44"/>
+<area shape="poly" title=" " alt="" coords="704,39,702,29,709,20,723,14,745,12,768,14,782,21,780,25,767,20,745,17,725,19,712,24,707,30,709,38"/>
+<area shape="poly" title=" " alt="" coords="598,80,654,71,654,77,599,85"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_aa8ed2785f4f2ed80a29f9b6d3a3d1d4a_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_aa8ed2785f4f2ed80a29f9b6d3a3d1d4a_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_aa8ed2785f4f2ed80a29f9b6d3a3d1d4a_icgraph" id="anamespacedesignlab_1_1cmdio_aa8ed2785f4f2ed80a29f9b6d3a3d1d4a_icgraph">
+<area shape="rect" title="コマンドラインで改行をする関数." alt="" coords="1039,360,1205,403"/>
+<area shape="rect" href="classdesignlab_1_1_toml_file_importer.html#a4960e633876bd88dc7433696943734e8" title="指定したファイルパスのファイルを読み込み,構造体に変換する." alt="" coords="804,104,985,147"/>
+<area shape="poly" title=" " alt="" coords="1105,347,1087,306,1061,259,1029,210,989,168,961,150,964,145,992,164,1033,207,1066,256,1092,304,1110,345"/>
+<area shape="rect" href="classdesignlab_1_1_toml_file_importer.html#a8ca4fd7bec19dce42d1ab1dfc895ff88" title="指定したファイルパスのファイルを読み込み,構造体に変換する. 読込に失敗した場合は,デフォルトの構造体を返す. また,読込に失敗した場合には, デフォルトの構造体をファイルに出力するかどうかをユーザに問..." alt="" coords="553,104,733,147"/>
+<area shape="poly" title=" " alt="" coords="1100,348,1055,281,1024,247,989,219,954,205,889,187,732,148,734,143,890,181,956,200,992,214,1028,243,1059,278,1104,345"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_graph_viewer.html#a19d272521cd15d5e493e24ef5834c218" title="主要な処理を行う関数." alt="" coords="798,272,991,315"/>
+<area shape="poly" title=" " alt="" coords="1049,357,951,318,953,313,1051,352"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_result_viewer.html#a7140a7e2d4cb4c62f7ff84f828afcdd2" title="主要な処理を行う関数." alt="" coords="546,352,740,395"/>
+<area shape="poly" title=" " alt="" coords="1023,381,991,380,740,377,740,372,991,375,1023,376"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_robot_control.html#a3106f05f7fcc8e37f07177433135f06f" title="主要な処理を行う関数." alt="" coords="547,419,738,462"/>
+<area shape="poly" title=" " alt="" coords="1074,413,1035,432,991,447,926,457,860,461,739,456,739,450,860,456,926,452,990,442,1033,427,1072,408"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの. &#160;&#160;目標地点へ着くか,歩容計画に失敗した場合に,シミュレーションを終える. &#160;&#160;また,規定の回数シミュレーションしたら終了する." alt="" coords="269,632,487,675"/>
+<area shape="poly" title=" " alt="" coords="1118,419,1105,474,1082,541,1066,575,1046,607,1021,636,992,660,959,679,924,695,851,716,775,725,698,725,624,718,554,707,442,678,444,673,556,701,624,713,698,720,774,720,850,711,922,690,957,674,989,655,1017,632,1041,604,1061,572,1077,539,1100,473,1113,418"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#aac156719fff45c1e6da33d779eee8a4a" title="コマンドラインにこのソフトのタイトルを出力する関数. &#160;&#160;出力される文字列は,必ず OutputDetail::kSystem で出力される." alt="" coords="811,507,978,550"/>
+<area shape="poly" title=" " alt="" coords="1089,416,1044,454,992,491,957,509,954,504,989,486,1041,449,1085,412"/>
+<area shape="rect" href="classdesignlab_1_1_boot_mode_selector.html#a25198a56b9874d8200c77f4b5bbbe9a5" title="起動モードを選択する. &#160;&#160;BootModeが int 型をもとにしているかつ, 0から始まることを前提にしているので, うまく動作しない場合は,BootModeの定義を見直すこと." alt="" coords="282,222,474,264"/>
+<area shape="poly" title=" " alt="" coords="1094,350,1049,302,1021,280,990,263,948,251,892,243,754,235,604,235,474,240,474,235,604,230,754,230,893,237,949,246,992,258,1024,275,1053,298,1098,346"/>
+<area shape="rect" href="classdesignlab_1_1_file_tree.html#a733878741b1e145e088254478a06d6e5" title="ディレクトリの中から,ファイルを一つ選択する." alt="" coords="829,390,960,432"/>
+<area shape="poly" title=" " alt="" coords="1024,397,961,405,960,400,1023,392"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a3d59a4e2fa0f33ec8a1df18e037aa51a" title="コマンドラインに文字を出力する関数. &#160;&#160;前と後ろに改行を挿入する." alt="" coords="809,603,980,646"/>
+<area shape="poly" title=" " alt="" coords="1103,418,1056,488,1026,527,992,563,965,586,937,605,934,600,962,582,989,560,1022,524,1052,485,1098,415"/>
+<area shape="poly" title=" " alt="" coords="789,128,733,128,733,123,789,123"/>
+<area shape="rect" href="classdesignlab_1_1_robot_operator_factory.html#ac4216aad634bb9cbab1202a055b43975" title="設定ファイルからTargetUpdaterを生成する." alt="" coords="294,104,462,147"/>
+<area shape="poly" title=" " alt="" coords="537,128,463,128,463,123,537,123"/>
+<area shape="rect" href="classdesignlab_1_1_graphic_main_display_model.html#af42c7a85c4334dec044d664a36cf7f34" title=" " alt="" coords="5,8,221,51"/>
+<area shape="poly" title=" " alt="" coords="604,96,551,58,519,41,486,28,419,14,350,9,282,10,221,15,221,9,282,4,350,3,420,9,488,23,522,36,554,53,607,92"/>
+<area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="88,171,138,198"/>
+<area shape="poly" title=" " alt="" coords="538,153,487,162,386,173,286,180,138,186,138,181,285,175,385,168,487,156,537,148"/>
+<area shape="rect" href="classdesignlab_1_1_map_creator_selector.html#ab8c4100a5e925b66dcdc7de6ec1354bc" title="マップを生成するクラスを生成する." alt="" coords="278,38,478,80"/>
+<area shape="poly" title=" " alt="" coords="540,102,465,83,466,78,541,97"/>
+<area shape="poly" title=" " alt="" coords="263,49,221,44,222,39,263,44"/>
+<area shape="poly" title=" " alt="" coords="285,88,270,95,194,135,135,173,133,168,192,130,268,90,283,83"/>
+<area shape="poly" title=" " alt="" coords="856,499,749,409,724,398,727,393,752,405,859,495"/>
+<area shape="poly" title=" " alt="" coords="823,503,749,476,715,465,717,460,751,471,825,498"/>
+<area shape="poly" title=" " alt="" coords="796,542,671,562,536,593,479,613,427,634,425,629,477,608,534,588,670,557,795,537"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_graph_viewer.html#a65b7327f93f60efed220a004216001f3" title=" " alt="" coords="535,486,750,528"/>
+<area shape="poly" title=" " alt="" coords="795,523,750,519,751,513,796,517"/>
+<area shape="poly" title=" " alt="" coords="267,221,137,192,139,187,268,216"/>
+<area shape="poly" title=" " alt="" coords="814,402,740,391,741,385,814,396"/>
+<area shape="poly" title=" " alt="" coords="814,423,739,432,739,426,813,418"/>
+<area shape="poly" title=" " alt="" coords="799,652,751,660,683,666,614,668,487,665,488,659,614,662,682,660,750,655,799,647"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ac1144b4d7e79c9623898dfda69c96853" title="コマンドラインに文字を出力する関数, format した文字列を出力する. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="557,603,728,646"/>
+<area shape="poly" title=" " alt="" coords="793,627,729,627,729,622,793,622"/>
+<area shape="poly" title=" " alt="" coords="542,638,488,644,487,639,541,633"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8c8bce312d4541906ad912f79317b013" name="a8c8bce312d4541906ad912f79317b013"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c8bce312d4541906ad912f79317b013">&#9670;&#160;</a></span>OutputRight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::OutputRight </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a>&#160;</td>
+          <td class="paramname"><em>detail</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>右端に文字を出力する関数. 文字列が長すぎる場合は普通に左詰めで出力される. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>出力する文字列. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">detail</td><td>出力する文字列の詳細. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00140">140</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a8c8bce312d4541906ad912f79317b013_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a8c8bce312d4541906ad912f79317b013_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a8c8bce312d4541906ad912f79317b013_cgraph" id="anamespacedesignlab_1_1cmdio_a8c8bce312d4541906ad912f79317b013_cgraph">
+<area shape="rect" title="右端に文字を出力する関数. 文字列が長すぎる場合は普通に左詰めで出力される." alt="" coords="5,39,172,81"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="220,47,386,73"/>
+<area shape="poly" title=" " alt="" coords="172,57,204,57,204,63,172,63"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="434,5,621,48"/>
+<area shape="poly" title=" " alt="" coords="386,45,418,40,419,46,387,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="458,72,598,115"/>
+<area shape="poly" title=" " alt="" coords="387,70,442,78,442,83,386,75"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと,その要素を列挙した文字列を返す関数." alt="" coords="669,39,821,81"/>
+<area shape="poly" title=" " alt="" coords="622,38,654,43,653,49,621,44"/>
+<area shape="poly" title=" " alt="" coords="704,39,702,29,709,20,723,14,745,12,768,14,782,21,780,25,767,20,745,17,725,19,712,24,707,30,709,38"/>
+<area shape="poly" title=" " alt="" coords="598,80,654,71,654,77,599,85"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a8c8bce312d4541906ad912f79317b013_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a8c8bce312d4541906ad912f79317b013_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a8c8bce312d4541906ad912f79317b013_icgraph" id="anamespacedesignlab_1_1cmdio_a8c8bce312d4541906ad912f79317b013_icgraph">
+<area shape="rect" title="右端に文字を出力する関数. 文字列が長すぎる場合は普通に左詰めで出力される." alt="" coords="486,105,652,148"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#aac156719fff45c1e6da33d779eee8a4a" title="コマンドラインにこのソフトのタイトルを出力する関数. &#160;&#160;出力される文字列は,必ず OutputDetail::kSystem で出力される." alt="" coords="272,105,438,148"/>
+<area shape="poly" title=" " alt="" coords="470,129,438,129,438,124,470,124"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_result_viewer.html#a7140a7e2d4cb4c62f7ff84f828afcdd2" title="主要な処理を行う関数." alt="" coords="17,5,212,48"/>
+<area shape="poly" title=" " alt="" coords="301,100,223,62,191,51,193,46,225,58,303,95"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_robot_control.html#a3106f05f7fcc8e37f07177433135f06f" title="主要な処理を行う関数." alt="" coords="19,72,210,115"/>
+<area shape="poly" title=" " alt="" coords="256,116,210,109,211,104,257,110"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの. &#160;&#160;目標地点へ着くか,歩容計画に失敗した場合に,シミュレーションを終える. &#160;&#160;また,規定の回数シミュレーションしたら終了する." alt="" coords="5,139,224,181"/>
+<area shape="poly" title=" " alt="" coords="256,143,224,147,224,142,256,138"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_graph_viewer.html#a65b7327f93f60efed220a004216001f3" title=" " alt="" coords="7,205,222,248"/>
+<area shape="poly" title=" " alt="" coords="303,158,225,196,193,207,191,202,223,191,301,153"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aac156719fff45c1e6da33d779eee8a4a" name="aac156719fff45c1e6da33d779eee8a4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac156719fff45c1e6da33d779eee8a4a">&#9670;&#160;</a></span>OutputTitle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::OutputTitle </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>title_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>output_copy_right</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コマンドラインにこのソフトのタイトルを出力する関数. <br  />
+ 出力される文字列は,必ず <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb" title="システムメッセージ,常に出力する.">OutputDetail::kSystem</a> で出力される. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>出力する文字列. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">output_copy_right</td><td>コピーライトを出力するか. (デフォルトでは false ) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00188">188</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_aac156719fff45c1e6da33d779eee8a4a_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_aac156719fff45c1e6da33d779eee8a4a_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_aac156719fff45c1e6da33d779eee8a4a_cgraph" id="anamespacedesignlab_1_1cmdio_aac156719fff45c1e6da33d779eee8a4a_cgraph">
+<area shape="rect" title="コマンドラインにこのソフトのタイトルを出力する関数. &#160;&#160;出力される文字列は,必ず OutputDetail::kSystem で出力される." alt="" coords="5,105,172,148"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a53517d90c6e49e06907cdf04b9979cdc" title="中央に文字を出力する関数. 文字列が長すぎる場合は普通に左詰めで出力される." alt="" coords="220,5,386,48"/>
+<area shape="poly" title=" " alt="" coords="129,102,219,58,231,52,233,57,221,62,132,107"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a4e349377c9ecf3763014ca8436fa44f6" title="コマンドラインに水平線を出力する関数." alt="" coords="220,72,386,115"/>
+<area shape="poly" title=" " alt="" coords="172,111,204,106,205,111,173,116"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#aa8ed2785f4f2ed80a29f9b6d3a3d1d4a" title="コマンドラインで改行をする関数." alt="" coords="220,139,386,181"/>
+<area shape="poly" title=" " alt="" coords="173,137,205,142,204,147,172,142"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a8c8bce312d4541906ad912f79317b013" title="右端に文字を出力する関数. 文字列が長すぎる場合は普通に左詰めで出力される." alt="" coords="220,205,386,248"/>
+<area shape="poly" title=" " alt="" coords="132,146,221,191,233,196,231,201,219,196,129,151"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="434,113,600,140"/>
+<area shape="poly" title=" " alt="" coords="361,46,387,58,478,103,476,108,385,62,359,51"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="648,72,836,115"/>
+<area shape="poly" title=" " alt="" coords="600,112,632,107,633,112,601,117"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="672,139,812,181"/>
+<area shape="poly" title=" " alt="" coords="601,136,657,145,656,150,600,142"/>
+<area shape="poly" title=" " alt="" coords="387,104,419,109,418,114,386,109"/>
+<area shape="poly" title=" " alt="" coords="386,144,418,139,419,145,387,150"/>
+<area shape="poly" title=" " alt="" coords="359,202,385,191,476,145,478,150,387,196,361,207"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_aac156719fff45c1e6da33d779eee8a4a_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_aac156719fff45c1e6da33d779eee8a4a_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_aac156719fff45c1e6da33d779eee8a4a_icgraph" id="anamespacedesignlab_1_1cmdio_aac156719fff45c1e6da33d779eee8a4a_icgraph">
+<area shape="rect" title="コマンドラインにこのソフトのタイトルを出力する関数. &#160;&#160;出力される文字列は,必ず OutputDetail::kSystem で出力される." alt="" coords="272,105,438,148"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_result_viewer.html#a7140a7e2d4cb4c62f7ff84f828afcdd2" title="主要な処理を行う関数." alt="" coords="17,5,212,48"/>
+<area shape="poly" title=" " alt="" coords="301,100,223,62,191,51,193,46,225,58,303,95"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_robot_control.html#a3106f05f7fcc8e37f07177433135f06f" title="主要な処理を行う関数." alt="" coords="19,72,210,115"/>
+<area shape="poly" title=" " alt="" coords="256,116,210,109,211,104,257,110"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの. &#160;&#160;目標地点へ着くか,歩容計画に失敗した場合に,シミュレーションを終える. &#160;&#160;また,規定の回数シミュレーションしたら終了する." alt="" coords="5,139,224,181"/>
+<area shape="poly" title=" " alt="" coords="256,143,224,147,224,142,256,138"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_graph_viewer.html#a65b7327f93f60efed220a004216001f3" title=" " alt="" coords="7,205,222,248"/>
+<area shape="poly" title=" " alt="" coords="303,158,225,196,193,207,191,202,223,191,301,153"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aebcb2e345f3e1255aa6b141a14aebd95" name="aebcb2e345f3e1255aa6b141a14aebd95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebcb2e345f3e1255aa6b141a14aebd95">&#9670;&#160;</a></span>SetOutputLimit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::SetOutputLimit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a>&#160;</td>
+          <td class="paramname"><em>limit</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>出力するメッセージをどこまで許可するかを設定する関数. <br  />
+ この関数を呼び出してから出ないと,他の関数を使えない. <br  />
+ 例えば kError に設定すると, kError 未満の出力( kInfo とか kDebug とかはされない. <br  />
+ 逆に kDebug に設定すると,すべての出力がされる. <br  />
+ 1度呼び出したら,プログラム終了まで設定は有効となる. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">limit</td><td>出力するメッセージをどこまで許可するか. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00028">28</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_aebcb2e345f3e1255aa6b141a14aebd95_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_aebcb2e345f3e1255aa6b141a14aebd95_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_aebcb2e345f3e1255aa6b141a14aebd95_cgraph" id="anamespacedesignlab_1_1cmdio_aebcb2e345f3e1255aa6b141a14aebd95_cgraph">
+<area shape="rect" title="出力するメッセージをどこまで許可するかを設定する関数. &#160;&#160;この関数を呼び出してから出ないと,他の関数を使えない. &#160;&#160;例えば kError に設定すると, kError 未満の出力( kInfo とか..." alt="" coords="5,31,192,73"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="676,5,864,48"/>
+<area shape="poly" title=" " alt="" coords="192,46,661,28,661,33,192,51"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a18eaad4770c65620da0d19bf3508f6a5" title="コマンドラインに文字を出力する関数, format した文字列を出力する. &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される." alt="" coords="240,64,414,91"/>
+<area shape="poly" title=" " alt="" coords="193,60,224,63,223,69,192,65"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと,その要素を列挙した文字列を返す関数." alt="" coords="912,39,1063,81"/>
+<area shape="poly" title=" " alt="" coords="865,38,896,43,896,49,864,44"/>
+<area shape="poly" title=" " alt="" coords="946,39,944,29,951,20,966,14,987,12,1011,14,1025,21,1022,25,1009,20,987,17,967,19,954,24,949,30,951,38"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="462,64,628,91"/>
+<area shape="poly" title=" " alt="" coords="415,75,446,75,446,80,415,80"/>
+<area shape="poly" title=" " alt="" coords="607,61,661,49,662,54,608,66"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="700,72,840,115"/>
+<area shape="poly" title=" " alt="" coords="629,81,684,85,684,90,628,86"/>
+<area shape="poly" title=" " alt="" coords="840,80,896,71,897,77,841,85"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3d59a4e2fa0f33ec8a1df18e037aa51a" name="a3d59a4e2fa0f33ec8a1df18e037aa51a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d59a4e2fa0f33ec8a1df18e037aa51a">&#9670;&#160;</a></span>SpacedOutput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::SpacedOutput </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a>&#160;</td>
+          <td class="paramname"><em>detail</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コマンドラインに文字を出力する関数. <br  />
+ 前と後ろに改行を挿入する. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>出力する文字列. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">detail</td><td>出力する文字列の詳細. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00111">111</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a3d59a4e2fa0f33ec8a1df18e037aa51a_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a3d59a4e2fa0f33ec8a1df18e037aa51a_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a3d59a4e2fa0f33ec8a1df18e037aa51a_cgraph" id="anamespacedesignlab_1_1cmdio_a3d59a4e2fa0f33ec8a1df18e037aa51a_cgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数. &#160;&#160;前と後ろに改行を挿入する." alt="" coords="5,39,177,81"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="439,47,605,73"/>
+<area shape="poly" title=" " alt="" coords="177,54,225,53,391,53,423,54,423,59,391,59,225,59,177,60"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#aa8ed2785f4f2ed80a29f9b6d3a3d1d4a" title="コマンドラインで改行をする関数." alt="" coords="225,68,391,111"/>
+<area shape="poly" title=" " alt="" coords="177,69,210,73,209,79,177,74"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="653,5,841,48"/>
+<area shape="poly" title=" " alt="" coords="605,45,637,40,638,46,606,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="677,72,817,115"/>
+<area shape="poly" title=" " alt="" coords="606,70,662,78,661,83,605,75"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと,その要素を列挙した文字列を返す関数." alt="" coords="889,39,1040,81"/>
+<area shape="poly" title=" " alt="" coords="842,38,873,43,873,49,841,44"/>
+<area shape="poly" title=" " alt="" coords="923,39,921,29,928,20,943,14,964,12,988,14,1002,21,999,25,986,20,964,17,944,19,931,24,926,30,928,38"/>
+<area shape="poly" title=" " alt="" coords="817,80,873,71,874,77,818,85"/>
+<area shape="poly" title=" " alt="" coords="391,75,423,71,424,76,392,81"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a3d59a4e2fa0f33ec8a1df18e037aa51a_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a3d59a4e2fa0f33ec8a1df18e037aa51a_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a3d59a4e2fa0f33ec8a1df18e037aa51a_icgraph" id="anamespacedesignlab_1_1cmdio_a3d59a4e2fa0f33ec8a1df18e037aa51a_icgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数. &#160;&#160;前と後ろに改行を挿入する." alt="" coords="491,5,662,48"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの. &#160;&#160;目標地点へ着くか,歩容計画に失敗した場合に,シミュレーションを終える. &#160;&#160;また,規定の回数シミュレーションしたら終了する." alt="" coords="5,5,224,48"/>
+<area shape="poly" title=" " alt="" coords="475,26,443,25,272,25,224,26,224,21,272,20,443,20,475,21"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ac1144b4d7e79c9623898dfda69c96853" title="コマンドラインに文字を出力する関数, format した文字列を出力する. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="272,35,443,77"/>
+<area shape="poly" title=" " alt="" coords="476,43,444,47,443,42,475,37"/>
+<area shape="poly" title=" " alt="" coords="256,46,224,43,224,37,257,41"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac1144b4d7e79c9623898dfda69c96853" name="ac1144b4d7e79c9623898dfda69c96853"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1144b4d7e79c9623898dfda69c96853">&#9670;&#160;</a></span>SpacedOutputF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::SpacedOutputF </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645">OutputDetail</a>&#160;</td>
+          <td class="paramname"><em>detail</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::format_string&lt; Args... &gt;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コマンドラインに文字を出力する関数, format した文字列を出力する. <br  />
+ SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>出力する文字列. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">detail</td><td>出力する文字列の詳細. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>出力する文字列に埋め込む変数. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00148">148</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_ac1144b4d7e79c9623898dfda69c96853_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_ac1144b4d7e79c9623898dfda69c96853_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_ac1144b4d7e79c9623898dfda69c96853_cgraph" id="anamespacedesignlab_1_1cmdio_ac1144b4d7e79c9623898dfda69c96853_cgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数, format した文字列を出力する. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="5,39,177,81"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a3d59a4e2fa0f33ec8a1df18e037aa51a" title="コマンドラインに文字を出力する関数. &#160;&#160;前と後ろに改行を挿入する." alt="" coords="225,39,396,81"/>
+<area shape="poly" title=" " alt="" coords="177,57,209,57,209,63,177,63"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="658,47,825,73"/>
+<area shape="poly" title=" " alt="" coords="396,54,444,53,610,53,643,54,642,59,610,59,444,59,396,60"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#aa8ed2785f4f2ed80a29f9b6d3a3d1d4a" title="コマンドラインで改行をする関数." alt="" coords="444,68,610,111"/>
+<area shape="poly" title=" " alt="" coords="397,69,429,73,428,79,396,74"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="873,5,1060,48"/>
+<area shape="poly" title=" " alt="" coords="825,45,856,40,857,46,825,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="896,72,1037,115"/>
+<area shape="poly" title=" " alt="" coords="825,70,881,78,880,83,825,75"/>
+<area shape="poly" title=" " alt="" coords="611,75,643,71,643,76,611,81"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_ac1144b4d7e79c9623898dfda69c96853_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_ac1144b4d7e79c9623898dfda69c96853_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_ac1144b4d7e79c9623898dfda69c96853_icgraph" id="anamespacedesignlab_1_1cmdio_ac1144b4d7e79c9623898dfda69c96853_icgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数, format した文字列を出力する. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="272,5,443,48"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの. &#160;&#160;目標地点へ着くか,歩容計画に失敗した場合に,シミュレーションを終える. &#160;&#160;また,規定の回数シミュレーションしたら終了する." alt="" coords="5,5,224,48"/>
+<area shape="poly" title=" " alt="" coords="256,29,224,29,224,24,256,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7f803a29165fa043ed5b033d21174a84" name="a7f803a29165fa043ed5b033d21174a84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f803a29165fa043ed5b033d21174a84">&#9670;&#160;</a></span>SystemOutput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::SystemOutput </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>コマンドラインに文字を出力する関数. System 用の出力. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>出力する文字列. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00075">75</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a7f803a29165fa043ed5b033d21174a84_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a7f803a29165fa043ed5b033d21174a84_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a7f803a29165fa043ed5b033d21174a84_cgraph" id="anamespacedesignlab_1_1cmdio_a7f803a29165fa043ed5b033d21174a84_cgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数. System 用の出力." alt="" coords="5,39,178,81"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="226,47,392,73"/>
+<area shape="poly" title=" " alt="" coords="178,57,210,57,210,63,178,63"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="440,5,627,48"/>
+<area shape="poly" title=" " alt="" coords="392,45,424,40,425,46,393,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="464,72,604,115"/>
+<area shape="poly" title=" " alt="" coords="393,70,448,78,448,83,392,75"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと,その要素を列挙した文字列を返す関数." alt="" coords="675,39,827,81"/>
+<area shape="poly" title=" " alt="" coords="628,38,660,43,659,49,627,44"/>
+<area shape="poly" title=" " alt="" coords="710,39,708,29,715,20,729,14,751,12,774,14,788,21,786,25,773,20,751,17,731,19,718,24,713,30,715,38"/>
+<area shape="poly" title=" " alt="" coords="604,80,660,71,660,77,605,85"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a7f803a29165fa043ed5b033d21174a84_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a7f803a29165fa043ed5b033d21174a84_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a7f803a29165fa043ed5b033d21174a84_icgraph" id="anamespacedesignlab_1_1cmdio_a7f803a29165fa043ed5b033d21174a84_icgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数. System 用の出力." alt="" coords="998,148,1170,191"/>
+<area shape="rect" href="classdesignlab_1_1_toml_file_importer.html#a4960e633876bd88dc7433696943734e8" title="指定したファイルパスのファイルを読み込み,構造体に変換する." alt="" coords="757,64,937,107"/>
+<area shape="poly" title=" " alt="" coords="1007,145,908,110,910,105,1008,140"/>
+<area shape="rect" href="classdesignlab_1_1_toml_file_importer.html#a8ca4fd7bec19dce42d1ab1dfc895ff88" title="指定したファイルパスのファイルを読み込み,構造体に変換する. 読込に失敗した場合は,デフォルトの構造体を返す. また,読込に失敗した場合には, デフォルトの構造体をファイルに出力するかどうかをユーザに問..." alt="" coords="516,93,696,136"/>
+<area shape="poly" title=" " alt="" coords="982,160,696,128,697,122,983,155"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a3535a9fd6b29ff73e46d201486d7d9dd" title="ディレクトリ名を入力させる関数. &#160;&#160;出力される文字列は,必ず OutputDetail::kSystem で出力される. &#160;&#160;ディレクトリ名には次の文字は使えない...." alt="" coords="744,181,950,208"/>
+<area shape="poly" title=" " alt="" coords="983,183,950,186,950,181,982,178"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_graph_viewer.html#a19d272521cd15d5e493e24ef5834c218" title="主要な処理を行う関数." alt="" coords="751,232,943,275"/>
+<area shape="poly" title=" " alt="" coords="1014,199,951,223,917,234,916,229,949,217,1012,194"/>
+<area shape="poly" title=" " alt="" coords="741,101,697,106,697,101,741,96"/>
+<area shape="rect" href="classdesignlab_1_1_robot_operator_factory.html#ac4216aad634bb9cbab1202a055b43975" title="設定ファイルからTargetUpdaterを生成する." alt="" coords="284,5,453,48"/>
+<area shape="poly" title=" " alt="" coords="531,90,427,51,429,46,533,85"/>
+<area shape="rect" href="classdesignlab_1_1_graphic_main_display_model.html#af42c7a85c4334dec044d664a36cf7f34" title=" " alt="" coords="5,79,221,121"/>
+<area shape="poly" title=" " alt="" coords="500,114,221,106,221,101,501,109"/>
+<area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="88,160,138,187"/>
+<area shape="poly" title=" " alt="" coords="556,146,515,165,469,180,374,192,279,193,197,187,138,180,139,175,197,182,279,188,373,187,467,175,513,160,554,141"/>
+<area shape="rect" href="classdesignlab_1_1_map_creator_selector.html#ab8c4100a5e925b66dcdc7de6ec1354bc" title="マップを生成するクラスを生成する." alt="" coords="269,123,468,165"/>
+<area shape="poly" title=" " alt="" coords="501,130,469,134,468,129,500,125"/>
+<area shape="poly" title=" " alt="" coords="253,127,221,121,221,116,254,122"/>
+<area shape="poly" title=" " alt="" coords="253,160,139,173,138,168,253,155"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a536190ccb50f1f7182547138b0d04724" name="a536190ccb50f1f7182547138b0d04724"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a536190ccb50f1f7182547138b0d04724">&#9670;&#160;</a></span>SystemOutputF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::SystemOutputF </td>
+          <td>(</td>
+          <td class="paramtype">const std::format_string&lt; Args... &gt;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>コマンドラインに文字を出力する関数. System 用の出力. format した文字列を出力する. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>出力する文字列. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00137">137</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a536190ccb50f1f7182547138b0d04724_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a536190ccb50f1f7182547138b0d04724_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a536190ccb50f1f7182547138b0d04724_cgraph" id="anamespacedesignlab_1_1cmdio_a536190ccb50f1f7182547138b0d04724_cgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数. System 用の出力. format した文字列を出力する." alt="" coords="5,39,178,81"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a18eaad4770c65620da0d19bf3508f6a5" title="コマンドラインに文字を出力する関数, format した文字列を出力する. &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される." alt="" coords="226,47,400,73"/>
+<area shape="poly" title=" " alt="" coords="178,57,210,57,210,63,178,63"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="448,47,614,73"/>
+<area shape="poly" title=" " alt="" coords="401,57,432,57,432,63,401,63"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="662,5,850,48"/>
+<area shape="poly" title=" " alt="" coords="614,45,646,40,647,46,615,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="686,72,826,115"/>
+<area shape="poly" title=" " alt="" coords="615,70,671,78,670,83,614,75"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a536190ccb50f1f7182547138b0d04724_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a536190ccb50f1f7182547138b0d04724_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a536190ccb50f1f7182547138b0d04724_icgraph" id="anamespacedesignlab_1_1cmdio_a536190ccb50f1f7182547138b0d04724_icgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数. System 用の出力. format した文字列を出力する." alt="" coords="246,5,418,48"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_graph_viewer.html#a19d272521cd15d5e493e24ef5834c218" title="主要な処理を行う関数." alt="" coords="5,5,198,48"/>
+<area shape="poly" title=" " alt="" coords="230,29,198,29,198,24,230,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6e74f3cc38e6d4898b17864e2a652ba3" name="a6e74f3cc38e6d4898b17864e2a652ba3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e74f3cc38e6d4898b17864e2a652ba3">&#9670;&#160;</a></span>WaitAnyKey()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::WaitAnyKey </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em> = <code>&quot;Waiting&#160;for&#160;input.&quot;</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>入力待ちをする関数. <br  />
+ 出力される文字列は, 必ず <a class="el" href="namespacedesignlab.html#a43f5ea9398e73bc5134e238b7e8c5645a2c9d4d4ca70df56c762f0140f57dbdfb" title="システムメッセージ,常に出力する.">OutputDetail::kSystem</a> で出力される. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>入力待ちをする際に出力する文字列. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8cpp_source.html">cmdio_util.cpp</a> の <a class="el" href="cmdio__util_8cpp_source.html#l00206">206</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a6e74f3cc38e6d4898b17864e2a652ba3_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a6e74f3cc38e6d4898b17864e2a652ba3_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a6e74f3cc38e6d4898b17864e2a652ba3_cgraph" id="anamespacedesignlab_1_1cmdio_a6e74f3cc38e6d4898b17864e2a652ba3_cgraph">
+<area shape="rect" title="入力待ちをする関数. &#160;&#160;出力される文字列は, 必ず OutputDetail::kSystem で出力される." alt="" coords="5,47,206,73"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="254,47,420,73"/>
+<area shape="poly" title=" " alt="" coords="206,57,238,57,238,63,206,63"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="468,5,655,48"/>
+<area shape="poly" title=" " alt="" coords="420,45,452,40,453,46,421,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="492,72,632,115"/>
+<area shape="poly" title=" " alt="" coords="421,70,476,78,476,83,420,75"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと,その要素を列挙した文字列を返す関数." alt="" coords="703,39,855,81"/>
+<area shape="poly" title=" " alt="" coords="656,38,688,43,687,49,655,44"/>
+<area shape="poly" title=" " alt="" coords="738,39,736,29,743,20,757,14,779,12,802,14,816,21,814,25,801,20,779,17,759,19,746,24,741,30,743,38"/>
+<area shape="poly" title=" " alt="" coords="632,80,688,71,688,77,633,85"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a6e74f3cc38e6d4898b17864e2a652ba3_icgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a6e74f3cc38e6d4898b17864e2a652ba3_icgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a6e74f3cc38e6d4898b17864e2a652ba3_icgraph" id="anamespacedesignlab_1_1cmdio_a6e74f3cc38e6d4898b17864e2a652ba3_icgraph">
+<area shape="rect" title="入力待ちをする関数. &#160;&#160;出力される文字列は, 必ず OutputDetail::kSystem で出力される." alt="" coords="272,80,472,107"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_result_viewer.html#a7140a7e2d4cb4c62f7ff84f828afcdd2" title="主要な処理を行う関数." alt="" coords="17,5,212,48"/>
+<area shape="poly" title=" " alt="" coords="302,78,199,51,200,46,303,73"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_robot_control.html#a3106f05f7fcc8e37f07177433135f06f" title="主要な処理を行う関数." alt="" coords="19,72,210,115"/>
+<area shape="poly" title=" " alt="" coords="256,96,211,96,211,91,256,91"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの. &#160;&#160;目標地点へ着くか,歩容計画に失敗した場合に,シミュレーションを終える. &#160;&#160;また,規定の回数シミュレーションしたら終了する." alt="" coords="5,139,224,181"/>
+<area shape="poly" title=" " alt="" coords="303,114,200,141,199,135,302,109"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5a773c2d724a24b05daba5382fd4bf42" name="a5a773c2d724a24b05daba5382fd4bf42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a773c2d724a24b05daba5382fd4bf42">&#9670;&#160;</a></span>WarningOutput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::WarningOutput </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>コマンドラインに文字を出力する関数. Warning 用の出力. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>出力する文字列. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00063">63</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a5a773c2d724a24b05daba5382fd4bf42_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a5a773c2d724a24b05daba5382fd4bf42_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a5a773c2d724a24b05daba5382fd4bf42_cgraph" id="anamespacedesignlab_1_1cmdio_a5a773c2d724a24b05daba5382fd4bf42_cgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数. Warning 用の出力." alt="" coords="5,39,181,81"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="229,47,395,73"/>
+<area shape="poly" title=" " alt="" coords="181,57,213,57,213,63,181,63"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="443,5,630,48"/>
+<area shape="poly" title=" " alt="" coords="395,45,427,40,428,46,396,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="467,72,607,115"/>
+<area shape="poly" title=" " alt="" coords="396,70,451,78,451,83,395,75"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと,その要素を列挙した文字列を返す関数." alt="" coords="678,39,830,81"/>
+<area shape="poly" title=" " alt="" coords="631,38,663,43,662,49,630,44"/>
+<area shape="poly" title=" " alt="" coords="713,39,711,29,718,20,732,14,754,12,777,14,791,21,789,25,776,20,754,17,734,19,721,24,716,30,718,38"/>
+<area shape="poly" title=" " alt="" coords="607,80,663,71,663,77,608,85"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a36c61c2450dd3180e3d8d0965049f786" name="a36c61c2450dd3180e3d8d0965049f786"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36c61c2450dd3180e3d8d0965049f786">&#9670;&#160;</a></span>WarningOutputF()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void designlab::cmdio::WarningOutputF </td>
+          <td>(</td>
+          <td class="paramtype">const std::format_string&lt; Args... &gt;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>コマンドラインに文字を出力する関数. Warning 用の出力. format した文字列を出力する. </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>出力する文字列. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00119">119</a> 行目に定義があります。</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacedesignlab_1_1cmdio_a36c61c2450dd3180e3d8d0965049f786_cgraph.png" border="0" usemap="#anamespacedesignlab_1_1cmdio_a36c61c2450dd3180e3d8d0965049f786_cgraph" alt=""/></div>
+<map name="anamespacedesignlab_1_1cmdio_a36c61c2450dd3180e3d8d0965049f786_cgraph" id="anamespacedesignlab_1_1cmdio_a36c61c2450dd3180e3d8d0965049f786_cgraph">
+<area shape="rect" title="コマンドラインに文字を出力する関数. Warning 用の出力. format した文字列を出力する." alt="" coords="5,39,181,81"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#a18eaad4770c65620da0d19bf3508f6a5" title="コマンドラインに文字を出力する関数, format した文字列を出力する. &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される." alt="" coords="229,47,403,73"/>
+<area shape="poly" title=" " alt="" coords="181,57,213,57,213,63,181,63"/>
+<area shape="rect" href="namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="451,47,617,73"/>
+<area shape="poly" title=" " alt="" coords="404,57,435,57,435,63,404,63"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="665,5,853,48"/>
+<area shape="poly" title=" " alt="" coords="617,45,649,40,650,46,618,50"/>
+<area shape="rect" href="namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="689,72,829,115"/>
+<area shape="poly" title=" " alt="" coords="618,70,674,78,673,83,617,75"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">変数詳解</h2>
+<a id="ae5b638fb923fbfa58dff531e65a03dfd" name="ae5b638fb923fbfa58dff531e65a03dfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5b638fb923fbfa58dff531e65a03dfd">&#9670;&#160;</a></span>kHorizontalLineLength</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int designlab::cmdio::kHorizontalLineLength = 100</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>水平線の長さ. </p>
+
+<p class="definition"> <a class="el" href="cmdio__util_8h_source.html">cmdio_util.h</a> の <a class="el" href="cmdio__util_8h_source.html#l00218">218</a> 行目に定義があります。</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

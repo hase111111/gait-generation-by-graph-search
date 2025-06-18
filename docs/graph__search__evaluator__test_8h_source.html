@@ -102,15 +102,15 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">using </span>GraphSearchEvaluationValue = <a class="code hl_struct" href="structdesignlab_1_1_graph_search_evaluation_value.html">designlab::GraphSearchEvaluationValue</a>;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">using </span>Tag = GraphSearchEvaluationValue::Tag;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">constexpr</span> Tag kFirstTag = 10;   <span class="comment">// 1つ目の評価値のタグ．</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">constexpr</span> Tag kSecondTag = 1;   <span class="comment">// 2つ目の評価値のタグ．</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">constexpr</span> Tag kFirstTag = 10;   <span class="comment">// 1つ目の評価値のタグ.</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">constexpr</span> Tag kSecondTag = 1;   <span class="comment">// 2つ目の評価値のタグ.</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    TEST_CASE(<span class="stringliteral">&quot;LeftIsBetterTest_WhenLeftIsBetter_ShouldReturnTrue&quot;</span>)</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    {</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        SUBCASE(<span class="stringliteral">&quot;LowerValueIsBetter&quot;</span>)</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <span class="comment">// 評価値が小さいほど良い場合．</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <span class="comment">// 評価値が小さいほど良い場合.</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            <span class="keyword">const</span> GraphSearchEvaluator::EvaluationMethod evaluation_method =</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            {</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>                .is_lower_better = <span class="keyword">true</span>,</div>
@@ -137,7 +137,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        SUBCASE(<span class="stringliteral">&quot;HigherValueIsBetter&quot;</span>)</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        {</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="comment">// 評価値が大きいほど良い場合．</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="comment">// 評価値が大きいほど良い場合.</span></div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <span class="keyword">const</span> GraphSearchEvaluator::EvaluationMethod evaluation_method =</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            {</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                .is_lower_better = <span class="keyword">false</span>,</div>
@@ -161,10 +161,10 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            CHECK(actual == expected);</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        }</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="comment">// 2つ目の評価値が低い評価だとしても，1つ目の評価値が高い評価ならば，そちらを優先する．</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="comment">// 2つ目の評価値が低い評価だとしても,1つ目の評価値が高い評価ならば,そちらを優先する.</span></div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        SUBCASE(<span class="stringliteral">&quot;WhenFirstTagIsBetter&quot;</span>)</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        {</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="comment">// 評価値が小さいほど良い場合．</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="comment">// 評価値が小さいほど良い場合.</span></div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            <span class="keyword">const</span> GraphSearchEvaluator::EvaluationMethod evaluation_method =</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            {</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                .is_lower_better = <span class="keyword">false</span>,</div>
@@ -261,22 +261,22 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        right.value.at(kSecondTag) = 1.0f;</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <span class="comment">// 左側を優先する設定の場合は true を返す．</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <span class="comment">// 左側を優先する設定の場合は true を返す.</span></div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        SUBCASE(<span class="stringliteral">&quot;WhenReturnTrueCaseOfEqualIsTrue&quot;</span>)</div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        {</div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>            <span class="keyword">const</span> <span class="keywordtype">bool</span> actual = evaluator.LeftIsBetter(left, right, <span class="keyword">true</span>);</div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            <span class="keyword">const</span> <span class="keywordtype">bool</span> expected = <span class="keyword">true</span>;  <span class="comment">// 左側を優先する．</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            <span class="keyword">const</span> <span class="keywordtype">bool</span> expected = <span class="keyword">true</span>;  <span class="comment">// 左側を優先する.</span></div>
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>            CHECK(actual == expected);</div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        }</div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        <span class="comment">// 左側を優先しない設定の場合は false を返す．</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        <span class="comment">// 左側を優先しない設定の場合は false を返す.</span></div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        SUBCASE(<span class="stringliteral">&quot;WhenReturnTrueCaseOfEqualIsFalse&quot;</span>)</div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        {</div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>            <span class="keyword">const</span> <span class="keywordtype">bool</span> actual = evaluator.LeftIsBetter(left, right, <span class="keyword">false</span>);</div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>            <span class="keyword">const</span> <span class="keywordtype">bool</span> expected = <span class="keyword">false</span>;  <span class="comment">// 左側を優先しない．</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>            <span class="keyword">const</span> <span class="keywordtype">bool</span> expected = <span class="keyword">false</span>;  <span class="comment">// 左側を優先しない.</span></div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>            CHECK(actual == expected);</div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        }</div>
@@ -297,25 +297,25 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        left.value.at(kFirstTag) = 1.0f;</div>
 <div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        left.value.at(kSecondTag) = 1.0f;</div>
 <div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        GraphSearchEvaluationValue right = evaluator.InitializeEvaluationValue();</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        right.value.at(kFirstTag) = 0.5f;   <span class="comment">// 差が margin 以下．</span></div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        right.value.at(kSecondTag) = 1.5f;  <span class="comment">// 差が margin 以下．</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        right.value.at(kFirstTag) = 0.5f;   <span class="comment">// 差が margin 以下.</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        right.value.at(kSecondTag) = 1.5f;  <span class="comment">// 差が margin 以下.</span></div>
 <div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        <span class="comment">// 左側を優先する設定の場合は true を返す．</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        <span class="comment">// 左側を優先する設定の場合は true を返す.</span></div>
 <div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        SUBCASE(<span class="stringliteral">&quot;WhenLeftIsPreferred_ShouldReturnTrue&quot;</span>)</div>
 <div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        {</div>
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>            <span class="keyword">const</span> <span class="keywordtype">bool</span> actual = evaluator.LeftIsBetter(left, right, <span class="keyword">true</span>);</div>
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>            <span class="keyword">const</span> <span class="keywordtype">bool</span> expected = <span class="keyword">true</span>;  <span class="comment">// 左側を優先する．</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>            <span class="keyword">const</span> <span class="keywordtype">bool</span> expected = <span class="keyword">true</span>;  <span class="comment">// 左側を優先する.</span></div>
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
 <div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>            CHECK(actual == expected);</div>
 <div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        }</div>
 <div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        <span class="comment">// 左側を優先しない設定の場合は false を返す．</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        <span class="comment">// 左側を優先しない設定の場合は false を返す.</span></div>
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        SUBCASE(<span class="stringliteral">&quot;WhenRightIsPreferred_ShouldReturnFalse&quot;</span>)</div>
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        {</div>
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>            <span class="keyword">const</span> <span class="keywordtype">bool</span> actual = evaluator.LeftIsBetter(left, right, <span class="keyword">false</span>);</div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            <span class="keyword">const</span> <span class="keywordtype">bool</span> expected = <span class="keyword">false</span>;  <span class="comment">// 左側を優先しない．</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            <span class="keyword">const</span> <span class="keywordtype">bool</span> expected = <span class="keyword">false</span>;  <span class="comment">// 左側を優先しない.</span></div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
 <div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>            CHECK(actual == expected);</div>
 <div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        }</div>
@@ -323,7 +323,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
 <div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    TEST_CASE(<span class="stringliteral">&quot;InitializeEvaluationValueTest_ShouldReturnMinEvaluationValue&quot;</span>)</div>
 <div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    {</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        <span class="comment">// 初期値は評価が最低となる値あることを確認する．</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        <span class="comment">// 初期値は評価が最低となる値あることを確認する.</span></div>
 <div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
 <div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        <span class="keyword">const</span> GraphSearchEvaluator::EvaluationMethod evaluation_method_min =</div>
 <div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        {</div>
@@ -337,7 +337,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>            .margin = 0.0f,</div>
 <div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        };</div>
 <div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        <span class="comment">// FirstTag は低い値，SecondTag は高い値を高く評価する．</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        <span class="comment">// FirstTag は低い値,SecondTag は高い値を高く評価する.</span></div>
 <div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        GraphSearchEvaluator evaluator({ { kFirstTag, evaluation_method_min }, { kSecondTag, evaluation_method_max } },</div>
 <div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>                                       { kFirstTag, kSecondTag });</div>
 <div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
@@ -345,8 +345,8 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
 <div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        <span class="keyword">const</span> GraphSearchEvaluationValue expected =</div>
 <div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        {</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            .value = { { kFirstTag, GraphSearchEvaluationValue::kMaxEvaluationValue },  <span class="comment">// 最低評価となるのは，最も高い値．</span></div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>                       { kSecondTag, GraphSearchEvaluationValue::kMinEvaluationValue } },  <span class="comment">// 最低評価となるのは，最も低い値．</span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            .value = { { kFirstTag, GraphSearchEvaluationValue::kMaxEvaluationValue },  <span class="comment">// 最低評価となるのは,最も高い値.</span></div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>                       { kSecondTag, GraphSearchEvaluationValue::kMinEvaluationValue } },  <span class="comment">// 最低評価となるのは,最も低い値.</span></div>
 <div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        };</div>
 <div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
 <div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        CHECK(actual.value.at(kFirstTag) == expected.value.at(kFirstTag));</div>
@@ -359,10 +359,10 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span> </div>
 <div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
 <div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_GRAPH_SEARCH_EVALUATOR_TEST_H_</span></div>
-<div class="ttc" id="aclassdesignlab_1_1_graph_search_evaluator_html"><div class="ttname"><a href="classdesignlab_1_1_graph_search_evaluator.html">designlab::GraphSearchEvaluator</a></div><div class="ttdoc">グラフ探索の評価値を評価するクラス．</div><div class="ttdef"><b>Definition</b> <a href="graph__search__evaluator_8h_source.html#l00033">graph_search_evaluator.h:34</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_graph_search_evaluator_html"><div class="ttname"><a href="classdesignlab_1_1_graph_search_evaluator.html">designlab::GraphSearchEvaluator</a></div><div class="ttdoc">グラフ探索の評価値を評価するクラス.</div><div class="ttdef"><b>Definition</b> <a href="graph__search__evaluator_8h_source.html#l00033">graph_search_evaluator.h:34</a></div></div>
 <div class="ttc" id="agraph__search__evaluator_8h_html"><div class="ttname"><a href="graph__search__evaluator_8h.html">graph_search_evaluator.h</a></div></div>
 <div class="ttc" id="agraph__search__evaluator__test_8h_html_a84149770b0c55215a862ed6a3d079c4d"><div class="ttname"><a href="graph__search__evaluator__test_8h.html#a84149770b0c55215a862ed6a3d079c4d">TEST_SUITE</a></div><div class="ttdeci">TEST_SUITE(&quot;GraphSearchEvaluator&quot;)</div><div class="ttdef"><b>Definition</b> <a href="graph__search__evaluator__test_8h_source.html#l00016">graph_search_evaluator_test.h:16</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_graph_search_evaluation_value_html"><div class="ttname"><a href="structdesignlab_1_1_graph_search_evaluation_value.html">designlab::GraphSearchEvaluationValue</a></div><div class="ttdoc">グラフ探索の評価値を格納する構造体．</div><div class="ttdef"><b>Definition</b> <a href="graph__search__evaluator_8h_source.html#l00020">graph_search_evaluator.h:21</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_graph_search_evaluation_value_html"><div class="ttname"><a href="structdesignlab_1_1_graph_search_evaluation_value.html">designlab::GraphSearchEvaluationValue</a></div><div class="ttdoc">グラフ探索の評価値を格納する構造体.</div><div class="ttdef"><b>Definition</b> <a href="graph__search__evaluator_8h_source.html#l00020">graph_search_evaluator.h:21</a></div></div>
 <div class="ttc" id="astructdesignlab_1_1_graph_search_evaluation_value_html_a62002c5f69cc6891488ff7f323776418"><div class="ttname"><a href="structdesignlab_1_1_graph_search_evaluation_value.html#a62002c5f69cc6891488ff7f323776418">designlab::GraphSearchEvaluationValue::value</a></div><div class="ttdeci">std::map&lt; Tag, float &gt; value</div><div class="ttdef"><b>Definition</b> <a href="graph__search__evaluator_8h_source.html#l00027">graph_search_evaluator.h:27</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

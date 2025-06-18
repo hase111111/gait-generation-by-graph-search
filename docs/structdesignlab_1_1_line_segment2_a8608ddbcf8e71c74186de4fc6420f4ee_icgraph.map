@@ -1,11 +1,13 @@
 <map id="designlab::LineSegment2::IsParallel" name="designlab::LineSegment2::IsParallel">
-<area shape="rect" id="Node000001" title="引数の線分と自身が平行かどうか調べる関数． 全て constexpr 関数で処理できるため非常に高速．" alt="" coords="446,72,613,115"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_line_segment2.html#a334682a88e452a95429edf15593d1846" title="他の線分と交点が存在しているかどうか調べ，交点を返す関数．" alt="" coords="221,5,398,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="443,70,382,51,383,46,444,65"/>
-<area shape="rect" id="Node000003" href="$structdesignlab_1_1_line_segment2.html#a29ea137970fa696c5789085591e8c2f9" title="他の線分との交点を求める．" alt="" coords="226,72,393,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="431,96,393,96,393,91,431,91"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_line_segment2.html#a8e2bdbc5c825c119d1801aa07bf3555e" title="他の線分と交点が存在しているかどうか調べる関数．" alt="" coords="226,139,393,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="444,122,383,141,382,135,443,117"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#aeed1296b4886eb07bc095ca2b5e8c333" title="脚が他の脚と干渉しているかどうかを判定する．" alt="" coords="5,139,173,181"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="211,163,173,163,173,157,211,157"/>
+<area shape="rect" id="Node000001" title="引数の線分と自身が平行かどうか調べる関数. 全て constexpr 関数で処理できるため非常に高速." alt="" coords="485,72,652,115"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_line_segment2.html#a334682a88e452a95429edf15593d1846" title="他の線分と交点が存在しているかどうか調べ,交点を返す関数." alt="" coords="260,5,437,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="481,70,421,51,422,46,483,65"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_line_segment2.html#a29ea137970fa696c5789085591e8c2f9" title="他の線分との交点を求める." alt="" coords="265,72,432,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="469,96,432,96,432,91,469,91"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_line_segment2.html#a8e2bdbc5c825c119d1801aa07bf3555e" title="他の線分と交点が存在しているかどうか調べる関数." alt="" coords="265,139,432,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="483,122,422,141,421,135,481,117"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#aeed1296b4886eb07bc095ca2b5e8c333" title="脚が他の脚と干渉しているかどうかを判定する." alt="" coords="25,109,192,152"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="249,151,192,144,193,138,250,145"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_xr_r1.html#a3827df0fd0b153073d0edb0ec25063ae" title="脚が他の脚と干渉しているかどうかを判定する." alt="" coords="5,176,212,203"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="249,175,212,179,212,174,248,169"/>
 </map>

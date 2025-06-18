@@ -1,5 +1,5 @@
 <map id="designlab::RobotGroundPointRenderer::SetNodeAndSimulationEndNodeIndex" name="designlab::RobotGroundPointRenderer::SetNodeAndSimulationEndNodeIndex">
 <area shape="rect" id="Node000001" title=" " alt="" coords="244,5,482,64"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graphic_main_basic.html#a21631baec22e6a7008896e3a66407f13" title="描画画面の更新を行う．純粋仮想関数のため， 継承先では必ず override する必要がある．" alt="" coords="5,13,196,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,37,196,37,196,32,229,32"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graphic_main_basic.html#a21631baec22e6a7008896e3a66407f13" title="描画画面の更新を行う.純粋仮想関数のため, 継承先では必ず override する必要がある." alt="" coords="5,13,196,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="228,37,196,37,196,32,228,32"/>
 </map>

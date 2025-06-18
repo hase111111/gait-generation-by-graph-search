@@ -1,5 +1,7 @@
 <map id="designlab::DividedMapState::GetMapMinZ" name="designlab::DividedMapState::GetMapMinZ">
-<area shape="rect" id="Node000001" title=" " alt="" coords="248,5,429,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a2d84fda12ddad344e7de4c0e023ffd4f" title="胴体が地面と干渉しているかどうかを判定する．" alt="" coords="5,5,200,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="233,29,200,29,200,24,233,24"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="269,39,450,81"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a2d84fda12ddad344e7de4c0e023ffd4f" title="胴体が地面と干渉しているかどうかを判定する." alt="" coords="16,5,210,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="253,48,210,43,211,37,254,43"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_xr_r1.html#a99ac4870390b69ef3bf61ffd83aecf28" title="胴体が地面と干渉しているかどうかを判定する." alt="" coords="5,72,221,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="254,77,222,81,221,76,253,72"/>
 </map>

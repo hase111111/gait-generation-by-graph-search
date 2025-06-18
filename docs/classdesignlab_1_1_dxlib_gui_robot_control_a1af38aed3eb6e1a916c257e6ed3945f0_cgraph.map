@@ -1,15 +1,15 @@
 <map id="designlab::DxlibGuiRobotControl::DxlibGuiRobotControl" name="designlab::DxlibGuiRobotControl::DxlibGuiRobotControl">
-<area shape="rect" id="Node000001" title="コンストラクタでWindowのサイズと，カメラの管理を行うクラスを受け取る．" alt="" coords="5,139,200,181"/>
+<area shape="rect" id="Node000001" title="コンストラクタでWindowのサイズと,カメラの管理を行うクラスを受け取る." alt="" coords="5,139,200,181"/>
 <area shape="rect" id="Node000002" href="$classdesignlab_1_1_serial_communication_thread.html#ad6a5c0b28c7f63c0924a5c27f39d199d" title=" " alt="" coords="248,72,455,115"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,136,255,116,256,122,185,141"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_abstract_dxlib_gui.html#a9b64bfdbc0c66ab19bed71eb4ec11955" title="GUIの表示を行うかどうかを設定する．" alt="" coords="270,139,433,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,136,254,117,256,122,185,141"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_abstract_dxlib_gui.html#a9b64bfdbc0c66ab19bed71eb4ec11955" title="GUIの表示を行うかどうかを設定する." alt="" coords="270,139,433,181"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="200,157,255,157,255,163,200,163"/>
-<area shape="rect" id="Node000007" href="$classdesignlab_1_1_serial_communication_thread.html#a04590883c592977745185f236506e7b0" title="指定した文字列をシリアル通信で送信する． この時，排他制御を行う．" alt="" coords="248,205,455,248"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="185,179,256,198,255,204,184,184"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_serial_communication_thread.html#a452462cadb075b9d4705c3c23fc61647" title="シリアル通信のスレッドを終了する．" alt="" coords="503,5,710,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="435,69,508,50,509,55,436,74"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_serial_communication_thread.html#a04590883c592977745185f236506e7b0" title="指定した文字列をシリアル通信で送信する. この時,排他制御を行う." alt="" coords="248,205,455,248"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="185,179,256,198,254,203,184,184"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_serial_communication_thread.html#a452462cadb075b9d4705c3c23fc61647" title="シリアル通信のスレッドを終了する." alt="" coords="503,5,710,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="435,69,507,50,508,55,436,74"/>
 <area shape="rect" id="Node000004" href="$classdesignlab_1_1_serial_communication_thread.html#a7d87173fcba71daeda0bf775df27904b" title=" " alt="" coords="503,72,710,115"/>
 <area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="455,91,488,91,488,96,455,96"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_abstract_dxlib_gui.html#a0af50aac58a6b9e37be44a94870a0e0f" title="GUIの位置を設定する． &#160;&#160;Dxlibの画面の座標は左上を原点とし，右下に行くほど値が大きくなる． &#160;&#160;横方向にx軸，縦方向にy軸をとる．" alt="" coords="526,139,688,181"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="433,157,511,157,511,163,433,163"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_abstract_dxlib_gui.html#a0af50aac58a6b9e37be44a94870a0e0f" title="GUIの位置を設定する. &#160;&#160;Dxlibの画面の座標は左上を原点とし,右下に行くほど値が大きくなる. &#160;&#160;横方向にx軸,縦方向にy軸をとる." alt="" coords="526,139,688,181"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="433,157,510,157,510,163,433,163"/>
 </map>

@@ -1,38 +1,38 @@
 <map id="designlab::Polygon2::GetVertexNum" name="designlab::Polygon2::GetVertexNum">
-<area shape="rect" id="Node000001" title="多角形の頂点数を返す関数．" alt="" coords="641,331,780,374"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_com_selector.html#afe154bc35f0971d6c2c2a649299b23c3" title="重心を求める．" alt="" coords="242,18,402,61"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="706,317,699,253,682,175,667,136,648,98,623,65,592,38,569,25,545,16,493,9,441,11,393,20,392,15,441,6,494,3,546,11,572,20,595,33,627,61,652,96,672,134,687,174,705,252,711,316"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_polygon2.html#a2740a8acdd671456113e1f0314a5c5d9" title="頂点の中で最大のx座標を返す関数．" alt="" coords="455,114,593,157"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="690,319,650,249,623,212,592,177,568,159,571,155,595,173,627,208,654,246,695,316"/>
+<area shape="rect" id="Node000001" title="多角形の頂点数を返す関数." alt="" coords="641,331,780,374"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_com_selector.html#afe154bc35f0971d6c2c2a649299b23c3" title="重心を求める." alt="" coords="242,18,402,61"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="706,316,699,252,682,175,667,135,648,98,623,65,592,38,569,25,545,16,493,9,441,11,393,20,392,15,441,6,494,3,546,11,572,20,595,33,627,61,652,95,672,133,687,173,705,252,711,316"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_polygon2.html#a2740a8acdd671456113e1f0314a5c5d9" title="頂点の中で最大のx座標を返す関数." alt="" coords="455,114,593,157"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="690,319,650,249,622,211,592,177,568,159,571,155,595,173,627,208,654,246,695,316"/>
 <area shape="rect" id="Node000005" href="$structdesignlab_1_1_polygon2.html#a310bb9599a9ef2b23581bafa7ede4327" title="多角形のデータを文字列で出力する" alt="" coords="253,231,391,274"/>
-<area shape="poly" id="edge21_Node000001_Node000005" title=" " alt="" coords="689,320,650,266,623,241,592,222,565,212,537,207,479,208,423,218,375,233,374,228,422,213,478,203,537,202,567,207,594,217,626,237,654,263,693,317"/>
-<area shape="rect" id="Node000006" href="$structdesignlab_1_1_polygon2.html#a5394dc8c3ebc6894eb801464454d85b8" title="頂点の中で最大のy座標を返す関数．" alt="" coords="455,231,593,274"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="659,326,592,288,570,277,572,272,595,284,662,321"/>
-<area shape="rect" id="Node000007" href="$structdesignlab_1_1_polygon2.html#a7cfe7131083e35fadf9c64829113c2d5" title="頂点の中で最小のx座標を返す関数．" alt="" coords="455,298,593,341"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="626,340,593,334,594,329,627,335"/>
-<area shape="rect" id="Node000008" href="$structdesignlab_1_1_polygon2.html#a365ed85e44b4cd9654793b1b9e26c5c0" title="頂点の中で最小のy座標を返す関数．" alt="" coords="455,365,593,407"/>
-<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="627,370,594,376,593,371,626,365"/>
-<area shape="rect" id="Node000009" href="$structdesignlab_1_1_polygon2.html#a69f7aa8caa2158c440b5bb8f1416a6bf" title="頂点の座標を返す関数．" alt="" coords="455,47,593,90"/>
-<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="698,318,684,270,662,214,631,156,591,104,578,93,581,89,595,100,636,153,667,212,689,269,703,316"/>
-<area shape="rect" id="Node000010" href="$structdesignlab_1_1_polygon2.html#a3990c964dcbef55e7ba830af275f7c23" title="頂点の座標を返す関数．std::optional を使っているので， 存在しない頂点を指定した場合は std::nullopt を返す．" alt="" coords="455,431,593,474"/>
-<area shape="poly" id="edge14_Node000001_Node000010" title=" " alt="" coords="662,384,595,422,572,433,570,428,592,417,659,379"/>
-<area shape="rect" id="Node000011" href="$structdesignlab_1_1_polygon2.html#ac59c9ef538b543cd14b6b8ff84c472b3" title="多角形が凸かどうか調べる関数．" alt="" coords="455,498,593,541"/>
-<area shape="poly" id="edge15_Node000001_Node000011" title=" " alt="" coords="688,388,648,438,595,488,577,500,574,495,592,484,644,434,684,384"/>
-<area shape="rect" id="Node000012" href="$structdesignlab_1_1_polygon2.html#a3965642438156b1b86dfea1d76beaa53" title="点が多角形の内部にあるかどうか調べる関数． 多角形が凸でない場合は正しく判定できない．" alt="" coords="455,565,593,607"/>
-<area shape="poly" id="edge17_Node000001_Node000012" title=" " alt="" coords="699,389,660,470,630,515,595,555,580,566,577,562,592,551,626,511,655,467,694,386"/>
-<area shape="rect" id="Node000014" href="$structdesignlab_1_1_polygon2.html#a5b6f043cf73c65340c3ba3e9d95d5003" title="1番最後の頂点を削除する関数．" alt="" coords="455,631,593,674"/>
-<area shape="poly" id="edge19_Node000001_Node000014" title=" " alt="" coords="704,390,691,440,669,501,638,564,618,594,595,621,581,633,578,629,591,617,614,591,633,562,664,499,686,438,699,388"/>
-<area shape="rect" id="Node000015" href="$structdesignlab_1_1_polygon2.html#a62d2b537b5e86833c9854f4a7e760890" title="頂点を削除する関数．遅いので多用するべきではない．" alt="" coords="455,698,593,741"/>
-<area shape="poly" id="edge20_Node000001_Node000015" title=" " alt="" coords="708,390,698,452,678,530,645,613,622,652,595,688,582,700,578,696,591,684,618,649,640,611,673,529,693,451,703,389"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_node_creator_com_move.html#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する．" alt="" coords="5,18,189,61"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="227,42,189,42,189,37,227,37"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="475,167,362,233,359,229,472,162"/>
+<area shape="poly" id="edge21_Node000001_Node000005" title=" " alt="" coords="689,320,649,266,623,241,592,222,565,212,537,207,479,208,423,218,375,233,374,228,422,213,478,203,537,202,567,207,594,217,626,237,653,262,693,317"/>
+<area shape="rect" id="Node000006" href="$structdesignlab_1_1_polygon2.html#a5394dc8c3ebc6894eb801464454d85b8" title="頂点の中で最大のy座標を返す関数." alt="" coords="455,231,593,274"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="658,326,592,288,570,277,572,272,595,284,661,321"/>
+<area shape="rect" id="Node000007" href="$structdesignlab_1_1_polygon2.html#a7cfe7131083e35fadf9c64829113c2d5" title="頂点の中で最小のx座標を返す関数." alt="" coords="455,298,593,341"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="625,340,593,334,594,329,626,335"/>
+<area shape="rect" id="Node000008" href="$structdesignlab_1_1_polygon2.html#a365ed85e44b4cd9654793b1b9e26c5c0" title="頂点の中で最小のy座標を返す関数." alt="" coords="455,365,593,407"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="626,370,594,376,593,371,625,365"/>
+<area shape="rect" id="Node000009" href="$structdesignlab_1_1_polygon2.html#a69f7aa8caa2158c440b5bb8f1416a6bf" title="頂点の座標を返す関数." alt="" coords="455,47,593,90"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="698,317,684,270,662,213,631,156,591,104,578,93,581,89,595,100,636,153,667,211,689,268,703,315"/>
+<area shape="rect" id="Node000010" href="$structdesignlab_1_1_polygon2.html#a3990c964dcbef55e7ba830af275f7c23" title="頂点の座標を返す関数.std::optional を使っているので, 存在しない頂点を指定した場合は std::nullopt を返す." alt="" coords="455,431,593,474"/>
+<area shape="poly" id="edge14_Node000001_Node000010" title=" " alt="" coords="661,384,595,422,572,433,570,428,592,417,658,380"/>
+<area shape="rect" id="Node000011" href="$structdesignlab_1_1_polygon2.html#ac59c9ef538b543cd14b6b8ff84c472b3" title="多角形が凸かどうか調べる関数." alt="" coords="455,498,593,541"/>
+<area shape="poly" id="edge15_Node000001_Node000011" title=" " alt="" coords="688,389,647,439,595,488,577,500,574,495,592,484,643,435,683,385"/>
+<area shape="rect" id="Node000012" href="$structdesignlab_1_1_polygon2.html#a3965642438156b1b86dfea1d76beaa53" title="点が多角形の内部にあるかどうか調べる関数. 多角形が凸でない場合は正しく判定できない." alt="" coords="455,565,593,607"/>
+<area shape="poly" id="edge17_Node000001_Node000012" title=" " alt="" coords="699,389,659,470,630,515,595,555,580,566,577,562,592,551,626,512,655,468,694,387"/>
+<area shape="rect" id="Node000014" href="$structdesignlab_1_1_polygon2.html#a5b6f043cf73c65340c3ba3e9d95d5003" title="1番最後の頂点を削除する関数." alt="" coords="455,631,593,674"/>
+<area shape="poly" id="edge19_Node000001_Node000014" title=" " alt="" coords="704,390,691,440,669,501,638,564,618,594,595,621,581,633,578,629,591,617,614,591,633,562,664,499,686,439,699,388"/>
+<area shape="rect" id="Node000015" href="$structdesignlab_1_1_polygon2.html#a62d2b537b5e86833c9854f4a7e760890" title="頂点を削除する関数.遅いので多用するべきではない." alt="" coords="455,698,593,741"/>
+<area shape="poly" id="edge20_Node000001_Node000015" title=" " alt="" coords="708,390,698,452,678,531,645,613,622,652,595,688,582,700,578,696,591,684,618,649,640,611,673,529,693,451,703,389"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_node_creator_com_move.html#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する." alt="" coords="5,18,189,61"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="226,42,189,42,189,37,226,37"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="474,167,362,233,359,229,472,162"/>
 <area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="440,255,391,255,391,250,440,250"/>
-<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="443,295,388,277,390,272,445,290"/>
-<area shape="poly" id="edge10_Node000008_Node000005" title=" " alt="" coords="461,359,454,355,395,315,347,277,351,272,399,310,456,350,464,355"/>
-<area shape="poly" id="edge12_Node000009_Node000002" title=" " alt="" coords="440,59,402,54,402,48,441,54"/>
-<area shape="poly" id="edge13_Node000009_Node000005" title=" " alt="" coords="462,100,457,104,421,136,388,171,340,232,336,229,384,167,417,132,453,100,459,96"/>
-<area shape="poly" id="edge16_Node000011_Node000005" title=" " alt="" coords="457,491,453,488,408,434,371,375,345,319,328,275,333,273,350,317,376,372,412,431,457,484,460,487"/>
-<area shape="rect" id="Node000013" href="$classdesignlab_1_1_stability_margin_renderer.html#acdc7828d30b59293e5291d9d74d91acf" title="描画処理を行う． const 関数にしているのは， 描画処理の中でメンバ変数を変更しないようにするため．" alt="" coords="237,565,407,607"/>
-<area shape="poly" id="edge18_Node000012_Node000013" title=" " alt="" coords="440,589,408,589,408,583,440,583"/>
+<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="442,295,388,277,390,272,444,290"/>
+<area shape="poly" id="edge10_Node000008_Node000005" title=" " alt="" coords="460,359,454,355,395,315,347,277,351,272,399,310,456,350,463,354"/>
+<area shape="poly" id="edge12_Node000009_Node000002" title=" " alt="" coords="439,59,402,54,402,48,440,54"/>
+<area shape="poly" id="edge13_Node000009_Node000005" title=" " alt="" coords="461,101,457,104,421,136,388,171,340,232,336,229,384,167,417,132,453,100,458,96"/>
+<area shape="poly" id="edge16_Node000011_Node000005" title=" " alt="" coords="456,491,453,488,408,434,371,375,345,319,328,275,333,273,350,317,376,372,412,431,457,484,460,487"/>
+<area shape="rect" id="Node000013" href="$classdesignlab_1_1_stability_margin_renderer.html#acdc7828d30b59293e5291d9d74d91acf" title="描画処理を行う. const 関数にしているのは, 描画処理の中でメンバ変数を変更しないようにするため." alt="" coords="237,565,407,607"/>
+<area shape="poly" id="edge18_Node000012_Node000013" title=" " alt="" coords="439,589,408,589,408,583,439,583"/>
 </map>

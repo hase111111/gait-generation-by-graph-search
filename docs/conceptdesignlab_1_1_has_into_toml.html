@@ -77,18 +77,19 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>into&lt;T&gt;を持つか判定するコンセプト．  
+<p>into&lt;T&gt;を持つか判定するコンセプト.  
 <a href="conceptdesignlab_1_1_has_into_toml.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="toml__file__exporter_8h_source.html">toml_file_exporter.h</a>&gt;</code></p>
 <h2 class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptdesignlab_1_1_has_into_toml.html">designlab::HasIntoToml</a> =  impl::has_into_toml&lt;T&gt;::value &amp;&amp; std::is_default_constructible_v&lt;T&gt;</div>
-<div class="ttc" id="aconceptdesignlab_1_1_has_into_toml_html"><div class="ttname"><a href="conceptdesignlab_1_1_has_into_toml.html">designlab::HasIntoToml</a></div><div class="ttdoc">into&lt;T&gt;を持つか判定するコンセプト．</div><div class="ttdef"><b>Definition</b> <a href="toml__file__exporter_8h_source.html#l00028">toml_file_exporter.h:28</a></div></div>
+<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptdesignlab_1_1_has_into_toml.html">designlab::HasIntoToml</a> = </div>
+<div class="line">    impl::has_into_toml&lt;T&gt;::value &amp;&amp; std::is_default_constructible_v&lt;T&gt;</div>
+<div class="ttc" id="aconceptdesignlab_1_1_has_into_toml_html"><div class="ttname"><a href="conceptdesignlab_1_1_has_into_toml.html">designlab::HasIntoToml</a></div><div class="ttdoc">into&lt;T&gt;を持つか判定するコンセプト.</div><div class="ttdef"><b>Definition</b> <a href="toml__file__exporter_8h_source.html#l00026">toml_file_exporter.h:26</a></div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>into&lt;T&gt;を持つか判定するコンセプト． </p>
+<div class="textblock"><p>into&lt;T&gt;を持つか判定するコンセプト. </p>
 
-<p class="definition"> <a class="el" href="toml__file__exporter_8h_source.html">toml_file_exporter.h</a> の <a class="el" href="toml__file__exporter_8h_source.html#l00028">28</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="toml__file__exporter_8h_source.html">toml_file_exporter.h</a> の <a class="el" href="toml__file__exporter_8h_source.html#l00026">26</a> 行目に定義があります。</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

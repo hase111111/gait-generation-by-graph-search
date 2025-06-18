@@ -1,0 +1,7 @@
+<map id="designlab::XrR1::GetFreeLegPosLegCoordinate" name="designlab::XrR1::GetFreeLegPosLegCoordinate">
+<area shape="rect" id="Node000001" title="遊脚する位置を返す,脚座標系." alt="" coords="269,39,435,81"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_xr_r1.html#a99ac4870390b69ef3bf61ffd83aecf28" title="胴体が地面と干渉しているかどうかを判定する." alt="" coords="5,5,221,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="253,49,221,44,221,39,254,44"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_xr_r1.html#adfac0fa6de92fcf3aa9560b19bf27674" title="脚が可動範囲内にあるかどうかを判定する." alt="" coords="33,72,193,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="254,76,194,85,193,79,253,71"/>
+</map>

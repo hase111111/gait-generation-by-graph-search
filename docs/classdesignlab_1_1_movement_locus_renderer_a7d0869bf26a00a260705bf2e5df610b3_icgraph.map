@@ -1,5 +1,5 @@
 <map id="designlab::MovementLocusRenderer::SetSimulationEndIndexes" name="designlab::MovementLocusRenderer::SetSimulationEndIndexes">
-<area shape="rect" id="Node000001" title="シミュレーションの終了点を取得する．" alt="" coords="244,5,474,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graphic_main_basic.html#a21631baec22e6a7008896e3a66407f13" title="描画画面の更新を行う．純粋仮想関数のため， 継承先では必ず override する必要がある．" alt="" coords="5,5,196,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,29,196,29,196,24,229,24"/>
+<area shape="rect" id="Node000001" title="シミュレーションの終了点を取得する." alt="" coords="244,5,474,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graphic_main_basic.html#a21631baec22e6a7008896e3a66407f13" title="描画画面の更新を行う.純粋仮想関数のため, 継承先では必ず override する必要がある." alt="" coords="5,5,196,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="228,29,196,29,196,24,228,24"/>
 </map>

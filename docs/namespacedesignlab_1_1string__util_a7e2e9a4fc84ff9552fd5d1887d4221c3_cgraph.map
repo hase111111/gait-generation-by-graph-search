@@ -1,6 +1,6 @@
 <map id="designlab::string_util::EnumToStringRemoveTopK" name="designlab::string_util::EnumToStringRemoveTopK">
-<area shape="rect" id="Node000001" title="enumを文字列に変換する関数． &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている． &#160;&#160;例えば，" alt="" coords="5,29,193,72"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと，その要素を列挙した文字列を返す関数．" alt="" coords="241,29,392,72"/>
+<area shape="rect" id="Node000001" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="5,29,193,72"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと,その要素を列挙した文字列を返す関数." alt="" coords="241,29,392,72"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,48,225,48,225,53,193,53"/>
 <area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="275,29,273,19,280,10,295,5,316,3,340,5,354,11,351,16,338,10,316,8,296,10,283,15,278,21,280,28"/>
 </map>

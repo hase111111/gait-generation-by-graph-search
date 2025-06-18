@@ -1,21 +1,21 @@
 <map id="designlab::NodeCreatorComMoveStraight::Create" name="designlab::NodeCreatorComMoveStraight::Create">
-<area shape="rect" id="Node000001" title="現在のノードから次のノード群を生成する．" alt="" coords="5,168,189,211"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__func.html#a3e2c16048416541b45cfb82f8eac0480" title="脚の状態を変更する．遊脚を表すビットはそのまま．" alt="" coords="251,39,416,81"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,165,279,87,281,91,139,170"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_robot_state_node.html#a28bedf0298ebf8f315a21294dd111f45" title="重心位置を変更する関数．" alt="" coords="237,139,430,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="189,175,222,171,222,176,189,181"/>
-<area shape="rect" id="Node000007" href="$namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="478,229,645,256"/>
-<area shape="poly" id="edge10_Node000001_Node000007" title=" " alt="" coords="189,197,464,229,463,234,189,202"/>
-<area shape="rect" id="Node000013" href="$structdesignlab_1_1_robot_state_node.html#a6b3997cbc4ff0c8a48582608a12fca8e" title="次の動作を設定する関数． &#160;&#160;深さを一つ深くして，親と次の動作を設定する．" alt="" coords="244,256,423,299"/>
-<area shape="poly" id="edge9_Node000001_Node000013" title=" " alt="" coords="158,209,262,248,260,253,156,214"/>
-<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1leg__func.html#a0638b32b8b228a6e927f6de16e2f3441" title="脚位置は4bitの下位三桁で管理されるので，そこをマスクする．" alt="" coords="496,5,628,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="416,45,480,36,481,41,417,51"/>
-<area shape="rect" id="Node000005" href="$structdesignlab_1_1_quaternion.html#a893ee3dc143f059822f17ead2f716de1" title="クォータニオンの共役を返す． 共役なクォータニオンとは，ベクトル成分の符号を反転させたもの &#160;&#160;q = w + xi + yj + zk とすると， qの共役は w &#45; xi &#45; yj &#45; zk となる..." alt="" coords="488,72,635,115"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="408,136,473,116,474,122,409,141"/>
-<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="496,139,628,181"/>
+<area shape="rect" id="Node000001" title="現在のノードから次のノード群を生成する." alt="" coords="5,168,189,211"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__func.html#a95e7ace2cf674688c2f73330ed14ebf4" title="脚の状態を変更する.遊脚を表すビットはそのまま." alt="" coords="251,39,416,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,165,278,87,281,92,139,170"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_robot_state_node.html#ace8c33ae6d1c48bd73972da650c78902" title="重心位置を変更する関数." alt="" coords="237,139,430,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="189,175,221,171,222,177,189,181"/>
+<area shape="rect" id="Node000007" href="$namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す.三角関数の処理が多く重たいので注意." alt="" coords="478,229,645,256"/>
+<area shape="poly" id="edge10_Node000001_Node000007" title=" " alt="" coords="189,197,463,229,462,234,189,202"/>
+<area shape="rect" id="Node000013" href="$structdesignlab_1_1_robot_state_node.html#a6b3997cbc4ff0c8a48582608a12fca8e" title="次の動作を設定する関数. &#160;&#160;深さを一つ深くして,親と次の動作を設定する." alt="" coords="244,256,423,299"/>
+<area shape="poly" id="edge9_Node000001_Node000013" title=" " alt="" coords="158,209,261,248,259,253,156,214"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1leg__func.html#a0638b32b8b228a6e927f6de16e2f3441" title="脚位置は4bitの下位三桁で管理されるので,そこをマスクする." alt="" coords="496,5,628,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="416,45,480,36,480,41,417,51"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_quaternion.html#a893ee3dc143f059822f17ead2f716de1" title="クォータニオンの共役を返す. 共役なクォータニオンとは,ベクトル成分の符号を反転させたもの &#160;&#160;q = w + xi + yj + zk とすると, qの共役は w &#45; xi &#45; yj &#45; zk となる..." alt="" coords="488,72,635,115"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="408,136,472,117,474,122,409,141"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて,その脚が接地しているかを調べる. &#160;&#160;脚は右前脚を0番として,時計回りに0,1,2,3,4,5となる.左前足が5番." alt="" coords="496,139,628,181"/>
 <area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="430,157,480,157,480,163,430,163"/>
-<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="395,179,510,221,508,226,394,184"/>
-<area shape="poly" id="edge7_Node000007_Node000007" title=" " alt="" coords="524,230,517,221,522,211,537,205,562,203,590,206,603,213,601,218,588,211,562,208,538,210,526,215,523,220,528,227"/>
-<area shape="rect" id="Node000008" href="$namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換．" alt="" coords="693,229,876,256"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="395,179,509,221,507,226,394,184"/>
+<area shape="poly" id="edge7_Node000007_Node000007" title=" " alt="" coords="524,230,517,221,522,211,537,205,562,203,588,205,602,212,600,216,587,210,562,208,538,210,526,215,523,220,528,227"/>
+<area shape="rect" id="Node000008" href="$namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換." alt="" coords="693,229,876,256"/>
 <area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="646,240,678,240,678,245,646,245"/>
 </map>

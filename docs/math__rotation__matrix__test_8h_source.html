@@ -101,10 +101,10 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    TEST_CASE(<span class="stringliteral">&quot;ConstructorTest_ShouldCreateIdentityMatrix&quot;</span>)</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    {</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="comment">// デフォルトコンストラクタで単位行列が生成される．</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="comment">// デフォルトコンストラクタで単位行列が生成される.</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keyword">const</span> RotationMatrix3x3 rot_mat;</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="comment">// 単位行列の確認．</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="comment">// 単位行列の確認.</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        CHECK(rot_mat.element[0][0] == doctest::Approx(1.0f));</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        CHECK(rot_mat.element[0][1] == doctest::Approx(0.0f));</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        CHECK(rot_mat.element[0][2] == doctest::Approx(0.0f));</div>
@@ -120,12 +120,12 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    TEST_CASE(<span class="stringliteral">&quot;ConstructorTest_ShouldCreateArbitraryMatrix&quot;</span>)</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    {</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="comment">// 任意の行列を生成する．</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="comment">// 任意の行列を生成する.</span></div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keyword">const</span> RotationMatrix3x3 rot_mat(1.0f, 2.0f, 3.0f,</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                                        4.0f, 5.0f, 6.0f,</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                                        7.0f, 8.0f, 9.0f);</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="comment">// 任意の行列の確認．</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="comment">// 任意の行列の確認.</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        CHECK(rot_mat.element[0][0] == doctest::Approx(1.0f));</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        CHECK(rot_mat.element[0][1] == doctest::Approx(2.0f));</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        CHECK(rot_mat.element[0][2] == doctest::Approx(3.0f));</div>
@@ -143,24 +143,24 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    {</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        SUBCASE(<span class="stringliteral">&quot;Multiplication&quot;</span>)</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        {</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            <span class="comment">// 任意の行列を生成する．</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            <span class="comment">// 任意の行列を生成する.</span></div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keyword">const</span> RotationMatrix3x3 rot_mat1(1.0f, 2.0f, 3.0f,</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                                             4.0f, 5.0f, 6.0f,</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                                             7.0f, 8.0f, 9.0f);</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            <span class="comment">// 任意の行列を生成する．</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            <span class="comment">// 任意の行列を生成する.</span></div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            <span class="keyword">const</span> RotationMatrix3x3 rot_mat2(9.0f, 8.0f, 7.0f,</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                                             6.0f, 5.0f, 4.0f,</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                                             3.0f, 2.0f, 1.0f);</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            <span class="keyword">const</span> RotationMatrix3x3 actual = rot_mat1 * rot_mat2;</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            <span class="comment">// 任意の行列を生成する．</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            <span class="comment">// 任意の行列を生成する.</span></div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="keyword">const</span> RotationMatrix3x3 expect(30.0f, 24.0f, 18.0f,</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                                             84.0f, 69.0f, 54.0f,</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                                             138.0f, 114.0f, 90.0f);</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <span class="comment">// 任意の行列の確認．</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <span class="comment">// 任意の行列の確認.</span></div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            CHECK(actual.element[0][0] == doctest::Approx(expect.element[0][0]));</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            CHECK(actual.element[0][1] == doctest::Approx(expect.element[0][1]));</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            CHECK(actual.element[0][2] == doctest::Approx(expect.element[0][2]));</div>
@@ -252,8 +252,8 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_MATH_ROTATION_MATRIX_TEST_H_</span></div>
 <div class="ttc" id="amath__rotation__matrix_8h_html"><div class="ttname"><a href="math__rotation__matrix_8h.html">math_rotation_matrix.h</a></div></div>
 <div class="ttc" id="amath__rotation__matrix__test_8h_html_af831d9a23d14700ca1dd5700c1b089af"><div class="ttname"><a href="math__rotation__matrix__test_8h.html#af831d9a23d14700ca1dd5700c1b089af">TEST_SUITE</a></div><div class="ttdeci">TEST_SUITE(&quot;RotationMatrix3x3&quot;)</div><div class="ttdef"><b>Definition</b> <a href="math__rotation__matrix__test_8h_source.html#l00015">math_rotation_matrix_test.h:15</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1math__util_html_a71ec8fe6a47e6e7618a53957fd0b8b10"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#a71ec8fe6a47e6e7618a53957fd0b8b10">designlab::math_util::ConvertDegToRad</a></div><div class="ttdeci">constexpr T ConvertDegToRad(const T deg) noexcept</div><div class="ttdoc">角度を [deg] から [rad] に変換する関数．</div><div class="ttdef"><b>Definition</b> <a href="math__util_8h_source.html#l00126">math_util.h:126</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_rotation_matrix3x3_html"><div class="ttname"><a href="structdesignlab_1_1_rotation_matrix3x3.html">designlab::RotationMatrix3x3</a></div><div class="ttdoc">3次元の回転行列を表す構造体．</div><div class="ttdef"><b>Definition</b> <a href="math__rotation__matrix_8h_source.html#l00032">math_rotation_matrix.h:33</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1math__util_html_a71ec8fe6a47e6e7618a53957fd0b8b10"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#a71ec8fe6a47e6e7618a53957fd0b8b10">designlab::math_util::ConvertDegToRad</a></div><div class="ttdeci">constexpr T ConvertDegToRad(const T deg) noexcept</div><div class="ttdoc">角度を [deg] から [rad] に変換する関数.</div><div class="ttdef"><b>Definition</b> <a href="math__util_8h_source.html#l00119">math_util.h:119</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_rotation_matrix3x3_html"><div class="ttname"><a href="structdesignlab_1_1_rotation_matrix3x3.html">designlab::RotationMatrix3x3</a></div><div class="ttdoc">3次元の回転行列を表す構造体.</div><div class="ttdef"><b>Definition</b> <a href="math__rotation__matrix_8h_source.html#l00032">math_rotation_matrix.h:33</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

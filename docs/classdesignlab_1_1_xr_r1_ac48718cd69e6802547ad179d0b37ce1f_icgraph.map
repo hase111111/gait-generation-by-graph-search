@@ -1,0 +1,5 @@
+<map id="designlab::XrR1::CalculateStabilityMargin" name="designlab::XrR1::CalculateStabilityMargin">
+<area shape="rect" id="Node000001" title="安定余裕(Stability Margin)を計算する. 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい. &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計..." alt="" coords="220,5,393,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_xr_r1.html#a09859ffa5b61169d0d89125ba10e336f" title="安定余裕を用いて,静的に安定しているかどうかを判定する." alt="" coords="5,13,172,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,29,172,29,172,24,204,24"/>
+</map>

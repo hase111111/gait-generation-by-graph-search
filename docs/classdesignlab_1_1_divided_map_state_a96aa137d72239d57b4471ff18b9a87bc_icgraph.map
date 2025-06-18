@@ -1,0 +1,5 @@
+<map id="designlab::DividedMapState::GetPointNum" name="designlab::DividedMapState::GetPointNum">
+<area shape="rect" id="Node000001" title="格子状に切り分けられたマップから,脚設置可能点の数を取得する. &#160;&#160;範囲外の値を指定した場合は, unexpected を返す." alt="" coords="215,5,396,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_map_renderer.html#a4338a7d3f08cd663096e3226fa0c6fa3" title="マップの描画を行う." alt="" coords="5,5,167,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,29,167,29,167,24,199,24"/>
+</map>

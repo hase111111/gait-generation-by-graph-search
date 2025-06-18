@@ -1,17 +1,18 @@
 <map id="designlab::dxlib_util::ConvertToDxlibVec" name="designlab::dxlib_util::ConvertToDxlibVec">
-<area shape="rect" id="Node000001" title="Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する． &#160;&#160;ロボット座標系は右手座標系， Dxlibは左手座標系（工学は右手・ゲームライブラリは左手が多い）なのでyを..." alt="" coords="495,172,633,215"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_approximated_motion_range_render.html#a8dc666d282df1c7ff08be1b5fd8ac6dc" title="描画処理を行う． const 関数にしているのは， 描画処理の中でメンバ変数を変更しないようにするため．" alt="" coords="244,5,447,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="539,161,499,110,474,84,446,62,425,51,428,46,448,58,477,80,503,107,543,158"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_map_renderer.html#a4338a7d3f08cd663096e3226fa0c6fa3" title="マップの描画を行う．" alt="" coords="265,72,426,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="516,166,446,129,418,118,420,113,448,124,518,162"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_stability_margin_renderer.html#acdc7828d30b59293e5291d9d74d91acf" title="描画処理を行う． const 関数にしているのは， 描画処理の中でメンバ変数を変更しないようにするため．" alt="" coords="260,139,431,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="480,183,431,176,431,170,480,178"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_movement_locus_renderer.html#afd3d34ef797bea9d399ae0e5428eb125" title="ロボットの移動軌跡を描画する．" alt="" coords="256,205,435,248"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="481,209,435,216,434,210,480,203"/>
+<area shape="rect" id="Node000001" title="Dxlibの座標を示すVECTORと,このプログラムで使用しているVectorを変換する. &#160;&#160;ロボット座標系は右手座標系, Dxlibは左手座標系（工学は右手・ゲームライブラリは左手が多い）なのでyを..." alt="" coords="495,172,633,215"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_approximated_motion_range_render.html#a8dc666d282df1c7ff08be1b5fd8ac6dc" title="描画処理を行う. const 関数にしているのは, 描画処理の中でメンバ変数を変更しないようにするため." alt="" coords="244,5,447,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="539,161,499,110,474,84,446,62,425,51,428,46,448,58,477,80,503,106,543,158"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_map_renderer.html#a4338a7d3f08cd663096e3226fa0c6fa3" title="マップの描画を行う." alt="" coords="265,72,426,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="515,166,446,129,418,118,420,113,448,124,518,161"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_stability_margin_renderer.html#acdc7828d30b59293e5291d9d74d91acf" title="描画処理を行う. const 関数にしているのは, 描画処理の中でメンバ変数を変更しないようにするため." alt="" coords="260,139,431,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="479,183,431,176,431,170,480,178"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_movement_locus_renderer.html#afd3d34ef797bea9d399ae0e5428eb125" title="ロボットの移動軌跡を描画する." alt="" coords="256,205,435,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="480,209,435,216,434,210,479,204"/>
 <area shape="rect" id="Node000007" href="$classdesignlab_1_1_robot_ground_point_renderer.html#af62ae053ae0c6f182fb2c2dddfcaf2cc" title=" " alt="" coords="250,272,441,315"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="518,225,448,262,420,274,418,269,446,258,516,220"/>
-<area shape="rect" id="Node000008" href="$namespacedesignlab_1_1dxlib__util.html#a817972c248c109584a567e959799b9e6" title="3D処理を行う上で必要な初期化処理をまとめたもの．" alt="" coords="278,339,413,381"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="543,229,503,280,477,306,448,329,414,346,412,341,446,324,474,302,499,276,539,225"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_graphic_main_basic.html#adb07f27a1b256ef8085d88b57354449c" title="描画を行う． ここでは描画系の処理のみを行い内部のデータを 更新しないため const を付けている．" alt="" coords="5,205,196,248"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="241,229,196,229,196,224,241,224"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="518,225,448,262,420,274,418,269,446,258,515,221"/>
+<area shape="rect" id="Node000008" href="$namespacedesignlab_1_1dxlib__util.html#a817972c248c109584a567e959799b9e6" title="3D処理を行う上で必要な初期化処理をまとめたもの." alt="" coords="278,339,413,381"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="543,229,503,280,477,306,448,329,414,346,412,341,446,324,474,302,499,277,539,226"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_graphic_main_basic.html#adb07f27a1b256ef8085d88b57354449c" title="描画を行う. ここでは描画系の処理のみを行い内部のデータを 更新しないため const を付けている." alt="" coords="5,239,196,281"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="241,244,197,250,196,244,240,238"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="234,281,196,276,197,270,235,276"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="designlab::Quaternion::operator==" name="designlab::Quaternion::operator==">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,5,153,48"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a92c055e0799991e88871e2a5d4f09280" title="C++において，小数同士の計算は誤差が出てしまう． 誤差込みで値が等しいか調べる．" alt="" coords="201,5,338,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,24,186,24,186,29,153,29"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a92c055e0799991e88871e2a5d4f09280" title="C++において,小数同士の計算は誤差が出てしまう. 誤差込みで値が等しいか調べる." alt="" coords="201,5,338,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,24,185,24,185,29,153,29"/>
 </map>

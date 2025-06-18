@@ -1,0 +1,10 @@
+<map id="TEST_SUITE" name="TEST_SUITE">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,47,103,73"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1impl_1_1my__expected__test.html#a07f47df2e44f3439072f9b108fd2a584" title=" " alt="" coords="160,5,334,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,49,144,42,145,47,104,54"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1impl_1_1my__expected__test.html#a6de4560a92ad13b28065b97964c20cd5" title=" " alt="" coords="151,72,343,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="104,66,136,71,135,77,103,71"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1impl_1_1my__expected__test.html#a38daa500e4ee04bb6d135ea27746aeb9" title=" " alt="" coords="391,39,578,81"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="334,36,376,42,375,47,333,41"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="343,77,375,73,376,78,344,82"/>
+</map>

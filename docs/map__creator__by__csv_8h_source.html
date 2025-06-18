@@ -94,35 +94,30 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="interface__map__creator_8h.html">interface_map_creator.h</a>&quot;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_map_creator_by_csv.html">   21</a></span><span class="keyword">class </span><a class="code hl_class" href="classdesignlab_1_1_map_creator_by_csv.html">MapCreatorByCsv</a> final : <span class="keyword">public</span> <a class="code hl_class" href="classdesignlab_1_1_i_map_creator.html">IMapCreator</a></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classdesignlab_1_1_map_creator_by_csv.html">MapCreatorByCsv</a>(<span class="keyword">const</span> std::string&amp; map_file_path);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a> {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_map_creator_by_csv.html">   19</a></span><span class="keyword">class </span><a class="code hl_class" href="classdesignlab_1_1_map_creator_by_csv.html">MapCreatorByCsv</a> final : <span class="keyword">public</span> <a class="code hl_class" href="classdesignlab_1_1_i_map_creator.html">IMapCreator</a> {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <span class="keyword">explicit</span> <a class="code hl_class" href="classdesignlab_1_1_map_creator_by_csv.html">MapCreatorByCsv</a>(<span class="keyword">const</span> std::string&amp; map_file_path);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <a class="code hl_class" href="classdesignlab_1_1_map_state.html">MapState</a> <a class="code hl_function" href="classdesignlab_1_1_map_creator_by_csv.html#aef84033a37e91a160fc5d2d718088b45">InitMap</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_map_creator_by_csv.html#ada2d9c7a654b58b8830d22dfd04f413b">UpdateMap</a>(<a class="code hl_class" href="classdesignlab_1_1_map_state.html">MapState</a>* current_map) <span class="keyword">const override</span>;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_class" href="classdesignlab_1_1_map_state.html">MapState</a> <a class="code hl_function" href="classdesignlab_1_1_map_creator_by_csv.html#af3bf4a09c3c59bef540ff2a540dbab6c">InitMap</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_map_creator_by_csv.html#a39fd7f14d3fb44b65aaa5740fd7c525f">UpdateMap</a>(<a class="code hl_class" href="classdesignlab_1_1_map_state.html">MapState</a>* current_map) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    std::string map_file_path_;  </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>};</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  std::string map_file_path_;  </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>};</div>
 </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}  <span class="comment">// namespace designlab</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_MAP_CREATOR_BY_CSV_H_</span></div>
-<div class="ttc" id="aclassdesignlab_1_1_i_map_creator_html"><div class="ttname"><a href="classdesignlab_1_1_i_map_creator.html">designlab::IMapCreator</a></div><div class="ttdoc">マップ生成クラスのインターフェース．</div><div class="ttdef"><b>Definition</b> <a href="interface__map__creator_8h_source.html#l00019">interface_map_creator.h:20</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_map_creator_by_csv_html"><div class="ttname"><a href="classdesignlab_1_1_map_creator_by_csv.html">designlab::MapCreatorByCsv</a></div><div class="ttdoc">CSV ファイルからマップを生成するクラス．</div><div class="ttdef"><b>Definition</b> <a href="map__creator__by__csv_8h_source.html#l00021">map_creator_by_csv.h:22</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_map_creator_by_csv_html_a39fd7f14d3fb44b65aaa5740fd7c525f"><div class="ttname"><a href="classdesignlab_1_1_map_creator_by_csv.html#a39fd7f14d3fb44b65aaa5740fd7c525f">designlab::MapCreatorByCsv::UpdateMap</a></div><div class="ttdeci">void UpdateMap(MapState *current_map) override</div><div class="ttdoc">マップの更新を行う．</div><div class="ttdef"><b>Definition</b> <a href="map__creator__by__csv_8cpp_source.html#l00051">map_creator_by_csv.cpp:51</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_map_creator_by_csv_html_af3bf4a09c3c59bef540ff2a540dbab6c"><div class="ttname"><a href="classdesignlab_1_1_map_creator_by_csv.html#af3bf4a09c3c59bef540ff2a540dbab6c">designlab::MapCreatorByCsv::InitMap</a></div><div class="ttdeci">MapState InitMap() override</div><div class="ttdoc">マップの初期化を行う．</div><div class="ttdef"><b>Definition</b> <a href="map__creator__by__csv_8cpp_source.html#l00041">map_creator_by_csv.cpp:41</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_map_state_html"><div class="ttname"><a href="classdesignlab_1_1_map_state.html">designlab::MapState</a></div><div class="ttdoc">マップを表すクラス．</div><div class="ttdef"><b>Definition</b> <a href="map__state_8h_source.html#l00031">map_state.h:32</a></div></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}  <span class="comment">// namespace designlab</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_MAP_CREATOR_BY_CSV_H_</span></div>
+<div class="ttc" id="aclassdesignlab_1_1_i_map_creator_html"><div class="ttname"><a href="classdesignlab_1_1_i_map_creator.html">designlab::IMapCreator</a></div><div class="ttdoc">マップ生成クラスのインターフェース.</div><div class="ttdef"><b>Definition</b> <a href="interface__map__creator_8h_source.html#l00017">interface_map_creator.h:17</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_map_creator_by_csv_html"><div class="ttname"><a href="classdesignlab_1_1_map_creator_by_csv.html">designlab::MapCreatorByCsv</a></div><div class="ttdoc">CSV ファイルからマップを生成するクラス.</div><div class="ttdef"><b>Definition</b> <a href="map__creator__by__csv_8h_source.html#l00019">map_creator_by_csv.h:19</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_map_creator_by_csv_html_ada2d9c7a654b58b8830d22dfd04f413b"><div class="ttname"><a href="classdesignlab_1_1_map_creator_by_csv.html#ada2d9c7a654b58b8830d22dfd04f413b">designlab::MapCreatorByCsv::UpdateMap</a></div><div class="ttdeci">void UpdateMap(MapState *current_map) const override</div><div class="ttdoc">マップの更新を行う.</div><div class="ttdef"><b>Definition</b> <a href="map__creator__by__csv_8cpp_source.html#l00050">map_creator_by_csv.cpp:50</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_map_creator_by_csv_html_aef84033a37e91a160fc5d2d718088b45"><div class="ttname"><a href="classdesignlab_1_1_map_creator_by_csv.html#aef84033a37e91a160fc5d2d718088b45">designlab::MapCreatorByCsv::InitMap</a></div><div class="ttdeci">MapState InitMap() const override</div><div class="ttdoc">マップの初期化を行う.</div><div class="ttdef"><b>Definition</b> <a href="map__creator__by__csv_8cpp_source.html#l00036">map_creator_by_csv.cpp:36</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_map_state_html"><div class="ttname"><a href="classdesignlab_1_1_map_state.html">designlab::MapState</a></div><div class="ttdoc">マップを表すクラス.</div><div class="ttdef"><b>Definition</b> <a href="map__state_8h_source.html#l00029">map_state.h:29</a></div></div>
 <div class="ttc" id="ainterface__map__creator_8h_html"><div class="ttname"><a href="interface__map__creator_8h.html">interface_map_creator.h</a></div></div>
 <div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00017">abstract_dxlib_gui.cpp:18</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

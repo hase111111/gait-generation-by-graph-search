@@ -1,10 +1,10 @@
 <map id="designlab::RotateVector3" name="designlab::RotateVector3">
-<area shape="rect" id="Node000001" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="5,29,173,56"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="51,30,45,21,49,11,64,5,89,3,117,6,131,13,128,18,116,11,89,8,66,10,53,15,50,20,56,27"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換．" alt="" coords="221,29,403,56"/>
-<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="173,40,206,40,206,45,173,45"/>
-<area shape="rect" id="Node000003" href="$structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="451,21,598,64"/>
+<area shape="rect" id="Node000001" title="回転させたベクトルを返す.三角関数の処理が多く重たいので注意." alt="" coords="5,29,173,56"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="51,30,45,21,49,11,64,5,89,3,115,5,130,12,127,16,114,10,89,8,66,10,53,15,50,20,56,27"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換." alt="" coords="221,29,403,56"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="173,40,205,40,205,45,173,45"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す. &#160;&#160;クォータニオンの正規化とは,ノルムを1にすることを表す. &#160;&#160;クォータニオンqの正規化は,q / |q| で求められる." alt="" coords="451,21,598,64"/>
 <area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="404,40,436,40,436,45,404,45"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaternion.html#a56bbbd522805450144f54aae7dbd117e" title="クォータニオンのノルムを返す． &#160;&#160;ノルムとは，ベクトルの大きさのこと． クォータニオンのノルムは，w^2 + x^2 + y^2 + z^2 の平方根で求められる．" alt="" coords="646,21,794,64"/>
-<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="599,40,631,40,631,45,599,45"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaternion.html#a56bbbd522805450144f54aae7dbd117e" title="クォータニオンのノルムを返す. &#160;&#160;ノルムとは,ベクトルの大きさのこと. クォータニオンのノルムは,w^2 + x^2 + y^2 + z^2 の平方根で求められる." alt="" coords="646,21,794,64"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="599,40,630,40,630,45,599,45"/>
 </map>

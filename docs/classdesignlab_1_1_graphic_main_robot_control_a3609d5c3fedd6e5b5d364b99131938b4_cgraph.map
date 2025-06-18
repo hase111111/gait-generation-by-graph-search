@@ -1,23 +1,23 @@
 <map id="designlab::GraphicMainRobotControl::Update" name="designlab::GraphicMainRobotControl::Update">
-<area shape="rect" id="Node000001" title="描画画面の更新を行う．純粋仮想関数のため， 継承先では必ず override する必要がある．" alt="" coords="5,205,197,248"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib_gui_updater.html#a8330d413e80271485c00caaf64c36841" title="GUIのUpdate関数を実行し，クリック，ドラッグなどの判定を行う． &#160;&#160;優先度の高いものから順に各種判定を行う．" alt="" coords="246,139,425,181"/>
+<area shape="rect" id="Node000001" title="描画画面の更新を行う.純粋仮想関数のため, 継承先では必ず override する必要がある." alt="" coords="5,205,197,248"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib_gui_updater.html#a8330d413e80271485c00caaf64c36841" title="GUIのUpdate関数を実行し,クリック,ドラッグなどの判定を行う. &#160;&#160;優先度の高いものから順に各種判定を行う." alt="" coords="246,139,425,181"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,202,242,184,244,189,179,207"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_divided_map_state.html#a50647e278f9ee754cbfe5196153e2ba8" title="マップのデータを初期化する． ロボットの重心座標を中心にマップのデータを格子状に分割し， その中に存在する脚設置可能点を集める．" alt="" coords="245,205,426,248"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_divided_map_state.html#a50647e278f9ee754cbfe5196153e2ba8" title="マップのデータを初期化する. ロボットの重心座標を中心にマップのデータを格子状に分割し, その中に存在する脚設置可能点を集める." alt="" coords="245,205,426,248"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="197,224,229,224,229,229,197,229"/>
-<area shape="rect" id="Node000011" href="$classdesignlab_1_1_dxlib_node_setter_group.html#afd8f92a9f04d04aea6233c5adf0b7792" title="登録済みの全てのクラスに対してノードの設定を行う．" alt="" coords="246,272,425,315"/>
+<area shape="rect" id="Node000011" href="$classdesignlab_1_1_dxlib_node_setter_group.html#afd8f92a9f04d04aea6233c5adf0b7792" title="登録済みの全てのクラスに対してノードの設定を行う." alt="" coords="246,272,425,315"/>
 <area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="179,246,244,265,242,270,177,251"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_divided_map_state.html#a726a21449619c1d6980ed867c141992f" title="マップのデータを消去する．" alt="" coords="474,5,655,48"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_divided_map_state.html#a726a21449619c1d6980ed867c141992f" title="マップのデータを消去する." alt="" coords="474,5,655,48"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="410,203,424,191,437,175,443,159,447,126,451,93,459,75,472,58,475,56,478,60,476,62,463,78,457,94,453,127,449,161,441,178,428,195,413,207"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_divided_map_state.html#a22c0df011d0506e6d5106c6acd931be9" title="指定した座標を DividedMap のインデックスに変換する． 範囲外の値を指定した場合でも，値を丸めずに返す． そのため，IsInMap で範囲内に存在するかどうかを確認する必要がある．" alt="" coords="474,72,655,115"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_divided_map_state.html#a22c0df011d0506e6d5106c6acd931be9" title="指定した座標を DividedMap のインデックスに変換する. 範囲外の値を指定した場合でも,値を丸めずに返す. そのため,IsInMap で範囲内に存在するかどうかを確認する必要がある." alt="" coords="474,72,655,115"/>
 <area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="406,203,424,191,439,175,448,159,456,142,472,125,478,121,481,125,476,129,461,145,452,161,444,178,428,195,409,207"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_divided_map_state.html#a8dcc229f5560978d2a082b326191d6ee" title="指定した座標を DividedMap のインデックスに変換する． 範囲外の値を指定した場合でも，値を丸めずに返す． そのため，IsInMap で範囲内に存在するかどうかを確認する必要がある．" alt="" coords="474,139,655,181"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_divided_map_state.html#a8dcc229f5560978d2a082b326191d6ee" title="指定した座標を DividedMap のインデックスに変換する. 範囲外の値を指定した場合でも,値を丸めずに返す. そのため,IsInMap で範囲内に存在するかどうかを確認する必要がある." alt="" coords="474,139,655,181"/>
 <area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="410,202,474,184,475,189,412,207"/>
-<area shape="rect" id="Node000007" href="$classdesignlab_1_1_map_state.html#a80c42812e6ff529ed9b468d0db52d757" title="脚設置可能点の座標を返す．" alt="" coords="495,205,635,248"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_map_state.html#a80c42812e6ff529ed9b468d0db52d757" title="脚設置可能点の座標を返す." alt="" coords="495,205,635,248"/>
 <area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="426,224,479,224,479,229,426,229"/>
-<area shape="rect" id="Node000008" href="$classdesignlab_1_1_map_state.html#a221db2fa4a7021da6e9b240c209fa59c" title="脚設置可能点の総数を返す．" alt="" coords="495,272,635,315"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_map_state.html#a221db2fa4a7021da6e9b240c209fa59c" title="脚設置可能点の総数を返す." alt="" coords="495,272,635,315"/>
 <area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="412,246,480,266,479,271,410,251"/>
-<area shape="rect" id="Node000009" href="$classdesignlab_1_1_divided_map_state.html#a0481f063d66d9598442025a9658b69c9" title="指定した座標がマップの範囲内に存在するかどうかを返す．" alt="" coords="474,339,655,381"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_divided_map_state.html#a0481f063d66d9598442025a9658b69c9" title="指定した座標がマップの範囲内に存在するかどうかを返す." alt="" coords="474,339,655,381"/>
 <area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="409,246,428,258,444,275,452,292,461,308,476,325,481,328,478,333,472,329,456,312,448,295,439,278,424,262,406,251"/>
-<area shape="rect" id="Node000010" href="$namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5" title="2乗した値を返す関数．" alt="" coords="496,405,633,448"/>
+<area shape="rect" id="Node000010" href="$namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5" title="2乗した値を返す関数." alt="" coords="496,405,633,448"/>
 <area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="413,246,428,258,441,275,449,293,453,326,457,359,463,375,476,391,485,399,481,403,472,395,459,378,451,361,447,327,443,294,437,278,424,262,410,251"/>
 </map>

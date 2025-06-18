@@ -80,7 +80,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>HexapodRendererクラスのインスタンスを作成するクラス．  
+<p>HexapodRendererクラスのインスタンスを作成するクラス.  
  <a href="classdesignlab_1_1_hexapod_renderer_builder.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="hexapod__renderer__builder_8h_source.html">hexapod_renderer_builder.h</a>&gt;</code></p>
@@ -88,11 +88,11 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
 <tr class="memitem:a595c704a5ba5b379a828afbba93d9ddf" id="r_a595c704a5ba5b379a828afbba93d9ddf"><td class="memItemLeft" align="right" valign="top">static std::tuple&lt; std::shared_ptr&lt; <a class="el" href="classdesignlab_1_1_i_dxlib3d_renderer.html">IDxlib3dRenderer</a> &gt;, std::shared_ptr&lt; <a class="el" href="classdesignlab_1_1_i_dxlib_node_setter.html">IDxlibNodeSetter</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_hexapod_renderer_builder.html#a595c704a5ba5b379a828afbba93d9ddf">Build</a> (const std::shared_ptr&lt; const <a class="el" href="classdesignlab_1_1_i_hexapod_coordinate_converter.html">IHexapodCoordinateConverter</a> &gt; &amp;converter_ptr, const std::shared_ptr&lt; const <a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculator.html">IHexapodJointCalculator</a> &gt; &amp;calculator_ptr, <a class="el" href="namespacedesignlab.html#a53323f0d14b3c1aef6879f5b9ceffc3d">DisplayQuality</a> display_quality)</td></tr>
-<tr class="memdesc:a595c704a5ba5b379a828afbba93d9ddf"><td class="mdescLeft">&#160;</td><td class="mdescRight">HexapodRendererクラスのインスタンスを作成する． static関数なので，HexapodRendererBuilder::Build()と呼び出す．  <br /></td></tr>
+<tr class="memdesc:a595c704a5ba5b379a828afbba93d9ddf"><td class="mdescLeft">&#160;</td><td class="mdescRight">HexapodRendererクラスのインスタンスを作成する. static関数なので,<a class="el" href="classdesignlab_1_1_hexapod_renderer_builder.html#a595c704a5ba5b379a828afbba93d9ddf" title="HexapodRendererクラスのインスタンスを作成する. static関数なので,HexapodRendererBuilder::Build()と呼び出す.">HexapodRendererBuilder::Build()</a>と呼び出す.  <br /></td></tr>
 <tr class="separator:a595c704a5ba5b379a828afbba93d9ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>HexapodRendererクラスのインスタンスを作成するクラス． </p>
+<div class="textblock"><p>HexapodRendererクラスのインスタンスを作成するクラス. </p>
 
 <p class="definition"> <a class="el" href="hexapod__renderer__builder_8h_source.html">hexapod_renderer_builder.h</a> の <a class="el" href="hexapod__renderer__builder_8h_source.html#l00026">26</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">関数詳解</h2>
@@ -136,16 +136,16 @@ $(function() {
 </table>
 </div><div class="memdoc">
 
-<p>HexapodRendererクラスのインスタンスを作成する． static関数なので，HexapodRendererBuilder::Build()と呼び出す． </p>
+<p>HexapodRendererクラスのインスタンスを作成する. static関数なので,<a class="el" href="classdesignlab_1_1_hexapod_renderer_builder.html#a595c704a5ba5b379a828afbba93d9ddf" title="HexapodRendererクラスのインスタンスを作成する. static関数なので,HexapodRendererBuilder::Build()と呼び出す.">HexapodRendererBuilder::Build()</a>と呼び出す. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">converter_ptr</td><td>座標変換クラスのインスタンス． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">calculator_ptr</td><td>関節計算クラスのインスタンス． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">converter_ptr</td><td>座標変換クラスのインスタンス. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">calculator_ptr</td><td>関節計算クラスのインスタンス. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>戻り値</dt><dd>HexapodRendererクラスのインスタンス． あまりよくない気がするが，継承している2つのインターフェースで返すために，std::tupleで返す． </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">todo:</a></b></dt><dd>IHexapodの type を見て、適切な renderer を返す． </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>HexapodRendererクラスのインスタンス. あまりよくない気がするが,継承している2つのインターフェースで返すために,std::tupleで返す. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">todo:</a></b></dt><dd>IHexapodの type を見て、適切な renderer を返す. </dd></dl>
 
 <p class="definition"> <a class="el" href="hexapod__renderer__builder_8cpp_source.html">hexapod_renderer_builder.cpp</a> の <a class="el" href="hexapod__renderer__builder_8cpp_source.html#l00018">18</a> 行目に定義があります。</p>
 <div class="dynheader">
@@ -153,11 +153,11 @@ $(function() {
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_hexapod_renderer_builder_a595c704a5ba5b379a828afbba93d9ddf_icgraph.png" border="0" usemap="#aclassdesignlab_1_1_hexapod_renderer_builder_a595c704a5ba5b379a828afbba93d9ddf_icgraph" alt=""/></div>
 <map name="aclassdesignlab_1_1_hexapod_renderer_builder_a595c704a5ba5b379a828afbba93d9ddf_icgraph" id="aclassdesignlab_1_1_hexapod_renderer_builder_a595c704a5ba5b379a828afbba93d9ddf_icgraph">
-<area shape="rect" title="HexapodRendererクラスのインスタンスを作成する． static関数なので，HexapodRendererBuilder::Build()と呼び出す．" alt="" coords="272,39,459,81"/>
+<area shape="rect" title="HexapodRendererクラスのインスタンスを作成する. static関数なので,HexapodRendererBuilder::Build()と呼び出す." alt="" coords="272,39,459,81"/>
 <area shape="rect" href="classdesignlab_1_1_graphic_main_display_model.html#af42c7a85c4334dec044d664a36cf7f34" title=" " alt="" coords="7,5,222,48"/>
-<area shape="poly" title=" " alt="" coords="257,48,222,44,223,38,257,43"/>
+<area shape="poly" title=" " alt="" coords="256,48,222,44,223,38,257,43"/>
 <area shape="rect" href="classdesignlab_1_1_graphic_main_robot_control.html#ad643aefb41adbe094e4f81ddd576597b" title=" " alt="" coords="5,72,224,115"/>
-<area shape="poly" title=" " alt="" coords="257,77,224,81,224,76,257,72"/>
+<area shape="poly" title=" " alt="" coords="257,77,224,81,224,76,256,72"/>
 </map>
 </div>
 

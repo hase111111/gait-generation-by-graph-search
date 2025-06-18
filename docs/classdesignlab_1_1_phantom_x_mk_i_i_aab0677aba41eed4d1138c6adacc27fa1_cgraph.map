@@ -1,13 +1,13 @@
 <map id="designlab::PhantomXMkII::IsLegInRange" name="designlab::PhantomXMkII::IsLegInRange">
-<area shape="rect" id="Node000001" title="脚が可動範囲内にあるかどうかを判定する．" alt="" coords="5,105,173,148"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#ac284a810420fd8f69883cdb22d611704" title="遊脚する位置を返す，脚座標系．" alt="" coords="221,5,424,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,103,220,58,236,51,238,56,222,62,130,107"/>
-<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector2.html#a80b722825f1793105702da0677867a08" title="このベクトルの長さの2乗を返す．" alt="" coords="254,72,391,115"/>
+<area shape="rect" id="Node000001" title="脚が可動範囲内にあるかどうかを判定する." alt="" coords="5,105,173,148"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#ac284a810420fd8f69883cdb22d611704" title="遊脚する位置を返す,脚座標系." alt="" coords="221,5,424,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,103,220,58,235,51,237,56,222,62,130,107"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector2.html#a80b722825f1793105702da0677867a08" title="このベクトルの長さの2乗を返す." alt="" coords="254,72,391,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="173,112,238,103,239,108,173,117"/>
-<area shape="rect" id="Node000005" href="$structdesignlab_1_1_vector3.html#aaf3651416f231824ffd780b72f5bba27" title="XY平面に射影したベクトルを返す．" alt="" coords="258,139,387,181"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="173,136,243,146,242,151,173,141"/>
-<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5" title="2乗した値を返す関数．" alt="" coords="254,205,391,248"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="130,146,222,191,241,198,239,203,220,196,128,151"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector2.html#a4ff63a4ad67617a23ed4206d994ecc84" title="自分・引数 の内積の結果を返す．" alt="" coords="472,80,629,107"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="391,91,457,91,457,96,391,96"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_vector3.html#aaf3651416f231824ffd780b72f5bba27" title="XY平面に射影したベクトルを返す." alt="" coords="258,139,387,181"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="173,136,242,146,242,151,173,141"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5" title="2乗した値を返す関数." alt="" coords="254,205,391,248"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="130,146,222,191,240,198,238,203,220,196,128,151"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector2.html#a4ff63a4ad67617a23ed4206d994ecc84" title="自分・引数 の内積の結果を返す." alt="" coords="472,80,629,107"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="391,91,456,91,456,96,391,96"/>
 </map>

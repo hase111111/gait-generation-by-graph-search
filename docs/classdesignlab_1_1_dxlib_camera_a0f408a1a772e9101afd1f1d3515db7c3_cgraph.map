@@ -1,10 +1,10 @@
 <map id="designlab::DxlibCamera::GetNowCameraPos" name="designlab::DxlibCamera::GetNowCameraPos">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,21,164,64"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="212,29,379,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,40,197,40,197,45,164,45"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="260,30,253,21,258,11,272,5,295,3,322,6,335,13,332,17,320,11,295,8,273,10,261,15,259,20,264,27"/>
-<area shape="rect" id="Node000003" href="$namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換．" alt="" coords="427,29,609,56"/>
-<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="379,40,412,40,412,45,379,45"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="657,21,805,64"/>
-<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="610,40,643,40,643,45,610,45"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す.三角関数の処理が多く重たいので注意." alt="" coords="212,29,379,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,40,196,40,196,45,164,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="260,30,253,21,258,11,272,5,295,3,320,5,334,12,331,16,319,10,295,8,273,10,261,15,259,20,264,27"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換." alt="" coords="427,29,609,56"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="379,40,411,40,411,45,379,45"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す. &#160;&#160;クォータニオンの正規化とは,ノルムを1にすることを表す. &#160;&#160;クォータニオンqの正規化は,q / |q| で求められる." alt="" coords="657,21,805,64"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="610,40,642,40,642,45,610,45"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="designlab::DxlibGuiDisplayNodeSwitcher::Draw" name="designlab::DxlibGuiDisplayNodeSwitcher::Draw">
-<area shape="rect" id="Node000001" title="GUIの描画．" alt="" coords="5,5,182,48"/>
+<area shape="rect" id="Node000001" title="GUIの描画." alt="" coords="5,5,182,48"/>
 <area shape="rect" id="Node000002" href="$classdesignlab_1_1_abstract_dxlib_gui.html#a0ec38a04b4771935e3877f4078a25c8c" title=" " alt="" coords="230,5,392,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,24,215,24,215,29,182,29"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,24,214,24,214,29,182,29"/>
 </map>

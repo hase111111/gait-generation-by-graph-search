@@ -1,0 +1,5 @@
+<map id="designlab::XrR1Const::IsValidTibiaAngle" name="designlab::XrR1Const::IsValidTibiaAngle">
+<area shape="rect" id="Node000001" title="第3関節の角度が有効な範囲内かどうかを判定する." alt="" coords="212,5,357,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_xr_r1.html#aa3f2c880699cc6a61cf997b71b3e5889" title="指定した脚のHexapodJointStateが正しく計算できているかを調べる. &#160;&#160;目標座標に届かない場合や,間接の可動範囲外まで動いてしまう場合, 戻り値は false になる." alt="" coords="5,5,164,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,29,164,29,164,24,196,24"/>
+</map>

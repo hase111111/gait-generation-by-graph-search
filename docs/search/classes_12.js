@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['vector2_0',['Vector2',['../structdesignlab_1_1_vector2.html',1,'designlab']]],
-  ['vector3_1',['Vector3',['../structdesignlab_1_1_vector3.html',1,'designlab']]]
+  ['unexpected_0',['unexpected',['../classdesignlab_1_1nostd_1_1impl_1_1unexpected.html',1,'designlab::nostd::impl::unexpected&lt; T &gt;'],['../classdesignlab_1_1nostd_1_1unexpected.html',1,'designlab::nostd::unexpected&lt; E &gt;']]]
 ];

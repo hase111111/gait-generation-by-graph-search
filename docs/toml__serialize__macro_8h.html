@@ -82,16 +82,16 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;magic_enum.hpp&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
 <code>#include &lt;sstream&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;magic_enum.hpp&gt;</code><br />
-<code>#include &quot;strconv2.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="implicit__metafunction__for__toml11_8h_source.html">implicit_metafunction_for_toml11.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="math__euler_8h_source.html">math_euler.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="math__quaternion_8h_source.html">math_quaternion.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="math__vector3_8h_source.html">math_vector3.h</a>&quot;</code><br />
+<code>#include &quot;strconv2.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="toml11__define_8h_source.html">toml11_define.h</a>&quot;</code><br />
 </div>
 <p><a href="toml__serialize__macro_8h_source.html">[ソースコード]</a></p>
@@ -99,10 +99,10 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 クラス</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1toml__func_1_1_toml11_description.html">designlab::toml_func::Toml11Description</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルに追加する変数の説明を追加するための構造体．  <a href="structdesignlab_1_1toml__func_1_1_toml11_description.html#details">[詳解]</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルに追加する変数の説明を追加するための構造体.  <a href="structdesignlab_1_1toml__func_1_1_toml11_description.html#details">[詳解]</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_3b07bd3c2acf053c0b37464b32d1a9cf3.html">designlab::toml_func::GetTomlValueImpl&lt; T, typename std::enable_if&lt; impl::is_toml11_available_type&lt; T &gt;::value &gt; ::type &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルから値を取得するための関数を 特殊化するために暗黙的に呼ばれる構造体．  <a href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_3b07bd3c2acf053c0b37464b32d1a9cf3.html#details">[詳解]</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_3eedd831182e57332fdada4a4cbcfcc02.html">designlab::toml_func::GetTomlValueImpl&lt; T, typename std::enable_if&lt; impl::is_toml11_available_type&lt; T &gt;::value &gt;::type &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルから値を取得するための関数を 特殊化するために暗黙的に呼ばれる構造体.  <a href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_3eedd831182e57332fdada4a4cbcfcc02.html#details">[詳解]</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_328529863b9f932a63d4a25913375ada6.html">designlab::toml_func::GetTomlValueImpl&lt; T, typename std::enable_if&lt;!impl::is_toml11_available_type&lt; T &gt;::value &amp;&amp;std::is_enum&lt; T &gt;::value &gt;::type &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">プライマリ テンプレートの特殊化 : enum 型  <a href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_328529863b9f932a63d4a25913375ada6.html#details">[詳解]</a><br /></td></tr>
@@ -110,13 +110,13 @@ $(function() {
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_39d3e7579bcc5575292b80a1ace9292bc.html">designlab::toml_func::GetTomlValueImpl&lt; T, typename std::enable_if&lt;!impl::is_toml11_available_type&lt; T &gt;::value &amp;&amp;impl::has_input_operator&lt; T &gt;::value &gt;::type &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">プライマリ テンプレートの特殊化 : is_vector3 型と is_euler_xyz 型  <a href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_39d3e7579bcc5575292b80a1ace9292bc.html#details">[詳解]</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_33fc5982aea123e2d9ca55f2926b667d8.html">designlab::toml_func::GetTomlValueImpl&lt; T, typename std::enable_if&lt;!impl::is_toml11_available_type&lt; T &gt;::value &amp;&amp;impl::is_vector_of_has_input_operator&lt; T &gt;::value &gt;::type &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl_3_01_t_00_01typename_01std_1_1enable__if_396b15592e46369a46c95d9b5aed99a23.html">designlab::toml_func::GetTomlValueImpl&lt; T, typename std::enable_if&lt; !impl::is_toml11_available_type&lt; T &gt;::value &amp;&amp;impl::is_vector_of_has_input_operator&lt; T &gt;::value &gt;::type &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 名前空間</h2></td></tr>
 <tr class="memitem:namespacedesignlab_1_1toml__func" id="r_namespacedesignlab_1_1toml__func"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1toml__func.html">designlab::toml_func</a></td></tr>
-<tr class="memdesc:namespacedesignlab_1_1toml__func"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルのシリアライズ/デシリアライズを行うための関数群． <br /></td></tr>
+<tr class="memdesc:namespacedesignlab_1_1toml__func"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルのシリアライズ/デシリアライズを行うための関数群. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacedesignlab" id="r_namespacedesignlab"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab.html">designlab</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -124,83 +124,83 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 マクロ定義</h2></td></tr>
 <tr class="memitem:af00804278068824d6340b62fb05e334f" id="r_af00804278068824d6340b62fb05e334f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="toml__serialize__macro_8h.html#af00804278068824d6340b62fb05e334f">DESIGNLAB_SUB_MACRO_FIND_MEMBER_VARIABLE_FROM_VALUE</a>(VAR_NAME)</td></tr>
-<tr class="memdesc:af00804278068824d6340b62fb05e334f"><td class="mdescLeft">&#160;</td><td class="mdescRight">DESIGNLAB_DEFINE_CONVERSION_NON_INTRUSIVEの補助マクロ． 他のファイルから呼び出さないこと． <br  />
- tomlファイルからクラスのメンバ変数を取得する．  <br /></td></tr>
+<tr class="memdesc:af00804278068824d6340b62fb05e334f"><td class="mdescLeft">&#160;</td><td class="mdescRight">DESIGNLAB_DEFINE_CONVERSION_NON_INTRUSIVEの補助マクロ. 他のファイルから呼び出さないこと. <br  />
+ tomlファイルからクラスのメンバ変数を取得する.  <br /></td></tr>
 <tr class="separator:af00804278068824d6340b62fb05e334f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a323fb13d0dd0379f67b2254a2a71b2ef" id="r_a323fb13d0dd0379f67b2254a2a71b2ef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="toml__serialize__macro_8h.html#a323fb13d0dd0379f67b2254a2a71b2ef">DESIGNLAB_SUB_MACRO_ASSIGN_MEMBER_VARIABLE_TO_VALUE</a>(VAR)</td></tr>
-<tr class="memdesc:a323fb13d0dd0379f67b2254a2a71b2ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">DESIGNLAB_DEFINE_CONVERSION_NON_INTRUSIVEの補助マクロ． 他のファイルから呼び出さないこと． <br  />
- クラスのメンバ変数を tomlファイルに追加する．  <br /></td></tr>
+<tr class="memdesc:a323fb13d0dd0379f67b2254a2a71b2ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">DESIGNLAB_DEFINE_CONVERSION_NON_INTRUSIVEの補助マクロ. 他のファイルから呼び出さないこと. <br  />
+ クラスのメンバ変数を tomlファイルに追加する.  <br /></td></tr>
 <tr class="separator:a323fb13d0dd0379f67b2254a2a71b2ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04392bb31072c67f98529b4b35b8ad7f" id="r_a04392bb31072c67f98529b4b35b8ad7f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="toml__serialize__macro_8h.html#a04392bb31072c67f98529b4b35b8ad7f">DESIGNLAB_SUB_MACRO_ADD_COMMENT</a>(VN)</td></tr>
-<tr class="memdesc:a04392bb31072c67f98529b4b35b8ad7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">DESIGNLAB_DEFINE_CONVERSION_NON_INTRUSIVEの補助マクロ． 他のファイルから呼び出さないこと． <br  />
- tomlファイルの要素にクラスの説明を追加する． もし，説明の用意がなければ説明を追加しない．  <br /></td></tr>
+<tr class="memdesc:a04392bb31072c67f98529b4b35b8ad7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">DESIGNLAB_DEFINE_CONVERSION_NON_INTRUSIVEの補助マクロ. 他のファイルから呼び出さないこと. <br  />
+ tomlファイルの要素にクラスの説明を追加する. もし,説明の用意がなければ説明を追加しない.  <br /></td></tr>
 <tr class="separator:a04392bb31072c67f98529b4b35b8ad7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a486ffec54db999fb033fd3d6e8ee473b" id="r_a486ffec54db999fb033fd3d6e8ee473b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="toml__serialize__macro_8h.html#a486ffec54db999fb033fd3d6e8ee473b">DESIGNLAB_TOML11_DESCRIPTION_CLASS</a>(CLASS)&#160;&#160;&#160;struct CLASS##Description final</td></tr>
-<tr class="memdesc:a486ffec54db999fb033fd3d6e8ee473b"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルに説明を追加するためのクラスの宣言を行うためのマクロ．  <br /></td></tr>
+<tr class="memitem:a486ffec54db999fb033fd3d6e8ee473b" id="r_a486ffec54db999fb033fd3d6e8ee473b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="toml__serialize__macro_8h.html#a486ffec54db999fb033fd3d6e8ee473b">DESIGNLAB_TOML11_DESCRIPTION_CLASS</a>(CLASS)&#160;&#160;&#160;  struct CLASS##Description final</td></tr>
+<tr class="memdesc:a486ffec54db999fb033fd3d6e8ee473b"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルに説明を追加するためのクラスの宣言を行うためのマクロ.  <br /></td></tr>
 <tr class="separator:a486ffec54db999fb033fd3d6e8ee473b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b9bf407ecc73e60445af21101648d9b" id="r_a4b9bf407ecc73e60445af21101648d9b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="toml__serialize__macro_8h.html#a4b9bf407ecc73e60445af21101648d9b">DESIGNLAB_TOML11_FILE_NO_DESCRIPTION</a>()&#160;&#160;&#160;const ::std::vector&lt;::std::string&gt; file_description_vec{};</td></tr>
-<tr class="memdesc:a4b9bf407ecc73e60445af21101648d9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルにファイルの説明を追加しないことを示す文字列． <br  />
- DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある．  <br /></td></tr>
+<tr class="memitem:a4b9bf407ecc73e60445af21101648d9b" id="r_a4b9bf407ecc73e60445af21101648d9b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="toml__serialize__macro_8h.html#a4b9bf407ecc73e60445af21101648d9b">DESIGNLAB_TOML11_FILE_NO_DESCRIPTION</a>()&#160;&#160;&#160;  const ::std::vector&lt;::std::string&gt; file_description_vec{};</td></tr>
+<tr class="memdesc:a4b9bf407ecc73e60445af21101648d9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルにファイルの説明を追加しないことを示す文字列. <br  />
+ DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある.  <br /></td></tr>
 <tr class="separator:a4b9bf407ecc73e60445af21101648d9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1a1d4be2656ed6d1c1921468379a6cf" id="r_ae1a1d4be2656ed6d1c1921468379a6cf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="toml__serialize__macro_8h.html#ae1a1d4be2656ed6d1c1921468379a6cf">DESIGNLAB_TOML11_FILE_ADD_DESCRIPTION</a>(DESCRIPTION)&#160;&#160;&#160;const ::std::vector&lt;::std::string&gt; file_description_vec{sjis_to_utf8(DESCRIPTION)};</td></tr>
-<tr class="memdesc:ae1a1d4be2656ed6d1c1921468379a6cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルにファイルの説明を追加するためのマクロ． <br  />
- DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある．  <br /></td></tr>
+<tr class="memitem:ae1a1d4be2656ed6d1c1921468379a6cf" id="r_ae1a1d4be2656ed6d1c1921468379a6cf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="toml__serialize__macro_8h.html#ae1a1d4be2656ed6d1c1921468379a6cf">DESIGNLAB_TOML11_FILE_ADD_DESCRIPTION</a>(DESCRIPTION)</td></tr>
+<tr class="memdesc:ae1a1d4be2656ed6d1c1921468379a6cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルにファイルの説明を追加するためのマクロ. <br  />
+ DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある.  <br /></td></tr>
 <tr class="separator:ae1a1d4be2656ed6d1c1921468379a6cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af210a60bc0584be3453baae36f15b1cb" id="r_af210a60bc0584be3453baae36f15b1cb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="toml__serialize__macro_8h.html#af210a60bc0584be3453baae36f15b1cb">DESIGNLAB_TOML11_FILE_ADD_DESCRIPTION_MULTI_LINE</a>(DESCRIPTION_VEC)</td></tr>
-<tr class="memdesc:af210a60bc0584be3453baae36f15b1cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルにファイルの説明を追加するためのマクロ． <br  />
- DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある．  <br /></td></tr>
+<tr class="memdesc:af210a60bc0584be3453baae36f15b1cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルにファイルの説明を追加するためのマクロ. <br  />
+ DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある.  <br /></td></tr>
 <tr class="separator:af210a60bc0584be3453baae36f15b1cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9a0f83348a99077238d7a8e6034c066" id="r_aa9a0f83348a99077238d7a8e6034c066"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="toml__serialize__macro_8h.html#aa9a0f83348a99077238d7a8e6034c066">DESIGNLAB_TOML11_TABLE_ADD_DESCRIPTION</a>(...)</td></tr>
-<tr class="memdesc:aa9a0f83348a99077238d7a8e6034c066"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルにテーブルの説明を追加するためのマクロ． <br  />
- DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある．  <br /></td></tr>
+<tr class="memdesc:aa9a0f83348a99077238d7a8e6034c066"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルにテーブルの説明を追加するためのマクロ. <br  />
+ DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある.  <br /></td></tr>
 <tr class="separator:aa9a0f83348a99077238d7a8e6034c066"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e60774c17bff581cd175fdafc08a191" id="r_a4e60774c17bff581cd175fdafc08a191"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="toml__serialize__macro_8h.html#a4e60774c17bff581cd175fdafc08a191">DESIGNLAB_TOML11_TABLE_NO_DESCRIPTION</a>()&#160;&#160;&#160;const std::vector&lt;std::string&gt; table_name_description_vec = {};</td></tr>
-<tr class="memdesc:a4e60774c17bff581cd175fdafc08a191"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルに追加するテーブルにコメントを追加しないことを示すマクロ． <br  />
- DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある．  <br /></td></tr>
+<tr class="memitem:a4e60774c17bff581cd175fdafc08a191" id="r_a4e60774c17bff581cd175fdafc08a191"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="toml__serialize__macro_8h.html#a4e60774c17bff581cd175fdafc08a191">DESIGNLAB_TOML11_TABLE_NO_DESCRIPTION</a>()&#160;&#160;&#160;  const std::vector&lt;std::string&gt; table_name_description_vec = {};</td></tr>
+<tr class="memdesc:a4e60774c17bff581cd175fdafc08a191"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルに追加するテーブルにコメントを追加しないことを示すマクロ. <br  />
+ DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある.  <br /></td></tr>
 <tr class="separator:a4e60774c17bff581cd175fdafc08a191"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa289aa4ab294185921bbdf5a563ecccb" id="r_aa289aa4ab294185921bbdf5a563ecccb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="toml__serialize__macro_8h.html#aa289aa4ab294185921bbdf5a563ecccb">DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION</a>(VARIABLE,  TABLE,  DESCRIPTION)</td></tr>
-<tr class="memdesc:aa289aa4ab294185921bbdf5a563ecccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルに変数とファイルの説明を追加するためのマクロ．  <br /></td></tr>
+<tr class="memdesc:aa289aa4ab294185921bbdf5a563ecccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルに変数とファイルの説明を追加するためのマクロ.  <br /></td></tr>
 <tr class="separator:aa289aa4ab294185921bbdf5a563ecccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbdfb99e0ee7814af551e1bb778f12b2" id="r_abbdfb99e0ee7814af551e1bb778f12b2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="toml__serialize__macro_8h.html#abbdfb99e0ee7814af551e1bb778f12b2">DESIGNLAB_TOML11_VARIABLE_NO_DESCRIPTION</a>(VARIABLE,  TABLE)&#160;&#160;&#160;const <a class="el" href="structdesignlab_1_1toml__func_1_1_toml11_description.html">::designlab::toml_func::Toml11Description</a> VARIABLE{TABLE, &quot;&quot;}</td></tr>
-<tr class="memdesc:abbdfb99e0ee7814af551e1bb778f12b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイルの説明を追加したくない場合には，このマクロで変数を追加する．  <br /></td></tr>
+<tr class="memitem:abbdfb99e0ee7814af551e1bb778f12b2" id="r_abbdfb99e0ee7814af551e1bb778f12b2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="toml__serialize__macro_8h.html#abbdfb99e0ee7814af551e1bb778f12b2">DESIGNLAB_TOML11_VARIABLE_NO_DESCRIPTION</a>(VARIABLE,  TABLE)&#160;&#160;&#160;  const <a class="el" href="structdesignlab_1_1toml__func_1_1_toml11_description.html">::designlab::toml_func::Toml11Description</a> VARIABLE { TABLE, &quot;&quot; }</td></tr>
+<tr class="memdesc:abbdfb99e0ee7814af551e1bb778f12b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">ファイルの説明を追加したくない場合には,このマクロで変数を追加する.  <br /></td></tr>
 <tr class="separator:abbdfb99e0ee7814af551e1bb778f12b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bc3af387da2557ff92994625b23b0a1" id="r_a3bc3af387da2557ff92994625b23b0a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="toml__serialize__macro_8h.html#a3bc3af387da2557ff92994625b23b0a1">DESIGNLAB_TOML11_NO_TABLE</a>&#160;&#160;&#160;<a class="el" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a7212008e9103ff5ef65a79e0a17e8c36">::designlab::toml_func::Toml11Description::kNoTable</a></td></tr>
-<tr class="memdesc:a3bc3af387da2557ff92994625b23b0a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルに追加する変数をテーブルに追加しないことを示すためのマクロ．  <br /></td></tr>
+<tr class="memitem:a3bc3af387da2557ff92994625b23b0a1" id="r_a3bc3af387da2557ff92994625b23b0a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="toml__serialize__macro_8h.html#a3bc3af387da2557ff92994625b23b0a1">DESIGNLAB_TOML11_NO_TABLE</a>&#160;&#160;&#160;  <a class="el" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a7212008e9103ff5ef65a79e0a17e8c36">::designlab::toml_func::Toml11Description::kNoTable</a></td></tr>
+<tr class="memdesc:a3bc3af387da2557ff92994625b23b0a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルに追加する変数をテーブルに追加しないことを示すためのマクロ.  <br /></td></tr>
 <tr class="separator:a3bc3af387da2557ff92994625b23b0a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c33ab3cc83c611d28789e4d383737e7" id="r_a1c33ab3cc83c611d28789e4d383737e7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="toml__serialize__macro_8h.html#a1c33ab3cc83c611d28789e4d383737e7">DESIGNLAB_TOML11_SERIALIZE</a>(NAME, ...)</td></tr>
-<tr class="memdesc:a1c33ab3cc83c611d28789e4d383737e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルのシリアライズ/デシリアライズを行うためのマクロ． <br  />
- TOML11_DEFINE_CONVERSION_NON_INTRUSIVEをラッパしたもの． <br  />
- もともとのほうでは enum型を取り扱うことができなかったが， このマクロでは取り扱うことができる． <br  />
- また，クラスの説明を追加することができる． <br  />
- 注意点として，このクラスを使用する場合は， 必ずDESIGNLAB_TOML11_DESCRIPTION_CLASSを用意する必要がある．  <br /></td></tr>
+<tr class="memdesc:a1c33ab3cc83c611d28789e4d383737e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルのシリアライズ/デシリアライズを行うためのマクロ. <br  />
+ TOML11_DEFINE_CONVERSION_NON_INTRUSIVEをラッパしたもの. <br  />
+ もともとのほうでは enum型を取り扱うことができなかったが, このマクロでは取り扱うことができる. <br  />
+ また,クラスの説明を追加することができる. <br  />
+ 注意点として,このクラスを使用する場合は, 必ずDESIGNLAB_TOML11_DESCRIPTION_CLASSを用意する必要がある.  <br /></td></tr>
 <tr class="separator:a1c33ab3cc83c611d28789e4d383737e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 関数</h2></td></tr>
 <tr class="memitem:a345146097e012d45742a2341a733b2d8" id="r_a345146097e012d45742a2341a733b2d8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1toml__func.html#a345146097e012d45742a2341a733b2d8">designlab::toml_func::sjis_to_utf8_vec</a> (const std::vector&lt; std::string &gt; &amp;str_vec)</td></tr>
-<tr class="memdesc:a345146097e012d45742a2341a733b2d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列のベクターをShift-jisからUTF-8に変換する．  <br /></td></tr>
+<tr class="memdesc:a345146097e012d45742a2341a733b2d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列のベクターをShift-jisからUTF-8に変換する.  <br /></td></tr>
 <tr class="separator:a345146097e012d45742a2341a733b2d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace0724744f33cfe29e5800255fa075d0" id="r_ace0724744f33cfe29e5800255fa075d0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ace0724744f33cfe29e5800255fa075d0"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; <a class="el" href="structdesignlab_1_1impl_1_1is__toml11__available__type.html">impl::is_toml11_available_type</a>&lt; T &gt;::value &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1toml__func.html#ace0724744f33cfe29e5800255fa075d0">designlab::toml_func::SetTomlValue</a> (::toml::basic_value&lt; toml::preserve_comments, std::map &gt; *v, const std::string &amp;str, const T &amp;value)</td></tr>
-<tr class="memdesc:ace0724744f33cfe29e5800255fa075d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルに値を追加するための関数． <br  />
- enum 型と vector3 型と euler_xyz 型以外の型に対応している．  <br /></td></tr>
+<tr class="memdesc:ace0724744f33cfe29e5800255fa075d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルに値を追加するための関数. <br  />
+ enum 型と vector3 型と euler_xyz 型以外の型に対応している.  <br /></td></tr>
 <tr class="separator:ace0724744f33cfe29e5800255fa075d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac82929b3a6fe8c261f3626a8f3cf94d2" id="r_ac82929b3a6fe8c261f3626a8f3cf94d2"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ac82929b3a6fe8c261f3626a8f3cf94d2"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;!<a class="el" href="structdesignlab_1_1impl_1_1is__toml11__available__type.html">impl::is_toml11_available_type</a>&lt; T &gt;::value &amp;&amp;std::is_enum&lt; T &gt;::value &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1toml__func.html#ac82929b3a6fe8c261f3626a8f3cf94d2">designlab::toml_func::SetTomlValue</a> (::toml::basic_value&lt; toml::preserve_comments, std::map &gt; *v, const std::string &amp;str, const T &amp;value)</td></tr>
-<tr class="memdesc:ac82929b3a6fe8c261f3626a8f3cf94d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルに値を追加するための関数． <br  />
- enum 型に対応している．値を magic_enum で文字列に変換してから追加する．  <br /></td></tr>
+<tr class="memdesc:ac82929b3a6fe8c261f3626a8f3cf94d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルに値を追加するための関数. <br  />
+ enum 型に対応している.値を magic_enum で文字列に変換してから追加する.  <br /></td></tr>
 <tr class="separator:ac82929b3a6fe8c261f3626a8f3cf94d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c9dd884dfd4a4db8971e6cd8e59aba7" id="r_a0c9dd884dfd4a4db8971e6cd8e59aba7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a0c9dd884dfd4a4db8971e6cd8e59aba7"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;!<a class="el" href="structdesignlab_1_1impl_1_1is__toml11__available__type.html">impl::is_toml11_available_type</a>&lt; T &gt;::value &amp;&amp;<a class="el" href="structdesignlab_1_1impl_1_1has__output__operator.html">impl::has_output_operator</a>&lt; T &gt;::value &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1toml__func.html#a0c9dd884dfd4a4db8971e6cd8e59aba7">designlab::toml_func::SetTomlValue</a> (::toml::basic_value&lt; toml::preserve_comments, std::map &gt; *v, const std::string &amp;str, const T &amp;value)</td></tr>
-<tr class="memdesc:a0c9dd884dfd4a4db8971e6cd8e59aba7"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルに値を追加するための関数． <br  />
- 出力ストリームを実装している型に対応している． 値をストリームを用いて文字列に変換してから追加する．  <br /></td></tr>
+<tr class="memdesc:a0c9dd884dfd4a4db8971e6cd8e59aba7"><td class="mdescLeft">&#160;</td><td class="mdescRight">tomlファイルに値を追加するための関数. <br  />
+ 出力ストリームを実装している型に対応している. 値をストリームを用いて文字列に変換してから追加する.  <br /></td></tr>
 <tr class="separator:a0c9dd884dfd4a4db8971e6cd8e59aba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89333b2d7ff7f3c46acaec96ef1d2979" id="r_a89333b2d7ff7f3c46acaec96ef1d2979"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a89333b2d7ff7f3c46acaec96ef1d2979"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;!<a class="el" href="structdesignlab_1_1impl_1_1is__toml11__available__type.html">impl::is_toml11_available_type</a>&lt; T &gt;::value &amp;&amp;<a class="el" href="structdesignlab_1_1impl_1_1is__vector__of__has__output__operator.html">impl::is_vector_of_has_output_operator</a>&lt; T &gt;::value &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1toml__func.html#a89333b2d7ff7f3c46acaec96ef1d2979">designlab::toml_func::SetTomlValue</a> (::toml::basic_value&lt; toml::preserve_comments, std::map &gt; *v, const std::string &amp;str, const T &amp;value)</td></tr>
 <tr class="separator:a89333b2d7ff7f3c46acaec96ef1d2979"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0345568eeffa42f19cc64dbc8c0a2745" id="r_a0345568eeffa42f19cc64dbc8c0a2745"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a0345568eeffa42f19cc64dbc8c0a2745"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacedesignlab_1_1toml__func.html#a0345568eeffa42f19cc64dbc8c0a2745">designlab::toml_func::GetTomlValue</a> (::toml::basic_value&lt; toml::preserve_comments, std::map &gt; v, const std::string &amp;var_str)</td></tr>
-<tr class="memdesc:a0345568eeffa42f19cc64dbc8c0a2745"><td class="mdescLeft">&#160;</td><td class="mdescRight">ユーザーが直接呼ぶ関数． <a class="el" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl.html" title="プライマリ テンプレート．特殊化されない場合はコンパイルエラーになる．">GetTomlValueImpl</a> を利用してテンプレートの型を解決し， それに応じたGet関数を呼び出す．  <br /></td></tr>
+<tr class="memdesc:a0345568eeffa42f19cc64dbc8c0a2745"><td class="mdescLeft">&#160;</td><td class="mdescRight">ユーザーが直接呼ぶ関数. <a class="el" href="structdesignlab_1_1toml__func_1_1_get_toml_value_impl.html" title="プライマリ テンプレート.特殊化されない場合はコンパイルエラーになる.">GetTomlValueImpl</a> を利用してテンプレートの型を解決し, それに応じたGet関数を呼び出す.  <br /></td></tr>
 <tr class="separator:a0345568eeffa42f19cc64dbc8c0a2745"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">マクロ定義詳解</h2>
@@ -219,28 +219,26 @@ $(function() {
         </tr>
       </table>
 </div><div class="memdoc">
-<b>値:</b><div class="fragment"><div class="line"><span class="keywordflow">if</span> (desc.VN.description != <span class="stringliteral">&quot;&quot;</span>) {                                                   \</div>
-<div class="line">    if (desc.VN.table_name != <a class="code hl_variable" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a7212008e9103ff5ef65a79e0a17e8c36">::designlab::toml_func::Toml11Description::kNoTable</a>) \</div>
-<div class="line">    {                                                                              \</div>
-<div class="line">        v[desc.VN.table_name][#VN].comments().push_back(desc.VN.description);      \</div>
-<div class="line">    }                                                                              \</div>
-<div class="line">    <span class="keywordflow">else</span>                                                                           \</div>
-<div class="line">    {                                                                              \</div>
-<div class="line">        v[#VN].comments().push_back(desc.VN.description);                          \</div>
-<div class="line">    }                                                                              \</div>
-<div class="line">}</div>
-<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_toml11_description_html_a7212008e9103ff5ef65a79e0a17e8c36"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a7212008e9103ff5ef65a79e0a17e8c36">designlab::toml_func::Toml11Description::kNoTable</a></div><div class="ttdeci">static const char kNoTable[]</div><div class="ttdoc">テーブルがない場合に指定する文字列．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00046">toml_serialize_macro.h:46</a></div></div>
+<b>値:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (desc.VN.description != <span class="stringliteral">&quot;&quot;</span>) {                                          \</div>
+<div class="line">    if (desc.VN.table_name !=                                               \</div>
+<div class="line">        <a class="code hl_variable" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a7212008e9103ff5ef65a79e0a17e8c36">::designlab::toml_func::Toml11Description::kNoTable</a>) {              \</div>
+<div class="line">      v[desc.VN.table_name][#VN].comments().push_back(desc.VN.description); \</div>
+<div class="line">    } <span class="keywordflow">else</span> {                                                                \</div>
+<div class="line">      v[#VN].comments().push_back(desc.VN.description);                     \</div>
+<div class="line">    }                                                                       \</div>
+<div class="line">  }</div>
+<div class="ttc" id="astructdesignlab_1_1toml__func_1_1_toml11_description_html_a7212008e9103ff5ef65a79e0a17e8c36"><div class="ttname"><a href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a7212008e9103ff5ef65a79e0a17e8c36">designlab::toml_func::Toml11Description::kNoTable</a></div><div class="ttdeci">static const char kNoTable[]</div><div class="ttdoc">テーブルがない場合に指定する文字列.</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00040">toml_serialize_macro.h:40</a></div></div>
 </div><!-- fragment -->
-<p>DESIGNLAB_DEFINE_CONVERSION_NON_INTRUSIVEの補助マクロ． 他のファイルから呼び出さないこと． <br  />
- tomlファイルの要素にクラスの説明を追加する． もし，説明の用意がなければ説明を追加しない． </p>
+<p>DESIGNLAB_DEFINE_CONVERSION_NON_INTRUSIVEの補助マクロ. 他のファイルから呼び出さないこと. <br  />
+ tomlファイルの要素にクラスの説明を追加する. もし,説明の用意がなければ説明を追加しない. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">VN</td><td>変数名． </td></tr>
+    <tr><td class="paramname">VN</td><td>変数名. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00270">270</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00257">257</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -259,31 +257,28 @@ $(function() {
         </tr>
       </table>
 </div><div class="memdoc">
-<b>値:</b><div class="fragment"><div class="line"><span class="keywordflow">if</span> (desc.VAR.table_name != <a class="code hl_variable" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a7212008e9103ff5ef65a79e0a17e8c36">::designlab::toml_func::Toml11Description::kNoTable</a>) { \</div>
-<div class="line">    if (v.count(desc.VAR.table_name) == 0)                                        \</div>
-<div class="line">    {                                                                             \</div>
-<div class="line">        v[desc.VAR.table_name] = toml::table{};                                   \</div>
-<div class="line">    }                                                                             \</div>
-<div class="line">                                                                                  \</div>
-<div class="line">    ::designlab::toml_func::SetTomlValue(&amp;v[desc.VAR.table_name],                 \</div>
-<div class="line">        TOML11_STRINGIZE(VAR), obj.VAR);                                          \</div>
-<div class="line">}                                                                                 \</div>
-<div class="line"><span class="keywordflow">else</span>                                                                              \</div>
-<div class="line">{                                                                                 \</div>
-<div class="line">    ::designlab::toml_func::SetTomlValue(                                         \</div>
-<div class="line">        &amp;v, TOML11_STRINGIZE(VAR), obj.VAR);                                      \</div>
-<div class="line">}</div>
+<b>値:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (desc.VAR.table_name !=                                                  \</div>
+<div class="line">      <a class="code hl_variable" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a7212008e9103ff5ef65a79e0a17e8c36">::designlab::toml_func::Toml11Description::kNoTable</a>) {                  \</div>
+<div class="line">    if (v.count(desc.VAR.table_name) == 0) {                                  \</div>
+<div class="line">      v[desc.VAR.table_name] = toml::table{};                                 \</div>
+<div class="line">    }                                                                         \</div>
+<div class="line">                                                                              \</div>
+<div class="line">    ::designlab::toml_func::SetTomlValue(&amp;v[desc.VAR.table_name],             \</div>
+<div class="line">                                         TOML11_STRINGIZE(VAR), obj.VAR);     \</div>
+<div class="line">  } <span class="keywordflow">else</span> {                                                                    \</div>
+<div class="line">    ::designlab::toml_func::SetTomlValue(&amp;v, TOML11_STRINGIZE(VAR), obj.VAR); \</div>
+<div class="line">  }</div>
 </div><!-- fragment -->
-<p>DESIGNLAB_DEFINE_CONVERSION_NON_INTRUSIVEの補助マクロ． 他のファイルから呼び出さないこと． <br  />
- クラスのメンバ変数を tomlファイルに追加する． </p>
+<p>DESIGNLAB_DEFINE_CONVERSION_NON_INTRUSIVEの補助マクロ. 他のファイルから呼び出さないこと. <br  />
+ クラスのメンバ変数を tomlファイルに追加する. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">VAR</td><td>変数名． </td></tr>
+    <tr><td class="paramname">VAR</td><td>変数名. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00247">247</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00238">238</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -302,36 +297,31 @@ $(function() {
         </tr>
       </table>
 </div><div class="memdoc">
-<b>値:</b><div class="fragment"><div class="line">{                                                                          \</div>
-<div class="line">    <span class="keyword">const</span> std::string table_str = desc.VAR_NAME.table_name;                \</div>
-<div class="line">                                                                           \</div>
-<div class="line">    if (table_str == <a class="code hl_variable" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a7212008e9103ff5ef65a79e0a17e8c36">::designlab::toml_func::Toml11Description::kNoTable</a>)  \</div>
-<div class="line">    {                                                                      \</div>
-<div class="line">        obj.VAR_NAME =                                                     \</div>
-<div class="line">            <a class="code hl_function" href="namespacedesignlab_1_1toml__func.html#a0345568eeffa42f19cc64dbc8c0a2745">::designlab::toml_func::GetTomlValue</a>&lt;<span class="keyword">decltype</span>(obj.VAR_NAME)&gt;(  \</div>
-<div class="line">                v_,                                                        \</div>
-<div class="line">                TOML11_STRINGIZE(VAR_NAME));                               \</div>
-<div class="line">    }                                                                      \</div>
-<div class="line">    <span class="keywordflow">else</span>                                                                   \</div>
-<div class="line">    {                                                                      \</div>
-<div class="line">        obj.VAR_NAME =                                                     \</div>
-<div class="line">            <a class="code hl_function" href="namespacedesignlab_1_1toml__func.html#a0345568eeffa42f19cc64dbc8c0a2745">::designlab::toml_func::GetTomlValue</a>&lt;<span class="keyword">decltype</span>(obj.VAR_NAME)&gt;(  \</div>
-<div class="line">                v_[table_str],                                             \</div>
-<div class="line">                TOML11_STRINGIZE(VAR_NAME));                               \</div>
-<div class="line">    }                                                                      \</div>
-<div class="line">}</div>
-<div class="ttc" id="anamespacedesignlab_1_1toml__func_html_a0345568eeffa42f19cc64dbc8c0a2745"><div class="ttname"><a href="namespacedesignlab_1_1toml__func.html#a0345568eeffa42f19cc64dbc8c0a2745">designlab::toml_func::GetTomlValue</a></div><div class="ttdeci">T GetTomlValue(::toml::basic_value&lt; toml::preserve_comments, std::map &gt; v, const std::string &amp;var_str)</div><div class="ttdoc">ユーザーが直接呼ぶ関数． GetTomlValueImpl を利用してテンプレートの型を解決し， それに応じたGet関数を呼び出す．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00207">toml_serialize_macro.h:207</a></div></div>
+<b>値:</b><div class="fragment"><div class="line">  {                                                                         \</div>
+<div class="line">    <span class="keyword">const</span> std::string table_str = desc.VAR_NAME.table_name;                 \</div>
+<div class="line">                                                                            \</div>
+<div class="line">    if (table_str == <a class="code hl_variable" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a7212008e9103ff5ef65a79e0a17e8c36">::designlab::toml_func::Toml11Description::kNoTable</a>) { \</div>
+<div class="line">      obj.VAR_NAME =                                                        \</div>
+<div class="line">          <a class="code hl_function" href="namespacedesignlab_1_1toml__func.html#a0345568eeffa42f19cc64dbc8c0a2745">::designlab::toml_func::GetTomlValue</a>&lt;<span class="keyword">decltype</span>(obj.VAR_NAME)&gt;(     \</div>
+<div class="line">              v_, TOML11_STRINGIZE(VAR_NAME));                              \</div>
+<div class="line">    } <span class="keywordflow">else</span> {                                                                \</div>
+<div class="line">      obj.VAR_NAME =                                                        \</div>
+<div class="line">          <a class="code hl_function" href="namespacedesignlab_1_1toml__func.html#a0345568eeffa42f19cc64dbc8c0a2745">::designlab::toml_func::GetTomlValue</a>&lt;<span class="keyword">decltype</span>(obj.VAR_NAME)&gt;(     \</div>
+<div class="line">              v_[table_str], TOML11_STRINGIZE(VAR_NAME));                   \</div>
+<div class="line">    }                                                                       \</div>
+<div class="line">  }</div>
+<div class="ttc" id="anamespacedesignlab_1_1toml__func_html_a0345568eeffa42f19cc64dbc8c0a2745"><div class="ttname"><a href="namespacedesignlab_1_1toml__func.html#a0345568eeffa42f19cc64dbc8c0a2745">designlab::toml_func::GetTomlValue</a></div><div class="ttdeci">T GetTomlValue(::toml::basic_value&lt; toml::preserve_comments, std::map &gt; v, const std::string &amp;var_str)</div><div class="ttdoc">ユーザーが直接呼ぶ関数. GetTomlValueImpl を利用してテンプレートの型を解決し, それに応じたGet関数を呼び出す.</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00206">toml_serialize_macro.h:206</a></div></div>
 </div><!-- fragment -->
-<p>DESIGNLAB_DEFINE_CONVERSION_NON_INTRUSIVEの補助マクロ． 他のファイルから呼び出さないこと． <br  />
- tomlファイルからクラスのメンバ変数を取得する． </p>
+<p>DESIGNLAB_DEFINE_CONVERSION_NON_INTRUSIVEの補助マクロ. 他のファイルから呼び出さないこと. <br  />
+ tomlファイルからクラスのメンバ変数を取得する. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">VAR_NAME</td><td>変数名． </td></tr>
+    <tr><td class="paramname">VAR_NAME</td><td>変数名. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00220">220</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00218">218</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -346,20 +336,20 @@ $(function() {
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">CLASS</td><td>)</td>
-          <td>&#160;&#160;&#160;struct CLASS##Description final</td>
+          <td>&#160;&#160;&#160;  struct CLASS##Description final</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>tomlファイルに説明を追加するためのクラスの宣言を行うためのマクロ． </p>
+<p>tomlファイルに説明を追加するためのクラスの宣言を行うためのマクロ. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">CLASS</td><td>クラス名． </td></tr>
+    <tr><td class="paramname">CLASS</td><td>クラス名. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00286">286</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00270">270</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -374,21 +364,23 @@ $(function() {
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">DESCRIPTION</td><td>)</td>
-          <td>&#160;&#160;&#160;const ::std::vector&lt;::std::string&gt; file_description_vec{sjis_to_utf8(DESCRIPTION)};</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>tomlファイルにファイルの説明を追加するためのマクロ． <br  />
- DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある． </p>
+<b>値:</b><div class="fragment"><div class="line">  const ::std::vector&lt;::std::string&gt; file_description_vec{ \</div>
+<div class="line">      sjis_to_utf8(DESCRIPTION)};</div>
+</div><!-- fragment -->
+<p>tomlファイルにファイルの説明を追加するためのマクロ. <br  />
+ DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">DESCRIPTION</td><td>説明．文字列で指定する． </td></tr>
+    <tr><td class="paramname">DESCRIPTION</td><td>説明.文字列で指定する. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00300">300</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00283">283</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -407,19 +399,19 @@ $(function() {
         </tr>
       </table>
 </div><div class="memdoc">
-<b>値:</b><div class="fragment"><div class="line">const ::std::vector&lt;::std::string&gt; file_description_vec = \</div>
-<div class="line">    ::designlab::toml_func::sjis_to_utf8_vec(DESCRIPTION_VEC);</div>
+<b>値:</b><div class="fragment"><div class="line">  const ::std::vector&lt;::std::string&gt; file_description_vec =               \</div>
+<div class="line">      ::designlab::toml_func::sjis_to_utf8_vec(DESCRIPTION_VEC);</div>
 </div><!-- fragment -->
-<p>tomlファイルにファイルの説明を追加するためのマクロ． <br  />
- DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある． </p>
+<p>tomlファイルにファイルの説明を追加するためのマクロ. <br  />
+ DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">DESCRIPTION_VEC</td><td>説明．文字列の vector で指定する． </td></tr>
+    <tr><td class="paramname">DESCRIPTION_VEC</td><td>説明.文字列の vector で指定する. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00307">307</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00291">291</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -433,15 +425,15 @@ $(function() {
           <td class="memname">#define DESIGNLAB_TOML11_FILE_NO_DESCRIPTION</td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;const ::std::vector&lt;::std::string&gt; file_description_vec{};</td>
+          <td>&#160;&#160;&#160;  const ::std::vector&lt;::std::string&gt; file_description_vec{};</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>tomlファイルにファイルの説明を追加しないことを示す文字列． <br  />
- DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある． </p>
+<p>tomlファイルにファイルの説明を追加しないことを示す文字列. <br  />
+ DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある. </p>
 
-<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00293">293</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00276">276</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -452,14 +444,14 @@ $(function() {
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DESIGNLAB_TOML11_NO_TABLE&#160;&#160;&#160;<a class="el" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a7212008e9103ff5ef65a79e0a17e8c36">::designlab::toml_func::Toml11Description::kNoTable</a></td>
+          <td class="memname">#define DESIGNLAB_TOML11_NO_TABLE&#160;&#160;&#160;  <a class="el" href="structdesignlab_1_1toml__func_1_1_toml11_description.html#a7212008e9103ff5ef65a79e0a17e8c36">::designlab::toml_func::Toml11Description::kNoTable</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>tomlファイルに追加する変数をテーブルに追加しないことを示すためのマクロ． </p>
+<p>tomlファイルに追加する変数をテーブルに追加しないことを示すためのマクロ. </p>
 
-<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00346">346</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00331">331</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -489,12 +481,12 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>tomlファイルのシリアライズ/デシリアライズを行うためのマクロ． <br  />
- TOML11_DEFINE_CONVERSION_NON_INTRUSIVEをラッパしたもの． <br  />
- もともとのほうでは enum型を取り扱うことができなかったが， このマクロでは取り扱うことができる． <br  />
- また，クラスの説明を追加することができる． <br  />
- 注意点として，このクラスを使用する場合は， 必ずDESIGNLAB_TOML11_DESCRIPTION_CLASSを用意する必要がある． </p>
-<p>以下のように使用する． </p><div class="fragment"><div class="line"><span class="keyword">enum class</span> SampleEnum : <span class="keywordtype">int</span></div>
+<p>tomlファイルのシリアライズ/デシリアライズを行うためのマクロ. <br  />
+ TOML11_DEFINE_CONVERSION_NON_INTRUSIVEをラッパしたもの. <br  />
+ もともとのほうでは enum型を取り扱うことができなかったが, このマクロでは取り扱うことができる. <br  />
+ また,クラスの説明を追加することができる. <br  />
+ 注意点として,このクラスを使用する場合は, 必ずDESIGNLAB_TOML11_DESCRIPTION_CLASSを用意する必要がある. </p>
+<p>以下のように使用する. </p><div class="fragment"><div class="line"><span class="keyword">enum class</span> SampleEnum : <span class="keywordtype">int</span></div>
 <div class="line">{</div>
 <div class="line">    A,</div>
 <div class="line">    B,</div>
@@ -517,29 +509,29 @@ $(function() {
 <div class="line">    <span class="stringliteral">&quot;number&quot;</span>, <span class="stringliteral">&quot;This is Number Table.&quot;</span></div>
 <div class="line">    <span class="stringliteral">&quot;enum&quot;</span>, <span class="stringliteral">&quot;This is Enum Table.&quot;</span>);</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_define" href="toml__serialize__macro_8h.html#aa289aa4ab294185921bbdf5a563ecccb">DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION</a>(data, <span class="stringliteral">&quot;number&quot;</span>, <span class="stringliteral">&quot;This is data&quot;</span>);</div>
-<div class="line">    <a class="code hl_define" href="toml__serialize__macro_8h.html#aa289aa4ab294185921bbdf5a563ecccb">DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION</a>(</div>
+<div class="line">    <a class="code hl_define" href="toml__serialize__macro_8h.html#aa289aa4ab294185921bbdf5a563ecccb">DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION</a>(data, <span class="stringliteral">&quot;number&quot;</span>, <span class="stringliteral">&quot;This is</span></div>
+<div class="line"><span class="stringliteral">    data&quot;</span>); <a class="code hl_define" href="toml__serialize__macro_8h.html#aa289aa4ab294185921bbdf5a563ecccb">DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION</a>(</div>
 <div class="line">        str, <a class="code hl_define" href="toml__serialize__macro_8h.html#a3bc3af387da2557ff92994625b23b0a1">DESIGNLAB_TOML11_NO_TABLE</a>, <span class="stringliteral">&quot;This is str&quot;</span>);</div>
 <div class="line">    <a class="code hl_define" href="toml__serialize__macro_8h.html#aa289aa4ab294185921bbdf5a563ecccb">DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION</a>(</div>
 <div class="line">        enum_data, <span class="stringliteral">&quot;enum&quot;</span>, <span class="stringliteral">&quot;This is enum_data&quot;</span>);</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><a class="code hl_define" href="toml__serialize__macro_8h.html#a1c33ab3cc83c611d28789e4d383737e7">DESIGNLAB_TOML11_SERIALIZE</a>(Sample, data, str, enum_data);</div>
-<div class="ttc" id="atoml__serialize__macro_8h_html_a1c33ab3cc83c611d28789e4d383737e7"><div class="ttname"><a href="toml__serialize__macro_8h.html#a1c33ab3cc83c611d28789e4d383737e7">DESIGNLAB_TOML11_SERIALIZE</a></div><div class="ttdeci">#define DESIGNLAB_TOML11_SERIALIZE(NAME,...)</div><div class="ttdoc">tomlファイルのシリアライズ/デシリアライズを行うためのマクロ．   TOML11_DEFINE_CONVERSION_NON_INTRUSIVEをラッパしたもの．   もともとのほうでは enum型...</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00395">toml_serialize_macro.h:395</a></div></div>
-<div class="ttc" id="atoml__serialize__macro_8h_html_a3bc3af387da2557ff92994625b23b0a1"><div class="ttname"><a href="toml__serialize__macro_8h.html#a3bc3af387da2557ff92994625b23b0a1">DESIGNLAB_TOML11_NO_TABLE</a></div><div class="ttdeci">#define DESIGNLAB_TOML11_NO_TABLE</div><div class="ttdoc">tomlファイルに追加する変数をテーブルに追加しないことを示すためのマクロ．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00346">toml_serialize_macro.h:346</a></div></div>
-<div class="ttc" id="atoml__serialize__macro_8h_html_a486ffec54db999fb033fd3d6e8ee473b"><div class="ttname"><a href="toml__serialize__macro_8h.html#a486ffec54db999fb033fd3d6e8ee473b">DESIGNLAB_TOML11_DESCRIPTION_CLASS</a></div><div class="ttdeci">#define DESIGNLAB_TOML11_DESCRIPTION_CLASS(CLASS)</div><div class="ttdoc">tomlファイルに説明を追加するためのクラスの宣言を行うためのマクロ．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00286">toml_serialize_macro.h:286</a></div></div>
-<div class="ttc" id="atoml__serialize__macro_8h_html_a4b9bf407ecc73e60445af21101648d9b"><div class="ttname"><a href="toml__serialize__macro_8h.html#a4b9bf407ecc73e60445af21101648d9b">DESIGNLAB_TOML11_FILE_NO_DESCRIPTION</a></div><div class="ttdeci">#define DESIGNLAB_TOML11_FILE_NO_DESCRIPTION()</div><div class="ttdoc">tomlファイルにファイルの説明を追加しないことを示す文字列．   DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00293">toml_serialize_macro.h:293</a></div></div>
-<div class="ttc" id="atoml__serialize__macro_8h_html_aa289aa4ab294185921bbdf5a563ecccb"><div class="ttname"><a href="toml__serialize__macro_8h.html#aa289aa4ab294185921bbdf5a563ecccb">DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION</a></div><div class="ttdeci">#define DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(VARIABLE, TABLE, DESCRIPTION)</div><div class="ttdoc">tomlファイルに変数とファイルの説明を追加するためのマクロ．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00332">toml_serialize_macro.h:332</a></div></div>
-<div class="ttc" id="atoml__serialize__macro_8h_html_aa9a0f83348a99077238d7a8e6034c066"><div class="ttname"><a href="toml__serialize__macro_8h.html#aa9a0f83348a99077238d7a8e6034c066">DESIGNLAB_TOML11_TABLE_ADD_DESCRIPTION</a></div><div class="ttdeci">#define DESIGNLAB_TOML11_TABLE_ADD_DESCRIPTION(...)</div><div class="ttdoc">tomlファイルにテーブルの説明を追加するためのマクロ．   DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある．</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00316">toml_serialize_macro.h:316</a></div></div>
+<div class="ttc" id="atoml__serialize__macro_8h_html_a1c33ab3cc83c611d28789e4d383737e7"><div class="ttname"><a href="toml__serialize__macro_8h.html#a1c33ab3cc83c611d28789e4d383737e7">DESIGNLAB_TOML11_SERIALIZE</a></div><div class="ttdeci">#define DESIGNLAB_TOML11_SERIALIZE(NAME,...)</div><div class="ttdoc">tomlファイルのシリアライズ/デシリアライズを行うためのマクロ.   TOML11_DEFINE_CONVERSION_NON_INTRUSIVEをラッパしたもの....</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00379">toml_serialize_macro.h:379</a></div></div>
+<div class="ttc" id="atoml__serialize__macro_8h_html_a3bc3af387da2557ff92994625b23b0a1"><div class="ttname"><a href="toml__serialize__macro_8h.html#a3bc3af387da2557ff92994625b23b0a1">DESIGNLAB_TOML11_NO_TABLE</a></div><div class="ttdeci">#define DESIGNLAB_TOML11_NO_TABLE</div><div class="ttdoc">tomlファイルに追加する変数をテーブルに追加しないことを示すためのマクロ.</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00331">toml_serialize_macro.h:331</a></div></div>
+<div class="ttc" id="atoml__serialize__macro_8h_html_a486ffec54db999fb033fd3d6e8ee473b"><div class="ttname"><a href="toml__serialize__macro_8h.html#a486ffec54db999fb033fd3d6e8ee473b">DESIGNLAB_TOML11_DESCRIPTION_CLASS</a></div><div class="ttdeci">#define DESIGNLAB_TOML11_DESCRIPTION_CLASS(CLASS)</div><div class="ttdoc">tomlファイルに説明を追加するためのクラスの宣言を行うためのマクロ.</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00270">toml_serialize_macro.h:270</a></div></div>
+<div class="ttc" id="atoml__serialize__macro_8h_html_a4b9bf407ecc73e60445af21101648d9b"><div class="ttname"><a href="toml__serialize__macro_8h.html#a4b9bf407ecc73e60445af21101648d9b">DESIGNLAB_TOML11_FILE_NO_DESCRIPTION</a></div><div class="ttdeci">#define DESIGNLAB_TOML11_FILE_NO_DESCRIPTION()</div><div class="ttdoc">tomlファイルにファイルの説明を追加しないことを示す文字列.   DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある.</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00276">toml_serialize_macro.h:276</a></div></div>
+<div class="ttc" id="atoml__serialize__macro_8h_html_aa289aa4ab294185921bbdf5a563ecccb"><div class="ttname"><a href="toml__serialize__macro_8h.html#aa289aa4ab294185921bbdf5a563ecccb">DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION</a></div><div class="ttdeci">#define DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(VARIABLE, TABLE, DESCRIPTION)</div><div class="ttdoc">tomlファイルに変数とファイルの説明を追加するためのマクロ.</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00315">toml_serialize_macro.h:315</a></div></div>
+<div class="ttc" id="atoml__serialize__macro_8h_html_aa9a0f83348a99077238d7a8e6034c066"><div class="ttname"><a href="toml__serialize__macro_8h.html#aa9a0f83348a99077238d7a8e6034c066">DESIGNLAB_TOML11_TABLE_ADD_DESCRIPTION</a></div><div class="ttdeci">#define DESIGNLAB_TOML11_TABLE_ADD_DESCRIPTION(...)</div><div class="ttdoc">tomlファイルにテーブルの説明を追加するためのマクロ.   DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある.</div><div class="ttdef"><b>Definition</b> <a href="toml__serialize__macro_8h_source.html#l00299">toml_serialize_macro.h:299</a></div></div>
 </div><!-- fragment --> <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">NAME</td><td>クラス名．クラスの型を指定する． </td></tr>
-    <tr><td class="paramname">...</td><td>クラスのメンバ変数．過不足なく，全て指定する必要がある． 可変長引数なので複数指定することができる． </td></tr>
+    <tr><td class="paramname">NAME</td><td>クラス名.クラスの型を指定する. </td></tr>
+    <tr><td class="paramname">...</td><td>クラスのメンバ変数.過不足なく,全て指定する必要がある. 可変長引数なので複数指定することができる. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00395">395</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00379">379</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -558,19 +550,19 @@ $(function() {
         </tr>
       </table>
 </div><div class="memdoc">
-<b>値:</b><div class="fragment"><div class="line"><span class="keyword">const</span> std::vector&lt;std::string&gt; table_name_description_vec = \</div>
-<div class="line">    ::designlab::toml_func::sjis_to_utf8_vec({ __VA_ARGS__ });</div>
+<b>値:</b><div class="fragment"><div class="line">  <span class="keyword">const</span> std::vector&lt;std::string&gt; table_name_description_vec = \</div>
+<div class="line">      ::designlab::toml_func::sjis_to_utf8_vec({__VA_ARGS__});</div>
 </div><!-- fragment -->
-<p>tomlファイルにテーブルの説明を追加するためのマクロ． <br  />
- DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある． </p>
+<p>tomlファイルにテーブルの説明を追加するためのマクロ. <br  />
+ DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">...</td><td>テーブル名と説明． </td></tr>
+    <tr><td class="paramname">...</td><td>テーブル名と説明. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00316">316</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00299">299</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -584,15 +576,15 @@ $(function() {
           <td class="memname">#define DESIGNLAB_TOML11_TABLE_NO_DESCRIPTION</td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;const std::vector&lt;std::string&gt; table_name_description_vec = {};</td>
+          <td>&#160;&#160;&#160;  const std::vector&lt;std::string&gt; table_name_description_vec = {};</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>tomlファイルに追加するテーブルにコメントを追加しないことを示すマクロ． <br  />
- DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある． </p>
+<p>tomlファイルに追加するテーブルにコメントを追加しないことを示すマクロ. <br  />
+ DESIGNLAB_TOML11_DESCRIPTION_CLASS内に必ず記述する必要がある. </p>
 
-<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00323">323</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00307">307</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -627,21 +619,21 @@ $(function() {
         </tr>
       </table>
 </div><div class="memdoc">
-<b>値:</b><div class="fragment"><div class="line">const ::designlab::toml_func::Toml11Description VARIABLE{                       \</div>
-<div class="line">    TABLE, sjis_to_utf8(DESCRIPTION)                                            \</div>
-<div class="line">}</div>
+<b>値:</b><div class="fragment"><div class="line">  const ::designlab::toml_func::Toml11Description VARIABLE {       \</div>
+<div class="line">    TABLE, sjis_to_utf8(DESCRIPTION)                               \</div>
+<div class="line">  }</div>
 </div><!-- fragment -->
-<p>tomlファイルに変数とファイルの説明を追加するためのマクロ． </p>
+<p>tomlファイルに変数とファイルの説明を追加するためのマクロ. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">VARIABLE</td><td>変数名． </td></tr>
-    <tr><td class="paramname">TABLE</td><td>テーブル名． </td></tr>
-    <tr><td class="paramname">DESCRIPTION</td><td>説明． </td></tr>
+    <tr><td class="paramname">VARIABLE</td><td>変数名. </td></tr>
+    <tr><td class="paramname">TABLE</td><td>テーブル名. </td></tr>
+    <tr><td class="paramname">DESCRIPTION</td><td>説明. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00332">332</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00315">315</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -666,21 +658,21 @@ $(function() {
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;const <a class="el" href="structdesignlab_1_1toml__func_1_1_toml11_description.html">::designlab::toml_func::Toml11Description</a> VARIABLE{TABLE, &quot;&quot;}</td>
+          <td></td><td>&#160;&#160;&#160;  const <a class="el" href="structdesignlab_1_1toml__func_1_1_toml11_description.html">::designlab::toml_func::Toml11Description</a> VARIABLE { TABLE, &quot;&quot; }</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>ファイルの説明を追加したくない場合には，このマクロで変数を追加する． </p>
+<p>ファイルの説明を追加したくない場合には,このマクロで変数を追加する. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">VARIABLE</td><td>変数名． </td></tr>
-    <tr><td class="paramname">TABLE</td><td>テーブル名． </td></tr>
+    <tr><td class="paramname">VARIABLE</td><td>変数名. </td></tr>
+    <tr><td class="paramname">TABLE</td><td>テーブル名. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00341">341</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="toml__serialize__macro_8h_source.html">toml_serialize_macro.h</a> の <a class="el" href="toml__serialize__macro_8h_source.html#l00325">325</a> 行目に定義があります。</p>
 
 </div>
 </div>

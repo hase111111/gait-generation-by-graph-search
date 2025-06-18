@@ -1,5 +1,5 @@
 <map id="designlab::GraphViewerGUIController::Update" name="designlab::GraphViewerGUIController::Update">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,5,241,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_keyboard.html#a4de4653768e58f705d44ff44d8d0b02d" title="キー入力を更新する． これを毎フレーム実行しないと，キー入力を取得できない．" alt="" coords="289,5,428,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_keyboard.html#a4de4653768e58f705d44ff44d8d0b02d" title="キー入力を更新する. これを毎フレーム実行しないと,キー入力を取得できない." alt="" coords="289,5,428,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="241,24,273,24,273,29,241,29"/>
 </map>

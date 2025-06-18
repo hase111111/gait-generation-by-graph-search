@@ -1,0 +1,10 @@
+<map id="designlab::XrR1::ConvertRobotToGlobalCoordinate" name="designlab::XrR1::ConvertRobotToGlobalCoordinate">
+<area shape="rect" id="Node000001" title="ロボット座標系で表現されている座標を,グローバル座標系に変換する." alt="" coords="5,21,174,64"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す.三角関数の処理が多く重たいので注意." alt="" coords="222,29,389,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,40,206,40,206,45,174,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="269,30,262,21,267,11,281,5,305,3,331,5,345,12,342,16,330,10,305,8,283,10,270,15,268,20,273,27"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換." alt="" coords="437,29,619,56"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="389,40,421,40,421,45,389,45"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す. &#160;&#160;クォータニオンの正規化とは,ノルムを1にすることを表す. &#160;&#160;クォータニオンqの正規化は,q / |q| で求められる." alt="" coords="667,21,815,64"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="620,40,652,40,652,45,620,45"/>
+</map>

@@ -1,12 +1,13 @@
 <map id="designlab::TomlFileImporter::ImportOrUseDefault" name="designlab::TomlFileImporter::ImportOrUseDefault">
-<area shape="rect" id="Node000001" title="指定したファイルパスのファイルを読み込み，構造体に変換する． 読込に失敗した場合は，デフォルトの構造体を返す． また，読込に失敗した場合には， デフォルトの構造体をファイルに出力するかどうかをユーザに問..." alt="" coords="512,93,692,136"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_map_creator_factory.html#abaa5ea7c6bf775eca630b90d2140534c" title="マップを生成するクラスを生成する．" alt="" coords="269,5,464,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="528,90,425,51,427,46,530,85"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_graphic_main_display_model.html#af42c7a85c4334dec044d664a36cf7f34" title=" " alt="" coords="5,35,221,77"/>
-<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="497,105,221,72,222,66,498,100"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_robot_operator_factory.html#ac4216aad634bb9cbab1202a055b43975" title="設定ファイルからTargetUpdaterを生成する．" alt="" coords="282,123,451,165"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="497,130,451,136,451,131,496,125"/>
-<area shape="rect" id="Node000005" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="342,189,391,216"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="546,145,465,180,392,200,391,195,463,175,544,141"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="254,42,221,46,221,41,254,37"/>
+<area shape="rect" id="Node000001" title="指定したファイルパスのファイルを読み込み,構造体に変換する. 読込に失敗した場合は,デフォルトの構造体を返す. また,読込に失敗した場合には, デフォルトの構造体をファイルに出力するかどうかをユーザに問..." alt="" coords="516,93,696,136"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_robot_operator_factory.html#ac4216aad634bb9cbab1202a055b43975" title="設定ファイルからTargetUpdaterを生成する." alt="" coords="284,5,453,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="531,90,427,51,429,46,533,85"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_graphic_main_display_model.html#af42c7a85c4334dec044d664a36cf7f34" title=" " alt="" coords="5,93,221,136"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="500,114,468,113,269,113,221,114,221,109,269,108,468,108,500,109"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="88,175,138,201"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="556,146,514,165,469,180,374,195,279,199,197,197,138,193,138,188,197,192,279,194,373,189,467,175,512,160,554,141"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_map_creator_selector.html#ab8c4100a5e925b66dcdc7de6ec1354bc" title="マップを生成するクラスを生成する." alt="" coords="269,123,468,165"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="501,130,469,134,468,129,500,125"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="253,133,221,130,221,124,253,128"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="254,166,139,186,138,181,253,161"/>
 </map>

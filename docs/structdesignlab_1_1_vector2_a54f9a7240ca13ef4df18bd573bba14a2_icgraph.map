@@ -1,5 +1,5 @@
 <map id="designlab::Vector2::Vector2" name="designlab::Vector2::Vector2">
 <area shape="rect" id="Node000001" title=" " alt="" coords="183,5,312,48"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector2.html#ab1d2920dab324280e0ea0845197a44e7" title="零ベクトルを返す． 静的な関数なので Vector2::GetZeroVec() と呼ぶことができる．" alt="" coords="5,5,135,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,29,135,29,135,24,168,24"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector2.html#ab1d2920dab324280e0ea0845197a44e7" title="零ベクトルを返す. 静的な関数なので Vector2::GetZeroVec() と呼ぶことができる." alt="" coords="5,5,135,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,29,135,29,135,24,167,24"/>
 </map>

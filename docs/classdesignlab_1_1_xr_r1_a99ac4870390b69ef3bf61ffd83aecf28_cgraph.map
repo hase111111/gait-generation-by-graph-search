@@ -1,0 +1,32 @@
+<map id="designlab::XrR1::IsBodyInterferingWithGround" name="designlab::XrR1::IsBodyInterferingWithGround">
+<area shape="rect" id="Node000001" title="胴体が地面と干渉しているかどうかを判定する." alt="" coords="5,323,221,366"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_xr_r1.html#afe76db199dbd6111b1e04e92c29643f8" title="脚座標系で表現されている座標を,グローバル座標系に変換する." alt="" coords="279,56,441,99"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,321,141,277,173,220,215,161,240,133,267,109,272,105,276,109,270,113,244,137,219,164,177,223,146,280,126,323"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_xr_r1.html#af0f68fb46ee7ec585055a9590fb7c6c6" title="脚の付け根の座標(leg base position )を取得する.ロボット座標系." alt="" coords="499,8,690,51"/>
+<area shape="poly" id="edge12_Node000001_Node000003" title=" " alt="" coords="115,322,129,263,157,185,177,145,202,106,232,71,267,42,318,18,374,6,430,3,484,6,483,11,430,8,375,11,320,23,270,47,235,75,206,109,181,147,162,187,134,265,121,323"/>
+<area shape="rect" id="Node000010" href="$classdesignlab_1_1_xr_r1.html#af24aba96b533bd1d87d5b904a88aabdb" title="ロボット座標系で表現されている座標を,グローバル座標系に変換する." alt="" coords="276,123,444,166"/>
+<area shape="poly" id="edge6_Node000001_Node000010" title=" " alt="" coords="127,321,184,250,223,210,267,176,275,171,277,175,270,180,227,214,188,254,131,324"/>
+<area shape="rect" id="Node000011" href="$classdesignlab_1_1_divided_map_state.html#a22c0df011d0506e6d5106c6acd931be9" title="指定した座標を DividedMap のインデックスに変換する. 範囲外の値を指定した場合でも,値を丸めずに返す. そのため,IsInMap で範囲内に存在するかどうかを確認する必要がある." alt="" coords="269,190,451,232"/>
+<area shape="poly" id="edge8_Node000001_Node000011" title=" " alt="" coords="142,320,199,282,267,242,279,237,281,241,270,247,202,286,145,325"/>
+<area shape="rect" id="Node000012" href="$classdesignlab_1_1_divided_map_state.html#a8dcc229f5560978d2a082b326191d6ee" title="指定した座標を DividedMap のインデックスに変換する. 範囲外の値を指定した場合でも,値を丸めずに返す. そのため,IsInMap で範囲内に存在するかどうかを確認する必要がある." alt="" coords="269,256,451,299"/>
+<area shape="poly" id="edge9_Node000001_Node000012" title=" " alt="" coords="194,320,263,301,264,306,195,325"/>
+<area shape="rect" id="Node000013" href="$classdesignlab_1_1_xr_r1.html#a7497d83856d3e8470191f2961bb6a54d" title="遊脚する位置を返す,脚座標系." alt="" coords="277,323,443,366"/>
+<area shape="poly" id="edge10_Node000001_Node000013" title=" " alt="" coords="221,342,261,342,261,347,221,347"/>
+<area shape="rect" id="Node000014" href="$classdesignlab_1_1_xr_r1.html#a6d0c406b79dcf84c40ca7737f889d206" title="地面の最大高さと重心位置を最小どれだけ離すかを返す." alt="" coords="269,390,451,432"/>
+<area shape="poly" id="edge11_Node000001_Node000014" title=" " alt="" coords="195,364,264,383,263,388,194,369"/>
+<area shape="rect" id="Node000015" href="$classdesignlab_1_1_divided_map_state.html#ab758211a8b35d131d0521a6abeef86b8" title=" " alt="" coords="269,456,451,499"/>
+<area shape="poly" id="edge13_Node000001_Node000015" title=" " alt="" coords="145,364,202,403,270,442,281,447,279,452,267,447,199,407,142,369"/>
+<area shape="rect" id="Node000016" href="$classdesignlab_1_1_divided_map_state.html#a92457e5d1887c728425975db477ce3d9" title="格子状に切り分けられたマップから,最も高いZ座標を返す." alt="" coords="269,523,451,566"/>
+<area shape="poly" id="edge14_Node000001_Node000016" title=" " alt="" coords="131,365,188,435,227,474,270,509,277,513,275,518,267,513,223,478,184,438,127,368"/>
+<area shape="rect" id="Node000017" href="$namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて,その脚が接地しているかを調べる. &#160;&#160;脚は右前脚を0番として,時計回りに0,1,2,3,4,5となる.左前足が5番." alt="" coords="294,590,426,632"/>
+<area shape="poly" id="edge15_Node000001_Node000017" title=" " alt="" coords="126,365,146,409,177,465,219,524,244,552,270,576,281,583,278,587,267,580,240,555,215,528,173,468,141,412,121,367"/>
+<area shape="rect" id="Node000018" href="$classdesignlab_1_1_divided_map_state.html#a0481f063d66d9598442025a9658b69c9" title="指定した座標がマップの範囲内に存在するかどうかを返す." alt="" coords="269,656,451,699"/>
+<area shape="poly" id="edge16_Node000001_Node000018" title=" " alt="" coords="122,365,139,421,168,495,212,574,239,610,270,642,274,645,271,650,267,646,235,614,207,577,164,497,134,422,117,367"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="441,59,483,50,484,55,442,64"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す.三角関数の処理が多く重たいので注意." alt="" coords="511,110,678,136"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="442,91,508,104,507,109,441,96"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="555,111,548,101,553,91,569,85,595,83,623,86,638,92,635,97,622,91,595,88,570,90,556,95,553,100,559,108"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換." alt="" coords="738,110,921,136"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="679,120,723,120,723,126,679,126"/>
+<area shape="poly" id="edge7_Node000010_Node000004" title=" " alt="" coords="444,134,495,129,496,135,445,139"/>
+</map>

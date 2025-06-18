@@ -1,5 +1,5 @@
 <map id="designlab::DxlibCamera::InitCameraTargetLength" name="designlab::DxlibCamera::InitCameraTargetLength">
-<area shape="rect" id="Node000001" title="カメラと注視点との距離を初期化する．" alt="" coords="212,5,378,48"/>
+<area shape="rect" id="Node000001" title="カメラと注視点との距離を初期化する." alt="" coords="212,5,378,48"/>
 <area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib_camera.html#a629d7ad98ab88714cfd0fd686baa774f" title=" " alt="" coords="5,5,164,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,29,164,29,164,24,197,24"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,29,164,29,164,24,196,24"/>
 </map>

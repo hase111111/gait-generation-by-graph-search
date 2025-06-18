@@ -103,14 +103,14 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">using </span><a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a92c055e0799991e88871e2a5d4f09280">designlab::math_util::IsEqual</a>;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">using </span><a class="code hl_class" href="structdesignlab_1_1_math_const.html">designlab::MathConst</a>;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    TEST_CASE_TEMPLATE(<span class="stringliteral">&quot;値が等しい時，trueを返すべき&quot;</span>, T, <span class="keywordtype">float</span>, <span class="keywordtype">double</span>)</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    TEST_CASE_TEMPLATE(<span class="stringliteral">&quot;値が等しい時,trueを返すべき&quot;</span>, T, <span class="keywordtype">float</span>, <span class="keywordtype">double</span>)</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    {</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        CHECK(IsEqual(T(0.0), T(0.0)));</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        CHECK(IsEqual(T(1.0), T(1.0)));</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        CHECK(IsEqual(T(-1.0), T(-1.0)));</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        CHECK(IsEqual(T(325.1), T(325.1)));</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        SUBCASE(<span class="stringliteral">&quot;誤差の範囲内で等しい時，trueを返すべき&quot;</span>)</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        SUBCASE(<span class="stringliteral">&quot;誤差の範囲内で等しい時,trueを返すべき&quot;</span>)</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        {</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            CHECK(IsEqual(T(0.0), T(0.0) + MathConst&lt;T&gt;::kAllowableError / 2));</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            CHECK(IsEqual(T(0.0), T(0.0) - MathConst&lt;T&gt;::kAllowableError / 2));</div>
@@ -121,14 +121,14 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        }</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    }</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    TEST_CASE_TEMPLATE(<span class="stringliteral">&quot;値が等しくない時，falseを返すべき&quot;</span>, T, <span class="keywordtype">float</span>, <span class="keywordtype">double</span>)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    TEST_CASE_TEMPLATE(<span class="stringliteral">&quot;値が等しくない時,falseを返すべき&quot;</span>, T, <span class="keywordtype">float</span>, <span class="keywordtype">double</span>)</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    {</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        CHECK_FALSE(IsEqual(T(0.0), T(1.0)));</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        CHECK_FALSE(IsEqual(T(1.0), T(0.0)));</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        CHECK_FALSE(IsEqual(T(-1.0), T(1.0)));</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        CHECK_FALSE(IsEqual(T(325.1), T(325.2)));</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        SUBCASE(<span class="stringliteral">&quot;誤差の範囲を上回っている時，falseを返すべき&quot;</span>)</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        SUBCASE(<span class="stringliteral">&quot;誤差の範囲を上回っている時,falseを返すべき&quot;</span>)</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        {</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            CHECK_FALSE(IsEqual(T(0.0), T(0.0) + MathConst&lt;T&gt;::kAllowableError * 2));</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            CHECK_FALSE(IsEqual(T(0.0), T(0.0) - MathConst&lt;T&gt;::kAllowableError * 2));</div>
@@ -164,7 +164,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>{</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keyword">using </span><a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a3348e7fb941d17865e0077f24d1e772a">designlab::math_util::CanMakeTriangle</a>;</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    TEST_CASE_TEMPLATE(<span class="stringliteral">&quot;3角形を作ることが可能な時，trueを返すべき&quot;</span>, T, <span class="keywordtype">int</span>, <span class="keywordtype">float</span>, <span class="keywordtype">double</span>)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    TEST_CASE_TEMPLATE(<span class="stringliteral">&quot;3角形を作ることが可能な時,trueを返すべき&quot;</span>, T, <span class="keywordtype">int</span>, <span class="keywordtype">float</span>, <span class="keywordtype">double</span>)</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    {</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        CHECK(CanMakeTriangle(T(1.0), T(1.0), T(1.0)));</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        CHECK(CanMakeTriangle(T(2.0), T(2.0), T(3.0)));</div>
@@ -178,7 +178,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        CHECK(CanMakeTriangle(T(5.0), T(4.0), T(3.0)));</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    }</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    TEST_CASE_TEMPLATE(<span class="stringliteral">&quot;3角形を作ることが不可能な時，falseを返すべき&quot;</span>, T, <span class="keywordtype">int</span>, <span class="keywordtype">float</span>, <span class="keywordtype">double</span>)</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    TEST_CASE_TEMPLATE(<span class="stringliteral">&quot;3角形を作ることが不可能な時,falseを返すべき&quot;</span>, T, <span class="keywordtype">int</span>, <span class="keywordtype">float</span>, <span class="keywordtype">double</span>)</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    {</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        CHECK_FALSE(CanMakeTriangle(T(1.0), T(1.0), T(3.0)));</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        CHECK_FALSE(CanMakeTriangle(T(1.0), T(3.0), T(1.0)));</div>
@@ -208,12 +208,12 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keyword">using </span><a class="code hl_class" href="structdesignlab_1_1_math_const.html">designlab::MathConst</a>;</div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keyword">using </span><a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a58f03d996effdb034c9f644f0a6a76e5">designlab::math_util::ConvertRadToDeg</a>;</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    TEST_CASE_TEMPLATE(<span class="stringliteral">&quot;0 [rad]が渡された時，0 [deg]を返すべき&quot;</span>, T, <span class="keywordtype">float</span>, <span class="keywordtype">double</span>)</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    TEST_CASE_TEMPLATE(<span class="stringliteral">&quot;0 [rad]が渡された時,0 [deg]を返すべき&quot;</span>, T, <span class="keywordtype">float</span>, <span class="keywordtype">double</span>)</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    {</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        CHECK(ConvertRadToDeg(T(0.0)) == T(0.0));</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    }</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    TEST_CASE_TEMPLATE(<span class="stringliteral">&quot;0 [rad] ～ 3.14 [rad]の範囲の値が渡された時，0 [deg] ～ 360 [deg]の範囲で変換すべき&quot;</span>, T, <span class="keywordtype">float</span>, <span class="keywordtype">double</span>)</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    TEST_CASE_TEMPLATE(<span class="stringliteral">&quot;0 [rad] ～ 3.14 [rad]の範囲の値が渡された時,0 [deg] ～ 360 [deg]の範囲で変換すべき&quot;</span>, T, <span class="keywordtype">float</span>, <span class="keywordtype">double</span>)</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    {</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        T rad1 = T(std::numbers::pi_v&lt;float&gt; / 6);</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        T expected_deg1 = T(30.0);</div>
@@ -272,7 +272,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>{</div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keyword">using </span><a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a0fa78cd94f2775be2e2416f25675f5f8">designlab::math_util::LimitRangeAngleDeg</a>;</div>
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    TEST_CASE_TEMPLATE(<span class="stringliteral">&quot;[-180 [deg], 180 [deg] )の範囲の値が渡された時，そのまま返すべき&quot;</span>, T, <span class="keywordtype">float</span>, <span class="keywordtype">double</span>)</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    TEST_CASE_TEMPLATE(<span class="stringliteral">&quot;[-180 [deg], 180 [deg] )の範囲の値が渡された時,そのまま返すべき&quot;</span>, T, <span class="keywordtype">float</span>, <span class="keywordtype">double</span>)</div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    {</div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        CHECK(LimitRangeAngleDeg(T(-180.0)) == T(-180.0));</div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        CHECK(LimitRangeAngleDeg(T(-179.0)) == T(-179.0));</div>
@@ -284,7 +284,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        CHECK(LimitRangeAngleDeg(T(179.0)) == T(179.0));</div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    }</div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    TEST_CASE_TEMPLATE(<span class="stringliteral">&quot;-180 [deg]未満の値が渡された時，[-180 [deg], 180 [deg] )の範囲に変換して返すべき&quot;</span>, T, <span class="keywordtype">float</span>, <span class="keywordtype">double</span>)</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    TEST_CASE_TEMPLATE(<span class="stringliteral">&quot;-180 [deg]未満の値が渡された時,[-180 [deg], 180 [deg] )の範囲に変換して返すべき&quot;</span>, T, <span class="keywordtype">float</span>, <span class="keywordtype">double</span>)</div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    {</div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        CHECK(LimitRangeAngleDeg(T(-181.0)) == T(179.0));</div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        CHECK(LimitRangeAngleDeg(T(-270.0)) == T(90.0));</div>
@@ -303,7 +303,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        CHECK(LimitRangeAngleDeg(T(-1080.0)) == T(0.0));</div>
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    }</div>
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    TEST_CASE_TEMPLATE(<span class="stringliteral">&quot;180 [deg]以上の値が渡された時，[-180 [deg], 180 [deg] )の範囲に変換して返すべき&quot;</span>, T, <span class="keywordtype">float</span>, <span class="keywordtype">double</span>)</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    TEST_CASE_TEMPLATE(<span class="stringliteral">&quot;180 [deg]以上の値が渡された時,[-180 [deg], 180 [deg] )の範囲に変換して返すべき&quot;</span>, T, <span class="keywordtype">float</span>, <span class="keywordtype">double</span>)</div>
 <div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    {</div>
 <div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        CHECK(LimitRangeAngleDeg(T(180.0)) == T(-180.0));</div>
 <div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        CHECK(LimitRangeAngleDeg(T(181.0)) == T(-179.0));</div>
@@ -329,13 +329,13 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_MATH_UTIL_TEST_H_</span></div>
 <div class="ttc" id="amath__util_8h_html"><div class="ttname"><a href="math__util_8h.html">math_util.h</a></div></div>
 <div class="ttc" id="amath__util__test_8h_html_a8da02f2ef7af92c275b40e53fa68cb74"><div class="ttname"><a href="math__util__test_8h.html#a8da02f2ef7af92c275b40e53fa68cb74">TEST_SUITE</a></div><div class="ttdeci">TEST_SUITE(&quot;math_util::IsEqual&quot;)</div><div class="ttdef"><b>Definition</b> <a href="math__util__test_8h_source.html#l00018">math_util_test.h:18</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1math__util_html_a0fa78cd94f2775be2e2416f25675f5f8"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#a0fa78cd94f2775be2e2416f25675f5f8">designlab::math_util::LimitRangeAngleDeg</a></div><div class="ttdeci">T LimitRangeAngleDeg(T angle)</div><div class="ttdoc">角度を -180° ～ 180° の範囲に収める関数．</div><div class="ttdef"><b>Definition</b> <a href="math__util_8h_source.html#l00135">math_util.h:135</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1math__util_html_a3348e7fb941d17865e0077f24d1e772a"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#a3348e7fb941d17865e0077f24d1e772a">designlab::math_util::CanMakeTriangle</a></div><div class="ttdeci">constexpr bool CanMakeTriangle(const T a, const T b, const T c) noexcept</div><div class="ttdoc">3辺で三角形が作れるか調べる関数．</div><div class="ttdef"><b>Definition</b> <a href="math__util_8h_source.html#l00068">math_util.h:68</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1math__util_html_a58f03d996effdb034c9f644f0a6a76e5"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#a58f03d996effdb034c9f644f0a6a76e5">designlab::math_util::ConvertRadToDeg</a></div><div class="ttdeci">constexpr T ConvertRadToDeg(const T rad) noexcept</div><div class="ttdoc">角度を [rad]から [deg] に変換する関数．</div><div class="ttdef"><b>Definition</b> <a href="math__util_8h_source.html#l00117">math_util.h:117</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1math__util_html_a71ec8fe6a47e6e7618a53957fd0b8b10"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#a71ec8fe6a47e6e7618a53957fd0b8b10">designlab::math_util::ConvertDegToRad</a></div><div class="ttdeci">constexpr T ConvertDegToRad(const T deg) noexcept</div><div class="ttdoc">角度を [deg] から [rad] に変換する関数．</div><div class="ttdef"><b>Definition</b> <a href="math__util_8h_source.html#l00126">math_util.h:126</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1math__util_html_a92c055e0799991e88871e2a5d4f09280"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#a92c055e0799991e88871e2a5d4f09280">designlab::math_util::IsEqual</a></div><div class="ttdeci">constexpr bool IsEqual(const T num1, const T num2) noexcept</div><div class="ttdoc">C++において，小数同士の計算は誤差が出てしまう． 誤差込みで値が等しいか調べる．</div><div class="ttdef"><b>Definition</b> <a href="math__util_8h_source.html#l00045">math_util.h:45</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1math__util_html_ac1263c8ff431181d677fad31e8c96db5"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5">designlab::math_util::Squared</a></div><div class="ttdeci">constexpr T Squared(const T num) noexcept</div><div class="ttdoc">2乗した値を返す関数．</div><div class="ttdef"><b>Definition</b> <a href="math__util_8h_source.html#l00059">math_util.h:59</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_math_const_html"><div class="ttname"><a href="structdesignlab_1_1_math_const.html">designlab::MathConst</a></div><div class="ttdoc">float 型と double 型の定数を提供するクラス．</div><div class="ttdef"><b>Definition</b> <a href="math__const_8h_source.html#l00024">math_const.h:25</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1math__util_html_a0fa78cd94f2775be2e2416f25675f5f8"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#a0fa78cd94f2775be2e2416f25675f5f8">designlab::math_util::LimitRangeAngleDeg</a></div><div class="ttdeci">T LimitRangeAngleDeg(T angle)</div><div class="ttdoc">角度を -180° ～ 180° の範囲に収める関数.</div><div class="ttdef"><b>Definition</b> <a href="math__util_8h_source.html#l00128">math_util.h:128</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1math__util_html_a3348e7fb941d17865e0077f24d1e772a"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#a3348e7fb941d17865e0077f24d1e772a">designlab::math_util::CanMakeTriangle</a></div><div class="ttdeci">constexpr bool CanMakeTriangle(const T a, const T b, const T c) noexcept</div><div class="ttdoc">3辺で三角形が作れるか調べる関数.</div><div class="ttdef"><b>Definition</b> <a href="math__util_8h_source.html#l00065">math_util.h:65</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1math__util_html_a58f03d996effdb034c9f644f0a6a76e5"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#a58f03d996effdb034c9f644f0a6a76e5">designlab::math_util::ConvertRadToDeg</a></div><div class="ttdeci">constexpr T ConvertRadToDeg(const T rad) noexcept</div><div class="ttdoc">角度を [rad]から [deg] に変換する関数.</div><div class="ttdef"><b>Definition</b> <a href="math__util_8h_source.html#l00110">math_util.h:110</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1math__util_html_a71ec8fe6a47e6e7618a53957fd0b8b10"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#a71ec8fe6a47e6e7618a53957fd0b8b10">designlab::math_util::ConvertDegToRad</a></div><div class="ttdeci">constexpr T ConvertDegToRad(const T deg) noexcept</div><div class="ttdoc">角度を [deg] から [rad] に変換する関数.</div><div class="ttdef"><b>Definition</b> <a href="math__util_8h_source.html#l00119">math_util.h:119</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1math__util_html_a92c055e0799991e88871e2a5d4f09280"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#a92c055e0799991e88871e2a5d4f09280">designlab::math_util::IsEqual</a></div><div class="ttdeci">constexpr bool IsEqual(const T num1, const T num2) noexcept</div><div class="ttdoc">C++において,小数同士の計算は誤差が出てしまう. 誤差込みで値が等しいか調べる.</div><div class="ttdef"><b>Definition</b> <a href="math__util_8h_source.html#l00042">math_util.h:42</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1math__util_html_ac1263c8ff431181d677fad31e8c96db5"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5">designlab::math_util::Squared</a></div><div class="ttdeci">constexpr T Squared(const T num) noexcept</div><div class="ttdoc">2乗した値を返す関数.</div><div class="ttdef"><b>Definition</b> <a href="math__util_8h_source.html#l00055">math_util.h:55</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_math_const_html"><div class="ttname"><a href="structdesignlab_1_1_math_const.html">designlab::MathConst</a></div><div class="ttdoc">float 型と double 型の定数を提供するクラス.</div><div class="ttdef"><b>Definition</b> <a href="math__const_8h_source.html#l00022">math_const.h:22</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

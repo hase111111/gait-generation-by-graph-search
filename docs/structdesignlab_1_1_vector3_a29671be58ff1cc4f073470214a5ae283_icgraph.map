@@ -1,5 +1,5 @@
 <map id="designlab::Vector3::Cross" name="designlab::Vector3::Cross">
-<area shape="rect" id="Node000001" title="自分×引数 の外積の結果を返す．" alt="" coords="201,5,330,48"/>
+<area shape="rect" id="Node000001" title="自分×引数 の外積の結果を返す." alt="" coords="201,5,330,48"/>
 <area shape="rect" id="Node000002" href="$structdesignlab_1_1_quaternion.html#abd5b6f28d19d82dd8bddce3fb6d4d90a" title=" " alt="" coords="5,5,153,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="186,29,153,29,153,24,186,24"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,29,153,29,153,24,185,24"/>
 </map>

@@ -1,0 +1,14 @@
+<map id="designlab::XrR1::ConvertGlobalToLegCoordinate" name="designlab::XrR1::ConvertGlobalToLegCoordinate">
+<area shape="rect" id="Node000001" title="グローバル座標系で表現されている座標を,脚座標系に変換する." alt="" coords="5,72,168,115"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_quaternion.html#a893ee3dc143f059822f17ead2f716de1" title="クォータニオンの共役を返す. 共役なクォータニオンとは,ベクトル成分の符号を反転させたもの &#160;&#160;q = w + xi + yj + zk とすると, qの共役は w &#45; xi &#45; yj &#45; zk となる..." alt="" coords="238,5,385,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,69,222,50,223,56,161,74"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_xr_r1.html#af0f68fb46ee7ec585055a9590fb7c6c6" title="脚の付け根の座標(leg base position )を取得する.ロボット座標系." alt="" coords="216,72,407,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="168,91,200,91,200,96,168,96"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す.三角関数の処理が多く重たいので注意." alt="" coords="228,163,395,189"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="148,113,259,154,257,159,146,118"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="273,164,267,154,271,144,287,138,311,136,338,139,352,145,350,150,337,144,311,141,288,143,275,148,272,153,278,161"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換." alt="" coords="455,163,637,189"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="395,173,439,173,439,179,395,179"/>
+<area shape="rect" id="Node000006" href="$structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す. &#160;&#160;クォータニオンの正規化とは,ノルムを1にすることを表す. &#160;&#160;クォータニオンqの正規化は,q / |q| で求められる." alt="" coords="685,155,833,197"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="638,173,670,173,670,179,638,179"/>
+</map>

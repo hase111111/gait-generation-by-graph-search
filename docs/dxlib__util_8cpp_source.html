@@ -107,7 +107,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        SetUseLighting(TRUE);</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        SetLightEnable(TRUE);</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="comment">// ライトの設定．</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="comment">// ライトの設定.</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        ChangeLightTypeDir(<a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#aceffcb5f4496686bed7db7fc55488958">ConvertToDxlibVec</a>(<a class="code hl_function" href="structdesignlab_1_1_vector3.html#a49ed064fabc10cd349d8f02e7f8d5bfd">Vector3::GetUpVec</a>()));</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">else</span></div>
@@ -122,10 +122,10 @@ $(document).ready(function() { init_codefold(0); });
 <div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1dxlib__util.html#a5f59136031be16081cffcef06767b9e5">   37</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#a5f59136031be16081cffcef06767b9e5">SetZBufferEnable</a>()</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="comment">// Ｚバッファを有効にする．</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="comment">// Ｚバッファを有効にする.</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    SetUseZBuffer3D(TRUE);</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="comment">// Ｚバッファへの書き込みを有効にする．</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="comment">// Ｚバッファへの書き込みを有効にする.</span></div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    SetWriteZBuffer3D(TRUE);</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>}</div>
 </div>
@@ -135,7 +135,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1dxlib__util.html#aec08fe28b57053d60e3085bd20ce8b25">   47</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#aec08fe28b57053d60e3085bd20ce8b25">DrawCube3D</a>(<span class="keyword">const</span> VECTOR&amp; center_pos,</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                <span class="keyword">const</span> <span class="keywordtype">float</span> side_len, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> color)</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>{</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment">// 立方体は8つの頂点を持つので，それらの座標を計算する．</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment">// 立方体は8つの頂点を持つので,それらの座標を計算する.</span></div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">const</span> std::array&lt;VECTOR, 8&gt; vertex =</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    {</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        VGet(center_pos.x - side_len / 2, center_pos.y - side_len / 2,</div>
@@ -156,9 +156,9 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>             center_pos.z + side_len / 2)</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    };</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="comment">// 3D描画の関数は3角形を基本単位とするので，</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="comment">// 4角形の面を張りたい場合は，2つの三角形を組み合わせる必要がある．</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="comment">// つまり，6面×2つ＝12個の三角形で立方体が描画できる．</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="comment">// 3D描画の関数は3角形を基本単位とするので,</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="comment">// 4角形の面を張りたい場合は,2つの三角形を組み合わせる必要がある.</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="comment">// つまり,6面×2つ＝12個の三角形で立方体が描画できる.</span></div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    DrawTriangle3D(vertex[0], vertex[1], vertex[2], color, TRUE);</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    DrawTriangle3D(vertex[2], vertex[3], vertex[0], color, TRUE);</div>
@@ -193,8 +193,8 @@ $(document).ready(function() { init_codefold(0); });
 <div class="foldopen" id="foldopen00102" data-start="{" data-end="}">
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1dxlib__util.html#aa8892901793b338c6a643dc12d19a99e">  102</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#aa8892901793b338c6a643dc12d19a99e">DrawHexagon</a>(<span class="keyword">const</span> std::array&lt;VECTOR, 6&gt;&amp; vertex, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> color)</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>{</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="comment">// 3D描画の関数は3角形を基本単位とするので，</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="comment">// 6角形の面を張りたい場合は，4つの三角形を組み合わせる必要がある．</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="comment">// 3D描画の関数は3角形を基本単位とするので,</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="comment">// 6角形の面を張りたい場合は,4つの三角形を組み合わせる必要がある.</span></div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    DrawTriangle3D(vertex[0], vertex[1], vertex[5], color, TRUE);</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    DrawTriangle3D(vertex[1], vertex[2], vertex[4], color, TRUE);</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    DrawTriangle3D(vertex[1], vertex[4], vertex[5], color, TRUE);</div>
@@ -207,15 +207,15 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1dxlib__util.html#ad8cc0ecb50fc678af0d50370a137356e">  113</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#ad8cc0ecb50fc678af0d50370a137356e">DrawHexagonalPrism</a>(<span class="keyword">const</span> std::array&lt;VECTOR, 6&gt;&amp; vertex, <span class="keyword">const</span> <span class="keywordtype">float</span> height,</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> color)</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>{</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="comment">// 6角形面の法線方向のベクトルを取得する．</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="comment">// やっている処理としては，頂点0から1へ行くベクトルをv01，</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="comment">// 同様に頂点0から2へ行くベクトルをv02とすると，</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="comment">// v01とv02の外積(Cross)をとると法線方向のベクトルが取得できるため，</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="comment">// これを単位ベクトルに変換(Norm，ノーマライズのこと)し，高さの半分だけ倍にした．</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="comment">// 6角形面の法線方向のベクトルを取得する.</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="comment">// やっている処理としては,頂点0から1へ行くベクトルをv01,</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="comment">// 同様に頂点0から2へ行くベクトルをv02とすると,</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="comment">// v01とv02の外積(Cross)をとると法線方向のベクトルが取得できるため,</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="comment">// これを単位ベクトルに変換(Norm,ノーマライズのこと)し,高さの半分だけ倍にした.</span></div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="keyword">const</span> VECTOR center_to_top = VScale(VNorm(VCross(VSub(vertex[0], vertex[1]),</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                                        VSub(vertex[0], vertex[2]))), height / 2.0f);</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="comment">// 上面の頂点．</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="comment">// 上面の頂点.</span></div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keyword">const</span> std::array&lt;VECTOR, 6&gt; vertex_top =</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    {</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        VAdd(vertex[0], center_to_top),</div>
@@ -226,7 +226,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        VAdd(vertex[5], center_to_top)</div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    };</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="comment">// 底面の頂点．</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="comment">// 底面の頂点.</span></div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keyword">const</span> std::array&lt;VECTOR, 6&gt; vertex_bottom =</div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    {</div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        VSub(vertex[0], center_to_top),</div>
@@ -237,10 +237,10 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        VSub(vertex[5], center_to_top)</div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    };</div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#aa8892901793b338c6a643dc12d19a99e">DrawHexagon</a>(vertex_top, color);  <span class="comment">// 上面を描画する．</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#aa8892901793b338c6a643dc12d19a99e">DrawHexagon</a>(vertex_bottom, color);  <span class="comment">// 底面を描画する．</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#aa8892901793b338c6a643dc12d19a99e">DrawHexagon</a>(vertex_top, color);  <span class="comment">// 上面を描画する.</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <a class="code hl_function" href="namespacedesignlab_1_1dxlib__util.html#aa8892901793b338c6a643dc12d19a99e">DrawHexagon</a>(vertex_bottom, color);  <span class="comment">// 底面を描画する.</span></div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="comment">// 側面を描画していく．側面は四角形6つで構成されるので，3角形が12個必要になる．</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="comment">// 側面を描画していく.側面は四角形6つで構成されるので,3角形が12個必要になる.</span></div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 6; i++)</div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    {</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        DrawTriangle3D(vertex_top[i % 6],</div>
@@ -263,15 +263,15 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="adxlib__util_8h_html"><div class="ttname"><a href="dxlib__util_8h.html">dxlib_util.h</a></div></div>
 <div class="ttc" id="agraphic__const_8h_html"><div class="ttname"><a href="graphic__const_8h.html">graphic_const.h</a></div></div>
 <div class="ttc" id="amath__vector3_8h_html"><div class="ttname"><a href="math__vector3_8h.html">math_vector3.h</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html">designlab::dxlib_util</a></div><div class="ttdoc">Dxlibの3D表示を行う処理を書き直した関数をまとめた名前空間．</div><div class="ttdef"><b>Definition</b> <a href="dxlib__util_8cpp_source.html#l00016">dxlib_util.cpp:17</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_a170cac2fc964414af49c550aee6583c8"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#a170cac2fc964414af49c550aee6583c8">designlab::dxlib_util::DrawCube3DWithTopPos</a></div><div class="ttdeci">void DrawCube3DWithTopPos(const VECTOR &amp;top_pos, const float side_len, const unsigned int color)</div><div class="ttdoc">3D空間に立方体を描画する．立方体の上面の中心の座標から描画する．</div><div class="ttdef"><b>Definition</b> <a href="dxlib__util_8cpp_source.html#l00095">dxlib_util.cpp:95</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_a5f59136031be16081cffcef06767b9e5"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#a5f59136031be16081cffcef06767b9e5">designlab::dxlib_util::SetZBufferEnable</a></div><div class="ttdeci">void SetZBufferEnable()</div><div class="ttdoc">デフォルトだと描画処理を書いた順に描画されるが， これをZバッファを使用して奥行きを考慮して描画するようにする． 毎フレーム実行する必要がある．</div><div class="ttdef"><b>Definition</b> <a href="dxlib__util_8cpp_source.html#l00037">dxlib_util.cpp:37</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_a817972c248c109584a567e959799b9e6"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#a817972c248c109584a567e959799b9e6">designlab::dxlib_util::InitDxlib3DSetting</a></div><div class="ttdeci">void InitDxlib3DSetting(const bool high_quality)</div><div class="ttdoc">3D処理を行う上で必要な初期化処理をまとめたもの．</div><div class="ttdef"><b>Definition</b> <a href="dxlib__util_8cpp_source.html#l00019">dxlib_util.cpp:19</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_aa8892901793b338c6a643dc12d19a99e"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#aa8892901793b338c6a643dc12d19a99e">designlab::dxlib_util::DrawHexagon</a></div><div class="ttdeci">void DrawHexagon(const std::array&lt; VECTOR, 6 &gt; &amp;vertex, const unsigned int color)</div><div class="ttdoc">3D空間に六角形を描画する．</div><div class="ttdef"><b>Definition</b> <a href="dxlib__util_8cpp_source.html#l00102">dxlib_util.cpp:102</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_aceffcb5f4496686bed7db7fc55488958"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#aceffcb5f4496686bed7db7fc55488958">designlab::dxlib_util::ConvertToDxlibVec</a></div><div class="ttdeci">VECTOR ConvertToDxlibVec(const Vector3 &amp;vec)</div><div class="ttdoc">Dxlibの座標を示すVECTORと，このプログラムで使用しているVectorを変換する．   ロボット座標系は右手座標系， Dxlibは左手座標系（工学は右手・ゲームライブラリは左手が多い）なのでyを...</div><div class="ttdef"><b>Definition</b> <a href="dxlib__util_8h_source.html#l00035">dxlib_util.h:35</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_ad8cc0ecb50fc678af0d50370a137356e"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#ad8cc0ecb50fc678af0d50370a137356e">designlab::dxlib_util::DrawHexagonalPrism</a></div><div class="ttdeci">void DrawHexagonalPrism(const std::array&lt; VECTOR, 6 &gt; &amp;vertex, const float height, const unsigned int color)</div><div class="ttdoc">3D空間に六角柱を描画する．</div><div class="ttdef"><b>Definition</b> <a href="dxlib__util_8cpp_source.html#l00113">dxlib_util.cpp:113</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_aec08fe28b57053d60e3085bd20ce8b25"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#aec08fe28b57053d60e3085bd20ce8b25">designlab::dxlib_util::DrawCube3D</a></div><div class="ttdeci">void DrawCube3D(const VECTOR &amp;center_pos, const float side_len, const unsigned int color)</div><div class="ttdoc">3D空間に立方体を描画する．</div><div class="ttdef"><b>Definition</b> <a href="dxlib__util_8cpp_source.html#l00047">dxlib_util.cpp:47</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_vector3_html_a49ed064fabc10cd349d8f02e7f8d5bfd"><div class="ttname"><a href="structdesignlab_1_1_vector3.html#a49ed064fabc10cd349d8f02e7f8d5bfd">designlab::Vector3::GetUpVec</a></div><div class="ttdeci">static constexpr Vector3 GetUpVec() noexcept</div><div class="ttdoc">上に進む単位ベクトルを返す． 静的な関数なので，Vector3::GetUpVec() と呼び出せる．</div><div class="ttdef"><b>Definition</b> <a href="math__vector3_8h_source.html#l00223">math_vector3.h:223</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html">designlab::dxlib_util</a></div><div class="ttdoc">Dxlibの3D表示を行う処理を書き直した関数をまとめた名前空間.</div><div class="ttdef"><b>Definition</b> <a href="dxlib__util_8cpp_source.html#l00016">dxlib_util.cpp:17</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_a170cac2fc964414af49c550aee6583c8"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#a170cac2fc964414af49c550aee6583c8">designlab::dxlib_util::DrawCube3DWithTopPos</a></div><div class="ttdeci">void DrawCube3DWithTopPos(const VECTOR &amp;top_pos, const float side_len, const unsigned int color)</div><div class="ttdoc">3D空間に立方体を描画する.立方体の上面の中心の座標から描画する.</div><div class="ttdef"><b>Definition</b> <a href="dxlib__util_8cpp_source.html#l00095">dxlib_util.cpp:95</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_a5f59136031be16081cffcef06767b9e5"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#a5f59136031be16081cffcef06767b9e5">designlab::dxlib_util::SetZBufferEnable</a></div><div class="ttdeci">void SetZBufferEnable()</div><div class="ttdoc">デフォルトだと描画処理を書いた順に描画されるが, これをZバッファを使用して奥行きを考慮して描画するようにする. 毎フレーム実行する必要がある.</div><div class="ttdef"><b>Definition</b> <a href="dxlib__util_8cpp_source.html#l00037">dxlib_util.cpp:37</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_a817972c248c109584a567e959799b9e6"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#a817972c248c109584a567e959799b9e6">designlab::dxlib_util::InitDxlib3DSetting</a></div><div class="ttdeci">void InitDxlib3DSetting(const bool high_quality)</div><div class="ttdoc">3D処理を行う上で必要な初期化処理をまとめたもの.</div><div class="ttdef"><b>Definition</b> <a href="dxlib__util_8cpp_source.html#l00019">dxlib_util.cpp:19</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_aa8892901793b338c6a643dc12d19a99e"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#aa8892901793b338c6a643dc12d19a99e">designlab::dxlib_util::DrawHexagon</a></div><div class="ttdeci">void DrawHexagon(const std::array&lt; VECTOR, 6 &gt; &amp;vertex, const unsigned int color)</div><div class="ttdoc">3D空間に六角形を描画する.</div><div class="ttdef"><b>Definition</b> <a href="dxlib__util_8cpp_source.html#l00102">dxlib_util.cpp:102</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_aceffcb5f4496686bed7db7fc55488958"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#aceffcb5f4496686bed7db7fc55488958">designlab::dxlib_util::ConvertToDxlibVec</a></div><div class="ttdeci">VECTOR ConvertToDxlibVec(const Vector3 &amp;vec)</div><div class="ttdoc">Dxlibの座標を示すVECTORと,このプログラムで使用しているVectorを変換する.   ロボット座標系は右手座標系, Dxlibは左手座標系（工学は右手・ゲームライブラリは左手が多い）なのでyを...</div><div class="ttdef"><b>Definition</b> <a href="dxlib__util_8h_source.html#l00035">dxlib_util.h:35</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_ad8cc0ecb50fc678af0d50370a137356e"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#ad8cc0ecb50fc678af0d50370a137356e">designlab::dxlib_util::DrawHexagonalPrism</a></div><div class="ttdeci">void DrawHexagonalPrism(const std::array&lt; VECTOR, 6 &gt; &amp;vertex, const float height, const unsigned int color)</div><div class="ttdoc">3D空間に六角柱を描画する.</div><div class="ttdef"><b>Definition</b> <a href="dxlib__util_8cpp_source.html#l00113">dxlib_util.cpp:113</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1dxlib__util_html_aec08fe28b57053d60e3085bd20ce8b25"><div class="ttname"><a href="namespacedesignlab_1_1dxlib__util.html#aec08fe28b57053d60e3085bd20ce8b25">designlab::dxlib_util::DrawCube3D</a></div><div class="ttdeci">void DrawCube3D(const VECTOR &amp;center_pos, const float side_len, const unsigned int color)</div><div class="ttdoc">3D空間に立方体を描画する.</div><div class="ttdef"><b>Definition</b> <a href="dxlib__util_8cpp_source.html#l00047">dxlib_util.cpp:47</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3_html_a49ed064fabc10cd349d8f02e7f8d5bfd"><div class="ttname"><a href="structdesignlab_1_1_vector3.html#a49ed064fabc10cd349d8f02e7f8d5bfd">designlab::Vector3::GetUpVec</a></div><div class="ttdeci">static constexpr Vector3 GetUpVec() noexcept</div><div class="ttdoc">上に進む単位ベクトルを返す. 静的な関数なので,Vector3::GetUpVec() と呼び出せる.</div><div class="ttdef"><b>Definition</b> <a href="math__vector3_8h_source.html#l00223">math_vector3.h:223</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

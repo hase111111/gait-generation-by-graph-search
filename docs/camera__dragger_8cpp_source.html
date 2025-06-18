@@ -112,12 +112,12 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    assert(camera_ptr_ != <span class="keyword">nullptr</span>);</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment">// カーソルが動いていたら，カメラの回転を変更する．</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment">// カーソルが動いていたら,カメラの回転を変更する.</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">if</span> ((mouse_key_bit &amp; MOUSE_INPUT_LEFT) &amp;&amp; (mouse_key_bit &amp; MOUSE_INPUT_RIGHT))</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    {</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordflow">if</span> (abs(cursor_dif_x) &gt; abs(cursor_dif_y))</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <span class="comment">// カメラの回転をマウスの横移動量に合わせて変更．</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <span class="comment">// カメラの回転をマウスの横移動量に合わせて変更.</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> move_quaternion_x = { 0, 0, 0, 0 };</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            move_quaternion_x = <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a557aa980908890a7c7e5b6e2caab9301">Quaternion::MakeByAngleAxis</a>(</div>
@@ -131,7 +131,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        }</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        {</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="comment">// カメラの回転をマウスの縦移動量に合わせて変更．</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="comment">// カメラの回転をマウスの縦移動量に合わせて変更.</span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> move_quaternion_y = <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a557aa980908890a7c7e5b6e2caab9301">Quaternion::MakeByAngleAxis</a>(</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                cursor_dif_y * kCameraMoveSpeed * -1, { 0, 1, 0 });</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
@@ -144,12 +144,12 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (mouse_key_bit &amp; MOUSE_INPUT_MIDDLE)</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    {</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="comment">// ホイールクリックをしていたらカメラを回転させる．</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="comment">// XとYのどちらかの移動量が大きい方を処理する．</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="comment">// ホイールクリックをしていたらカメラを回転させる.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="comment">// XとYのどちらかの移動量が大きい方を処理する.</span></div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">if</span> (abs(cursor_dif_x) &gt; 0)</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        {</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="comment">// カメラの回転をマウスの横移動量に合わせて変更．</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="comment">// カメラの回転をマウスの横移動量に合わせて変更.</span></div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> move_quaternion_x = { 0, 0, 0, 0 };</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            move_quaternion_x = <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a557aa980908890a7c7e5b6e2caab9301">Quaternion::MakeByAngleAxis</a>(</div>
@@ -164,7 +164,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordflow">if</span> (abs(cursor_dif_y) &gt; 0)</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        {</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            <span class="comment">// カメラの回転をマウスの縦移動量に合わせて変更．</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            <span class="comment">// カメラの回転をマウスの縦移動量に合わせて変更.</span></div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            <a class="code hl_struct" href="structdesignlab_1_1_quaternion.html">Quaternion</a> move_quaternion_y = <a class="code hl_function" href="structdesignlab_1_1_quaternion.html#a557aa980908890a7c7e5b6e2caab9301">Quaternion::MakeByAngleAxis</a>(</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                cursor_dif_y * kCameraMoveSpeed * -1, { 0, 1, 0 });</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
@@ -177,7 +177,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    }</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (mouse_key_bit &amp; MOUSE_INPUT_LEFT)</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    {</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="comment">// 左クリックしていたらカメラのビュー視点の中心軸を回転軸とした回転．</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="comment">// 左クリックしていたらカメラのビュー視点の中心軸を回転軸とした回転.</span></div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="keyword">const</span> <span class="keywordtype">int</span> mouse_move =</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            abs(cursor_dif_x) &gt; abs(cursor_dif_y) ? cursor_dif_x : cursor_dif_y;</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
@@ -196,11 +196,11 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        mouse_key_bit &amp; MOUSE_INPUT_RIGHT &amp;&amp;</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        Squared(cursor_dif_x) + Squared(cursor_dif_y) &gt; Squared(kMouseMoveMargin))</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    {</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="comment">// 右クリックしていたらカメラの平行移動．</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="comment">// 右クリックしていたらカメラの平行移動.</span></div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordflow">if</span> (camera_ptr_-&gt;GetCameraViewMode() !=</div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a509fd8d7488558de09b20b067bb4dde0a57c0b31763a84285fb937d13bd6a2417">enums::CameraViewMode::kFreeControlledAndMovableTarget</a>)</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        {</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            <span class="comment">// 表示モードを注視点を自由に動かせるモードに変更．</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            <span class="comment">// 表示モードを注視点を自由に動かせるモードに変更.</span></div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            camera_ptr_-&gt;SetCameraViewMode(</div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                <a class="code hl_enumvalue" href="namespacedesignlab_1_1enums.html#a509fd8d7488558de09b20b067bb4dde0a57c0b31763a84285fb937d13bd6a2417">enums::CameraViewMode::kFreeControlledAndMovableTarget</a>);</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        }</div>
@@ -224,12 +224,12 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            move_vec_y = <a class="code hl_function" href="namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d">RotateVector3</a>(move_vec_y, camera_ptr_-&gt;GetCameraQuat());</div>
 <div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        }</div>
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        <span class="comment">// 現在のターゲット座標を取得．</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        <span class="comment">// 現在のターゲット座標を取得.</span></div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        <a class="code hl_struct" href="structdesignlab_1_1_vector3.html">Vector3</a> now_target_pos = camera_ptr_-&gt;GetFreeTargetPos();</div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        now_target_pos = now_target_pos + move_vec_x + move_vec_y;  <span class="comment">// 移動量を加算．</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        now_target_pos = now_target_pos + move_vec_x + move_vec_y;  <span class="comment">// 移動量を加算.</span></div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        camera_ptr_-&gt;SetFreeTargetPos(now_target_pos);  <span class="comment">// ターゲット座標を更新．</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        camera_ptr_-&gt;SetFreeTargetPos(now_target_pos);  <span class="comment">// ターゲット座標を更新.</span></div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    }</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>}</div>
 </div>
@@ -245,17 +245,17 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="acamera__dragger_8h_html"><div class="ttname"><a href="camera__dragger_8h.html">camera_dragger.h</a></div></div>
 <div class="ttc" id="acassert__define_8h_html"><div class="ttname"><a href="cassert__define_8h.html">cassert_define.h</a></div></div>
 <div class="ttc" id="aclassdesignlab_1_1_camera_dragger_html_a012b8429c3088b6ea81860f8966d10b1"><div class="ttname"><a href="classdesignlab_1_1_camera_dragger.html#a012b8429c3088b6ea81860f8966d10b1">designlab::CameraDragger::CameraDragger</a></div><div class="ttdeci">CameraDragger(const std::shared_ptr&lt; DxlibCamera &gt; camera)</div><div class="ttdef"><b>Definition</b> <a href="camera__dragger_8cpp_source.html#l00017">camera_dragger.cpp:17</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_camera_dragger_html_ad9f9da3070ea76a8ae205590e5599d10"><div class="ttname"><a href="classdesignlab_1_1_camera_dragger.html#ad9f9da3070ea76a8ae205590e5599d10">designlab::CameraDragger::DraggedAction</a></div><div class="ttdeci">void DraggedAction(int cursor_dif_x, int cursor_dif_y, unsigned int mouse_key_bit) override</div><div class="ttdoc">ドラッグ中の処理を行う．   カーソルは上にあるけど，ドラッグ中ではない場合でも呼び出される．</div><div class="ttdef"><b>Definition</b> <a href="camera__dragger_8cpp_source.html#l00023">camera_dragger.cpp:23</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_camera_dragger_html_afa61d97fd475b8510e7db1bc78e22408"><div class="ttname"><a href="classdesignlab_1_1_camera_dragger.html#afa61d97fd475b8510e7db1bc78e22408">designlab::CameraDragger::RotMouseWheel</a></div><div class="ttdeci">void RotMouseWheel(int rot) const override</div><div class="ttdoc">マウスホイールが回転したときの処理を行う．   マウスホイールが回転したときに呼び出される．</div><div class="ttdef"><b>Definition</b> <a href="camera__dragger_8cpp_source.html#l00151">camera_dragger.cpp:151</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_camera_dragger_html_ad9f9da3070ea76a8ae205590e5599d10"><div class="ttname"><a href="classdesignlab_1_1_camera_dragger.html#ad9f9da3070ea76a8ae205590e5599d10">designlab::CameraDragger::DraggedAction</a></div><div class="ttdeci">void DraggedAction(int cursor_dif_x, int cursor_dif_y, unsigned int mouse_key_bit) override</div><div class="ttdoc">ドラッグ中の処理を行う.   カーソルは上にあるけど,ドラッグ中ではない場合でも呼び出される.</div><div class="ttdef"><b>Definition</b> <a href="camera__dragger_8cpp_source.html#l00023">camera_dragger.cpp:23</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_camera_dragger_html_afa61d97fd475b8510e7db1bc78e22408"><div class="ttname"><a href="classdesignlab_1_1_camera_dragger.html#afa61d97fd475b8510e7db1bc78e22408">designlab::CameraDragger::RotMouseWheel</a></div><div class="ttdeci">void RotMouseWheel(int rot) const override</div><div class="ttdoc">マウスホイールが回転したときの処理を行う.   マウスホイールが回転したときに呼び出される.</div><div class="ttdef"><b>Definition</b> <a href="camera__dragger_8cpp_source.html#l00151">camera_dragger.cpp:151</a></div></div>
 <div class="ttc" id="adxlib__util_8h_html"><div class="ttname"><a href="dxlib__util_8h.html">dxlib_util.h</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1enums_html_a509fd8d7488558de09b20b067bb4dde0a57c0b31763a84285fb937d13bd6a2417"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#a509fd8d7488558de09b20b067bb4dde0a57c0b31763a84285fb937d13bd6a2417">designlab::enums::CameraViewMode::kFreeControlledAndMovableTarget</a></div><div class="ttdeci">@ kFreeControlledAndMovableTarget</div><div class="ttdoc">自由に操作可能かつ注視点を設定可能．</div></div>
-<div class="ttc" id="anamespacedesignlab_1_1math__util_html_ac1263c8ff431181d677fad31e8c96db5"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5">designlab::math_util::Squared</a></div><div class="ttdeci">constexpr T Squared(const T num) noexcept</div><div class="ttdoc">2乗した値を返す関数．</div><div class="ttdef"><b>Definition</b> <a href="math__util_8h_source.html#l00059">math_util.h:59</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1enums_html_a509fd8d7488558de09b20b067bb4dde0a57c0b31763a84285fb937d13bd6a2417"><div class="ttname"><a href="namespacedesignlab_1_1enums.html#a509fd8d7488558de09b20b067bb4dde0a57c0b31763a84285fb937d13bd6a2417">designlab::enums::CameraViewMode::kFreeControlledAndMovableTarget</a></div><div class="ttdeci">@ kFreeControlledAndMovableTarget</div><div class="ttdoc">自由に操作可能かつ注視点を設定可能.</div></div>
+<div class="ttc" id="anamespacedesignlab_1_1math__util_html_ac1263c8ff431181d677fad31e8c96db5"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5">designlab::math_util::Squared</a></div><div class="ttdeci">constexpr T Squared(const T num) noexcept</div><div class="ttdoc">2乗した値を返す関数.</div><div class="ttdef"><b>Definition</b> <a href="math__util_8h_source.html#l00055">math_util.h:55</a></div></div>
 <div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00017">abstract_dxlib_gui.cpp:18</a></div></div>
-<div class="ttc" id="anamespacedesignlab_html_a703ec0b7e06057a8997a4b22d50c5c9d"><div class="ttname"><a href="namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d">designlab::RotateVector3</a></div><div class="ttdeci">Vector3 RotateVector3(const Vector3 &amp;vec, const EulerXYZ &amp;rot)</div><div class="ttdoc">回転させたベクトルを返す．三角関数の処理が多く重たいので注意．</div><div class="ttdef"><b>Definition</b> <a href="math__euler_8cpp_source.html#l00054">math_euler.cpp:54</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_quaternion_html"><div class="ttname"><a href="structdesignlab_1_1_quaternion.html">designlab::Quaternion</a></div><div class="ttdoc">クォータニオンを表す構造体．</div><div class="ttdef"><b>Definition</b> <a href="math__quaternion_8h_source.html#l00037">math_quaternion.h:38</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_quaternion_html_a2c504d31353e189b1fa7a83cfd60deba"><div class="ttname"><a href="structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba">designlab::Quaternion::GetNormalized</a></div><div class="ttdeci">Quaternion GetNormalized() const noexcept</div><div class="ttdoc">正規化したクォータニオンを返す．   クォータニオンの正規化とは，ノルムを1にすることを表す．   クォータニオンqの正規化は，q / |q| で求められる．</div><div class="ttdef"><b>Definition</b> <a href="math__quaternion_8cpp_source.html#l00018">math_quaternion.cpp:18</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_quaternion_html_a557aa980908890a7c7e5b6e2caab9301"><div class="ttname"><a href="structdesignlab_1_1_quaternion.html#a557aa980908890a7c7e5b6e2caab9301">designlab::Quaternion::MakeByAngleAxis</a></div><div class="ttdeci">static Quaternion MakeByAngleAxis(float rad_angle, const Vector3 &amp;axis)</div><div class="ttdoc">回転軸と回転角からクォータニオンを作成する．   q = cos(θ/2) * w + sin(θ/2) * { v.x + v.y + v.z } となる． ノルムは必ず1になる．</div><div class="ttdef"><b>Definition</b> <a href="math__quaternion_8cpp_source.html#l00031">math_quaternion.cpp:31</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_vector3_html"><div class="ttname"><a href="structdesignlab_1_1_vector3.html">designlab::Vector3</a></div><div class="ttdoc">3次元の位置ベクトルを表す構造体．</div><div class="ttdef"><b>Definition</b> <a href="math__vector3_8h_source.html#l00039">math_vector3.h:40</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html_a703ec0b7e06057a8997a4b22d50c5c9d"><div class="ttname"><a href="namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d">designlab::RotateVector3</a></div><div class="ttdeci">Vector3 RotateVector3(const Vector3 &amp;vec, const EulerXYZ &amp;rot)</div><div class="ttdoc">回転させたベクトルを返す.三角関数の処理が多く重たいので注意.</div><div class="ttdef"><b>Definition</b> <a href="math__euler_8cpp_source.html#l00050">math_euler.cpp:50</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_quaternion_html"><div class="ttname"><a href="structdesignlab_1_1_quaternion.html">designlab::Quaternion</a></div><div class="ttdoc">クォータニオンを表す構造体.</div><div class="ttdef"><b>Definition</b> <a href="math__quaternion_8h_source.html#l00037">math_quaternion.h:38</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_quaternion_html_a2c504d31353e189b1fa7a83cfd60deba"><div class="ttname"><a href="structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba">designlab::Quaternion::GetNormalized</a></div><div class="ttdeci">Quaternion GetNormalized() const noexcept</div><div class="ttdoc">正規化したクォータニオンを返す.   クォータニオンの正規化とは,ノルムを1にすることを表す.   クォータニオンqの正規化は,q / |q| で求められる.</div><div class="ttdef"><b>Definition</b> <a href="math__quaternion_8cpp_source.html#l00018">math_quaternion.cpp:18</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_quaternion_html_a557aa980908890a7c7e5b6e2caab9301"><div class="ttname"><a href="structdesignlab_1_1_quaternion.html#a557aa980908890a7c7e5b6e2caab9301">designlab::Quaternion::MakeByAngleAxis</a></div><div class="ttdeci">static Quaternion MakeByAngleAxis(float rad_angle, const Vector3 &amp;axis)</div><div class="ttdoc">回転軸と回転角からクォータニオンを作成する.   q = cos(θ/2) * w + sin(θ/2) * { v.x + v.y + v.z } となる. ノルムは必ず1になる.</div><div class="ttdef"><b>Definition</b> <a href="math__quaternion_8cpp_source.html#l00031">math_quaternion.cpp:31</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3_html"><div class="ttname"><a href="structdesignlab_1_1_vector3.html">designlab::Vector3</a></div><div class="ttdoc">3次元の位置ベクトルを表す構造体.</div><div class="ttdef"><b>Definition</b> <a href="math__vector3_8h_source.html#l00039">math_vector3.h:40</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

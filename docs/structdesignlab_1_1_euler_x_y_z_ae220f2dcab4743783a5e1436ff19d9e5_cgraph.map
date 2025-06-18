@@ -1,5 +1,5 @@
 <map id="designlab::EulerXYZ::SetDeg" name="designlab::EulerXYZ::SetDeg">
-<area shape="rect" id="Node000001" title="オイラー角を 単位 度 [deg] で初期化する．" alt="" coords="5,5,143,48"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a71ec8fe6a47e6e7618a53957fd0b8b10" title="角度を [deg] から [rad] に変換する関数．" alt="" coords="191,5,328,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,24,176,24,176,29,143,29"/>
+<area shape="rect" id="Node000001" title="オイラー角を 単位 度 [deg] で初期化する." alt="" coords="5,5,143,48"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a71ec8fe6a47e6e7618a53957fd0b8b10" title="角度を [deg] から [rad] に変換する関数." alt="" coords="191,5,328,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,24,175,24,175,29,143,29"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="designlab::impl::has_input_operator&lt; T, decltype(std::declval&lt; std::istream &amp; &gt;() &gt; &gt; std::declval&lt; T &amp; &gt;(), std::declval&lt; void &gt;())&gt;" name="designlab::impl::has_input_operator&lt; T, decltype(std::declval&lt; std::istream &amp; &gt;() &gt; &gt; std::declval&lt; T &amp; &gt;(), std::declval&lt; void &gt;())&gt;">
-<area shape="rect" id="Node000001" title="入力ストリームが実装されているか判断するメタ関数．" alt="" coords="5,80,192,171"/>
+<area shape="rect" id="Node000001" title="入力ストリームが実装されているか判断するメタ関数." alt="" coords="5,80,192,171"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="48,5,149,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,47,101,80,96,80,96,47"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,48,101,80,96,80,96,48"/>
 </map>

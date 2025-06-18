@@ -1,0 +1,11 @@
+<map id="designlab::XrR1" name="designlab::XrR1">
+<area shape="rect" id="Node000001" title=" " alt="" coords="254,113,365,140"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_hexapod_coordinate_converter.html" title="ロボットは重心位置・アクチュエータなど様々な点を基準とする座標系を持つ. これらを相互に変換する処理のインターフェース." alt="" coords="5,5,206,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,52,207,58,254,84,291,111,288,115,251,89,204,62,192,57"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_i_hexapod_joint_calculator.html" title="間接角度や角速度を計算する処理のインターフェース." alt="" coords="23,72,188,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="204,107,254,115,253,120,203,112"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_i_hexapod_state_presenter.html" title="6脚ロボットの状態を表示するクラス." alt="" coords="21,139,190,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="205,141,253,133,254,138,206,146"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_i_hexapod_posture_validator.html" title="6脚ロボットが有効な姿勢をとっているかを チェックする処理のインターフェース." alt="" coords="14,205,197,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="192,197,204,191,251,164,288,138,291,143,254,169,207,196,194,202"/>
+</map>

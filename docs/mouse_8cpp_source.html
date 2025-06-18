@@ -126,31 +126,31 @@ $(document).ready(function() { init_codefold(0); });
 <div class="foldopen" id="foldopen00042" data-start="{" data-end="}">
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_mouse.html#a6168c87684c1d827824bb33187a2bc16">   42</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classdesignlab_1_1_mouse.html#a6168c87684c1d827824bb33187a2bc16">Mouse::Update</a>()</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>{</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="comment">// マウスの位置取得．</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="comment">// マウスの位置取得.</span></div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    cursor_past_pos_x_ = cursor_pos_x_;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    cursor_past_pos_y_ = cursor_pos_y_;</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    GetMousePoint(&amp;cursor_pos_x_, &amp;cursor_pos_y_);</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="comment">// マウスのクリック取得．</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="comment">// マウスのクリック取得.</span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> mouse_input = GetMouseInput();</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; i : kMouseKeyCodes)</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    {</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordflow">if</span> (mouse_input &amp; i)</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        {</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            <span class="comment">// 押されているなら．</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            <span class="comment">// 押されているなら.</span></div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            pushing_counter_[i]++;</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            releasing_counter_[i] = 0;</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        }</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        {</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            <span class="comment">// 離されているなら．</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            <span class="comment">// 離されているなら.</span></div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            pushing_counter_[i] = 0;</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            releasing_counter_[i]++;</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        }</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="comment">// ホイール回転を取得，GetMouseWheelRotVol()は前回の呼び出し以降の回転量を返す．</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="comment">// ホイール回転を取得,GetMouseWheelRotVol()は前回の呼び出し以降の回転量を返す.</span></div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    wheel_rot_ = GetMouseWheelRotVol();</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>}</div>
 </div>
@@ -158,8 +158,8 @@ $(document).ready(function() { init_codefold(0); });
 <div class="foldopen" id="foldopen00072" data-start="{" data-end="}">
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_mouse.html#a2d743cdb60f507974f6a1a771b77fef4">   72</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="classdesignlab_1_1_mouse.html#a2d743cdb60f507974f6a1a771b77fef4">Mouse::GetPressingCount</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> mouse_code)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="comment">// std::mapでは find も count も処理速度は同じくらい，</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="comment">// multimap や multiset は find を推奨する．</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="comment">// std::mapでは find も count も処理速度は同じくらい,</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="comment">// multimap や multiset は find を推奨する.</span></div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordflow">if</span> (releasing_counter_.count(mouse_code) == 0)</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    {</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordflow">return</span> -1;</div>
@@ -204,16 +204,16 @@ $(document).ready(function() { init_codefold(0); });
 </div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>}  <span class="comment">// namespace designlab</span></div>
-<div class="ttc" id="aclassdesignlab_1_1_mouse_html_a2d0b65b6e6652c690211860b39a80da5"><div class="ttname"><a href="classdesignlab_1_1_mouse.html#a2d0b65b6e6652c690211860b39a80da5">designlab::Mouse::GetDiffPosX</a></div><div class="ttdeci">int GetDiffPosX() const</div><div class="ttdoc">マウスカーソルの移動量を取得する． X座標は画面の左端を0として，右向きが正． これは Dxlib の仕様なので変更不能．</div><div class="ttdef"><b>Definition</b> <a href="mouse_8cpp_source.html#l00094">mouse.cpp:94</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_mouse_html_a2d743cdb60f507974f6a1a771b77fef4"><div class="ttname"><a href="classdesignlab_1_1_mouse.html#a2d743cdb60f507974f6a1a771b77fef4">designlab::Mouse::GetPressingCount</a></div><div class="ttdeci">int GetPressingCount(int mouse_code) const</div><div class="ttdoc">ボタンが押されているフレーム数を取得する．</div><div class="ttdef"><b>Definition</b> <a href="mouse_8cpp_source.html#l00072">mouse.cpp:72</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_mouse_html_a497b0f0ffbaade89343ec1c457c6c0d3"><div class="ttname"><a href="classdesignlab_1_1_mouse.html#a497b0f0ffbaade89343ec1c457c6c0d3">designlab::Mouse::GetReleasingCount</a></div><div class="ttdeci">int GetReleasingCount(int mouse_code) const</div><div class="ttdoc">ボタンが離されているフレーム数を取得する．</div><div class="ttdef"><b>Definition</b> <a href="mouse_8cpp_source.html#l00084">mouse.cpp:84</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_mouse_html_a6168c87684c1d827824bb33187a2bc16"><div class="ttname"><a href="classdesignlab_1_1_mouse.html#a6168c87684c1d827824bb33187a2bc16">designlab::Mouse::Update</a></div><div class="ttdeci">void Update()</div><div class="ttdoc">マウス入力を更新する．これを毎フレーム実行しないと， マウス入力を取得できない．</div><div class="ttdef"><b>Definition</b> <a href="mouse_8cpp_source.html#l00042">mouse.cpp:42</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_mouse_html_a2d0b65b6e6652c690211860b39a80da5"><div class="ttname"><a href="classdesignlab_1_1_mouse.html#a2d0b65b6e6652c690211860b39a80da5">designlab::Mouse::GetDiffPosX</a></div><div class="ttdeci">int GetDiffPosX() const</div><div class="ttdoc">マウスカーソルの移動量を取得する. X座標は画面の左端を0として,右向きが正. これは Dxlib の仕様なので変更不能.</div><div class="ttdef"><b>Definition</b> <a href="mouse_8cpp_source.html#l00094">mouse.cpp:94</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_mouse_html_a2d743cdb60f507974f6a1a771b77fef4"><div class="ttname"><a href="classdesignlab_1_1_mouse.html#a2d743cdb60f507974f6a1a771b77fef4">designlab::Mouse::GetPressingCount</a></div><div class="ttdeci">int GetPressingCount(int mouse_code) const</div><div class="ttdoc">ボタンが押されているフレーム数を取得する.</div><div class="ttdef"><b>Definition</b> <a href="mouse_8cpp_source.html#l00072">mouse.cpp:72</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_mouse_html_a497b0f0ffbaade89343ec1c457c6c0d3"><div class="ttname"><a href="classdesignlab_1_1_mouse.html#a497b0f0ffbaade89343ec1c457c6c0d3">designlab::Mouse::GetReleasingCount</a></div><div class="ttdeci">int GetReleasingCount(int mouse_code) const</div><div class="ttdoc">ボタンが離されているフレーム数を取得する.</div><div class="ttdef"><b>Definition</b> <a href="mouse_8cpp_source.html#l00084">mouse.cpp:84</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_mouse_html_a6168c87684c1d827824bb33187a2bc16"><div class="ttname"><a href="classdesignlab_1_1_mouse.html#a6168c87684c1d827824bb33187a2bc16">designlab::Mouse::Update</a></div><div class="ttdeci">void Update()</div><div class="ttdoc">マウス入力を更新する.これを毎フレーム実行しないと, マウス入力を取得できない.</div><div class="ttdef"><b>Definition</b> <a href="mouse_8cpp_source.html#l00042">mouse.cpp:42</a></div></div>
 <div class="ttc" id="aclassdesignlab_1_1_mouse_html_a854188bf64a72fad6f51744a1f00e836"><div class="ttname"><a href="classdesignlab_1_1_mouse.html#a854188bf64a72fad6f51744a1f00e836">designlab::Mouse::Mouse</a></div><div class="ttdeci">Mouse()</div><div class="ttdef"><b>Definition</b> <a href="mouse_8cpp_source.html#l00020">mouse.cpp:20</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_mouse_html_a871bbb03d9b5f2b4159725f76dcd7e9a"><div class="ttname"><a href="classdesignlab_1_1_mouse.html#a871bbb03d9b5f2b4159725f76dcd7e9a">designlab::Mouse::GetDiffPosY</a></div><div class="ttdeci">int GetDiffPosY() const</div><div class="ttdoc">マウスカーソルの移動量を取得する． Y座標は画面の上端を0として，下向きが正． これは Dxlib の仕様なので変更不能．</div><div class="ttdef"><b>Definition</b> <a href="mouse_8cpp_source.html#l00099">mouse.cpp:99</a></div></div>
-<div class="ttc" id="aclassdesignlab_1_1_mouse_html_ab9a3594d08805c288bb7daabd35e9749"><div class="ttname"><a href="classdesignlab_1_1_mouse.html#ab9a3594d08805c288bb7daabd35e9749">designlab::Mouse::GetDiffPos</a></div><div class="ttdeci">double GetDiffPos() const</div><div class="ttdoc">マウスカーソルの移動量を取得する．</div><div class="ttdef"><b>Definition</b> <a href="mouse_8cpp_source.html#l00104">mouse.cpp:104</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_mouse_html_a871bbb03d9b5f2b4159725f76dcd7e9a"><div class="ttname"><a href="classdesignlab_1_1_mouse.html#a871bbb03d9b5f2b4159725f76dcd7e9a">designlab::Mouse::GetDiffPosY</a></div><div class="ttdeci">int GetDiffPosY() const</div><div class="ttdoc">マウスカーソルの移動量を取得する. Y座標は画面の上端を0として,下向きが正. これは Dxlib の仕様なので変更不能.</div><div class="ttdef"><b>Definition</b> <a href="mouse_8cpp_source.html#l00099">mouse.cpp:99</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_mouse_html_ab9a3594d08805c288bb7daabd35e9749"><div class="ttname"><a href="classdesignlab_1_1_mouse.html#ab9a3594d08805c288bb7daabd35e9749">designlab::Mouse::GetDiffPos</a></div><div class="ttdeci">double GetDiffPos() const</div><div class="ttdoc">マウスカーソルの移動量を取得する.</div><div class="ttdef"><b>Definition</b> <a href="mouse_8cpp_source.html#l00104">mouse.cpp:104</a></div></div>
 <div class="ttc" id="amath__util_8h_html"><div class="ttname"><a href="math__util_8h.html">math_util.h</a></div></div>
 <div class="ttc" id="amouse_8h_html"><div class="ttname"><a href="mouse_8h.html">mouse.h</a></div></div>
-<div class="ttc" id="anamespacedesignlab_1_1math__util_html_ac1263c8ff431181d677fad31e8c96db5"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5">designlab::math_util::Squared</a></div><div class="ttdeci">constexpr T Squared(const T num) noexcept</div><div class="ttdoc">2乗した値を返す関数．</div><div class="ttdef"><b>Definition</b> <a href="math__util_8h_source.html#l00059">math_util.h:59</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1math__util_html_ac1263c8ff431181d677fad31e8c96db5"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#ac1263c8ff431181d677fad31e8c96db5">designlab::math_util::Squared</a></div><div class="ttdeci">constexpr T Squared(const T num) noexcept</div><div class="ttdoc">2乗した値を返す関数.</div><div class="ttdef"><b>Definition</b> <a href="math__util_8h_source.html#l00055">math_util.h:55</a></div></div>
 <div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00017">abstract_dxlib_gui.cpp:18</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

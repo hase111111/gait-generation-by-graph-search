@@ -1,5 +1,5 @@
 <map id="designlab::ComCandidatePolygonMaker::MakeCandidatePolygon" name="designlab::ComCandidatePolygonMaker::MakeCandidatePolygon">
-<area shape="rect" id="Node000001" title="現在のロボットの状態を表すノードから， 重心位置の候補地点を示す多角形を作成する．" alt="" coords="237,5,453,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_node_creator_com_move.html#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する．" alt="" coords="5,5,189,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,29,189,29,189,24,222,24"/>
+<area shape="rect" id="Node000001" title="現在のロボットの状態を表すノードから, 重心位置の候補地点を示す多角形を作成する." alt="" coords="237,5,453,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_node_creator_com_move.html#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する." alt="" coords="5,5,189,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,29,189,29,189,24,221,24"/>
 </map>

@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: DesignLab/xr_r1_const.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">xr_r1_const.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="xr__r1__const_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Copyright(c) 2023-2025 Design Engineering Laboratory, Saitama University</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// Released under the MIT license</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// https://opensource.org/licenses/mit-license.php</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DESIGNLAB_XR_R1_CONST_H_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DESIGNLAB_XR_R1_CONST_H_</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="cassert__define_8h.html">cassert_define.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="math__util_8h.html">math_util.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab.html">designlab</a> {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html">   23</a></span><span class="keyword">class </span><a class="code hl_class" href="classdesignlab_1_1_xr_r1_const.html">XrR1Const</a> final {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">constexpr</span> <span class="keyword">static</span>  <span class="keywordtype">int</span> kPhantomXLegNum = 6;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="comment">// コンストラクタとコピーコンストラクタを削除し,実体を生成できないようにする.</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html#a50369caab776041db9e8fd38735cefbb">   29</a></span>    <a class="code hl_function" href="classdesignlab_1_1_xr_r1_const.html#a50369caab776041db9e8fd38735cefbb">XrR1Const</a>() = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html#a1372428bb126a2277d52b4be8c168b80">   30</a></span>    <a class="code hl_function" href="classdesignlab_1_1_xr_r1_const.html#a1372428bb126a2277d52b4be8c168b80">XrR1Const</a>(<span class="keyword">const</span> <a class="code hl_class" href="classdesignlab_1_1_xr_r1_const.html">XrR1Const</a>&amp; other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html#ad3e4bffbe3749edae5de38c92246959e">   31</a></span>    <a class="code hl_class" href="classdesignlab_1_1_xr_r1_const.html">XrR1Const</a>&amp; <a class="code hl_function" href="classdesignlab_1_1_xr_r1_const.html#ad3e4bffbe3749edae5de38c92246959e">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classdesignlab_1_1_xr_r1_const.html">XrR1Const</a>&amp; other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html#a5cd4509822aa123f34ead83ac792d856">   32</a></span>    <a class="code hl_function" href="classdesignlab_1_1_xr_r1_const.html#a5cd4509822aa123f34ead83ac792d856">XrR1Const</a>(<a class="code hl_class" href="classdesignlab_1_1_xr_r1_const.html">XrR1Const</a>&amp;&amp; other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html#a6ecc970af0c4b077074ef2ca0ca4837d">   35</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> std::array&lt;float, kPhantomXLegNum&gt; <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#a6ecc970af0c4b077074ef2ca0ca4837d">kCoxaDefaultAngle</a> = {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>      <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a71ec8fe6a47e6e7618a53957fd0b8b10">math_util::ConvertDegToRad</a>(-45.0f),</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>      <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a71ec8fe6a47e6e7618a53957fd0b8b10">math_util::ConvertDegToRad</a>(-90.0f),</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>      <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a71ec8fe6a47e6e7618a53957fd0b8b10">math_util::ConvertDegToRad</a>(-135.0f),</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>      <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a71ec8fe6a47e6e7618a53957fd0b8b10">math_util::ConvertDegToRad</a>(135.0f),</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>      <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a71ec8fe6a47e6e7618a53957fd0b8b10">math_util::ConvertDegToRad</a>(90.0f),</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>      <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a71ec8fe6a47e6e7618a53957fd0b8b10">math_util::ConvertDegToRad</a>(45.0f)</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    };</div>
+</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html#a6567226b7d3debcdf3a4a09d3e51f15c">   45</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#a6567226b7d3debcdf3a4a09d3e51f15c">kCoxaAngleMin</a> = <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a71ec8fe6a47e6e7618a53957fd0b8b10">math_util::ConvertDegToRad</a>(-90.0f);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html#ae299a8ffaf6af0ca046f69e92eeca5eb">   48</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#ae299a8ffaf6af0ca046f69e92eeca5eb">kCoxaAngleMax</a> = <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a71ec8fe6a47e6e7618a53957fd0b8b10">math_util::ConvertDegToRad</a>(90.0f);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html#a9551201ecd1a91c99bef8c8a6c7ef02f">   52</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#a9551201ecd1a91c99bef8c8a6c7ef02f">kFemurAngleMin</a> = <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a71ec8fe6a47e6e7618a53957fd0b8b10">math_util::ConvertDegToRad</a>(-90.0f);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html#aeaa494767b77d8830ac5a26b3eb873d1">   55</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#aeaa494767b77d8830ac5a26b3eb873d1">kFemurAngleMax</a> = <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a71ec8fe6a47e6e7618a53957fd0b8b10">math_util::ConvertDegToRad</a>(90.0f);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html#a05693b8fc8aabc16d92ff885cd4065ae">   59</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#a05693b8fc8aabc16d92ff885cd4065ae">kTibiaAngleMin</a> = <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a71ec8fe6a47e6e7618a53957fd0b8b10">math_util::ConvertDegToRad</a>(-170.0f);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html#ac27329e12c1562e0e34797796a2e78bb">   62</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#ac27329e12c1562e0e34797796a2e78bb">kTibiaAngleMax</a> = <a class="code hl_function" href="namespacedesignlab_1_1math__util.html#a71ec8fe6a47e6e7618a53957fd0b8b10">math_util::ConvertDegToRad</a>(0.0f);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html#aab6068c39ca9b7fb452c8bc6d2c55652">   65</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#aab6068c39ca9b7fb452c8bc6d2c55652">kCoxaLength</a> = 45.0f;     </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html#a96648899c8559e39721416fcb09fae22">   66</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#a96648899c8559e39721416fcb09fae22">kFemurLength</a> = 75.0f;    </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html#abcf7c7f4ff41beccbeefb22c4aa82861">   67</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#abcf7c7f4ff41beccbeefb22c4aa82861">kTibiaLength</a> = 140.0f;   </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html#aa7a11e0a62e87f441487b085c9df6a71">   70</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#aa7a11e0a62e87f441487b085c9df6a71">kCoxaBaseOffsetY</a> = 59.f;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html#af8ebea7922c4644eaf1400701251d68b">   73</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#af8ebea7922c4644eaf1400701251d68b">kCenterCoxaBaseOffsetY</a> = 91.5f;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html#a39d44715e921c16dd57f4a961e415256">   76</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#a39d44715e921c16dd57f4a961e415256">kCoxaBaseOffsetX</a> = 120.f;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html#ac3f7e434e42b3dcb4ef33444a1403b78">   79</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#ac3f7e434e42b3dcb4ef33444a1403b78">kCoxaBaseOffsetZ</a> = 0.f;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html#a5320ca43fb798f896ab3f450bf333dfb">   82</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#a5320ca43fb798f896ab3f450bf333dfb">kBodyHeight</a> = 45.0f;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="foldopen" id="foldopen00089" data-start="{" data-end="}">
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html#a57c90af3bcc6a3684d0d70e1c8bb75d4">   89</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_xr_r1_const.html#a57c90af3bcc6a3684d0d70e1c8bb75d4">IsValidCoxaAngle</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> leg_index, <span class="keyword">const</span> <span class="keywordtype">float</span> angle) <span class="keyword">noexcept</span> {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="comment">// 0 &lt;= leg_index &lt; kPhantomXLegNum であることを保証する.</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        assert(0 &lt;= leg_index);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        assert(leg_index &lt; kPhantomXLegNum);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordflow">return</span> (<a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#a6567226b7d3debcdf3a4a09d3e51f15c">kCoxaAngleMin</a> + <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#a6ecc970af0c4b077074ef2ca0ca4837d">kCoxaDefaultAngle</a>[leg_index] &lt;= angle &amp;&amp;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>          angle &lt;= <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#ae299a8ffaf6af0ca046f69e92eeca5eb">kCoxaAngleMax</a> + <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#a6ecc970af0c4b077074ef2ca0ca4837d">kCoxaDefaultAngle</a>[leg_index]);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    };</div>
+</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="foldopen" id="foldopen00101" data-start="{" data-end="}">
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html#abc383aa557006f853cb47ae52b2b0191">  101</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_xr_r1_const.html#abc383aa557006f853cb47ae52b2b0191">IsValidFemurAngle</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> angle) <span class="keyword">noexcept</span> {</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#a9551201ecd1a91c99bef8c8a6c7ef02f">kFemurAngleMin</a> &lt;= angle &amp;&amp; angle &lt;= <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#aeaa494767b77d8830ac5a26b3eb873d1">kFemurAngleMax</a>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    };</div>
+</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="foldopen" id="foldopen00108" data-start="{" data-end="}">
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="classdesignlab_1_1_xr_r1_const.html#adfa820ca5ce9e0e672a38cbc0c6d465e">  108</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classdesignlab_1_1_xr_r1_const.html#adfa820ca5ce9e0e672a38cbc0c6d465e">IsValidTibiaAngle</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> angle) <span class="keyword">noexcept</span> {</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#a05693b8fc8aabc16d92ff885cd4065ae">kTibiaAngleMin</a> &lt;= angle &amp;&amp; angle &lt;= <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#ac27329e12c1562e0e34797796a2e78bb">kTibiaAngleMax</a>;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    };</div>
+</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keyword">static_assert</span>(<a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#a6567226b7d3debcdf3a4a09d3e51f15c">kCoxaAngleMin</a> &lt; <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#ae299a8ffaf6af0ca046f69e92eeca5eb">kCoxaAngleMax</a>,</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                  <span class="stringliteral">&quot;kCoxaAngleMax &gt; Min is required.&quot;</span>);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keyword">static_assert</span>(<a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#a9551201ecd1a91c99bef8c8a6c7ef02f">kFemurAngleMin</a> &lt; <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#aeaa494767b77d8830ac5a26b3eb873d1">kFemurAngleMax</a>,</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                  <span class="stringliteral">&quot;kFemurAngleMax &gt; Min is required.&quot;</span>);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keyword">static_assert</span>(<a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#a05693b8fc8aabc16d92ff885cd4065ae">kTibiaAngleMin</a> &lt; <a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#ac27329e12c1562e0e34797796a2e78bb">kTibiaAngleMax</a>,</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>                  <span class="stringliteral">&quot;kTibiaAngleMax &gt; Min is required.&quot;</span>);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keyword">static_assert</span>(<a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#aab6068c39ca9b7fb452c8bc6d2c55652">kCoxaLength</a> &gt; 0.f,</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                  <span class="stringliteral">&quot;kCoxaLength and Coxa Link must be positive.&quot;</span>);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keyword">static_assert</span>(<a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#a96648899c8559e39721416fcb09fae22">kFemurLength</a> &gt; 0.f,</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                  <span class="stringliteral">&quot;kFemurLength and Femur Link must be positive.&quot;</span>);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keyword">static_assert</span>(<a class="code hl_variable" href="classdesignlab_1_1_xr_r1_const.html#abcf7c7f4ff41beccbeefb22c4aa82861">kTibiaLength</a> &gt; 0.f,</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>                  <span class="stringliteral">&quot;kTibiaLength and Tibia Link must be positive.&quot;</span>);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>};</div>
+</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>}  <span class="comment">// namespace designlab</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_XR_R1_CONST_H_</span></div>
+<div class="ttc" id="acassert__define_8h_html"><div class="ttname"><a href="cassert__define_8h.html">cassert_define.h</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html">designlab::XrR1Const</a></div><div class="ttdef"><b>Definition</b> <a href="xr__r1__const_8h_source.html#l00023">xr_r1_const.h:23</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html_a05693b8fc8aabc16d92ff885cd4065ae"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html#a05693b8fc8aabc16d92ff885cd4065ae">designlab::XrR1Const::kTibiaAngleMin</a></div><div class="ttdeci">static constexpr float kTibiaAngleMin</div><div class="ttdoc">第2関節の可動範囲の最大値[rad].詳しくは referenceフォルダ参照.</div><div class="ttdef"><b>Definition</b> <a href="xr__r1__const_8h_source.html#l00059">xr_r1_const.h:59</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html_a1372428bb126a2277d52b4be8c168b80"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html#a1372428bb126a2277d52b4be8c168b80">designlab::XrR1Const::XrR1Const</a></div><div class="ttdeci">XrR1Const(const XrR1Const &amp;other)=delete</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html_a39d44715e921c16dd57f4a961e415256"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html#a39d44715e921c16dd57f4a961e415256">designlab::XrR1Const::kCoxaBaseOffsetX</a></div><div class="ttdeci">static constexpr float kCoxaBaseOffsetX</div><div class="ttdoc">coxa linkの付け根までの長さ(上方向)[mm].</div><div class="ttdef"><b>Definition</b> <a href="xr__r1__const_8h_source.html#l00076">xr_r1_const.h:76</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html_a50369caab776041db9e8fd38735cefbb"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html#a50369caab776041db9e8fd38735cefbb">designlab::XrR1Const::XrR1Const</a></div><div class="ttdeci">XrR1Const()=delete</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html_a5320ca43fb798f896ab3f450bf333dfb"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html#a5320ca43fb798f896ab3f450bf333dfb">designlab::XrR1Const::kBodyHeight</a></div><div class="ttdeci">static constexpr float kBodyHeight</div><div class="ttdef"><b>Definition</b> <a href="xr__r1__const_8h_source.html#l00082">xr_r1_const.h:82</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html_a57c90af3bcc6a3684d0d70e1c8bb75d4"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html#a57c90af3bcc6a3684d0d70e1c8bb75d4">designlab::XrR1Const::IsValidCoxaAngle</a></div><div class="ttdeci">static constexpr bool IsValidCoxaAngle(const int leg_index, const float angle) noexcept</div><div class="ttdoc">第1関節の角度が有効な範囲内かどうかを判定する.</div><div class="ttdef"><b>Definition</b> <a href="xr__r1__const_8h_source.html#l00089">xr_r1_const.h:89</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html_a5cd4509822aa123f34ead83ac792d856"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html#a5cd4509822aa123f34ead83ac792d856">designlab::XrR1Const::XrR1Const</a></div><div class="ttdeci">XrR1Const(XrR1Const &amp;&amp;other)=delete</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html_a6567226b7d3debcdf3a4a09d3e51f15c"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html#a6567226b7d3debcdf3a4a09d3e51f15c">designlab::XrR1Const::kCoxaAngleMin</a></div><div class="ttdeci">static constexpr float kCoxaAngleMin</div><div class="ttdoc">第1関節の可動範囲の最大値[rad].詳しくは referenceフォルダ参照.</div><div class="ttdef"><b>Definition</b> <a href="xr__r1__const_8h_source.html#l00045">xr_r1_const.h:45</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html_a6ecc970af0c4b077074ef2ca0ca4837d"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html#a6ecc970af0c4b077074ef2ca0ca4837d">designlab::XrR1Const::kCoxaDefaultAngle</a></div><div class="ttdeci">static constexpr std::array&lt; float, kPhantomXLegNum &gt; kCoxaDefaultAngle</div><div class="ttdoc">第1関節の初期角度[rad]</div><div class="ttdef"><b>Definition</b> <a href="xr__r1__const_8h_source.html#l00035">xr_r1_const.h:35</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html_a9551201ecd1a91c99bef8c8a6c7ef02f"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html#a9551201ecd1a91c99bef8c8a6c7ef02f">designlab::XrR1Const::kFemurAngleMin</a></div><div class="ttdeci">static constexpr float kFemurAngleMin</div><div class="ttdoc">第2関節の可動範囲の最大値[rad].詳しくは referenceフォルダ参照.</div><div class="ttdef"><b>Definition</b> <a href="xr__r1__const_8h_source.html#l00052">xr_r1_const.h:52</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html_a96648899c8559e39721416fcb09fae22"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html#a96648899c8559e39721416fcb09fae22">designlab::XrR1Const::kFemurLength</a></div><div class="ttdeci">static constexpr float kFemurLength</div><div class="ttdoc">第2関節部の長さ[mm].</div><div class="ttdef"><b>Definition</b> <a href="xr__r1__const_8h_source.html#l00066">xr_r1_const.h:66</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html_aa7a11e0a62e87f441487b085c9df6a71"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html#aa7a11e0a62e87f441487b085c9df6a71">designlab::XrR1Const::kCoxaBaseOffsetY</a></div><div class="ttdeci">static constexpr float kCoxaBaseOffsetY</div><div class="ttdoc">coxa linkの付け根(中央)までの長さ[mm].</div><div class="ttdef"><b>Definition</b> <a href="xr__r1__const_8h_source.html#l00070">xr_r1_const.h:70</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html_aab6068c39ca9b7fb452c8bc6d2c55652"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html#aab6068c39ca9b7fb452c8bc6d2c55652">designlab::XrR1Const::kCoxaLength</a></div><div class="ttdeci">static constexpr float kCoxaLength</div><div class="ttdoc">第1関節部の長さ[mm].</div><div class="ttdef"><b>Definition</b> <a href="xr__r1__const_8h_source.html#l00065">xr_r1_const.h:65</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html_abc383aa557006f853cb47ae52b2b0191"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html#abc383aa557006f853cb47ae52b2b0191">designlab::XrR1Const::IsValidFemurAngle</a></div><div class="ttdeci">static constexpr bool IsValidFemurAngle(const float angle) noexcept</div><div class="ttdoc">第2関節の角度が有効な範囲内かどうかを判定する.</div><div class="ttdef"><b>Definition</b> <a href="xr__r1__const_8h_source.html#l00101">xr_r1_const.h:101</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html_abcf7c7f4ff41beccbeefb22c4aa82861"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html#abcf7c7f4ff41beccbeefb22c4aa82861">designlab::XrR1Const::kTibiaLength</a></div><div class="ttdeci">static constexpr float kTibiaLength</div><div class="ttdoc">第3関節部の長さ[mm].</div><div class="ttdef"><b>Definition</b> <a href="xr__r1__const_8h_source.html#l00067">xr_r1_const.h:67</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html_ac27329e12c1562e0e34797796a2e78bb"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html#ac27329e12c1562e0e34797796a2e78bb">designlab::XrR1Const::kTibiaAngleMax</a></div><div class="ttdeci">static constexpr float kTibiaAngleMax</div><div class="ttdef"><b>Definition</b> <a href="xr__r1__const_8h_source.html#l00062">xr_r1_const.h:62</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html_ac3f7e434e42b3dcb4ef33444a1403b78"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html#ac3f7e434e42b3dcb4ef33444a1403b78">designlab::XrR1Const::kCoxaBaseOffsetZ</a></div><div class="ttdeci">static constexpr float kCoxaBaseOffsetZ</div><div class="ttdoc">胴体の高さ[mm].</div><div class="ttdef"><b>Definition</b> <a href="xr__r1__const_8h_source.html#l00079">xr_r1_const.h:79</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html_ad3e4bffbe3749edae5de38c92246959e"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html#ad3e4bffbe3749edae5de38c92246959e">designlab::XrR1Const::operator=</a></div><div class="ttdeci">XrR1Const &amp; operator=(const XrR1Const &amp;other)=delete</div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html_adfa820ca5ce9e0e672a38cbc0c6d465e"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html#adfa820ca5ce9e0e672a38cbc0c6d465e">designlab::XrR1Const::IsValidTibiaAngle</a></div><div class="ttdeci">static constexpr bool IsValidTibiaAngle(const float angle) noexcept</div><div class="ttdoc">第3関節の角度が有効な範囲内かどうかを判定する.</div><div class="ttdef"><b>Definition</b> <a href="xr__r1__const_8h_source.html#l00108">xr_r1_const.h:108</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html_ae299a8ffaf6af0ca046f69e92eeca5eb"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html#ae299a8ffaf6af0ca046f69e92eeca5eb">designlab::XrR1Const::kCoxaAngleMax</a></div><div class="ttdeci">static constexpr float kCoxaAngleMax</div><div class="ttdoc">第2関節の可動範囲の最小値[rad].詳しくは referenceフォルダ参照.</div><div class="ttdef"><b>Definition</b> <a href="xr__r1__const_8h_source.html#l00048">xr_r1_const.h:48</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html_aeaa494767b77d8830ac5a26b3eb873d1"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html#aeaa494767b77d8830ac5a26b3eb873d1">designlab::XrR1Const::kFemurAngleMax</a></div><div class="ttdeci">static constexpr float kFemurAngleMax</div><div class="ttdoc">第2関節の可動範囲の最小値[rad].詳しくは referenceフォルダ参照.</div><div class="ttdef"><b>Definition</b> <a href="xr__r1__const_8h_source.html#l00055">xr_r1_const.h:55</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_xr_r1_const_html_af8ebea7922c4644eaf1400701251d68b"><div class="ttname"><a href="classdesignlab_1_1_xr_r1_const.html#af8ebea7922c4644eaf1400701251d68b">designlab::XrR1Const::kCenterCoxaBaseOffsetY</a></div><div class="ttdeci">static constexpr float kCenterCoxaBaseOffsetY</div><div class="ttdoc">coxa linkの付け根(前方・後方)までの長さ[mm].</div><div class="ttdef"><b>Definition</b> <a href="xr__r1__const_8h_source.html#l00073">xr_r1_const.h:73</a></div></div>
+<div class="ttc" id="amath__util_8h_html"><div class="ttname"><a href="math__util_8h.html">math_util.h</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1math__util_html_a71ec8fe6a47e6e7618a53957fd0b8b10"><div class="ttname"><a href="namespacedesignlab_1_1math__util.html#a71ec8fe6a47e6e7618a53957fd0b8b10">designlab::math_util::ConvertDegToRad</a></div><div class="ttdeci">constexpr T ConvertDegToRad(const T deg) noexcept</div><div class="ttdoc">角度を [deg] から [rad] に変換する関数.</div><div class="ttdef"><b>Definition</b> <a href="math__util_8h_source.html#l00119">math_util.h:119</a></div></div>
+<div class="ttc" id="anamespacedesignlab_html"><div class="ttname"><a href="namespacedesignlab.html">designlab</a></div><div class="ttdef"><b>Definition</b> <a href="abstract__dxlib__gui_8cpp_source.html#l00017">abstract_dxlib_gui.cpp:18</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

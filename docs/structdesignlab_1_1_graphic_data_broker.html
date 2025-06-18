@@ -80,7 +80,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>グラフ探索の結果を別スレッドのグラフィッククラスに連絡するための構造体．  
+<p>グラフ探索の結果を別スレッドのグラフィッククラスに連絡するための構造体.  
  <a href="structdesignlab_1_1_graphic_data_broker.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="graphic__data__broker_8h_source.html">graphic_data_broker.h</a>&gt;</code></p>
@@ -89,20 +89,20 @@ designlab::GraphicDataBroker 連携図</div>
 <div class="dyncontent">
 <div class="center"><img src="structdesignlab_1_1_graphic_data_broker__coll__graph.png" border="0" usemap="#adesignlab_1_1_graphic_data_broker_coll__map" alt="Collaboration graph"/></div>
 <map name="adesignlab_1_1_graphic_data_broker_coll__map" id="adesignlab_1_1_graphic_data_broker_coll__map">
-<area shape="rect" title="グラフ探索の結果を別スレッドのグラフィッククラスに連絡するための構造体．" alt="" coords="355,88,549,115"/>
+<area shape="rect" title="グラフ探索の結果を別スレッドのグラフィッククラスに連絡するための構造体." alt="" coords="355,88,549,115"/>
 <area shape="rect" href="classdesignlab_1_1_asyncable_data.html" title=" " alt="" coords="5,5,178,48"/>
-<area shape="poly" title=" " alt="" coords="193,45,384,85,383,90,191,50"/>
+<area shape="poly" title=" " alt="" coords="193,45,384,85,383,90,192,50"/>
 <area shape="rect" href="classdesignlab_1_1_asyncable_data.html" title=" " alt="" coords="5,72,178,131"/>
 <area shape="poly" title=" " alt="" coords="193,99,355,99,355,104,193,104"/>
 <area shape="rect" href="classdesignlab_1_1_asyncable_data.html" title=" " alt="" coords="5,155,178,197"/>
-<area shape="poly" title=" " alt="" coords="191,153,383,113,384,118,193,158"/>
+<area shape="poly" title=" " alt="" coords="192,153,383,113,384,118,193,158"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 公開変数類</h2></td></tr>
 <tr class="memitem:a1a08f78c3a7e7137a1980c840652d85f" id="r_a1a08f78c3a7e7137a1980c840652d85f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdesignlab_1_1_asyncable_data.html">AsyncableData</a>&lt; <a class="el" href="classdesignlab_1_1_map_state.html">MapState</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_graphic_data_broker.html#a1a08f78c3a7e7137a1980c840652d85f">map_state</a></td></tr>
-<tr class="memdesc:a1a08f78c3a7e7137a1980c840652d85f"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップの情報，カメラをロボットに設置する場合，ロボットの位置も含まれる．  <br /></td></tr>
+<tr class="memdesc:a1a08f78c3a7e7137a1980c840652d85f"><td class="mdescLeft">&#160;</td><td class="mdescRight">マップの情報,カメラをロボットに設置する場合,ロボットの位置も含まれる.  <br /></td></tr>
 <tr class="separator:a1a08f78c3a7e7137a1980c840652d85f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0629770f71ed21b23612b37f1e0055d3" id="r_a0629770f71ed21b23612b37f1e0055d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdesignlab_1_1_asyncable_data.html">AsyncableData</a>&lt; std::vector&lt; <a class="el" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdesignlab_1_1_graphic_data_broker.html#a0629770f71ed21b23612b37f1e0055d3">graph</a></td></tr>
 <tr class="separator:a0629770f71ed21b23612b37f1e0055d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -110,9 +110,9 @@ designlab::GraphicDataBroker 連携図</div>
 <tr class="separator:a6d69f0b0a1129854b943c791bfaf36b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>グラフ探索の結果を別スレッドのグラフィッククラスに連絡するための構造体． </p>
-<p>Broker : ブローカー，仲介人のこと． <br  />
- データ処理部(グラフ探索)が更新したデータをこの構造体に渡し， 画像表示部がこの構造体から更新されたデータを持っていき，描画する． <br  />
+<div class="textblock"><p>グラフ探索の結果を別スレッドのグラフィッククラスに連絡するための構造体. </p>
+<p>Broker : ブローカー,仲介人のこと. <br  />
+ データ処理部(グラフ探索)が更新したデータをこの構造体に渡し, 画像表示部がこの構造体から更新されたデータを持っていき,描画する. <br  />
  グラフ探索　→　GraphicDataBroker　→　画像表示部 </p>
 
 <p class="definition"> <a class="el" href="graphic__data__broker_8h_source.html">graphic_data_broker.h</a> の <a class="el" href="graphic__data__broker_8h_source.html#l00028">28</a> 行目に定義があります。</p>
@@ -145,7 +145,7 @@ designlab::GraphicDataBroker 連携図</div>
       </table>
 </div><div class="memdoc">
 
-<p>マップの情報，カメラをロボットに設置する場合，ロボットの位置も含まれる． </p>
+<p>マップの情報,カメラをロボットに設置する場合,ロボットの位置も含まれる. </p>
 
 <p class="definition"> <a class="el" href="graphic__data__broker_8h_source.html">graphic_data_broker.h</a> の <a class="el" href="graphic__data__broker_8h_source.html#l00031">31</a> 行目に定義があります。</p>
 

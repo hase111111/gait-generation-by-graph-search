@@ -1,9 +1,9 @@
 <map id="designlab::LineSegment2::CheckAndGetIntersection" name="designlab::LineSegment2::CheckAndGetIntersection">
-<area shape="rect" id="Node000001" title="他の線分と交点が存在しているかどうか調べ，交点を返す関数．" alt="" coords="5,39,183,81"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector2.html#ab3002b222969339234b908a42a735f44" title="自分×引数 の外積の結果を返す．" alt="" coords="250,5,379,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,44,235,36,235,41,184,49"/>
-<area shape="rect" id="Node000003" href="$structdesignlab_1_1_line_segment2.html#a8608ddbcf8e71c74186de4fc6420f4ee" title="引数の線分と自身が平行かどうか調べる関数． 全て constexpr 関数で処理できるため非常に高速．" alt="" coords="231,72,398,115"/>
+<area shape="rect" id="Node000001" title="他の線分と交点が存在しているかどうか調べ,交点を返す関数." alt="" coords="5,39,183,81"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector2.html#ab3002b222969339234b908a42a735f44" title="自分×引数 の外積の結果を返す." alt="" coords="250,5,379,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,44,234,36,235,41,184,49"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_line_segment2.html#a8608ddbcf8e71c74186de4fc6420f4ee" title="引数の線分と自身が平行かどうか調べる関数. 全て constexpr 関数で処理できるため非常に高速." alt="" coords="231,72,398,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="184,71,216,76,215,81,183,76"/>
-<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1math__util.html#a92c055e0799991e88871e2a5d4f09280" title="C++において，小数同士の計算は誤差が出てしまう． 誤差込みで値が等しいか調べる．" alt="" coords="446,72,583,115"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="398,91,431,91,431,96,398,96"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1math__util.html#a92c055e0799991e88871e2a5d4f09280" title="C++において,小数同士の計算は誤差が出てしまう. 誤差込みで値が等しいか調べる." alt="" coords="446,72,583,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="398,91,430,91,430,96,398,96"/>
 </map>

@@ -81,7 +81,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Singletonクラス作成のためのテンプレートクラス．  
+<p>Singletonクラス作成のためのテンプレートクラス.  
  <a href="classdesignlab_1_1_singleton.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="singleton_8h_source.html">singleton.h</a>&gt;</code></p>
@@ -89,8 +89,8 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静的公開メンバ関数</h2></td></tr>
 <tr class="memitem:a1f95c7ccffdb673174f681e9c0d7dde0" id="r_a1f95c7ccffdb673174f681e9c0d7dde0"><td class="memItemLeft" align="right" valign="top">static _T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_singleton.html#a1f95c7ccffdb673174f681e9c0d7dde0">GetIns</a> ()</td></tr>
-<tr class="memdesc:a1f95c7ccffdb673174f681e9c0d7dde0"><td class="mdescLeft">&#160;</td><td class="mdescRight">インスタンスを取得する． <br  />
- このクラスを継承したクラスは クラス名::getIns()-&gt; の形式でメンバ関数を呼び出す．  <br /></td></tr>
+<tr class="memdesc:a1f95c7ccffdb673174f681e9c0d7dde0"><td class="mdescLeft">&#160;</td><td class="mdescRight">インスタンスを取得する. <br  />
+ このクラスを継承したクラスは クラス名::getIns()-&gt; の形式でメンバ関数を呼び出す.  <br /></td></tr>
 <tr class="separator:a1f95c7ccffdb673174f681e9c0d7dde0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
@@ -106,10 +106,10 @@ $(function() {
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename _T&gt;<br />
-class designlab::Singleton&lt; _T &gt;</div><p>Singletonクラス作成のためのテンプレートクラス． </p>
-<p>このクラスを継承すると <a class="el" href="classdesignlab_1_1_singleton.html" title="Singletonクラス作成のためのテンプレートクラス．">Singleton</a> クラスになる． <a class="el" href="classdesignlab_1_1_singleton.html" title="Singletonクラス作成のためのテンプレートクラス．">Singleton</a> クラスとは，C言語でいうところのグローバル変数 （どこからでも変更できる変数）である． 多用するとプログラムが複雑になりがちなので，グラフ探索では絶対に使わないこと．</p>
+class designlab::Singleton&lt; _T &gt;</div><p>Singletonクラス作成のためのテンプレートクラス. </p>
+<p>このクラスを継承すると <a class="el" href="classdesignlab_1_1_singleton.html" title="Singletonクラス作成のためのテンプレートクラス.">Singleton</a> クラスになる. <a class="el" href="classdesignlab_1_1_singleton.html" title="Singletonクラス作成のためのテンプレートクラス.">Singleton</a> クラスとは,C言語でいうところのグローバル変数 （どこからでも変更できる変数）である. 多用するとプログラムが複雑になりがちなので,グラフ探索では絶対に使わないこと.</p>
 <p>参考 </p><ul>
-<li>龍神録2プログラミングの館 <a href="https://dixq.net/rp2/">https://dixq.net/rp2/</a> ( アクセス日 2024/3/2 ) <dl class="section see"><dt>参照</dt><dd><a class="el" href="classdesignlab_1_1_font_loader.html" title="Dxlibのフォントを読み込むクラス．">FontLoader</a> </dd></dl>
+<li>龍神録2プログラミングの館 <a href="https://dixq.net/rp2/">https://dixq.net/rp2/</a> ( アクセス日 2024/3/2 ) <dl class="section see"><dt>参照</dt><dd><a class="el" href="classdesignlab_1_1_font_loader.html" title="Dxlibのフォントを読み込むクラス.">FontLoader</a> </dd></dl>
 </li>
 </ul>
 
@@ -139,7 +139,7 @@ template&lt;typename _T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>コンストラクタ，デストラクタ，コピーコンストラクタ， 代入演算子は外部から呼び出せないようにする． </p>
+<p>コンストラクタ,デストラクタ,コピーコンストラクタ, 代入演算子は外部から呼び出せないようにする. </p>
 
 </div>
 </div>
@@ -224,9 +224,9 @@ template&lt;typename _T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>インスタンスを取得する． <br  />
- このクラスを継承したクラスは クラス名::getIns()-&gt; の形式でメンバ関数を呼び出す． </p>
-<dl class="section return"><dt>戻り値</dt><dd>_T* インスタンスのポインタ． </dd></dl>
+<p>インスタンスを取得する. <br  />
+ このクラスを継承したクラスは クラス名::getIns()-&gt; の形式でメンバ関数を呼び出す. </p>
+<dl class="section return"><dt>戻り値</dt><dd>_T* インスタンスのポインタ. </dd></dl>
 
 <p class="definition"> <a class="el" href="singleton_8h_source.html">singleton.h</a> の <a class="el" href="singleton_8h_source.html#l00034">34</a> 行目に定義があります。</p>
 

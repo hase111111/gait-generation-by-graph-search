@@ -82,7 +82,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>クリック判定を行うクラス．  
+<p>クリック判定を行うクラス.  
  <a href="classdesignlab_1_1_dxlib_gui_updater.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="dxlib__gui__updater_8h_source.html">dxlib_gui_updater.h</a>&gt;</code></p>
@@ -91,38 +91,38 @@ $(function() {
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:a1857f9c279951c3b92d823e9724839b9" id="r_a1857f9c279951c3b92d823e9724839b9"><td class="memTemplParams" colspan="2">template&lt;IsDxlibUpdatable T&gt; </td></tr>
 <tr class="memitem:a1857f9c279951c3b92d823e9724839b9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_dxlib_gui_updater.html#a1857f9c279951c3b92d823e9724839b9">Register</a> (const std::shared_ptr&lt; T &gt; &amp;gui_ptr, int priority)</td></tr>
-<tr class="memdesc:a1857f9c279951c3b92d823e9724839b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">UpdateとDrawを行うGUIを登録する． <br  />
- IDxlibClickableまたは，IDxlibDraggable, IDxlibWheelHandlerを継承している場合は，それらも同時に登録する．  <br /></td></tr>
+<tr class="memdesc:a1857f9c279951c3b92d823e9724839b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">UpdateとDrawを行うGUIを登録する. <br  />
+ IDxlibClickableまたは,<a class="el" href="classdesignlab_1_1_i_dxlib_draggable.html" title="ドラッグ可能なGUIのインターフェース.">IDxlibDraggable</a>, IDxlibWheelHandlerを継承している場合は,それらも同時に登録する.  <br /></td></tr>
 <tr class="separator:a1857f9c279951c3b92d823e9724839b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3778e8571c86de255812192002c2109d" id="r_a3778e8571c86de255812192002c2109d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_dxlib_gui_updater.html#a3778e8571c86de255812192002c2109d">OpenTerminal</a> ()</td></tr>
 <tr class="memdesc:a3778e8571c86de255812192002c2109d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminalを開く. <br  />
- 他のGUIをRegisterした後に呼び出すこと． <br  />
- 2回目以降の呼び出しは無視される． <br  />
- また，Terminalは最も優先度が高い．  <br /></td></tr>
+ 他のGUIをRegisterした後に呼び出すこと. <br  />
+ 2回目以降の呼び出しは無視される. <br  />
+ また,Terminalは最も優先度が高い.  <br /></td></tr>
 <tr class="separator:a3778e8571c86de255812192002c2109d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8330d413e80271485c00caaf64c36841" id="r_a8330d413e80271485c00caaf64c36841"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_dxlib_gui_updater.html#a8330d413e80271485c00caaf64c36841">Activate</a> (const std::shared_ptr&lt; const <a class="el" href="classdesignlab_1_1_mouse.html">Mouse</a> &gt; &amp;mouse_ptr)</td></tr>
-<tr class="memdesc:a8330d413e80271485c00caaf64c36841"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIのUpdate関数を実行し，クリック，ドラッグなどの判定を行う． <br  />
- 優先度の高いものから順に各種判定を行う．  <br /></td></tr>
+<tr class="memdesc:a8330d413e80271485c00caaf64c36841"><td class="mdescLeft">&#160;</td><td class="mdescRight">GUIのUpdate関数を実行し,クリック,ドラッグなどの判定を行う. <br  />
+ 優先度の高いものから順に各種判定を行う.  <br /></td></tr>
 <tr class="separator:a8330d413e80271485c00caaf64c36841"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f381c10ed8d90a143acc33065d1a0fe" id="r_a6f381c10ed8d90a143acc33065d1a0fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_dxlib_gui_updater.html#a6f381c10ed8d90a143acc33065d1a0fe">Draw</a> () const</td></tr>
-<tr class="memdesc:a6f381c10ed8d90a143acc33065d1a0fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">登録済みのGUIのDraw関数を実行する．  <br /></td></tr>
+<tr class="memdesc:a6f381c10ed8d90a143acc33065d1a0fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">登録済みのGUIのDraw関数を実行する.  <br /></td></tr>
 <tr class="separator:a6f381c10ed8d90a143acc33065d1a0fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 静的公開変数類</h2></td></tr>
 <tr class="memitem:a4242e72bd3dc5ea48a29e95d27993031" id="r_a4242e72bd3dc5ea48a29e95d27993031"><td class="memItemLeft" align="right" valign="top">static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_dxlib_gui_updater.html#a4242e72bd3dc5ea48a29e95d27993031">kBottomPriority</a> { 0 }</td></tr>
-<tr class="memdesc:a4242e72bd3dc5ea48a29e95d27993031"><td class="mdescLeft">&#160;</td><td class="mdescRight">最も優先度が低い．  <br /></td></tr>
+<tr class="memdesc:a4242e72bd3dc5ea48a29e95d27993031"><td class="mdescLeft">&#160;</td><td class="mdescRight">最も優先度が低い.  <br /></td></tr>
 <tr class="separator:a4242e72bd3dc5ea48a29e95d27993031"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8eb942512ff4ab65cef9d889123ea114" id="r_a8eb942512ff4ab65cef9d889123ea114"><td class="memItemLeft" align="right" valign="top">static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_dxlib_gui_updater.html#a8eb942512ff4ab65cef9d889123ea114">kTopPriority</a> { 1000000 }</td></tr>
-<tr class="memdesc:a8eb942512ff4ab65cef9d889123ea114"><td class="mdescLeft">&#160;</td><td class="mdescRight">最も優先的に処理される．  <br /></td></tr>
+<tr class="memdesc:a8eb942512ff4ab65cef9d889123ea114"><td class="mdescLeft">&#160;</td><td class="mdescRight">最も優先的に処理される.  <br /></td></tr>
 <tr class="separator:a8eb942512ff4ab65cef9d889123ea114"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>クリック判定を行うクラス． </p>
-<p>一度のクリックで複数のGUIが反応することを防ぐために，優先度を設定する． <br  />
- 優先度が高いものから順にクリック判定を行い， クリックされたらそのGUIの Activate 関数を実行する． <br  />
- 同様に，ドラッグ判定，ホイール操作判定も行う． <br  />
- 神クラスになっている感は否めないが，また問題が起きたら修正する． </p>
+<div class="textblock"><p>クリック判定を行うクラス. </p>
+<p>一度のクリックで複数のGUIが反応することを防ぐために,優先度を設定する. <br  />
+ 優先度が高いものから順にクリック判定を行い, クリックされたらそのGUIの Activate 関数を実行する. <br  />
+ 同様に,ドラッグ判定,ホイール操作判定も行う. <br  />
+ 神クラスになっている感は否めないが,また問題が起きたら修正する. </p>
 
 <p class="definition"> <a class="el" href="dxlib__gui__updater_8h_source.html">dxlib_gui_updater.h</a> の <a class="el" href="dxlib__gui__updater_8h_source.html#l00056">56</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">関数詳解</h2>
@@ -142,11 +142,11 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>GUIのUpdate関数を実行し，クリック，ドラッグなどの判定を行う． <br  />
- 優先度の高いものから順に各種判定を行う． </p>
+<p>GUIのUpdate関数を実行し,クリック,ドラッグなどの判定を行う. <br  />
+ 優先度の高いものから順に各種判定を行う. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">mouse_ptr</td><td>マウスの状態を管理するクラスのポインタ． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mouse_ptr</td><td>マウスの状態を管理するクラスのポインタ. </td></tr>
   </table>
   </dd>
 </dl>
@@ -157,15 +157,15 @@ $(function() {
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_dxlib_gui_updater_a8330d413e80271485c00caaf64c36841_icgraph.png" border="0" usemap="#aclassdesignlab_1_1_dxlib_gui_updater_a8330d413e80271485c00caaf64c36841_icgraph" alt=""/></div>
 <map name="aclassdesignlab_1_1_dxlib_gui_updater_a8330d413e80271485c00caaf64c36841_icgraph" id="aclassdesignlab_1_1_dxlib_gui_updater_a8330d413e80271485c00caaf64c36841_icgraph">
-<area shape="rect" title="GUIのUpdate関数を実行し，クリック，ドラッグなどの判定を行う． &#160;&#160;優先度の高いものから順に各種判定を行う．" alt="" coords="254,105,432,148"/>
-<area shape="rect" href="classdesignlab_1_1_graphic_main_basic.html#a21631baec22e6a7008896e3a66407f13" title="描画画面の更新を行う．純粋仮想関数のため， 継承先では必ず override する必要がある．" alt="" coords="10,5,201,48"/>
-<area shape="poly" title=" " alt="" coords="287,101,205,62,175,51,177,46,207,58,289,96"/>
-<area shape="rect" href="classdesignlab_1_1_graphic_main_display_model.html#a123284fa5272d199b738b977eaf99898" title="描画画面の更新を行う．純粋仮想関数のため， 継承先では必ず override する必要がある．" alt="" coords="5,72,206,115"/>
-<area shape="poly" title=" " alt="" coords="239,115,206,110,207,105,239,109"/>
-<area shape="rect" href="classdesignlab_1_1_graphic_main_graph_viewer.html#a3b0775258226bd908c98bc5099545b5f" title="描画画面の更新を行う．純粋仮想関数のため， 継承先では必ず override する必要がある．" alt="" coords="9,139,202,181"/>
-<area shape="poly" title=" " alt="" coords="239,144,203,149,202,144,239,139"/>
-<area shape="rect" href="classdesignlab_1_1_graphic_main_robot_control.html#a3609d5c3fedd6e5b5d364b99131938b4" title="描画画面の更新を行う．純粋仮想関数のため， 継承先では必ず override する必要がある．" alt="" coords="10,205,201,248"/>
-<area shape="poly" title=" " alt="" coords="289,157,207,196,177,207,175,202,205,191,287,153"/>
+<area shape="rect" title="GUIのUpdate関数を実行し,クリック,ドラッグなどの判定を行う. &#160;&#160;優先度の高いものから順に各種判定を行う." alt="" coords="254,105,432,148"/>
+<area shape="rect" href="classdesignlab_1_1_graphic_main_basic.html#a21631baec22e6a7008896e3a66407f13" title="描画画面の更新を行う.純粋仮想関数のため, 継承先では必ず override する必要がある." alt="" coords="10,5,201,48"/>
+<area shape="poly" title=" " alt="" coords="286,100,205,62,175,51,177,46,207,58,288,96"/>
+<area shape="rect" href="classdesignlab_1_1_graphic_main_display_model.html#a123284fa5272d199b738b977eaf99898" title="描画画面の更新を行う.純粋仮想関数のため, 継承先では必ず override する必要がある." alt="" coords="5,72,206,115"/>
+<area shape="poly" title=" " alt="" coords="238,115,206,110,207,105,239,109"/>
+<area shape="rect" href="classdesignlab_1_1_graphic_main_graph_viewer.html#a3b0775258226bd908c98bc5099545b5f" title="描画画面の更新を行う.純粋仮想関数のため, 継承先では必ず override する必要がある." alt="" coords="9,139,202,181"/>
+<area shape="poly" title=" " alt="" coords="238,144,203,149,202,144,238,139"/>
+<area shape="rect" href="classdesignlab_1_1_graphic_main_robot_control.html#a3609d5c3fedd6e5b5d364b99131938b4" title="描画画面の更新を行う.純粋仮想関数のため, 継承先では必ず override する必要がある." alt="" coords="10,205,201,248"/>
+<area shape="poly" title=" " alt="" coords="288,158,207,196,177,207,175,202,205,191,286,153"/>
 </map>
 </div>
 
@@ -186,7 +186,7 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>登録済みのGUIのDraw関数を実行する． </p>
+<p>登録済みのGUIのDraw関数を実行する. </p>
 
 <p class="definition"> <a class="el" href="dxlib__gui__updater_8cpp_source.html">dxlib_gui_updater.cpp</a> の <a class="el" href="dxlib__gui__updater_8cpp_source.html#l00057">57</a> 行目に定義があります。</p>
 <div class="dynheader">
@@ -194,15 +194,15 @@ $(function() {
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_dxlib_gui_updater_a6f381c10ed8d90a143acc33065d1a0fe_icgraph.png" border="0" usemap="#aclassdesignlab_1_1_dxlib_gui_updater_a6f381c10ed8d90a143acc33065d1a0fe_icgraph" alt=""/></div>
 <map name="aclassdesignlab_1_1_dxlib_gui_updater_a6f381c10ed8d90a143acc33065d1a0fe_icgraph" id="aclassdesignlab_1_1_dxlib_gui_updater_a6f381c10ed8d90a143acc33065d1a0fe_icgraph">
-<area shape="rect" title="登録済みのGUIのDraw関数を実行する．" alt="" coords="254,105,432,148"/>
-<area shape="rect" href="classdesignlab_1_1_graphic_main_basic.html#adb07f27a1b256ef8085d88b57354449c" title="描画を行う． ここでは描画系の処理のみを行い内部のデータを 更新しないため const を付けている．" alt="" coords="10,5,201,48"/>
-<area shape="poly" title=" " alt="" coords="287,101,205,62,175,51,177,46,207,58,289,96"/>
-<area shape="rect" href="classdesignlab_1_1_graphic_main_display_model.html#a02e21eae411366da2f6d7157fea7ce23" title="描画を行う． ここでは描画系の処理のみを行い内部のデータを 更新しないため const を付けている．" alt="" coords="5,72,206,115"/>
-<area shape="poly" title=" " alt="" coords="239,115,206,110,207,105,239,109"/>
-<area shape="rect" href="classdesignlab_1_1_graphic_main_graph_viewer.html#ae9895d8e508a5f885d0ee12dbfcd24aa" title="描画を行う． ここでは描画系の処理のみを行い内部のデータを 更新しないため const を付けている．" alt="" coords="9,139,202,181"/>
-<area shape="poly" title=" " alt="" coords="239,144,203,149,202,144,239,139"/>
-<area shape="rect" href="classdesignlab_1_1_graphic_main_robot_control.html#a0cfaef33100cb729ae9bc0941e4f4e89" title="描画を行う． ここでは描画系の処理のみを行い内部のデータを 更新しないため const を付けている．" alt="" coords="10,205,201,248"/>
-<area shape="poly" title=" " alt="" coords="289,157,207,196,177,207,175,202,205,191,287,153"/>
+<area shape="rect" title="登録済みのGUIのDraw関数を実行する." alt="" coords="254,105,432,148"/>
+<area shape="rect" href="classdesignlab_1_1_graphic_main_basic.html#adb07f27a1b256ef8085d88b57354449c" title="描画を行う. ここでは描画系の処理のみを行い内部のデータを 更新しないため const を付けている." alt="" coords="10,5,201,48"/>
+<area shape="poly" title=" " alt="" coords="286,100,205,62,175,51,177,46,207,58,288,96"/>
+<area shape="rect" href="classdesignlab_1_1_graphic_main_display_model.html#a02e21eae411366da2f6d7157fea7ce23" title="描画を行う. ここでは描画系の処理のみを行い内部のデータを 更新しないため const を付けている." alt="" coords="5,72,206,115"/>
+<area shape="poly" title=" " alt="" coords="238,115,206,110,207,105,239,109"/>
+<area shape="rect" href="classdesignlab_1_1_graphic_main_graph_viewer.html#ae9895d8e508a5f885d0ee12dbfcd24aa" title="描画を行う. ここでは描画系の処理のみを行い内部のデータを 更新しないため const を付けている." alt="" coords="9,139,202,181"/>
+<area shape="poly" title=" " alt="" coords="238,144,203,149,202,144,238,139"/>
+<area shape="rect" href="classdesignlab_1_1_graphic_main_robot_control.html#a0cfaef33100cb729ae9bc0941e4f4e89" title="描画を行う. ここでは描画系の処理のみを行い内部のデータを 更新しないため const を付けている." alt="" coords="10,205,201,248"/>
+<area shape="poly" title=" " alt="" coords="288,158,207,196,177,207,175,202,205,191,286,153"/>
 </map>
 </div>
 
@@ -224,9 +224,9 @@ $(function() {
 </div><div class="memdoc">
 
 <p>Terminalを開く. <br  />
- 他のGUIをRegisterした後に呼び出すこと． <br  />
- 2回目以降の呼び出しは無視される． <br  />
- また，Terminalは最も優先度が高い． </p>
+ 他のGUIをRegisterした後に呼び出すこと. <br  />
+ 2回目以降の呼び出しは無視される. <br  />
+ また,Terminalは最も優先度が高い. </p>
 
 <p class="definition"> <a class="el" href="dxlib__gui__updater_8cpp_source.html">dxlib_gui_updater.cpp</a> の <a class="el" href="dxlib__gui__updater_8cpp_source.html#l00021">21</a> 行目に定義があります。</p>
 <div class="dynheader">
@@ -234,9 +234,9 @@ $(function() {
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_dxlib_gui_updater_a3778e8571c86de255812192002c2109d_icgraph.png" border="0" usemap="#aclassdesignlab_1_1_dxlib_gui_updater_a3778e8571c86de255812192002c2109d_icgraph" alt=""/></div>
 <map name="aclassdesignlab_1_1_dxlib_gui_updater_a3778e8571c86de255812192002c2109d_icgraph" id="aclassdesignlab_1_1_dxlib_gui_updater_a3778e8571c86de255812192002c2109d_icgraph">
-<area shape="rect" title="Terminalを開く. &#160;&#160;他のGUIをRegisterした後に呼び出すこと． &#160;&#160;2回目以降の呼び出しは無視される． &#160;&#160;また，Terminalは最も優先度が高い．" alt="" coords="272,39,450,81"/>
+<area shape="rect" title="Terminalを開く. &#160;&#160;他のGUIをRegisterした後に呼び出すこと. &#160;&#160;2回目以降の呼び出しは無視される. &#160;&#160;また,Terminalは最も優先度が高い." alt="" coords="272,39,450,81"/>
 <area shape="rect" href="classdesignlab_1_1_graphic_main_display_model.html#af42c7a85c4334dec044d664a36cf7f34" title=" " alt="" coords="7,5,222,48"/>
-<area shape="poly" title=" " alt="" coords="257,49,222,44,223,39,257,43"/>
+<area shape="poly" title=" " alt="" coords="256,49,222,44,223,39,257,43"/>
 <area shape="rect" href="classdesignlab_1_1_graphic_main_robot_control.html#ad643aefb41adbe094e4f81ddd576597b" title=" " alt="" coords="5,72,224,115"/>
 <area shape="poly" title=" " alt="" coords="257,77,225,81,224,76,256,71"/>
 </map>
@@ -280,13 +280,13 @@ template&lt;IsDxlibUpdatable T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>UpdateとDrawを行うGUIを登録する． <br  />
- IDxlibClickableまたは，IDxlibDraggable, IDxlibWheelHandlerを継承している場合は，それらも同時に登録する． </p>
+<p>UpdateとDrawを行うGUIを登録する. <br  />
+ IDxlibClickableまたは,<a class="el" href="classdesignlab_1_1_i_dxlib_draggable.html" title="ドラッグ可能なGUIのインターフェース.">IDxlibDraggable</a>, IDxlibWheelHandlerを継承している場合は,それらも同時に登録する. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">gui_ptr</td><td>UpdateとDrawを行うGUIのポインタ． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">priority</td><td>GUIの優先度． これが高いほど優先的にUpdateとDrawが行われる． <br  />
- メンバ変数のkBottomPriority～kTopPriorityの間の値を設定すること． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">gui_ptr</td><td>UpdateとDrawを行うGUIのポインタ. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">priority</td><td>GUIの優先度. これが高いほど優先的にUpdateとDrawが行われる. <br  />
+ メンバ変数のkBottomPriority～kTopPriorityの間の値を設定すること. </td></tr>
   </table>
   </dd>
 </dl>
@@ -297,9 +297,9 @@ template&lt;IsDxlibUpdatable T&gt; </div>
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_dxlib_gui_updater_a1857f9c279951c3b92d823e9724839b9_icgraph.png" border="0" usemap="#aclassdesignlab_1_1_dxlib_gui_updater_a1857f9c279951c3b92d823e9724839b9_icgraph" alt=""/></div>
 <map name="aclassdesignlab_1_1_dxlib_gui_updater_a1857f9c279951c3b92d823e9724839b9_icgraph" id="aclassdesignlab_1_1_dxlib_gui_updater_a1857f9c279951c3b92d823e9724839b9_icgraph">
-<area shape="rect" title="UpdateとDrawを行うGUIを登録する． &#160;&#160;IDxlibClickableまたは，IDxlibDraggable, IDxlibWheelHandlerを継承している場合は，それらも同時に登録す..." alt="" coords="272,39,450,81"/>
+<area shape="rect" title="UpdateとDrawを行うGUIを登録する. &#160;&#160;IDxlibClickableまたは,IDxlibDraggable, IDxlibWheelHandlerを継承している場合は,..." alt="" coords="272,39,450,81"/>
 <area shape="rect" href="classdesignlab_1_1_graphic_main_display_model.html#af42c7a85c4334dec044d664a36cf7f34" title=" " alt="" coords="7,5,222,48"/>
-<area shape="poly" title=" " alt="" coords="257,49,222,44,223,39,257,43"/>
+<area shape="poly" title=" " alt="" coords="256,49,222,44,223,39,257,43"/>
 <area shape="rect" href="classdesignlab_1_1_graphic_main_robot_control.html#ad643aefb41adbe094e4f81ddd576597b" title=" " alt="" coords="5,72,224,115"/>
 <area shape="poly" title=" " alt="" coords="257,77,225,81,224,76,256,71"/>
 </map>
@@ -328,7 +328,7 @@ template&lt;IsDxlibUpdatable T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>最も優先度が低い． </p>
+<p>最も優先度が低い. </p>
 
 <p class="definition"> <a class="el" href="dxlib__gui__updater_8h_source.html">dxlib_gui_updater.h</a> の <a class="el" href="dxlib__gui__updater_8h_source.html#l00059">59</a> 行目に定義があります。</p>
 
@@ -354,7 +354,7 @@ template&lt;IsDxlibUpdatable T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>最も優先的に処理される． </p>
+<p>最も優先的に処理される. </p>
 
 <p class="definition"> <a class="el" href="dxlib__gui__updater_8h_source.html">dxlib_gui_updater.h</a> の <a class="el" href="dxlib__gui__updater_8h_source.html#l00060">60</a> 行目に定義があります。</p>
 

@@ -80,7 +80,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>動作のループを感知するクラス．  
+<p>動作のループを感知するクラス.  
  <a href="classdesignlab_1_1_dead_lock_checker.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="dead__lock__checker_8h_source.html">dead_lock_checker.h</a>&gt;</code></p>
@@ -88,18 +88,18 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 公開メンバ関数</h2></td></tr>
 <tr class="memitem:a63e79bf9a46cb90509d022e512b674fd" id="r_a63e79bf9a46cb90509d022e512b674fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_dead_lock_checker.html#a63e79bf9a46cb90509d022e512b674fd">AddNode</a> (const <a class="el" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a> &amp;node)</td></tr>
-<tr class="memdesc:a63e79bf9a46cb90509d022e512b674fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボットが行った動作を追加する．上限数を超えたら，古いものから削除する．  <br /></td></tr>
+<tr class="memdesc:a63e79bf9a46cb90509d022e512b674fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">ロボットが行った動作を追加する.上限数を超えたら,古いものから削除する.  <br /></td></tr>
 <tr class="separator:a63e79bf9a46cb90509d022e512b674fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac293568de69a6bd716123f033c8f164" id="r_aac293568de69a6bd716123f033c8f164"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_dead_lock_checker.html#aac293568de69a6bd716123f033c8f164">IsDeadLock</a> () const</td></tr>
-<tr class="memdesc:aac293568de69a6bd716123f033c8f164"><td class="mdescLeft">&#160;</td><td class="mdescRight">直近に行った動作を比較して，ロボットが正しく動作できているか判断する．  <br /></td></tr>
+<tr class="memdesc:aac293568de69a6bd716123f033c8f164"><td class="mdescLeft">&#160;</td><td class="mdescRight">直近に行った動作を比較して,ロボットが正しく動作できているか判断する.  <br /></td></tr>
 <tr class="separator:aac293568de69a6bd716123f033c8f164"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>動作のループを感知するクラス． </p>
-<p>グラフ探索を用いてロボットの歩容生成をしていると， 最善の行動をとると，同様の操作をし続けて動作がループしてしまう場合がある． それを探知して，歩容生成に失敗していることを通達するクラス． <b></b>[deque(デック)について] std::vectorの亜種． vectorとの違いとして，先頭と末尾の要素の追加・削除が高速である． <br  />
+<div class="textblock"><p>動作のループを感知するクラス. </p>
+<p>グラフ探索を用いてロボットの歩容生成をしていると, 最善の行動をとると,同様の操作をし続けて動作がループしてしまう場合がある. それを探知して,歩容生成に失敗していることを通達するクラス. <b></b>[deque(デック)について] std::vectorの亜種. vectorとの違いとして,先頭と末尾の要素の追加・削除が高速である. <br  />
  参考 : <a href="https://cpprefjp.github.io/reference/deque/deque.html">https://cpprefjp.github.io/reference/deque/deque.html</a> (アクセス日 2023/12/27) </p>
 
-<p class="definition"> <a class="el" href="dead__lock__checker_8h_source.html">dead_lock_checker.h</a> の <a class="el" href="dead__lock__checker_8h_source.html#l00029">29</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="dead__lock__checker_8h_source.html">dead_lock_checker.h</a> の <a class="el" href="dead__lock__checker_8h_source.html#l00028">28</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">関数詳解</h2>
 <a id="a63e79bf9a46cb90509d022e512b674fd" name="a63e79bf9a46cb90509d022e512b674fd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a63e79bf9a46cb90509d022e512b674fd">&#9670;&#160;</a></span>AddNode()</h2>
@@ -117,23 +117,23 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>ロボットが行った動作を追加する．上限数を超えたら，古いものから削除する． </p>
+<p>ロボットが行った動作を追加する.上限数を超えたら,古いものから削除する. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">node</td><td>ロボットの現在の状態． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">node</td><td>ロボットの現在の状態. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="dead__lock__checker_8cpp_source.html">dead_lock_checker.cpp</a> の <a class="el" href="dead__lock__checker_8cpp_source.html#l00014">14</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="dead__lock__checker_8cpp_source.html">dead_lock_checker.cpp</a> の <a class="el" href="dead__lock__checker_8cpp_source.html#l00012">12</a> 行目に定義があります。</p>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_dead_lock_checker_a63e79bf9a46cb90509d022e512b674fd_icgraph.png" border="0" usemap="#aclassdesignlab_1_1_dead_lock_checker_a63e79bf9a46cb90509d022e512b674fd_icgraph" alt=""/></div>
 <map name="aclassdesignlab_1_1_dead_lock_checker_a63e79bf9a46cb90509d022e512b674fd_icgraph" id="aclassdesignlab_1_1_dead_lock_checker_a63e79bf9a46cb90509d022e512b674fd_icgraph">
-<area shape="rect" title="ロボットが行った動作を追加する．上限数を超えたら，古いものから削除する．" alt="" coords="272,5,462,48"/>
-<area shape="rect" href="classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="5,5,224,48"/>
-<area shape="poly" title=" " alt="" coords="257,29,224,29,224,24,257,24"/>
+<area shape="rect" title="ロボットが行った動作を追加する.上限数を超えたら,古いものから削除する." alt="" coords="272,5,462,48"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの. &#160;&#160;目標地点へ着くか,歩容計画に失敗した場合に,シミュレーションを終える. &#160;&#160;また,規定の回数シミュレーションしたら終了する." alt="" coords="5,5,224,48"/>
+<area shape="poly" title=" " alt="" coords="256,29,224,29,224,24,256,24"/>
 </map>
 </div>
 
@@ -154,24 +154,24 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>直近に行った動作を比較して，ロボットが正しく動作できているか判断する． </p>
+<p>直近に行った動作を比較して,ロボットが正しく動作できているか判断する. </p>
 <dl class="retval"><dt>戻り値</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">true</td><td>動作がデッドロックしている．つまり，正しく動作できていない． </td></tr>
-    <tr><td class="paramname">false</td><td>動作がデッドロックしていない．つまり，正しく動作できている． </td></tr>
+    <tr><td class="paramname">true</td><td>動作がデッドロックしている.つまり,正しく動作できていない. </td></tr>
+    <tr><td class="paramname">false</td><td>動作がデッドロックしていない.つまり,正しく動作できている. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="dead__lock__checker_8cpp_source.html">dead_lock_checker.cpp</a> の <a class="el" href="dead__lock__checker_8cpp_source.html#l00027">27</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="dead__lock__checker_8cpp_source.html">dead_lock_checker.cpp</a> の <a class="el" href="dead__lock__checker_8cpp_source.html#l00022">22</a> 行目に定義があります。</p>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_dead_lock_checker_aac293568de69a6bd716123f033c8f164_icgraph.png" border="0" usemap="#aclassdesignlab_1_1_dead_lock_checker_aac293568de69a6bd716123f033c8f164_icgraph" alt=""/></div>
 <map name="aclassdesignlab_1_1_dead_lock_checker_aac293568de69a6bd716123f033c8f164_icgraph" id="aclassdesignlab_1_1_dead_lock_checker_aac293568de69a6bd716123f033c8f164_icgraph">
-<area shape="rect" title="直近に行った動作を比較して，ロボットが正しく動作できているか判断する．" alt="" coords="272,5,462,48"/>
-<area shape="rect" href="classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの． &#160;&#160;目標地点へ着くか，歩容計画に失敗した場合に，シミュレーションを終える． &#160;&#160;また，規定の回数シミュレーションしたら終了する．" alt="" coords="5,5,224,48"/>
-<area shape="poly" title=" " alt="" coords="257,29,224,29,224,24,257,24"/>
+<area shape="rect" title="直近に行った動作を比較して,ロボットが正しく動作できているか判断する." alt="" coords="272,5,462,48"/>
+<area shape="rect" href="classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの. &#160;&#160;目標地点へ着くか,歩容計画に失敗した場合に,シミュレーションを終える. &#160;&#160;また,規定の回数シミュレーションしたら終了する." alt="" coords="5,5,224,48"/>
+<area shape="poly" title=" " alt="" coords="256,29,224,29,224,24,256,24"/>
 </map>
 </div>
 

@@ -1,21 +1,21 @@
 <map id="designlab::com_func::GetLegGroundPatternNum" name="designlab::com_func::GetLegGroundPatternNum">
-<area shape="rect" id="Node000001" title="脚の接地パターンの総数を返す．" alt="" coords="516,147,698,190"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_node_creator_leg_up_down.html#a861b8e2c2efd6673f70c53881848d442" title="現在のノードから次のノード群を生成する．" alt="" coords="5,110,183,153"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="501,184,371,190,300,187,230,179,154,156,155,151,231,174,301,182,371,184,501,179"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_node_creator_leg_up_down2d.html#a06c92f273cd957c7108ae2632bcd8339" title="現在のノードから次のノード群を生成する．" alt="" coords="5,177,183,219"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="548,199,509,213,468,223,394,232,318,232,246,226,183,218,183,213,246,221,318,226,393,226,468,218,508,208,546,194"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_node_creator_leg_up_down_radius.html#a4d2c69510f3b456ce4cb21c2a58e9b45" title="現在のノードから次のノード群を生成する．" alt="" coords="5,39,183,82"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="583,137,562,108,535,78,503,51,467,30,427,17,386,10,343,8,301,10,221,23,155,42,153,36,220,18,300,5,343,3,386,5,428,12,469,25,506,46,539,75,566,105,587,133"/>
-<area shape="rect" id="Node000005" href="$namespacedesignlab_1_1com__func.html#a05a453333f804b587fdc1b14ade6adde" title="離散化された重心位置から，その重心位置では取り得ない脚接地パターンを falseにする．" alt="" coords="231,39,468,82"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="557,142,514,118,467,97,435,85,437,80,469,92,516,114,559,137"/>
-<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1com__func.html#ad4f5fda73fce48453c9bd16789dd3929" title="遊脚できない脚番号から， その脚が遊脚できない場合に取り得ない接地パターンを falseにする．" alt="" coords="244,290,455,349"/>
+<area shape="rect" id="Node000001" title="脚の接地パターンの総数を返す." alt="" coords="516,147,698,190"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_node_creator_leg_up_down.html#a861b8e2c2efd6673f70c53881848d442" title="現在のノードから次のノード群を生成する." alt="" coords="5,110,183,153"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="500,184,371,190,300,187,230,179,154,156,155,151,231,174,300,182,371,184,500,179"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_node_creator_leg_up_down2d.html#a06c92f273cd957c7108ae2632bcd8339" title="現在のノードから次のノード群を生成する." alt="" coords="5,177,183,219"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="547,199,509,213,468,223,394,232,318,232,246,226,183,218,183,213,246,221,318,226,393,226,468,218,508,208,546,194"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_node_creator_leg_up_down_radius.html#a4d2c69510f3b456ce4cb21c2a58e9b45" title="現在のノードから次のノード群を生成する." alt="" coords="5,39,183,82"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="582,136,561,108,534,78,503,51,467,30,427,17,386,10,343,8,301,10,221,23,155,42,153,36,220,18,300,5,343,3,386,5,428,12,469,25,506,46,538,74,565,104,586,132"/>
+<area shape="rect" id="Node000005" href="$namespacedesignlab_1_1com__func.html#a05a453333f804b587fdc1b14ade6adde" title="離散化された重心位置から,その重心位置では取り得ない脚接地パターンを falseにする." alt="" coords="231,39,468,82"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="556,142,467,97,435,85,437,80,469,92,559,137"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1com__func.html#ad4f5fda73fce48453c9bd16789dd3929" title="遊脚できない脚番号から, その脚が遊脚できない場合に取り得ない接地パターンを falseにする." alt="" coords="244,290,455,349"/>
 <area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="571,202,524,238,469,274,433,292,430,287,467,269,521,234,568,198"/>
-<area shape="rect" id="Node000007" href="$namespacedesignlab_1_1com__func.html#aa0397b4df03e5663553ae9b3d383e3d0" title="接地できない脚番号から， その脚が接地できない場合に取り得ない接地パターンを falseにする．" alt="" coords="244,106,455,165"/>
-<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="501,158,454,152,455,146,501,152"/>
-<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="256,89,175,112,173,107,255,84"/>
-<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="239,92,232,96,217,113,209,130,201,148,184,167,166,179,163,174,181,163,196,146,204,128,212,110,229,92,236,87"/>
-<area shape="poly" id="edge7_Node000005_Node000004" title=" " alt="" coords="216,63,183,63,183,58,216,58"/>
-<area shape="poly" id="edge10_Node000007_Node000002" title=" " alt="" coords="229,136,183,136,183,130,230,131"/>
-<area shape="poly" id="edge11_Node000007_Node000003" title=" " alt="" coords="231,167,184,179,183,174,229,162"/>
-<area shape="poly" id="edge12_Node000007_Node000004" title=" " alt="" coords="232,104,169,85,170,80,233,99"/>
+<area shape="rect" id="Node000007" href="$namespacedesignlab_1_1com__func.html#aa0397b4df03e5663553ae9b3d383e3d0" title="接地できない脚番号から, その脚が接地できない場合に取り得ない接地パターンを falseにする." alt="" coords="244,106,455,165"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="500,158,454,152,455,146,501,152"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="256,89,175,112,173,107,254,84"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="239,92,232,96,217,113,209,130,201,148,184,167,166,179,163,174,181,163,196,146,204,128,212,110,229,92,236,88"/>
+<area shape="poly" id="edge7_Node000005_Node000004" title=" " alt="" coords="215,63,183,63,183,58,215,58"/>
+<area shape="poly" id="edge10_Node000007_Node000002" title=" " alt="" coords="229,136,183,136,183,130,229,131"/>
+<area shape="poly" id="edge11_Node000007_Node000003" title=" " alt="" coords="230,168,184,179,183,174,228,162"/>
+<area shape="poly" id="edge12_Node000007_Node000004" title=" " alt="" coords="231,104,169,85,170,80,233,99"/>
 </map>

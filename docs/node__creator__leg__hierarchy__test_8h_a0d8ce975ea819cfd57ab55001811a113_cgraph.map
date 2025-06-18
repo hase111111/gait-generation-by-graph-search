@@ -1,5 +1,5 @@
 <map id="TEST_SUITE" name="TEST_SUITE">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,13,103,40"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__func.html#addb03f2c129476bc73065ee52708dcd5" title="脚状態を作成して返す関数．脚状態は重心パターン， 脚の接地・遊脚，離散化した脚位置のデータが含まれる．" alt="" coords="151,5,283,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,24,136,24,136,29,103,29"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1leg__func.html#a9f76c1f720cc8c1682a091dd0b7d659e" title="脚状態を作成して返す関数.脚状態は重心パターン, 脚の接地・遊脚,離散化した脚位置のデータが含まれる." alt="" coords="151,5,283,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,24,135,24,135,29,103,29"/>
 </map>

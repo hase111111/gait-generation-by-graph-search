@@ -1,14 +1,14 @@
 <map id="designlab::Vector3::GetFrontVec" name="designlab::Vector3::GetFrontVec">
-<area shape="rect" id="Node000001" title="正面に進む単位ベクトルを返す． 静的な関数なので，Vector3::GetFrontVec() と呼び出せる．" alt="" coords="512,64,641,107"/>
+<area shape="rect" id="Node000001" title="正面に進む単位ベクトルを返す. 静的な関数なので,Vector3::GetFrontVec() と呼び出せる." alt="" coords="512,64,641,107"/>
 <area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib_camera.html#a629d7ad98ab88714cfd0fd686baa774f" title=" " alt="" coords="29,31,187,73"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="535,57,501,37,463,21,427,14,390,10,315,10,244,20,183,33,182,28,243,14,315,5,390,4,428,8,465,16,504,32,538,53"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_robot_operator_for_path.html#a2d10a050f779d9ebcc72ea1a4a8e3053" title="ロボットの動作を初期化する．" alt="" coords="277,31,446,73"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="497,76,446,68,447,63,498,71"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_graph_searcher_straight_move.html#a64643a2293909dc6b0166a916c5b26ee" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="259,164,464,207"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="533,117,465,155,437,166,435,161,463,150,530,113"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_dxlib_camera.html#ae1a392104aa1cd5607559982e53cd5db" title="カメラのモードをセットする．同時にカメラの目標回転角度などを設定する．" alt="" coords="282,97,441,140"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="498,100,442,109,441,104,497,95"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="535,57,501,37,463,21,427,14,390,10,315,10,244,20,183,33,182,28,243,14,315,5,390,4,428,8,465,16,503,32,537,52"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_robot_operator_for_path.html#a2d10a050f779d9ebcc72ea1a4a8e3053" title="ロボットの動作を初期化する." alt="" coords="277,31,446,73"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="496,76,446,68,447,63,497,71"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_graph_searcher_straight_move.html#a64643a2293909dc6b0166a916c5b26ee" title="グラフを受け取り,その中から最適な次の動作を出力する." alt="" coords="259,164,464,207"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="532,118,465,155,437,166,435,161,463,150,530,113"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_dxlib_camera.html#ae1a392104aa1cd5607559982e53cd5db" title="カメラのモードをセットする.同時にカメラの目標回転角度などを設定する." alt="" coords="282,97,441,140"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="497,100,442,109,441,104,496,95"/>
 <area shape="rect" id="Node000005" href="$classdesignlab_1_1_graph_searcher_straight_move.html#a012acb8e429cb97dc3843f2d80e16a70" title=" " alt="" coords="5,156,211,215"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="243,188,211,188,211,183,243,183"/>
-<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="267,97,187,75,188,70,268,92"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="266,97,187,75,188,70,268,91"/>
 </map>

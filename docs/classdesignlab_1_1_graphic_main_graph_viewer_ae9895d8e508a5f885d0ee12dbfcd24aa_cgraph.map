@@ -1,9 +1,9 @@
 <map id="designlab::GraphicMainGraphViewer::Draw" name="designlab::GraphicMainGraphViewer::Draw">
-<area shape="rect" id="Node000001" title="描画を行う． ここでは描画系の処理のみを行い内部のデータを 更新しないため const を付けている．" alt="" coords="5,39,198,81"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib3d_renderer_group.html#ad9244776a48fabba9ef1b648bd750a73" title="登録されているクラスの draw 関数を呼ぶ． &#160;&#160;また，Zソートを行う．" alt="" coords="246,5,425,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,44,231,39,231,44,199,49"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_dxlib_gui_updater.html#a6f381c10ed8d90a143acc33065d1a0fe" title="登録済みのGUIのDraw関数を実行する．" alt="" coords="246,72,425,115"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="199,71,232,76,231,81,198,76"/>
-<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1dxlib__util.html#a5f59136031be16081cffcef06767b9e5" title="デフォルトだと描画処理を書いた順に描画されるが， これをZバッファを使用して奥行きを考慮して描画するようにする． 毎フレーム実行する必要がある．" alt="" coords="473,5,608,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="426,24,458,24,458,29,426,29"/>
+<area shape="rect" id="Node000001" title="描画を行う. ここでは描画系の処理のみを行い内部のデータを 更新しないため const を付けている." alt="" coords="5,39,198,81"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib3d_renderer_group.html#ad9244776a48fabba9ef1b648bd750a73" title="登録されているクラスの draw 関数を呼ぶ. &#160;&#160;また,Zソートを行う." alt="" coords="246,5,425,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,44,230,39,231,44,199,49"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_dxlib_gui_updater.html#a6f381c10ed8d90a143acc33065d1a0fe" title="登録済みのGUIのDraw関数を実行する." alt="" coords="246,72,425,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="199,71,231,76,230,81,198,76"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1dxlib__util.html#a5f59136031be16081cffcef06767b9e5" title="デフォルトだと描画処理を書いた順に描画されるが, これをZバッファを使用して奥行きを考慮して描画するようにする. 毎フレーム実行する必要がある." alt="" coords="473,5,608,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="426,24,457,24,457,29,426,29"/>
 </map>

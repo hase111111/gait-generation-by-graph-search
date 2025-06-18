@@ -1,5 +1,5 @@
 <map id="designlab::IDxlibWheelHandler" name="designlab::IDxlibWheelHandler">
-<area shape="rect" id="Node000001" title="マウスホイールの入力を受け取るためのインターフェース．" alt="" coords="5,5,203,32"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_camera_dragger.html" title="マウスの入力でカメラを動かすクラス．" alt="" coords="17,80,191,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,47,107,80,101,80,101,47"/>
+<area shape="rect" id="Node000001" title="マウスホイールの入力を受け取るためのインターフェース." alt="" coords="5,5,203,32"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_camera_dragger.html" title="マウスの入力でカメラを動かすクラス." alt="" coords="17,80,191,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,48,107,80,101,80,101,48"/>
 </map>

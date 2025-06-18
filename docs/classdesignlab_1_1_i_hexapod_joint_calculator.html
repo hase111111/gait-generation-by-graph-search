@@ -80,7 +80,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>間接角度や角速度を計算する処理のインターフェース．  
+<p>間接角度や角速度を計算する処理のインターフェース.  
  <a href="classdesignlab_1_1_i_hexapod_joint_calculator.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="interface__hexapod__joint__calculator_8h_source.html">interface_hexapod_joint_calculator.h</a>&gt;</code></p>
@@ -89,9 +89,11 @@ designlab::IHexapodJointCalculator の継承関係図</div>
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_i_hexapod_joint_calculator__inherit__graph.png" border="0" usemap="#adesignlab_1_1_i_hexapod_joint_calculator_inherit__map" alt="Inheritance graph"/></div>
 <map name="adesignlab_1_1_i_hexapod_joint_calculator_inherit__map" id="adesignlab_1_1_i_hexapod_joint_calculator_inherit__map">
-<area shape="rect" title="間接角度や角速度を計算する処理のインターフェース．" alt="" coords="6,5,172,48"/>
-<area shape="rect" href="classdesignlab_1_1_phantom_x_mk_i_i.html" title="PhantomX mk&#45;2 の状態を計算するクラス．" alt="" coords="5,96,173,123"/>
-<area shape="poly" title=" " alt="" coords="92,63,92,95,86,95,86,63"/>
+<area shape="rect" title="間接角度や角速度を計算する処理のインターフェース." alt="" coords="88,5,253,48"/>
+<area shape="rect" href="classdesignlab_1_1_phantom_x_mk_i_i.html" title="PhantomX mk&#45;2 の状態を計算するクラス." alt="" coords="5,96,173,123"/>
+<area shape="poly" title=" " alt="" coords="140,61,104,97,100,94,137,57"/>
+<area shape="rect" href="classdesignlab_1_1_xr_r1.html" title=" " alt="" coords="197,96,309,123"/>
+<area shape="poly" title=" " alt="" coords="204,57,242,94,238,97,201,61"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">凡例</a>]</span></center></div>
 <table class="memberdecls">
@@ -100,29 +102,29 @@ designlab::IHexapodJointCalculator の継承関係図</div>
 <tr class="memitem:a7350ca02704d4ba4b51c5edb01e37132" id="r_a7350ca02704d4ba4b51c5edb01e37132"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#a7350ca02704d4ba4b51c5edb01e37132">~IHexapodJointCalculator</a> ()=default</td></tr>
 <tr class="separator:a7350ca02704d4ba4b51c5edb01e37132"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71c57b0148f940a472830c618ded593b" id="r_a71c57b0148f940a472830c618ded593b"><td class="memItemLeft" align="right" valign="top">std::array&lt; <a class="el" href="structdesignlab_1_1_hexapod_joint_state.html">HexapodJointState</a>, <a class="el" href="classdesignlab_1_1_hexapod_const.html#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#a71c57b0148f940a472830c618ded593b">CalculateAllJointState</a> (const <a class="el" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a> &amp;node) const noexcept</td></tr>
-<tr class="memdesc:a71c57b0148f940a472830c618ded593b"><td class="mdescLeft">&#160;</td><td class="mdescRight">全ての関節のグローバル座標と，角度を計算する． <br  />
- 重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない． <br  />
- 間接の可動範囲外まで動いてしまう場合でも，答えを返す． <br  />
- 目標座標に届かない場合は，最も近い座標まで脚を伸ばし， 戻り値の is_in_range を false にする．  <br /></td></tr>
+<tr class="memdesc:a71c57b0148f940a472830c618ded593b"><td class="mdescLeft">&#160;</td><td class="mdescRight">全ての関節のグローバル座標と,角度を計算する. <br  />
+ 重たいのでグラフ探索や,描画処理中にループで使用することは推奨しない. <br  />
+ 間接の可動範囲外まで動いてしまう場合でも,答えを返す. <br  />
+ 目標座標に届かない場合は,最も近い座標まで脚を伸ばし, 戻り値の is_in_range を false にする.  <br /></td></tr>
 <tr class="separator:a71c57b0148f940a472830c618ded593b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a263785f20728be6e2226eb0cb01fd169" id="r_a263785f20728be6e2226eb0cb01fd169"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structdesignlab_1_1_hexapod_joint_state.html">HexapodJointState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#a263785f20728be6e2226eb0cb01fd169">CalculateJointState</a> (const int leg_index, const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;leg_pos) const noexcept=0</td></tr>
-<tr class="memdesc:a263785f20728be6e2226eb0cb01fd169"><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した脚の関節のグローバル座標と，角度を計算する． <br  />
- 重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない． <br  />
- 間接の可動範囲外まで動いてしまう場合でも，答えを返す． <br  />
- 目標座標に届かない場合は，最も近い座標まで脚を伸ばし， 戻り値の is_in_range を false にする．  <br /></td></tr>
+<tr class="memdesc:a263785f20728be6e2226eb0cb01fd169"><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した脚の関節のグローバル座標と,角度を計算する. <br  />
+ 重たいのでグラフ探索や,描画処理中にループで使用することは推奨しない. <br  />
+ 間接の可動範囲外まで動いてしまう場合でも,答えを返す. <br  />
+ 目標座標に届かない場合は,最も近い座標まで脚を伸ばし, 戻り値の is_in_range を false にする.  <br /></td></tr>
 <tr class="separator:a263785f20728be6e2226eb0cb01fd169"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae981b7e1b1515f84beaf0429fe0d6bc3" id="r_ae981b7e1b1515f84beaf0429fe0d6bc3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#ae981b7e1b1515f84beaf0429fe0d6bc3">IsValidAllJointState</a> (const <a class="el" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a> &amp;node, const std::array&lt; <a class="el" href="structdesignlab_1_1_hexapod_joint_state.html">HexapodJointState</a>, <a class="el" href="classdesignlab_1_1_hexapod_const.html#a8441e7e101e967ded7c357feb9670812">HexapodConst::kLegNum</a> &gt; &amp;joint_state) const noexcept</td></tr>
-<tr class="memdesc:ae981b7e1b1515f84beaf0429fe0d6bc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">HexapodJointStateが正しく計算できているかを調べる． <br  />
- 目標座標に届かない場合や，間接の可動範囲外まで動いてしまう場合， 戻り値は false になる．  <br /></td></tr>
+<tr class="memdesc:ae981b7e1b1515f84beaf0429fe0d6bc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">HexapodJointStateが正しく計算できているかを調べる. <br  />
+ 目標座標に届かない場合や,間接の可動範囲外まで動いてしまう場合, 戻り値は false になる.  <br /></td></tr>
 <tr class="separator:ae981b7e1b1515f84beaf0429fe0d6bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a444292445924403fac151b5f1b874d08" id="r_a444292445924403fac151b5f1b874d08"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#a444292445924403fac151b5f1b874d08">IsValidJointState</a> (const int leg_index, const <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> &amp;leg_pos, const <a class="el" href="structdesignlab_1_1_hexapod_joint_state.html">HexapodJointState</a> &amp;joint_state) const noexcept=0</td></tr>
-<tr class="memdesc:a444292445924403fac151b5f1b874d08"><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した脚のHexapodJointStateが正しく計算できているかを調べる． <br  />
- 目標座標に届かない場合や，間接の可動範囲外まで動いてしまう場合， 戻り値は false になる．  <br /></td></tr>
+<tr class="memdesc:a444292445924403fac151b5f1b874d08"><td class="mdescLeft">&#160;</td><td class="mdescRight">指定した脚のHexapodJointStateが正しく計算できているかを調べる. <br  />
+ 目標座標に届かない場合や,間接の可動範囲外まで動いてしまう場合, 戻り値は false になる.  <br /></td></tr>
 <tr class="separator:a444292445924403fac151b5f1b874d08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>間接角度や角速度を計算する処理のインターフェース． </p>
-<p>class <a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculator.html" title="間接角度や角速度を計算する処理のインターフェース．">IHexapodJointCalculator</a> </p>
+<div class="textblock"><p>間接角度や角速度を計算する処理のインターフェース. </p>
+<p>class <a class="el" href="classdesignlab_1_1_i_hexapod_joint_calculator.html" title="間接角度や角速度を計算する処理のインターフェース.">IHexapodJointCalculator</a> </p>
 
 <p class="definition"> <a class="el" href="interface__hexapod__joint__calculator_8h_source.html">interface_hexapod_joint_calculator.h</a> の <a class="el" href="interface__hexapod__joint__calculator_8h_source.html#l00043">43</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">構築子と解体子</h2>
@@ -176,17 +178,17 @@ designlab::IHexapodJointCalculator の継承関係図</div>
 </table>
 </div><div class="memdoc">
 
-<p>全ての関節のグローバル座標と，角度を計算する． <br  />
- 重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない． <br  />
- 間接の可動範囲外まで動いてしまう場合でも，答えを返す． <br  />
- 目標座標に届かない場合は，最も近い座標まで脚を伸ばし， 戻り値の is_in_range を false にする． </p>
+<p>全ての関節のグローバル座標と,角度を計算する. <br  />
+ 重たいのでグラフ探索や,描画処理中にループで使用することは推奨しない. <br  />
+ 間接の可動範囲外まで動いてしまう場合でも,答えを返す. <br  />
+ 目標座標に届かない場合は,最も近い座標まで脚を伸ばし, 戻り値の is_in_range を false にする. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">node</td><td>ノードの情報． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">node</td><td>ノードの情報. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>戻り値</dt><dd>全ての関節の状態． </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>全ての関節の状態. </dd></dl>
 
 <p class="definition"> <a class="el" href="interface__hexapod__joint__calculator_8h_source.html">interface_hexapod_joint_calculator.h</a> の <a class="el" href="interface__hexapod__joint__calculator_8h_source.html#l00057">57</a> 行目に定義があります。</p>
 <div class="dynheader">
@@ -194,9 +196,9 @@ designlab::IHexapodJointCalculator の継承関係図</div>
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_i_hexapod_joint_calculator_a71c57b0148f940a472830c618ded593b_cgraph.png" border="0" usemap="#aclassdesignlab_1_1_i_hexapod_joint_calculator_a71c57b0148f940a472830c618ded593b_cgraph" alt=""/></div>
 <map name="aclassdesignlab_1_1_i_hexapod_joint_calculator_a71c57b0148f940a472830c618ded593b_cgraph" id="aclassdesignlab_1_1_i_hexapod_joint_calculator_a71c57b0148f940a472830c618ded593b_cgraph">
-<area shape="rect" title="全ての関節のグローバル座標と，角度を計算する． &#160;&#160;重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない． &#160;&#160;間接の可動範囲外まで動いてしまう場合でも，答えを返す． &#160;&#160;目標座標に届か..." alt="" coords="5,5,220,48"/>
-<area shape="rect" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#a263785f20728be6e2226eb0cb01fd169" title="指定した脚の関節のグローバル座標と，角度を計算する． &#160;&#160;重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない． &#160;&#160;間接の可動範囲外まで動いてしまう場合でも，答えを返す． &#160;&#160;目標座標..." alt="" coords="268,5,467,48"/>
-<area shape="poly" title=" " alt="" coords="220,24,253,24,253,29,220,29"/>
+<area shape="rect" title="全ての関節のグローバル座標と,角度を計算する. &#160;&#160;重たいのでグラフ探索や,描画処理中にループで使用することは推奨しない. &#160;&#160;間接の可動範囲外まで動いてしまう場合でも,..." alt="" coords="5,5,220,48"/>
+<area shape="rect" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#a263785f20728be6e2226eb0cb01fd169" title="指定した脚の関節のグローバル座標と,角度を計算する. &#160;&#160;重たいのでグラフ探索や,描画処理中にループで使用することは推奨しない. &#160;&#160;間接の可動範囲外まで動いてしまう場合でも,..." alt="" coords="268,5,467,48"/>
+<area shape="poly" title=" " alt="" coords="220,24,252,24,252,29,220,29"/>
 </map>
 </div>
 
@@ -236,27 +238,27 @@ designlab::IHexapodJointCalculator の継承関係図</div>
 </table>
 </div><div class="memdoc">
 
-<p>指定した脚の関節のグローバル座標と，角度を計算する． <br  />
- 重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない． <br  />
- 間接の可動範囲外まで動いてしまう場合でも，答えを返す． <br  />
- 目標座標に届かない場合は，最も近い座標まで脚を伸ばし， 戻り値の is_in_range を false にする． </p>
+<p>指定した脚の関節のグローバル座標と,角度を計算する. <br  />
+ 重たいのでグラフ探索や,描画処理中にループで使用することは推奨しない. <br  />
+ 間接の可動範囲外まで動いてしまう場合でも,答えを返す. <br  />
+ 目標座標に届かない場合は,最も近い座標まで脚を伸ばし, 戻り値の is_in_range を false にする. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">leg_index</td><td>脚のインデックス． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">leg_pos</td><td>脚先座標，脚座標系． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_index</td><td>脚のインデックス. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_pos</td><td>脚先座標,脚座標系. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>戻り値</dt><dd>指定した脚の関節の状態． </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>指定した脚の関節の状態. </dd></dl>
 
-<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i.html#ac027dc121a54e00da42ffcbab0028561">designlab::PhantomXMkII</a>で実装されています。</p>
+<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i.html#ac027dc121a54e00da42ffcbab0028561">designlab::PhantomXMkII</a>, <a class="el" href="classdesignlab_1_1_xr_r1.html#aac43949e685909eeceb9d57fe3a509f0">designlab::XrR1</a>で実装されています。</p>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_i_hexapod_joint_calculator_a263785f20728be6e2226eb0cb01fd169_icgraph.png" border="0" usemap="#aclassdesignlab_1_1_i_hexapod_joint_calculator_a263785f20728be6e2226eb0cb01fd169_icgraph" alt=""/></div>
 <map name="aclassdesignlab_1_1_i_hexapod_joint_calculator_a263785f20728be6e2226eb0cb01fd169_icgraph" id="aclassdesignlab_1_1_i_hexapod_joint_calculator_a263785f20728be6e2226eb0cb01fd169_icgraph">
-<area shape="rect" title="指定した脚の関節のグローバル座標と，角度を計算する． &#160;&#160;重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない． &#160;&#160;間接の可動範囲外まで動いてしまう場合でも，答えを返す． &#160;&#160;目標座標..." alt="" coords="268,5,467,48"/>
-<area shape="rect" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#a71c57b0148f940a472830c618ded593b" title="全ての関節のグローバル座標と，角度を計算する． &#160;&#160;重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない． &#160;&#160;間接の可動範囲外まで動いてしまう場合でも，答えを返す． &#160;&#160;目標座標に届か..." alt="" coords="5,5,220,48"/>
+<area shape="rect" title="指定した脚の関節のグローバル座標と,角度を計算する. &#160;&#160;重たいのでグラフ探索や,描画処理中にループで使用することは推奨しない. &#160;&#160;間接の可動範囲外まで動いてしまう場合でも,..." alt="" coords="268,5,467,48"/>
+<area shape="rect" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#a71c57b0148f940a472830c618ded593b" title="全ての関節のグローバル座標と,角度を計算する. &#160;&#160;重たいのでグラフ探索や,描画処理中にループで使用することは推奨しない. &#160;&#160;間接の可動範囲外まで動いてしまう場合でも,..." alt="" coords="5,5,220,48"/>
 <area shape="poly" title=" " alt="" coords="252,29,220,29,220,24,252,24"/>
 </map>
 </div>
@@ -297,16 +299,16 @@ designlab::IHexapodJointCalculator の継承関係図</div>
 </table>
 </div><div class="memdoc">
 
-<p>HexapodJointStateが正しく計算できているかを調べる． <br  />
- 目標座標に届かない場合や，間接の可動範囲外まで動いてしまう場合， 戻り値は false になる． </p>
+<p>HexapodJointStateが正しく計算できているかを調べる. <br  />
+ 目標座標に届かない場合や,間接の可動範囲外まで動いてしまう場合, 戻り値は false になる. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">node</td><td>ノードの情報． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">joint_state</td><td>関節の状態． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">node</td><td>ノードの情報. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">joint_state</td><td>関節の状態. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>戻り値</dt><dd>計算が正しくできているならば true を返す． </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>計算が正しくできているならば true を返す. </dd></dl>
 
 <p class="definition"> <a class="el" href="interface__hexapod__joint__calculator_8h_source.html">interface_hexapod_joint_calculator.h</a> の <a class="el" href="interface__hexapod__joint__calculator_8h_source.html#l00090">90</a> 行目に定義があります。</p>
 <div class="dynheader">
@@ -314,8 +316,8 @@ designlab::IHexapodJointCalculator の継承関係図</div>
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_i_hexapod_joint_calculator_ae981b7e1b1515f84beaf0429fe0d6bc3_cgraph.png" border="0" usemap="#aclassdesignlab_1_1_i_hexapod_joint_calculator_ae981b7e1b1515f84beaf0429fe0d6bc3_cgraph" alt=""/></div>
 <map name="aclassdesignlab_1_1_i_hexapod_joint_calculator_ae981b7e1b1515f84beaf0429fe0d6bc3_cgraph" id="aclassdesignlab_1_1_i_hexapod_joint_calculator_ae981b7e1b1515f84beaf0429fe0d6bc3_cgraph">
-<area shape="rect" title="HexapodJointStateが正しく計算できているかを調べる． &#160;&#160;目標座標に届かない場合や，間接の可動範囲外まで動いてしまう場合， 戻り値は false になる．" alt="" coords="5,5,205,48"/>
-<area shape="rect" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#a444292445924403fac151b5f1b874d08" title="指定した脚のHexapodJointStateが正しく計算できているかを調べる． &#160;&#160;目標座標に届かない場合や，間接の可動範囲外まで動いてしまう場合， 戻り値は false になる．" alt="" coords="253,5,437,48"/>
+<area shape="rect" title="HexapodJointStateが正しく計算できているかを調べる. &#160;&#160;目標座標に届かない場合や,間接の可動範囲外まで動いてしまう場合, 戻り値は false になる." alt="" coords="5,5,205,48"/>
+<area shape="rect" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#a444292445924403fac151b5f1b874d08" title="指定した脚のHexapodJointStateが正しく計算できているかを調べる. &#160;&#160;目標座標に届かない場合や,間接の可動範囲外まで動いてしまう場合, 戻り値は false になる." alt="" coords="253,5,437,48"/>
 <area shape="poly" title=" " alt="" coords="205,24,237,24,237,29,205,29"/>
 </map>
 </div>
@@ -362,27 +364,27 @@ designlab::IHexapodJointCalculator の継承関係図</div>
 </table>
 </div><div class="memdoc">
 
-<p>指定した脚のHexapodJointStateが正しく計算できているかを調べる． <br  />
- 目標座標に届かない場合や，間接の可動範囲外まで動いてしまう場合， 戻り値は false になる． </p>
+<p>指定した脚のHexapodJointStateが正しく計算できているかを調べる. <br  />
+ 目標座標に届かない場合や,間接の可動範囲外まで動いてしまう場合, 戻り値は false になる. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">leg_index</td><td>脚のインデックス． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">leg_pos</td><td>脚先座標，脚座標系． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">joint_state</td><td>関節の状態． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_index</td><td>脚のインデックス. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">leg_pos</td><td>脚先座標,脚座標系. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">joint_state</td><td>関節の状態. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>戻り値</dt><dd>計算が正しくできているならば true を返す． </dd></dl>
+<dl class="section return"><dt>戻り値</dt><dd>計算が正しくできているならば true を返す. </dd></dl>
 
-<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i.html#acd4f0edc022211d1ddd42cc7308e4ffd">designlab::PhantomXMkII</a>で実装されています。</p>
+<p><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i.html#acd4f0edc022211d1ddd42cc7308e4ffd">designlab::PhantomXMkII</a>, <a class="el" href="classdesignlab_1_1_xr_r1.html#aa3f2c880699cc6a61cf997b71b3e5889">designlab::XrR1</a>で実装されています。</p>
 <div class="dynheader">
 被呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_i_hexapod_joint_calculator_a444292445924403fac151b5f1b874d08_icgraph.png" border="0" usemap="#aclassdesignlab_1_1_i_hexapod_joint_calculator_a444292445924403fac151b5f1b874d08_icgraph" alt=""/></div>
 <map name="aclassdesignlab_1_1_i_hexapod_joint_calculator_a444292445924403fac151b5f1b874d08_icgraph" id="aclassdesignlab_1_1_i_hexapod_joint_calculator_a444292445924403fac151b5f1b874d08_icgraph">
-<area shape="rect" title="指定した脚のHexapodJointStateが正しく計算できているかを調べる． &#160;&#160;目標座標に届かない場合や，間接の可動範囲外まで動いてしまう場合， 戻り値は false になる．" alt="" coords="253,5,437,48"/>
-<area shape="rect" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#ae981b7e1b1515f84beaf0429fe0d6bc3" title="HexapodJointStateが正しく計算できているかを調べる． &#160;&#160;目標座標に届かない場合や，間接の可動範囲外まで動いてしまう場合， 戻り値は false になる．" alt="" coords="5,5,205,48"/>
-<area shape="poly" title=" " alt="" coords="238,29,205,29,205,24,238,24"/>
+<area shape="rect" title="指定した脚のHexapodJointStateが正しく計算できているかを調べる. &#160;&#160;目標座標に届かない場合や,間接の可動範囲外まで動いてしまう場合, 戻り値は false になる." alt="" coords="253,5,437,48"/>
+<area shape="rect" href="classdesignlab_1_1_i_hexapod_joint_calculator.html#ae981b7e1b1515f84beaf0429fe0d6bc3" title="HexapodJointStateが正しく計算できているかを調べる. &#160;&#160;目標座標に届かない場合や,間接の可動範囲外まで動いてしまう場合, 戻り値は false になる." alt="" coords="5,5,205,48"/>
+<area shape="poly" title=" " alt="" coords="237,29,205,29,205,24,237,24"/>
 </map>
 </div>
 

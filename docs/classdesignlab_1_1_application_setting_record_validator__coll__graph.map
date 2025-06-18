@@ -1,5 +1,5 @@
 <map id="designlab::ApplicationSettingRecordValidator" name="designlab::ApplicationSettingRecordValidator">
-<area shape="rect" id="Node000001" title="ApplicationSettingRecord のバリデータ．" alt="" coords="7,96,197,139"/>
+<area shape="rect" id="Node000001" title="ApplicationSettingRecord のバリデータ." alt="" coords="7,96,197,139"/>
 <area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_toml_data_validator.html" title=" " alt="" coords="5,5,199,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,63,105,96,99,96,99,63"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,64,105,96,99,96,99,64"/>
 </map>

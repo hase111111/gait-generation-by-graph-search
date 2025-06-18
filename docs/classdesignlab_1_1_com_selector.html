@@ -80,7 +80,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>重心の候補領域から重心位置を選択するクラス．  
+<p>重心の候補領域から重心位置を選択するクラス.  
  <a href="classdesignlab_1_1_com_selector.html#details">[詳解]</a></p>
 
 <p><code>#include &lt;<a class="el" href="com__selector_8h_source.html">com_selector.h</a>&gt;</code></p>
@@ -90,19 +90,19 @@ $(function() {
 <tr class="memitem:ab2682843093c698e5130da7d941f7e45" id="r_ab2682843093c698e5130da7d941f7e45"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_com_selector.html#ab2682843093c698e5130da7d941f7e45">ComSelector</a> (const std::shared_ptr&lt; const <a class="el" href="classdesignlab_1_1_i_hexapod_posture_validator.html">IHexapodPostureValidator</a> &gt; &amp;checker_ptr)</td></tr>
 <tr class="separator:ab2682843093c698e5130da7d941f7e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe154bc35f0971d6c2c2a649299b23c3" id="r_afe154bc35f0971d6c2c2a649299b23c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdesignlab_1_1_com_selector.html#afe154bc35f0971d6c2c2a649299b23c3">GetComFromPolygon</a> (const <a class="el" href="structdesignlab_1_1_polygon2.html">Polygon2</a> &amp;polygon, const <a class="el" href="structdesignlab_1_1_robot_state_node.html">RobotStateNode</a> &amp;current_node, <a class="el" href="structdesignlab_1_1_vector3.html">Vector3</a> *output_com) const</td></tr>
-<tr class="memdesc:afe154bc35f0971d6c2c2a649299b23c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心を求める．  <br /></td></tr>
+<tr class="memdesc:afe154bc35f0971d6c2c2a649299b23c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">重心を求める.  <br /></td></tr>
 <tr class="separator:afe154bc35f0971d6c2c2a649299b23c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>重心の候補領域から重心位置を選択するクラス． </p>
-<p>重心位置の決め方は波東さんのプログラムに準拠している． <br  />
- まずは，候補地点の多角形を囲む四角形を生成，その中に等間隔で候補点を打つ． <br  />
- 次に多角形の中に入っていない点を除外する． <br  />
- そして，絶対安全余裕を計算し，マージンを外れた点を除外する． <br  />
- また，移動後の座標において，脚が他の脚と干渉する場合は除外する． <br  />
- 以上の処理を行った後，残った点の重心を求める． </p><dl class="section note"><dt>覚え書き</dt><dd>CCC では Target の値を持っているので，その値を利用して重心位置選択するが， この実装ではこのクラスにその選択を任せたくない． 同様の処理を行うために，Target の値を適当に決めている． </dd></dl>
+<div class="textblock"><p>重心の候補領域から重心位置を選択するクラス. </p>
+<p>重心位置の決め方は波東さんのプログラムに準拠している. <br  />
+ まずは,候補地点の多角形を囲む四角形を生成,その中に等間隔で候補点を打つ. <br  />
+ 次に多角形の中に入っていない点を除外する. <br  />
+ そして,絶対安全余裕を計算し,マージンを外れた点を除外する. <br  />
+ また,移動後の座標において,脚が他の脚と干渉する場合は除外する. <br  />
+ 以上の処理を行った後,残った点の重心を求める. </p><dl class="section note"><dt>覚え書き</dt><dd>CCC では Target の値を持っているので,その値を利用して重心位置選択するが, この実装ではこのクラスにその選択を任せたくない. 同様の処理を行うために,Target の値を適当に決めている. </dd></dl>
 
-<p class="definition"> <a class="el" href="com__selector_8h_source.html">com_selector.h</a> の <a class="el" href="com__selector_8h_source.html#l00036">36</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="com__selector_8h_source.html">com_selector.h</a> の <a class="el" href="com__selector_8h_source.html#l00035">35</a> 行目に定義があります。</p>
 </div><h2 class="groupheader">構築子と解体子</h2>
 <a id="ab2682843093c698e5130da7d941f7e45" name="ab2682843093c698e5130da7d941f7e45"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab2682843093c698e5130da7d941f7e45">&#9670;&#160;</a></span>ComSelector()</h2>
@@ -128,7 +128,7 @@ $(function() {
 </table>
 </div><div class="memdoc">
 
-<p class="definition"> <a class="el" href="com__selector_8h_source.html">com_selector.h</a> の <a class="el" href="com__selector_8h_source.html#l00039">39</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="com__selector_8h_source.html">com_selector.h</a> の <a class="el" href="com__selector_8h_source.html#l00037">37</a> 行目に定義があります。</p>
 
 </div>
 </div>
@@ -165,54 +165,54 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>重心を求める． </p>
+<p>重心を求める. </p>
 <dl class="params"><dt>引数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">polygon</td><td>重心を求める対象のポリゴン．この中に入る点を出力する． </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">current_node</td><td>現在のノード． </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">output_com</td><td>重心． </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">polygon</td><td>重心を求める対象のポリゴン.この中に入る点を出力する. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">current_node</td><td>現在のノード. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">output_com</td><td>重心. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="retval"><dt>戻り値</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">true</td><td>重心を求めることができた． </td></tr>
-    <tr><td class="paramname">false</td><td>重心を求めることができなかった． </td></tr>
+    <tr><td class="paramname">true</td><td>重心を求めることができた. </td></tr>
+    <tr><td class="paramname">false</td><td>重心を求めることができなかった. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition"> <a class="el" href="com__selector_8cpp_source.html">com_selector.cpp</a> の <a class="el" href="com__selector_8cpp_source.html#l00020">20</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="com__selector_8cpp_source.html">com_selector.cpp</a> の <a class="el" href="com__selector_8cpp_source.html#l00018">18</a> 行目に定義があります。</p>
 <div class="dynheader">
 呼び出し関係図:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_com_selector_afe154bc35f0971d6c2c2a649299b23c3_cgraph.png" border="0" usemap="#aclassdesignlab_1_1_com_selector_afe154bc35f0971d6c2c2a649299b23c3_cgraph" alt=""/></div>
 <map name="aclassdesignlab_1_1_com_selector_afe154bc35f0971d6c2c2a649299b23c3_cgraph" id="aclassdesignlab_1_1_com_selector_afe154bc35f0971d6c2c2a649299b23c3_cgraph">
-<area shape="rect" title="重心を求める．" alt="" coords="5,168,165,211"/>
-<area shape="rect" href="structdesignlab_1_1_quaternion.html#a893ee3dc143f059822f17ead2f716de1" title="クォータニオンの共役を返す． 共役なクォータニオンとは，ベクトル成分の符号を反転させたもの &#160;&#160;q = w + xi + yj + zk とすると， qの共役は w &#45; xi &#45; yj &#45; zk となる..." alt="" coords="223,5,370,48"/>
+<area shape="rect" title="重心を求める." alt="" coords="5,168,165,211"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#a893ee3dc143f059822f17ead2f716de1" title="クォータニオンの共役を返す. 共役なクォータニオンとは,ベクトル成分の符号を反転させたもの &#160;&#160;q = w + xi + yj + zk とすると, qの共役は w &#45; xi &#45; yj &#45; zk となる..." alt="" coords="223,5,370,48"/>
 <area shape="poly" title=" " alt="" coords="101,166,147,113,178,84,211,58,219,53,221,58,214,62,181,88,151,116,105,169"/>
-<area shape="rect" href="structdesignlab_1_1_vector2.html#a5b486befcef8a9c50ff78137783c3ba9" title="このベクトルを正規化したベクトルを返す．" alt="" coords="232,72,361,115"/>
-<area shape="poly" title=" " alt="" coords="127,165,212,124,225,118,227,123,214,129,130,170"/>
-<area shape="rect" href="structdesignlab_1_1_polygon2.html#a69f7aa8caa2158c440b5bb8f1416a6bf" title="頂点の座標を返す関数．" alt="" coords="227,139,366,181"/>
-<area shape="poly" title=" " alt="" coords="165,176,212,169,213,174,166,181"/>
-<area shape="rect" href="structdesignlab_1_1_polygon2.html#a5325a59337947d2b61e055431f2ce3f3" title="多角形の頂点数を返す関数．" alt="" coords="450,168,588,211"/>
+<area shape="rect" href="structdesignlab_1_1_vector2.html#a5b486befcef8a9c50ff78137783c3ba9" title="このベクトルを正規化したベクトルを返す." alt="" coords="232,72,361,115"/>
+<area shape="poly" title=" " alt="" coords="127,165,212,124,224,119,227,123,214,129,130,170"/>
+<area shape="rect" href="structdesignlab_1_1_polygon2.html#a69f7aa8caa2158c440b5bb8f1416a6bf" title="頂点の座標を返す関数." alt="" coords="227,139,366,181"/>
+<area shape="poly" title=" " alt="" coords="165,176,211,169,212,174,166,181"/>
+<area shape="rect" href="structdesignlab_1_1_polygon2.html#a5325a59337947d2b61e055431f2ce3f3" title="多角形の頂点数を返す関数." alt="" coords="450,168,588,211"/>
 <area shape="poly" title=" " alt="" coords="165,190,213,191,380,191,435,189,435,195,380,196,213,196,165,195"/>
-<area shape="rect" href="namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて，その脚が接地しているかを調べる． &#160;&#160;脚は右前脚を0番として，時計回りに0,1,2,3,4,5となる．左前足が5番．" alt="" coords="230,256,363,299"/>
-<area shape="poly" title=" " alt="" coords="139,209,231,247,229,252,137,214"/>
-<area shape="rect" href="namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す．三角関数の処理が多く重たいので注意．" alt="" coords="213,347,380,373"/>
-<area shape="poly" title=" " alt="" coords="108,209,155,257,214,309,258,337,255,341,211,313,151,261,104,213"/>
-<area shape="rect" href="structdesignlab_1_1_vector2.html#ab62323b441e66a37e41668fb0ac7ae99" title="このベクトルの長さを返す．" alt="" coords="455,20,584,63"/>
-<area shape="poly" title=" " alt="" coords="361,76,439,57,441,62,362,81"/>
-<area shape="rect" href="namespacedesignlab_1_1math__util.html#a92c055e0799991e88871e2a5d4f09280" title="C++において，小数同士の計算は誤差が出てしまう． 誤差込みで値が等しいか調べる．" alt="" coords="451,87,588,129"/>
-<area shape="poly" title=" " alt="" coords="362,95,436,100,435,105,361,100"/>
-<area shape="rect" href="structdesignlab_1_1_vector2.html#a80b722825f1793105702da0677867a08" title="このベクトルの長さの2乗を返す．" alt="" coords="663,20,801,63"/>
+<area shape="rect" href="namespacedesignlab_1_1leg__func.html#a4b87ebe130ffec4a53e929bdb13c4ee3" title="脚番号 leg_index 0 ～ 5 に応じて,その脚が接地しているかを調べる. &#160;&#160;脚は右前脚を0番として,時計回りに0,1,2,3,4,5となる.左前足が5番." alt="" coords="230,256,363,299"/>
+<area shape="poly" title=" " alt="" coords="139,209,230,247,228,252,137,214"/>
+<area shape="rect" href="namespacedesignlab.html#a703ec0b7e06057a8997a4b22d50c5c9d" title="回転させたベクトルを返す.三角関数の処理が多く重たいので注意." alt="" coords="213,347,380,373"/>
+<area shape="poly" title=" " alt="" coords="108,209,155,257,214,309,257,336,254,341,211,313,151,261,104,213"/>
+<area shape="rect" href="structdesignlab_1_1_vector2.html#ab62323b441e66a37e41668fb0ac7ae99" title="このベクトルの長さを返す." alt="" coords="455,20,584,63"/>
+<area shape="poly" title=" " alt="" coords="361,76,439,57,440,62,362,81"/>
+<area shape="rect" href="namespacedesignlab_1_1math__util.html#a92c055e0799991e88871e2a5d4f09280" title="C++において,小数同士の計算は誤差が出てしまう. 誤差込みで値が等しいか調べる." alt="" coords="451,87,588,129"/>
+<area shape="poly" title=" " alt="" coords="362,95,435,100,435,105,361,100"/>
+<area shape="rect" href="structdesignlab_1_1_vector2.html#a80b722825f1793105702da0677867a08" title="このベクトルの長さの2乗を返す." alt="" coords="663,20,801,63"/>
 <area shape="poly" title=" " alt="" coords="584,39,648,39,648,44,584,44"/>
-<area shape="poly" title=" " alt="" coords="366,166,436,176,435,181,366,172"/>
-<area shape="poly" title=" " alt="" coords="261,348,254,338,259,328,273,322,296,320,323,323,336,330,333,335,321,328,296,325,274,327,262,332,259,337,265,345"/>
-<area shape="rect" href="namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換．" alt="" coords="428,347,610,373"/>
-<area shape="poly" title=" " alt="" coords="380,357,413,357,413,363,380,363"/>
-<area shape="rect" href="structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す． &#160;&#160;クォータニオンの正規化とは，ノルムを1にすることを表す． &#160;&#160;クォータニオンqの正規化は，q / |q| で求められる．" alt="" coords="658,339,806,381"/>
-<area shape="poly" title=" " alt="" coords="611,357,644,357,644,363,611,363"/>
+<area shape="poly" title=" " alt="" coords="366,166,435,176,434,181,366,172"/>
+<area shape="poly" title=" " alt="" coords="261,348,254,338,259,328,273,322,296,320,321,323,335,329,333,334,320,328,296,325,274,327,262,332,259,337,265,345"/>
+<area shape="rect" href="namespacedesignlab.html#a8183abef6391dd2b5c396f1fa3062294" title="クォータニオンから回転角行列への変換." alt="" coords="428,347,610,373"/>
+<area shape="poly" title=" " alt="" coords="380,357,412,357,412,363,380,363"/>
+<area shape="rect" href="structdesignlab_1_1_quaternion.html#a2c504d31353e189b1fa7a83cfd60deba" title="正規化したクォータニオンを返す. &#160;&#160;クォータニオンの正規化とは,ノルムを1にすることを表す. &#160;&#160;クォータニオンqの正規化は,q / |q| で求められる." alt="" coords="658,339,806,381"/>
+<area shape="poly" title=" " alt="" coords="611,357,643,357,643,363,611,363"/>
 </map>
 </div>
 <div class="dynheader">
@@ -220,9 +220,9 @@ $(function() {
 <div class="dyncontent">
 <div class="center"><img src="classdesignlab_1_1_com_selector_afe154bc35f0971d6c2c2a649299b23c3_icgraph.png" border="0" usemap="#aclassdesignlab_1_1_com_selector_afe154bc35f0971d6c2c2a649299b23c3_icgraph" alt=""/></div>
 <map name="aclassdesignlab_1_1_com_selector_afe154bc35f0971d6c2c2a649299b23c3_icgraph" id="aclassdesignlab_1_1_com_selector_afe154bc35f0971d6c2c2a649299b23c3_icgraph">
-<area shape="rect" title="重心を求める．" alt="" coords="237,5,396,48"/>
-<area shape="rect" href="classdesignlab_1_1_node_creator_com_move.html#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する．" alt="" coords="5,5,189,48"/>
-<area shape="poly" title=" " alt="" coords="222,29,189,29,189,24,222,24"/>
+<area shape="rect" title="重心を求める." alt="" coords="237,5,396,48"/>
+<area shape="rect" href="classdesignlab_1_1_node_creator_com_move.html#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する." alt="" coords="5,5,189,48"/>
+<area shape="poly" title=" " alt="" coords="221,29,189,29,189,24,221,24"/>
 </map>
 </div>
 

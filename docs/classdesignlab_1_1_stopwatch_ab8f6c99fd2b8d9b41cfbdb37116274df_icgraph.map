@@ -1,5 +1,5 @@
 <map id="designlab::Stopwatch::GetElapsedMicroSecond" name="designlab::Stopwatch::GetElapsedMicroSecond">
-<area shape="rect" id="Node000001" title="計測結果をマイクロ秒で取得． &#160;&#160;start()と end()を呼び出してからこの関数を呼ぶ．" alt="" coords="261,5,434,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_stopwatch.html#af9fb416303d9b2d98886dde84614c6a0" title="経過時間をマイクロ秒で表した文字列を取得する．" alt="" coords="5,5,213,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="246,29,213,29,213,24,246,24"/>
+<area shape="rect" id="Node000001" title="計測結果をマイクロ秒で取得. &#160;&#160;start()と end()を呼び出してからこの関数を呼ぶ." alt="" coords="261,5,434,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_stopwatch.html#af9fb416303d9b2d98886dde84614c6a0" title="経過時間をマイクロ秒で表した文字列を取得する." alt="" coords="5,5,213,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,29,213,29,213,24,245,24"/>
 </map>

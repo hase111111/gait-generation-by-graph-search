@@ -1,0 +1,7 @@
+<map id="designlab::nostd::expected::error_or" name="designlab::nostd::expected::error_or">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,39,183,81"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1nostd_1_1expected.html#a297ee3769cc9b7d52d80dc56428204e3" title="失敗時の値を返す." alt="" coords="231,5,408,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,44,215,39,215,45,183,50"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1nostd_1_1expected.html#a1262f20ac4965758deb788fe46f22041" title="正常値を持っている場合に true を返す." alt="" coords="231,72,408,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="183,70,215,75,215,81,182,76"/>
+</map>

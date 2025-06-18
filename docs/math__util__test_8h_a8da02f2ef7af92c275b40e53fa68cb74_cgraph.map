@@ -1,5 +1,5 @@
 <map id="TEST_SUITE" name="TEST_SUITE">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,13,103,40"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a92c055e0799991e88871e2a5d4f09280" title="C++において，小数同士の計算は誤差が出てしまう． 誤差込みで値が等しいか調べる．" alt="" coords="151,5,288,48"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1math__util.html#a92c055e0799991e88871e2a5d4f09280" title="C++において,小数同士の計算は誤差が出てしまう. 誤差込みで値が等しいか調べる." alt="" coords="151,5,288,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,24,136,24,136,29,103,29"/>
 </map>

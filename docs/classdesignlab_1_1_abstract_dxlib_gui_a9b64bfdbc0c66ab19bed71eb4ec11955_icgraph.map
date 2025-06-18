@@ -1,23 +1,23 @@
 <map id="designlab::AbstractDxlibGui::SetVisible" name="designlab::AbstractDxlibGui::SetVisible">
-<area shape="rect" id="Node000001" title="GUIの表示を行うかどうかを設定する．" alt="" coords="291,337,453,380"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib_gui_camera.html#a46bdd002d3a9125539708f9146ec7268" title="コンストラクタでWindowのサイズと， カメラの管理を行うクラスを受け取る．" alt="" coords="35,5,213,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="363,323,350,266,327,195,311,159,292,123,268,91,241,62,212,45,215,40,244,58,273,87,296,120,316,156,332,193,355,264,368,322"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_dxlib_gui_camera_parameter_displayer.html#ae000b3d95e9d866d096c684429615f64" title="コンストラクタでWindowのサイズと，" alt="" coords="5,72,243,131"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="356,324,339,283,314,235,281,187,241,145,224,133,227,129,244,141,285,183,318,232,344,281,361,322"/>
+<area shape="rect" id="Node000001" title="GUIの表示を行うかどうかを設定する." alt="" coords="291,337,453,380"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_dxlib_gui_camera.html#a46bdd002d3a9125539708f9146ec7268" title="コンストラクタでWindowのサイズと, カメラの管理を行うクラスを受け取る." alt="" coords="35,5,213,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="363,323,350,265,327,195,292,123,268,91,241,62,212,45,215,40,244,58,272,87,296,120,332,193,355,264,368,321"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_dxlib_gui_camera_parameter_displayer.html#ae000b3d95e9d866d096c684429615f64" title="コンストラクタでWindowのサイズと," alt="" coords="5,72,243,131"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="356,324,338,283,314,234,281,186,241,145,224,133,227,129,244,141,285,183,318,232,343,280,361,322"/>
 <area shape="rect" id="Node000004" href="$classdesignlab_1_1_dxlib_gui_display_node_switcher.html#a5fd64ba32d6c29372b6959b45970edcd" title=" " alt="" coords="8,155,240,213"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="344,327,299,276,271,250,241,228,221,216,223,211,244,223,275,246,303,272,348,323"/>
 <area shape="rect" id="Node000005" href="$classdesignlab_1_1_dxlib_gui_node_displayer.html#a9ff6dbb2ad0783885729c25abb8be4e4" title=" " alt="" coords="15,237,233,280"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="320,332,242,294,209,283,211,278,244,290,322,327"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_dxlib_gui_robot_control.html#a1af38aed3eb6e1a916c257e6ed3945f0" title="コンストラクタでWindowのサイズと，カメラの管理を行うクラスを受け取る．" alt="" coords="27,304,221,347"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="276,348,221,341,222,336,276,343"/>
-<area shape="rect" id="Node000007" href="$classdesignlab_1_1_dxlib_gui_camera.html#a236116169c9cc6862c82aca675742c06" title="GUIの更新，毎フレーム実行すること．" alt="" coords="35,371,213,413"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="277,374,214,383,213,377,276,369"/>
-<area shape="rect" id="Node000008" href="$classdesignlab_1_1_dxlib_gui_camera_parameter_displayer.html#ab716723e2ae412d1acfeb57fa4d749ff" title="GUIの更新，毎フレーム実行すること．" alt="" coords="32,437,216,480"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="322,390,244,428,211,439,209,434,242,423,320,385"/>
-<area shape="rect" id="Node000009" href="$classdesignlab_1_1_dxlib_gui_display_node_switcher.html#a12007c04ec97315dbd0c5670ff5ecd9f" title="GUIの更新，毎フレーム実行すること．" alt="" coords="36,504,212,547"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="349,394,304,446,275,472,244,494,214,509,212,504,241,490,272,468,300,442,345,391"/>
-<area shape="rect" id="Node000010" href="$classdesignlab_1_1_dxlib_gui_node_displayer.html#ae61ba9976020852947e0ef7001608e29" title="GUIの更新，毎フレーム実行すること．" alt="" coords="15,571,233,613"/>
-<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="360,395,342,434,317,478,284,523,244,561,225,573,222,568,241,557,280,519,312,476,337,431,355,393"/>
-<area shape="rect" id="Node000011" href="$classdesignlab_1_1_dxlib_gui_robot_control.html#aa075bae9ff758183dbb734c67609122c" title="GUIの更新，毎フレーム実行すること．" alt="" coords="40,637,208,680"/>
-<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="366,395,352,447,328,509,293,573,270,602,244,627,209,647,207,643,241,623,266,598,288,570,323,507,346,445,361,394"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="319,332,242,294,209,283,211,278,244,290,322,327"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_dxlib_gui_robot_control.html#a1af38aed3eb6e1a916c257e6ed3945f0" title="コンストラクタでWindowのサイズと,カメラの管理を行うクラスを受け取る." alt="" coords="27,304,221,347"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="275,348,221,341,222,336,275,343"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_dxlib_gui_camera.html#a236116169c9cc6862c82aca675742c06" title="GUIの更新,毎フレーム実行すること." alt="" coords="35,371,213,413"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="276,374,214,383,213,377,275,369"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_dxlib_gui_camera_parameter_displayer.html#ab716723e2ae412d1acfeb57fa4d749ff" title="GUIの更新,毎フレーム実行すること." alt="" coords="32,437,216,480"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="322,390,244,428,211,439,209,434,242,423,319,385"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_dxlib_gui_display_node_switcher.html#a12007c04ec97315dbd0c5670ff5ecd9f" title="GUIの更新,毎フレーム実行すること." alt="" coords="36,504,212,547"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="348,394,304,446,275,472,244,494,214,509,212,504,241,490,272,468,300,442,344,391"/>
+<area shape="rect" id="Node000010" href="$classdesignlab_1_1_dxlib_gui_node_displayer.html#ae61ba9976020852947e0ef7001608e29" title="GUIの更新,毎フレーム実行すること." alt="" coords="15,571,233,613"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="359,395,342,434,317,479,284,523,244,561,225,573,222,568,241,557,280,520,312,476,337,432,355,393"/>
+<area shape="rect" id="Node000011" href="$classdesignlab_1_1_dxlib_gui_robot_control.html#aa075bae9ff758183dbb734c67609122c" title="GUIの更新,毎フレーム実行すること." alt="" coords="40,637,208,680"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="366,396,351,448,327,510,292,573,270,602,244,627,209,647,207,643,241,623,266,598,288,570,323,508,346,446,361,394"/>
 </map>

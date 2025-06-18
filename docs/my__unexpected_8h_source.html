@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GaitGeneration by Graph Search: DesignLab/my_unexpected.h ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">GaitGeneration by Graph Search
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_1e53131e08597babefb58bbbf2c6daa5.html">DesignLab</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">my_unexpected.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="my__unexpected_8h.html">[詳解]</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Copyright(c) 2023-2025 Design Engineering Laboratory, Saitama University</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// Released under the MIT license</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// https://opensource.org/licenses/mit-license.php</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DESIGNLAB_UNEXPECTED_H_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DESIGNLAB_UNEXPECTED_H_</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;initializer_list&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacedesignlab_1_1nostd.html">designlab::nostd</a> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> E&gt;</div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classdesignlab_1_1nostd_1_1unexpected.html">   19</a></span><span class="keyword">class </span><a class="code hl_class" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a> final {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <span class="comment">// テンプレートパラメータ制約</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Err&gt;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classdesignlab_1_1nostd_1_1unexpected.html#a71f7a881c9dfc62fde5496ffc585affd">   24</a></span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="classdesignlab_1_1nostd_1_1unexpected.html#a71f7a881c9dfc62fde5496ffc585affd">param_concept3_1</a> =</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>      !std::is_same_v&lt;std::remove_cvref_t&lt;Err&gt;, <a class="code hl_class" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&gt;;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Err&gt;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classdesignlab_1_1nostd_1_1unexpected.html#a618e1a75b7deaa36374691df5dd24892">   28</a></span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="classdesignlab_1_1nostd_1_1unexpected.html#a618e1a75b7deaa36374691df5dd24892">param_concept3_2</a> =</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>      !std::is_same_v&lt;std::remove_cvref_t&lt;Err&gt;, std::in_place_t&gt;;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Err&gt;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classdesignlab_1_1nostd_1_1unexpected.html#aa2655f895e9336f01b241c584c781163">   32</a></span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="classdesignlab_1_1nostd_1_1unexpected.html#aa2655f895e9336f01b241c584c781163">param_concept3_3</a> = std::is_constructible_v&lt;E, Err&gt;;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Err&gt;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classdesignlab_1_1nostd_1_1unexpected.html#ad1e1360ee97676dc2039e283a2b73cf9">   35</a></span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="classdesignlab_1_1nostd_1_1unexpected.html#ad1e1360ee97676dc2039e283a2b73cf9">param_concept3</a> =</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>      param_concept3_1&lt;Err&gt; &amp;&amp; param_concept3_2&lt;Err&gt; &amp;&amp; param_concept3_3&lt;Err&gt;;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classdesignlab_1_1nostd_1_1unexpected.html#ae3af9e05beda355198c3f5f333f0306d">   39</a></span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="classdesignlab_1_1nostd_1_1unexpected.html#ae3af9e05beda355198c3f5f333f0306d">param_concept4</a> = std::is_constructible_v&lt;E, Args...&gt;;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> U, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classdesignlab_1_1nostd_1_1unexpected.html#a5eb590dc7309d6e9291b4c3f63276ac9">   42</a></span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="classdesignlab_1_1nostd_1_1unexpected.html#a5eb590dc7309d6e9291b4c3f63276ac9">param_concept5</a> =</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>      std::is_constructible_v&lt;E, std::initializer_list&lt;U&gt;, Args...&gt;;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <span class="comment">// コンストラクタ</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classdesignlab_1_1nostd_1_1unexpected.html#a86e22db6fce3967c671e5c93eeb3eccb">   47</a></span>  <span class="keyword">constexpr</span> <a class="code hl_function" href="classdesignlab_1_1nostd_1_1unexpected.html#a86e22db6fce3967c671e5c93eeb3eccb">unexpected</a>(<span class="keyword">const</span> <a class="code hl_class" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&amp;) = <span class="keywordflow">default</span>;  </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classdesignlab_1_1nostd_1_1unexpected.html#a6102efd9128324243ab1e5827ed2b34e">   48</a></span>  <span class="keyword">constexpr</span> <a class="code hl_function" href="classdesignlab_1_1nostd_1_1unexpected.html#a6102efd9128324243ab1e5827ed2b34e">unexpected</a>(<a class="code hl_class" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&amp;&amp;) = <span class="keywordflow">default</span>;  </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Err = E,</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            std::enable_if_t&lt;param_concept3&lt;Err&gt;, std::nullptr_t&gt; = <span class="keyword">nullptr</span>&gt;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classdesignlab_1_1nostd_1_1unexpected.html#a6b03880f6eb2cde932e60d0cdcd13219">   52</a></span>  <span class="keyword">constexpr</span> <span class="keyword">explicit</span> <a class="code hl_function" href="classdesignlab_1_1nostd_1_1unexpected.html#a6b03880f6eb2cde932e60d0cdcd13219">unexpected</a>(<span class="keyword">const</span> Err&amp; e) : error_(e) {}</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            std::enable_if_t&lt;<a class="code hl_variable" href="classdesignlab_1_1nostd_1_1unexpected.html#ae3af9e05beda355198c3f5f333f0306d">param_concept4</a>&lt;Args...&gt;, std::nullptr_t&gt; = <span class="keyword">nullptr</span>&gt;</div>
+<div class="foldopen" id="foldopen00056" data-start="{" data-end="}">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classdesignlab_1_1nostd_1_1unexpected.html#ae61e12a62827c414e75b45f2921fcf02">   56</a></span>  <span class="keyword">constexpr</span> <span class="keyword">explicit</span> <a class="code hl_function" href="classdesignlab_1_1nostd_1_1unexpected.html#ae61e12a62827c414e75b45f2921fcf02">unexpected</a>(std::in_place_t, Args&amp;&amp;... args)</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>      : error_(<a class="code hl_namespace" href="namespacestd.html">std</a>::forward&lt;Args&gt;(args)...) {}</div>
+</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  <span class="keyword">template</span> &lt;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>      <span class="keyword">typename</span> U, <span class="keyword">typename</span>... Args,</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>      std::enable_if_t&lt;<a class="code hl_variable" href="classdesignlab_1_1nostd_1_1unexpected.html#a5eb590dc7309d6e9291b4c3f63276ac9">param_concept5</a>&lt;U, Args...&gt;, std::nullptr_t&gt; = <span class="keyword">nullptr</span>&gt;</div>
+<div class="foldopen" id="foldopen00062" data-start="{" data-end="}">
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classdesignlab_1_1nostd_1_1unexpected.html#aeae43f52474eb1ebbdc71f6d8b2ad3f4">   62</a></span>  <span class="keyword">constexpr</span> <span class="keyword">explicit</span> <a class="code hl_function" href="classdesignlab_1_1nostd_1_1unexpected.html#aeae43f52474eb1ebbdc71f6d8b2ad3f4">unexpected</a>(std::in_place_t, std::initializer_list&lt;U&gt; il,</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                                Args&amp;&amp;... args)</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>      : error_(il, <a class="code hl_namespace" href="namespacestd.html">std</a>::forward&lt;Args&gt;(args)...) {}</div>
+</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classdesignlab_1_1nostd_1_1unexpected.html#a4b28d7240aef2a2f8c9da5fa96dd0735">   66</a></span>  <span class="keyword">constexpr</span> <a class="code hl_class" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&amp; <a class="code hl_function" href="classdesignlab_1_1nostd_1_1unexpected.html#a4b28d7240aef2a2f8c9da5fa96dd0735">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classdesignlab_1_1nostd_1_1unexpected.html#a22dce0bc710d3e647986e8a429a466c3">   67</a></span>  <span class="keyword">constexpr</span> <a class="code hl_class" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&amp; <a class="code hl_function" href="classdesignlab_1_1nostd_1_1unexpected.html#a22dce0bc710d3e647986e8a429a466c3">operator=</a>(<a class="code hl_class" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classdesignlab_1_1nostd_1_1unexpected.html#a01b66850f2943ff384688e29f4706398">   69</a></span>  <span class="keyword">constexpr</span> <a class="code hl_function" href="classdesignlab_1_1nostd_1_1unexpected.html#a01b66850f2943ff384688e29f4706398">~unexpected</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  <span class="comment">// 比較演算子(friend関数で定義)</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> E2&gt;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classdesignlab_1_1nostd_1_1unexpected.html#a2f1334e5104b0c4373722ec64ab7529b">   73</a></span>  <span class="keyword">friend</span> <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_friend" href="classdesignlab_1_1nostd_1_1unexpected.html#a2f1334e5104b0c4373722ec64ab7529b">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected&lt;E2&gt;</a>&amp; lhs,</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                                   <span class="keyword">const</span> <a class="code hl_class" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected&lt;E2&gt;</a>&amp; rhs);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> E2&gt;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classdesignlab_1_1nostd_1_1unexpected.html#a2bed2272c29da2bb3e619bc5ef90b861">   76</a></span>  <span class="keyword">friend</span> <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_friend" href="classdesignlab_1_1nostd_1_1unexpected.html#a2bed2272c29da2bb3e619bc5ef90b861">operator!=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected&lt;E2&gt;</a>&amp; lhs,</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                                   <span class="keyword">const</span> <a class="code hl_class" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected&lt;E2&gt;</a>&amp; rhs);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classdesignlab_1_1nostd_1_1unexpected.html#a7c84cacbb8834964275fcd67ef4a856a">   79</a></span>  <span class="keyword">constexpr</span> <span class="keyword">const</span> E&amp; <a class="code hl_function" href="classdesignlab_1_1nostd_1_1unexpected.html#a7c84cacbb8834964275fcd67ef4a856a">error</a>() const&amp; noexcept { <span class="keywordflow">return</span> error_; }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classdesignlab_1_1nostd_1_1unexpected.html#a659abc20307f55850ace070525269914">   80</a></span>  <span class="keyword">constexpr</span> E&amp; <a class="code hl_function" href="classdesignlab_1_1nostd_1_1unexpected.html#a659abc20307f55850ace070525269914">error</a>() &amp; <span class="keyword">noexcept</span> { <span class="keywordflow">return</span> error_; }</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classdesignlab_1_1nostd_1_1unexpected.html#ae94ad5d7ae16b6a96412eb59a66fc7dc">   81</a></span>  <span class="keyword">constexpr</span> E&amp;&amp; <a class="code hl_function" href="classdesignlab_1_1nostd_1_1unexpected.html#ae94ad5d7ae16b6a96412eb59a66fc7dc">error</a>() &amp;&amp; <span class="keyword">noexcept</span> { <span class="keywordflow">return</span> std::move(error_); }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  E error_;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>};</div>
+</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">// ヘルパー関数（推論支援）</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> E&gt;</div>
+<div class="foldopen" id="foldopen00089" data-start="{" data-end="}">
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1nostd.html#a1e0e98bcba1a7a41ca9a8abc735d84a1">   89</a></span><span class="keyword">constexpr</span> <a class="code hl_class" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected&lt;std::decay_t&lt;E&gt;</a>&gt; <a class="code hl_function" href="namespacedesignlab_1_1nostd.html#a1e0e98bcba1a7a41ca9a8abc735d84a1">make_unexpected</a>(E&amp;&amp; e) {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  <span class="keywordflow">return</span> <a class="code hl_class" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected&lt;std::decay_t&lt;E&gt;</a>&gt;(std::forward&lt;E&gt;(e));</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>}</div>
+</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">// 型推論のためのエイリアス</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> E&gt;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1nostd.html#a24062a37e4b70b233c85988fe678a787">   95</a></span><a class="code hl_class" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected</a>(E) -&gt; <a class="code hl_class" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected&lt;E&gt;</a>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> E&gt;</div>
+<div class="foldopen" id="foldopen00098" data-start="{" data-end="}">
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1nostd.html#a2c12490cb19dcb0d361d3da09b037bc7">   98</a></span><span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacedesignlab_1_1nostd.html#a2c12490cb19dcb0d361d3da09b037bc7">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected&lt;E&gt;</a>&amp; lhs, <span class="keyword">const</span> <a class="code hl_class" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected&lt;E&gt;</a>&amp; rhs) {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  <span class="keywordflow">return</span> lhs.<a class="code hl_function" href="classdesignlab_1_1nostd_1_1unexpected.html#a7c84cacbb8834964275fcd67ef4a856a">error</a>() == rhs.<a class="code hl_function" href="classdesignlab_1_1nostd_1_1unexpected.html#a7c84cacbb8834964275fcd67ef4a856a">error</a>();</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>}</div>
+</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> E&gt;</div>
+<div class="foldopen" id="foldopen00103" data-start="{" data-end="}">
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="namespacedesignlab_1_1nostd.html#a4ab24d2bff871630d02ba385a951c091">  103</a></span><span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacedesignlab_1_1nostd.html#a4ab24d2bff871630d02ba385a951c091">operator!=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected&lt;E&gt;</a>&amp; lhs, <span class="keyword">const</span> <a class="code hl_class" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected&lt;E&gt;</a>&amp; rhs) {</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  <span class="keywordflow">return</span> !(lhs == rhs);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>}</div>
+</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">// constexprでのテスト</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="keyword">static_assert</span>(<a class="code hl_class" href="classdesignlab_1_1nostd_1_1unexpected.html">unexpected&lt;int&gt;</a>{0}.<a class="code hl_function" href="classdesignlab_1_1nostd_1_1unexpected.html#a7c84cacbb8834964275fcd67ef4a856a">error</a>() == 0,</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>              <span class="stringliteral">&quot;unexpected&lt;int&gt;のerror()が正しく動作しません。&quot;</span>);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="keyword">static_assert</span>(unexpected&lt;std::string&gt;{<span class="stringliteral">&quot;error&quot;</span>}.error() == <span class="stringliteral">&quot;error&quot;</span>,</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>              <span class="stringliteral">&quot;unexpected&lt;std::string&gt;のerror()が正しく動作しません。&quot;</span>);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>}  <span class="comment">// namespace designlab::nostd</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_UNEXPECTED_H_</span></div>
+<div class="ttc" id="aclassdesignlab_1_1nostd_1_1unexpected_html"><div class="ttname"><a href="classdesignlab_1_1nostd_1_1unexpected.html">designlab::nostd::unexpected</a></div><div class="ttdef"><b>Definition</b> <a href="my__unexpected_8h_source.html#l00019">my_unexpected.h:19</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1nostd_1_1unexpected_html_a01b66850f2943ff384688e29f4706398"><div class="ttname"><a href="classdesignlab_1_1nostd_1_1unexpected.html#a01b66850f2943ff384688e29f4706398">designlab::nostd::unexpected::~unexpected</a></div><div class="ttdeci">constexpr ~unexpected()=default</div></div>
+<div class="ttc" id="aclassdesignlab_1_1nostd_1_1unexpected_html_a22dce0bc710d3e647986e8a429a466c3"><div class="ttname"><a href="classdesignlab_1_1nostd_1_1unexpected.html#a22dce0bc710d3e647986e8a429a466c3">designlab::nostd::unexpected::operator=</a></div><div class="ttdeci">constexpr unexpected &amp; operator=(unexpected &amp;&amp;)=default</div></div>
+<div class="ttc" id="aclassdesignlab_1_1nostd_1_1unexpected_html_a2bed2272c29da2bb3e619bc5ef90b861"><div class="ttname"><a href="classdesignlab_1_1nostd_1_1unexpected.html#a2bed2272c29da2bb3e619bc5ef90b861">designlab::nostd::unexpected::operator!=</a></div><div class="ttdeci">friend constexpr bool operator!=(const unexpected&lt; E2 &gt; &amp;lhs, const unexpected&lt; E2 &gt; &amp;rhs)</div></div>
+<div class="ttc" id="aclassdesignlab_1_1nostd_1_1unexpected_html_a2f1334e5104b0c4373722ec64ab7529b"><div class="ttname"><a href="classdesignlab_1_1nostd_1_1unexpected.html#a2f1334e5104b0c4373722ec64ab7529b">designlab::nostd::unexpected::operator==</a></div><div class="ttdeci">friend constexpr bool operator==(const unexpected&lt; E2 &gt; &amp;lhs, const unexpected&lt; E2 &gt; &amp;rhs)</div></div>
+<div class="ttc" id="aclassdesignlab_1_1nostd_1_1unexpected_html_a4b28d7240aef2a2f8c9da5fa96dd0735"><div class="ttname"><a href="classdesignlab_1_1nostd_1_1unexpected.html#a4b28d7240aef2a2f8c9da5fa96dd0735">designlab::nostd::unexpected::operator=</a></div><div class="ttdeci">constexpr unexpected &amp; operator=(const unexpected &amp;)=default</div></div>
+<div class="ttc" id="aclassdesignlab_1_1nostd_1_1unexpected_html_a5eb590dc7309d6e9291b4c3f63276ac9"><div class="ttname"><a href="classdesignlab_1_1nostd_1_1unexpected.html#a5eb590dc7309d6e9291b4c3f63276ac9">designlab::nostd::unexpected::param_concept5</a></div><div class="ttdeci">static constexpr bool param_concept5</div><div class="ttdef"><b>Definition</b> <a href="my__unexpected_8h_source.html#l00042">my_unexpected.h:42</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1nostd_1_1unexpected_html_a6102efd9128324243ab1e5827ed2b34e"><div class="ttname"><a href="classdesignlab_1_1nostd_1_1unexpected.html#a6102efd9128324243ab1e5827ed2b34e">designlab::nostd::unexpected::unexpected</a></div><div class="ttdeci">constexpr unexpected(unexpected &amp;&amp;)=default</div><div class="ttdoc">ムーブコンストラクタ</div></div>
+<div class="ttc" id="aclassdesignlab_1_1nostd_1_1unexpected_html_a618e1a75b7deaa36374691df5dd24892"><div class="ttname"><a href="classdesignlab_1_1nostd_1_1unexpected.html#a618e1a75b7deaa36374691df5dd24892">designlab::nostd::unexpected::param_concept3_2</a></div><div class="ttdeci">static constexpr bool param_concept3_2</div><div class="ttdef"><b>Definition</b> <a href="my__unexpected_8h_source.html#l00028">my_unexpected.h:28</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1nostd_1_1unexpected_html_a659abc20307f55850ace070525269914"><div class="ttname"><a href="classdesignlab_1_1nostd_1_1unexpected.html#a659abc20307f55850ace070525269914">designlab::nostd::unexpected::error</a></div><div class="ttdeci">constexpr E &amp; error() &amp;noexcept</div><div class="ttdef"><b>Definition</b> <a href="my__unexpected_8h_source.html#l00080">my_unexpected.h:80</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1nostd_1_1unexpected_html_a6b03880f6eb2cde932e60d0cdcd13219"><div class="ttname"><a href="classdesignlab_1_1nostd_1_1unexpected.html#a6b03880f6eb2cde932e60d0cdcd13219">designlab::nostd::unexpected::unexpected</a></div><div class="ttdeci">constexpr unexpected(const Err &amp;e)</div><div class="ttdef"><b>Definition</b> <a href="my__unexpected_8h_source.html#l00052">my_unexpected.h:52</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1nostd_1_1unexpected_html_a71f7a881c9dfc62fde5496ffc585affd"><div class="ttname"><a href="classdesignlab_1_1nostd_1_1unexpected.html#a71f7a881c9dfc62fde5496ffc585affd">designlab::nostd::unexpected::param_concept3_1</a></div><div class="ttdeci">static constexpr bool param_concept3_1</div><div class="ttdef"><b>Definition</b> <a href="my__unexpected_8h_source.html#l00024">my_unexpected.h:24</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1nostd_1_1unexpected_html_a7c84cacbb8834964275fcd67ef4a856a"><div class="ttname"><a href="classdesignlab_1_1nostd_1_1unexpected.html#a7c84cacbb8834964275fcd67ef4a856a">designlab::nostd::unexpected::error</a></div><div class="ttdeci">constexpr const E &amp; error() const &amp;noexcept</div><div class="ttdef"><b>Definition</b> <a href="my__unexpected_8h_source.html#l00079">my_unexpected.h:79</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1nostd_1_1unexpected_html_a86e22db6fce3967c671e5c93eeb3eccb"><div class="ttname"><a href="classdesignlab_1_1nostd_1_1unexpected.html#a86e22db6fce3967c671e5c93eeb3eccb">designlab::nostd::unexpected::unexpected</a></div><div class="ttdeci">constexpr unexpected(const unexpected &amp;)=default</div><div class="ttdoc">コピーコンストラクタ</div></div>
+<div class="ttc" id="aclassdesignlab_1_1nostd_1_1unexpected_html_aa2655f895e9336f01b241c584c781163"><div class="ttname"><a href="classdesignlab_1_1nostd_1_1unexpected.html#aa2655f895e9336f01b241c584c781163">designlab::nostd::unexpected::param_concept3_3</a></div><div class="ttdeci">static constexpr bool param_concept3_3</div><div class="ttdef"><b>Definition</b> <a href="my__unexpected_8h_source.html#l00032">my_unexpected.h:32</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1nostd_1_1unexpected_html_ad1e1360ee97676dc2039e283a2b73cf9"><div class="ttname"><a href="classdesignlab_1_1nostd_1_1unexpected.html#ad1e1360ee97676dc2039e283a2b73cf9">designlab::nostd::unexpected::param_concept3</a></div><div class="ttdeci">static constexpr bool param_concept3</div><div class="ttdef"><b>Definition</b> <a href="my__unexpected_8h_source.html#l00035">my_unexpected.h:35</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1nostd_1_1unexpected_html_ae3af9e05beda355198c3f5f333f0306d"><div class="ttname"><a href="classdesignlab_1_1nostd_1_1unexpected.html#ae3af9e05beda355198c3f5f333f0306d">designlab::nostd::unexpected::param_concept4</a></div><div class="ttdeci">static constexpr bool param_concept4</div><div class="ttdef"><b>Definition</b> <a href="my__unexpected_8h_source.html#l00039">my_unexpected.h:39</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1nostd_1_1unexpected_html_ae61e12a62827c414e75b45f2921fcf02"><div class="ttname"><a href="classdesignlab_1_1nostd_1_1unexpected.html#ae61e12a62827c414e75b45f2921fcf02">designlab::nostd::unexpected::unexpected</a></div><div class="ttdeci">constexpr unexpected(std::in_place_t, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition</b> <a href="my__unexpected_8h_source.html#l00056">my_unexpected.h:56</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1nostd_1_1unexpected_html_ae94ad5d7ae16b6a96412eb59a66fc7dc"><div class="ttname"><a href="classdesignlab_1_1nostd_1_1unexpected.html#ae94ad5d7ae16b6a96412eb59a66fc7dc">designlab::nostd::unexpected::error</a></div><div class="ttdeci">constexpr E &amp;&amp; error() &amp;&amp;noexcept</div><div class="ttdef"><b>Definition</b> <a href="my__unexpected_8h_source.html#l00081">my_unexpected.h:81</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1nostd_1_1unexpected_html_aeae43f52474eb1ebbdc71f6d8b2ad3f4"><div class="ttname"><a href="classdesignlab_1_1nostd_1_1unexpected.html#aeae43f52474eb1ebbdc71f6d8b2ad3f4">designlab::nostd::unexpected::unexpected</a></div><div class="ttdeci">constexpr unexpected(std::in_place_t, std::initializer_list&lt; U &gt; il, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition</b> <a href="my__unexpected_8h_source.html#l00062">my_unexpected.h:62</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1nostd_html"><div class="ttname"><a href="namespacedesignlab_1_1nostd.html">designlab::nostd</a></div><div class="ttdef"><b>Definition</b> <a href="make__array_8h_source.html#l00013">make_array.h:13</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1nostd_html_a1e0e98bcba1a7a41ca9a8abc735d84a1"><div class="ttname"><a href="namespacedesignlab_1_1nostd.html#a1e0e98bcba1a7a41ca9a8abc735d84a1">designlab::nostd::make_unexpected</a></div><div class="ttdeci">constexpr unexpected&lt; std::decay_t&lt; E &gt; &gt; make_unexpected(E &amp;&amp;e)</div><div class="ttdef"><b>Definition</b> <a href="my__unexpected_8h_source.html#l00089">my_unexpected.h:89</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1nostd_html_a2c12490cb19dcb0d361d3da09b037bc7"><div class="ttname"><a href="namespacedesignlab_1_1nostd.html#a2c12490cb19dcb0d361d3da09b037bc7">designlab::nostd::operator==</a></div><div class="ttdeci">constexpr bool operator==(const unexpected&lt; E &gt; &amp;lhs, const unexpected&lt; E &gt; &amp;rhs)</div><div class="ttdef"><b>Definition</b> <a href="my__unexpected_8h_source.html#l00098">my_unexpected.h:98</a></div></div>
+<div class="ttc" id="anamespacedesignlab_1_1nostd_html_a4ab24d2bff871630d02ba385a951c091"><div class="ttname"><a href="namespacedesignlab_1_1nostd.html#a4ab24d2bff871630d02ba385a951c091">designlab::nostd::operator!=</a></div><div class="ttdeci">constexpr bool operator!=(const unexpected&lt; E &gt; &amp;lhs, const unexpected&lt; E &gt; &amp;rhs)</div><div class="ttdef"><b>Definition</b> <a href="my__unexpected_8h_source.html#l00103">my_unexpected.h:103</a></div></div>
+<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdef"><b>Definition</b> <a href="com__type_8h_source.html#l00021">com_type.h:21</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

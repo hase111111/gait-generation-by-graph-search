@@ -1,5 +1,5 @@
 <map id="designlab::Quaternion::Dot" name="designlab::Quaternion::Dot">
-<area shape="rect" id="Node000001" title="クォータニオンの内積を返す． クォータニオンを4次元のベクトルとみなし，ベクトルの内積を求める．" alt="" coords="5,5,181,32"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector3.html#aa0a76dfe9dc375fd09561734cf782f63" title="自分・引数 の内積の結果を返す．" alt="" coords="229,5,386,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,16,214,16,214,21,181,21"/>
+<area shape="rect" id="Node000001" title="クォータニオンの内積を返す. クォータニオンを4次元のベクトルとみなし,ベクトルの内積を求める." alt="" coords="5,5,181,32"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_vector3.html#aa0a76dfe9dc375fd09561734cf782f63" title="自分・引数 の内積の結果を返す." alt="" coords="229,5,386,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,16,213,16,213,21,181,21"/>
 </map>

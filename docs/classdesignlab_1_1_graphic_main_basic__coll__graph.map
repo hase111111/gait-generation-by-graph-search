@@ -1,5 +1,5 @@
 <map id="designlab::GraphicMainBasic" name="designlab::GraphicMainBasic">
-<area shape="rect" id="Node000001" title="シミュレーションの一覧表示，ロボットの動きの軌跡の表示 などベーシックな機能を提供するクラス．" alt="" coords="5,80,196,107"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_graphic_main.html" title="GraphicMainのインターフェース．" alt="" coords="20,5,181,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,47,103,80,98,80,98,47"/>
+<area shape="rect" id="Node000001" title="シミュレーションの一覧表示,ロボットの動きの軌跡の表示 などベーシックな機能を提供するクラス." alt="" coords="5,80,196,107"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_i_graphic_main.html" title="GraphicMainのインターフェース." alt="" coords="20,5,181,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,48,103,80,98,80,98,48"/>
 </map>

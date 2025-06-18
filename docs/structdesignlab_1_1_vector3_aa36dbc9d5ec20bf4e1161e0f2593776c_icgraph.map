@@ -1,18 +1,20 @@
 <map id="designlab::Vector3::GetLength" name="designlab::Vector3::GetLength">
-<area shape="rect" id="Node000001" title="ベクトルの長さを返す．" alt="" coords="727,105,857,148"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#ac027dc121a54e00da42ffcbab0028561" title="指定した脚の関節のグローバル座標と，角度を計算する． &#160;&#160;重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない． &#160;&#160;間接の可動範囲外まで動いてしまう場合でも，答えを返す． &#160;&#160;目標座標..." alt="" coords="512,9,679,52"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="741,100,678,66,653,55,655,50,681,62,744,95"/>
-<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector3.html#a685643adba69e22d8f449434f1fce78b" title="単位ベクトルを返す． normalizeとは，ベクトルを正規化（単位ベクトルに変換）する操作を表す． &#160;&#160;絶対値が0のベクトルの場合，そのまま0ベクトルを返す．" alt="" coords="531,76,660,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="712,117,660,110,661,104,713,112"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_graph_searcher_straight_move.html#a64643a2293909dc6b0166a916c5b26ee" title="グラフを受け取り，その中から最適な次の動作を出力する．" alt="" coords="259,139,464,181"/>
-<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="713,135,465,155,464,149,713,130"/>
-<area shape="rect" id="Node000008" href="$structdesignlab_1_1_vector3.html#a3b7206f7b25ca47320ba34ba168eade8" title=" " alt="" coords="531,193,660,236"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="730,157,646,195,644,190,728,152"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector3.html#ac5187e0ab8d45cda4a36dd38f34884e8" title="このベクトルを正規化する． &#160;&#160;絶対値が0のベクトルの場合，そのまま0ベクトルになる．" alt="" coords="297,5,426,48"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="516,76,426,49,427,44,518,71"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="518,121,444,141,443,135,516,116"/>
-<area shape="rect" id="Node000007" href="$classdesignlab_1_1_robot_operator_for_gpg.html#a240d9588144861d5556613811dc5433e" title="ロボットの動作を更新する．" alt="" coords="277,72,446,115"/>
-<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="516,99,446,97,446,92,516,93"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_graph_searcher_straight_move.html#a012acb8e429cb97dc3843f2d80e16a70" title=" " alt="" coords="5,131,211,189"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="243,163,211,163,211,157,243,157"/>
+<area shape="rect" id="Node000001" title="ベクトルの長さを返す." alt="" coords="733,139,863,181"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#ac027dc121a54e00da42ffcbab0028561" title="指定した脚の関節のグローバル座標と,角度を計算する. &#160;&#160;重たいのでグラフ探索や,描画処理中にループで使用することは推奨しない. &#160;&#160;間接の可動範囲外まで動いてしまう場合でも,..." alt="" coords="515,5,682,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="765,130,728,95,684,62,662,51,665,46,687,58,731,91,769,126"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_xr_r1.html#aac43949e685909eeceb9d57fe3a509f0" title="指定した脚の関節のグローバル座標と,角度を計算する. &#160;&#160;重たいのでグラフ探索や,描画処理中にループで使用することは推奨しない. &#160;&#160;間接の可動範囲外まで動いてしまう場合でも,..." alt="" coords="512,72,685,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="718,136,664,118,666,113,720,131"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector3.html#a685643adba69e22d8f449434f1fce78b" title="単位ベクトルを返す. normalizeとは,ベクトルを正規化（単位ベクトルに変換）する操作を表す. &#160;&#160;絶対値が0のベクトルの場合,そのまま0ベクトルを返す." alt="" coords="534,139,663,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="718,163,664,163,664,157,718,157"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_graph_searcher_straight_move.html#a64643a2293909dc6b0166a916c5b26ee" title="グラフを受け取り,その中から最適な次の動作を出力する." alt="" coords="259,201,464,244"/>
+<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="719,188,686,196,572,213,465,221,464,216,571,207,685,191,718,183"/>
+<area shape="rect" id="Node000009" href="$structdesignlab_1_1_vector3.html#a3b7206f7b25ca47320ba34ba168eade8" title=" " alt="" coords="534,256,663,299"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="758,193,687,240,652,258,649,253,684,235,755,188"/>
+<area shape="rect" id="Node000005" href="$structdesignlab_1_1_vector3.html#ac5187e0ab8d45cda4a36dd38f34884e8" title="このベクトルを正規化する. &#160;&#160;絶対値が0のベクトルの場合,そのまま0ベクトルになる." alt="" coords="297,68,426,111"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="519,139,426,111,427,106,520,134"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="520,183,445,203,444,198,519,178"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_robot_operator_for_gpg.html#a240d9588144861d5556613811dc5433e" title="ロボットの動作を更新する." alt="" coords="277,135,446,177"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="518,161,446,160,446,155,519,156"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_graph_searcher_straight_move.html#a012acb8e429cb97dc3843f2d80e16a70" title=" " alt="" coords="5,193,211,252"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="243,225,211,225,211,220,243,220"/>
 </map>

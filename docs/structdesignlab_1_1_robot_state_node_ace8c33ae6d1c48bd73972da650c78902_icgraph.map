@@ -1,0 +1,9 @@
+<map id="designlab::RobotStateNode::ChangeGlobalCenterOfMass" name="designlab::RobotStateNode::ChangeGlobalCenterOfMass">
+<area shape="rect" id="Node000001" title="重心位置を変更する関数." alt="" coords="237,72,430,115"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_node_creator_com_move.html#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する." alt="" coords="5,5,189,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="240,70,175,51,176,46,241,65"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_node_creator_com_move_straight.html#a3e2fd67280dd581a695a09cea4f816a4" title="現在のノードから次のノード群を生成する." alt="" coords="5,72,189,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="221,96,189,96,189,91,221,91"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_node_initializer.html#a717aea9fc00fcb51c5ba3518fac717fc" title="地形に適した初期姿勢を設定する." alt="" coords="14,139,180,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="241,122,176,141,175,135,240,117"/>
+</map>

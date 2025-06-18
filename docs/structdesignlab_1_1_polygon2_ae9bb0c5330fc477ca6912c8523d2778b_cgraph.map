@@ -1,5 +1,5 @@
 <map id="designlab::Polygon2::Polygon2" name="designlab::Polygon2::Polygon2">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,5,144,48"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_polygon2.html#a3a86701c31b1eefd1089183db2d5846c" title="頂点を追加する関数．" alt="" coords="192,5,330,48"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_polygon2.html#a3a86701c31b1eefd1089183db2d5846c" title="頂点を追加する関数." alt="" coords="192,5,330,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,24,176,24,176,29,144,29"/>
 </map>

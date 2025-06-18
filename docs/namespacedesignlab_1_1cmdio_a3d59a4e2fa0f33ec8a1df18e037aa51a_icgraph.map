@@ -1,0 +1,8 @@
+<map id="designlab::cmdio::SpacedOutput" name="designlab::cmdio::SpacedOutput">
+<area shape="rect" id="Node000001" title="コマンドラインに文字を出力する関数. &#160;&#160;前と後ろに改行を挿入する." alt="" coords="491,5,662,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの. &#160;&#160;目標地点へ着くか,歩容計画に失敗した場合に,シミュレーションを終える. &#160;&#160;また,規定の回数シミュレーションしたら終了する." alt="" coords="5,5,224,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="475,26,443,25,272,25,224,26,224,21,272,20,443,20,475,21"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1cmdio.html#ac1144b4d7e79c9623898dfda69c96853" title="コマンドラインに文字を出力する関数, format した文字列を出力する. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="272,35,443,77"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="476,43,444,47,443,42,475,37"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="256,46,224,43,224,37,257,41"/>
+</map>

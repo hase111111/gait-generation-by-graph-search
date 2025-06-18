@@ -1,0 +1,13 @@
+<map id="designlab::cmdio::OutputRight" name="designlab::cmdio::OutputRight">
+<area shape="rect" id="Node000001" title="右端に文字を出力する関数. 文字列が長すぎる場合は普通に左詰めで出力される." alt="" coords="486,105,652,148"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1cmdio.html#aac156719fff45c1e6da33d779eee8a4a" title="コマンドラインにこのソフトのタイトルを出力する関数. &#160;&#160;出力される文字列は,必ず OutputDetail::kSystem で出力される." alt="" coords="272,105,438,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="470,129,438,129,438,124,470,124"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_system_main_result_viewer.html#a7140a7e2d4cb4c62f7ff84f828afcdd2" title="主要な処理を行う関数." alt="" coords="17,5,212,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="301,100,223,62,191,51,193,46,225,58,303,95"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_system_main_robot_control.html#a3106f05f7fcc8e37f07177433135f06f" title="主要な処理を行う関数." alt="" coords="19,72,210,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="256,116,210,109,211,104,257,110"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_system_main_simulation.html#ab3579cf4bfec29b735c2c2c70b19e738" title="いままで int mainで行われた処理をまとめたもの. &#160;&#160;目標地点へ着くか,歩容計画に失敗した場合に,シミュレーションを終える. &#160;&#160;また,規定の回数シミュレーションしたら終了する." alt="" coords="5,139,224,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="256,143,224,147,224,142,256,138"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_system_main_graph_viewer.html#a65b7327f93f60efed220a004216001f3" title=" " alt="" coords="7,205,222,248"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="303,158,225,196,193,207,191,202,223,191,301,153"/>
+</map>

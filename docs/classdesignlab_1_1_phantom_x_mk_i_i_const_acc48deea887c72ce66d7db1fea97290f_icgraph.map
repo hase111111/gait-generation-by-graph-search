@@ -1,0 +1,7 @@
+<map id="designlab::PhantomXMkIIConst::IsValidCoxaAngle" name="designlab::PhantomXMkIIConst::IsValidCoxaAngle">
+<area shape="rect" id="Node000001" title="第1関節の角度が有効な範囲内かどうかを判定する." alt="" coords="221,39,422,81"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#ac027dc121a54e00da42ffcbab0028561" title="指定した脚の関節のグローバル座標と,角度を計算する. &#160;&#160;重たいのでグラフ探索や,描画処理中にループで使用することは推奨しない. &#160;&#160;間接の可動範囲外まで動いてしまう場合でも,..." alt="" coords="5,5,173,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,46,173,41,173,36,206,41"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#acd4f0edc022211d1ddd42cc7308e4ffd" title="指定した脚のHexapodJointStateが正しく計算できているかを調べる. &#160;&#160;目標座標に届かない場合や,間接の可動範囲外まで動いてしまう場合, 戻り値は false になる." alt="" coords="5,72,173,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="206,79,173,84,173,79,205,74"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="designlab::XrR1::ConvertLegToRobotCoordinate" name="designlab::XrR1::ConvertLegToRobotCoordinate">
+<area shape="rect" id="Node000001" title="脚座標系で表現されている座標を,ロボット座標系に変換する." alt="" coords="5,5,168,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_xr_r1.html#af0f68fb46ee7ec585055a9590fb7c6c6" title="脚の付け根の座標(leg base position )を取得する.ロボット座標系." alt="" coords="216,5,407,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,24,200,24,200,29,168,29"/>
+</map>

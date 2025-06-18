@@ -1,0 +1,14 @@
+<map id="designlab::cmdio::SpacedOutputF" name="designlab::cmdio::SpacedOutputF">
+<area shape="rect" id="Node000001" title="コマンドラインに文字を出力する関数, format した文字列を出力する. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="5,39,177,81"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1cmdio.html#a3d59a4e2fa0f33ec8a1df18e037aa51a" title="コマンドラインに文字を出力する関数. &#160;&#160;前と後ろに改行を挿入する." alt="" coords="225,39,396,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,57,209,57,209,63,177,63"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="658,47,825,73"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="396,54,444,53,610,53,643,54,642,59,610,59,444,59,396,60"/>
+<area shape="rect" id="Node000007" href="$namespacedesignlab_1_1cmdio.html#aa8ed2785f4f2ed80a29f9b6d3a3d1d4a" title="コマンドラインで改行をする関数." alt="" coords="444,68,610,111"/>
+<area shape="poly" id="edge5_Node000002_Node000007" title=" " alt="" coords="397,69,429,73,428,79,396,74"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="873,5,1060,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="825,45,856,40,857,46,825,50"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="896,72,1037,115"/>
+<area shape="poly" id="edge4_Node000003_Node000006" title=" " alt="" coords="825,70,881,78,880,83,825,75"/>
+<area shape="poly" id="edge6_Node000007_Node000003" title=" " alt="" coords="611,75,643,71,643,76,611,81"/>
+</map>

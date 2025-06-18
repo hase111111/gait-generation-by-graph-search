@@ -103,14 +103,14 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">using </span><a class="code hl_class" href="classdesignlab_1_1_map_state.html">designlab::MapState</a>;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">using </span><a class="code hl_struct" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    TEST_CASE(<span class="stringliteral">&quot;デフォルトコンストラクタの呼び出し時，マップのサイズは0になるべき&quot;</span>)</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    TEST_CASE(<span class="stringliteral">&quot;デフォルトコンストラクタの呼び出し時,マップのサイズは0になるべき&quot;</span>)</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    {</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        MapState map_state;</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        CHECK_EQ(map_state.GetMapPointSize(), 0);</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    TEST_CASE(<span class="stringliteral">&quot;脚接地点を引数に渡した時，マップの要素は引数のと同じになるべき&quot;</span>)</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    TEST_CASE(<span class="stringliteral">&quot;脚接地点を引数に渡した時,マップの要素は引数のと同じになるべき&quot;</span>)</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    {</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        std::vector&lt;Vector3&gt; map_point = { {1, 2, 3}, {4, 5, 6} };</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
@@ -128,9 +128,9 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        }</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    TEST_CASE(<span class="stringliteral">&quot;コピーコンストラクタの呼び出し時，コピー元と同じになるべき&quot;</span>)</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    TEST_CASE(<span class="stringliteral">&quot;コピーコンストラクタの呼び出し時,コピー元と同じになるべき&quot;</span>)</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    {</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        SUBCASE(<span class="stringliteral">&quot;初期化時，コピー元と同じデータサイズになるべき&quot;</span>)</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        SUBCASE(<span class="stringliteral">&quot;初期化時,コピー元と同じデータサイズになるべき&quot;</span>)</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        {</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            std::vector&lt;Vector3&gt; map_point = { {1, 2, 3}, {4, 5, 6} };</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
@@ -140,7 +140,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            CHECK(map_state_copy.GetMapPointSize() == map_state.GetMapPointSize());</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        }</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        SUBCASE(<span class="stringliteral">&quot;初期化時，コピー元と同じデータが取得できるべき&quot;</span>)</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        SUBCASE(<span class="stringliteral">&quot;初期化時,コピー元と同じデータが取得できるべき&quot;</span>)</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        {</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            std::vector&lt;Vector3&gt; map_point = { {1, 2, 3}, {4, 5, 6} };</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
@@ -160,7 +160,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keyword">using </span><a class="code hl_class" href="classdesignlab_1_1_map_state.html">designlab::MapState</a>;</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">using </span><a class="code hl_struct" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>;</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    TEST_CASE(<span class="stringliteral">&quot;代入した時，代入元と同じサイズになるべき&quot;</span>)</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    TEST_CASE(<span class="stringliteral">&quot;代入した時,代入元と同じサイズになるべき&quot;</span>)</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    {</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        std::vector&lt;Vector3&gt; map_point = { {1, 2, 3}, {4, 5, 6} };</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
@@ -170,7 +170,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        CHECK(map_state_copy.GetMapPointSize() == map_state.GetMapPointSize());</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    }</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    TEST_CASE(<span class="stringliteral">&quot;代入した時，代入元と同じデータが取得できるべき&quot;</span>)</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    TEST_CASE(<span class="stringliteral">&quot;代入した時,代入元と同じデータが取得できるべき&quot;</span>)</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    {</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        std::vector&lt;Vector3&gt; map_point = { {1, 2, 3}, {4, 5, 6} };</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
@@ -189,7 +189,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keyword">using </span><a class="code hl_class" href="classdesignlab_1_1_map_state.html">designlab::MapState</a>;</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keyword">using </span><a class="code hl_struct" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>;</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    TEST_CASE(<span class="stringliteral">&quot;0番目にデータをセットした時，マップのサイズは変わるべきでない&quot;</span>)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    TEST_CASE(<span class="stringliteral">&quot;0番目にデータをセットした時,マップのサイズは変わるべきでない&quot;</span>)</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    {</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        std::vector&lt;Vector3&gt; map_point = { {1, 2, 3}, {4, 5, 6} };</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        Vector3 map_point_set = { 7, 8, 9 };</div>
@@ -201,7 +201,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        CHECK(map_state.GetMapPointSize() == map_point.size());</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    }</div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    TEST_CASE(<span class="stringliteral">&quot;0番目にデータをセットした時，0番の脚接地点が書き換わるべき&quot;</span>)</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    TEST_CASE(<span class="stringliteral">&quot;0番目にデータをセットした時,0番の脚接地点が書き換わるべき&quot;</span>)</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    {</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        std::vector&lt;Vector3&gt; map_point = { {1, 2, 3}, {4, 5, 6} };</div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        Vector3 map_point_set = { 7, 8, 9 };</div>
@@ -222,7 +222,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keyword">using </span><a class="code hl_class" href="classdesignlab_1_1_map_state.html">designlab::MapState</a>;</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keyword">using </span><a class="code hl_struct" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>;</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    TEST_CASE(<span class="stringliteral">&quot;3つの脚接地点をセットした時，マップのサイズは3になるべき&quot;</span>)</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    TEST_CASE(<span class="stringliteral">&quot;3つの脚接地点をセットした時,マップのサイズは3になるべき&quot;</span>)</div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    {</div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        SUBCASE(<span class="stringliteral">&quot;マップが空の時&quot;</span>)</div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        {</div>
@@ -248,7 +248,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        }</div>
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    }</div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    TEST_CASE(<span class="stringliteral">&quot;3つの脚接地点をセットした時，0番から順に脚接地点が書き換わるべき&quot;</span>)</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    TEST_CASE(<span class="stringliteral">&quot;3つの脚接地点をセットした時,0番から順に脚接地点が書き換わるべき&quot;</span>)</div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    {</div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        SUBCASE(<span class="stringliteral">&quot;マップが空の時&quot;</span>)</div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        {</div>
@@ -286,7 +286,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="keyword">using </span><a class="code hl_class" href="classdesignlab_1_1_map_state.html">designlab::MapState</a>;</div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <span class="keyword">using </span><a class="code hl_struct" href="structdesignlab_1_1_vector3.html">designlab::Vector3</a>;</div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    TEST_CASE(<span class="stringliteral">&quot;2回呼び出した時，マップのサイズは2増えるべき&quot;</span>)</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    TEST_CASE(<span class="stringliteral">&quot;2回呼び出した時,マップのサイズは2増えるべき&quot;</span>)</div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    {</div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        std::vector&lt;Vector3&gt; map_point = { {1, 2, 3}, {4, 5, 6} };</div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
@@ -300,7 +300,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        CHECK_EQ(map_state.GetMapPointSize(), 4);</div>
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    }</div>
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    TEST_CASE(<span class="stringliteral">&quot;2回呼び出した時，追加した順番で脚接地可能点を取得できるべき&quot;</span>)</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    TEST_CASE(<span class="stringliteral">&quot;2回呼び出した時,追加した順番で脚接地可能点を取得できるべき&quot;</span>)</div>
 <div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    {</div>
 <div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        std::vector&lt;Vector3&gt; map_point = { {1, 2, 3}, {4, 5, 6} };</div>
 <div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
@@ -325,7 +325,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    TEST_CASE(<span class="stringliteral">&quot;ClearMapPoint&quot;</span>)</div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    {</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        SUBCASE(<span class="stringliteral">&quot;2つの脚接地点を消去した時，マップのサイズは0になるべき&quot;</span>)</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        SUBCASE(<span class="stringliteral">&quot;2つの脚接地点を消去した時,マップのサイズは0になるべき&quot;</span>)</div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        {</div>
 <div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>            std::vector&lt;Vector3&gt; map_point = { {1, 2, 3}, {4, 5, 6} };</div>
 <div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
@@ -340,10 +340,10 @@ $(document).ready(function() { init_codefold(0); });
 </div>
 <div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
 <div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="preprocessor">#endif  </span><span class="comment">// DESIGNLAB_MAP_STATE_TEST_H_</span></div>
-<div class="ttc" id="aclassdesignlab_1_1_map_state_html"><div class="ttname"><a href="classdesignlab_1_1_map_state.html">designlab::MapState</a></div><div class="ttdoc">マップを表すクラス．</div><div class="ttdef"><b>Definition</b> <a href="map__state_8h_source.html#l00031">map_state.h:32</a></div></div>
+<div class="ttc" id="aclassdesignlab_1_1_map_state_html"><div class="ttname"><a href="classdesignlab_1_1_map_state.html">designlab::MapState</a></div><div class="ttdoc">マップを表すクラス.</div><div class="ttdef"><b>Definition</b> <a href="map__state_8h_source.html#l00029">map_state.h:29</a></div></div>
 <div class="ttc" id="amap__state_8h_html"><div class="ttname"><a href="map__state_8h.html">map_state.h</a></div></div>
 <div class="ttc" id="amap__state__test_8h_html_aae1736909f9eeb71b517d45349160655"><div class="ttname"><a href="map__state__test_8h.html#aae1736909f9eeb71b517d45349160655">TEST_SUITE</a></div><div class="ttdeci">TEST_SUITE(&quot;MapState::Constructor&quot;)</div><div class="ttdef"><b>Definition</b> <a href="map__state__test_8h_source.html#l00018">map_state_test.h:18</a></div></div>
-<div class="ttc" id="astructdesignlab_1_1_vector3_html"><div class="ttname"><a href="structdesignlab_1_1_vector3.html">designlab::Vector3</a></div><div class="ttdoc">3次元の位置ベクトルを表す構造体．</div><div class="ttdef"><b>Definition</b> <a href="math__vector3_8h_source.html#l00039">math_vector3.h:40</a></div></div>
+<div class="ttc" id="astructdesignlab_1_1_vector3_html"><div class="ttname"><a href="structdesignlab_1_1_vector3.html">designlab::Vector3</a></div><div class="ttdoc">3次元の位置ベクトルを表す構造体.</div><div class="ttdef"><b>Definition</b> <a href="math__vector3_8h_source.html#l00039">math_vector3.h:40</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

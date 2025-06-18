@@ -1,7 +1,7 @@
 <map id="designlab::DxlibGuiCameraParameterDisplayer::DxlibGuiCameraParameterDisplayer" name="designlab::DxlibGuiCameraParameterDisplayer::DxlibGuiCameraParameterDisplayer">
-<area shape="rect" id="Node000001" title="コンストラクタでWindowのサイズと，" alt="" coords="5,5,243,64"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_abstract_dxlib_gui.html#a9b64bfdbc0c66ab19bed71eb4ec11955" title="GUIの表示を行うかどうかを設定する．" alt="" coords="291,13,453,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="243,32,276,32,276,37,243,37"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_abstract_dxlib_gui.html#a0af50aac58a6b9e37be44a94870a0e0f" title="GUIの位置を設定する． &#160;&#160;Dxlibの画面の座標は左上を原点とし，右下に行くほど値が大きくなる． &#160;&#160;横方向にx軸，縦方向にy軸をとる．" alt="" coords="501,13,663,56"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="453,32,486,32,486,37,453,37"/>
+<area shape="rect" id="Node000001" title="コンストラクタでWindowのサイズと," alt="" coords="5,5,243,64"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_abstract_dxlib_gui.html#a9b64bfdbc0c66ab19bed71eb4ec11955" title="GUIの表示を行うかどうかを設定する." alt="" coords="291,13,453,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="243,32,275,32,275,37,243,37"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_abstract_dxlib_gui.html#a0af50aac58a6b9e37be44a94870a0e0f" title="GUIの位置を設定する. &#160;&#160;Dxlibの画面の座標は左上を原点とし,右下に行くほど値が大きくなる. &#160;&#160;横方向にx軸,縦方向にy軸をとる." alt="" coords="501,13,663,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="453,32,485,32,485,37,453,37"/>
 </map>

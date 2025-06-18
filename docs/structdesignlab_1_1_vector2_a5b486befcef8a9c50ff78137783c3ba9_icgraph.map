@@ -1,13 +1,17 @@
 <map id="designlab::Vector2::GetNormalized" name="designlab::Vector2::GetNormalized">
-<area shape="rect" id="Node000001" title="このベクトルを正規化したベクトルを返す．" alt="" coords="454,72,583,115"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a688e8dd6b7f92d5b1a4fa8d4fbcc2714" title="安定余裕(Stability Margin)を計算する． 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい． &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計..." alt="" coords="237,5,406,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="439,69,386,51,387,46,441,64"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_com_selector.html#afe154bc35f0971d6c2c2a649299b23c3" title="重心を求める．" alt="" coords="242,72,401,115"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="439,96,402,96,402,91,439,91"/>
-<area shape="rect" id="Node000006" href="$structdesignlab_1_1_vector2.html#ac75623bf80d61ccba4a26c6810eddd3c" title="このベクトルを正規化する． &#160;&#160;絶対値が0のベクトルの場合，そのまま0ベクトルになる．" alt="" coords="257,139,386,181"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="441,122,387,141,386,136,439,117"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#aea0eea059d621c567e8c0a704d7f79c8" title="安定余裕を用いて，静的に安定しているかどうかを判定する．" alt="" coords="13,5,181,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,29,181,29,181,24,222,24"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_node_creator_com_move.html#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する．" alt="" coords="5,72,189,115"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="227,96,189,96,189,91,227,91"/>
+<area shape="rect" id="Node000001" title="このベクトルを正規化したベクトルを返す." alt="" coords="458,105,587,148"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a688e8dd6b7f92d5b1a4fa8d4fbcc2714" title="安定余裕(Stability Margin)を計算する. 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい. &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計..." alt="" coords="239,5,408,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="474,99,409,62,383,51,386,46,411,58,476,94"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_xr_r1.html#ac48718cd69e6802547ad179d0b37ce1f" title="安定余裕(Stability Margin)を計算する. 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい. &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計..." alt="" coords="237,72,410,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="442,116,410,110,411,105,443,111"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_com_selector.html#afe154bc35f0971d6c2c2a649299b23c3" title="重心を求める." alt="" coords="244,139,403,181"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="443,143,404,149,403,144,442,137"/>
+<area shape="rect" id="Node000008" href="$structdesignlab_1_1_vector2.html#ac75623bf80d61ccba4a26c6810eddd3c" title="このベクトルを正規化する. &#160;&#160;絶対値が0のベクトルの場合,そのまま0ベクトルになる." alt="" coords="259,205,388,248"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="476,159,411,196,386,207,383,202,409,191,474,154"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#aea0eea059d621c567e8c0a704d7f79c8" title="安定余裕を用いて,静的に安定しているかどうかを判定する." alt="" coords="13,5,181,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="223,29,181,29,181,24,223,24"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_xr_r1.html#a09859ffa5b61169d0d89125ba10e336f" title="安定余裕を用いて,静的に安定しているかどうかを判定する." alt="" coords="14,80,180,107"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="221,96,181,96,181,91,221,91"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_node_creator_com_move.html#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する." alt="" coords="5,139,189,181"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="228,163,189,163,189,157,228,157"/>
 </map>

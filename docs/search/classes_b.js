@@ -1,8 +1,8 @@
 var searchData=
 [
   ['mapcreatorbycsv_0',['MapCreatorByCsv',['../classdesignlab_1_1_map_creator_by_csv.html',1,'designlab']]],
-  ['mapcreatorfactory_1',['MapCreatorFactory',['../classdesignlab_1_1_map_creator_factory.html',1,'designlab']]],
-  ['mapcreatorforsimulation_2',['MapCreatorForSimulation',['../classdesignlab_1_1_map_creator_for_simulation.html',1,'designlab']]],
+  ['mapcreatorforsimulation_1',['MapCreatorForSimulation',['../classdesignlab_1_1_map_creator_for_simulation.html',1,'designlab']]],
+  ['mapcreatorselector_2',['MapCreatorSelector',['../classdesignlab_1_1_map_creator_selector.html',1,'designlab']]],
   ['mapfileexporter_3',['MapFileExporter',['../classdesignlab_1_1_map_file_exporter.html',1,'designlab']]],
   ['mapfileimporter_4',['MapFileImporter',['../classdesignlab_1_1_map_file_importer.html',1,'designlab']]],
   ['maprenderer_5',['MapRenderer',['../classdesignlab_1_1_map_renderer.html',1,'designlab']]],

@@ -1,7 +1,9 @@
 <map id="designlab::dxlib_util::DrawCube3DWithTopPos" name="designlab::dxlib_util::DrawCube3DWithTopPos">
-<area shape="rect" id="Node000001" title="3D空間に立方体を描画する．立方体の上面の中心の座標から描画する．" alt="" coords="244,39,419,81"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_map_renderer.html#a4338a7d3f08cd663096e3226fa0c6fa3" title="マップの描画を行う．" alt="" coords="20,5,181,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="228,48,181,41,182,36,229,43"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_robot_ground_point_renderer.html#af62ae053ae0c6f182fb2c2dddfcaf2cc" title=" " alt="" coords="5,72,196,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="229,77,196,82,196,77,228,72"/>
+<area shape="rect" id="Node000001" title="3D空間に立方体を描画する.立方体の上面の中心の座標から描画する." alt="" coords="482,39,657,81"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_map_renderer.html#a4338a7d3f08cd663096e3226fa0c6fa3" title="マップの描画を行う." alt="" coords="258,5,420,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="466,48,420,41,420,36,467,43"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_robot_ground_point_renderer.html#af62ae053ae0c6f182fb2c2dddfcaf2cc" title=" " alt="" coords="244,72,434,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="467,78,435,82,434,77,466,72"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_graphic_main_basic.html#adb07f27a1b256ef8085d88b57354449c" title="描画を行う. ここでは描画系の処理のみを行い内部のデータを 更新しないため const を付けている." alt="" coords="5,72,196,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="228,96,196,96,196,91,228,91"/>
 </map>

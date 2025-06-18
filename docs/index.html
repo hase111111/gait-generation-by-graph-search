@@ -72,10 +72,10 @@ $(function() {
   <div class="headertitle"><div class="title">GaitGeneration by Graph Search </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>今後このソースファイルを使う人のためにC++で大きなプロジェクトを作成するとき のルールをここに定義しておく． 基本的には google c++ style guide に従っているが，一部独自のルールを追加し ている． <br  />
+<div class="textblock"><p>今後このソースファイルを使う人のためにC++で大きなプロジェクトを作成するとき のルールをここに定義しておく. 基本的には google c++ style guide に従っているが,一部独自のルールを追加し ている. <br  />
 <br  />
- 独自ルールについて， </p><ul>
-<li>その他の機能について…filesystemは使用する． <br  />
+ 独自ルールについて, </p><ul>
+<li>その他の機能について…filesystemは使用する. <br  />
  </li>
 </ul>
 <h1><a class="anchor" id="●目次"></a>
@@ -94,25 +94,25 @@ $(function() {
  <a class="anchor" id="anchor_naming"></a></p>
 <h1><a class="anchor" id="●命名規則"></a>
 ●命名規則</h1>
-<p>変数やクラスの名前を決めるときは下記のどれかを使って決めるのが基本となる． 例えば int NumBer; とか class Sample_Class;だとかは避けること． </p><ul>
+<p>変数やクラスの名前を決めるときは下記のどれかを使って決めるのが基本となる. 例えば int NumBer; とか class Sample_Class;だとかは避けること. </p><ul>
 <li>スネークケース snake_case </li>
 <li>キャメルケース camelCase </li>
 <li>パスカルケース PascalCase</li>
 </ul>
 <p><br  />
- Google C++ Style Guideでは，以下のように命名することが推奨されている． </p><ul>
+ Google C++ Style Guideでは,以下のように命名することが推奨されている. </p><ul>
 <li>変数 スネークケース (my_var) </li>
 <li>クラスのメンバ変数 スネークケース + "_" (class_var_) </li>
 <li>定数 "k" + パスカルケース (kMyConstant) </li>
-<li>クラス パスカルケース (MyClass) 名詞． </li>
+<li>クラス パスカルケース (MyClass) 名詞. </li>
 <li>インターフェース "I" + パスカルケース (IMyInterface) </li>
-<li>構造体 パスカルケース (MyStruct) 名詞． </li>
+<li>構造体 パスカルケース (MyStruct) 名詞. </li>
 <li>関数名 パスカルケース (MyFunction) 動詞 + (目的語) </li>
 <li>列挙体 パスカルケース (MyEnum) </li>
 <li>列挙体の要素 "k" + パスカルケース (kMyEnumElement) </li>
 <li>マクロ アッパースネークケース (MY_MACRO)</li>
 </ul>
-<p>また，変数名をローマ字で書いたり，過度に省略したりするのは控えるべき． (例えば int sushi; とか std::string tkg;など．寿司は仕方ないが...) 固有名詞は全部書く，逆に init (初期化)や num (ナンバー)などよく使うものは省略すべき． func(関数)等は見ればわかるので書かないように CalcFunc() → Calc() 多少長くなっても何しているか分かりやすいほうが見やすなる．(特に関数において)． <br  />
+<p>また,変数名をローマ字で書いたり,過度に省略したりするのは控えるべき. (例えば int sushi; とか std::string tkg;など.寿司は仕方ないが...) 固有名詞は全部書く,逆に init (初期化)や num (ナンバー)などよく使うものは省略すべき. func(関数)等は見ればわかるので書かないように CalcFunc() → Calc() 多少長くなっても何しているか分かりやすいほうが見やすなる.(特に関数において). <br  />
 <br  />
  よく使う省略語 </p><ul>
 <li>add (addition 加算) </li>
@@ -126,14 +126,14 @@ $(function() {
 <li>rot (rotation 回転) </li>
 <li>sub (subtraction 減算)</li>
 </ul>
-<p>関数においては動詞→目的語となるように付けること．(例えば GetData() とか MakeMap() とか) また，bool型の場合は質問形式で命名するとよい． bool is_empty = false; とか bool IsOddNumber(const int num); など． <br  />
+<p>関数においては動詞→目的語となるように付けること.(例えば GetData() とか MakeMap() とか) また,bool型の場合は質問形式で命名するとよい. bool is_empty = false; とか bool IsOddNumber(const int num); など. <br  />
 <br  />
- なぜこのような命名規則を導入するのかというと， 自分の書いたプログラムを他人に読んでもらうとき， 命名方法が適当だと非常に読みづらくなるためである． <br  />
+ なぜこのような命名規則を導入するのかというと, 自分の書いたプログラムを他人に読んでもらうとき, 命名方法が適当だと非常に読みづらくなるためである. <br  />
  <a class="anchor" id="anchor_class"></a></p>
 <h1><a class="anchor" id="●クラスについて"></a>
 ●クラスについて</h1>
 <p><br  />
- 基本的にメンバ変数は全て private: に入れておくこと． 面倒だが，値をとったり設定したりしたいなら，Get??? や Set??? 関数を作って，それを使うこと． </p><div class="fragment"><div class="line"><span class="comment">//sample_class.h</span></div>
+ 基本的にメンバ変数は全て private: に入れておくこと. 面倒だが,値をとったり設定したりしたいなら,Get??? や Set??? 関数を作って,それを使うこと. </p><div class="fragment"><div class="line"><span class="comment">//sample_class.h</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#pragma once</span></div>
 <div class="line"> </div>
@@ -153,23 +153,23 @@ $(function() {
 <div class="line"><span class="keyword">private</span>:</div>
 <div class="line">    <span class="keywordtype">int</span> num_;</div>
 <div class="line">};</div>
-</div><!-- fragment --><p> 生のメンバ変数の値を変更するのはやめるべき． <br  />
+</div><!-- fragment --><p> 生のメンバ変数の値を変更するのはやめるべき. <br  />
 <br  />
- また，一つのクラスに大量の機能を追加しないこと． かつての PassFinding クラスはグラフ探索＋ファイル入出力＋コマンド送信等 多量の機能を持っていたが，可読性が下がるのであまりよくない． 機能を細かく分けてプログラムを書くべき． <br  />
+ また,一つのクラスに大量の機能を追加しないこと. かつての PassFinding クラスはグラフ探索＋ファイル入出力＋コマンド送信等 多量の機能を持っていたが,可読性が下がるのであまりよくない. 機能を細かく分けてプログラムを書くべき. <br  />
  <a class="anchor" id="anchor_func"></a></p>
 <h1><a class="anchor" id="●関数について"></a>
 ●関数について</h1>
-<p>関数を宣言した場合，その関数の引数や機能についてコメントを付けること． 後から見た時に何をすればよいか分かりやすくてプログラムが楽になる． 注釈はヘッダーに書いておけば，他のファイルでも確認できるようになる． <br  />
-値を返したいときは基本は戻り値を使うこと． 不必要なポインタ渡しや参照渡しはプログラムを無駄に煩雑にするため，避けるべき． 複数の値を返す場合は，ポインタ渡しを用いて値を返すようにし， 簡単な処理の場合は tuple を使うこと． <br  />
+<p>関数を宣言した場合,その関数の引数や機能についてコメントを付けること. 後から見た時に何をすればよいか分かりやすくてプログラムが楽になる. 注釈はヘッダーに書いておけば,他のファイルでも確認できるようになる. <br  />
+値を返したいときは基本は戻り値を使うこと. 不必要なポインタ渡しや参照渡しはプログラムを無駄に煩雑にするため,避けるべき. 複数の値を返す場合は,ポインタ渡しを用いて値を返すようにし, 簡単な処理の場合は tuple を使うこと. <br  />
 <br  />
-また変更しない引数は const を付けておくこと． </p><div class="fragment"><div class="line"><span class="comment">//sample.h</span></div>
+また変更しない引数は const を付けておくこと. </p><div class="fragment"><div class="line"><span class="comment">//sample.h</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#pragma once</span></div>
 <div class="line"> </div>
-<div class="line"><span class="comment">//値渡しの場合はhの引数には const をつけなくてよい．(実装を h と cpp に分ける場合のみ)</span></div>
-<div class="line"><span class="keywordtype">int</span> AddNum(<span class="keywordtype">int</span> num1, <span class="keywordtype">int</span> num2);</div>
+<div class="line"><span class="comment">//値渡しの場合はhの引数には const をつけなくてよい.(実装を h と cpp</span></div>
+<div class="line">に分ける場合のみ) <span class="keywordtype">int</span> AddNum(<span class="keywordtype">int</span> num1, <span class="keywordtype">int</span> num2);</div>
 <div class="line"> </div>
-<div class="line"><span class="comment">//参照渡しの場合はhの引数にも const をつけること．</span></div>
+<div class="line"><span class="comment">//参照渡しの場合はhの引数にも const をつけること.</span></div>
 <div class="line"><span class="keywordtype">int</span> CalcAverage(<span class="keyword">const</span> std::vector&lt;int&gt;&amp; nums);</div>
 </div><!-- fragment --> <div class="fragment"><div class="line"><span class="comment">//sample.cpp</span></div>
 <div class="line"> </div>
@@ -177,14 +177,14 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> AddNum(<span class="keyword">const</span> <span class="keywordtype">int</span> num1, <span class="keyword">const</span> <span class="keywordtype">int</span> num2)</div>
 <div class="line">{</div>
-<div class="line">    <span class="comment">//num1 += 5 //これはエラーになる．</span></div>
+<div class="line">    <span class="comment">//num1 += 5 //これはエラーになる.</span></div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> num1 + num2;</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> CalcAverage(<span class="keyword">const</span> std::vector&lt;int&gt;&amp; nums)</div>
 <div class="line">{</div>
-<div class="line">    <span class="comment">//nums.push_back(5); //これはエラーになる．</span></div>
+<div class="line">    <span class="comment">//nums.push_back(5); //これはエラーになる.</span></div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">int</span> sum = 0;</div>
 <div class="line">    <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; num : nums)</div>
@@ -194,13 +194,13 @@ $(function() {
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> sum / nums.size();</div>
 <div class="line">}</div>
-</div><!-- fragment --><p> 同様にメンバ変数を変更しないメンバ関数にも const を付けること． <br  />
+</div><!-- fragment --><p> 同様にメンバ変数を変更しないメンバ関数にも const を付けること. <br  />
 <br  />
-関数の引数においてマジックナンバーは避けること． マジックナンバーとは直に数値を使うことで， 本人以外にその値が何を表しているのか理解できないものを指す． 変数や列挙体やコメントなどを用いて変数の意味を説明するようにすること． <br  />
+関数の引数においてマジックナンバーは避けること. マジックナンバーとは直に数値を使うことで, 本人以外にその値が何を表しているのか理解できないものを指す. 変数や列挙体やコメントなどを用いて変数の意味を説明するようにすること. <br  />
  <a class="anchor" id="anchor_const"></a></p>
 <h1><a class="anchor" id="●定数について"></a>
 ●定数について</h1>
-<p>#define を使うのはやめること． C++においては const static な変数(静的で定数のメンバ変数)を使うほうがよい． </p><div class="fragment"><div class="line"><span class="comment">//sample_const.h</span></div>
+<p>#define を使うのはやめること. C++においては const static な変数(静的で定数のメンバ変数)を使うほうがよい. </p><div class="fragment"><div class="line"><span class="comment">//sample_const.h</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#pragma once</span></div>
 <div class="line"> </div>
@@ -223,62 +223,62 @@ $(function() {
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="amain_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition</b> <a href="main_8cpp_source.html#l00087">main.cpp:87</a></div></div>
+<div class="ttc" id="amain_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition</b> <a href="main_8cpp_source.html#l00090">main.cpp:90</a></div></div>
 </div><!-- fragment --> <div class="fragment"><div class="line"><span class="comment">//出力内容</span></div>
 <div class="line"> </div>
 <div class="line">3.14159.....</div>
-</div><!-- fragment --><p> C++には constexprという機能があり，これを使うとコンパイル時に定数を計算してくれるため， 実行時の負荷が減る． 使用可能であるならばこれを使うべき． </p><dl class="section see"><dt>参照</dt><dd><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i_const.html" title="PhantomX mk-Ⅱ のパラメータを定数で表現したもの．">designlab::PhantomXMkIIConst</a></dd></dl>
+</div><!-- fragment --><p> C++には constexprという機能があり,これを使うとコンパイル時に定数を計算してくれるため, 実行時の負荷が減る. 使用可能であるならばこれを使うべき. </p><dl class="section see"><dt>参照</dt><dd><a class="el" href="classdesignlab_1_1_phantom_x_mk_i_i_const.html" title="PhantomX mk-Ⅱ のパラメータを定数で表現したもの.">designlab::PhantomXMkIIConst</a></dd></dl>
 <p><a class="anchor" id="anchor_array"></a></p>
 <h1><a class="anchor" id="●配列について"></a>
 ●配列について</h1>
-<p>C言語において通常使われる int _array[10]; のような配列の使用は最小限にしたほうが良い． なぜなら，このプログラムでも過去にそれによるスタックオーバーフローが起きていたためである． (time[1000]という配列に時間を記録していたため， 1000回以上のループができなくなっていた．) とりあえず大きな配列を作っておいて，その中にデータを記録するのは拡張性が低いし， 見つけづらいバグの温床になるため， std::vector (動的な配列) を積極的に使うことを推奨する． <br  />
- new/delete は個人的には絶対に使いたくない．なぜならば，メモリリークの温床になるからである． 動的配列は vector や map などのコンテナを使うこと． </p><div class="fragment"><div class="line"><span class="comment">//sample_vector.h</span></div>
+<p>C言語において通常使われる int _array[10]; のような配列の使用は最小限にしたほうが良い. なぜなら,このプログラムでも過去にそれによるスタックオーバーフローが起きていたためである. (time[1000]という配列に時間を記録していたため, 1000回以上のループができなくなっていた.) とりあえず大きな配列を作っておいて,その中にデータを記録するのは拡張性が低いし, 見つけづらいバグの温床になるため, std::vector (動的な配列) を積極的に使うことを推奨する. <br  />
+ new/delete は個人的には絶対に使いたくない.なぜならば,メモリリークの温床になるからである. 動的配列は vector や map などのコンテナを使うこと. </p><div class="fragment"><div class="line"><span class="comment">//sample_vector.h</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#pragma once</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="comment">//int time[1000];  //これはやめること．</span></div>
+<div class="line"><span class="comment">//int time[1000];  //これはやめること.</span></div>
 <div class="line"> </div>
 <div class="line"><span class="comment">//int time[];</span></div>
 <div class="line"> </div>
 <div class="line"><span class="comment">//void TimeArrayInit()</span></div>
 <div class="line"><span class="comment">//{</span></div>
-<div class="line"><span class="comment">//  time = new int[1000];  //これはやめること．</span></div>
+<div class="line"><span class="comment">//  time = new int[1000];  //これはやめること.</span></div>
 <div class="line"><span class="comment">//}</span></div>
 <div class="line"> </div>
-<div class="line">std::vector&lt;int&gt; time(1000);  <span class="comment">//これを推奨する．</span></div>
-</div><!-- fragment --><p>また，変数を int x1,x2,x3,x4;のように大量に宣言するのはやめること． その場合は普通に配列で構わない． <br  />
- あるいは，std::arrayを使うこと，std::array&lt;int, 4&gt; x; </p><div class="fragment"><div class="line"><span class="comment">//sample_array.h</span></div>
+<div class="line">std::vector&lt;int&gt; time(1000);  <span class="comment">//これを推奨する.</span></div>
+</div><!-- fragment --><p>また,変数を int x1,x2,x3,x4;のように大量に宣言するのはやめること. その場合は普通に配列で構わない. <br  />
+ あるいは,std::arrayを使うこと,std::array&lt;int, 4&gt; x; </p><div class="fragment"><div class="line"><span class="comment">//sample_array.h</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#pragma once</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;array&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="comment">//int x1,x2,x3,x4;  //これはやめること．</span></div>
+<div class="line"><span class="comment">//int x1,x2,x3,x4;  //これはやめること.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> x[4];  <span class="comment">//これは許容する．</span></div>
+<div class="line"><span class="keywordtype">int</span> x[4];  <span class="comment">//これは許容する.</span></div>
 <div class="line"> </div>
-<div class="line">std::array&lt;int, 4&gt; x;  <span class="comment">//これを推奨する．</span></div>
+<div class="line">std::array&lt;int, 4&gt; x;  <span class="comment">//これを推奨する.</span></div>
 </div><!-- fragment --><p><a class="anchor" id="anchor_for"></a></p>
 <h1><a class="anchor" id="●for文について"></a>
 ●for文について</h1>
-<p>for文に使用する変数は i → j → k とすること．通例そのような命名をすることが多いためである． また，for文の中でサイズの大きなクラスや構造体を宣言するのはやめること． 非常に負荷がかかるためである．</p>
+<p>for文に使用する変数は i → j → k とすること.通例そのような命名をすることが多いためである. また,for文の中でサイズの大きなクラスや構造体を宣言するのはやめること. 非常に負荷がかかるためである.</p>
 <p><a class="anchor" id="anchor_header"></a></p>
 <h1><a class="anchor" id="●ヘッダーについて"></a>
 ●ヘッダーについて</h1>
-<p>必ず，インクルードガードを書くこと．#ifndef ～ #endifのこと． #pragma once と書くと，インクルードガードを書かなくてもインクルードガードの機能が働く． しかし，これはC++の機能ではないので非推奨．(実際にはほとんどのコンパイラで使えるが， 一部のコンパイラでは使えない．特にこだわりがないならばどちらを使ってもよい．) <br  />
+<p>必ず,インクルードガードを書くこと.#ifndef ～ #endifのこと. #pragma once と書くと,インクルードガードを書かなくてもインクルードガードの機能が働く. しかし,これはC++の機能ではないので非推奨.(実際にはほとんどのコンパイラで使えるが, 一部のコンパイラでは使えない.特にこだわりがないならばどちらを使ってもよい.) <br  />
 <br  />
- ヘッダーにはむやみに #include を書かないようにすること． コンパイル時間が伸びるためである．過不足なく必要なものだけをインクルードするようにする． またグローバル変数を使ったり，externを使ったりするのは避けること． 多くの場合スパゲッティコードの原因になる． 設計をよく考えれば使わずに済むはず．どうしても必要な場合は一つのヘッダにまとめておくこと． 散らされると探すのが本当に大変になる．</p>
+ ヘッダーにはむやみに #include を書かないようにすること. コンパイル時間が伸びるためである.過不足なく必要なものだけをインクルードするようにする. またグローバル変数を使ったり,externを使ったりするのは避けること. 多くの場合スパゲッティコードの原因になる. 設計をよく考えれば使わずに済むはず.どうしても必要な場合は一つのヘッダにまとめておくこと. 散らされると探すのが本当に大変になる.</p>
 <p><a class="anchor" id="anchor_float"></a></p>
 <h1><a class="anchor" id="●小数について"></a>
 ●小数について</h1>
-<p>小数をあらわす事のできる変数の形は float と double の２つがある． float のほうがサイズが小さいので探索に向いている，floatで統一して書いていく． <br  />
- float = 4byte，double = 8byte.</p>
+<p>小数をあらわす事のできる変数の形は float と double の２つがある. float のほうがサイズが小さいので探索に向いている,floatで統一して書いていく. <br  />
+ float = 4byte,double = 8byte.</p>
 <p><a class="anchor" id="anchor_enum"></a></p>
 <h1><a class="anchor" id="●列挙体について"></a>
 ●列挙体について</h1>
-<p>整数型の引数を使って関数の機能を分けたいとき，例えば以下のような関数を使いたいとき， </p><div class="fragment"><div class="line"><span class="comment">//enum_sample1.h</span></div>
+<p>整数型の引数を使って関数の機能を分けたいとき,例えば以下のような関数を使いたいとき, </p><div class="fragment"><div class="line"><span class="comment">//enum_sample1.h</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#pragma once</span></div>
 <div class="line"> </div>
@@ -299,7 +299,7 @@ $(function() {
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> error_value::kErrorValue;</div>
 <div class="line">}</div>
-</div><!-- fragment --><p>このような場合は列挙体を使うことをお勧めする． 何故ならば，読みやすくなり，不正な値を入力されづらくなるためである． 例えば以下のように書き換えることができる．</p>
+</div><!-- fragment --><p>このような場合は列挙体を使うことをお勧めする. 何故ならば,読みやすくなり,不正な値を入力されづらくなるためである. 例えば以下のように書き換えることができる.</p>
 <div class="fragment"><div class="line"><span class="comment">//enum_sample2.h</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#pragma once</span></div>
@@ -319,7 +319,8 @@ $(function() {
 <div class="line">    kDiv = 4,</div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> CalculateNumber(<span class="keyword">const</span> <span class="keywordtype">int</span> num1, <span class="keyword">const</span> <span class="keywordtype">int</span> num2, <span class="keyword">const</span> CalculateMode mode)</div>
+<div class="line"><span class="keywordtype">int</span> CalculateNumber(<span class="keyword">const</span> <span class="keywordtype">int</span> num1, <span class="keyword">const</span> <span class="keywordtype">int</span> num2, <span class="keyword">const</span> CalculateMode</div>
+<div class="line">mode)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span>(mode == CalculateMode::kAdd){ <span class="keywordflow">return</span> num1 + num2;}</div>
 <div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(mode == CalculateMode::kSub){ <span class="keywordflow">return</span> num1 - num2;}</div>
@@ -329,20 +330,20 @@ $(function() {
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> error_value::kErrorValue;</div>
 <div class="line">}</div>
-</div><!-- fragment --> <dl class="section see"><dt>参照</dt><dd><a class="el" href="namespacedesignlab.html#a1c0bd326dd9c0d2105ada8e416781a2d" title="起動モードを表す列挙型．">designlab::BootMode</a> </dd>
+</div><!-- fragment --> <dl class="section see"><dt>参照</dt><dd><a class="el" href="namespacedesignlab.html#a1c0bd326dd9c0d2105ada8e416781a2d" title="起動モードを表す列挙型.">designlab::BootMode</a> </dd>
 <dd>
-<a class="el" href="classdesignlab_1_1_boot_mode_selector.html" title="起動モードを選択するクラス．">designlab::BootModeSelector</a> <br  />
+<a class="el" href="classdesignlab_1_1_boot_mode_selector.html" title="起動モードを選択するクラス.">designlab::BootModeSelector</a> <br  />
  <a class="anchor" id="anchor_struct"></a></dd></dl>
 <h1><a class="anchor" id="●構造体について"></a>
 ●構造体について</h1>
 <p><br  />
- C++で書かれているのでわざわざ typedef しなくてもよい． C++においては struct はクラスと同じ扱いになる． (ただし，デフォルトのアクセス指定子が異なる．クラスは private，structは public ) <br  />
-そのため，structを継承したクラスを作ることもできる．(非推奨だが) <br  />
- 構造体を使用する場合は，メンバ変数は全て public にしておき， そのようなクラスを作成したい場合に構造体を使うとよい． </p><dl class="section see"><dt>参照</dt><dd><a class="el" href="structdesignlab_1_1_application_setting_record.html" title="アプリの設定を記録する構造体．">designlab::ApplicationSettingRecord</a> </dd>
+ C++で書かれているのでわざわざ typedef しなくてもよい. C++においては struct はクラスと同じ扱いになる. (ただし,デフォルトのアクセス指定子が異なる.クラスは private,structは public ) <br  />
+そのため,structを継承したクラスを作ることもできる.(非推奨だが) <br  />
+ 構造体を使用する場合は,メンバ変数は全て public にしておき, そのようなクラスを作成したい場合に構造体を使うとよい. </p><dl class="section see"><dt>参照</dt><dd><a class="el" href="structdesignlab_1_1_application_setting_record.html" title="アプリの設定を記録する構造体.">designlab::ApplicationSettingRecord</a> </dd>
 <dd>
-<a class="el" href="structdesignlab_1_1_vector3.html" title="3次元の位置ベクトルを表す構造体．">designlab::Vector3</a> </dd>
+<a class="el" href="structdesignlab_1_1_vector3.html" title="3次元の位置ベクトルを表す構造体.">designlab::Vector3</a> </dd>
 <dd>
-<a class="el" href="structdesignlab_1_1_vector2.html" title="2次元の位置ベクトルを表す構造体．">designlab::Vector2</a> </dd></dl>
+<a class="el" href="structdesignlab_1_1_vector2.html" title="2次元の位置ベクトルを表す構造体.">designlab::Vector2</a> </dd></dl>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

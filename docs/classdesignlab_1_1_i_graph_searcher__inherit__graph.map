@@ -1,9 +1,9 @@
 <map id="designlab::IGraphSearcher" name="designlab::IGraphSearcher">
-<area shape="rect" id="Node000001" title="グラフ探索の処理のインターフェース．" alt="" coords="5,80,180,107"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graph_searcher_spot_turn.html" title="グラフ探索を行い，直進する動作を評価するクラス．" alt="" coords="240,5,412,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,73,248,46,249,51,157,78"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_graph_searcher_straight_move.html" title="グラフ探索を行い，直進する動作を評価するクラス．" alt="" coords="240,72,412,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="194,91,240,91,240,96,194,96"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_graph_searcher_turn.html" title="グラフ探索を行い，直進する動作を評価するクラス．" alt="" coords="228,139,424,165"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="163,108,270,136,269,141,162,113"/>
+<area shape="rect" id="Node000001" title="グラフ探索の処理のインターフェース." alt="" coords="5,80,180,107"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_graph_searcher_spot_turn.html" title="グラフ探索を行い,直進する動作を評価するクラス." alt="" coords="240,5,412,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,73,248,46,249,51,158,78"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_graph_searcher_straight_move.html" title="グラフ探索を行い,直進する動作を評価するクラス." alt="" coords="240,72,412,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="195,91,240,91,240,96,195,96"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_graph_searcher_turn.html" title="グラフ探索を行い,直進する動作を評価するクラス." alt="" coords="228,139,424,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="164,108,270,136,269,141,163,114"/>
 </map>

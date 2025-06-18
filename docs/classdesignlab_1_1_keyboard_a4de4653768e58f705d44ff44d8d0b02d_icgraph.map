@@ -1,7 +1,7 @@
 <map id="designlab::Keyboard::Update" name="designlab::Keyboard::Update">
-<area shape="rect" id="Node000001" title="キー入力を更新する． これを毎フレーム実行しないと，キー入力を取得できない．" alt="" coords="289,39,428,81"/>
+<area shape="rect" id="Node000001" title="キー入力を更新する. これを毎フレーム実行しないと,キー入力を取得できない." alt="" coords="289,39,428,81"/>
 <area shape="rect" id="Node000002" href="$classdesignlab_1_1_graph_viewer_g_u_i_controller.html#a838c8aefbbb4fb37d89798d1f2bcc9b5" title=" " alt="" coords="5,5,241,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="274,51,241,46,242,41,275,45"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_graphic_main_display_model.html#a123284fa5272d199b738b977eaf99898" title="描画画面の更新を行う．純粋仮想関数のため， 継承先では必ず override する必要がある．" alt="" coords="23,72,223,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="275,74,224,82,223,76,274,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="273,51,241,46,242,41,274,45"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_graphic_main_display_model.html#a123284fa5272d199b738b977eaf99898" title="描画画面の更新を行う.純粋仮想関数のため, 継承先では必ず override する必要がある." alt="" coords="23,72,223,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="274,75,224,82,223,76,273,69"/>
 </map>

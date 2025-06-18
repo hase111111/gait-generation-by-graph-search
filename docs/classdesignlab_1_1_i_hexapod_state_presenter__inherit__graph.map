@@ -1,5 +1,7 @@
 <map id="designlab::IHexapodStatePresenter" name="designlab::IHexapodStatePresenter">
-<area shape="rect" id="Node000001" title="6脚ロボットの状態を表示するクラス．" alt="" coords="5,5,175,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html" title="PhantomX mk&#45;2 の状態を計算するクラス．" alt="" coords="6,96,174,123"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,63,93,95,87,95,87,63"/>
+<area shape="rect" id="Node000001" title="6脚ロボットの状態を表示するクラス." alt="" coords="86,5,255,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html" title="PhantomX mk&#45;2 の状態を計算するクラス." alt="" coords="5,96,173,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,61,104,97,100,94,137,57"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_xr_r1.html" title=" " alt="" coords="197,96,309,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="204,57,242,94,238,97,201,61"/>
 </map>

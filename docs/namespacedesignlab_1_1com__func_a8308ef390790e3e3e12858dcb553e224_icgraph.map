@@ -1,9 +1,9 @@
 <map id="designlab::com_func::GetLegGroundedBitFromLegGroundPatternIndex" name="designlab::com_func::GetLegGroundedBitFromLegGroundPatternIndex">
-<area shape="rect" id="Node000001" title="脚の接地パターンの番号から，その番号に該当する接地パターンを返す．" alt="" coords="231,64,425,123"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_node_creator_leg_up_down.html#a861b8e2c2efd6673f70c53881848d442" title="現在のノードから次のノード群を生成する．" alt="" coords="5,5,183,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,64,171,51,172,46,217,59"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_node_creator_leg_up_down2d.html#a06c92f273cd957c7108ae2632bcd8339" title="現在のノードから次のノード群を生成する．" alt="" coords="5,72,183,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,96,183,96,183,91,216,91"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_node_creator_leg_up_down_radius.html#a4d2c69510f3b456ce4cb21c2a58e9b45" title="現在のノードから次のノード群を生成する．" alt="" coords="5,139,183,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="217,128,172,141,171,135,216,123"/>
+<area shape="rect" id="Node000001" title="脚の接地パターンの番号から,その番号に該当する接地パターンを返す." alt="" coords="231,64,425,123"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_node_creator_leg_up_down.html#a861b8e2c2efd6673f70c53881848d442" title="現在のノードから次のノード群を生成する." alt="" coords="5,5,183,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,64,171,51,172,46,217,59"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_node_creator_leg_up_down2d.html#a06c92f273cd957c7108ae2632bcd8339" title="現在のノードから次のノード群を生成する." alt="" coords="5,72,183,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,96,183,96,183,91,215,91"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_node_creator_leg_up_down_radius.html#a4d2c69510f3b456ce4cb21c2a58e9b45" title="現在のノードから次のノード群を生成する." alt="" coords="5,139,183,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="217,128,172,141,171,135,215,123"/>
 </map>

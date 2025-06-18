@@ -1,13 +1,13 @@
 <map id="designlab::ResultFileImporter::ImportNodeListAndMapState" name="designlab::ResultFileImporter::ImportNodeListAndMapState">
-<area shape="rect" id="Node000001" title="ノードリストとマップの状態をファイルから読み込む．" alt="" coords="5,72,201,115"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_cmd_i_o_util.html#a2fe5f9aa287a9bddd51a4b1321d9e2f6" title="コマンドラインに文字を出力する関数．Error用の出力．" alt="" coords="249,39,392,81"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,76,233,71,234,76,201,81"/>
-<area shape="rect" id="Node000007" href="$classdesignlab_1_1_map_state.html#a221db2fa4a7021da6e9b240c209fa59c" title="脚設置可能点の総数を返す．" alt="" coords="250,105,391,148"/>
-<area shape="poly" id="edge5_Node000001_Node000007" title=" " alt="" coords="201,106,235,111,235,116,201,111"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_cmd_i_o_util.html#a36a151f3c6a49d4b1253332516ca3de2" title="コマンドラインに文字を出力する関数． &#160;&#160;SetOutputLimit() で設定した出力の許可範囲内であれば出力される． &#160;&#160;必ず SetOutputLimit() を呼び出してから使うこと．" alt="" coords="440,39,583,81"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,57,425,57,425,63,392,63"/>
-<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数． &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている． &#160;&#160;例えば，" alt="" coords="631,5,819,48"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="583,46,615,41,616,46,584,51"/>
-<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数．指定した文字で文字列を分割する． &#160;&#160;分割した結果，空白が含まれる場合や文字列がない場合は，そのまま返す． &#160;&#160;最後が区切り文字で終わる場合は，それを無視する．" alt="" coords="655,72,795,115"/>
-<area shape="poly" id="edge4_Node000003_Node000006" title=" " alt="" coords="584,69,639,77,639,83,583,74"/>
+<area shape="rect" id="Node000001" title="ノードリストとマップの状態をファイルから読み込む." alt="" coords="5,68,201,111"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1cmdio.html#a2580b68e1aa0d6f45bedd166a68b6cd8" title="コマンドラインに文字を出力する関数. Error 用の出力." alt="" coords="249,47,443,73"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,75,233,71,234,76,202,80"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_map_state.html#a221db2fa4a7021da6e9b240c209fa59c" title="脚設置可能点の総数を返す." alt="" coords="276,97,416,140"/>
+<area shape="poly" id="edge5_Node000001_Node000007" title=" " alt="" coords="202,99,261,106,260,111,201,104"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1cmdio.html#ae16089dfba0d5bcfdd33b6ddc8efbfbf" title="コマンドラインに文字を出力する関数. &#160;&#160;SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される." alt="" coords="491,47,657,73"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="444,57,475,57,475,63,444,63"/>
+<area shape="rect" id="Node000004" href="$namespacedesignlab_1_1string__util.html#a7e2e9a4fc84ff9552fd5d1887d4221c3" title="enumを文字列に変換する関数. &#160;&#160;Google C++ coding style だと enumの要素は 先頭にkをつけてキャメルケースで書くことが推奨されている...." alt="" coords="705,5,893,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="657,45,689,40,690,46,658,50"/>
+<area shape="rect" id="Node000006" href="$namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="729,72,869,115"/>
+<area shape="poly" id="edge4_Node000003_Node000006" title=" " alt="" coords="658,70,714,78,713,83,657,75"/>
 </map>

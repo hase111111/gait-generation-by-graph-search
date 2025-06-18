@@ -6,7 +6,7 @@ var searchData=
   ['slope_5fangle_3',['slope_angle',['../structdesignlab_1_1_simulation_map_parameter.html#acc14fd4246ca18171b654dd9c55092e9',1,'designlab::SimulationMapParameter']]],
   ['spot_5fturn_5flast_5fposture_4',['spot_turn_last_posture',['../structdesignlab_1_1_robot_operation.html#ae32ad06db751234739c5ca5efaa16a71',1,'designlab::RobotOperation']]],
   ['spot_5fturn_5frot_5faxis_5',['spot_turn_rot_axis',['../structdesignlab_1_1_robot_operation.html#af19106c198da700c551ca9e10cf3d157',1,'designlab::RobotOperation']]],
-  ['stable_5fmargin_6',['stable_margin',['../structdesignlab_1_1_phantom_x_mk_i_i_parameter_record.html#a29850eb6858098c25fa547fd1e507b9c',1,'designlab::PhantomXMkIIParameterRecord']]],
+  ['stable_5fmargin_6',['stable_margin',['../structdesignlab_1_1_phantom_x_mk_i_i_parameter_record.html#a29850eb6858098c25fa547fd1e507b9c',1,'designlab::PhantomXMkIIParameterRecord::stable_margin'],['../structdesignlab_1_1_xr_r1_parameter_record.html#abf1049e3b0fa96c2fc449fd307a0ef07',1,'designlab::XrR1ParameterRecord::stable_margin']]],
   ['start_7',['start',['../structdesignlab_1_1_line_segment2.html#a0187d2a0e54da41a136feefec647b7ef',1,'designlab::LineSegment2']]],
   ['step_5fheight_8',['step_height',['../structdesignlab_1_1_simulation_map_parameter.html#ab710d63456ab3b4b7819bb67e9be7b42',1,'designlab::SimulationMapParameter']]],
   ['step_5flength_9',['step_length',['../structdesignlab_1_1_simulation_map_parameter.html#a592f003aa8c7a3275e47c08413cd1470',1,'designlab::SimulationMapParameter']]],

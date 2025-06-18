@@ -1,7 +1,7 @@
 <map id="designlab::Quaternion::GetDistanceSquared" name="designlab::Quaternion::GetDistanceSquared">
-<area shape="rect" id="Node000001" title="他のクォータニオンとの距離の2乗を返す． クォータニオンを4次元ベクトルとみなし，ベクトルの距離の2乗を求める．" alt="" coords="5,5,155,48"/>
-<area shape="rect" id="Node000002" href="$structdesignlab_1_1_quaternion.html#a24ad10137dd081de9002ac270cdce9f9" title="クォータニオンの長さの2乗を返す(ノルムの2乗)． &#160;&#160;クォータニオンの長さの2乗は，w^2 + x^2 + y^2 + z^2 で求められる．" alt="" coords="203,5,350,48"/>
+<area shape="rect" id="Node000001" title="他のクォータニオンとの距離の2乗を返す. クォータニオンを4次元ベクトルとみなし,ベクトルの距離の2乗を求める." alt="" coords="5,5,155,48"/>
+<area shape="rect" id="Node000002" href="$structdesignlab_1_1_quaternion.html#a24ad10137dd081de9002ac270cdce9f9" title="クォータニオンの長さの2乗を返す(ノルムの2乗). &#160;&#160;クォータニオンの長さの2乗は,w^2 + x^2 + y^2 + z^2 で求められる." alt="" coords="203,5,350,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,24,187,24,187,29,155,29"/>
-<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector3.html#aa0a76dfe9dc375fd09561734cf782f63" title="自分・引数 の内積の結果を返す．" alt="" coords="398,13,555,40"/>
+<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector3.html#aa0a76dfe9dc375fd09561734cf782f63" title="自分・引数 の内積の結果を返す." alt="" coords="398,13,555,40"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="350,24,382,24,382,29,350,29"/>
 </map>

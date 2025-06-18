@@ -1,8 +1,8 @@
 <map id="TEST_SUITE" name="TEST_SUITE">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,37,103,64"/>
-<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数．指定した文字で文字列を分割する． &#160;&#160;分割した結果，空白が含まれる場合や文字列がない場合は，そのまま返す． &#160;&#160;最後が区切り文字で終わる場合は，それを無視する．" alt="" coords="151,29,291,72"/>
+<area shape="rect" id="Node000002" href="$namespacedesignlab_1_1string__util.html#a516443410e813ac95135cfe942362c86" title="文字列を分割する関数.指定した文字で文字列を分割する. &#160;&#160;分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す. &#160;&#160;最後が区切り文字で終わる場合は,..." alt="" coords="151,29,291,72"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,48,135,48,135,53,103,53"/>
-<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと，その要素を列挙した文字列を返す関数．" alt="" coords="339,29,490,72"/>
+<area shape="rect" id="Node000003" href="$namespacedesignlab_1_1string__util.html#a87e32a810705f9dc98665faf2ae837a7" title="enum型を渡すと,その要素を列挙した文字列を返す関数." alt="" coords="339,29,490,72"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="291,48,323,48,323,53,291,53"/>
 <area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="377,29,376,19,382,10,395,5,415,3,436,5,448,11,446,16,434,10,415,8,397,10,386,15,381,21,383,28"/>
 </map>

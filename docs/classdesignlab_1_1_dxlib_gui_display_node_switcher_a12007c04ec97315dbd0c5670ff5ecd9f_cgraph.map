@@ -1,7 +1,7 @@
 <map id="designlab::DxlibGuiDisplayNodeSwitcher::Update" name="designlab::DxlibGuiDisplayNodeSwitcher::Update">
-<area shape="rect" id="Node000001" title="GUIの更新，毎フレーム実行すること．" alt="" coords="5,5,182,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_abstract_dxlib_gui.html#a9b64bfdbc0c66ab19bed71eb4ec11955" title="GUIの表示を行うかどうかを設定する．" alt="" coords="230,5,392,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,24,215,24,215,29,182,29"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_abstract_dxlib_gui.html#a0af50aac58a6b9e37be44a94870a0e0f" title="GUIの位置を設定する． &#160;&#160;Dxlibの画面の座標は左上を原点とし，右下に行くほど値が大きくなる． &#160;&#160;横方向にx軸，縦方向にy軸をとる．" alt="" coords="440,5,602,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,24,425,24,425,29,392,29"/>
+<area shape="rect" id="Node000001" title="GUIの更新,毎フレーム実行すること." alt="" coords="5,5,182,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_abstract_dxlib_gui.html#a9b64bfdbc0c66ab19bed71eb4ec11955" title="GUIの表示を行うかどうかを設定する." alt="" coords="230,5,392,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,24,214,24,214,29,182,29"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_abstract_dxlib_gui.html#a0af50aac58a6b9e37be44a94870a0e0f" title="GUIの位置を設定する. &#160;&#160;Dxlibの画面の座標は左上を原点とし,右下に行くほど値が大きくなる. &#160;&#160;横方向にx軸,縦方向にy軸をとる." alt="" coords="440,5,602,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="392,24,424,24,424,29,392,29"/>
 </map>

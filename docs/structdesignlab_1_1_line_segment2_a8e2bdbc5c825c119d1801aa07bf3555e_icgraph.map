@@ -1,5 +1,7 @@
 <map id="designlab::LineSegment2::HasIntersection" name="designlab::LineSegment2::HasIntersection">
-<area shape="rect" id="Node000001" title="他の線分と交点が存在しているかどうか調べる関数．" alt="" coords="221,5,388,48"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#aeed1296b4886eb07bc095ca2b5e8c333" title="脚が他の脚と干渉しているかどうかを判定する．" alt="" coords="5,5,173,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,29,173,29,173,24,206,24"/>
+<area shape="rect" id="Node000001" title="他の線分と交点が存在しているかどうか調べる関数." alt="" coords="260,35,427,77"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#aeed1296b4886eb07bc095ca2b5e8c333" title="脚が他の脚と干渉しているかどうかを判定する." alt="" coords="25,5,192,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="244,46,192,40,193,34,245,41"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_xr_r1.html#a3827df0fd0b153073d0edb0ec25063ae" title="脚が他の脚と干渉しているかどうかを判定する." alt="" coords="5,72,212,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="245,71,212,75,212,70,244,66"/>
 </map>

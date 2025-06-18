@@ -1,0 +1,5 @@
+<map id="designlab::XrR1::GetGroundHeightMarginMin" name="designlab::XrR1::GetGroundHeightMarginMin">
+<area shape="rect" id="Node000001" title="地面の最大高さと重心位置を最小どれだけ離すかを返す." alt="" coords="269,5,451,48"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_xr_r1.html#a99ac4870390b69ef3bf61ffd83aecf28" title="胴体が地面と干渉しているかどうかを判定する." alt="" coords="5,5,221,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="253,29,221,29,221,24,253,24"/>
+</map>

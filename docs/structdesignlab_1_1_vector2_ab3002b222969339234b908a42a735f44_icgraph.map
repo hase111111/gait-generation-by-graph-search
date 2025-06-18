@@ -1,15 +1,21 @@
 <map id="designlab::Vector2::Cross" name="designlab::Vector2::Cross">
-<area shape="rect" id="Node000001" title="自分×引数 の外積の結果を返す．" alt="" coords="446,105,575,148"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a688e8dd6b7f92d5b1a4fa8d4fbcc2714" title="安定余裕(Stability Margin)を計算する． 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい． &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計..." alt="" coords="225,5,394,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="463,99,397,62,371,51,373,46,399,58,465,95"/>
-<area shape="rect" id="Node000004" href="$structdesignlab_1_1_line_segment2.html#a334682a88e452a95429edf15593d1846" title="他の線分と交点が存在しているかどうか調べ，交点を返す関数．" alt="" coords="221,72,398,115"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="431,116,398,111,399,105,431,111"/>
-<area shape="rect" id="Node000005" href="$structdesignlab_1_1_line_segment2.html#a29ea137970fa696c5789085591e8c2f9" title="他の線分との交点を求める．" alt="" coords="226,139,393,181"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="432,142,394,149,393,143,431,137"/>
-<area shape="rect" id="Node000006" href="$structdesignlab_1_1_line_segment2.html#a8e2bdbc5c825c119d1801aa07bf3555e" title="他の線分と交点が存在しているかどうか調べる関数．" alt="" coords="226,205,393,248"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="465,158,399,196,373,207,371,202,397,191,463,154"/>
-<area shape="rect" id="Node000003" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#aea0eea059d621c567e8c0a704d7f79c8" title="安定余裕を用いて，静的に安定しているかどうかを判定する．" alt="" coords="5,5,173,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="210,29,173,29,173,24,210,24"/>
-<area shape="rect" id="Node000007" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#aeed1296b4886eb07bc095ca2b5e8c333" title="脚が他の脚と干渉しているかどうかを判定する．" alt="" coords="5,205,173,248"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="211,229,173,229,173,224,211,224"/>
+<area shape="rect" id="Node000001" title="自分×引数 の外積の結果を返す." alt="" coords="485,139,614,181"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a688e8dd6b7f92d5b1a4fa8d4fbcc2714" title="安定余裕(Stability Margin)を計算する. 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい. &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計..." alt="" coords="264,5,433,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="517,130,480,95,436,62,414,51,416,46,438,58,483,91,520,126"/>
+<area shape="rect" id="Node000004" href="$classdesignlab_1_1_xr_r1.html#ac48718cd69e6802547ad179d0b37ce1f" title="安定余裕(Stability Margin)を計算する. 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい. &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計..." alt="" coords="262,72,435,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="469,136,414,118,416,113,471,131"/>
+<area shape="rect" id="Node000006" href="$structdesignlab_1_1_line_segment2.html#a334682a88e452a95429edf15593d1846" title="他の線分と交点が存在しているかどうか調べ,交点を返す関数." alt="" coords="260,139,437,181"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="469,163,437,163,437,157,469,157"/>
+<area shape="rect" id="Node000007" href="$structdesignlab_1_1_line_segment2.html#a29ea137970fa696c5789085591e8c2f9" title="他の線分との交点を求める." alt="" coords="265,205,432,248"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="471,189,416,207,414,202,469,184"/>
+<area shape="rect" id="Node000008" href="$structdesignlab_1_1_line_segment2.html#a8e2bdbc5c825c119d1801aa07bf3555e" title="他の線分と交点が存在しているかどうか調べる関数." alt="" coords="265,272,432,315"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="520,194,483,229,438,262,416,274,414,269,436,258,480,225,517,190"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#aea0eea059d621c567e8c0a704d7f79c8" title="安定余裕を用いて,静的に安定しているかどうかを判定する." alt="" coords="25,5,192,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="248,29,192,29,192,24,248,24"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_xr_r1.html#a09859ffa5b61169d0d89125ba10e336f" title="安定余裕を用いて,静的に安定しているかどうかを判定する." alt="" coords="25,80,192,107"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="246,96,192,96,192,91,246,91"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#aeed1296b4886eb07bc095ca2b5e8c333" title="脚が他の脚と干渉しているかどうかを判定する." alt="" coords="25,243,192,285"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="249,284,192,277,193,272,250,279"/>
+<area shape="rect" id="Node000010" href="$classdesignlab_1_1_xr_r1.html#a3827df0fd0b153073d0edb0ec25063ae" title="脚が他の脚と干渉しているかどうかを判定する." alt="" coords="5,309,212,336"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="249,308,212,313,212,307,248,303"/>
 </map>

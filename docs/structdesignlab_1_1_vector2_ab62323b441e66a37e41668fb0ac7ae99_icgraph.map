@@ -1,17 +1,23 @@
 <map id="designlab::Vector2::GetLength" name="designlab::Vector2::GetLength">
-<area shape="rect" id="Node000001" title="このベクトルの長さを返す．" alt="" coords="669,39,799,81"/>
-<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#ac027dc121a54e00da42ffcbab0028561" title="指定した脚の関節のグローバル座標と，角度を計算する． &#160;&#160;重たいのでグラフ探索や，描画処理中にループで使用することは推奨しない． &#160;&#160;間接の可動範囲外まで動いてしまう場合でも，答えを返す． &#160;&#160;目標座標..." alt="" coords="454,5,621,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="654,49,621,44,622,38,655,44"/>
-<area shape="rect" id="Node000003" href="$structdesignlab_1_1_vector2.html#a5b486befcef8a9c50ff78137783c3ba9" title="このベクトルを正規化したベクトルを返す．" alt="" coords="473,72,602,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="655,76,603,85,602,80,654,71"/>
-<area shape="rect" id="Node000004" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a688e8dd6b7f92d5b1a4fa8d4fbcc2714" title="安定余裕(Stability Margin)を計算する． 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい． &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計..." alt="" coords="237,5,406,48"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="458,72,392,51,394,46,460,67"/>
-<area shape="rect" id="Node000006" href="$classdesignlab_1_1_com_selector.html#afe154bc35f0971d6c2c2a649299b23c3" title="重心を求める．" alt="" coords="242,72,401,115"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="458,96,401,96,401,91,458,91"/>
-<area shape="rect" id="Node000008" href="$structdesignlab_1_1_vector2.html#ac75623bf80d61ccba4a26c6810eddd3c" title="このベクトルを正規化する． &#160;&#160;絶対値が0のベクトルの場合，そのまま0ベクトルになる．" alt="" coords="257,139,386,181"/>
-<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="460,120,387,143,386,138,458,115"/>
-<area shape="rect" id="Node000005" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#aea0eea059d621c567e8c0a704d7f79c8" title="安定余裕を用いて，静的に安定しているかどうかを判定する．" alt="" coords="13,5,181,48"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="222,29,181,29,181,24,222,24"/>
-<area shape="rect" id="Node000007" href="$classdesignlab_1_1_node_creator_com_move.html#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する．" alt="" coords="5,72,189,115"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="227,96,189,96,189,91,227,91"/>
+<area shape="rect" id="Node000001" title="このベクトルの長さを返す." alt="" coords="679,72,809,115"/>
+<area shape="rect" id="Node000002" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#ac027dc121a54e00da42ffcbab0028561" title="指定した脚の関節のグローバル座標と,角度を計算する. &#160;&#160;重たいのでグラフ探索や,描画処理中にループで使用することは推奨しない. &#160;&#160;間接の可動範囲外まで動いてしまう場合でも,..." alt="" coords="461,5,628,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="664,69,610,51,612,46,666,64"/>
+<area shape="rect" id="Node000003" href="$classdesignlab_1_1_xr_r1.html#aac43949e685909eeceb9d57fe3a509f0" title="指定した脚の関節のグローバル座標と,角度を計算する. &#160;&#160;重たいのでグラフ探索や,描画処理中にループで使用することは推奨しない. &#160;&#160;間接の可動範囲外まで動いてしまう場合でも,..." alt="" coords="458,72,631,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="664,96,632,96,632,91,664,91"/>
+<area shape="rect" id="Node000004" href="$structdesignlab_1_1_vector2.html#a5b486befcef8a9c50ff78137783c3ba9" title="このベクトルを正規化したベクトルを返す." alt="" coords="480,139,609,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="665,122,611,141,609,136,664,117"/>
+<area shape="rect" id="Node000005" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#a688e8dd6b7f92d5b1a4fa8d4fbcc2714" title="安定余裕(Stability Margin)を計算する. 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい. &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計..." alt="" coords="239,39,408,81"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="467,134,457,129,432,112,409,96,385,84,387,80,411,91,436,108,459,124,469,129"/>
+<area shape="rect" id="Node000007" href="$classdesignlab_1_1_xr_r1.html#ac48718cd69e6802547ad179d0b37ce1f" title="安定余裕(Stability Margin)を計算する. 詳しくは「不整地における歩行機械の静的安定性評価基準」 という論文を読んで欲しい. &#160;&#160;接地脚を繋いで作られる多角形の辺と重心の距離の最小値を計..." alt="" coords="237,105,410,148"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="464,151,410,142,411,137,465,145"/>
+<area shape="rect" id="Node000009" href="$classdesignlab_1_1_com_selector.html#afe154bc35f0971d6c2c2a649299b23c3" title="重心を求める." alt="" coords="244,172,403,215"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="465,175,404,184,403,179,464,169"/>
+<area shape="rect" id="Node000011" href="$structdesignlab_1_1_vector2.html#ac75623bf80d61ccba4a26c6810eddd3c" title="このベクトルを正規化する. &#160;&#160;絶対値が0のベクトルの場合,そのまま0ベクトルになる." alt="" coords="259,239,388,281"/>
+<area shape="poly" id="edge10_Node000004_Node000011" title=" " alt="" coords="490,191,411,229,384,241,382,236,409,224,488,186"/>
+<area shape="rect" id="Node000006" href="$classdesignlab_1_1_phantom_x_mk_i_i.html#aea0eea059d621c567e8c0a704d7f79c8" title="安定余裕を用いて,静的に安定しているかどうかを判定する." alt="" coords="13,39,181,81"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="223,63,181,63,181,57,223,57"/>
+<area shape="rect" id="Node000008" href="$classdesignlab_1_1_xr_r1.html#a09859ffa5b61169d0d89125ba10e336f" title="安定余裕を用いて,静的に安定しているかどうかを判定する." alt="" coords="14,113,180,140"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="221,129,181,129,181,124,221,124"/>
+<area shape="rect" id="Node000010" href="$classdesignlab_1_1_node_creator_com_move.html#a3fc5ccbce7199f0c7a7ce9ca5f4c221a" title="現在のノードから次のノード群を生成する." alt="" coords="5,172,189,215"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="228,196,189,196,189,191,228,191"/>
 </map>
