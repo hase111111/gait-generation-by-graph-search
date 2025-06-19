@@ -44,7 +44,7 @@
     
     #マップの作成方法がシミュレーション専用マップを出力するモード ( ForSimulation ) の場合，マップのパラメータを記述した toml ファイルの名前を設定します．
     simulation_map_param_file_name = "simulation_map.toml"
-    #simulation_map_param_file_name = "simulation_map_fissured.toml"
+    # simulation_map_param_file_name = "simulation_map_fissured.toml"
     
 #ロボットの操作方法の設定です．
 [RobotOperator]

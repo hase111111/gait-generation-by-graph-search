@@ -226,6 +226,9 @@
     <Filter Include="ヘッダー ファイル\Haxapod\Const">
       <UniqueIdentifier>{9c8b95af-b164-4976-acab-5c88763a7029}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\GaitPatternGenerator">
+      <UniqueIdentifier>{a8e25482-284c-473a-b0ed-c57bb1b8019a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="graphic_system.h">
@@ -320,9 +323,6 @@
     </ClInclude>
     <ClInclude Include="graphic_main_basic.h">
       <Filter>ソース ファイル\Graphic\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="interface_gait_pattern_generator.h">
-      <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
     <ClInclude Include="math_util.h">
       <Filter>ソース ファイル\Common\Math</Filter>
@@ -534,7 +534,7 @@
     <ClInclude Include="loop_util_test.h">
       <Filter>ソース ファイル\Common\Test</Filter>
     </ClInclude>
-    <ClInclude Include="gpg_builder_flat.h">
+    <ClInclude Include="gpg_selector.h">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
     <ClInclude Include="gpg_builder_change_posture.h">
@@ -776,6 +776,9 @@
     </ClInclude>
     <ClInclude Include="xr_r1_const.h">
       <Filter>ヘッダー ファイル\Haxapod\Const</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_gait_pattern_generator.h">
+      <Filter>ヘッダー ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1106,7 +1109,7 @@
     <ClCompile Include="node_creator_builder_ground_conforming_rot.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClCompile>
-    <ClCompile Include="gpg_builder_flat.cpp">
+    <ClCompile Include="gpg_selector.cpp">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClCompile>
     <ClCompile Include="xr_r1.cpp">

@@ -1,11 +1,11 @@
 ﻿
-//! @file gpg_builder_flat.cpp
+//! @file gpg_selector.cpp
 
 // Copyright(c) 2023-2025 Design Engineering Laboratory, Saitama University
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#include "gpg_builder_flat.h"
+#include "gpg_selector.h"
 
 #include <utility>
 
@@ -13,11 +13,12 @@
 #include "gait_pattern_generator_basic.h"
 #include "graph_searcher_straight_move.h"
 #include "graph_tree_creator.h"
+#include "node_creator_builder_body_rot.h"
 #include "node_creator_builder_straight_move.h"
 
 namespace designlab {
 
-GpgBuilderFlat::GpgBuilderFlat(
+GpgSelector::GpgSelector(
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
     const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
     const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr)
@@ -29,7 +30,11 @@ GpgBuilderFlat::GpgBuilderFlat(
   assert(checker_ptr_ != nullptr);
 }
 
-std::unique_ptr<IGaitPatternGenerator> GpgBuilderFlat::Build() const {
+std::unique_ptr<IGaitPatternGenerator> GpgSelector::Select() const {
+  return MakeGpgFlat();
+}
+
+std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgFlat() const {
   auto node_creator_builder = std::make_unique<NodeCreatorBuilderStraightMove>(
       converter_ptr_, presenter_ptr_, checker_ptr_);
   auto graph_tree_creator =

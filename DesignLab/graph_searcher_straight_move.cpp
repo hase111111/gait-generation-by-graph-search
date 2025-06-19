@@ -83,26 +83,17 @@ GraphSearcherStraightMove::SearchGraphTree(
     candidate_evaluation_value.value.at(kTagMoveForward) =
         GetMoveForwardEvaluationValue(graph.GetNode(i), graph.GetRootNode(),
                                       normalized_move_direction);
-    // if (!evaluator_.LeftIsBetterWithTag(candidate_evaluation_value,
-    // max_evaluation_value, kTagMoveForward)) { continue; }
 
     candidate_evaluation_value.value.at(kTagLegRot) =
         GetLegRotEvaluationValue(graph.GetNode(i), graph.GetRootNode());
-    // if (!evaluator_.LeftIsBetterWithTag(candidate_evaluation_value,
-    // max_evaluation_value, kTagLegRot)) { continue; }
+
     candidate_evaluation_value.value.at(kTagZDiff) = GetZDiffEvaluationValue(
         graph.GetCoMVerticalTrajectory(i), target_z_value);
-
-    // candidate_evaluation_value.value.at(kTagZDiff) =
-    // GetZDiffEvaluationValue({ graph.GetNode(i).center_of_mass_global_coord.z
-    // }, target_z_value);
 
     // 評価値を比較する.
     if (evaluator_.LeftIsBetter(candidate_evaluation_value,
                                 max_evaluation_value)) {
       // 上回っている場合は更新する.
-      cmdio::OutputF(OutputDetail::kDebug, "max_evaluation_value = {}",
-                     max_evaluation_value.value[kTagZDiff]);
       max_evaluation_value = candidate_evaluation_value;
       max_evaluation_value_index = i;
     }
@@ -123,6 +114,9 @@ GraphSearcherStraightMove::SearchGraphTree(
 
     return {result, GraphSearchEvaluationValue{}, RobotStateNode{}};
   }
+
+  cmdio::DebugOutputF("max_evaluation_value = {}",
+                      max_evaluation_value.value[kTagZDiff]);
 
   const GraphSearchResult result = {enums::Result::kSuccess, ""};
 
@@ -191,7 +185,7 @@ GraphSearchEvaluator GraphSearcherStraightMove::InitializeEvaluator() const {
 
   GraphSearchEvaluator::EvaluationMethod z_diff_method = {
       .is_lower_better = true,
-      .margin = 0.f,
+      .margin = 10.f,
   };
 
   GraphSearchEvaluator ret({{kTagMoveForward, move_forward_method},

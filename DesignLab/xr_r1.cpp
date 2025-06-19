@@ -392,6 +392,8 @@ Vector3 XrR1::GetLegBasePosRobotCoordinate(const int leg_index) const noexcept {
 }
 
 bool XrR1::IsLegInRange(const int leg_index, const Vector3& leg_pos) const {
+  using math_util::Squared;
+
   // leg_indexは 0～5 である.
   assert(0 <= leg_index);
   assert(leg_index < HexapodConst::kLegNum);
@@ -417,15 +419,15 @@ bool XrR1::IsLegInRange(const int leg_index, const Vector3& leg_pos) const {
     return false;
   }
 
-  if (leg_pos_xy.GetSquaredLength() < math_util::Squared(kMinLegR)) {
+  if (leg_pos_xy.GetSquaredLength() < Squared(kMinLegR)) {
     return false;
   }
 
-  if (math_util::Squared(kMaxLegR) < leg_pos_xy.GetSquaredLength()) {
+  if (Squared(kMaxLegR) < leg_pos_xy.GetSquaredLength()) {
     return false;
   }
 
-  if (math_util::Squared(kMaxLegRArray[-static_cast<int>(leg_pos.z)]) <
+  if (Squared(kMaxLegRArray[-static_cast<int>(leg_pos.z)]) <
       leg_pos_xy.GetSquaredLength()) {
     return false;
   }

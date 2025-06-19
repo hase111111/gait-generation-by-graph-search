@@ -16,7 +16,7 @@
 #include "application_setting_record_validator.h"
 #include "boot_mode_selector.h"
 #include "cmdio_util.h"
-#include "gpg_builder_flat.h"
+#include "gpg_selector.h"
 #include "graphic_main_basic.h"
 #include "graphic_main_display_model.h"
 #include "graphic_main_graph_viewer.h"
@@ -142,9 +142,9 @@ int main() {
         // シミュレーションシステムクラスを作成する.
         auto phantomx_mk2 = LoadXrR1();
 
-        const auto gpg_builder = std::make_unique<GpgBuilderFlat>(
+        const auto gpg_builder = std::make_unique<GpgSelector>(
             phantomx_mk2, phantomx_mk2, phantomx_mk2);
-        auto gait_pattern_generator = gpg_builder->Build();
+        auto gait_pattern_generator = gpg_builder->Select();
 
         const auto sim_setting_record =
             TomlFileImporter<SimulationSettingRecord>{}.ImportOrUseDefault(
