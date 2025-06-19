@@ -43,8 +43,9 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::Select(
     case GpgType::kSwichByMap: {
       return MakeGpgSwitchByMap();
     }
-    default:
+    default: {
       break;
+    }
   }
 
   assert(false);  // 未実装のGpgTypeが指定された.
