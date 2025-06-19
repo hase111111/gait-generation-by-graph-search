@@ -13,10 +13,6 @@
 
 namespace designlab {
 
-std::string GraphSearchResult::ToString() const {
-  return string_util::EnumToStringRemoveTopK(result) + "," + message;
-}
-
 std::string GraphSearchResultRecord::ToCsvString() const {
   // std::boolalphaを使うと,bool値を文字列に変換できる.
   // excelにおいて,数値を文字列として扱うためには,
@@ -54,7 +50,7 @@ std::string GraphSearchResultRecord::ToCsvString() const {
 
   stream << string_util::EnumToStringRemoveTopK(result_node.next_move) << ",";
   stream << math_util::FloatingPointNumToString(computation_time) << ",";
-  stream << graph_search_result.ToString();
+  stream << graph_search_result.error_or("Success");
 
   return stream.str();
 }

@@ -88,8 +88,6 @@ GraphSearcherSpotTurn::SearchGraphTree(const GaitPatternGraphTree& graph,
         "max evaluation value index is out of range."};
   }
 
-  const GraphSearchResult result = {enums::Result::kSuccess, ""};
-
   return return_type{
       max_evaluation_value,
       graph.GetParentNode(max_evaluation_value_index, 1),

@@ -11,35 +11,10 @@
 #include <magic_enum.hpp>
 #include <string>
 
+#include "my_expected.h"
 #include "robot_state_node.h"
 
-namespace designlab::enums {
-
-//! @enum Result
-//! @brief 成功か失敗かを表す列挙型.
-//! @details この列挙型は,関数の戻り値として使うことを想定している.
-//! 関数の戻り値として使うときに,bool型よりも意図が明確になると思ったため作成した.
-enum class Result : int { kSuccess, kFailure };
-
-}  // namespace designlab::enums
-
 namespace designlab {
-
-//! @struct GraphSearchResult
-//! @brief グラフ探索の結果を表す構造体.
-struct GraphSearchResult final {
-  GraphSearchResult()
-      : result(enums::Result::kFailure),
-        message("GraphSearchResultは初期化されていません"){};
-
-  GraphSearchResult(const enums::Result result, const std::string& message)
-      : result(result), message(message){};
-
-  enums::Result result;  //!< 成功か失敗か.
-  std::string message;   //!< 成功時・失敗時のメッセージ.
-
-  std::string ToString() const;
-};
 
 //! @struct GraphSearchResultRecord
 //! @brief グラフ探索の結果を格納する構造体.
@@ -49,7 +24,7 @@ struct GraphSearchResultRecord final {
       : result_node{}, computation_time(0.0), graph_search_result{} {}
 
   GraphSearchResultRecord(const RobotStateNode& node, const double time,
-                          const GraphSearchResult result)
+                          const nostd::expected<bool, std::string> result)
       : result_node(node),
         computation_time(time),
         graph_search_result(result) {}
@@ -67,7 +42,9 @@ struct GraphSearchResultRecord final {
 
   double computation_time;  //!< グラフ探索にかかった計算時間 [milli sec]
 
-  GraphSearchResult graph_search_result;  //!< グラフ探索の結果,成功か失敗か.
+  //! @brief グラフ探索の結果,成功か失敗か.
+  //! @todo expected<void, std::string> にする
+  nostd::expected<bool, std::string> graph_search_result;
 };
 
 }  // namespace designlab

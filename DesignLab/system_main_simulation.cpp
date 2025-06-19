@@ -55,7 +55,6 @@ SystemMainSimulation::SystemMainSimulation(
 
 void SystemMainSimulation::Main() {
   using enum OutputDetail;
-  using enum enums::Result;
   using string_util::EnumToStringRemoveTopK;
 
   // コマンドラインにタイトルを表示する.
@@ -76,7 +75,7 @@ void SystemMainSimulation::Main() {
     SimulationResultRecord record;
 
     record.graph_search_result_recorder.push_back(
-        GraphSearchResultRecord{current_node, 0, {kSuccess, ""}});
+        GraphSearchResultRecord{current_node, 0.0, true});
 
     cmdio::OutputF(kSystem, "Start simulation {} times", i + 1);
     cmdio::SpacedOutputF(kInfo, "[Initial node state]\n{}",
@@ -114,7 +113,7 @@ void SystemMainSimulation::Main() {
       // ノード,計算時間,結果を格納する.
       record.graph_search_result_recorder.push_back(GraphSearchResultRecord{
           result_node.value_or(RobotStateNode{}),
-          timer_.GetElapsedMilliSecond(), GraphSearchResult{}});
+          timer_.GetElapsedMilliSecond(), result_node.has_value()});
 
       // グラフ探索に失敗.
       if (!result_node) {
@@ -126,7 +125,7 @@ void SystemMainSimulation::Main() {
             kSystem,
             "Simulation failed. SimulationResult = {}/ GraphSearch = {}",
             EnumToStringRemoveTopK(record.simulation_result),
-            result_node.error_or("Sucess"));
+            result_node.error_or("Success"));
 
         // 次の歩容が生成できなかったら,このループを抜け,
         // 次のシミュレーションへ進む.
@@ -160,7 +159,7 @@ void SystemMainSimulation::Main() {
             kSystem,
             "Simulation failed. SimulationResult = {} / GraphSearch = {}",
             EnumToStringRemoveTopK(record.simulation_result),
-            result_node.error_or("Sucess"));
+            result_node.error_or("Success"));
 
         // 動作がループしてしまっているならば,
         // ループを一つ抜け,次のシミュレーションへ進む.
