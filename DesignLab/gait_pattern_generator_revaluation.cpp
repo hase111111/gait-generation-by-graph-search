@@ -40,28 +40,27 @@ GaitPatternGeneratorRevaluation::GaitPatternGeneratorRevaluation(
   assert(joint_calculator_ptr_ != nullptr);
 }
 
-GraphSearchResult GaitPatternGeneratorRevaluation::GetNextNodeByGraphSearch(
+nostd::expected<RobotStateNode, std::string>
+GaitPatternGeneratorRevaluation::GetNextNodeByGraphSearch(
     const RobotStateNode& current_node, const MapState& map_state,
-    const RobotOperation& operation, RobotStateNode* output_node) {
-  assert(output_node != nullptr);  // output_nodeは nullptrでない
+    const RobotOperation& operation) {
+  const auto result =
+      gpg_ptr_->GetNextNodeByGraphSearch(current_node, map_state, operation);
 
-  const GraphSearchResult result = gpg_ptr_->GetNextNodeByGraphSearch(
-      current_node, map_state, operation, output_node);
-
-  if (result.result != enums::Result::kSuccess) {
+  if (!result) {
     // グラフ探索に失敗した場合は終了.
     return result;
   }
 
   // 成功した場合は,逆運動学計算で脚軌道生成が可能であるか確認する.
-  if (IsValidNode(current_node, *output_node)) {
+  if (IsValidNode(current_node, *result)) {
     // 有効なノードである場合は,そのまま終了.
     return result;
   }
 
   // 逆運動学計算で脚軌道生成が不可能な場合は,再評価を行う.
   return gpg_revaluation_ptr_->GetNextNodeByGraphSearch(current_node, map_state,
-                                                        operation, output_node);
+                                                        operation);
 }
 
 bool GaitPatternGeneratorRevaluation::IsValidNode(

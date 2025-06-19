@@ -64,9 +64,6 @@
     <Filter Include="ソース ファイル\GaitPatternGenerator\GraphSearcher">
       <UniqueIdentifier>{b9e67fed-a42e-48be-924d-7cab4b56dce8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\GaitPatternGenerator\GraphTreeCreator">
-      <UniqueIdentifier>{1e2610e7-46a4-473e-a99b-6b1a4b054099}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Graphic">
       <UniqueIdentifier>{2ba269c9-763e-445d-ab88-dd39cb76f2e1}</UniqueIdentifier>
     </Filter>
@@ -229,6 +226,9 @@
     <Filter Include="ヘッダー ファイル\GaitPatternGenerator">
       <UniqueIdentifier>{a8e25482-284c-473a-b0ed-c57bb1b8019a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\GaitPatternGenerator\Result">
+      <UniqueIdentifier>{686518ed-7713-4299-8655-2ca0070838b3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="graphic_system.h">
@@ -266,9 +266,6 @@
     </ClInclude>
     <ClInclude Include="graph_searcher_straight_move.h">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
-    </ClInclude>
-    <ClInclude Include="gait_pattern_generator_basic.h">
-      <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
     <ClInclude Include="math_euler.h">
       <Filter>ソース ファイル\Common\Math</Filter>
@@ -348,9 +345,6 @@
     <ClInclude Include="simulation_result_record.h">
       <Filter>ソース ファイル\GaitPatternGenerator\Result</Filter>
     </ClInclude>
-    <ClInclude Include="graph_search_result_record.h">
-      <Filter>ソース ファイル\GaitPatternGenerator\Result</Filter>
-    </ClInclude>
     <ClInclude Include="result_file_importer.h">
       <Filter>ソース ファイル\GaitPatternGenerator\Result</Filter>
     </ClInclude>
@@ -366,12 +360,6 @@
     <ClInclude Include="phantomx_mk2_renderer_model.h">
       <Filter>ソース ファイル\Graphic\3DRender\HexapodRender</Filter>
     </ClInclude>
-    <ClInclude Include="graph_tree_creator.h">
-      <Filter>ソース ファイル\GaitPatternGenerator\GraphTreeCreator</Filter>
-    </ClInclude>
-    <ClInclude Include="gait_pattern_generator_revaluation.h">
-      <Filter>ソース ファイル\GaitPatternGenerator</Filter>
-    </ClInclude>
     <ClInclude Include="string_util.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
@@ -380,9 +368,6 @@
     </ClInclude>
     <ClInclude Include="font_loader.h">
       <Filter>ソース ファイル\Graphic\Common\Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="gait_pattern_generator_thread.h">
-      <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
     <ClInclude Include="average_calculator.h">
       <Filter>ソース ファイル\Common</Filter>
@@ -428,9 +413,6 @@
     </ClInclude>
     <ClInclude Include="gait_pattern_graph_tree_test.h">
       <Filter>ヘッダー ファイル\Node\Test</Filter>
-    </ClInclude>
-    <ClInclude Include="gait_pattern_generator_switch_move.h">
-      <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
     <ClInclude Include="map_state_test.h">
       <Filter>ヘッダー ファイル\Map\Test</Filter>
@@ -533,12 +515,6 @@
     </ClInclude>
     <ClInclude Include="loop_util_test.h">
       <Filter>ソース ファイル\Common\Test</Filter>
-    </ClInclude>
-    <ClInclude Include="gpg_selector.h">
-      <Filter>ソース ファイル\GaitPatternGenerator</Filter>
-    </ClInclude>
-    <ClInclude Include="gpg_builder_change_posture.h">
-      <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
     <ClInclude Include="make_array.h">
       <Filter>ソース ファイル\Common\StandardLibraryLike</Filter>
@@ -780,6 +756,30 @@
     <ClInclude Include="interface_gait_pattern_generator.h">
       <Filter>ヘッダー ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
+    <ClInclude Include="gpg_selector.h">
+      <Filter>ヘッダー ファイル\GaitPatternGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="gpg_builder_change_posture.h">
+      <Filter>ヘッダー ファイル\GaitPatternGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="gait_pattern_generator_thread.h">
+      <Filter>ヘッダー ファイル\GaitPatternGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="gait_pattern_generator_switch_move.h">
+      <Filter>ヘッダー ファイル\GaitPatternGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="gait_pattern_generator_revaluation.h">
+      <Filter>ヘッダー ファイル\GaitPatternGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="gait_pattern_generator_basic.h">
+      <Filter>ヘッダー ファイル\GaitPatternGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="graph_search_result_record.h">
+      <Filter>ヘッダー ファイル\GaitPatternGenerator\Result</Filter>
+    </ClInclude>
+    <ClInclude Include="graph_tree_creator.h">
+      <Filter>ヘッダー ファイル\GaitPatternGenerator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
@@ -946,9 +946,6 @@
     </ClCompile>
     <ClCompile Include="phantomx_mk2_renderer_model.cpp">
       <Filter>ソース ファイル\Graphic\3DRender\HexapodRender</Filter>
-    </ClCompile>
-    <ClCompile Include="graph_tree_creator.cpp">
-      <Filter>ソース ファイル\GaitPatternGenerator\GraphTreeCreator</Filter>
     </ClCompile>
     <ClCompile Include="gait_pattern_generator_revaluation.cpp">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
@@ -1120,6 +1117,9 @@
     </ClCompile>
     <ClCompile Include="map_creator_selector.cpp">
       <Filter>ソース ファイル\Map\MapCreator</Filter>
+    </ClCompile>
+    <ClCompile Include="graph_tree_creator.cpp">
+      <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

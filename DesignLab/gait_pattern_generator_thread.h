@@ -12,68 +12,60 @@
 #include <tuple>
 #include <vector>
 
+#include "gait_pattern_graph_tree.h"
+#include "graph_tree_creator.h"
 #include "interface_gait_pattern_generator.h"
 #include "interface_graph_searcher.h"
 #include "interpolated_node_creator.h"
-#include "gait_pattern_graph_tree.h"
-#include "graph_tree_creator.h"
 #include "robot_state_node.h"
 
-
-namespace designlab
-{
+namespace designlab {
 
 //! @class GaitPatternGeneratorThread
 //! @brief 普通にグラフ探索を行い,歩容パターン生成を行うクラス.
-class GaitPatternGeneratorThread final : public IGaitPatternGenerator
-{
-public:
-    GaitPatternGeneratorThread() = delete;  //!< デフォルトコンストラクタは禁止.
+class GaitPatternGeneratorThread final : public IGaitPatternGenerator {
+ public:
+  GaitPatternGeneratorThread() = delete;  //!< デフォルトコンストラクタは禁止.
 
-    //! @param[in] graph_tree_creator グラフ探索を行う木構造のグラフを
-    //! 作成するクラス. unique_ptrで渡す.
-    //! @param[in] graph_searcher グラフ探索を行うクラス.unique_ptrで渡す.
-    //! @param[in] max_depth グラフ探索の最大深さ.
-    //! @param[in] max_node_num グラフ探索の最大ノード数.
-    GaitPatternGeneratorThread(
+  //! @param[in] graph_tree_creator グラフ探索を行う木構造のグラフを
+  //! 作成するクラス. unique_ptrで渡す.
+  //! @param[in] graph_searcher グラフ探索を行うクラス.unique_ptrで渡す.
+  //! @param[in] max_depth グラフ探索の最大深さ.
+  //! @param[in] max_node_num グラフ探索の最大ノード数.
+  GaitPatternGeneratorThread(
       std::unique_ptr<GraphTreeCreator>&& graph_tree_creator_ptr,
-      std::unique_ptr<IGraphSearcher>&& graph_searcher_ptr,
-      int max_depth,
+      std::unique_ptr<IGraphSearcher>&& graph_searcher_ptr, int max_depth,
       int max_node_num);
 
-    ~GaitPatternGeneratorThread() = default;
+  ~GaitPatternGeneratorThread() = default;
 
+  nostd::expected<RobotStateNode, std::string> GetNextNodeByGraphSearch(
+      const RobotStateNode& current_node, const MapState& map_ref,
+      const RobotOperation& operation) override;
 
-    GraphSearchResult GetNextNodeByGraphSearch(
-      const RobotStateNode& current_node,
-      const MapState& map_ref,
-      const RobotOperation& operation,
-      RobotStateNode* output_node) override;
+ private:
+  static constexpr int kThreadNum = 6;  //!< スレッド数.
 
-private:
-    static constexpr int kThreadNum = 6;  //!< スレッド数.
+  std::vector<GaitPatternGraphTree> InitializeGraphTreeArray(
+      int thread_num, int max_node_num) const;
 
+  //! グラフ探索を行う木構造のグラフを作成するクラス.
+  const std::unique_ptr<GraphTreeCreator> graph_tree_creator_ptr_;
 
-    std::vector<GaitPatternGraphTree> InitializeGraphTreeArray(int thread_num, int max_node_num) const;
+  //! グラフ探索を行うクラス.
+  const std::unique_ptr<IGraphSearcher> graph_searcher_ptr_;
 
-    //! グラフ探索を行う木構造のグラフを作成するクラス.
-    const std::unique_ptr<GraphTreeCreator> graph_tree_creator_ptr_;
+  GaitPatternGraphTree
+      graph_tree_;  //!< このグラフに深さ1までのノードを追加する.
 
-    //! グラフ探索を行うクラス.
-    const std::unique_ptr<IGraphSearcher> graph_searcher_ptr_;
+  //! 深さ2以上のノードは並列に探索するため,スレッドごとにグラフを持つ.
+  std::vector<GaitPatternGraphTree> graph_tree_array_;
 
-    GaitPatternGraphTree graph_tree_;  //!< このグラフに深さ1までのノードを追加する.
+  const int max_depth_;  //!< グラフ探索の最大深さ.
 
-    //! 深さ2以上のノードは並列に探索するため,スレッドごとにグラフを持つ.
-    std::vector<GaitPatternGraphTree> graph_tree_array_;
-
-    const int max_depth_;  //!< グラフ探索の最大深さ.
-
-
-    static_assert(0 < kThreadNum, "The number of threads must be positive.");
+  static_assert(0 < kThreadNum, "The number of threads must be positive.");
 };
 
 }  // namespace designlab
-
 
 #endif  // DESIGNLAB_GAIT_PATTERN_GENERATOR_THREAD_H_

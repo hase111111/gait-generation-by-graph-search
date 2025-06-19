@@ -30,11 +30,12 @@ GaitPatternGeneratorBasic::GaitPatternGeneratorBasic(
   assert(0 < max_node_num);
 }
 
-GraphSearchResult GaitPatternGeneratorBasic::GetNextNodeByGraphSearch(
+nostd::expected<RobotStateNode, std::string>
+GaitPatternGeneratorBasic::GetNextNodeByGraphSearch(
     const RobotStateNode& current_node, const MapState& map_state,
-    const RobotOperation& operation, RobotStateNode* output_node) {
+    const RobotOperation& operation) {
+  using unexpected = nostd::unexpected<std::string>;
   assert(current_node.IsLootNode());
-  assert(output_node != nullptr);
   assert(graph_tree_creator_ptr_ != nullptr);
   assert(graph_searcher_ptr_ != nullptr);
 
@@ -52,7 +53,7 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodeByGraphSearch(
       graph_tree_creator_ptr_->CreateGraphTree(0, max_depth_, &graph_tree_);
 
   if (create_result.result != enums::Result::kSuccess) {
-    return create_result;
+    return unexpected("GraphTreeCreator: " + create_result.message);
   }
 
   // グラフ探索を行う
@@ -61,12 +62,10 @@ GraphSearchResult GaitPatternGeneratorBasic::GetNextNodeByGraphSearch(
                                            max_depth_);
 
   if (search_result.result != enums::Result::kSuccess) {
-    return search_result;
+    return unexpected("GraphSearchResultRecord: " + search_result.message);
   }
 
-  (*output_node) = next_node;
-
-  return {enums::Result::kSuccess, ""};
+  return next_node;
 }
 
 }  // namespace designlab

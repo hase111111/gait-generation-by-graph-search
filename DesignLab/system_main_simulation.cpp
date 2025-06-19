@@ -104,21 +104,20 @@ void SystemMainSimulation::Main() {
 
       timer_.Start();  // タイマースタート.
 
-      RobotStateNode result_node;  // グラフ探索の結果を格納する変数.
-
       // グラフ探索を行う.
-      const GraphSearchResult result_state =
+      const auto result_node =
           gait_pattern_generator_ptr_->GetNextNodeByGraphSearch(
-              current_node, map_state_, operation, &result_node);
+              current_node, map_state_, operation);
 
       timer_.End();  // タイマーストップ.
 
       // ノード,計算時間,結果を格納する.
       record.graph_search_result_recorder.push_back(GraphSearchResultRecord{
-          result_node, timer_.GetElapsedMilliSecond(), result_state});
+          result_node.value_or(RobotStateNode{}),
+          timer_.GetElapsedMilliSecond(), GraphSearchResult{}});
 
       // グラフ探索に失敗.
-      if (result_state.result != kSuccess) {
+      if (!result_node) {
         // シミュレーションの結果を格納する変数を失敗に更新する.
         record.simulation_result =
             enums::SimulationResult::kFailureByGraphSearch;
@@ -127,7 +126,7 @@ void SystemMainSimulation::Main() {
             kSystem,
             "Simulation failed. SimulationResult = {}/ GraphSearch = {}",
             EnumToStringRemoveTopK(record.simulation_result),
-            result_state.ToString());
+            result_node.error_or("Sucess"));
 
         // 次の歩容が生成できなかったら,このループを抜け,
         // 次のシミュレーションへ進む.
@@ -135,7 +134,7 @@ void SystemMainSimulation::Main() {
       }
 
       // 次の歩容が生成できているならば,ノードを更新する.
-      current_node = result_node;
+      current_node = *result_node;
 
       if (setting_ptr_->do_gui_display) {
         // グラフィックが有効ならば仲介人に結果を通達する.
@@ -161,7 +160,7 @@ void SystemMainSimulation::Main() {
             kSystem,
             "Simulation failed. SimulationResult = {} / GraphSearch = {}",
             EnumToStringRemoveTopK(record.simulation_result),
-            result_state.ToString());
+            result_node.error_or("Sucess"));
 
         // 動作がループしてしまっているならば,
         // ループを一つ抜け,次のシミュレーションへ進む.

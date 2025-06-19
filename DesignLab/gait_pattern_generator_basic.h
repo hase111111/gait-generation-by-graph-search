@@ -36,9 +36,9 @@ class GaitPatternGeneratorBasic final : public IGaitPatternGenerator {
 
   ~GaitPatternGeneratorBasic() = default;
 
-  GraphSearchResult GetNextNodeByGraphSearch(
-      const RobotStateNode& current_node, const MapState& map_ref,
-      const RobotOperation& operation, RobotStateNode* output_node) override;
+  nostd::expected<RobotStateNode, std::string> GetNextNodeByGraphSearch(
+      const RobotStateNode& current_node, const MapState& map,
+      const RobotOperation& operation) override;
 
  private:
   //! グラフ探索を行う木構造のグラフを作成するクラス.

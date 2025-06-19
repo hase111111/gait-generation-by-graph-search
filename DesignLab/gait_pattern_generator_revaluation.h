@@ -18,45 +18,40 @@
 #include "interpolated_node_creator.h"
 #include "robot_state_node.h"
 
-
-namespace designlab
-{
+namespace designlab {
 
 //! @class GaitPatternGeneratorRevaluation
 //! @brief 再評価手法を実装したクラス.
-class GaitPatternGeneratorRevaluation final : public IGaitPatternGenerator
-{
-public:
-    //! @param[in] gait_pattern_generator_ptr 通常時に使用するもの.
-    //! @param[in] gait_pattern_generator_revaluation_ptr 再評価時に使用するもの.
-    GaitPatternGeneratorRevaluation(
+class GaitPatternGeneratorRevaluation final : public IGaitPatternGenerator {
+ public:
+  //! @param[in] gait_pattern_generator_ptr 通常時に使用するもの.
+  //! @param[in] gait_pattern_generator_revaluation_ptr 再評価時に使用するもの.
+  GaitPatternGeneratorRevaluation(
       std::unique_ptr<IGaitPatternGenerator>&& gpg_ptr,
       std::unique_ptr<IGaitPatternGenerator>&& gpg_revaluation_ptr,
       const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
-      const std::shared_ptr<const IHexapodJointCalculator>& joint_calculator_ptr);
+      const std::shared_ptr<const IHexapodJointCalculator>&
+          joint_calculator_ptr);
 
-    ~GaitPatternGeneratorRevaluation() = default;
+  ~GaitPatternGeneratorRevaluation() = default;
 
+  nostd::expected<RobotStateNode, std::string> GetNextNodeByGraphSearch(
+      const RobotStateNode& current_node, const MapState& map,
+      const RobotOperation& operation) override;
 
-    GraphSearchResult GetNextNodeByGraphSearch(
-      const RobotStateNode& current_node,
-      const MapState& map,
-      const RobotOperation& operation,
-      RobotStateNode* output_node) override;
+ private:
+  bool IsValidNode(const RobotStateNode& current_node,
+                   const RobotStateNode& next_node) const;
 
-private:
-    bool IsValidNode(const RobotStateNode& current_node, const RobotStateNode& next_node) const;
+  const std::unique_ptr<IGaitPatternGenerator> gpg_ptr_;
+  const std::unique_ptr<IGaitPatternGenerator> gpg_revaluation_ptr_;
 
-    const std::unique_ptr<IGaitPatternGenerator> gpg_ptr_;
-    const std::unique_ptr<IGaitPatternGenerator> gpg_revaluation_ptr_;
+  const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
+  const std::shared_ptr<const IHexapodJointCalculator> joint_calculator_ptr_;
 
-    const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
-    const std::shared_ptr<const IHexapodJointCalculator> joint_calculator_ptr_;
-
-    InterpolatedNodeCreator interpolated_node_creator_;
+  InterpolatedNodeCreator interpolated_node_creator_;
 };
 
 }  // namespace designlab
-
 
 #endif  // DESIGNLAB_GAIT_PATTERN_GENERATOR_REVALUATION_H_

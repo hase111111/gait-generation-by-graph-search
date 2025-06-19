@@ -35,11 +35,11 @@ GaitPatternGeneratorThread::GaitPatternGeneratorThread(
   assert(graph_tree_array_.size() == kThreadNum);
 }
 
-GraphSearchResult GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
+nostd::expected<RobotStateNode, std::string>
+GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
     const RobotStateNode& current_node, const MapState& map_state,
-    const RobotOperation& operation, RobotStateNode* output_node) {
+    const RobotOperation& operation) {
   assert(current_node.IsLootNode());
-  assert(output_node != nullptr);
 
   // 初期化処理を行う.
   DividedMapState divided_map;
@@ -55,13 +55,12 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
       graph_tree_creator_ptr_->CreateGraphTree(0, 1, &graph_tree_);
 
   if (create_result.result != enums::Result::kSuccess) {
-    return create_result;
+    return nostd::unexpected<std::string>{create_result.message};
   }
 
   cmdio::DebugOutput("Graph tree generation has been completed to depth 1.");
-  cmdio::OutputF(OutputDetail::kDebug,
-                 "The number of nodes in the graph tree is {}.",
-                 graph_tree_.GetGraphSize());
+  cmdio::DebugOutputF("The number of nodes in the graph tree is {}.",
+                      graph_tree_.GetGraphSize());
 
   // 深さ0のノードを配列にコピーする.
   for (int i = 0; i < kThreadNum; i++) {
@@ -82,11 +81,9 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
 
   for (size_t i = 0; i < kThreadNum; i++) {
     if (graph_tree_array_[i].GetGraphSize() > 1) {
-      cmdio::OutputF(OutputDetail::kDebug,
-                     "Starts graph tree generation in thread {}.", i);
-      cmdio::OutputF(OutputDetail::kDebug,
-                     "The number of nodes explored in thread {} is {}.", i,
-                     graph_tree_array_[i].GetGraphSize());
+      cmdio::DebugOutputF("Starts graph tree generation in thread {}.", i);
+      cmdio::DebugOutputF("The number of nodes explored in thread {} is {}.", i,
+                          graph_tree_array_[i].GetGraphSize());
 
       thread_group.create_thread(boost::bind(
           &GraphTreeCreator::CreateGraphTree, graph_tree_creator_ptr_.get(), 1,
@@ -99,9 +96,8 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
   cmdio::DebugOutput("Graph tree generation is complete.\n");
 
   for (size_t i = 0; i < kThreadNum; i++) {
-    cmdio::OutputF(OutputDetail::kDebug,
-                   "The number of nodes created in thread {} is {}.", i,
-                   graph_tree_array_[i].GetGraphSize());
+    cmdio::DebugOutputF("The number of nodes created in thread {} is {}.", i,
+                        graph_tree_array_[i].GetGraphSize());
   }
 
   // グラフ探索を行う.
@@ -113,15 +109,13 @@ GraphSearchResult GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
 
   if (search_result.result != enums::Result::kSuccess) {
     cmdio::DebugOutput("Failed to evaluate the graph tree.");
-    return search_result;
+    return nostd::unexpected<std::string>{search_result.message};
   }
-
-  (*output_node) = next_node;
 
   cmdio::DebugOutput(
       "Graph tree evaluation is completed. Graph search succeeded.");
 
-  return {enums::Result::kSuccess, std::string("")};
+  return next_node;
 }
 
 std::vector<GaitPatternGraphTree>
