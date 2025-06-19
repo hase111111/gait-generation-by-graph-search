@@ -213,6 +213,12 @@ void GraphViewerGUIController::InputNumber() {
     return;
   }
 
+  // Shiftキーが押されていない場合は何もしない.
+  if (keyboard_.GetPressingCount(KEY_INPUT_LSHIFT) == 0 &&
+      keyboard_.GetPressingCount(KEY_INPUT_RSHIFT) == 0) {
+    return;
+  }
+
   // 数字入力.
   int input_number = -1;
 
@@ -267,7 +273,11 @@ void GraphViewerGUIController::ChangeDisplayNodeIndex() {
     }
   } else if (keyboard_.GetPressingCount(KEY_INPUT_LEFT) == 1 &&
              !children_list_.second.empty()) {
-    display_children_list_index_--;
+    if (keyboard_.GetPressingCount(KEY_INPUT_LSHIFT) > 0) {
+      display_children_list_index_ -= 10;
+    } else {
+      display_children_list_index_--;
+    }
 
     if (display_children_list_index_ < 0) {
       display_children_list_index_ =
@@ -281,7 +291,11 @@ void GraphViewerGUIController::ChangeDisplayNodeIndex() {
         children_list_.second.at(display_children_list_index_);
   } else if (keyboard_.GetPressingCount(KEY_INPUT_RIGHT) == 1 &&
              !children_list_.second.empty()) {
-    display_children_list_index_++;
+    if (keyboard_.GetPressingCount(KEY_INPUT_LSHIFT) > 0) {
+      display_children_list_index_ += 10;
+    } else {
+      display_children_list_index_++;
+    }
 
     if (display_children_list_index_ >= children_list_.second.size()) {
       display_children_list_index_ = 0;

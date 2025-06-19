@@ -164,7 +164,7 @@ MakeLegGroundedPatternBanList() {
     }
   }
 
-  return std::move(res);
+  return res;
 }
 
 //! @brief 特定の脚が接地できない場合に取り得ない接地パターンを作成する関数の

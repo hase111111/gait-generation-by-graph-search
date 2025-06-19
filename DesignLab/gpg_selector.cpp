@@ -30,8 +30,21 @@ GpgSelector::GpgSelector(
   assert(checker_ptr_ != nullptr);
 }
 
-std::unique_ptr<IGaitPatternGenerator> GpgSelector::Select() const {
-  return MakeGpgFlat();
+std::unique_ptr<IGaitPatternGenerator> GpgSelector::Select(
+    const GpgType type) const {
+  switch (type) {
+    case GpgType::kFlat: {
+      return MakeGpgFlat();
+    }
+    case GpgType::kPitchRot: {
+      return MakeGpgPitchRot();
+    }
+    default:
+      break;
+  }
+
+  assert(false);  // 未実装のGpgTypeが指定された.
+  return nullptr;
 }
 
 std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgFlat() const {
@@ -45,6 +58,21 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgFlat() const {
 
   auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorBasic>(
       std::move(graph_tree_creator), std::move(graph_searcher), 4, 50000000);
+
+  return std::move(gait_pattern_generator);
+}
+
+std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgPitchRot() const {
+  auto node_creator_builder = std::make_unique<NodeCreatorBuilderBodyRot>(
+      converter_ptr_, presenter_ptr_, checker_ptr_);
+  auto graph_tree_creator =
+      std::make_unique<GraphTreeCreator>(std::move(node_creator_builder));
+
+  auto graph_searcher =
+      std::make_unique<GraphSearcherStraightMove>(checker_ptr_);
+
+  auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorBasic>(
+      std::move(graph_tree_creator), std::move(graph_searcher), 5, 50000000);
 
   return std::move(gait_pattern_generator);
 }
