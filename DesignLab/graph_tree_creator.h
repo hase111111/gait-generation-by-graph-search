@@ -16,6 +16,7 @@
 #include "graph_search_result_record.h"
 #include "interface_node_creator.h"
 #include "interface_node_creator_builder.h"
+#include "my_expected.h"
 
 namespace designlab {
 
@@ -41,8 +42,9 @@ class GraphTreeCreator final {
   //! @param[in] max_depth 作成するグラフの最大深さ.
   //! @param[out] graph_ptr 作成したグラフを代入するためのポインタ.
   //! @return グラフの作成に成功したかどうか.
-  GraphSearchResult CreateGraphTree(int start_depth, int max_depth,
-                                    GaitPatternGraphTree* graph_ptr) const;
+  //! @todo nostd::expected<void, std::string> にする.
+  nostd::expected<bool, std::string> CreateGraphTree(
+      int start_depth, int max_depth, GaitPatternGraphTree* graph_ptr) const;
 
  private:
   //! @brief current_nodeの子ノードを生成して,output_graphに代入する.

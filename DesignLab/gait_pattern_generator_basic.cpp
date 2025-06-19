@@ -49,11 +49,11 @@ GaitPatternGeneratorBasic::GetNextNodeByGraphSearch(
   graph_tree_.Reset();
   graph_tree_.AddNode(current_node);
 
-  const GraphSearchResult create_result =
+  const auto create_result =
       graph_tree_creator_ptr_->CreateGraphTree(0, max_depth_, &graph_tree_);
 
-  if (create_result.result != enums::Result::kSuccess) {
-    return unexpected("GraphTreeCreator: " + create_result.message);
+  if (!create_result) {
+    return unexpected("GraphTreeCreator: " + create_result.error());
   }
 
   // グラフ探索を行う

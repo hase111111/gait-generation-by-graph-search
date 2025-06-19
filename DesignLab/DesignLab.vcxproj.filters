@@ -339,15 +339,6 @@
     <ClInclude Include="file_tree.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
-    <ClInclude Include="result_file_exporter.h">
-      <Filter>ソース ファイル\GaitPatternGenerator\Result</Filter>
-    </ClInclude>
-    <ClInclude Include="simulation_result_record.h">
-      <Filter>ソース ファイル\GaitPatternGenerator\Result</Filter>
-    </ClInclude>
-    <ClInclude Include="result_file_importer.h">
-      <Filter>ソース ファイル\GaitPatternGenerator\Result</Filter>
-    </ClInclude>
     <ClInclude Include="model_loader.h">
       <Filter>ソース ファイル\Graphic\Common\Resource</Filter>
     </ClInclude>
@@ -779,6 +770,15 @@
     </ClInclude>
     <ClInclude Include="graph_tree_creator.h">
       <Filter>ヘッダー ファイル\GaitPatternGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="simulation_result_record.h">
+      <Filter>ヘッダー ファイル\GaitPatternGenerator\Result</Filter>
+    </ClInclude>
+    <ClInclude Include="result_file_importer.h">
+      <Filter>ヘッダー ファイル\GaitPatternGenerator\Result</Filter>
+    </ClInclude>
+    <ClInclude Include="result_file_exporter.h">
+      <Filter>ヘッダー ファイル\GaitPatternGenerator\Result</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

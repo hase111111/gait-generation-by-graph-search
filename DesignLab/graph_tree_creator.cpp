@@ -29,7 +29,7 @@ void GraphTreeCreator::Init(const DividedMapState& map_state) {
   node_creator_builder_ptr_->Build(map_state, &node_creator_map_);
 }
 
-GraphSearchResult GraphTreeCreator::CreateGraphTree(
+nostd::expected<bool, std::string> GraphTreeCreator::CreateGraphTree(
     int start_depth, int max_depth, GaitPatternGraphTree* graph) const {
   assert(0 <= start_depth);         // start_depthは0以上である.
   assert(start_depth < max_depth);  // start_depth は max_depth より小さい.
@@ -57,8 +57,7 @@ GraphSearchResult GraphTreeCreator::CreateGraphTree(
     ++cnt;  // カウンタを進める.
   }
 
-  return {enums::Result::kSuccess,
-          std::format("グラフのサイズ : {}", graph->GetGraphSize())};
+  return true;
 }
 
 void GraphTreeCreator::MakeNewNodesByCurrentNode(

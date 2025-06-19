@@ -1,5 +1,6 @@
 ﻿
 //! @file system_main_graph_viewer.cpp
+//! @todo 日本語のOutputを英語にする.
 
 // Copyright(c) 2023-2025 Design Engineering Laboratory, Saitama University
 // Released under the MIT license
@@ -139,7 +140,7 @@ void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent,
   using enum OutputDetail;
 
   cmdio::OutputNewLine(1, kSystem);
-  cmdio::Output("グラフ木を作成する", kSystem);
+  cmdio::SystemOutput("Now creating a graph.");
   cmdio::OutputNewLine(1, kSystem);
 
   // グラフ探索をする.
@@ -159,7 +160,7 @@ void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent,
 
   stopwatch_.Start();
 
-  const GraphSearchResult result =
+  const auto result =
       graph_tree_creator_ptr_->CreateGraphTree(0, 5, &graph_tree);
 
   stopwatch_.End();
@@ -173,14 +174,10 @@ void SystemMainGraphViewer::CreateGraph(const RobotStateNode parent,
 
   // グラフ探索の結果を表示する.
   cmdio::OutputNewLine(1, kSystem);
-  cmdio::Output("グラフ探索終了", kSystem);
-  cmdio::Output(std::format("グラフ探索にかかった時間 : {}",
-                            stopwatch_.GetElapsedMilliSecondString()),
-                kSystem);
-
-  cmdio::Output(std::format("グラフ探索結果 : {}",
-                            string_util::EnumToStringRemoveTopK(result.result)),
-                kSystem);
+  cmdio::SystemOutput("Finished graph search.");
+  cmdio::SystemOutputF("Graph search time : {}",
+                       stopwatch_.GetElapsedMilliSecondString());
+  cmdio::SystemOutputF("Result : {}", result.error_or("Success"));
 }
 
 void SystemMainGraphViewer::OutputGraphStatus(
