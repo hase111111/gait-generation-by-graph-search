@@ -738,9 +738,6 @@
     <ClInclude Include="gpg_selector.h">
       <Filter>ヘッダー ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
-    <ClInclude Include="gpg_builder_change_posture.h">
-      <Filter>ヘッダー ファイル\GaitPatternGenerator</Filter>
-    </ClInclude>
     <ClInclude Include="gait_pattern_generator_thread.h">
       <Filter>ヘッダー ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
@@ -1114,9 +1111,6 @@
     </ClCompile>
     <ClCompile Include="xr_r1.cpp">
       <Filter>ソース ファイル\Hexapod</Filter>
-    </ClCompile>
-    <ClCompile Include="gpg_builder_change_posture.cpp">
-      <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClCompile>
     <ClCompile Include="map_creator_selector.cpp">
       <Filter>ソース ファイル\Map\MapCreator</Filter>
