@@ -9,9 +9,7 @@
 
 #include <Dxlib.h>
 
-
-namespace designlab
-{
+namespace designlab {
 
 const char GraphicConst::kWindowName[] = "HexapodGraphic";
 

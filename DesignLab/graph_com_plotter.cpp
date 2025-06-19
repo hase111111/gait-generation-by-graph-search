@@ -7,11 +7,8 @@
 
 #include "graph_com_plotter.h"
 
-namespace designlab
-{
+namespace designlab {
 
-void GraphComPlotter::Draw() const
-{
-}
+void GraphComPlotter::Draw() const {}
 
 }  // namespace designlab

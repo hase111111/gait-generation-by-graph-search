@@ -10,25 +10,21 @@
 #include "cassert_define.h"
 #include "dxlib_util.h"
 
+namespace designlab {
 
-namespace designlab
-{
+void Dxlib3dRendererGroup::Register(
+    const std::shared_ptr<IDxlib3dRenderer>& renderer) {
+  assert(renderer != nullptr);
 
-void Dxlib3dRendererGroup::Register(const std::shared_ptr<IDxlib3dRenderer>& renderer)
-{
-    assert(renderer != nullptr);
-
-    renderers_.push_back(renderer);
+  renderers_.push_back(renderer);
 }
 
-void Dxlib3dRendererGroup::Draw() const
-{
-    dxlib_util::SetZBufferEnable();
+void Dxlib3dRendererGroup::Draw() const {
+  dxlib_util::SetZBufferEnable();
 
-    for (const auto& renderer : renderers_)
-    {
-        renderer->Draw();
-    }
+  for (const auto& renderer : renderers_) {
+    renderer->Draw();
+  }
 }
 
 }  // namespace designlab

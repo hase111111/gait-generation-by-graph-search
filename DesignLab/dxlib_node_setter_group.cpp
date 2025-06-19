@@ -9,23 +9,19 @@
 
 #include "cassert_define.h"
 
+namespace designlab {
 
-namespace designlab
-{
+void DxlibNodeSetterGroup::Register(
+    const std::shared_ptr<IDxlibNodeSetter>& setter) {
+  assert(setter != nullptr);
 
-void DxlibNodeSetterGroup::Register(const std::shared_ptr<IDxlibNodeSetter>& setter)
-{
-    assert(setter != nullptr);
-
-    setters_.push_back(setter);
+  setters_.push_back(setter);
 }
 
-void DxlibNodeSetterGroup::SetNode(const RobotStateNode& node)
-{
-    for (auto& setter : setters_)
-    {
-        setter->SetNode(node);
-    }
+void DxlibNodeSetterGroup::SetNode(const RobotStateNode& node) {
+  for (auto& setter : setters_) {
+    setter->SetNode(node);
+  }
 }
 
 }  // namespace designlab

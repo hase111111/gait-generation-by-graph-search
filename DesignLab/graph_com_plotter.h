@@ -10,16 +10,14 @@
 
 #include "interface_dxlib_3d_renderer.h"
 
-namespace designlab
-{
+namespace designlab {
 
-class GraphComPlotter : public IDxlib3dRenderer
-{
-public:
-    GraphComPlotter() = default;
-    ~GraphComPlotter() = default;
+class GraphComPlotter : public IDxlib3dRenderer {
+ public:
+  GraphComPlotter() = default;
+  ~GraphComPlotter() = default;
 
-    void Draw() const override;
+  void Draw() const override;
 };
 
 }  // namespace designlab

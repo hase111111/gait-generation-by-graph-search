@@ -8,14 +8,12 @@
 #ifndef DESIGNLAB_MODEL_LOADER_H_
 #define DESIGNLAB_MODEL_LOADER_H_
 
-#include <string>
 #include <map>
+#include <string>
 
 #include "singleton.h"
 
-
-namespace designlab
-{
+namespace designlab {
 
 //! @class ModelLoader
 //! @brief Dxlibの3Dモデルを読み込むクラス.
@@ -34,29 +32,27 @@ namespace designlab
 //! @attention このクラスを使用するときは,必ず DxLib_Init() の後に使用すること.
 //! また,DxLib_End() の前に使用を終了すること.
 //! これらを守らないと,アプリがクラッシュする.
-class ModelLoader final : public Singleton<ModelLoader>
-{
-public:
-    //! @brief Dxlibは3Dモデルを描画する際に,モデルのハンドルを指定する.
-    //! @n モデルがまだ読み込まれていない場合は,
-    //! モデルを読み込んでから,ハンドル番号を返す.
-    //! @n すでに読み込みずみのモデルを読み込んだ場合は,ハンドル番号を返す.
-    //! @param[in] file_path モデルのファイルパス.
-    //! @return モデルのハンドル番号.失敗したら-1を返す.成功値は正の値.
-    [[nodiscard]] int GetModelHandle(const std::string& file_path);
+class ModelLoader final : public Singleton<ModelLoader> {
+ public:
+  //! @brief Dxlibは3Dモデルを描画する際に,モデルのハンドルを指定する.
+  //! @n モデルがまだ読み込まれていない場合は,
+  //! モデルを読み込んでから,ハンドル番号を返す.
+  //! @n すでに読み込みずみのモデルを読み込んだ場合は,ハンドル番号を返す.
+  //! @param[in] file_path モデルのファイルパス.
+  //! @return モデルのハンドル番号.失敗したら-1を返す.成功値は正の値.
+  [[nodiscard]] int GetModelHandle(const std::string& file_path);
 
-private:
-    friend Singleton<ModelLoader>;
-    ModelLoader() = default;
-    ~ModelLoader() = default;
-    ModelLoader(const ModelLoader& r) = default;
-    ModelLoader& operator=(const ModelLoader& r) = default;
+ private:
+  friend Singleton<ModelLoader>;
+  ModelLoader() = default;
+  ~ModelLoader() = default;
+  ModelLoader(const ModelLoader& r) = default;
+  ModelLoader& operator=(const ModelLoader& r) = default;
 
-    //! 1フレーム当たりにかかる時間(ミリ秒)
-    std::map<std::string, int> model_handle_map_;
+  //! 1フレーム当たりにかかる時間(ミリ秒)
+  std::map<std::string, int> model_handle_map_;
 };
 
 }  // namespace designlab
-
 
 #endif  // DESIGNLAB_MODEL_LOADER_H_

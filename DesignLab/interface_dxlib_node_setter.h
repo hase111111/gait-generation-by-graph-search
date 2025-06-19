@@ -10,23 +10,19 @@
 
 #include "robot_state_node.h"
 
-
-namespace designlab
-{
+namespace designlab {
 
 //! @class IDxlibNodeSetter
 //! @brief DxLibのGuiやRendererでノードのセットを行うためのインターフェース.
-class IDxlibNodeSetter
-{
-public:
-    virtual ~IDxlibNodeSetter() = default;
+class IDxlibNodeSetter {
+ public:
+  virtual ~IDxlibNodeSetter() = default;
 
-    //! @brief ノードをセットする.
-    //! @param node ノード番号.
-    virtual void SetNode(const RobotStateNode& node) = 0;
+  //! @brief ノードをセットする.
+  //! @param node ノード番号.
+  virtual void SetNode(const RobotStateNode& node) = 0;
 };
 
 }  // namespace designlab
-
 
 #endif  // DESIGNLAB_INTERFACE_DXLIB_NODE_SETTER_H_

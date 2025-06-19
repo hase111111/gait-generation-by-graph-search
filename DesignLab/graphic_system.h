@@ -8,15 +8,13 @@
 #ifndef DESIGNLAB_GRAPHIC_SYSTEM_H_
 #define DESIGNLAB_GRAPHIC_SYSTEM_H_
 
-#include <memory>
-
 #include <boost/thread.hpp>
+#include <memory>
 
 #include "application_setting_record.h"
 #include "fps_controller.h"
 #include "graphic_data_broker.h"
 #include "interface_graphic_main.h"
-
 
 namespace designlab {
 
@@ -76,58 +74,55 @@ namespace designlab {
 //! その場合はタスクマネージャーから dxlib を落とすことで,
 //! 実行することが可能になる.
 class GraphicSystem final {
-public:
-    //! @param[in] setting_ptr アプリケーションの設定を記録するクラスのポインタ.
-    explicit GraphicSystem(const std::shared_ptr<const ApplicationSettingRecord> setting_ptr);
+ public:
+  //! @param[in] setting_ptr アプリケーションの設定を記録するクラスのポインタ.
+  explicit GraphicSystem(
+      const std::shared_ptr<const ApplicationSettingRecord> setting_ptr);
 
+  //! @brief ウィンドウの表示を行う関数.
+  //! boost::thread にこの関数を渡して並列処理を行う.
+  //! @n メンバ関数の MyDxlibInit 関数に失敗した場合,終了する.
+  void Main();
 
-    //! @brief ウィンドウの表示を行う関数.
-    //! boost::thread にこの関数を渡して並列処理を行う.
-    //! @n メンバ関数の MyDxlibInit 関数に失敗した場合,終了する.
-    void Main();
+  //! @brief グラフィックの表示を行うクラスを変更する.
+  //! @param[in] graphic_main_ptr GraphicMainクラスのユニークポインタ.
+  void ChangeGraphicMain(std::unique_ptr<IGraphicMain>&& graphic_main_ptr);
 
-    //! @brief グラフィックの表示を行うクラスを変更する.
-    //! @param[in] graphic_main_ptr GraphicMainクラスのユニークポインタ.
-    void ChangeGraphicMain(std::unique_ptr<IGraphicMain>&& graphic_main_ptr);
+  //! @brief 初期化が終わっているか.
+  //! @return 初期化が終わっているか.
+  inline bool IsInitialized() const { return is_initialized_; }
 
-    //! @brief 初期化が終わっているか.
-    //! @return 初期化が終わっているか.
-    inline bool IsInitialized() const {
-        return is_initialized_;
-    }
+ private:
+  //! @brief Dxlibの初期化処理を行う.
+  //! @n 処理をラッパして自作する場合はMyを頭につけると良い.
+  //! @return 初期化に成功したか.
+  bool MyDxlibInit();
 
-private:
-    //! @brief Dxlibの初期化処理を行う.
-    //! @n 処理をラッパして自作する場合はMyを頭につけると良い.
-    //! @return 初期化に成功したか.
-    bool MyDxlibInit();
+  //! @brief GraphicSystem クラスの while ループの中で毎フレーム呼ばれる処理.
+  //! @return ループを続けるか.falseならばループを抜ける.
+  //! 異常が起きた場合も false を返す.
+  bool Loop();
 
-    //! @brief GraphicSystem クラスの while ループの中で毎フレーム呼ばれる処理.
-    //! @return ループを続けるか.falseならばループを抜ける.
-    //! 異常が起きた場合も false を返す.
-    bool Loop();
+  //! @brief Dxlibの終了処理を行う.
+  void MyDxlibFinalize() const;
 
-    //! @brief Dxlibの終了処理を行う.
-    void MyDxlibFinalize() const;
+  //! グラフィックの表示を行うクラスのポインタ.
+  std::unique_ptr<IGraphicMain> graphic_main_ptr_;
 
-    //! グラフィックの表示を行うクラスのポインタ.
-    std::unique_ptr<IGraphicMain> graphic_main_ptr_;
+  //! 設定を保存する構造体のポインタ.
+  const std::shared_ptr<const ApplicationSettingRecord> setting_ptr_;
 
-    //! 設定を保存する構造体のポインタ.
-    const std::shared_ptr<const ApplicationSettingRecord> setting_ptr_;
+  //! FPSを一定に制御するクラス.
+  FpsController fps_controller_;
 
-    //! FPSを一定に制御するクラス.
-    FpsController fps_controller_;
+  //! 初期化が終わっているか.
+  bool is_initialized_{false};
 
-    //! 初期化が終わっているか.
-    bool is_initialized_{ false };
-
-    //! 複数の関数から非同期的に,同時にアクセスすると危険なので,
-    //! それを防ぐために mutex を用いて排他制御を行う.
-    boost::mutex mutex_;
+  //! 複数の関数から非同期的に,同時にアクセスすると危険なので,
+  //! それを防ぐために mutex を用いて排他制御を行う.
+  boost::mutex mutex_;
 };
 
 }  // namespace designlab
-
 
 #endif  // DESIGNLAB_GRAPHIC_SYSTEM_H_
