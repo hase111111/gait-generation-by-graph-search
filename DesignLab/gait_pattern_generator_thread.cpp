@@ -103,17 +103,25 @@ GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
   // グラフ探索を行う.
   cmdio::DebugOutput("Evaluates graph trees.");
 
-  const auto [search_result, _, next_node] =
-      graph_searcher_ptr_->SearchGraphTreeVector(graph_tree_array_, operation,
-                                                 divided_map, max_depth_);
+  const auto search_result = graph_searcher_ptr_->SearchGraphTreeVector(
+      graph_tree_array_, operation, divided_map, max_depth_);
 
-  if (search_result.result != enums::Result::kSuccess) {
+  if (!search_result) {
     cmdio::DebugOutput("Failed to evaluate the graph tree.");
-    return nostd::unexpected<std::string>{search_result.message};
+    return nostd::unexpected<std::string>{search_result.error()};
   }
 
   cmdio::DebugOutput(
       "Graph tree evaluation is completed. Graph search succeeded.");
+
+  const auto& [next_evaluation_value, next_node] = *search_result;
+
+  cmdio::DebugOutput("Graph search has been completed.");
+  cmdio::DebugOutputF("The number of nodes in the graph tree is {}.",
+                      graph_tree_.GetGraphSize());
+  cmdio::DebugOutputF("The next node is at depth {}.", next_node.depth);
+  cmdio::DebugOutputF("<evaluation value> \n {}",
+                      next_evaluation_value.ToString());
 
   return next_node;
 }

@@ -124,9 +124,6 @@
     <Filter Include="ソース ファイル\GaitPatternGenerator\Result">
       <UniqueIdentifier>{550598ae-bda7-4076-9b98-3c7a72112d8d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\GaitPatternGenerator\GraphSearcher\Test">
-      <UniqueIdentifier>{ebe7188b-6e74-4ceb-9859-eafbced09349}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\SerialCommunication">
       <UniqueIdentifier>{c320f2ea-8590-44db-93d8-ce8c6b7a84e7}</UniqueIdentifier>
     </Filter>
@@ -229,6 +226,12 @@
     <Filter Include="ヘッダー ファイル\GaitPatternGenerator\Result">
       <UniqueIdentifier>{686518ed-7713-4299-8655-2ca0070838b3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\GaitPatternGenerator\GraphSearcher">
+      <UniqueIdentifier>{e7160502-9bb8-46b0-9527-386b7d0dcb8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GaitPatternGenerator\GraphSearcher\Test">
+      <UniqueIdentifier>{ebe7188b-6e74-4ceb-9859-eafbced09349}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="graphic_system.h">
@@ -263,9 +266,6 @@
     </ClInclude>
     <ClInclude Include="stopwatch.h">
       <Filter>ソース ファイル\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="graph_searcher_straight_move.h">
-      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClInclude>
     <ClInclude Include="math_euler.h">
       <Filter>ソース ファイル\Common\Math</Filter>
@@ -365,9 +365,6 @@
     </ClInclude>
     <ClInclude Include="dxlib_gui_updater.h">
       <Filter>ソース ファイル\Graphic\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="graph_searcher_spot_turn.h">
-      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClInclude>
     <ClInclude Include="interface_dxlib_clickable.h">
       <Filter>ソース ファイル\Graphic\Interface</Filter>
@@ -471,17 +468,8 @@
     <ClInclude Include="math_line_segment2_test.h">
       <Filter>ソース ファイル\Common\Math\Test</Filter>
     </ClInclude>
-    <ClInclude Include="interface_graph_searcher.h">
-      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
-    </ClInclude>
-    <ClInclude Include="graph_search_evaluator.h">
-      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
-    </ClInclude>
     <ClInclude Include="graph_search_evaluator_test.h">
-      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher\Test</Filter>
-    </ClInclude>
-    <ClInclude Include="graph_searcher_turn.h">
-      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
+      <Filter>ヘッダー ファイル\GaitPatternGenerator\GraphSearcher\Test</Filter>
     </ClInclude>
     <ClInclude Include="dxlib_gui_robot_control.h">
       <Filter>ソース ファイル\Graphic\GUI</Filter>
@@ -779,6 +767,21 @@
     </ClInclude>
     <ClInclude Include="result_file_exporter.h">
       <Filter>ヘッダー ファイル\GaitPatternGenerator\Result</Filter>
+    </ClInclude>
+    <ClInclude Include="graph_searcher_straight_move.h">
+      <Filter>ヘッダー ファイル\GaitPatternGenerator\GraphSearcher</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_graph_searcher.h">
+      <Filter>ヘッダー ファイル\GaitPatternGenerator\GraphSearcher</Filter>
+    </ClInclude>
+    <ClInclude Include="graph_searcher_turn.h">
+      <Filter>ヘッダー ファイル\GaitPatternGenerator\GraphSearcher</Filter>
+    </ClInclude>
+    <ClInclude Include="graph_searcher_spot_turn.h">
+      <Filter>ヘッダー ファイル\GaitPatternGenerator\GraphSearcher</Filter>
+    </ClInclude>
+    <ClInclude Include="graph_search_evaluator.h">
+      <Filter>ヘッダー ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

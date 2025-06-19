@@ -9,6 +9,7 @@
 #define DESIGNLAB_GRAPH_SEARCH_EVALUATOR_H_
 
 #include <map>
+#include <string>
 #include <vector>
 
 namespace designlab {
@@ -22,6 +23,15 @@ struct GraphSearchEvaluationValue final {
   constexpr static float kMinEvaluationValue = -1.0e+7f;
 
   std::map<Tag, float> value;
+
+  std::string ToString() const {
+    std::string result;
+    for (const auto& [tag, val] : value) {
+      result += "Tag: " + std::to_string(tag) +
+                ", Value: " + std::to_string(val) + "\n";
+    }
+    return result;
+  }
 };
 
 //! @struct GraphSearchEvaluator

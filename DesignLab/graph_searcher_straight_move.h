@@ -27,17 +27,14 @@ class GraphSearcherStraightMove final : public IGraphSearcher {
   explicit GraphSearcherStraightMove(
       const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr);
 
-  std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode>
-  SearchGraphTree(const GaitPatternGraphTree& graph,
-                  const RobotOperation& operation,
-                  const DividedMapState& divided_map_state,
-                  int max_depth) const override;
+  nostd::expected<return_type, std::string> SearchGraphTree(
+      const GaitPatternGraphTree& graph, const RobotOperation& operation,
+      const DividedMapState& divided_map_state, int max_depth) const override;
 
-  std::tuple<GraphSearchResult, GraphSearchEvaluationValue, RobotStateNode>
-  SearchGraphTreeVector(const std::vector<GaitPatternGraphTree>& graph_vector,
-                        const RobotOperation& operation,
-                        const DividedMapState& divided_map_state,
-                        int max_depth) const override;
+  nostd::expected<return_type, std::string> SearchGraphTreeVector(
+      const std::vector<GaitPatternGraphTree>& graph_vector,
+      const RobotOperation& operation, const DividedMapState& divided_map_state,
+      int max_depth) const override;
 
  private:
   static constexpr Tag kTagMoveForward = 0;
