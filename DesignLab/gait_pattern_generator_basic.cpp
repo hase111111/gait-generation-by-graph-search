@@ -53,7 +53,7 @@ GaitPatternGeneratorBasic::GetNextNodeByGraphSearch(
       graph_tree_creator_ptr_->CreateGraphTree(0, max_depth_, &graph_tree_);
 
   if (!create_result) {
-    return unexpected("GraphTreeCreator: " + create_result.error());
+    return unexpected{"GraphTreeCreator: " + create_result.error()};
   }
 
   // グラフ探索を行う
@@ -61,7 +61,7 @@ GaitPatternGeneratorBasic::GetNextNodeByGraphSearch(
       graph_tree_, operation, divided_map, max_depth_);
 
   if (!search_result) {
-    return unexpected(search_result.error());
+    return unexpected{search_result.error()};
   }
 
   const auto& [next_evaluation_value, next_node] = *search_result;
