@@ -120,7 +120,7 @@ GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
   cmdio::DebugOutputF("The number of nodes in the graph tree is {}.",
                       graph_tree_.GetGraphSize());
   cmdio::DebugOutputF("The next node is at depth {}.", next_node.depth);
-  cmdio::DebugOutputF("<evaluation value> \n {}",
+  cmdio::DebugOutputF("<evaluation value> \n{}",
                       next_evaluation_value.ToString());
 
   return next_node;
