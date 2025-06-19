@@ -41,7 +41,6 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::Select(
       return MakeGpgPitchRot();
     }
     case GpgType::kSwichByMap: {
-      // 直進移動は平坦な地面を歩くのと同じなので、平坦な地面を歩くGPGを返す.
       return MakeGpgSwitchByMap();
     }
     default:
