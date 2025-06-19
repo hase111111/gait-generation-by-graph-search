@@ -73,7 +73,7 @@ option = 2
 [Step]
     
     #段差高さ[mm]．負の値にすると下りの階段になる．
-    step_height = 110.0
+    step_height = 130.0
     
     #階段の奥行[mm]．正の値にすること．
     step_length = 2500.0

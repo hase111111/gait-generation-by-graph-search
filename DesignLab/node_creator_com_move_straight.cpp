@@ -88,6 +88,21 @@ void NodeCreatorComMoveStraight::Create(
       output_graph->push_back(next_node);
     }
   }
+
+  // 万が一のために、次のノードが存在しない場合は、
+  // 現在のノードをそのまま出力する.
+  if (output_graph->empty()) {
+    next_node = current_node;
+    next_node.ChangeToNextNode(current_num, next_move_);
+
+    // discreate_leg_posを更新する.
+    for (int j = 0; j < HexapodConst::kLegNum; j++) {
+      leg_func::ChangeDiscreteLegPos(j, DiscreteLegPos::kCenter,
+                                     &next_node.leg_state);
+    }
+
+    output_graph->push_back(next_node);
+  }
 }
 
 }  // namespace designlab
