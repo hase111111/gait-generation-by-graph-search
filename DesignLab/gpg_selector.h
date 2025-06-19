@@ -18,10 +18,10 @@
 namespace designlab {
 
 enum class GpgType {
-  kFlat,         //!< 平坦な地面を歩く.
-  kPitchRot,     //!< ピッチ回転を行う.
-  kBodyRot,      //!< ボディ回転を行う.
-  kStraightMove  //!< 直進移動を行う.
+  kFlat,          //!< 平坦な地面を歩く.
+  kPitchRot,      //!< ピッチ回転を行う.
+  kStraightMove,  //!< 直進移動を行う.
+  kSwichByMap,    //!< マップに応じて歩容を切り替える.
 };
 
 class GpgSelector final {
@@ -37,6 +37,7 @@ class GpgSelector final {
  private:
   std::unique_ptr<IGaitPatternGenerator> MakeGpgFlat() const;
   std::unique_ptr<IGaitPatternGenerator> MakeGpgPitchRot() const;
+  std::unique_ptr<IGaitPatternGenerator> MakeGpgSwitchByMap() const;
 
   const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
   const std::shared_ptr<const IHexapodStatePresenter> presenter_ptr_;
