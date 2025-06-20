@@ -37,6 +37,7 @@ class GpgSelector final {
  private:
   std::unique_ptr<IGaitPatternGenerator> MakeGpgFlat() const;
   std::unique_ptr<IGaitPatternGenerator> MakeGpgPitchRot() const;
+  std::unique_ptr<IGaitPatternGenerator> MakeGpgRollRot() const;
   std::unique_ptr<IGaitPatternGenerator> MakeGpgSwitchByMap() const;
 
   const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;

@@ -26,7 +26,8 @@ class GaitPatternGeneratorSwitchByMap final : public IGaitPatternGenerator {
   //! その場旋回時に使用するもの.
   GaitPatternGeneratorSwitchByMap(
       std::unique_ptr<IGaitPatternGenerator>&& gpg_normal,
-      std::unique_ptr<IGaitPatternGenerator>&& gpg_pitch_rot);
+      std::unique_ptr<IGaitPatternGenerator>&& gpg_pitch_rot,
+      std::unique_ptr<IGaitPatternGenerator>&& gpg_roll_rot);
 
   ~GaitPatternGeneratorSwitchByMap() = default;
 
@@ -37,10 +38,15 @@ class GaitPatternGeneratorSwitchByMap final : public IGaitPatternGenerator {
  private:
   const std::unique_ptr<IGaitPatternGenerator> gpg_normal_ptr_;
   const std::unique_ptr<IGaitPatternGenerator> gpg_pitch_rot_ptr_;
+  const std::unique_ptr<IGaitPatternGenerator> gpg_roll_rot_ptr_;
 
   bool DoPitchRotation(const RobotStateNode& current_node,
                        const MapState& map_ref,
                        const RobotOperation& operation) const;
+
+  bool DoRollRotation(const RobotStateNode& current_node,
+                      const MapState& map_ref,
+                      const RobotOperation& operation) const;
 };
 
 }  // namespace designlab
