@@ -23,10 +23,12 @@ namespace designlab {
 NodeCreatorSequenceBodyRot::NodeCreatorSequenceBodyRot(
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
     const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
-    const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr)
+    const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
+    const Vector3& body_rot_axis)
     : converter_ptr_(converter_ptr),
       presenter_ptr_(presenter_ptr),
-      checker_ptr_(checker_ptr) {}
+      checker_ptr_(checker_ptr),
+      body_rot_axis_(body_rot_axis) {}
 
 void NodeCreatorSequenceBodyRot::Build(
     const DividedMapState& map,
@@ -60,7 +62,7 @@ void NodeCreatorSequenceBodyRot::Build(
                                              HexapodMove::kBodyPitchRot);
   (*node_creator)[HexapodMove::kBodyPitchRot] =
       std::make_unique<NodeCreatorBodyRot>(map, converter_ptr_, checker_ptr_,
-                                           Vector3::GetLeftVec(),
+                                           body_rot_axis_,
                                            HexapodMove::kComMove);
 
   (*node_creator)[HexapodMove::kComMove] =

@@ -16,13 +16,15 @@
 namespace designlab {
 
 //! @class NodeCreatorSequenceBodyRot
-//! @brief ノード作成ビルダーのボディ回転クラス
+//! @brief ノード作成ビルダーのボディ回転クラス.
 class NodeCreatorSequenceBodyRot final : public INodeCreatorSequence {
  public:
+  //! @todo デフォルト引数を削除する.
   NodeCreatorSequenceBodyRot(
       const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
       const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
-      const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr);
+      const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
+      const Vector3& body_rot_axis = Vector3::GetLeftVec());
 
   void Build(const DividedMapState& map,
              std::map<HexapodMove, std::unique_ptr<INodeCreator> >*
@@ -32,6 +34,7 @@ class NodeCreatorSequenceBodyRot final : public INodeCreatorSequence {
   const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
   const std::shared_ptr<const IHexapodStatePresenter> presenter_ptr_;
   const std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
+  const Vector3 body_rot_axis_;  //!< ボディ回転の軸
 };
 
 }  // namespace designlab
