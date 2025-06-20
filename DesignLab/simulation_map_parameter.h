@@ -146,9 +146,12 @@ struct SimulationMapParameter final {
 
   int hole_rate{20};  //!< 不整地上の足場を除外する割合。ホール率[%]
   float step_height{100.f};  //!< 段差高さ[mm].負の値にすると下りの階段になる.
-  float step_length{600.f};       //!< 階段の奥行[mm]
-  float slope_angle{10.f};        //!< 斜面の傾斜角[deg]
-  float tilt_angle{5.f};          //!< 地形を傾ける角度[deg]
+  float step_length{600.f};  //!< 階段の奥行[mm]
+  float step_start_x{0.f};   //!< 階段の開始位置のX座標[mm]
+  float slope_angle{10.f};   //!< 斜面の傾斜角[deg]
+  float slope_start_x{0.f};  //!< 斜面の開始位置のX座標[mm]
+  float tilt_angle{5.f};     //!< 地形を傾ける角度[deg]
+  float tilt_start_x{0.f};   //!< 地形を傾ける開始位置のX座標[mm]
   float rough_max_height{30.f};   //!< デコボコな地形の最大高さ[mm]
   float rough_min_height{-30.f};  //!< デコボコな地形の最小高さ[mm]
 
@@ -205,11 +208,17 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationMapParameter) {
   DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(step_length, "Step",
                                             "階段の奥行[mm].正の値にすること.");
 
+  DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(step_start_x, "Step", "");
+
   DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(slope_angle, "Slope",
                                             "斜面の傾斜角[deg].");
 
+  DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(slope_start_x, "Slope", "");
+
   DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(tilt_angle, "Tilt",
                                             "地形を傾ける角度[deg].");
+
+  DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(tilt_start_x, "Tilt", "");
 
   DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
       rough_max_height, "Rough",
@@ -239,7 +248,8 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationMapParameter) {
 DESIGNLAB_TOML11_SERIALIZE(designlab::SimulationMapParameter, mode, option,
                            base_z, map_max_x, map_min_x, map_max_y, map_min_y,
                            map_start_rough_x, stripe_interval, hole_rate,
-                           step_height, step_length, slope_angle, tilt_angle,
+                           step_height, step_length, step_start_x, slope_angle,
+                           slope_start_x, tilt_angle, tilt_start_x,
                            rough_max_height, rough_min_height, circle_center,
                            circle_radius, donut_radius, radial_center,
                            radial_division, radial_hole_rate,
