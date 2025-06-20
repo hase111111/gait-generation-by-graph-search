@@ -15,7 +15,7 @@
 #include "gait_pattern_graph_tree.h"
 #include "graph_search_result_record.h"
 #include "interface_node_creator.h"
-#include "interface_node_creator_builder.h"
+#include "interface_node_creator_sequence.h"
 #include "my_expected.h"
 
 namespace designlab {
@@ -29,7 +29,7 @@ namespace designlab {
 class GraphTreeCreator final {
  public:
   explicit GraphTreeCreator(
-      std::unique_ptr<INodeCreatorBuilder>&& node_creator_builder_ptr);
+      std::unique_ptr<INodeCreatorSequence>&& node_creator_builder_ptr);
 
   ~GraphTreeCreator() = default;
 
@@ -60,7 +60,8 @@ class GraphTreeCreator final {
   std::map<HexapodMove, std::unique_ptr<INodeCreator> > node_creator_map_;
 
   //! ノード生成クラスのビルダー.
-  const std::unique_ptr<INodeCreatorBuilder> node_creator_builder_ptr_;
+  //! @todo 名前を更新する
+  const std::unique_ptr<INodeCreatorSequence> node_creator_builder_ptr_;
 };
 
 }  // namespace designlab

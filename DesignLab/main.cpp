@@ -23,8 +23,7 @@
 #include "graphic_main_robot_control.h"
 #include "graphic_system.h"
 #include "map_creator_selector.h"
-#include "node_creator_builder_body_rot.h"
-#include "node_creator_builder_straight_move.h"
+#include "node_creator_sequence_body_rot.h"
 #include "phantomx_mk2.h"
 #include "robot_operator_factory.h"
 #include "simulation_end_checker_factory.h"
@@ -190,8 +189,9 @@ int main() {
 
         auto map_creator =
             MapCreatorSelector{}.Select(simulation_setting_record);
-        auto node_creator_builder = std::make_unique<NodeCreatorBuilderBodyRot>(
-            hexapod_param, hexapod_param, hexapod_param);
+        auto node_creator_builder =
+            std::make_unique<NodeCreatorSequenceBodyRot>(
+                hexapod_param, hexapod_param, hexapod_param);
         auto graph_tree_creator =
             std::make_unique<GraphTreeCreator>(std::move(node_creator_builder));
 

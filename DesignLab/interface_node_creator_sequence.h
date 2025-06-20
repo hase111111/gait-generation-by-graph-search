@@ -1,12 +1,12 @@
 ﻿
-//! @file interface_node_creator_builder.h
+//! @file interface_node_creator_sequence.h
 
 // Copyright(c) 2023-2025 Design Engineering Laboratory, Saitama University
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_INTERFACE_NODE_CREATOR_BUILDER_H_
-#define DESIGNLAB_INTERFACE_NODE_CREATOR_BUILDER_H_
+#ifndef DESIGNLAB_INTERFACE_NODE_CREATOR_SEQUENCE_H_
+#define DESIGNLAB_INTERFACE_NODE_CREATOR_SEQUENCE_H_
 
 #include <map>
 #include <memory>
@@ -20,18 +20,18 @@
 
 namespace designlab {
 
-//! @class INodeCreatorBuilder
+//! @class INodeCreatorSequence
 //! @brief INodeCreatorを生成するためのビルダークラス.
-class INodeCreatorBuilder {
+class INodeCreatorSequence {
  public:
-  INodeCreatorBuilder() = default;
-  virtual ~INodeCreatorBuilder() = default;
+  INodeCreatorSequence() = default;
+  virtual ~INodeCreatorSequence() = default;
 
   //! @brief INodeCreatorを生成する.
   //! @param[in] map 分割されたマップ.
-  //! @param[out] node_creator INodeCreatorを格納するmap.
+  //! @param[out] node_creator INodeCreator を格納する map.
   //! @n key : HexapodMove, value : INodeCreator.
-  //! つまり,ロボットの動作に対応する INodeCreator を格納する必要がある.
+  //! つまり, ロボットの動作に対応する INodeCreator を格納する必要がある.
   virtual void Build(const DividedMapState& map,
                      std::map<HexapodMove, std::unique_ptr<INodeCreator> >*
                          node_creator) const = 0;
@@ -39,4 +39,4 @@ class INodeCreatorBuilder {
 
 }  // namespace designlab
 
-#endif  // DESIGNLAB_INTERFACE_NODE_CREATOR_BUILDER_H_
+#endif  // DESIGNLAB_INTERFACE_NODE_CREATOR_SEQUENCE_H_

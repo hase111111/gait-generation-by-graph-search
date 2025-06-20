@@ -43,8 +43,8 @@
     <ClInclude Include="my_expected_concept.h" />
     <ClInclude Include="my_expected_test.h" />
     <ClInclude Include="my_unexpected_test.h" />
-    <ClInclude Include="node_creator_builder_body_rot.h" />
-    <ClInclude Include="node_creator_builder_ground_conforming_rot.h" />
+    <ClInclude Include="node_creator_sequence_body_rot.h" />
+    <ClInclude Include="node_creator_sequence_ground_conforming_rot.h" />
     <ClInclude Include="node_creator_leg_hierarchy_test.h" />
     <ClInclude Include="node_creator_leg_up_down_radius.h" />
     <ClInclude Include="my_unexpected.h" />
@@ -92,7 +92,7 @@
     <ClInclude Include="discrete_com_pos.h" />
     <ClInclude Include="discrete_leg_pos.h" />
     <ClInclude Include="boot_mode.h" />
-    <ClInclude Include="node_creator_builder_turn_spot.h" />
+    <ClInclude Include="node_creator_sequence_turn_spot.h" />
     <ClInclude Include="dxlib_node_setter_group.h" />
     <ClInclude Include="node_creator_com_move_straight.h" />
     <ClInclude Include="node_creator_leg_up_down_2d.h" />
@@ -111,7 +111,7 @@
     <ClInclude Include="simulation_end_checker_by_posture.h" />
     <ClInclude Include="simulation_end_checker_factory.h" />
     <ClInclude Include="simulation_map_parameter.h" />
-    <ClInclude Include="node_creator_builder_turn.h" />
+    <ClInclude Include="node_creator_sequence_turn.h" />
     <ClInclude Include="node_initializer.h" />
     <ClInclude Include="com_selector.h" />
     <ClInclude Include="node_creator_com_up_down.h" />
@@ -126,12 +126,12 @@
     <ClInclude Include="math_euler.h" />
     <ClInclude Include="graph_tree_creator.h" />
     <ClInclude Include="interface_map_creator.h" />
-    <ClInclude Include="interface_node_creator_builder.h" />
+    <ClInclude Include="interface_node_creator_sequence.h" />
     <ClInclude Include="interface_system_main.h" />
     <ClInclude Include="interpolated_node_creator.h" />
     <ClInclude Include="model_loader.h" />
     <ClInclude Include="movement_locus_renderer.h" />
-    <ClInclude Include="node_creator_builder_straight_move.h" />
+    <ClInclude Include="node_creator_sequence_straight_move.h" />
     <ClInclude Include="dxlib_gui_node_displayer.h" />
     <ClInclude Include="output_detail.h" />
     <ClInclude Include="gait_pattern_generator_basic.h" />
@@ -232,9 +232,9 @@
     <ClCompile Include="map_file_importer.cpp" />
     <ClCompile Include="node_creator_body_rot.cpp" />
     <ClCompile Include="boot_mode_selector.cpp" />
-    <ClCompile Include="node_creator_builder_body_rot.cpp" />
-    <ClCompile Include="node_creator_builder_ground_conforming_rot.cpp" />
-    <ClCompile Include="node_creator_builder_turn_spot.cpp" />
+    <ClCompile Include="node_creator_sequence_body_rot.cpp" />
+    <ClCompile Include="node_creator_sequence_ground_conforming_rot.cpp" />
+    <ClCompile Include="node_creator_sequence_turn_spot.cpp" />
     <ClCompile Include="dxlib_node_setter_group.cpp" />
     <ClCompile Include="node_creator_com_move_straight.cpp" />
     <ClCompile Include="node_creator_leg_up_down_2d.cpp" />
@@ -249,7 +249,7 @@
     <ClCompile Include="math_rot_converter.cpp" />
     <ClCompile Include="string_util.cpp" />
     <ClCompile Include="divided_map_state.cpp" />
-    <ClCompile Include="node_creator_builder_turn.cpp" />
+    <ClCompile Include="node_creator_sequence_turn.cpp" />
     <ClCompile Include="node_initializer.cpp" />
     <ClCompile Include="com_selector.cpp" />
     <ClCompile Include="node_creator_com_up_down.cpp" />
@@ -268,7 +268,7 @@
     <ClCompile Include="interpolated_node_creator.cpp" />
     <ClCompile Include="model_loader.cpp" />
     <ClCompile Include="movement_locus_renderer.cpp" />
-    <ClCompile Include="node_creator_builder_straight_move.cpp" />
+    <ClCompile Include="node_creator_sequence_straight_move.cpp" />
     <ClCompile Include="gait_pattern_generator_revaluation.cpp" />
     <ClCompile Include="phantomx_mk2_renderer_model.cpp" />
     <ClCompile Include="result_file_importer.cpp" />

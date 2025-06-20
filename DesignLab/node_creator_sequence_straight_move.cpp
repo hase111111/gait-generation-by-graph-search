@@ -1,11 +1,11 @@
 ﻿
-//! @file node_creator_builder_straight_move.cpp
+//! @file node_creator_sequence_straight_move.cpp
 
 // Copyright(c) 2023-2025 Design Engineering Laboratory, Saitama University
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#include "node_creator_builder_straight_move.h"
+#include "node_creator_sequence_straight_move.h"
 
 #include <vector>
 
@@ -17,7 +17,7 @@
 
 namespace designlab {
 
-NodeCreatorBuilderStraightMove::NodeCreatorBuilderStraightMove(
+NodeCreatorSequenceStraightMove::NodeCreatorSequenceStraightMove(
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
     const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
     const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr)
@@ -25,7 +25,7 @@ NodeCreatorBuilderStraightMove::NodeCreatorBuilderStraightMove(
       presenter_ptr_(presenter_ptr),
       checker_ptr_(checker_ptr) {}
 
-void NodeCreatorBuilderStraightMove::Build(
+void NodeCreatorSequenceStraightMove::Build(
     const DividedMapState& map,
     std::map<HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const {
   using enum DiscreteLegPos;

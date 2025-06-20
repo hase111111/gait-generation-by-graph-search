@@ -633,22 +633,22 @@
     <ClInclude Include="node_creator_leg_hierarchy.h">
       <Filter>ヘッダー ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClInclude>
-    <ClInclude Include="node_creator_builder_turn_spot.h">
+    <ClInclude Include="node_creator_sequence_turn_spot.h">
       <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
-    <ClInclude Include="node_creator_builder_turn.h">
+    <ClInclude Include="node_creator_sequence_turn.h">
       <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
-    <ClInclude Include="node_creator_builder_straight_move.h">
+    <ClInclude Include="node_creator_sequence_straight_move.h">
       <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
-    <ClInclude Include="node_creator_builder_ground_conforming_rot.h">
+    <ClInclude Include="node_creator_sequence_ground_conforming_rot.h">
       <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
-    <ClInclude Include="node_creator_builder_body_rot.h">
+    <ClInclude Include="node_creator_sequence_body_rot.h">
       <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
-    <ClInclude Include="interface_node_creator_builder.h">
+    <ClInclude Include="interface_node_creator_sequence.h">
       <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClInclude>
     <ClInclude Include="leg_state.h">
@@ -917,7 +917,7 @@
     <ClCompile Include="math_vector2.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
-    <ClCompile Include="node_creator_builder_straight_move.cpp">
+    <ClCompile Include="node_creator_sequence_straight_move.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClCompile>
     <ClCompile Include="math_rotation_matrix.cpp">
@@ -971,7 +971,7 @@
     <ClCompile Include="node_creator_body_rot.cpp">
       <Filter>ソース ファイル\Node\NodeCreator</Filter>
     </ClCompile>
-    <ClCompile Include="node_creator_builder_turn.cpp">
+    <ClCompile Include="node_creator_sequence_turn.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClCompile>
     <ClCompile Include="font_loader.cpp">
@@ -989,7 +989,7 @@
     <ClCompile Include="gait_pattern_graph_tree.cpp">
       <Filter>ソース ファイル\Node</Filter>
     </ClCompile>
-    <ClCompile Include="node_creator_builder_turn_spot.cpp">
+    <ClCompile Include="node_creator_sequence_turn_spot.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClCompile>
     <ClCompile Include="dxlib_3d_renderer_group.cpp">
@@ -1097,7 +1097,7 @@
     <ClCompile Include="node_creator_leg_up_down_radius.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClCompile>
-    <ClCompile Include="node_creator_builder_body_rot.cpp">
+    <ClCompile Include="node_creator_sequence_body_rot.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClCompile>
     <ClCompile Include="abstract_dxlib_gui.cpp">
@@ -1106,7 +1106,7 @@
     <ClCompile Include="graph_com_plotter.cpp">
       <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClCompile>
-    <ClCompile Include="node_creator_builder_ground_conforming_rot.cpp">
+    <ClCompile Include="node_creator_sequence_ground_conforming_rot.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
     </ClCompile>
     <ClCompile Include="gpg_selector.cpp">

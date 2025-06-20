@@ -1,11 +1,11 @@
 ﻿
-//! @file node_creator_builder_body_rot.cpp
+//! @file node_creator_sequence_body_rot.cpp
 
 // Copyright(c) 2023-2025 Design Engineering Laboratory, Saitama University
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#include "node_creator_builder_body_rot.h"
+#include "node_creator_sequence_body_rot.h"
 
 #include <vector>
 
@@ -20,7 +20,7 @@
 
 namespace designlab {
 
-NodeCreatorBuilderBodyRot::NodeCreatorBuilderBodyRot(
+NodeCreatorSequenceBodyRot::NodeCreatorSequenceBodyRot(
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
     const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
     const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr)
@@ -28,7 +28,7 @@ NodeCreatorBuilderBodyRot::NodeCreatorBuilderBodyRot(
       presenter_ptr_(presenter_ptr),
       checker_ptr_(checker_ptr) {}
 
-void NodeCreatorBuilderBodyRot::Build(
+void NodeCreatorSequenceBodyRot::Build(
     const DividedMapState& map,
     std::map<HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const {
   assert(node_creator != nullptr);  // node_creator が nullptr でない.

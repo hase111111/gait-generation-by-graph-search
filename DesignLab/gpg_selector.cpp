@@ -14,8 +14,8 @@
 #include "gait_pattern_generator_switch_by_map.h"
 #include "graph_searcher_straight_move.h"
 #include "graph_tree_creator.h"
-#include "node_creator_builder_body_rot.h"
-#include "node_creator_builder_straight_move.h"
+#include "node_creator_sequence_body_rot.h"
+#include "node_creator_sequence_straight_move.h"
 
 namespace designlab {
 
@@ -53,7 +53,8 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::Select(
 }
 
 std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgFlat() const {
-  auto node_creator_builder = std::make_unique<NodeCreatorBuilderStraightMove>(
+  //! @todo ローカル変数名を変更する
+  auto node_creator_builder = std::make_unique<NodeCreatorSequenceStraightMove>(
       converter_ptr_, presenter_ptr_, checker_ptr_);
   auto graph_tree_creator =
       std::make_unique<GraphTreeCreator>(std::move(node_creator_builder));
@@ -68,7 +69,7 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgFlat() const {
 }
 
 std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgPitchRot() const {
-  auto node_creator_builder = std::make_unique<NodeCreatorBuilderBodyRot>(
+  auto node_creator_builder = std::make_unique<NodeCreatorSequenceBodyRot>(
       converter_ptr_, presenter_ptr_, checker_ptr_);
   auto graph_tree_creator =
       std::make_unique<GraphTreeCreator>(std::move(node_creator_builder));

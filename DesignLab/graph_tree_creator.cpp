@@ -16,7 +16,7 @@
 namespace designlab {
 
 GraphTreeCreator::GraphTreeCreator(
-    std::unique_ptr<INodeCreatorBuilder>&& node_creator_builder_ptr)
+    std::unique_ptr<INodeCreatorSequence>&& node_creator_builder_ptr)
     : node_creator_builder_ptr_(std::move(node_creator_builder_ptr)) {
   // 引数が全て nullptr でないことを確認する.
   assert(node_creator_builder_ptr_ != nullptr);

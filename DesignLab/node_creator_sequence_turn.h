@@ -1,32 +1,32 @@
 ﻿
-//! @file node_creator_builder_body_rot.h
+//! @file node_creator_sequence_turn.h
 
 // Copyright(c) 2023-2025 Design Engineering Laboratory, Saitama University
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_NODE_CREATOR_BUILDER_BODY_ROT_H
-#define DESIGNLAB_NODE_CREATOR_BUILDER_BODY_ROT_H
+#ifndef DESIGNLAB_NODE_CREATOR_SEQUENCE_TURN_H_
+#define DESIGNLAB_NODE_CREATOR_SEQUENCE_TURN_H_
 
 #include <map>
 #include <memory>
 
-#include "interface_node_creator_builder.h"
+#include "interface_node_creator_sequence.h"
 
 namespace designlab {
 
-//! @class NodeCreatorBuilderBodyRot
-//! @brief ノード作成ビルダーのボディ回転クラス
-class NodeCreatorBuilderBodyRot final : public INodeCreatorBuilder {
+//! @class NodeCreatorSequenceTurn
+//! @brief 旋回動作用のノード生成クラスのビルダー.
+class NodeCreatorSequenceTurn final : public INodeCreatorSequence {
  public:
-  NodeCreatorBuilderBodyRot(
+  NodeCreatorSequenceTurn(
       const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
       const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
       const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr);
 
   void Build(const DividedMapState& map,
-             std::map<HexapodMove, std::unique_ptr<INodeCreator> >*
-                 node_creator) const override;
+             std::map<HexapodMove, std::unique_ptr<INodeCreator>>* node_creator)
+      const override;
 
  private:
   const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
@@ -36,4 +36,4 @@ class NodeCreatorBuilderBodyRot final : public INodeCreatorBuilder {
 
 }  // namespace designlab
 
-#endif  // DESIGNLAB_NODE_CREATOR_BUILDER_BODY_ROT_H
+#endif  // DESIGNLAB_NODE_CREATOR_SEQUENCE_TURN_H_
