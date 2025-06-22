@@ -33,14 +33,11 @@ NodeCreatorSequenceGroundConformingRot::NodeCreatorSequenceGroundConformingRot(
   assert(checker_ptr_ != nullptr);
 }
 
-void NodeCreatorSequenceGroundConformingRot::Build(
-    const DividedMapState& map,
-    std::map<HexapodMove, std::unique_ptr<INodeCreator>>* node_creator) const {
+std::map<HexapodMove, std::unique_ptr<INodeCreator>>
+NodeCreatorSequenceGroundConformingRot::Build(
+    const DividedMapState& map) const {
   using enum DiscreteLegPos;
   using enum HexapodMove;
-
-  assert(node_creator != nullptr);  // node_creator が nullptr でない.
-  assert(node_creator->size() == 0);  // node_creator は空でなければならない.
 
   // 追加したい場合,以下のように記述する.
   // (*node_creator)[HexapodMove::???] =
@@ -53,21 +50,25 @@ void NodeCreatorSequenceGroundConformingRot::Build(
       DiscreteLegPos::kLowerFront, DiscreteLegPos::kUpperBack,
       DiscreteLegPos::kUpperFront};
 
-  (*node_creator)[kLegHierarchyChange] =
+  std::map<HexapodMove, std::unique_ptr<INodeCreator>> node_creator;
+
+  node_creator[kLegHierarchyChange] =
       std::make_unique<NodeCreatorLegHierarchy>(kLegUpDown, hierarchy_list);
 
-  (*node_creator)[kLegUpDown] = std::make_unique<NodeCreatorLegUpDown>(
+  node_creator[kLegUpDown] = std::make_unique<NodeCreatorLegUpDown>(
       map, converter_ptr_, presenter_ptr_, checker_ptr_, kComUpDown);
 
-  (*node_creator)[kComUpDown] = std::make_unique<NodeCreatorComUpDown>(
+  node_creator[kComUpDown] = std::make_unique<NodeCreatorComUpDown>(
       map, converter_ptr_, presenter_ptr_, checker_ptr_, kComMove);
 
-  (*node_creator)[HexapodMove::kComMove] =
+  node_creator[HexapodMove::kComMove] =
       std::make_unique<NodeCreatorComMoveStraight>(
           map, converter_ptr_, presenter_ptr_, checker_ptr_, kBodyPitchRot);
 
-  (*node_creator)[kBodyPitchRot] = std::make_unique<NodeCreatorBodyRot>(
+  node_creator[kBodyPitchRot] = std::make_unique<NodeCreatorBodyRot>(
       map, converter_ptr_, checker_ptr_, Vector3{0, 1, 0}, kLegHierarchyChange);
+
+  return node_creator;
 }
 
 }  // namespace designlab

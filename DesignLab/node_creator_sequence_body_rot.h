@@ -26,9 +26,8 @@ class NodeCreatorSequenceBodyRot final : public INodeCreatorSequence {
       const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
       const Vector3& body_rot_axis = Vector3::GetLeftVec());
 
-  void Build(const DividedMapState& map,
-             std::map<HexapodMove, std::unique_ptr<INodeCreator> >*
-                 node_creator) const override;
+  std::map<HexapodMove, std::unique_ptr<INodeCreator>> Build(
+      const DividedMapState& map) const override;
 
  private:
   const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;

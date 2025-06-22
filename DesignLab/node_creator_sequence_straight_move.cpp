@@ -25,34 +25,34 @@ NodeCreatorSequenceStraightMove::NodeCreatorSequenceStraightMove(
       presenter_ptr_(presenter_ptr),
       checker_ptr_(checker_ptr) {}
 
-void NodeCreatorSequenceStraightMove::Build(
-    const DividedMapState& map,
-    std::map<HexapodMove, std::unique_ptr<INodeCreator> >* node_creator) const {
+std::map<HexapodMove, std::unique_ptr<INodeCreator>>
+NodeCreatorSequenceStraightMove::Build(const DividedMapState& map) const {
   using enum DiscreteLegPos;
   using enum HexapodMove;
-
-  assert(node_creator != nullptr);  // node_creator が nullptr でない.
-  assert(node_creator->size() == 0);  // node_creator は空でなければならない.
 
   // 追加したい場合,以下のように記述する.
   // (*node_creator)[HexapodMove::???] =
   // std::make_unique<クラス名>(クラスのコンストラクタの引数);
   // この場合,HexapodMove::???のノードを作成するクラスは,^~~~~~ である.
 
+  std::map<HexapodMove, std::unique_ptr<INodeCreator>> node_creator;
+
   const auto hierarchy_list = std::vector<DiscreteLegPos>{
       kBack, kCenter, kFront, kLowerBack, kLowerFront, kUpperBack, kUpperFront};
 
-  (*node_creator)[kLegHierarchyChange] =
+  node_creator[kLegHierarchyChange] =
       std::make_unique<NodeCreatorLegHierarchy>(kLegUpDown, hierarchy_list);
 
-  (*node_creator)[kLegUpDown] = std::make_unique<NodeCreatorLegUpDown>(
+  node_creator[kLegUpDown] = std::make_unique<NodeCreatorLegUpDown>(
       map, converter_ptr_, presenter_ptr_, checker_ptr_, kComUpDown);
 
-  (*node_creator)[kComUpDown] = std::make_unique<NodeCreatorComUpDown>(
+  node_creator[kComUpDown] = std::make_unique<NodeCreatorComUpDown>(
       map, converter_ptr_, presenter_ptr_, checker_ptr_, kComMove);
 
-  (*node_creator)[kComMove] = std::make_unique<NodeCreatorComMoveStraight>(
+  node_creator[kComMove] = std::make_unique<NodeCreatorComMoveStraight>(
       map, converter_ptr_, presenter_ptr_, checker_ptr_, kLegHierarchyChange);
+
+  return node_creator;
 }
 
 }  // namespace designlab

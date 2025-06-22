@@ -21,7 +21,7 @@
 namespace designlab {
 
 //! @class INodeCreatorSequence
-//! @brief INodeCreatorを生成するためのビルダークラス.
+//! @brief INodeCreator を生成するためのビルダークラス.
 class INodeCreatorSequence {
  public:
   INodeCreatorSequence() = default;
@@ -32,9 +32,8 @@ class INodeCreatorSequence {
   //! @param[out] node_creator INodeCreator を格納する map.
   //! @n key : HexapodMove, value : INodeCreator.
   //! つまり, ロボットの動作に対応する INodeCreator を格納する必要がある.
-  virtual void Build(const DividedMapState& map,
-                     std::map<HexapodMove, std::unique_ptr<INodeCreator> >*
-                         node_creator) const = 0;
+  virtual std::map<HexapodMove, std::unique_ptr<INodeCreator>> Build(
+      const DividedMapState& map) const = 0;
 };
 
 }  // namespace designlab
