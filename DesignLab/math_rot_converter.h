@@ -12,9 +12,7 @@
 #include "math_quaternion.h"
 #include "math_rotation_matrix.h"
 
-
-namespace designlab
-{
+namespace designlab {
 
 //! @brief 回転角行列からクォータニオンへの変換.
 //! @param[in] rot 回転角行列.
@@ -46,8 +44,6 @@ namespace designlab
 //! @return オイラー角.
 [[nodiscard]] EulerXYZ ToEulerXYZ(const Quaternion& q);
 
-
 }  // namespace designlab
-
 
 #endif  // DESIGNLAB_MATH_ROT_CONVERTER_H_

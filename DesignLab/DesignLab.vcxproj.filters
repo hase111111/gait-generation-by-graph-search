@@ -253,10 +253,10 @@
     <Filter Include="ヘッダー ファイル\Graphic\Common\Resource">
       <UniqueIdentifier>{a16e9705-0af3-49d5-923d-df16225537a0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Graphic\Common\3DRender">
+    <Filter Include="ヘッダー ファイル\Graphic\3DRender">
       <UniqueIdentifier>{b55a532f-f370-452a-ad26-cdc5275965da}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Graphic\Common\3DRender\HexapodRender">
+    <Filter Include="ヘッダー ファイル\Graphic\3DRender\HexapodRender">
       <UniqueIdentifier>{d25f64fc-9648-4e44-b4cf-ab67cd1c356a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -775,40 +775,40 @@
       <Filter>ヘッダー ファイル\Graphic\Common\Resource</Filter>
     </ClInclude>
     <ClInclude Include="world_grid_renderer.h">
-      <Filter>ヘッダー ファイル\Graphic\Common\3DRender</Filter>
+      <Filter>ヘッダー ファイル\Graphic\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="stability_margin_renderer.h">
-      <Filter>ヘッダー ファイル\Graphic\Common\3DRender</Filter>
+      <Filter>ヘッダー ファイル\Graphic\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="robot_ground_point_renderer.h">
-      <Filter>ヘッダー ファイル\Graphic\Common\3DRender</Filter>
+      <Filter>ヘッダー ファイル\Graphic\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="movement_locus_renderer.h">
-      <Filter>ヘッダー ファイル\Graphic\Common\3DRender</Filter>
+      <Filter>ヘッダー ファイル\Graphic\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="map_renderer.h">
-      <Filter>ヘッダー ファイル\Graphic\Common\3DRender</Filter>
+      <Filter>ヘッダー ファイル\Graphic\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="graph_com_plotter.h">
-      <Filter>ヘッダー ファイル\Graphic\Common\3DRender</Filter>
+      <Filter>ヘッダー ファイル\Graphic\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="dxlib_node_setter_group.h">
-      <Filter>ヘッダー ファイル\Graphic\Common\3DRender</Filter>
+      <Filter>ヘッダー ファイル\Graphic\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="dxlib_3d_renderer_group.h">
-      <Filter>ヘッダー ファイル\Graphic\Common\3DRender</Filter>
+      <Filter>ヘッダー ファイル\Graphic\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="approximated_motion_range_render.h">
-      <Filter>ヘッダー ファイル\Graphic\Common\3DRender</Filter>
+      <Filter>ヘッダー ファイル\Graphic\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="phantomx_renderer_simple.h">
-      <Filter>ヘッダー ファイル\Graphic\Common\3DRender\HexapodRender</Filter>
+      <Filter>ヘッダー ファイル\Graphic\3DRender\HexapodRender</Filter>
     </ClInclude>
     <ClInclude Include="phantomx_mk2_renderer_model.h">
-      <Filter>ヘッダー ファイル\Graphic\Common\3DRender\HexapodRender</Filter>
+      <Filter>ヘッダー ファイル\Graphic\3DRender\HexapodRender</Filter>
     </ClInclude>
     <ClInclude Include="hexapod_renderer_builder.h">
-      <Filter>ヘッダー ファイル\Graphic\Common\3DRender\HexapodRender</Filter>
+      <Filter>ヘッダー ファイル\Graphic\3DRender\HexapodRender</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
