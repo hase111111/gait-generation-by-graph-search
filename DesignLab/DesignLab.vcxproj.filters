@@ -184,9 +184,6 @@
     <Filter Include="ヘッダー ファイル\Node\NodeCreator\LegChanger\Test">
       <UniqueIdentifier>{897f7064-b408-4c86-b169-9101b40752d7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Node\NodeCreator\NodeCreatorBuilder">
-      <UniqueIdentifier>{aa11e44f-4f9c-461f-8916-c8747d7d7dbf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\Node\LegState">
       <UniqueIdentifier>{6f3533c9-21ab-45f4-9038-8d2f25282e5d}</UniqueIdentifier>
     </Filter>
@@ -231,6 +228,9 @@
     </Filter>
     <Filter Include="ヘッダー ファイル\GaitPatternGenerator\GraphSearcher\Test">
       <UniqueIdentifier>{ebe7188b-6e74-4ceb-9859-eafbced09349}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Node\NodeCreator\NodeCreatorSequence">
+      <UniqueIdentifier>{aa11e44f-4f9c-461f-8916-c8747d7d7dbf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -634,22 +634,22 @@
       <Filter>ヘッダー ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClInclude>
     <ClInclude Include="node_creator_sequence_turn_spot.h">
-      <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
+      <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorSequence</Filter>
     </ClInclude>
     <ClInclude Include="node_creator_sequence_turn.h">
-      <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
+      <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorSequence</Filter>
     </ClInclude>
     <ClInclude Include="node_creator_sequence_straight_move.h">
-      <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
+      <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorSequence</Filter>
     </ClInclude>
     <ClInclude Include="node_creator_sequence_ground_conforming_rot.h">
-      <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
+      <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorSequence</Filter>
     </ClInclude>
     <ClInclude Include="node_creator_sequence_body_rot.h">
-      <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
+      <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorSequence</Filter>
     </ClInclude>
     <ClInclude Include="interface_node_creator_sequence.h">
-      <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorBuilder</Filter>
+      <Filter>ヘッダー ファイル\Node\NodeCreator\NodeCreatorSequence</Filter>
     </ClInclude>
     <ClInclude Include="leg_state.h">
       <Filter>ヘッダー ファイル\Node\LegState</Filter>
