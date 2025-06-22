@@ -12,6 +12,7 @@
 #include <vector>
 
 #include "map_state.h"
+#include "math_plane.h"
 #include "math_vector3.h"
 #include "my_expected.h"
 
@@ -163,6 +164,10 @@ class DividedMapState final {
 
   float GetMapMinZ() const noexcept { return kMapMinZ; }
 
+  std::vector<PlaneRect> GetDividedMapPlane() const {
+    return divided_map_plane_;
+  }
+
  private:
   //! @brief このクラスでは,2次元の配列を1次元の配列として扱っている.
   //! @n
@@ -197,6 +202,8 @@ class DividedMapState final {
   //!< 格子の中の最も高いz座標をまとめたもの,要素が存在しないなら,kMapMinZ
   //!< が入る.
   std::vector<float> divided_map_top_z_;
+
+  std::vector<PlaneRect> divided_map_plane_;  //!< 格子の中の平面の情報.
 
   static_assert(kDividedMapPointNum > 0,
                 "kDividedMapPointNum は正の整数である必要があります.");

@@ -60,6 +60,31 @@ void MapRenderer::Draw() const {
                            (i + j) % 2 == 0 ? color_light_gray_ : color_gray_);
     }
   }
+
+  const auto plane = divided_map_.GetDividedMapPlane();
+
+  for (size_t i = 0; i < plane.size(); ++i) {
+    // 平面を描画する.
+    std::array<VECTOR, 4> vertex{};
+    for (size_t l = 0; l < 4; l++) {
+      Vector3 p_corner = plane[i].corners[l];
+      p_corner.z -= 10.0;
+
+      vertex[l] = ConvertToDxlibVec(p_corner);
+    }
+
+    unsigned int color{};
+    if (i % 3 == 0) {
+      color = GetColor(255, 20, 20);  // 赤
+    } else if (i % 3 == 1) {
+      color = GetColor(20, 255, 20);  // 緑
+    } else {
+      color = GetColor(20, 20, 255);  // 青
+    }
+
+    dxlib_util::DrawFlatPlane(vertex, ConvertToDxlibVec(plane[i].normal),
+                              color);
+  }
 }
 
 }  // namespace designlab

@@ -810,6 +810,9 @@
     <ClInclude Include="hexapod_renderer_builder.h">
       <Filter>ヘッダー ファイル\Graphic\3DRender\HexapodRender</Filter>
     </ClInclude>
+    <ClInclude Include="math_plane.h">
+      <Filter>ソース ファイル\Common\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">

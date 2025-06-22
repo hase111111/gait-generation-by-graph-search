@@ -130,4 +130,13 @@ void DrawHexagonalPrism(const std::array<VECTOR, 6>& vertex, const float height,
   }
 }
 
+//! @todo 引数を整理する
+void DrawFlatPlane(const std::array<VECTOR, 4>& vertex, const VECTOR&,
+                   unsigned int color) {
+  // 平面を描画するためには,4つの頂点を指定して,
+  // 3角形2つで構成する必要がある.
+  DrawTriangle3D(vertex[0], vertex[1], vertex[2], color, TRUE);
+  DrawTriangle3D(vertex[2], vertex[3], vertex[0], color, TRUE);
+}
+
 }  // namespace designlab::dxlib_util

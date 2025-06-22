@@ -7,6 +7,7 @@
 
 #include "divided_map_state.h"
 
+#include "cmdio_util.h"
 #include "math_util.h"
 
 namespace designlab {
@@ -33,14 +34,19 @@ void DividedMapState::Init(const MapState& map_state,
   // マップのデータ全てを参照し,切り分ける.
   const size_t kMapPointSize = map_state.GetMapPointSize();
 
+  std::vector<Vector3> points_data_for_plane_;  // 平面の情報を格納する.
+
   for (size_t i = 0; i < kMapPointSize; ++i) {
     // xy方向のブロック番号をそれぞれ求める.
-    const designlab::Vector3 point = map_state.GetMapPoint(i);
+    const Vector3 point = map_state.GetMapPoint(i);
 
     // 範囲内にいないならば処理をやめ,続行.
     if (!IsInMap(point)) {
       continue;
     }
+
+    // 平面の情報を更新する.
+    points_data_for_plane_.push_back(point);
 
     const int x = GetDividedMapIndexX(point.x);
     const int y = GetDividedMapIndexY(point.y);
@@ -54,6 +60,11 @@ void DividedMapState::Init(const MapState& map_state,
           (std::max)(point.z, divided_map_top_z_[GetDividedMapIndex(x, y)]);
     }
   }
+
+  // 平面の情報を更新する.
+  auto plane =
+      detectMultiplePlanes(points_data_for_plane_, 10, 100, 0.01f, 200);
+  divided_map_plane_ = plane;
 }
 
 void DividedMapState::Clear() {
@@ -66,6 +77,8 @@ void DividedMapState::Clear() {
   for (auto& i : divided_map_top_z_) {
     i = kMapMinZ;
   }
+
+  divided_map_plane_.clear();  // 平面の情報もクリアする.
 }
 
 nostd::expected<int, std::string> DividedMapState::GetPointNum(

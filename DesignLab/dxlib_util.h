@@ -100,6 +100,9 @@ void DrawHexagon(const std::array<VECTOR, 6>& vertex, unsigned int color);
 void DrawHexagonalPrism(const std::array<VECTOR, 6>& vertex, float height,
                         unsigned int color);
 
+void DrawFlatPlane(const std::array<VECTOR, 4>& vertex, const VECTOR& normal,
+                   unsigned int color);
+
 }  // namespace designlab::dxlib_util
 
 namespace DxLib {
