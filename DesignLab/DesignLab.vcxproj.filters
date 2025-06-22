@@ -88,9 +88,6 @@
     <Filter Include="ソース ファイル\Graphic\GUI">
       <UniqueIdentifier>{df7998dd-914b-4696-8d2e-2c87e003cbb5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Graphic\Interface">
-      <UniqueIdentifier>{686ea2ca-ca07-416f-b8da-79761b5b6465}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Map\FileIo">
       <UniqueIdentifier>{fb25e45b-efe3-41d2-a4eb-466f76c14f6c}</UniqueIdentifier>
     </Filter>
@@ -232,23 +229,38 @@
     <Filter Include="ヘッダー ファイル\Node\NodeCreatorSequence">
       <UniqueIdentifier>{aa11e44f-4f9c-461f-8916-c8747d7d7dbf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\Graphic">
+      <UniqueIdentifier>{305e15cf-3f88-4f3d-b0a5-d896d71df54a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Graphic\Main">
+      <UniqueIdentifier>{9a8e04df-8a97-4f15-867e-208f960bfcb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Graphic\Interface">
+      <UniqueIdentifier>{686ea2ca-ca07-416f-b8da-79761b5b6465}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Graphic\GUI">
+      <UniqueIdentifier>{3ce48e78-10c7-4168-8b39-8183a9f36374}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Graphic\Common">
+      <UniqueIdentifier>{2d7fdb9d-94f4-439d-9d46-1c3b8f9a6636}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Graphic\Common\Camera">
+      <UniqueIdentifier>{7e3ada3f-d563-4a4c-b439-1852832eb897}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Graphic\Common\Input">
+      <UniqueIdentifier>{61723c8f-ed06-495e-b3e3-f7bae6f17f39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Graphic\Common\Resource">
+      <UniqueIdentifier>{a16e9705-0af3-49d5-923d-df16225537a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Graphic\Common\3DRender">
+      <UniqueIdentifier>{b55a532f-f370-452a-ad26-cdc5275965da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Graphic\Common\3DRender\HexapodRender">
+      <UniqueIdentifier>{d25f64fc-9648-4e44-b4cf-ab67cd1c356a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="graphic_system.h">
-      <Filter>ソース ファイル\Graphic</Filter>
-    </ClInclude>
-    <ClInclude Include="graphic_const.h">
-      <Filter>ソース ファイル\Graphic\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="fps_controller.h">
-      <Filter>ソース ファイル\Graphic\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="map_renderer.h">
-      <Filter>ソース ファイル\Graphic\3DRender</Filter>
-    </ClInclude>
-    <ClInclude Include="graphic_main_display_model.h">
-      <Filter>ソース ファイル\Graphic\Main</Filter>
-    </ClInclude>
     <ClInclude Include="math_vector2.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
@@ -261,9 +273,6 @@
     <ClInclude Include="math_line_segment2.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
-    <ClInclude Include="graphic_main_graph_viewer.h">
-      <Filter>ソース ファイル\Graphic\Main</Filter>
-    </ClInclude>
     <ClInclude Include="stopwatch.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
@@ -273,62 +282,14 @@
     <ClInclude Include="math_quaternion.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
-    <ClInclude Include="dxlib_camera.h">
-      <Filter>ソース ファイル\Graphic\Common\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="camera_dragger.h">
-      <Filter>ソース ファイル\Graphic\Common\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="dxlib_gui_camera.h">
-      <Filter>ソース ファイル\Graphic\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="dxlib_util.h">
-      <Filter>ソース ファイル\Graphic\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="keyboard.h">
-      <Filter>ソース ファイル\Graphic\Common\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="mouse.h">
-      <Filter>ソース ファイル\Graphic\Common\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="simple_button.h">
-      <Filter>ソース ファイル\Graphic\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="world_grid_renderer.h">
-      <Filter>ソース ファイル\Graphic\3DRender</Filter>
-    </ClInclude>
-    <ClInclude Include="movement_locus_renderer.h">
-      <Filter>ソース ファイル\Graphic\3DRender</Filter>
-    </ClInclude>
-    <ClInclude Include="dxlib_gui_node_displayer.h">
-      <Filter>ソース ファイル\Graphic\GUI</Filter>
-    </ClInclude>
     <ClInclude Include="cmdio_util.h">
       <Filter>ソース ファイル\Common\CommandIO</Filter>
     </ClInclude>
     <ClInclude Include="output_detail.h">
       <Filter>ソース ファイル\Common\CommandIO</Filter>
     </ClInclude>
-    <ClInclude Include="robot_ground_point_renderer.h">
-      <Filter>ソース ファイル\Graphic\3DRender</Filter>
-    </ClInclude>
-    <ClInclude Include="dxlib_gui_display_node_switcher.h">
-      <Filter>ソース ファイル\Graphic\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="stability_margin_renderer.h">
-      <Filter>ソース ファイル\Graphic\3DRender</Filter>
-    </ClInclude>
-    <ClInclude Include="graphic_main_basic.h">
-      <Filter>ソース ファイル\Graphic\Main</Filter>
-    </ClInclude>
     <ClInclude Include="math_util.h">
       <Filter>ソース ファイル\Common\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="interface_graphic_main.h">
-      <Filter>ソース ファイル\Graphic\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="graphic_data_broker.h">
-      <Filter>ソース ファイル\Graphic</Filter>
     </ClInclude>
     <ClInclude Include="asyncable_data.h">
       <Filter>ソース ファイル\Common</Filter>
@@ -339,65 +300,32 @@
     <ClInclude Include="file_tree.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
-    <ClInclude Include="model_loader.h">
-      <Filter>ソース ファイル\Graphic\Common\Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="phantomx_renderer_simple.h">
-      <Filter>ソース ファイル\Graphic\3DRender\HexapodRender</Filter>
-    </ClInclude>
-    <ClInclude Include="display_quality.h">
-      <Filter>ソース ファイル\Graphic\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="phantomx_mk2_renderer_model.h">
-      <Filter>ソース ファイル\Graphic\3DRender\HexapodRender</Filter>
-    </ClInclude>
     <ClInclude Include="string_util.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
     <ClInclude Include="math_rot_converter.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
-    <ClInclude Include="font_loader.h">
-      <Filter>ソース ファイル\Graphic\Common\Resource</Filter>
-    </ClInclude>
     <ClInclude Include="average_calculator.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
-    <ClInclude Include="dxlib_gui_updater.h">
-      <Filter>ソース ファイル\Graphic\GUI</Filter>
-    </ClInclude>
     <ClInclude Include="interface_dxlib_clickable.h">
-      <Filter>ソース ファイル\Graphic\Interface</Filter>
+      <Filter>ヘッダー ファイル\Graphic\Interface</Filter>
     </ClInclude>
     <ClInclude Include="interface_dxlib_draggable.h">
-      <Filter>ソース ファイル\Graphic\Interface</Filter>
+      <Filter>ヘッダー ファイル\Graphic\Interface</Filter>
     </ClInclude>
     <ClInclude Include="interface_dxlib_gui.h">
-      <Filter>ソース ファイル\Graphic\Interface</Filter>
+      <Filter>ヘッダー ファイル\Graphic\Interface</Filter>
     </ClInclude>
     <ClInclude Include="interface_dxlib_wheel_handler.h">
-      <Filter>ソース ファイル\Graphic\Interface</Filter>
+      <Filter>ヘッダー ファイル\Graphic\Interface</Filter>
     </ClInclude>
     <ClInclude Include="interface_dxlib_node_setter.h">
-      <Filter>ソース ファイル\Graphic\Interface</Filter>
+      <Filter>ヘッダー ファイル\Graphic\Interface</Filter>
     </ClInclude>
     <ClInclude Include="interface_dxlib_3d_renderer.h">
-      <Filter>ソース ファイル\Graphic\Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="dxlib_3d_renderer_group.h">
-      <Filter>ソース ファイル\Graphic\3DRender</Filter>
-    </ClInclude>
-    <ClInclude Include="dxlib_node_setter_group.h">
-      <Filter>ソース ファイル\Graphic\3DRender</Filter>
-    </ClInclude>
-    <ClInclude Include="hexapod_renderer_builder.h">
-      <Filter>ソース ファイル\Graphic\3DRender\HexapodRender</Filter>
-    </ClInclude>
-    <ClInclude Include="dxlib_gui_terminal.h">
-      <Filter>ソース ファイル\Graphic\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="graph_viewer_gui_controller.h">
-      <Filter>ソース ファイル\Graphic\GUI</Filter>
+      <Filter>ヘッダー ファイル\Graphic\Interface</Filter>
     </ClInclude>
     <ClInclude Include="gait_pattern_graph_tree_test.h">
       <Filter>ヘッダー ファイル\Node\Test</Filter>
@@ -413,9 +341,6 @@
     </ClInclude>
     <ClInclude Include="simulation_setting_record.h">
       <Filter>ヘッダー ファイル\System\Simulation\Setting</Filter>
-    </ClInclude>
-    <ClInclude Include="dxlib_gui_camera_parameter_displayer.h">
-      <Filter>ソース ファイル\Graphic\GUI</Filter>
     </ClInclude>
     <ClInclude Include="toml11_define.h">
       <Filter>ソース ファイル\Common\TomlFileIO</Filter>
@@ -440,9 +365,6 @@
     </ClInclude>
     <ClInclude Include="simulation_map_parameter_validator_test.h">
       <Filter>ヘッダー ファイル\Map\MapCreator\Parameter\Test</Filter>
-    </ClInclude>
-    <ClInclude Include="singleton.h">
-      <Filter>ソース ファイル\Graphic\Common\Resource</Filter>
     </ClInclude>
     <ClInclude Include="math_vector3_test.h">
       <Filter>ソース ファイル\Common\Math\Test</Filter>
@@ -471,23 +393,8 @@
     <ClInclude Include="graph_search_evaluator_test.h">
       <Filter>ヘッダー ファイル\GaitPatternGenerator\GraphSearcher\Test</Filter>
     </ClInclude>
-    <ClInclude Include="dxlib_gui_robot_control.h">
-      <Filter>ソース ファイル\Graphic\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="graphic_main_robot_control.h">
-      <Filter>ソース ファイル\Graphic\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="approximated_motion_range_render.h">
-      <Filter>ソース ファイル\Graphic\3DRender</Filter>
-    </ClInclude>
     <ClInclude Include="node_creator_leg_hierarchy_test.h">
       <Filter>ヘッダー ファイル\Node\NodeCreator\LegChanger\Test</Filter>
-    </ClInclude>
-    <ClInclude Include="abstract_dxlib_gui.h">
-      <Filter>ソース ファイル\Graphic\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="graph_com_plotter.h">
-      <Filter>ソース ファイル\Graphic\3DRender</Filter>
     </ClInclude>
     <ClInclude Include="loop_util.h">
       <Filter>ソース ファイル\Common</Filter>
@@ -782,6 +689,126 @@
     </ClInclude>
     <ClInclude Include="gait_pattern_generator_switch_by_map.h">
       <Filter>ヘッダー ファイル\GaitPatternGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="graphic_system.h">
+      <Filter>ヘッダー ファイル\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="graphic_data_broker.h">
+      <Filter>ヘッダー ファイル\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="graphic_main_basic.h">
+      <Filter>ヘッダー ファイル\Graphic\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="interface_graphic_main.h">
+      <Filter>ヘッダー ファイル\Graphic\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="graphic_main_robot_control.h">
+      <Filter>ヘッダー ファイル\Graphic\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="graphic_main_graph_viewer.h">
+      <Filter>ヘッダー ファイル\Graphic\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="graphic_main_display_model.h">
+      <Filter>ヘッダー ファイル\Graphic\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="simple_button.h">
+      <Filter>ヘッダー ファイル\Graphic\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="graph_viewer_gui_controller.h">
+      <Filter>ヘッダー ファイル\Graphic\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="dxlib_gui_updater.h">
+      <Filter>ヘッダー ファイル\Graphic\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="dxlib_gui_terminal.h">
+      <Filter>ヘッダー ファイル\Graphic\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="dxlib_gui_robot_control.h">
+      <Filter>ヘッダー ファイル\Graphic\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="dxlib_gui_node_displayer.h">
+      <Filter>ヘッダー ファイル\Graphic\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="dxlib_gui_display_node_switcher.h">
+      <Filter>ヘッダー ファイル\Graphic\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="dxlib_gui_camera_parameter_displayer.h">
+      <Filter>ヘッダー ファイル\Graphic\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="dxlib_gui_camera.h">
+      <Filter>ヘッダー ファイル\Graphic\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="abstract_dxlib_gui.h">
+      <Filter>ヘッダー ファイル\Graphic\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="graphic_const.h">
+      <Filter>ヘッダー ファイル\Graphic\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="fps_controller.h">
+      <Filter>ヘッダー ファイル\Graphic\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="dxlib_util.h">
+      <Filter>ヘッダー ファイル\Graphic\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="display_quality.h">
+      <Filter>ヘッダー ファイル\Graphic\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="dxlib_camera.h">
+      <Filter>ヘッダー ファイル\Graphic\Common\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="camera_dragger.h">
+      <Filter>ヘッダー ファイル\Graphic\Common\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="keyboard.h">
+      <Filter>ヘッダー ファイル\Graphic\Common\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="mouse.h">
+      <Filter>ヘッダー ファイル\Graphic\Common\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="font_loader.h">
+      <Filter>ヘッダー ファイル\Graphic\Common\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="singleton.h">
+      <Filter>ヘッダー ファイル\Graphic\Common\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="model_loader.h">
+      <Filter>ヘッダー ファイル\Graphic\Common\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="world_grid_renderer.h">
+      <Filter>ヘッダー ファイル\Graphic\Common\3DRender</Filter>
+    </ClInclude>
+    <ClInclude Include="stability_margin_renderer.h">
+      <Filter>ヘッダー ファイル\Graphic\Common\3DRender</Filter>
+    </ClInclude>
+    <ClInclude Include="robot_ground_point_renderer.h">
+      <Filter>ヘッダー ファイル\Graphic\Common\3DRender</Filter>
+    </ClInclude>
+    <ClInclude Include="movement_locus_renderer.h">
+      <Filter>ヘッダー ファイル\Graphic\Common\3DRender</Filter>
+    </ClInclude>
+    <ClInclude Include="map_renderer.h">
+      <Filter>ヘッダー ファイル\Graphic\Common\3DRender</Filter>
+    </ClInclude>
+    <ClInclude Include="graph_com_plotter.h">
+      <Filter>ヘッダー ファイル\Graphic\Common\3DRender</Filter>
+    </ClInclude>
+    <ClInclude Include="dxlib_node_setter_group.h">
+      <Filter>ヘッダー ファイル\Graphic\Common\3DRender</Filter>
+    </ClInclude>
+    <ClInclude Include="dxlib_3d_renderer_group.h">
+      <Filter>ヘッダー ファイル\Graphic\Common\3DRender</Filter>
+    </ClInclude>
+    <ClInclude Include="approximated_motion_range_render.h">
+      <Filter>ヘッダー ファイル\Graphic\Common\3DRender</Filter>
+    </ClInclude>
+    <ClInclude Include="phantomx_renderer_simple.h">
+      <Filter>ヘッダー ファイル\Graphic\Common\3DRender\HexapodRender</Filter>
+    </ClInclude>
+    <ClInclude Include="phantomx_mk2_renderer_model.h">
+      <Filter>ヘッダー ファイル\Graphic\Common\3DRender\HexapodRender</Filter>
+    </ClInclude>
+    <ClInclude Include="hexapod_renderer_builder.h">
+      <Filter>ヘッダー ファイル\Graphic\Common\3DRender\HexapodRender</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

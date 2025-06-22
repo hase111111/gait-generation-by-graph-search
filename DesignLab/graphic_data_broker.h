@@ -28,9 +28,9 @@ struct GraphicDataBroker final {
   //! マップの情報,カメラをロボットに設置する場合,ロボットの位置も含まれる.
   AsyncableData<MapState> map_state;
 
-  AsyncableData<std::vector<RobotStateNode> > graph;
+  AsyncableData<std::vector<RobotStateNode>> graph;
 
-  AsyncableData<std::vector<size_t> > simulation_end_index;
+  AsyncableData<std::vector<size_t>> simulation_end_index;
 };
 
 }  // namespace designlab
