@@ -19,6 +19,12 @@ namespace designlab {
 struct PlaneRect final {
   std::array<Vector3, 4> corners;  //!< 時計回り or 反時計回りの4頂点
   Vector3 normal;                  //!< 法線ベクトル
+
+  inline std::string ToString() const {
+    return "PlaneRect: corners = [" + corners[0].ToString() + ", " +
+           corners[1].ToString() + ", " + corners[2].ToString() + ", " +
+           corners[3].ToString() + "], normal = " + normal.ToString();
+  }
 };
 
 struct Plane {
@@ -295,6 +301,19 @@ inline float planeRectDistance(const PlaneRect& A, const PlaneRect& B) {
       Vector3 b2 = B.corners[(j + 1) % 4];
       float d = segmentToSegmentDistance(a1, a2, b1, b2);
       minDist = (std::min)(minDist, d);
+    }
+  }
+
+  return minDist;
+}
+
+inline float planeRectDistance_s(const PlaneRect& A, const PlaneRect& B) {
+  float minDist = 10000000.0f;
+
+  // Aの各頂点 → Bへの距離
+  for (const auto& pa : A.corners) {
+    for (const auto& pb : B.corners) {
+      minDist = (std::min)(minDist, pa.GetDistanceFrom(pb));
     }
   }
 

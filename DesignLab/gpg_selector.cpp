@@ -12,6 +12,7 @@
 #include "cassert_define.h"
 #include "gait_pattern_generator_basic.h"
 #include "gait_pattern_generator_switch_by_map.h"
+#include "graph_searcher_plane.h"
 #include "graph_searcher_straight_move.h"
 #include "graph_tree_creator.h"
 #include "node_creator_sequence_body_rot.h"
@@ -89,8 +90,8 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgRollRot() const {
   auto graph_tree_creator =
       std::make_unique<GraphTreeCreator>(std::move(node_creator_builder));
 
-  auto graph_searcher =
-      std::make_unique<GraphSearcherStraightMove>(checker_ptr_);
+  auto graph_searcher = std::make_unique<GraphSearcherPlane>(
+      checker_ptr_, presenter_ptr_, converter_ptr_);
 
   auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorBasic>(
       std::move(graph_tree_creator), std::move(graph_searcher), 5, 20000000);

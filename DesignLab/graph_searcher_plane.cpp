@@ -18,8 +18,13 @@
 namespace designlab {
 
 GraphSearcherPlane::GraphSearcherPlane(
-    const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr)
-    : checker_ptr_(checker_ptr), evaluator_(InitializeEvaluator()) {}
+    const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
+    const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
+    const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr)
+    : checker_ptr_(checker_ptr),
+      presenter_ptr_(presenter_ptr),
+      converter_ptr_(converter_ptr),
+      evaluator_(InitializeEvaluator()) {}
 
 nostd::expected<GraphSearcherPlane::return_type, std::string>
 GraphSearcherPlane::SearchGraphTree(const GaitPatternGraphTree& graph,
@@ -89,8 +94,8 @@ GraphSearcherPlane::SearchGraphTree(const GaitPatternGraphTree& graph,
     candidate_evaluation_value.value.at(kTagLegRot) =
         GetLegRotEvaluationValue(graph.GetNode(i), graph.GetRootNode());
 
-    candidate_evaluation_value.value.at(kTagZDiff) = GetZDiffEvaluationValue(
-        graph.GetCoMVerticalTrajectory(i), target_z_value);
+    candidate_evaluation_value.value.at(kTagZDiff) =
+        GetPlaneEvaluationValue(graph.GetNode(i), divided_map_state);
 
     // 評価値を比較する.
     if (evaluator_.LeftIsBetter(candidate_evaluation_value,
@@ -119,6 +124,9 @@ GraphSearcherPlane::SearchGraphTree(const GaitPatternGraphTree& graph,
 
   cmdio::DebugOutputF("max_evaluation_value = {}",
                       max_evaluation_value.value[kTagZDiff]);
+  cmdio::DebugOutputF(
+      "plane : \n{}",
+      MakeRobotPlaneRect(graph.GetNode(max_evaluation_value_index)).ToString());
 
   return return_type{
       max_evaluation_value,
@@ -264,20 +272,53 @@ float GraphSearcherPlane::GetLegRotEvaluationValue(
   // const float margin = 10.0f;
 }
 
-float GraphSearcherPlane::GetZDiffEvaluationValue(
-    const std::vector<float>& com_trajectory,
-    const float target_z_value) const {
-  float result = abs(com_trajectory.back() - target_z_value);
-
-  if (com_trajectory.size() == 3) {
-    if ((com_trajectory[0] - com_trajectory[1]) *
-            (com_trajectory[0] - com_trajectory[2]) <=
-        0) {
-      result += abs(com_trajectory[0] - com_trajectory[1]);
+float GraphSearcherPlane::GetPlaneEvaluationValue(
+    const RobotStateNode& node, const DividedMapState& divide_map_state) const {
+  PlaneRect plane_rect = MakeRobotPlaneRect(node);
+  const auto planes = divide_map_state.GetDividedMapPlane();
+  float result = 10000000.0f;
+  for (const auto& plane : planes) {
+    // 平面とロボットの平面矩形の距離を求める.
+    const float distance = planeRectDistance(plane, plane_rect);
+    if (distance < result) {
+      // 最小値を更新する.
+      result = distance;
     }
   }
 
+  if (result < presenter_ptr_->GetGroundHeightMarginMin()) {
+    // 近づき過ぎている場合は，大きな値を返すことで評価を下げる.
+    result = 10000000.0f;
+  }
+
   return result;
+}
+
+PlaneRect GraphSearcherPlane::MakeRobotPlaneRect(
+    const RobotStateNode& node) const {
+  // 0, 2, 3, 5 番脚の付け根の座標を取得し，
+  // 平面矩形を作成する.
+
+  PlaneRect plane_rect;
+  std::vector<int> leg_indices = {0, 2, 3, 5};
+  int idx = 0;
+  for (const auto& leg_index : leg_indices) {
+    const Vector3 leg_root_pos =
+        presenter_ptr_->GetLegBasePosRobotCoordinate(leg_index);
+    const Vector3 leg_root_pos_global =
+        converter_ptr_->ConvertLegToGlobalCoordinate(
+            leg_root_pos, leg_index, node.center_of_mass_global_coord,
+            node.posture, true);
+
+    plane_rect.corners.at(idx) = leg_root_pos_global;
+    idx++;
+  }
+
+  // ロボットの姿勢から，法線を求める.
+  const Vector3 normal = RotateVector3(Vector3::GetUpVec(), node.posture);
+  plane_rect.normal = normal;
+
+  return plane_rect;
 }
 
 }  // namespace designlab

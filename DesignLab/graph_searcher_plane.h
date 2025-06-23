@@ -14,7 +14,9 @@
 #include <vector>
 
 #include "interface_graph_searcher.h"
+#include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_posture_validator.h"
+#include "interface_hexapod_state_presenter.h"
 
 namespace designlab {
 
@@ -24,8 +26,10 @@ class GraphSearcherPlane final : public IGraphSearcher {
   using Tag = GraphSearchEvaluationValue::Tag;
 
  public:
-  explicit GraphSearcherPlane(
-      const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr);
+  GraphSearcherPlane(
+      const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
+      const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
+      const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr);
 
   nostd::expected<return_type, std::string> SearchGraphTree(
       const GaitPatternGraphTree& graph, const RobotOperation& operation,
@@ -55,10 +59,14 @@ class GraphSearcherPlane final : public IGraphSearcher {
   float GetLegRotEvaluationValue(const RobotStateNode& node,
                                  const RobotStateNode& root_node) const;
 
-  float GetZDiffEvaluationValue(const std::vector<float>& com_trajectory,
-                                const float target_z_value) const;
+  float GetPlaneEvaluationValue(const RobotStateNode& node,
+                                const DividedMapState& divide_map_state) const;
+
+  PlaneRect MakeRobotPlaneRect(const RobotStateNode& node) const;
 
   const std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
+  const std::shared_ptr<const IHexapodStatePresenter> presenter_ptr_;
+  const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
 
   GraphSearchEvaluator evaluator_;
 };

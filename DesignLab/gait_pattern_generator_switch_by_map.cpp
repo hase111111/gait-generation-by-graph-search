@@ -50,12 +50,12 @@ GaitPatternGeneratorSwitchByMap::GetNextNodeByGraphSearch(
 bool GaitPatternGeneratorSwitchByMap::DoPitchRotation(
     const RobotStateNode&, const MapState&, const RobotOperation&) const {
   //! @todo 仮実装
-  return false;
+  return true;
 }
 
 bool GaitPatternGeneratorSwitchByMap::DoRollRotation(
     const RobotStateNode&, const MapState&, const RobotOperation&) const {
-  return true;
+  return false;
 }
 
 }  // namespace designlab
