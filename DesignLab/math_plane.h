@@ -185,6 +185,122 @@ inline std::vector<PlaneRect> detectMultiplePlanes(
   return detectedPlanes;
 }
 
+// ----- 点 → 矩形距離 -----
+inline float pointToRectDistance(const Vector3& p, const PlaneRect& rect) {
+  const Vector3 u = rect.corners[1] - rect.corners[0];
+  const Vector3 v = rect.corners[3] - rect.corners[0];
+  const Vector3 w = p - rect.corners[0];
+
+  const float uu = u.Dot(u), uv = u.Dot(v), vv = v.Dot(v);
+  const float wu = w.Dot(u), wv = w.Dot(v);
+
+  const float denom = uv * uv - uu * vv;
+  if (std::abs(denom) < 1e-8) {
+    // 面積ゼロっぽいので点距離で返す
+    float minDist = 100000000.f;
+    for (const auto& corner : rect.corners) {
+      const Vector3 d = p - corner;
+      minDist = (std::min)(minDist, d.GetLength());
+    }
+    return minDist;
+  }
+
+  const float s = (uv * wv - vv * wu) / denom;
+  const float t = (uv * wu - uu * wv) / denom;
+
+  // 点が平面内の矩形に投影されているか
+  if (s >= 0 && s <= 1 && t >= 0 && t <= 1) {
+    Vector3 proj = rect.corners[0] + u * s + v * t;
+    return (p - proj).GetLength();
+  } else {
+    // 矩形の各辺に対して点→線分距離をとる
+    float minDist = 100000000.f;
+    for (int i = 0; i < 4; ++i) {
+      Vector3 a = rect.corners[i];
+      Vector3 b = rect.corners[(i + 1) % 4];
+      Vector3 ab = b - a;
+      Vector3 ap = p - a;
+      const float t_ = std::clamp(ap.Dot(ab) / ab.Dot(ab), 0.0f, 1.0f);
+      Vector3 closest = a + ab * t_;
+      const float d = (p - closest).GetLength();
+      minDist = (std::min)(minDist, d);
+    }
+    return minDist;
+  }
+}
+
+// ----- 線分と線分の最短距離 -----
+inline float segmentToSegmentDistance(const Vector3& p1, const Vector3& q1,
+                                      const Vector3& p2, const Vector3& q2) {
+  Vector3 d1 = q1 - p1;
+  Vector3 d2 = q2 - p2;
+  Vector3 r = p1 - p2;
+
+  const float a = d1.Dot(d1);
+  const float e = d2.Dot(d2);
+  const float f = d2.Dot(r);
+
+  float s, t;
+
+  constexpr float EPS = static_cast<float>(1e-8);
+
+  if (a <= EPS && e <= EPS) {
+    return (p1 - p2).GetLength();  // 両方点
+  }
+  if (a <= EPS) {
+    s = 0.0;
+    t = std::clamp(f / e, 0.0f, 1.0f);
+  } else {
+    float c = d1.Dot(r);
+    if (e <= EPS) {
+      t = 0.0;
+      s = std::clamp(-c / a, 0.0f, 1.0f);
+    } else {
+      float b = d1.Dot(d2);
+      float denom = a * e - b * b;
+      if (std::abs(denom) < EPS) {
+        s = 0.0;
+      } else {
+        s = std::clamp((b * f - c * e) / denom, 0.0f, 1.0f);
+      }
+      t = std::clamp((b * s + f) / e, 0.0f, 1.0f);
+    }
+  }
+
+  Vector3 c1 = p1 + d1 * s;
+  Vector3 c2 = p2 + d2 * t;
+  return (c1 - c2).GetLength();
+}
+
+// ----- 主関数：2つのPlaneRect間の最短距離 -----
+inline float planeRectDistance(const PlaneRect& A, const PlaneRect& B) {
+  float minDist = 10000000.0f;
+
+  // Aの各頂点 → Bへの距離
+  for (const auto& p : A.corners) {
+    minDist = (std::min)(minDist, pointToRectDistance(p, B));
+  }
+
+  // Bの各頂点 → Aへの距離
+  for (const auto& p : B.corners) {
+    minDist = (std::min)(minDist, pointToRectDistance(p, A));
+  }
+
+  // 辺と辺の距離
+  for (int i = 0; i < 4; ++i) {
+    Vector3 a1 = A.corners[i];
+    Vector3 a2 = A.corners[(i + 1) % 4];
+    for (int j = 0; j < 4; ++j) {
+      Vector3 b1 = B.corners[j];
+      Vector3 b2 = B.corners[(j + 1) % 4];
+      float d = segmentToSegmentDistance(a1, a2, b1, b2);
+      minDist = (std::min)(minDist, d);
+    }
+  }
+
+  return minDist;
+}
+
 }  // namespace designlab
 
 #endif  // DESIGNLAB_MATH_PLANE_H_
