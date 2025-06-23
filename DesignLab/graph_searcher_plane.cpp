@@ -276,22 +276,32 @@ float GraphSearcherPlane::GetPlaneEvaluationValue(
     const RobotStateNode& node, const DividedMapState& divide_map_state) const {
   PlaneRect plane_rect = MakeRobotPlaneRect(node);
   const auto planes = divide_map_state.GetDividedMapPlane();
-  float result = 10000000.0f;
+  std::vector<float> plane_heights;
   for (const auto& plane : planes) {
     // 平面とロボットの平面矩形の距離を求める.
-    const float distance = planeRectDistance(plane, plane_rect);
-    if (distance < result) {
-      // 最小値を更新する.
-      result = distance;
+    for (const auto& corner : plane_rect.corners) {
+      const auto res =
+          IntersectRayWithPlaneRect(corner, plane_rect.normal, plane);
+      if (res) {
+        const auto& [dist, _] = *res;
+        // 平面との距離を格納する.
+        plane_heights.push_back(dist);
+      }
     }
   }
 
-  if (result < presenter_ptr_->GetGroundHeightMarginMin()) {
-    // 近づき過ぎている場合は，大きな値を返すことで評価を下げる.
-    result = 10000000.0f;
+  // 平均値を結果として返す.
+  if (plane_heights.empty()) {
+    // 平面がない場合は0を返す.
+    return 0.0f;
   }
 
-  return result;
+  float sum = 0.0f;
+  for (const auto& height : plane_heights) {
+    sum += height;
+  }
+  const float average_height = sum / static_cast<float>(plane_heights.size());
+  return average_height;
 }
 
 PlaneRect GraphSearcherPlane::MakeRobotPlaneRect(
@@ -315,7 +325,7 @@ PlaneRect GraphSearcherPlane::MakeRobotPlaneRect(
   }
 
   // ロボットの姿勢から，法線を求める.
-  const Vector3 normal = RotateVector3(Vector3::GetUpVec(), node.posture);
+  const Vector3 normal = RotateVector3(Vector3::GetUpVec() * -1, node.posture);
   plane_rect.normal = normal;
 
   return plane_rect;

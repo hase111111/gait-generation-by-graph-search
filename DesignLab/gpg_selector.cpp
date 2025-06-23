@@ -75,8 +75,8 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgPitchRot() const {
   auto graph_tree_creator =
       std::make_unique<GraphTreeCreator>(std::move(node_creator_builder));
 
-  auto graph_searcher =
-      std::make_unique<GraphSearcherStraightMove>(checker_ptr_);
+  auto graph_searcher = std::make_unique<GraphSearcherPlane>(
+      checker_ptr_, presenter_ptr_, converter_ptr_);
 
   auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorBasic>(
       std::move(graph_tree_creator), std::move(graph_searcher), 5, 20000000);

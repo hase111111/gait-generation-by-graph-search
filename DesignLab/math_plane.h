@@ -11,6 +11,7 @@
 #include <array>
 
 #include "math_vector3.h"
+#include "my_expected.h"
 
 namespace designlab {
 
@@ -318,6 +319,76 @@ inline float planeRectDistance_s(const PlaneRect& A, const PlaneRect& B) {
   }
 
   return minDist;
+}
+
+inline bool PointInQuad(const Vector3& p, const std::array<Vector3, 4>& quad) {
+  auto SameSide = [](const Vector3& p1, const Vector3& p2, const Vector3& a,
+                     const Vector3& b) {
+    Vector3 ab = b - a;
+    Vector3 cp1 = ab.Cross(p1 - a);
+    Vector3 cp2 = ab.Cross(p2 - a);
+    return cp1.Dot(cp2) >= 0;
+  };
+
+  auto InsideTriangle = [&](const Vector3& a, const Vector3& b,
+                            const Vector3& c) {
+    return SameSide(p, a, b, c) && SameSide(p, b, c, a) && SameSide(p, c, a, b);
+  };
+
+  return InsideTriangle(quad[0], quad[1], quad[2]) ||
+         InsideTriangle(quad[2], quad[3], quad[0]);
+}
+
+inline nostd::expected<std::tuple<float, Vector3>, std::string>
+IntersectRayWithPlaneRect(const Vector3& origin, const Vector3& direction,
+                          const PlaneRect& target) {
+  const float denom = target.normal.Dot(direction);
+  if (std::abs(denom) < 1e-6f) {
+    // 平面に平行な場合
+    return nostd::unexpected<std::string>("Line is parallel to plane");
+  }
+
+  const Vector3& p0 = target.corners[0];
+  const float t = -target.normal.Dot(origin - p0) / denom;
+  if (t < 0) {
+    // 交点が原点より後ろにある場合
+    return nostd::unexpected<std::string>("No intersection, behind origin");
+  }
+
+  Vector3 intersection = origin + direction * t;
+  if (!PointInQuad(intersection, target.corners)) {
+    // 交点が矩形の内部にない場合
+    return nostd::unexpected<std::string>("Intersection not within rectangle");
+  }
+
+  return std::make_tuple(t, intersection);
+}
+
+inline nostd::expected<Vector3, std::string> IntersectPointWithPlaneRect(
+    const PlaneRect& plane, const Vector3& origin, const Vector3& direction,
+    float epsilon = 1e-6f) {
+  // 平面の法線とレイ方向の内積を計算
+  float denom = plane.normal.Dot(direction);
+  if (std::abs(denom) < epsilon) {
+    // レイと平面が平行
+    return nostd::unexpected<std::string>("Ray is parallel to the plane");
+  }
+
+  // 平面上の1点（四角形の1つの角）を取得
+  const Vector3& plane_point = plane.corners[0];
+
+  // t を計算：レイと平面の交差スカラー
+  float t = -plane.normal.Dot(origin - plane_point) / denom;
+
+  if (t < 0) {
+    // レイが逆方向に交差する（不可視）
+    return nostd::unexpected<std::string>("Ray intersects behind the origin");
+  }
+
+  // 交点を計算
+  Vector3 intersection = origin + direction * t;
+
+  return intersection;
 }
 
 }  // namespace designlab
