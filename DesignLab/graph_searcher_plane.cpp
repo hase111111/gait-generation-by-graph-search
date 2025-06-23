@@ -184,7 +184,7 @@ GraphSearcherPlane::SearchGraphTreeVector(
 GraphSearchEvaluator GraphSearcherPlane::InitializeEvaluator() const {
   GraphSearchEvaluator::EvaluationMethod move_forward_method = {
       .is_lower_better = false,
-      .margin = 0.0f,
+      .margin = 20.0f,
   };
 
   GraphSearchEvaluator::EvaluationMethod leg_rot_method = {
@@ -194,13 +194,13 @@ GraphSearchEvaluator GraphSearcherPlane::InitializeEvaluator() const {
 
   GraphSearchEvaluator::EvaluationMethod z_diff_method = {
       .is_lower_better = true,
-      .margin = 5.0f,
+      .margin = 0.0f,
   };
 
   GraphSearchEvaluator ret({{kTagMoveForward, move_forward_method},
                             {kTagLegRot, leg_rot_method},
                             {kTagZDiff, z_diff_method}},
-                           {kTagZDiff, kTagMoveForward, kTagLegRot});
+                           {kTagMoveForward, kTagZDiff, kTagLegRot});
 
   return ret;
 }
@@ -293,11 +293,14 @@ float GraphSearcherPlane::GetPlaneEvaluationValue(
   // 平均値を結果として返す.
   if (plane_heights.empty()) {
     // 平面がない場合は0を返す.
-    return 0.0f;
+    return 10000000.0f;
   }
 
   float sum = 0.0f;
   for (const auto& height : plane_heights) {
+    if (height < presenter_ptr_->GetGroundHeightMarginMin()) {
+      sum += 100000.0f;  // マージン未満の場合，ペナルティを加える.
+    }
     sum += height;
   }
   const float average_height = sum / static_cast<float>(plane_heights.size());
