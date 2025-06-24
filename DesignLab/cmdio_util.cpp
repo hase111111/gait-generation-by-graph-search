@@ -217,7 +217,7 @@ int cmdio::InputInt(const int min, const int max, const int default_num,
   OutputF(OutputDetail::kSystem, "{} ( {} ～ {} ) ", str, min, max);
 
   std::string input_str;
-  std::cout << ">>" << std::flush;
+  std::cout << ">> " << std::flush;
   std::cin >> input_str;
 
   int res = default_num;
@@ -251,7 +251,7 @@ bool cmdio::InputYesNo(const std::string& str) {
 
   while (true) {
     std::string input_str;
-    std::cout << ">>" << std::flush;
+    std::cout << ">> " << std::flush;
     std::cin >> input_str;
 
     if (input_str == "y" || input_str == "yes" || input_str == "Y" ||
@@ -277,7 +277,7 @@ std::string cmdio::InputDirName(const std::string& str) {
 
   while (true) {
     std::string input_str;
-    std::cout << ">>" << std::flush;
+    std::cout << ">> " << std::flush;
     std::cin >> input_str;
 
     bool is_invalid = true;
