@@ -50,7 +50,7 @@ GaitPatternGeneratorSwitchByMap::GetNextNodeByGraphSearch(
 bool GaitPatternGeneratorSwitchByMap::DoPitchRotation(
     const RobotStateNode&, const MapState&, const RobotOperation&) const {
   //! @todo 仮実装
-  return true;
+  return false;
 }
 
 bool GaitPatternGeneratorSwitchByMap::DoRollRotation(

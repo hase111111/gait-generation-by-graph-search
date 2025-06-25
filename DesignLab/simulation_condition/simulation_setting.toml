@@ -8,7 +8,7 @@
     end_check_mode = "kGoalTape" 
     
     #終了条件がゴールテープに到達したか ( GoalTape ) の場合，ゴールテープのx座標を設定します．[mm]
-    goal_tape_position_x = 1200.0
+    goal_tape_position_x = 1500.0
     
     #終了条件が目的の座標に到達したか ( Position ) の場合，目標の座標を設定します．[mm]
     target_position = "     -400.000,     0.000,     0.000"
@@ -40,7 +40,7 @@
     map_create_mode = "kForSimulation" 
     
     #マップの作成方法がファイルから読み込むモード ( FromFile ) の場合，マップの csvファイルの名前を設定します．
-    map_file_name = "../result/expriment_50percent_hole_20250508_1716_58/map_state1.csv"
+    map_file_name = "../result/map_data_one_step_130_20250624_1116_22/map_state1.csv"
     
     #マップの作成方法がシミュレーション専用マップを出力するモード ( ForSimulation ) の場合，マップのパラメータを記述した toml ファイルの名前を設定します．
     simulation_map_param_file_name = "simulation_map.toml"

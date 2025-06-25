@@ -184,7 +184,7 @@ GraphSearcherPlane::SearchGraphTreeVector(
 GraphSearchEvaluator GraphSearcherPlane::InitializeEvaluator() const {
   GraphSearchEvaluator::EvaluationMethod move_forward_method = {
       .is_lower_better = false,
-      .margin = 20.0f,
+      .margin = 18.0f,
   };
 
   GraphSearchEvaluator::EvaluationMethod leg_rot_method = {
