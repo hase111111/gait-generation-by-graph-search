@@ -47,7 +47,7 @@ concept CopyAssignable = std::is_copy_assignable<T>::value;
 template <CopyAssignable T>
 class AsyncableData final {
  public:
-  AsyncableData() : update_count_(0) {}
+  AsyncableData() : data_{}, update_count_(0) {}
   explicit AsyncableData(const T& data) : data_(data), update_count_(0) {}
 
   AsyncableData(const AsyncableData&) = delete;  //!< コピーは禁止
