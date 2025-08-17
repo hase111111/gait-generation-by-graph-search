@@ -27,6 +27,7 @@
     <ClInclude Include="dxlib_gui_robot_control.h" />
     <ClInclude Include="gait_pattern_generator_switch_by_map.h" />
     <ClInclude Include="graph_searcher_plane.h" />
+    <ClInclude Include="graph_searcher_wall.h" />
     <ClInclude Include="math_plane.h" />
     <ClInclude Include="my_expected.h" />
     <ClInclude Include="gpg_selector.h" />
@@ -45,11 +46,13 @@
     <ClInclude Include="my_expected_concept.h" />
     <ClInclude Include="my_expected_test.h" />
     <ClInclude Include="my_unexpected_test.h" />
+    <ClInclude Include="node_creator_com_move_wall.h" />
     <ClInclude Include="node_creator_sequence_body_rot.h" />
     <ClInclude Include="node_creator_sequence_ground_conforming_rot.h" />
     <ClInclude Include="node_creator_leg_hierarchy_test.h" />
     <ClInclude Include="node_creator_leg_up_down_radius.h" />
     <ClInclude Include="my_unexpected.h" />
+    <ClInclude Include="node_creator_sequence_wall.h" />
     <ClInclude Include="serial_communication_thread.h" />
     <ClInclude Include="string_util_test.h" />
     <ClInclude Include="divided_map_state_test.h" />
@@ -225,6 +228,7 @@
     <ClCompile Include="graph_searcher_spot_turn.cpp" />
     <ClCompile Include="dxlib_gui_updater.cpp" />
     <ClCompile Include="graph_searcher_turn.cpp" />
+    <ClCompile Include="graph_searcher_wall.cpp" />
     <ClCompile Include="graph_search_evaluator.cpp" />
     <ClCompile Include="hexapod_renderer_builder.cpp" />
     <ClCompile Include="interpolate_validator.cpp" />
@@ -235,6 +239,7 @@
     <ClCompile Include="map_file_importer.cpp" />
     <ClCompile Include="node_creator_body_rot.cpp" />
     <ClCompile Include="boot_mode_selector.cpp" />
+    <ClCompile Include="node_creator_com_move_wall.cpp" />
     <ClCompile Include="node_creator_sequence_body_rot.cpp" />
     <ClCompile Include="node_creator_sequence_ground_conforming_rot.cpp" />
     <ClCompile Include="node_creator_sequence_turn_spot.cpp" />
@@ -242,6 +247,7 @@
     <ClCompile Include="node_creator_com_move_straight.cpp" />
     <ClCompile Include="node_creator_leg_up_down_2d.cpp" />
     <ClCompile Include="node_creator_leg_up_down_radius.cpp" />
+    <ClCompile Include="node_creator_sequence_wall.cpp" />
     <ClCompile Include="robot_operator_for_path.cpp" />
     <ClCompile Include="serial_communication_thread.cpp" />
     <ClCompile Include="simple_button.cpp" />

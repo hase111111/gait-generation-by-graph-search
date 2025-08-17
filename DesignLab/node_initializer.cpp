@@ -36,7 +36,7 @@ RobotStateNode NodeInitializer::InitNode() const {
   for (int i = 0; i < HexapodConst::kLegNum; i++) {
     res.leg_pos[i] = res.leg_reference_pos[i] = {
         160.f * cos(PhantomXMkIIConst::kCoxaDefaultAngle[i]),
-        160.f * sin(PhantomXMkIIConst::kCoxaDefaultAngle[i]), -com_z};
+        160.f * sin(PhantomXMkIIConst::kCoxaDefaultAngle[i]), -60};
   }
 
   res.center_of_mass_global_coord = pos_;

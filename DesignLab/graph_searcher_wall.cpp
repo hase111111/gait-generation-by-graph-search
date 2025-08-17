@@ -1,11 +1,11 @@
 ﻿
-//! @file graph_searcher_straight_move.cpp
+//! @file graph_searcher_wall.cpp
 
 // Copyright(c) 2023-2025 Design Engineering Laboratory, Saitama University
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#include "graph_searcher_straight_move.h"
+#include "graph_searcher_wall.h"
 
 #include <functional>
 #include <vector>
@@ -17,14 +17,15 @@
 
 namespace designlab {
 
-GraphSearcherStraightMove::GraphSearcherStraightMove(
+GraphSearcherWall::GraphSearcherWall(
     const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr)
     : checker_ptr_(checker_ptr), evaluator_(InitializeEvaluator()) {}
 
-nostd::expected<GraphSearcherStraightMove::return_type, std::string>
-GraphSearcherStraightMove::SearchGraphTree(
-    const GaitPatternGraphTree& graph, const RobotOperation& operation,
-    const DividedMapState& divided_map_state, const int max_depth) const {
+nostd::expected<GraphSearcherWall::return_type, std::string>
+GraphSearcherWall::SearchGraphTree(const GaitPatternGraphTree& graph,
+                                   const RobotOperation& operation,
+                                   const DividedMapState& divided_map_state,
+                                   const int max_depth) const {
   // ターゲットモードは直進である.
   assert(operation.operation_type ==
              RobotOperationType::kStraightMovePosition ||
@@ -44,11 +45,9 @@ GraphSearcherStraightMove::SearchGraphTree(
     normalized_move_direction =
         (operation.straight_move_position -
          graph.GetRootNode().center_of_mass_global_coord);
-    normalized_move_direction.z = 0.0f;
     normalized_move_direction = normalized_move_direction.GetNormalized();
   } else {
     normalized_move_direction = operation.straight_move_vector;
-    normalized_move_direction.z = 0.0f;
     normalized_move_direction = normalized_move_direction.GetNormalized();
     normalized_move_direction = normalized_move_direction.GetLength() == 0.0f
                                     ? Vector3::GetFrontVec()
@@ -88,9 +87,6 @@ GraphSearcherStraightMove::SearchGraphTree(
     candidate_evaluation_value.value.at(kTagLegRot) =
         GetLegRotEvaluationValue(graph.GetNode(i), graph.GetRootNode());
 
-    candidate_evaluation_value.value.at(kTagZDiff) = GetZDiffEvaluationValue(
-        graph.GetCoMVerticalTrajectory(i), target_z_value);
-
     // 評価値を比較する.
     if (evaluator_.LeftIsBetter(candidate_evaluation_value,
                                 max_evaluation_value)) {
@@ -125,8 +121,8 @@ GraphSearcherStraightMove::SearchGraphTree(
   };
 }
 
-nostd::expected<GraphSearcherStraightMove::return_type, std::string>
-GraphSearcherStraightMove::SearchGraphTreeVector(
+nostd::expected<GraphSearcherWall::return_type, std::string>
+GraphSearcherWall::SearchGraphTreeVector(
     const std::vector<GaitPatternGraphTree>& graph_vector,
     const RobotOperation& operation, const DividedMapState& divided_map_state,
     const int max_depth) const {
@@ -172,7 +168,7 @@ GraphSearcherStraightMove::SearchGraphTreeVector(
   return *result_vector[max_evaluation_value_index];
 }
 
-GraphSearchEvaluator GraphSearcherStraightMove::InitializeEvaluator() const {
+GraphSearchEvaluator GraphSearcherWall::InitializeEvaluator() const {
   GraphSearchEvaluator::EvaluationMethod move_forward_method = {
       .is_lower_better = false,
       .margin = 0.0f,
@@ -196,7 +192,7 @@ GraphSearchEvaluator GraphSearcherStraightMove::InitializeEvaluator() const {
   return ret;
 }
 
-float GraphSearcherStraightMove::InitTargetZValue(
+float GraphSearcherWall::InitTargetZValue(
     const RobotStateNode& node, const DividedMapState& divided_map_state,
     const Vector3& move_direction) const {
   const float move_length = 100.0f;
@@ -227,7 +223,7 @@ float GraphSearcherStraightMove::InitTargetZValue(
   return node.center_of_mass_global_coord.z;
 }
 
-float GraphSearcherStraightMove::GetMoveForwardEvaluationValue(
+float GraphSearcherWall::GetMoveForwardEvaluationValue(
     const RobotStateNode& node, const RobotStateNode& root_node,
     const Vector3& normalized_move_direction) const {
   // 正規化されていることを確認する.
@@ -244,7 +240,7 @@ float GraphSearcherStraightMove::GetMoveForwardEvaluationValue(
   // const float margin = 7.5f;
 }
 
-float GraphSearcherStraightMove::GetLegRotEvaluationValue(
+float GraphSearcherWall::GetLegRotEvaluationValue(
     const RobotStateNode& node, const RobotStateNode& root_node) const {
   float result = 0.0f;
 
@@ -263,7 +259,7 @@ float GraphSearcherStraightMove::GetLegRotEvaluationValue(
   // const float margin = 10.0f;
 }
 
-float GraphSearcherStraightMove::GetZDiffEvaluationValue(
+float GraphSearcherWall::GetZDiffEvaluationValue(
     const std::vector<float>& com_trajectory,
     const float target_z_value) const {
   float result = abs(com_trajectory.back() - target_z_value);

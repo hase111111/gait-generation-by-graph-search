@@ -14,9 +14,11 @@
 #include "gait_pattern_generator_switch_by_map.h"
 #include "graph_searcher_plane.h"
 #include "graph_searcher_straight_move.h"
+#include "graph_searcher_wall.h"
 #include "graph_tree_creator.h"
 #include "node_creator_sequence_body_rot.h"
 #include "node_creator_sequence_straight_move.h"
+#include "node_creator_sequence_wall.h"
 
 namespace designlab {
 
@@ -44,6 +46,9 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::Select(
     case GpgType::kSwichByMap: {
       return MakeGpgSwitchByMap();
     }
+    case GpgType::kWall: {
+      return MakeGpgWall();
+    }
     default: {
       break;
     }
@@ -54,11 +59,10 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::Select(
 }
 
 std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgFlat() const {
-  //! @todo ローカル変数名を変更する
-  auto node_creator_builder = std::make_unique<NodeCreatorSequenceStraightMove>(
+  auto node_creator_seq = std::make_unique<NodeCreatorSequenceStraightMove>(
       converter_ptr_, presenter_ptr_, checker_ptr_);
   auto graph_tree_creator =
-      std::make_unique<GraphTreeCreator>(std::move(node_creator_builder));
+      std::make_unique<GraphTreeCreator>(std::move(node_creator_seq));
 
   auto graph_searcher =
       std::make_unique<GraphSearcherStraightMove>(checker_ptr_);
@@ -104,6 +108,20 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgSwitchByMap() const {
       MakeGpgFlat(), MakeGpgPitchRot(), MakeGpgRollRot());
 
   return std::move(gpg_switch_by_map);
+}
+
+std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgWall() const {
+  auto node_creator_seq = std::make_unique<NodeCreatorSequenceWall>(
+      converter_ptr_, presenter_ptr_, checker_ptr_);
+  auto graph_tree_creator =
+      std::make_unique<GraphTreeCreator>(std::move(node_creator_seq));
+
+  auto graph_searcher = std::make_unique<GraphSearcherWall>(checker_ptr_);
+
+  auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorBasic>(
+      std::move(graph_tree_creator), std::move(graph_searcher), 4, 5000000);
+
+  return std::move(gait_pattern_generator);
 }
 
 }  // namespace designlab

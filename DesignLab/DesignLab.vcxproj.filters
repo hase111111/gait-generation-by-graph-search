@@ -816,6 +816,15 @@
     <ClInclude Include="graph_searcher_plane.h">
       <Filter>ヘッダー ファイル\GaitPatternGenerator\GraphSearcher</Filter>
     </ClInclude>
+    <ClInclude Include="graph_searcher_wall.h">
+      <Filter>ヘッダー ファイル\GaitPatternGenerator\GraphSearcher</Filter>
+    </ClInclude>
+    <ClInclude Include="node_creator_com_move_wall.h">
+      <Filter>ヘッダー ファイル\Node\NodeCreator\ComChanger</Filter>
+    </ClInclude>
+    <ClInclude Include="node_creator_sequence_wall.h">
+      <Filter>ヘッダー ファイル\Node\NodeCreatorSequence</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
@@ -1159,6 +1168,15 @@
     </ClCompile>
     <ClCompile Include="graph_searcher_plane.cpp">
       <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
+    </ClCompile>
+    <ClCompile Include="graph_searcher_wall.cpp">
+      <Filter>ソース ファイル\GaitPatternGenerator\GraphSearcher</Filter>
+    </ClCompile>
+    <ClCompile Include="node_creator_com_move_wall.cpp">
+      <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
+    </ClCompile>
+    <ClCompile Include="node_creator_sequence_wall.cpp">
+      <Filter>ソース ファイル\Node\NodeCreatorSequence</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

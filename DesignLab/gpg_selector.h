@@ -22,6 +22,7 @@ enum class GpgType {
   kPitchRot,      //!< ピッチ回転を行う.
   kStraightMove,  //!< 直進移動を行う.
   kSwichByMap,    //!< マップに応じて歩容を切り替える.
+  kWall,          //!< 壁を歩く.
 };
 
 class GpgSelector final {
@@ -39,6 +40,7 @@ class GpgSelector final {
   std::unique_ptr<IGaitPatternGenerator> MakeGpgPitchRot() const;
   std::unique_ptr<IGaitPatternGenerator> MakeGpgRollRot() const;
   std::unique_ptr<IGaitPatternGenerator> MakeGpgSwitchByMap() const;
+  std::unique_ptr<IGaitPatternGenerator> MakeGpgWall() const;
 
   const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
   const std::shared_ptr<const IHexapodStatePresenter> presenter_ptr_;

@@ -143,7 +143,7 @@ int main() {
 
         const auto gpg_builder = std::make_unique<GpgSelector>(
             phantomx_mk2, phantomx_mk2, phantomx_mk2);
-        auto gait_pattern_generator = gpg_builder->Select(GpgType::kSwichByMap);
+        auto gait_pattern_generator = gpg_builder->Select(GpgType::kWall);
 
         const auto sim_setting_record =
             TomlFileImporter<SimulationSettingRecord>{}.ImportOrUseDefault(
