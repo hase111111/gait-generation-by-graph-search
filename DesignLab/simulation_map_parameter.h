@@ -23,10 +23,11 @@ enum class SimulationMapMode : int {
   kVerticalStripe,    //!< 縦じまの面を生成する.
   kHorizontalStripe,  //!< 横じまの面を生成する.
   kDiagonalStripe,    //!< 斜めじまの面を生成する.
-  kMesh,  //!< 格子状の面を生成する.網目状の地形ともいっていい.
-  kLatticePoint,  //!< 格子点の面を生成する.網目状の逆.
-  kCircle,        //!< 円形の面を生成する.
-  kDonut,         //!< ドーナツ状の面を生成する.
+  kMesh,              //!< 格子状の面を生成する.網目状の地形ともいっていい.
+  kLatticePoint,      //!< 格子点の面を生成する.網目状の逆.
+  kCircle,            //!< 円形の面を生成する.
+  kDonut,             //!< ドーナツ状の面を生成する.
+  kWall,              //!< 壁の面を生成する.
 };
 
 //! @enum SimulationMapOption
@@ -42,9 +43,9 @@ enum class SimulationMapOption : unsigned int {
   kPerforated = 1 << 0,  //!< 穴の空いたマップに変化させる.
   kStep = 1 << 1,        //!< 階段状の地形に変化させる.
   kSlope = 1 << 2,       //!< スロープ状の地形に変化させる.
-  kTilt = 1 << 3,  //!< 縦軸を中心軸として回転させた地形に変化させる.
-  kRough = 1 << 4,      //!< 凸凹の地形に変化させる.
-  kRadiation = 1 << 5,  //!< 放射状の地形に変化させる.
+  kTilt = 1 << 3,        //!< 縦軸を中心軸として回転させた地形に変化させる.
+  kRough = 1 << 4,       //!< 凸凹の地形に変化させる.
+  kRadiation = 1 << 5,   //!< 放射状の地形に変化させる.
 };
 
 //! @struct SimulationMapParameter
@@ -140,11 +141,13 @@ struct SimulationMapParameter final {
   float map_max_y{2000.f};         //!< マップのY座標の最大値.
   float map_min_y{-2000.f};        //!< マップのY座標の最小値.
   float map_start_rough_x{400.f};  //!< 不整地が始まるX座標.
+  float wall_x{0.f};               //!< 壁のX座標 [mm].
+  float wall_height{1000.f};       //!< 壁の高さ [mm].
 
   //! 各種模様や穴を作成する際,これで指定したマス分の1辺を持つ正方形状にあなをあける.
   int stripe_interval{5};
 
-  int hole_rate{20};  //!< 不整地上の足場を除外する割合。ホール率[%]
+  int hole_rate{20};         //!< 不整地上の足場を除外する割合。ホール率[%]
   float step_height{100.f};  //!< 段差高さ[mm].負の値にすると下りの階段になる.
   float step_length{600.f};  //!< 階段の奥行[mm]
   float step_start_x{0.f};   //!< 階段の開始位置のX座標[mm]
@@ -162,7 +165,7 @@ struct SimulationMapParameter final {
   Vector2 radial_center{0.f, 0.f};  //!< 放射状の地形の中心座標.
   int radial_division{10};          //!< 放射状の地形の分割数.
   int radial_hole_rate{100};        //!< 放射状の地形のホール率[%].
-  float radial_angle_offset{0.0};  //!< 放射状の地形の角度オフセット[deg].
+  float radial_angle_offset{0.0};   //!< 放射状の地形の角度オフセット[deg].
 };
 
 DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationMapParameter) {
@@ -193,6 +196,9 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationMapParameter) {
                                             "マップのY座標の最小値.");
   DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(map_start_rough_x, "Basic",
                                             "不整地が始まるX座標.");
+  DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(wall_x, "Basic", "壁のX座標 [mm].");
+  DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(wall_height, "Basic",
+                                            "壁の高さ [mm].");
 
   DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
       stripe_interval, "Stripe",
@@ -247,12 +253,12 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationMapParameter) {
 
 DESIGNLAB_TOML11_SERIALIZE(designlab::SimulationMapParameter, mode, option,
                            base_z, map_max_x, map_min_x, map_max_y, map_min_y,
-                           map_start_rough_x, stripe_interval, hole_rate,
-                           step_height, step_length, step_start_x, slope_angle,
-                           slope_start_x, tilt_angle, tilt_start_x,
-                           rough_max_height, rough_min_height, circle_center,
-                           circle_radius, donut_radius, radial_center,
-                           radial_division, radial_hole_rate,
+                           map_start_rough_x, wall_x, wall_height,
+                           stripe_interval, hole_rate, step_height, step_length,
+                           step_start_x, slope_angle, slope_start_x, tilt_angle,
+                           tilt_start_x, rough_max_height, rough_min_height,
+                           circle_center, circle_radius, donut_radius,
+                           radial_center, radial_division, radial_hole_rate,
                            radial_angle_offset);
 
 #endif  // DESIGNLAB_SIMULATION_MAP_PARAMETER_H_

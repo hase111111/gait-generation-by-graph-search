@@ -56,6 +56,9 @@ class MapCreatorForSimulation final : public IMapCreator {
   //! ドーナツ型のマップを生成する.
   void CreateDonutMap(std::vector<Vector3>* map) const;
 
+  //! 壁のマップを生成する.
+  void CreateWallMap(std::vector<Vector3>* map) const;
+
   //! 生成されたマップにランダムな穴をあける.
   void ChangeMapToPerforated(std::vector<Vector3>* map) const;
 

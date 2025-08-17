@@ -61,6 +61,10 @@ MapState MapCreatorForSimulation::InitMap() const {
       CreateDonutMap(&map_data);
       break;
     }
+    case SimulationMapMode::kWall: {
+      CreateWallMap(&map_data);
+      break;
+    }
     default: {
       // 異常な値が入力されたら,平面のマップを生成する.
       CreateFlatMap(&map_data);
@@ -407,6 +411,45 @@ void MapCreatorForSimulation::CreateDonutMap(std::vector<Vector3>* map) const {
           distance <= parameter_.circle_radius) {
         map->push_back({x_pos, y_pos, parameter_.base_z});
       }
+    }
+  }
+}
+
+void MapCreatorForSimulation::CreateWallMap(std::vector<Vector3>* map) const {
+  assert(map != nullptr);  // map が nullptr でないことを確認する.
+  assert(map->empty());    // map が空であることを確認する.
+
+  // マップの xとyの存在範囲全体に脚設置可能点を敷き詰める.
+  const float x_max = (parameter_.map_max_x - parameter_.map_min_x) /
+                      MapState::kMapPointDistance;
+  const float y_max = (parameter_.map_max_y - parameter_.map_min_y) /
+                      MapState::kMapPointDistance;
+
+  for (int x = 0; x < x_max; x++) {
+    for (int y = 0; y < y_max; y++) {
+      // ロボットの正面方向.
+      const float x_pos =
+          parameter_.map_min_x + x * MapState::kMapPointDistance;
+
+      // ロボットの側面方向.
+      const float y_pos =
+          parameter_.map_min_y + y * MapState::kMapPointDistance;
+
+      map->push_back(
+          {x_pos, y_pos, parameter_.base_z});  // 脚設置可能点を追加する.
+    }
+  }
+
+  // 壁を作成する.
+  for (float h = 0; h < parameter_.wall_height;
+       h += MapState::kMapPointDistance) {
+    for (int y = 1; y < y_max; y++) {
+      // ロボットの側面方向.
+      const float y_pos =
+          parameter_.map_min_y + y * MapState::kMapPointDistance;
+
+      // 脚設置可能点を追加する.
+      map->push_back({parameter_.wall_x, y_pos, h});
     }
   }
 }

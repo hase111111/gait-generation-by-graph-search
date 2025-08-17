@@ -1,8 +1,8 @@
-#生成するマップの種類.("kFlat" / "kVerticalStripe" / "kHorizontalStripe" / "kDiagonalStripe" / "kMesh" / "kLatticePoint" / "kCircle" / "kDonut")
-mode = "kFlat"
+#生成するマップの種類.("kFlat" / "kVerticalStripe" / "kHorizontalStripe" / "kDiagonalStripe" / "kMesh" / "kLatticePoint" / "kCircle" / "kDonut" / "kWall")
+mode = "kWall"
 
 #マップ生成のオプション.複数指定したいならば足し合わせて指定すること.( kNone = 0 / kPerforated = 1 / kStep = 2 / kSlope = 4 / kTilt = 8 / kRough = 16 / kRadiation = 32 )
-option = 2
+option = 0
 
 [Basic]
     
@@ -23,6 +23,12 @@ option = 2
     
     #不整地が始まるX座標.
     map_start_rough_x = 400.0
+    
+    #壁の高さ [mm].
+    wall_height = 2000.0
+    
+    #壁のX座標 [mm].
+    wall_x = 60.0
 
 [Circle]
     
@@ -71,10 +77,10 @@ option = 2
 [Step]
     
     #段差高さ[mm].負の値にすると下りの階段になる.
-    step_height = 40.0
+    step_height = 100.0
     
     #階段の奥行[mm].正の値にすること.
-    step_length = 400.0
+    step_length = 600.0
     step_start_x = 0.0
 
 [Stripe]
