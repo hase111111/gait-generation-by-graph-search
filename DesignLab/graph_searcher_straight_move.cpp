@@ -46,6 +46,9 @@ GraphSearcherStraightMove::SearchGraphTree(
          graph.GetRootNode().center_of_mass_global_coord);
     normalized_move_direction.z = 0.0f;
     normalized_move_direction = normalized_move_direction.GetNormalized();
+    normalized_move_direction = normalized_move_direction.GetLength() == 0.0f
+                                    ? Vector3::GetFrontVec()
+                                    : normalized_move_direction;
   } else {
     normalized_move_direction = operation.straight_move_vector;
     normalized_move_direction.z = 0.0f;
