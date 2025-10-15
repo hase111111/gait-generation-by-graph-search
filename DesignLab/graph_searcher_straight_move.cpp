@@ -188,7 +188,7 @@ GraphSearchEvaluator GraphSearcherStraightMove::InitializeEvaluator() const {
 
   GraphSearchEvaluator::EvaluationMethod z_diff_method = {
       .is_lower_better = true,
-      .margin = 5.0f,
+      .margin = 0.0f,
   };
 
   GraphSearchEvaluator ret({{kTagMoveForward, move_forward_method},
