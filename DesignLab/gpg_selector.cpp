@@ -18,6 +18,7 @@
 #include "graph_tree_creator.h"
 #include "node_creator_sequence_body_rot.h"
 #include "node_creator_sequence_straight_move.h"
+#include "node_creator_sequence_straight_move_legacy.h"
 #include "node_creator_sequence_wall.h"
 
 namespace designlab {
@@ -40,6 +41,9 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::Select(
     case GpgType::kFlat: {
       return MakeGpgFlat();
     }
+    case GpgType::kFlatLegacyAlgorithm: {
+      return MakeGpgFlatLegacyAlgorithm();
+    }
     case GpgType::kPitchRot: {
       return MakeGpgPitchRot();
     }
@@ -61,6 +65,23 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::Select(
 std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgFlat() const {
   auto node_creator_seq = std::make_unique<NodeCreatorSequenceStraightMove>(
       converter_ptr_, presenter_ptr_, checker_ptr_);
+  auto graph_tree_creator =
+      std::make_unique<GraphTreeCreator>(std::move(node_creator_seq));
+
+  auto graph_searcher =
+      std::make_unique<GraphSearcherStraightMove>(checker_ptr_);
+
+  auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorBasic>(
+      std::move(graph_tree_creator), std::move(graph_searcher), 4, 5000000);
+
+  return std::move(gait_pattern_generator);
+}
+
+std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgFlatLegacyAlgorithm()
+    const {
+  auto node_creator_seq =
+      std::make_unique<NodeCreatorSequenceStraightMoveLegacy>(
+          converter_ptr_, presenter_ptr_, checker_ptr_);
   auto graph_tree_creator =
       std::make_unique<GraphTreeCreator>(std::move(node_creator_seq));
 
