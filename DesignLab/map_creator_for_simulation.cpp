@@ -483,8 +483,9 @@ void MapCreatorForSimulation::ChangeMapToPerforated(
   }
 
   // ランダムなホールにするために要素の順番をシャッフルする.
-  std::shuffle(std::begin(do_perforated), std::end(do_perforated),
-               std::default_random_engine());
+  std::random_device rd;
+  std::mt19937 mt(rd());
+  std::shuffle(std::begin(do_perforated), std::end(do_perforated), mt);
 
   // マップに穴をあける.
   for (auto itr = (*map).begin(); itr != (*map).end();) {
