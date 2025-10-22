@@ -31,6 +31,8 @@ GaitPatternGeneratorSwitchMove::GetNextNodeByGraphSearch(
   using enum RobotOperationType;
   using unexpected = nostd::unexpected<std::string>;
 
+  last_operation_ = operation;
+
   if (operation.operation_type == kStraightMoveVector ||
       operation.operation_type == kStraightMovePosition) {
     return gpg_for_straight_ptr_->GetNextNodeByGraphSearch(
@@ -41,6 +43,21 @@ GaitPatternGeneratorSwitchMove::GetNextNodeByGraphSearch(
         current_node, map_state, operation);
   } else {
     return unexpected{"A non-existent behavior was specified."};
+  }
+}
+
+int GaitPatternGeneratorSwitchMove::GetExpandedNodeCount() const {
+  // 直前の動作に応じて,展開したノード数を返す.
+  using enum RobotOperationType;
+
+  if (last_operation_.operation_type == kStraightMoveVector ||
+      last_operation_.operation_type == kStraightMovePosition) {
+    return gpg_for_straight_ptr_->GetExpandedNodeCount();
+  } else if (last_operation_.operation_type == kSpotTurnRotAxis ||
+             last_operation_.operation_type == kSpotTurnLastPosture) {
+    return gpg_for_turn_spot_ptr_->GetExpandedNodeCount();
+  } else {
+    return 0;
   }
 }
 

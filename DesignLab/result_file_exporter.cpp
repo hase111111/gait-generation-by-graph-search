@@ -211,15 +211,19 @@ void ResultFileExporter::ExportEachSimulationDetail(
     // 時間の統計を出力する.
 
     double max_time = recorder.graph_search_result_recorder[1].computation_time;
-
     double min_time = max_time;
 
-    AverageCalculator<double> average_calculator;
+    int min_node_count = 2000000000;
+    int max_node_count = 0;
+
+    AverageCalculator<double> time_average_calculator;
+    AverageCalculator<int> node_average_calculator;
 
     // 最初のノードは除く(計算時間0で固定のため)
     if (recorder.graph_search_result_recorder.size() > 1) {
       for (size_t j = 1; j < recorder.graph_search_result_recorder.size();
            ++j) {
+        // 時間
         const double time =
             recorder.graph_search_result_recorder[j].computation_time;
 
@@ -231,10 +235,25 @@ void ResultFileExporter::ExportEachSimulationDetail(
           min_time = time;
         }
 
-        average_calculator.AddData(time);
+        time_average_calculator.AddData(time);
+
+        // 展開ノード数
+        const int node_count =
+            recorder.graph_search_result_recorder[j].node_expanded_count;
+
+        if (node_count > max_node_count) {
+          max_node_count = node_count;
+        }
+
+        if (node_count < min_node_count) {
+          min_node_count = node_count;
+        }
+
+        node_average_calculator.AddData(node_count);
       }
     }
 
+    // 時間.
     ofs << "最大探索時間," << math_util::FloatingPointNumToString(max_time)
         << ",[milli_sec]" << std::endl;
 
@@ -243,32 +262,32 @@ void ResultFileExporter::ExportEachSimulationDetail(
 
     ofs << "総合探索時間,"
         << math_util::FloatingPointNumToString(
-               average_calculator.GetSum().value_or(-1.f))
+               time_average_calculator.GetSum().value_or(-1.f))
         << ",[milli_sec]" << std::endl;
 
     ofs << "平均探索時間,"
         << math_util::FloatingPointNumToString(
-               average_calculator.GetAverage().value_or(-1.f))
+               time_average_calculator.GetAverage().value_or(-1.f))
         << ",[milli_sec]" << std::endl;
 
     ofs << "分散,"
         << math_util::FloatingPointNumToString(
-               average_calculator.GetVariance().value_or(-1.f))
+               time_average_calculator.GetVariance().value_or(-1.f))
         << ",[milli_sec^2]" << std::endl;
 
     ofs << "標準偏差,"
         << math_util::FloatingPointNumToString(
-               average_calculator.GetStandardDeviation().value_or(-1.f))
+               time_average_calculator.GetStandardDeviation().value_or(-1.f))
         << ",[milli_sec]" << std::endl;
 
     const double time_1sigma_plus =
-        average_calculator.GetAverage().value_or(-1.f) +
-        average_calculator.GetStandardDeviation().value_or(-1.f);
+        time_average_calculator.GetAverage().value_or(-1.f) +
+        time_average_calculator.GetStandardDeviation().value_or(-1.f);
 
-    const double time_1sigma_minus =
-        (std::max)(average_calculator.GetAverage().value_or(-1.f) -
-                       average_calculator.GetStandardDeviation().value_or(-1.f),
-                   0.0);
+    const double time_1sigma_minus = (std::max)(
+        time_average_calculator.GetAverage().value_or(-1.f) -
+            time_average_calculator.GetStandardDeviation().value_or(-1.f),
+        0.0);
 
     ofs << "全データの約68%は"
         << math_util::FloatingPointNumToString(time_1sigma_plus)
@@ -276,6 +295,29 @@ void ResultFileExporter::ExportEachSimulationDetail(
         << math_util::FloatingPointNumToString(time_1sigma_minus)
         << " [milli_sec]以上です." << std::endl
         << std::endl;
+
+    // 展開ノード数.
+    ofs << "最大展開ノード数," << max_node_count << std::endl;
+    ofs << "最小展開ノード数," << min_node_count << std::endl;
+    ofs << "平均展開ノード数,"
+        << node_average_calculator.GetAverage().value_or(-1) << std::endl;
+    ofs << "分散,"
+        << math_util::FloatingPointNumToString(
+               node_average_calculator.GetVariance().value_or(-1))
+        << std::endl;
+    ofs << "標準偏差,"
+        << math_util::FloatingPointNumToString(
+               node_average_calculator.GetStandardDeviation().value_or(-1))
+        << std::endl;
+    ofs << "平均メモリ使用量 [byte],"
+        << static_cast<int>(node_average_calculator.GetAverage().value_or(0)) *
+               sizeof(RobotStateNode)
+        << std::endl;
+    ofs << "平均メモリ使用量 [Mb],"
+        << static_cast<int>(node_average_calculator.GetAverage().value_or(0)) *
+               sizeof(RobotStateNode) / 1024 / 1024
+        << std::endl;
+    ofs << std::endl;
 
     // 移動距離の統計を出力する.
     if (recorder.graph_search_result_recorder.size() > 1) {

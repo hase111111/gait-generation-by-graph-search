@@ -67,18 +67,20 @@ class AverageCalculator final {
     }
 
     // 平均値を求める.
-    average_ = sum_.value() / data_.size();
+    average_ = sum_.value() / static_cast<T>(data_.size());
 
     // 分散を求める.
-    T variance_sum = 0;
+    long double variance_sum = 0;
 
     for (const auto& data : data_) {
-      variance_sum += (data - average_.value()) * (data - average_.value());
+      variance_sum += math_util::Squared(data - average_.value());
     }
-    variance_ = variance_sum / data_.size();
+    const long double temp =
+        variance_sum / static_cast<long double>(data_.size());
+    variance_ = static_cast<double>(temp);
 
     // 標準偏差を求める.
-    standard_deviation_ = sqrt(variance_.value());
+    standard_deviation_ = static_cast<double>(sqrt(temp));
   }
 
   //! @brief 平均値を取得する.
@@ -87,11 +89,13 @@ class AverageCalculator final {
 
   //! @brief 分散を取得する.
   //! @return 分散.データが空の場合は nullopt.
-  std::optional<T> GetVariance() const { return variance_; }
+  std::optional<double> GetVariance() const { return variance_; }
 
   //! @brief 標準偏差を取得する.
   //! @return 標準偏差.データが空の場合は nullopt.
-  std::optional<T> GetStandardDeviation() const { return standard_deviation_; }
+  std::optional<double> GetStandardDeviation() const {
+    return standard_deviation_;
+  }
 
   //! @brief データ数を取得する.
   //! @return データ数.
@@ -105,8 +109,8 @@ class AverageCalculator final {
   std::vector<T> data_;
   std::optional<T> sum_;
   std::optional<T> average_;
-  std::optional<T> variance_;
-  std::optional<T> standard_deviation_;
+  std::optional<double> variance_;
+  std::optional<double> standard_deviation_;
 };
 
 }  // namespace designlab

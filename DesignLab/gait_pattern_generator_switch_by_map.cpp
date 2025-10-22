@@ -47,6 +47,8 @@ GaitPatternGeneratorSwitchByMap::GetNextNodeByGraphSearch(
   }
 }
 
+int GaitPatternGeneratorSwitchByMap::GetExpandedNodeCount() const { return 0; }
+
 bool GaitPatternGeneratorSwitchByMap::DoPitchRotation(
     const RobotStateNode&, const MapState&, const RobotOperation&) const {
   //! @todo 仮実装

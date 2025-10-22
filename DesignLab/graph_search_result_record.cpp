@@ -50,7 +50,8 @@ std::string GraphSearchResultRecord::ToCsvString() const {
 
   stream << string_util::EnumToStringRemoveTopK(result_node.next_move) << ",";
   stream << math_util::FloatingPointNumToString(computation_time) << ",";
-  stream << graph_search_result.error_or("Success");
+  stream << graph_search_result.error_or("Success") << ",";
+  stream << node_expanded_count;
 
   return stream.str();
 }
@@ -73,7 +74,8 @@ std::string GraphSearchResultRecord::GetCsvHeader() {
       << "Reference Pos 3[mm],,,Reference Pos 4[mm],,,Reference Pos 5[mm],,,";
   stream << "Next Move,";
   stream << "Time[milli sec],";
-  stream << "Graph Search Result" << std::endl;
+  stream << "Graph Search Result,";
+  stream << "Node Count" << std::endl;
 
   stream << ",";
   stream << ",";
@@ -84,6 +86,7 @@ std::string GraphSearchResultRecord::GetCsvHeader() {
   stream << "w,v-x,v-y,v-z,";
   stream << "x,y,z,x,y,z,x,y,z,x,y,z,x,y,z,x,y,z,";
   stream << "x,y,z,x,y,z,x,y,z,x,y,z,x,y,z,x,y,z,";
+  stream << ",";
   stream << ",";
   stream << ",";
   stream << ",";

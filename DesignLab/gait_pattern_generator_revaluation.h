@@ -39,6 +39,8 @@ class GaitPatternGeneratorRevaluation final : public IGaitPatternGenerator {
       const RobotStateNode& current_node, const MapState& map,
       const RobotOperation& operation) override;
 
+  int GetExpandedNodeCount() const override;
+
  private:
   bool IsValidNode(const RobotStateNode& current_node,
                    const RobotStateNode& next_node) const;

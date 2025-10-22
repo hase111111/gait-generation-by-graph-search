@@ -50,7 +50,7 @@ struct SimulationResultRecord final {
 
   MapState map_state;  //!< 最新の地面の状態.
 
-  enums::SimulationResult simulation_result;  //!< シミュレーション全体の結果.
+  enums::SimulationResult simulation_result{};  //!< シミュレーション全体の結果.
 };
 
 }  // namespace designlab

@@ -35,9 +35,13 @@ class GaitPatternGeneratorSwitchMove final : public IGaitPatternGenerator {
       const RobotStateNode& current_node, const MapState& map_ref,
       const RobotOperation& operation) override;
 
+  int GetExpandedNodeCount() const override;
+
  private:
   const std::unique_ptr<IGaitPatternGenerator> gpg_for_straight_ptr_;
   const std::unique_ptr<IGaitPatternGenerator> gpg_for_turn_spot_ptr_;
+
+  RobotOperation last_operation_{};
 };
 
 }  // namespace designlab

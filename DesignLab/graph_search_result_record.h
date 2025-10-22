@@ -21,13 +21,18 @@ namespace designlab {
 //! @note 変数をごちゃごちゃさせたくないので作成した.
 struct GraphSearchResultRecord final {
   GraphSearchResultRecord()
-      : result_node{}, computation_time(0.0), graph_search_result{} {}
+      : result_node{},
+        computation_time(0.0),
+        node_expanded_count(0),
+        graph_search_result{} {}
 
   GraphSearchResultRecord(const RobotStateNode& node, const double time,
+                          const int count,
                           const nostd::expected<bool, std::string> result)
       : result_node(node),
         computation_time(time),
-        graph_search_result(result) {}
+        node_expanded_count(count),
+        graph_search_result{result} {}
 
   //! @brief 構造体の内容をCSV形式の文字列にして返す. , (カンマ) で区切られる.
   //! @return 構造体の内容をCSV形式の文字列にしたもの.
@@ -41,6 +46,8 @@ struct GraphSearchResultRecord final {
   RobotStateNode result_node;  //!< グラフ探索によって選択されたノード.
 
   double computation_time;  //!< グラフ探索にかかった計算時間 [milli sec]
+
+  int node_expanded_count;  //!< 展開したノード数.
 
   //! @brief グラフ探索の結果,成功か失敗か.
   //! @todo expected<void, std::string> にする

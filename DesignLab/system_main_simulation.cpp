@@ -75,7 +75,7 @@ void SystemMainSimulation::Main() {
     SimulationResultRecord record;
 
     record.graph_search_result_recorder.push_back(
-        GraphSearchResultRecord{current_node, 0.0, true});
+        GraphSearchResultRecord{current_node, 0.0, 0, true});
 
     cmdio::OutputF(kSystem, "Start simulation {} times", i + 1);
     cmdio::SpacedOutputF(kInfo, "[Initial node state]\n{}",
@@ -113,7 +113,9 @@ void SystemMainSimulation::Main() {
       // ノード,計算時間,結果を格納する.
       record.graph_search_result_recorder.push_back(GraphSearchResultRecord{
           result_node.value_or(RobotStateNode{}),
-          timer_.GetElapsedMilliSecond(), result_node.has_value()});
+          timer_.GetElapsedMilliSecond(),
+          gait_pattern_generator_ptr_->GetExpandedNodeCount(),
+          result_node.has_value()});
 
       // グラフ探索に失敗.
       if (!result_node) {

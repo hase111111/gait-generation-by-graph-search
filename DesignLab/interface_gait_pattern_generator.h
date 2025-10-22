@@ -43,6 +43,8 @@ class IGaitPatternGenerator {
   virtual nostd::expected<RobotStateNode, std::string> GetNextNodeByGraphSearch(
       const RobotStateNode& current_node, const MapState& map,
       const RobotOperation& operation) = 0;
+
+  virtual int GetExpandedNodeCount() const = 0;
 };
 
 }  // namespace designlab

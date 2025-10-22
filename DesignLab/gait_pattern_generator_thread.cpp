@@ -126,6 +126,14 @@ GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
   return next_node;
 }
 
+int GaitPatternGeneratorThread::GetExpandedNodeCount() const {
+  int total_node_count = graph_tree_.GetGraphSize();
+  for (const auto& graph_tree : graph_tree_array_) {
+    total_node_count += graph_tree.GetGraphSize();
+  }
+  return total_node_count;
+}
+
 std::vector<GaitPatternGraphTree>
 GaitPatternGeneratorThread::InitializeGraphTreeArray(
     const int thread_num, const int max_node_num) const {

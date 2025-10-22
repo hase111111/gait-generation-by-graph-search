@@ -43,6 +43,8 @@ class GaitPatternGeneratorThread final : public IGaitPatternGenerator {
       const RobotStateNode& current_node, const MapState& map_ref,
       const RobotOperation& operation) override;
 
+  int GetExpandedNodeCount() const override;
+
  private:
   static constexpr int kThreadNum = 6;  //!< スレッド数.
 

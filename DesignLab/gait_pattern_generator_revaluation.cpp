@@ -92,4 +92,10 @@ bool GaitPatternGeneratorRevaluation::IsValidNode(
   return true;
 }
 
+int GaitPatternGeneratorRevaluation::GetExpandedNodeCount() const {
+  // もしこの関数を使用したい場合は，以下のassert文を削除すること.
+  assert("この関数はまだ未実装のため，非推奨です．" && false);
+  return 0;
+}
+
 }  // namespace designlab

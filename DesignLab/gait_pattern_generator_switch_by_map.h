@@ -35,6 +35,8 @@ class GaitPatternGeneratorSwitchByMap final : public IGaitPatternGenerator {
       const RobotStateNode& current_node, const MapState& map_ref,
       const RobotOperation& operation) override;
 
+  int GetExpandedNodeCount() const override;
+
  private:
   const std::unique_ptr<IGaitPatternGenerator> gpg_normal_ptr_;
   const std::unique_ptr<IGaitPatternGenerator> gpg_pitch_rot_ptr_;
