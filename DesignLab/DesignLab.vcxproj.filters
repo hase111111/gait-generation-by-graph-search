@@ -825,6 +825,9 @@
     <ClInclude Include="node_creator_sequence_wall.h">
       <Filter>ヘッダー ファイル\Node\NodeCreatorSequence</Filter>
     </ClInclude>
+    <ClInclude Include="node_creator_sequence_straight_move_legacy.h">
+      <Filter>ヘッダー ファイル\Node\NodeCreatorSequence</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
@@ -1176,6 +1179,9 @@
       <Filter>ソース ファイル\Node\NodeCreator\ComChanger</Filter>
     </ClCompile>
     <ClCompile Include="node_creator_sequence_wall.cpp">
+      <Filter>ソース ファイル\Node\NodeCreatorSequence</Filter>
+    </ClCompile>
+    <ClCompile Include="node_creator_sequence_straight_move_legacy.cpp">
       <Filter>ソース ファイル\Node\NodeCreatorSequence</Filter>
     </ClCompile>
   </ItemGroup>

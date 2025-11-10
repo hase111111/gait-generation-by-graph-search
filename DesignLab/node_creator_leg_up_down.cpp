@@ -29,7 +29,7 @@ NodeCreatorLegUpDown::NodeCreatorLegUpDown(
       converter_ptr_(converter_ptr),
       presenter_ptr_(presenter_ptr),
       checker_ptr_(checker_ptr),
-      next_move_(next_move){};
+      next_move_(next_move) {};
 
 void NodeCreatorLegUpDown::Create(
     const RobotStateNode& current_node, const int current_num,
@@ -80,6 +80,8 @@ void NodeCreatorLegUpDown::Create(
 
   // 子ノードを生成する.
   for (int i = 0; i < com_func::GetLegGroundPatternNum(); i++) {
+    // if (i != 0 && i != 1) continue;
+
     // その重心タイプが可能であれば,追加する
     if (is_able_leg_ground_pattern[i]) {
       RobotStateNode res_node = current_node;
@@ -112,7 +114,7 @@ void NodeCreatorLegUpDown::Create(
         (*output_graph).push_back(res_node);
       }
     }  // if is_able_leg_ground_pattern[i]
-  }    // for i
+  }  // for i
 }
 
 bool NodeCreatorLegUpDown::IsGroundableLeg(const int now_leg_num,
@@ -137,7 +139,7 @@ bool NodeCreatorLegUpDown::IsGroundableLeg(const int now_leg_num,
 
   // マップ内を全探索して,現在の脚位置(離散化した物)に適した脚設置可能点が存在するか調べる.
 
-  Vector3 candidate_pos;  // 現在の脚位置に合致する候補座標群.
+  Vector3 candidate_pos;          // 現在の脚位置に合致する候補座標群.
   bool is_candidate_pos = false;  // 候補座標が存在するかどうか.
 
   // 範囲内の点を全て調べる.

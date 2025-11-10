@@ -10,6 +10,7 @@
 #include <vector>
 
 #include "cassert_define.h"
+#include "node_creator_body_rot.h"
 #include "node_creator_com_move_wall.h"
 #include "node_creator_com_up_down.h"
 #include "node_creator_leg_hierarchy.h"
@@ -47,7 +48,10 @@ NodeCreatorSequenceWall::Build(const DividedMapState& map) const {
       map, converter_ptr_, presenter_ptr_, checker_ptr_, kComUpDown);
 
   node_creator[kComUpDown] = std::make_unique<NodeCreatorComUpDown>(
-      map, converter_ptr_, presenter_ptr_, checker_ptr_, kComMove);
+      map, converter_ptr_, presenter_ptr_, checker_ptr_, kBodyPitchRot);
+
+  node_creator[kBodyPitchRot] = std::make_unique<NodeCreatorBodyRot>(
+      map, converter_ptr_, checker_ptr_, Vector3::GetLeftVec(), kComMove);
 
   node_creator[kComMove] = std::make_unique<NodeCreatorComMoveWall>(
       map, converter_ptr_, presenter_ptr_, checker_ptr_, kLegHierarchyChange);

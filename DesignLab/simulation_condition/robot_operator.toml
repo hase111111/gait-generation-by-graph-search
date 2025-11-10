@@ -1,18 +1,20 @@
 #Note that this file is not referenced by some settings.
 
 #This is the setting of the robot's operation method. (kNone / kStraightMoveVector / kStraightMovePosition / kSpotTurnLastPosture / kSpotTurnRotAxis / kTurn)
-operation_type = "kStraightMovePosition"
+operation_type = "kStraightMovePosition" 
 
 [Param]
     
     #The value that is referenced when setting the camera to turn on the spot until it reaches the specified posture.
-    spot_turn_last_posture = "     1.000,     0.000,     0.000,     0.000"
+    spot_turn_last_posture = " 0.707,    -0.000,    -0.707,    -0.000"
     
     #The value referred to when setting up in-situ turning around the specified axis (in the direction of right-hand threads).
     spot_turn_rot_axis = "     0.000,     0.000,     1.000"
     
     #The value that is referred to when the setting is to go straight to the specified coordinates.
     straight_move_position = " 10000000.000,     0.000,     0.000"
+    #straight_move_position = " 0.000,     0.000,     10000000.000"
+    #straight_move_position = " 100000.000,   0.00,  100000.000"
     
     #The value that is referenced when the setting is to go straight in the specified direction.
     straight_move_vector = "     1.000,     0.000,     0.000"
