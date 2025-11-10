@@ -20,7 +20,7 @@ namespace designlab {
 //! @brief マップの描画を行うクラス.
 class MapRenderer final : public IDxlibNodeSetter, public IDxlib3dRenderer {
  public:
-  MapRenderer();
+  MapRenderer(bool draw_flat_map);
   ~MapRenderer() = default;
 
   //! @brief ロボットの重心のグローバル座標を設定する.
@@ -43,6 +43,7 @@ class MapRenderer final : public IDxlibNodeSetter, public IDxlib3dRenderer {
   const unsigned int color_light_gray_;
   const unsigned int color_dark_gray_;
   const float cube_size_;
+  const bool draw_flat_map_;
 
   MapState map_;
   DividedMapState divided_map_;

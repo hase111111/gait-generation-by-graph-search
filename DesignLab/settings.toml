@@ -6,6 +6,12 @@
 #If you want to change the simulation conditions, try changing them from here.Lines starting with a sharp are comments. They do not affect the program.
 
 
+#
+[Draw]
+    
+    #Draw a flat ground. ( true / false )
+    draw_flat_ground = true
+    
 #Setting the mode in which the program is to be run
 [Mode]
     
@@ -25,7 +31,7 @@
 [Output]
     
     #How much output is allowed on the command line. ( "kSystem" / "kError" / "kWarning" / "kInfo" / "kDebug" )
-    cmd_output_detail = "kDebug" 
+    cmd_output_detail = "kInfo"
     
     #Output characters to the command line. ( true / false )
     do_cmd_output = true
@@ -33,8 +39,8 @@
     #Display GUI. ( true / false )
     do_gui_display = true
     
-    #GUI Image Quality．( "kLow" / "kMedium" / "kHigh" )
-    gui_display_quality = "kMedium" 
+    #GUI Image Quality.( "kLow" / "kMedium" / "kHigh" )
+    gui_display_quality = "kHigh"
     
     #Sets FPS. The range is from 15 to 60. The recommended value is 60.
     window_fps = 60

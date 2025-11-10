@@ -60,6 +60,8 @@ struct ApplicationSettingRecord final {
   int window_size_x{1600};  //!< グラフィカルウィンドウの横幅.
   int window_size_y{900};   //!< グラフィカルウィンドウの縦幅.
   int window_fps{60};       //!< グラフィカルウィンドウのFPS.
+
+  bool draw_flat_ground{true};  //!< 平面を描画するかどうか.
 };
 
 DESIGNLAB_TOML11_DESCRIPTION_CLASS(ApplicationSettingRecord) {
@@ -84,7 +86,7 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(ApplicationSettingRecord) {
   DESIGNLAB_TOML11_TABLE_ADD_DESCRIPTION(
       "Verion", "The order is major.minor.patch.", "Mode",
       "Setting the mode in which the program is to be run", "Output",
-      "Program output settings.");
+      "Program output settings.", "Draw", "");
 
   DESIGNLAB_TOML11_VARIABLE_NO_DESCRIPTION(version_major, "Verion");
   DESIGNLAB_TOML11_VARIABLE_NO_DESCRIPTION(version_minor, "Verion");
@@ -135,6 +137,9 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(ApplicationSettingRecord) {
                   "The recommended value is 60.",
                   ApplicationSettingRecord::kFpsMin,
                   ApplicationSettingRecord::kFpsMax));
+
+  DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
+      draw_flat_ground, "Draw", "Draw a flat ground. ( true / false )");
 };
 
 }  // namespace designlab
@@ -145,6 +150,6 @@ DESIGNLAB_TOML11_SERIALIZE(designlab::ApplicationSettingRecord, version_major,
                            do_step_execution_each_gait, do_cmd_output,
                            cmd_output_detail, do_gui_display,
                            gui_display_quality, window_size_x, window_size_y,
-                           window_fps);
+                           window_fps, draw_flat_ground);
 
 #endif  // DESIGNLAB_APPLICATION_SETTING_RECORD_H_

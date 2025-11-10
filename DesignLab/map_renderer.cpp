@@ -14,11 +14,12 @@
 
 namespace designlab {
 
-MapRenderer::MapRenderer()
+MapRenderer::MapRenderer(const bool draw_flat_map)
     : color_gray_(GetColor(180, 80, 80)),
       color_light_gray_(GetColor(200, 160, 160)),
       color_dark_gray_(GetColor(40, 40, 40)),
-      cube_size_(15.f) {}
+      cube_size_(15.f),
+      draw_flat_map_(draw_flat_map) {}
 
 void MapRenderer::SetNode(const RobotStateNode& pos) {
   hexapod_pos_ = pos.center_of_mass_global_coord;
@@ -61,29 +62,31 @@ void MapRenderer::Draw() const {
     }
   }
 
-  const auto plane = divided_map_.GetDividedMapPlane();
+  if (draw_flat_map_) {
+    const auto plane = divided_map_.GetDividedMapPlane();
 
-  for (size_t i = 0; i < plane.size(); ++i) {
-    // 平面を描画する.
-    std::array<VECTOR, 4> vertex{};
-    for (size_t l = 0; l < 4; l++) {
-      Vector3 p_corner = plane[i].corners[l];
-      p_corner.z -= 10.0;
+    for (size_t i = 0; i < plane.size(); ++i) {
+      // 平面を描画する.
+      std::array<VECTOR, 4> vertex{};
+      for (size_t l = 0; l < 4; l++) {
+        Vector3 p_corner = plane[i].corners[l];
+        p_corner.z -= 10.0;
 
-      vertex[l] = ConvertToDxlibVec(p_corner);
+        vertex[l] = ConvertToDxlibVec(p_corner);
+      }
+
+      unsigned int color{};
+      if (i % 3 == 0) {
+        color = GetColor(255, 20, 20);  // 赤
+      } else if (i % 3 == 1) {
+        color = GetColor(20, 255, 20);  // 緑
+      } else {
+        color = GetColor(20, 20, 255);  // 青
+      }
+
+      dxlib_util::DrawFlatPlane(vertex, ConvertToDxlibVec(plane[i].normal),
+                                color);
     }
-
-    unsigned int color{};
-    if (i % 3 == 0) {
-      color = GetColor(255, 20, 20);  // 赤
-    } else if (i % 3 == 1) {
-      color = GetColor(20, 255, 20);  // 緑
-    } else {
-      color = GetColor(20, 20, 255);  // 青
-    }
-
-    dxlib_util::DrawFlatPlane(vertex, ConvertToDxlibVec(plane[i].normal),
-                              color);
   }
 }
 

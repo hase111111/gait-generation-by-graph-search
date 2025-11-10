@@ -66,7 +66,8 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(
       HexapodRendererBuilder::Build(converter_ptr, calculator_ptr,
                                     setting_ptr->gui_display_quality);
 
-  const auto map_renderer = std::make_shared<MapRenderer>();
+  const auto map_renderer =
+      std::make_shared<MapRenderer>(setting_ptr->draw_flat_ground);
   map_renderer->SetMapState(broker_ptr->map_state.GetData());
 
   const auto world_grid_renderer = std::make_shared<WorldGridRenderer>();
