@@ -64,7 +64,7 @@ class SystemMainSimulation final : public ISystemMain {
       5};  //!< 連続でシミュレーションを行う回数.
 
   //! 1シミュレーション当たりの最大歩容生成回数.
-  static constexpr int kGaitPatternGenerationLimit{1000};
+  static constexpr int kGaitPatternGenerationLimit{2000};
 
   void OutputSetting() const;
 

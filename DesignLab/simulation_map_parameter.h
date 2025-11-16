@@ -23,11 +23,12 @@ enum class SimulationMapMode : int {
   kVerticalStripe,    //!< 縦じまの面を生成する.
   kHorizontalStripe,  //!< 横じまの面を生成する.
   kDiagonalStripe,    //!< 斜めじまの面を生成する.
-  kMesh,              //!< 格子状の面を生成する.網目状の地形ともいっていい.
-  kLatticePoint,      //!< 格子点の面を生成する.網目状の逆.
-  kCircle,            //!< 円形の面を生成する.
-  kDonut,             //!< ドーナツ状の面を生成する.
-  kWall,              //!< 壁の面を生成する.
+  kSlantedStripes,
+  kMesh,          //!< 格子状の面を生成する.網目状の地形ともいっていい.
+  kLatticePoint,  //!< 格子点の面を生成する.網目状の逆.
+  kCircle,        //!< 円形の面を生成する.
+  kDonut,         //!< ドーナツ状の面を生成する.
+  kWall,          //!< 壁の面を生成する.
 };
 
 //! @enum SimulationMapOption
@@ -146,6 +147,7 @@ struct SimulationMapParameter final {
 
   //! 各種模様や穴を作成する際,これで指定したマス分の1辺を持つ正方形状にあなをあける.
   int stripe_interval{5};
+  float diagonal_angle = 45.0f;  //!< 斜め縞の角度（度）
 
   int hole_rate{20};         //!< 不整地上の足場を除外する割合。ホール率[%]
   float step_height{100.f};  //!< 段差高さ[mm].負の値にすると下りの階段になる.
@@ -205,6 +207,9 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationMapParameter) {
       "各種模様や穴を作成する際,これで指定したマス分(1マス20[mm])の1辺を持つ"
       "正方形状にあなをあける.0より大きくすること.");
 
+  DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(diagonal_angle, "Stripe",
+                                            "斜め縞の角度[deg].");
+
   DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
       hole_rate, "Perforated",
       "不整地上の足場を除外する割合.ホール率[%].0～100の間にすること.");
@@ -254,11 +259,12 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationMapParameter) {
 DESIGNLAB_TOML11_SERIALIZE(designlab::SimulationMapParameter, mode, option,
                            base_z, map_max_x, map_min_x, map_max_y, map_min_y,
                            map_start_rough_x, wall_x, wall_height,
-                           stripe_interval, hole_rate, step_height, step_length,
-                           step_start_x, slope_angle, slope_start_x, tilt_angle,
-                           tilt_start_x, rough_max_height, rough_min_height,
-                           circle_center, circle_radius, donut_radius,
-                           radial_center, radial_division, radial_hole_rate,
+                           stripe_interval, diagonal_angle, hole_rate,
+                           step_height, step_length, step_start_x, slope_angle,
+                           slope_start_x, tilt_angle, tilt_start_x,
+                           rough_max_height, rough_min_height, circle_center,
+                           circle_radius, donut_radius, radial_center,
+                           radial_division, radial_hole_rate,
                            radial_angle_offset);
 
 #endif  // DESIGNLAB_SIMULATION_MAP_PARAMETER_H_

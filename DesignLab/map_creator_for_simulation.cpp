@@ -45,6 +45,10 @@ MapState MapCreatorForSimulation::InitMap() const {
       CreateDiagonalStripeMap(&map_data);
       break;
     }
+    case SimulationMapMode::kSlantedStripes: {
+      CreateSlantedStripesMap(&map_data);
+      break;
+    }
     case SimulationMapMode::kMesh: {
       CreateMeshMap(&map_data);
       break;
@@ -251,6 +255,50 @@ void MapCreatorForSimulation::CreateDiagonalStripeMap(
 
         map->push_back(
             {x_pos, y_pos, parameter_.base_z});  // 脚設置可能点を追加する.
+      }
+    }
+  }
+}
+
+void MapCreatorForSimulation::CreateSlantedStripesMap(
+    std::vector<Vector3>* map) const {
+  assert(map != nullptr);
+  assert(map->empty());
+
+  // マップの x と y の最大点数
+  const float x_max = (parameter_.map_max_x - parameter_.map_min_x) /
+                      MapState::kMapPointDistance;
+  const float y_max = (parameter_.map_max_y - parameter_.map_min_y) /
+                      MapState::kMapPointDistance;
+
+  // 追加：斜め縞の角度を指定（deg → rad）
+  const float theta = math_util::ConvertDegToRad(parameter_.diagonal_angle);
+
+  // ストライプ周期
+  const float stripe_cycle = parameter_.stripe_interval * 2.f;
+
+  for (int x = 0; x < x_max; x++) {
+    for (int y = 0; y < y_max; y++) {
+      // 座標を角度 θ だけ回転した「仮想の x座標」
+      float xr = x * cos(theta) - y * sin(theta);
+
+      // fmod は負になる可能性があるため大きなオフセットを足す
+      float mod_x = fmod(xr + 10000.0f * stripe_cycle, stripe_cycle);
+
+      bool in_stripe = mod_x < parameter_.stripe_interval;
+
+      // 待機場所 x < x_rough は常に追加
+      const float x_rough =
+          (parameter_.map_start_rough_x - parameter_.map_min_x) /
+          MapState::kMapPointDistance;
+
+      if (in_stripe || x < x_rough) {
+        const float x_pos =
+            parameter_.map_min_x + x * MapState::kMapPointDistance;
+        const float y_pos =
+            parameter_.map_min_y + y * MapState::kMapPointDistance;
+
+        map->push_back({x_pos, y_pos, parameter_.base_z});
       }
     }
   }

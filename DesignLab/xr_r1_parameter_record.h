@@ -20,7 +20,7 @@ struct XrR1ParameterRecord final {
   float body_lifting_height_max{190.f};
 
   float movable_coxa_angle_min_deg{-35.f};  //!< 脚の可動範囲の最小値[deg]
-  float movable_coxa_angle_max_deg{35.f};  //!< 脚の可動範囲の最大値[deg]
+  float movable_coxa_angle_max_deg{35.f};   //!< 脚の可動範囲の最大値[deg]
 
   float min_leg_range{135.f};  //!< 脚の付け根から脚先までの最小距離[mm]
   float max_leg_range{200.f};  //!< 脚の付け根から脚先までの最大距離[mm]

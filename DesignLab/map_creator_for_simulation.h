@@ -44,6 +44,9 @@ class MapCreatorForSimulation final : public IMapCreator {
   //! 斜めじま模様の穴が開いたマップを生成する.
   void CreateDiagonalStripeMap(std::vector<Vector3>* map) const;
 
+  //! 斜め線模様の穴が開いたマップを生成する.
+  void CreateSlantedStripesMap(std::vector<Vector3>* map) const;
+
   //! 網目模様の穴が開いたマップを生成する.
   void CreateMeshMap(std::vector<Vector3>* map) const;
 
