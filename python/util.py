@@ -1,0 +1,134 @@
+import numpy as np
+
+def hierarcy_data_from_csv(data): 
+    # for文で，各行のデータを処理
+    hierarcy_data = []
+    past_move = "none"
+
+    for idx, row in data.iterrows():
+        # A列目とAS列目のデータを取得
+        bit = row[0]
+        move = row[44]
+
+        if past_move == "kLegHierarchyChange":
+            hierarcy_data.append(bit)
+        elif past_move == "kLegUpDown":
+            hierarcy_data.append(bit)
+
+        past_move = move.replace(" ", "")
+
+    return hierarcy_data
+
+def bitstr_to_bool_int_list(bitstr):
+    # 上位4bitを無視し，下位24bitを6組の(bool, int)に変換
+    bits = bitstr[4:]
+    return [(bool(int(bits[i*4])), int(bits[i*4+1:i*4+4], 2)) for i in range(6)]
+
+def bool_list_to_2bit_int(bools):
+    # boolのリストを2進数として整数に変換
+    res = 0
+    for ind, b in enumerate(bools):
+        res += int(b) << (5 - ind)
+    return res
+
+def convert_base7(arr):
+    """
+    arr: 長さ6の配列（要素は1～7）
+    1. 全要素を -1 する
+    2. 6桁の7進数として解釈
+    3. 10進数整数に変換して返す
+    """
+
+    if len(arr) != 6:
+        raise ValueError("配列の長さが6ではありません")
+
+    # -1 した値を7進の桁に並べる
+    digits = [x - 1 for x in arr]  # 0〜6 になる
+
+    # 7進 → 10進変換
+    num = 0
+    for d in digits:
+        num = num * 7 + d
+
+    return num
+
+def command_to_vec(cmd, index=0):
+    """
+    単一コマンドを (前後, 上下) の2次元ベクトルへ変換
+    """
+    base_val = 10
+
+    # --- 前後方向 ---
+    if 1 <= cmd <= 3:
+        x = -base_val - index  # 後ろへ
+    elif cmd == 4:
+        x = 0    # その場
+    else:
+        x = base_val + index    # 前へ
+
+    # --- 上下方向 ---
+    if cmd in (1, 5):
+        y = -base_val - index   # 下げる
+    elif cmd in (3, 7):
+        y = base_val + index    # 上げる
+    else:
+        y = 0    # 変化なし
+
+    return (x, y)
+
+def state_to_vector(commands):
+    """
+    commands: 長さ6のリスト [int, int, ...]
+    戻り値：意味に基づいた 12 次元のリスト
+    """
+    if len(commands) != 6:
+        raise ValueError(f"引数の配列は長さ6である必要があります。{len(commands)}")
+
+    vec = []
+    for cmd in commands:
+        x, y = command_to_vec(cmd)
+        vec.extend([x, y])
+
+    return vec
+
+def state_to_scalar(commands, weight_y=0.5):
+    """
+    commands: 長さ6のリスト
+    戻り値：意味を保つ1次元特徴量
+    
+    1次元値 = sum(x_i) + weight_y * sum(y_i)
+    """
+
+    if len(commands) != 6:
+        raise ValueError("引数の配列は長さ6である必要があります。")
+
+    xs = []
+    ys = []
+    cnt = 0
+    for cmd in commands:
+        x, y = command_to_vec(cmd, cnt)
+        xs.append(x)
+        ys.append(y)
+        cnt += 1
+
+    # 重み付き1次元特徴量
+    return sum(xs) + weight_y * sum(ys)
+
+def bool_int_list_to_int(bit_list):
+    # (bool, int)のリストをmapする2つの数字に変換
+    bools = [int(b) for b, _ in bit_list]
+    ints = [n for _, n in bit_list]
+    return (bool_list_to_2bit_int(bools), state_to_scalar(ints))
+    # return (bool_list_to_2bit_int(bools), convert_base7(ints))
+
+def tuple_list_to_simple_str(tpl_list):
+    # (bool, int)のタプルリストを簡易文字列に変換
+    str_parts = []
+    for b, n in tpl_list:
+        b_char = 'T' if b else 'F'
+        str_parts.append(f"{b_char}{n}")
+    return "[" + ",".join(str_parts) + "]"
+
+def tuple_list_reverse(tpl_list):
+    # (bool, int)のタプルリストを逆順にする
+    return list(reversed(tpl_list))
