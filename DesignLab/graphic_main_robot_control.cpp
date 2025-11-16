@@ -35,8 +35,8 @@ GraphicMainRobotControl::GraphicMainRobotControl(
       calculator_ptr_(calculator_ptr),
       display_node_switch_gui_(std::make_shared<DxlibGuiDisplayNodeSwitcher>(
           setting_ptr->window_size_x, setting_ptr->window_size_y)),
-      map_renderer_(
-          std::make_shared<MapRenderer>(setting_ptr->draw_flat_ground)) {
+      map_renderer_(std::make_shared<MapRenderer>(
+          setting_ptr->draw_flat_ground, setting_ptr->draw_robot_area)) {
   assert(broker_ != nullptr);
   assert(converter_ptr_ != nullptr);
   assert(calculator_ptr_ != nullptr);

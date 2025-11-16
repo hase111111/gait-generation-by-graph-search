@@ -123,8 +123,7 @@ void SystemMainSimulation::Main() {
         record.simulation_result =
             enums::SimulationResult::kFailureByGraphSearch;
 
-        cmdio::OutputF(
-            kSystem,
+        cmdio::SystemOutputF(
             "Simulation failed. SimulationResult = {}/ GraphSearch = {}",
             EnumToStringRemoveTopK(record.simulation_result),
             result_node.error_or("Success"));
@@ -157,8 +156,7 @@ void SystemMainSimulation::Main() {
         record.simulation_result =
             enums::SimulationResult::kFailureByLoopMotion;
 
-        cmdio::OutputF(
-            kSystem,
+        cmdio::SystemOutputF(
             "Simulation failed. SimulationResult = {} / GraphSearch = {}",
             EnumToStringRemoveTopK(record.simulation_result),
             result_node.error_or("Success"));
@@ -173,9 +171,9 @@ void SystemMainSimulation::Main() {
         // シミュレーションの結果を格納する変数を成功に更新する.
         record.simulation_result = enums::SimulationResult::kSuccess;
 
-        cmdio::OutputF(kSystem,
-                       "The simulation was successful. SimulationResult = {}",
-                       EnumToStringRemoveTopK(record.simulation_result));
+        cmdio::SystemOutputF(
+            "The simulation was successful. SimulationResult = {}",
+            EnumToStringRemoveTopK(record.simulation_result));
 
         break;  // 成功したら,このループを抜け,次のシミュレーションへ進む.
       }
@@ -208,7 +206,7 @@ void SystemMainSimulation::Main() {
     cmdio::OutputNewLine(1, kSystem);
     cmdio::OutputHorizontalLine("=", kSystem);
     cmdio::OutputNewLine(1, kSystem);
-  }  // シミュレーションのループ終了
+  }  // シミュレーションのループ終了.
 
   // シミュレーションの結果を全てファイルに出力する.
   if (cmdio::InputYesNo("Do you want to output results?")) {
@@ -230,8 +228,7 @@ void SystemMainSimulation::OutputSetting() const {
     const std::string output_str =
         magic_enum::enum_name(setting_ptr_->cmd_output_detail).data();
 
-    cmdio::OutputF(
-        kSystem,
+    cmdio::SystemOutputF(
         "　　・Only those with a priority of {} or higher will be output.",
         output_str);
   } else {

@@ -14,12 +14,13 @@
 
 namespace designlab {
 
-MapRenderer::MapRenderer(const bool draw_flat_map)
+MapRenderer::MapRenderer(const bool draw_flat_map, const bool draw_area)
     : color_gray_(GetColor(180, 80, 80)),
       color_light_gray_(GetColor(200, 160, 160)),
       color_dark_gray_(GetColor(40, 40, 40)),
       cube_size_(15.f),
-      draw_flat_map_(draw_flat_map) {}
+      draw_flat_map_(draw_flat_map),
+      draw_area_(draw_area) {}
 
 void MapRenderer::SetNode(const RobotStateNode& pos) {
   hexapod_pos_ = pos.center_of_mass_global_coord;
@@ -44,21 +45,24 @@ void MapRenderer::Draw() const {
                          color_dark_gray_);
   }
 
-  for (const auto& [i, j] : DoubleIntRange(30, 30)) {
-    const auto num = divided_map_.GetPointNum(i, j);
-    if (!num) {
-      continue;  // このマスに脚設置可能点が存在しない場合はスキップ.
-    }
-
-    for (int k = 0; k < *num; k++) {
-      // 脚設置可能点を描画する.
-      const auto point_pos = divided_map_.GetPointPos(i, j, k);
-      if (!point_pos) {
+  if (draw_area_) {
+    for (const auto& [i, j] : DoubleIntRange(30, 30)) {
+      const auto num = divided_map_.GetPointNum(i, j);
+      if (!num) {
         continue;  // このマスに脚設置可能点が存在しない場合はスキップ.
       }
 
-      DrawCube3DWithTopPos(ConvertToDxlibVec(*point_pos), cube_size_,
-                           (i + j) % 2 == 0 ? color_light_gray_ : color_gray_);
+      for (int k = 0; k < *num; k++) {
+        // 脚設置可能点を描画する.
+        const auto point_pos = divided_map_.GetPointPos(i, j, k);
+        if (!point_pos) {
+          continue;  // このマスに脚設置可能点が存在しない場合はスキップ.
+        }
+
+        DrawCube3DWithTopPos(
+            ConvertToDxlibVec(*point_pos), cube_size_,
+            ((i + j) % 2 == 0) ? color_light_gray_ : color_gray_);
+      }
     }
   }
 

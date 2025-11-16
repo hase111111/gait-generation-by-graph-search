@@ -10,7 +10,10 @@
 [Draw]
     
     #Draw a flat ground. ( true / false )
-    draw_flat_ground = true
+    draw_flat_ground = false
+    
+    #Draw the area recognized by the robot. ( true / false )
+    draw_robot_area = false
     
 #Setting the mode in which the program is to be run
 [Mode]

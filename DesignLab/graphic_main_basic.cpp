@@ -33,8 +33,8 @@ GraphicMainBasic::GraphicMainBasic(
       mouse_ptr_(std::make_shared<Mouse>()),
       display_node_switch_gui_(std::make_shared<DxlibGuiDisplayNodeSwitcher>(
           setting_ptr->window_size_x, setting_ptr->window_size_y)),
-      map_renderer_ptr_(
-          std::make_shared<MapRenderer>(setting_ptr->draw_flat_ground)),
+      map_renderer_ptr_(std::make_shared<MapRenderer>(
+          setting_ptr->draw_flat_ground, setting_ptr->draw_robot_area)),
       movement_locus_renderer_{},
       interpolated_node_creator_{converter_ptr},
       robot_ground_point_renderer_{converter_ptr},

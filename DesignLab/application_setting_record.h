@@ -62,6 +62,8 @@ struct ApplicationSettingRecord final {
   int window_fps{60};       //!< グラフィカルウィンドウのFPS.
 
   bool draw_flat_ground{true};  //!< 平面を描画するかどうか.
+  //! ロボットが認識している範囲を描画するかどうか.
+  bool draw_robot_area{true};
 };
 
 DESIGNLAB_TOML11_DESCRIPTION_CLASS(ApplicationSettingRecord) {
@@ -140,6 +142,9 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(ApplicationSettingRecord) {
 
   DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
       draw_flat_ground, "Draw", "Draw a flat ground. ( true / false )");
+  DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
+      draw_robot_area, "Draw",
+      "Draw the area recognized by the robot. ( true / false )");
 };
 
 }  // namespace designlab
@@ -150,6 +155,6 @@ DESIGNLAB_TOML11_SERIALIZE(designlab::ApplicationSettingRecord, version_major,
                            do_step_execution_each_gait, do_cmd_output,
                            cmd_output_detail, do_gui_display,
                            gui_display_quality, window_size_x, window_size_y,
-                           window_fps, draw_flat_ground);
+                           window_fps, draw_flat_ground, draw_robot_area);
 
 #endif  // DESIGNLAB_APPLICATION_SETTING_RECORD_H_

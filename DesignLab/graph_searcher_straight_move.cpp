@@ -194,7 +194,7 @@ GraphSearchEvaluator GraphSearcherStraightMove::InitializeEvaluator() const {
   GraphSearchEvaluator ret({{kTagMoveForward, move_forward_method},
                             {kTagLegRot, leg_rot_method},
                             {kTagZDiff, z_diff_method}},
-                           {kTagZDiff, kTagMoveForward, kTagLegRot});
+                           {kTagMoveForward, kTagZDiff, kTagLegRot});
 
   return ret;
 }

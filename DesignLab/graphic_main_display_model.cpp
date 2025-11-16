@@ -73,8 +73,8 @@ GraphicMainDisplayModel::GraphicMainDisplayModel(
       HexapodRendererBuilder::Build(converter_ptr_, calculator_ptr_,
                                     setting_ptr->gui_display_quality);
 
-  const auto map_renderer =
-      std::make_shared<MapRenderer>(setting_ptr->draw_flat_ground);
+  const auto map_renderer = std::make_shared<MapRenderer>(
+      setting_ptr->draw_flat_ground, setting_ptr->draw_robot_area);
   map_renderer->SetMapState(map_state_);
   map_renderer->SetNode(robot_);
 
