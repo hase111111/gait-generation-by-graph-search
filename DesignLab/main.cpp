@@ -81,7 +81,10 @@ auto LoadXrR1() {
   using designlab::XrR1;
   using designlab::XrR1ParameterRecord;
 
-  return std::make_shared<XrR1>(XrR1ParameterRecord{});
+  auto record = XrR1ParameterRecord{};
+  record.max_leg_range = 200.f;
+
+  return std::make_shared<XrR1>(record);
 }
 
 }  // namespace
