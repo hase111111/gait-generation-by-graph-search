@@ -3,31 +3,35 @@ import util
 import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
+import file_io
+import util
 
-def analyze_transition_pairs(states):
+def analyze_transition_pairs1(states):
     """
     states: [ [(int,bool)], [(int,bool)], ... ] のリスト
     2つの遷移を1セットとして頻度をカウントする.
     """
     pair_counter = Counter()
 
-    # 2遷移 → 状態３つで1セット
-    for i in range(len(states) - 2):
+    # 2遷移 → 状態4つで1セット
+    for i in range(len(states) - 3):
         s1 = tuple(states[i])
         s2 = tuple(states[i+1])
         s3 = tuple(states[i+2])
+        s4 = tuple(states[i+3])
         
         # (S1→S2, S2→S3) を1まとまりとしてカウント
-        pair_counter[((s1, s2), (s2, s3))] += 1
+        pair_counter[((s1, s2), (s3, s4))] += 1
 
     # 反転して，同じことをする
     rev = util.tuple_list_reverse(states)
-    for i in range(len(rev) - 2):
+    for i in range(len(rev) - 3):
         s1 = tuple(rev[i])
         s2 = tuple(rev[i+1])
         s3 = tuple(rev[i+2])
+        s4 = tuple(rev[i+3])
         
-        pair_counter[((s1, s2), (s2, s3))] += 1
+        pair_counter[((s1, s2), (s3, s4))] += 1
 
     return pair_counter
 
@@ -87,31 +91,28 @@ def count_stride_transitions(states, stride=2, start=0, use_reverse=True):
 
     return counter
 
-def draw_state_graph(states, min_count=1, layout="spring"):
+def draw_state_graph(result, min_count=1, layout="spring"):
     """
     states: 状態列
     min_count: 何回以上出現した遷移を描画するか
     layout: "spring", "circular", "kamada_kawai"
     """
 
-    # 遷移頻度カウント
-    pair_counter = analyze_transition_pairs2(states)
-
     G = nx.DiGraph()
 
-    for (s1, s3), count in pair_counter.items():
+    for (s1, s2), count in result.items():
         if count < min_count:
             continue
         
         # ノード名（読みやすい文字列）へ変換
-        s1_str = util.tuple_list_to_simple_str(s1)
-        s3_str = util.tuple_list_to_simple_str(s3)
+        s1_str = util.tuple_list_to_simple_str(s1[0]) + "->" + util.tuple_list_to_simple_str(s1[1]) + f":{util.bool_list_to_leg_ground_int([b for b, _ in s1[0]])}" 
+        s2_str = util.tuple_list_to_simple_str(s2[0]) + "->" + util.tuple_list_to_simple_str(s2[1]) + f":{util.bool_list_to_leg_ground_int([b for b, _ in s2[0]])}"
 
         G.add_node(s1_str)
-        G.add_node(s3_str)
+        G.add_node(s2_str)
 
         # エッジに重み（count）を付与
-        G.add_edge(s1_str, s3_str, weight=count)
+        G.add_edge(s1_str, s2_str, weight=count)
 
     # レイアウト選択
     if layout == "spring":
@@ -126,12 +127,15 @@ def draw_state_graph(states, min_count=1, layout="spring"):
     # エッジ太さ＝頻度
     weights = [G[u][v]['weight'] for u, v in G.edges()]
 
+    # 色付きで描画
+    colors = [util.get_color_by_leg_ground(int(n.split(":")[-1])) for n in G.nodes()]
+
     plt.figure(figsize=(16, 12))
     nx.draw(
         G, pos,
         with_labels=True,
-        node_size=1200,
-        node_color="lightblue",
+        node_size=600,
+        node_color=colors,
         edge_color="gray",
         width=[w * 0.2 for w in weights],   # エッジ太さ
         font_size=8
@@ -210,29 +214,38 @@ def draw_stride_state_graph(states, stride=2, start=0,
 
     return G
 
-file_path1 = "long_flat_20251016_1308_53/node_list1.csv"
-df = pd.read_csv(file_path1, header=None)
+def main1():
+    csvs = file_io.read_all_csv_files("node_list1.csv")
+    print("Number of CSV files read:", len(csvs))
 
-res = util.hierarcy_data_from_csv(df)
-data = [util.bitstr_to_bool_int_list(r) for r in res]
-result = analyze_transition_pairs2(data)
-draw_stride_state_graph(data, min_count=1, layout="spring")
+    combined_df =csvs[10]  # file_io.combine_csv_data(csvs)
+    print("Combined DataFrame shape:", combined_df.shape)
+    res = util.hierarcy_data_from_csv(combined_df)
+    data = [util.bitstr_to_bool_int_list(r) for r in res]
+    result = analyze_transition_pairs1(data)
 
-cnt = 0
-cnt_num = dict()
-for pair, count in result.most_common():
-    # (s1_s2, s2_s3) = pair
-    # s1 = s1_s2[0]
-    # s2 = s1_s2[1]
-    # s3 = s2_s3[1]
-    # print(f"From {util.tuple_list_to_simple_str(s1)} to {util.tuple_list_to_simple_str(s2)} to {util.tuple_list_to_simple_str(s3)}: {count} times")
-    (s1, s3) = pair
-    print(f"From {util.tuple_list_to_simple_str(s1)} to {util.tuple_list_to_simple_str(s3)}: {count} times")
-    cnt += count
-    cnt_num[count] = cnt_num.get(count, 0) + 1
+    # printする
+    length = len(result)
+    one_cnt = sum(1 for cnt in result.values() if cnt == 1)
+    print(f"Total unique transition pairs: {length}")
+    print(f"Transition pairs with count 1: {one_cnt}")
+    print(f"Percentage of count 1 pairs: {one_cnt / length * 100:.2f}%")
 
-print(len(data))
-print(f"Total count: {cnt}")
-print("Count distribution:")
-for count, num in sorted(cnt_num.items()):
-    print(f"  {count} times: {num} pairs")
+    for key, count in result.most_common(20):
+        s1, s2 = key
+        s1_1, s1_2 = s1
+        s2_1, s2_2 = s2
+        print(
+            f"From: {util.tuple_list_to_simple_str(s1_1)} -> {util.tuple_list_to_simple_str(s1_2)} "
+            f"To: {util.tuple_list_to_simple_str(s2_1)} -> {util.tuple_list_to_simple_str(s2_2)} | Count: {count}"
+        )
+        print (
+            f"  Ints: {util.bool_int_list_to_int(s1_1)} -> {util.bool_int_list_to_int(s1_2)} "
+            f"=> {util.bool_int_list_to_int(s2_1)} -> {util.bool_int_list_to_int(s2_2)}"
+        )
+
+    draw_state_graph(result, min_count=3, layout="spring")
+
+
+if __name__ == "__main__":
+    main1()

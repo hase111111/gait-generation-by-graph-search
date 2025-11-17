@@ -1,0 +1,1 @@
+    return (bool_list_to_leg_ground_int(bools), state_to_scalar(ints))
