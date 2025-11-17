@@ -13,6 +13,7 @@
 
 #include "application_setting_record.h"
 #include "dxlib_3d_renderer_group.h"
+#include "dxlib_camera.h"
 #include "dxlib_gui_display_node_switcher.h"
 #include "dxlib_gui_updater.h"
 #include "dxlib_node_setter_group.h"
@@ -23,6 +24,7 @@
 #include "interface_hexapod_joint_calculator.h"
 #include "interface_hexapod_posture_validator.h"
 #include "interpolated_node_creator.h"
+#include "keyboard.h"
 #include "map_renderer.h"
 #include "map_state.h"
 #include "mouse.h"
@@ -64,9 +66,10 @@ class GraphicMainBasic final : public IGraphicMain {
 
   std::shared_ptr<Mouse> mouse_ptr_;  //!< マウスの情報を取得するクラス.
 
-  DxlibGuiUpdater gui_updater_;  //!< GUIをアクティブにするクラス.
+  DxlibGuiUpdater gui_updater_;             //!< GUIをアクティブにするクラス.
   Dxlib3dRendererGroup render_group_;       //!< 描画を行うクラス.
   DxlibNodeSetterGroup node_setter_group_;  //!< ノードを設定するクラス.
+  std::shared_ptr<DxlibCamera> dxlib_camera_ptr_{nullptr};
 
   //!< ノードの表示を切り替えるGUI.
   std::shared_ptr<DxlibGuiDisplayNodeSwitcher> display_node_switch_gui_;
@@ -87,6 +90,8 @@ class GraphicMainBasic final : public IGraphicMain {
 
   std::vector<RobotStateNode> graph_;  //!< ロボットの動きの遷移を記録する配列.
 
+  Keyboard keyboard_;  //!< キーボードの入力を制御するクラス.
+
   size_t display_node_index_{0};  //!< 描画しているノード.
 
   int counter_{0};  //!< このクラスが実行されてから何回 update
@@ -100,6 +105,8 @@ class GraphicMainBasic final : public IGraphicMain {
 
   int graph_update_count{0};  //!< 処理部でのグラフの更新回数.
   int map_update_count{0};    //!< 処理部でのマップの更新回数.
+
+  bool draw_gui_{true};  //!< GUIを描画しないかどうか.
 };
 
 }  // namespace designlab

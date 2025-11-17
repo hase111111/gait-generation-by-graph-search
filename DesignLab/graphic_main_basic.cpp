@@ -44,15 +44,17 @@ GraphicMainBasic::GraphicMainBasic(
     movement_locus_renderer_.SetIsHighQuality(true);
   }
 
-  const auto camera = std::make_shared<DxlibCamera>();
+  dxlib_camera_ptr_ = std::make_shared<DxlibCamera>();
   const auto camera_gui = std::make_shared<DxlibGuiCamera>(
-      setting_ptr->window_size_x, setting_ptr->window_size_y, camera);
+      setting_ptr->window_size_x, setting_ptr->window_size_y,
+      dxlib_camera_ptr_);
   camera_gui->SetPos(10, 10, designlab::kDxlibGuiAnchorLeftTop, true);
   display_node_switch_gui_->SetPos(10, setting_ptr->window_size_y - 10,
                                    designlab::kDxlibGuiAnchorLeftBottom, true);
   const auto camera_parameter_gui =
       std::make_shared<DxlibGuiCameraParameterDisplayer>(
-          setting_ptr->window_size_x, setting_ptr->window_size_y, camera);
+          setting_ptr->window_size_x, setting_ptr->window_size_y,
+          dxlib_camera_ptr_);
   camera_parameter_gui->SetPos(10, 10, designlab::kDxlibGuiAnchorLeftTop, true);
   camera_parameter_gui->SetVisible(false);
   const auto node_display_gui = std::make_shared<DxlibGuiNodeDisplayer>(
@@ -60,7 +62,8 @@ GraphicMainBasic::GraphicMainBasic(
       calculator_ptr, checker_ptr);
   node_display_gui->SetPos(setting_ptr->window_size_x - 10, 10,
                            designlab::kDxlibGuiAnchorRightTop, true);
-  const auto camera_dragger = std::make_shared<CameraDragger>(camera);
+  const auto camera_dragger =
+      std::make_shared<CameraDragger>(dxlib_camera_ptr_);
 
   const auto [hexapod_renderer, hexapod_node_setter] =
       HexapodRendererBuilder::Build(converter_ptr, calculator_ptr,
@@ -92,6 +95,28 @@ GraphicMainBasic::GraphicMainBasic(
 
 bool GraphicMainBasic::Update() {
   mouse_ptr_->Update();
+
+  // G キーが押されたら,カメラパラメータ表示GUIの表示・非表示を切り替える.
+  keyboard_.Update();
+  if (keyboard_.GetPressingCount(KEY_INPUT_G) == 1) {
+    draw_gui_ = !draw_gui_;
+  }
+
+  // C キーが押されたら,カメラの位置と注視点をリセットする.
+  if (keyboard_.GetPressingCount(KEY_INPUT_C) == 1) {
+    dxlib_camera_ptr_->SetCameraQuat(
+        Quaternion{0.693f, 0.140f, -0.144f, 0.692f}.GetNormalized());
+    dxlib_camera_ptr_->SetTargetPos({821.f, -53.f, 169.f});
+    dxlib_camera_ptr_->SetCameraViewMode(
+        enums::CameraViewMode::kFreeControlledAndMovableTarget);
+    dxlib_camera_ptr_->AddCameraToTargetLength(-1000000);
+    dxlib_camera_ptr_->AddCameraToTargetLength(2500);
+  }
+
+  // P キーが押されたら,スクリーンショットを保存する.
+  if (keyboard_.GetPressingCount(KEY_INPUT_P) == 1) {
+    DxLib::SaveDrawScreenToPNG(0, 0, 1280, 720, "shot/screenshot.png");
+  }
 
   if (map_update_count != broker_ptr_->map_state.GetUpdateCount()) {
     map_update_count = broker_ptr_->map_state.GetUpdateCount();
@@ -175,6 +200,13 @@ bool GraphicMainBasic::Update() {
 }
 
 void GraphicMainBasic::Draw() const {
+  // 背景色をDrawBoxで直接描画することで,スクリーンショットに背景色が乗らないバグに対処する．
+  DxLib::DrawBox(
+      0, 0, 1280, 720,
+      GetColor(GraphicConst::kBackColorRed, GraphicConst::kBackColorBlue,
+               GraphicConst::kBackColorGreen),
+      TRUE);
+
   render_group_.Draw();
 
   // 移動軌跡を描画する.
@@ -184,7 +216,9 @@ void GraphicMainBasic::Draw() const {
       display_node_switch_gui_->GetSimulationNum());
 
   // 2DのGUIの描画.
-  gui_updater_.Draw();
+  if (draw_gui_) {
+    gui_updater_.Draw();
+  }
 }
 
 }  // namespace designlab
