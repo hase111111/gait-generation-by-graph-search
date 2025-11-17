@@ -82,7 +82,10 @@ auto LoadXrR1() {
   using designlab::XrR1ParameterRecord;
 
   auto record = XrR1ParameterRecord{};
-  record.max_leg_range = 200.f;
+  // record.max_leg_range = 250.f;
+  // record.movable_coxa_angle_max_deg = 40.f;
+  // record.movable_coxa_angle_min_deg = -40.f;
+  // record.body_lifting_height_min = 60.f;
 
   return std::make_shared<XrR1>(record);
 }
@@ -146,7 +149,8 @@ int main() {
 
         const auto gpg_builder = std::make_unique<GpgSelector>(
             phantomx_mk2, phantomx_mk2, phantomx_mk2);
-        auto gait_pattern_generator = gpg_builder->Select(GpgType::kFlat);
+        auto gait_pattern_generator =
+            gpg_builder->Select(GpgType::kPruningBranch);
 
         const auto sim_setting_record =
             TomlFileImporter<SimulationSettingRecord>{}.ImportOrUseDefault(

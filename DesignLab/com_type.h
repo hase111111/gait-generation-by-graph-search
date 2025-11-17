@@ -62,6 +62,9 @@ using LegGroundedMapValue = LegGroundedMap::value_type;
 //! @return 脚の接地パターンの総数.
 int GetLegGroundPatternNum();
 
+int GetLegGroundPatternIndexFromLegGroundedBit(
+    const leg_func::LegGroundedBit& leg_grounded_bit);
+
 //! @brief 脚の接地パターンの番号から,その番号に該当する接地パターンを返す.
 //! @param[in] leg_ground_pattern_index 脚の接地パターンの番号.
 //! @return 脚の接地パターン.

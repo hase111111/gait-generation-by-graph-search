@@ -203,6 +203,18 @@ namespace designlab::com_func {
 
 int GetLegGroundPatternNum() { return kLegGroundedPatternNum; }
 
+int GetLegGroundPatternIndexFromLegGroundedBit(
+    const leg_func::LegGroundedBit& leg_grounded_bit) {
+  int res = -1;
+  try {
+    res = ::kLegGroundedPatternMap.left.at(leg_grounded_bit);
+  } catch (...) {
+    // 存在しないパターンの場合は -1 を返す.
+    res = 0;
+  }
+  return res;
+}
+
 leg_func::LegGroundedBit GetLegGroundedBitFromLegGroundPatternIndex(
     const int leg_ground_pattern_index) {
   leg_func::LegGroundedBit res;

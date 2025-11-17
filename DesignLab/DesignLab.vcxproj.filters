@@ -828,6 +828,15 @@
     <ClInclude Include="node_creator_sequence_straight_move_legacy.h">
       <Filter>ヘッダー ファイル\Node\NodeCreatorSequence</Filter>
     </ClInclude>
+    <ClInclude Include="node_creator_sequence_pruning_branch.h">
+      <Filter>ヘッダー ファイル\Node\NodeCreatorSequence</Filter>
+    </ClInclude>
+    <ClInclude Include="node_creator_leg_hierarchy_pruning_branch.h">
+      <Filter>ヘッダー ファイル\Node\NodeCreator\LegChanger</Filter>
+    </ClInclude>
+    <ClInclude Include="node_creator_leg_up_down_pruning_branch.h">
+      <Filter>ヘッダー ファイル\Node\NodeCreator\LegChanger</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
@@ -1183,6 +1192,15 @@
     </ClCompile>
     <ClCompile Include="node_creator_sequence_straight_move_legacy.cpp">
       <Filter>ソース ファイル\Node\NodeCreatorSequence</Filter>
+    </ClCompile>
+    <ClCompile Include="node_creator_sequence_pruning_branch.cpp">
+      <Filter>ソース ファイル\Node\NodeCreatorSequence</Filter>
+    </ClCompile>
+    <ClCompile Include="node_creator_leg_hierarchy_pruning_branch.cpp">
+      <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
+    </ClCompile>
+    <ClCompile Include="node_creator_leg_up_down_pruning_branch.cpp">
+      <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

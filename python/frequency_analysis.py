@@ -137,7 +137,7 @@ def draw_state_graph(result, min_count=1, layout="spring"):
         node_size=600,
         node_color=colors,
         edge_color="gray",
-        width=[w * 0.2 for w in weights],   # エッジ太さ
+        width=[(w * 0.1 if w * 0.1 < 5 else 5) for w in weights],   # エッジ太さ
         font_size=8
     )
 
@@ -198,7 +198,7 @@ def draw_stride_state_graph(states, stride=2, start=0,
         node_size=1200,
         node_color="lightgreen",
         edge_color="gray",
-        width=[w * 0.25 for w in weights],
+        width=[(w * 0.05 if w * 0.05 < 0.5 else 0.5) for w in weights],
         font_size=8,
     )
 
@@ -214,11 +214,52 @@ def draw_stride_state_graph(states, stride=2, start=0,
 
     return G
 
+# csvを受け取り，1列目の値でソートして返す
+# 等しいなら2列目，3列目...でソート
+def sort_csv(data):
+    sort_columns = data.columns.tolist()
+    sorted_data = data.sort_values(by=sort_columns)
+    return sorted_data
+
+# 1,2,3列目が同じ行をまとめる
+# ↑の関数でソートされたcsvを受け取ることを想定
+def zip_csv_by_123_columns(data):
+    grouped = data.groupby(data.columns.tolist()[:3], as_index=False).agg({'count': 'sum'})
+    return grouped
+
+def result_to_hierarchy_csv(result, filename="transition_pairs.csv", count_filter=0):
+    rows = []
+    for (s1, s2), count in result.items():
+        if count <= count_filter:
+            continue
+
+        s1_1, s1_2 = s1
+        s2_1, s2_2 = s2
+
+        leg_up_down1, hierarcy1 = util.bool_int_list_to_int(s1_2)
+        leg_up_down2, hierarcy2 = util.bool_int_list_to_int(s2_1)
+        if leg_up_down1 != leg_up_down2:
+            continue
+
+        # leg_up_down1, hierarcy1, leg_up_down2の組み合わせで集計
+        row = {
+            "leg_up_down": leg_up_down1,
+            "from_hierarchy": hierarcy1,
+            "to_hierarchy": hierarcy2,
+            "count": count
+        }
+        rows.append(row)
+    df = pd.DataFrame(rows)
+    df = sort_csv(df)
+    df = zip_csv_by_123_columns(df)
+    df.to_csv(filename, index=False)
+
+
 def main1():
     csvs = file_io.read_all_csv_files("node_list1.csv")
     print("Number of CSV files read:", len(csvs))
 
-    combined_df =csvs[10]  # file_io.combine_csv_data(csvs)
+    combined_df = file_io.combine_csv_data(csvs)
     print("Combined DataFrame shape:", combined_df.shape)
     res = util.hierarcy_data_from_csv(combined_df)
     data = [util.bitstr_to_bool_int_list(r) for r in res]
@@ -244,7 +285,8 @@ def main1():
             f"=> {util.bool_int_list_to_int(s2_1)} -> {util.bool_int_list_to_int(s2_2)}"
         )
 
-    draw_state_graph(result, min_count=3, layout="spring")
+    result_to_hierarchy_csv(result, filename="transition_pairs.csv", count_filter=1)
+    draw_state_graph(result, min_count=20, layout="spring")
 
 
 if __name__ == "__main__":

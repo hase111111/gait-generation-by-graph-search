@@ -17,6 +17,7 @@
 #include "hexapod_renderer_builder.h"
 #include "keyboard.h"
 #include "map_renderer.h"
+#include "stopwatch.h"
 #include "world_grid_renderer.h"
 
 namespace designlab {
@@ -113,9 +114,14 @@ bool GraphicMainBasic::Update() {
     dxlib_camera_ptr_->AddCameraToTargetLength(2500);
   }
 
-  // P キーが押されたら,スクリーンショットを保存する.
-  if (keyboard_.GetPressingCount(KEY_INPUT_P) == 1) {
-    DxLib::SaveDrawScreenToPNG(0, 0, 1280, 720, "shot/screenshot.png");
+  // ctrl + P キーが押されたら,スクリーンショットを保存する.
+  if (keyboard_.GetPressingCount(KEY_INPUT_P) == 1 &&
+      keyboard_.GetPressingCount(KEY_INPUT_LCONTROL) > 0) {
+    // 時間を取得して,ファイル名に使う.
+    const std::string name =
+        "shot/screenshot" + Stopwatch{}.GetNowTimeString() + ".png";
+
+    DxLib::SaveDrawScreenToPNG(0, 0, 1280, 720, name.c_str());
   }
 
   if (map_update_count != broker_ptr_->map_state.GetUpdateCount()) {

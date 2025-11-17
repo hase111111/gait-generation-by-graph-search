@@ -174,4 +174,4 @@ def main3(filter_str, raw=True, show_plot=True):
         plt.show()
 
 if __name__ == "__main__":
-    main3("40_40", raw=False, show_plot=False)
+    main3("stepup", raw=True, show_plot=True)

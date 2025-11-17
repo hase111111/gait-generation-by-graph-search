@@ -19,6 +19,7 @@
 #include "graph_searcher_wall.h"
 #include "graph_tree_creator.h"
 #include "node_creator_sequence_body_rot.h"
+#include "node_creator_sequence_pruning_branch.h"
 #include "node_creator_sequence_straight_move.h"
 #include "node_creator_sequence_straight_move_legacy.h"
 #include "node_creator_sequence_wall.h"
@@ -55,6 +56,9 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::Select(
     case GpgType::kWall: {
       return MakeGpgWall();
     }
+    case GpgType::kPruningBranch: {
+      return MakeGpgPruningBranch();
+    }
     default: {
       break;
     }
@@ -73,8 +77,8 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgFlat() const {
   auto graph_searcher =
       std::make_unique<GraphSearcherStraightMove>(checker_ptr_);
 
-  auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorBasic>(
-      std::move(graph_tree_creator), std::move(graph_searcher), 4, 10000000);
+  auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorThread>(
+      std::move(graph_tree_creator), std::move(graph_searcher), 5, 20000000);
 
   return std::move(gait_pattern_generator);
 }
@@ -143,6 +147,22 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgWall() const {
       std::make_unique<GraphSearcherStraightMove>(checker_ptr_);
 
   auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorBasic>(
+      std::move(graph_tree_creator), std::move(graph_searcher), 5, 20000000);
+
+  return std::move(gait_pattern_generator);
+}
+
+std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgPruningBranch()
+    const {
+  auto node_creator_seq = std::make_unique<NodeCreatorSequencePruningBranch>(
+      converter_ptr_, presenter_ptr_, checker_ptr_);
+  auto graph_tree_creator =
+      std::make_unique<GraphTreeCreator>(std::move(node_creator_seq));
+
+  auto graph_searcher =
+      std::make_unique<GraphSearcherStraightMove>(checker_ptr_);
+
+  auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorThread>(
       std::move(graph_tree_creator), std::move(graph_searcher), 5, 20000000);
 
   return std::move(gait_pattern_generator);
