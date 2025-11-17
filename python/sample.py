@@ -91,7 +91,7 @@ def plot_2d_pairs_alternate_color(pairs, plot_type=("x", "y"), only_save=False):
     plt.show()
     return
 
-file_path1 = "flat_20251116_1911_37/node_list1.csv"
+file_path1 = "long_flat_20251016_1308_53/node_list1.csv"
 df = pd.read_csv(file_path1, header=None)
 
 res = util.hierarcy_data_from_csv(df)

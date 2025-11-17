@@ -1,5 +1,81 @@
 import numpy as np
 
+def leg_ground_map(str):
+    if str =="010101":
+        return 0
+    elif str =="101010":
+        return 1
+    elif str =="111111":
+        return 2
+    elif str =="011111":
+        return 3
+    elif str =="101111":
+        return 4
+    elif str =="110111":
+        return 5
+    elif str =="111011":
+        return 6
+    elif str =="111101":
+        return 7
+    elif str =="111110":
+        return 8
+    elif str =="001111":
+        return 9
+    elif str =="010111":
+        return 10
+    elif str =="011011":
+        return 11
+    elif str =="011101":
+        return 12
+    elif str =="011110":
+        return 13
+    elif str =="100111":
+        return 14
+    elif str =="101011":
+        return 15
+    elif str =="101101":
+        return 16
+    elif str =="101110":
+        return 17
+    elif str =="110011":
+        return 18
+    elif str =="110101":
+        return 19
+    elif str =="110110":
+        return 20
+    elif str =="111001":
+        return 21
+    elif str =="111010":
+        return 22
+    elif str =="111100":
+        return 23
+    elif str =="001011":
+        return 24
+    elif str =="001101":
+        return 25
+    elif str =="010011":
+        return 26
+    elif str =="010110":
+        return 27
+    elif str =="011001":
+        return 28
+    elif str =="011010":
+        return 29
+    elif str =="100101":
+        return 30
+    elif str =="100110":
+        return 31
+    elif str =="101001":
+        return 32
+    elif str =="101100":
+        return 33
+    elif str =="110010":
+        return 34
+    elif str =="110100":
+        return 35
+    else:
+        raise ValueError(f"脚接地パターンが不正です: {str}")
+  
 def hierarcy_data_from_csv(data): 
     # for文で，各行のデータを処理
     hierarcy_data = []
@@ -30,6 +106,11 @@ def bool_list_to_2bit_int(bools):
     for ind, b in enumerate(bools):
         res += int(b) << (5 - ind)
     return res
+
+def bool_list_to_leg_ground_int(bools):
+    # boolのリストを文字列化して，脚接地パターン整数に変換
+    bitstr = ''.join(['1' if b else '0' for b in bools])
+    return leg_ground_map(bitstr)
 
 def convert_base7(arr):
     """
@@ -118,7 +199,7 @@ def bool_int_list_to_int(bit_list):
     # (bool, int)のリストをmapする2つの数字に変換
     bools = [int(b) for b, _ in bit_list]
     ints = [n for _, n in bit_list]
-    return (bool_list_to_2bit_int(bools), state_to_scalar(ints))
+    return (bool_list_to_leg_ground_int(bools), state_to_scalar(ints))
     # return (bool_list_to_2bit_int(bools), convert_base7(ints))
 
 def tuple_list_to_simple_str(tpl_list):
