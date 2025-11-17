@@ -147,7 +147,7 @@ def draw_state_graph(states, min_count=1, layout="spring"):
     return G
 
 def draw_stride_state_graph(states, stride=2, start=0,
-                            min_count=1, layout="spring", use_reverse=True):
+                            min_count=1, layout="spring", use_reverse=False):
     """
     states: 状態列
     stride: 何個おきに間引くか（2なら 0,2,4,...）
@@ -210,13 +210,13 @@ def draw_stride_state_graph(states, stride=2, start=0,
 
     return G
 
-file_path1 = "flat_20251116_1911_37/node_list1.csv"
+file_path1 = "long_flat_20251016_1308_53/node_list1.csv"
 df = pd.read_csv(file_path1, header=None)
 
 res = util.hierarcy_data_from_csv(df)
 data = [util.bitstr_to_bool_int_list(r) for r in res]
 result = analyze_transition_pairs2(data)
-draw_state_graph(data, min_count=3, layout="spring")
+draw_stride_state_graph(data, min_count=1, layout="spring")
 
 cnt = 0
 cnt_num = dict()
