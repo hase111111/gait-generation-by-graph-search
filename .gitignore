@@ -369,3 +369,5 @@ DesignLab/Log.txt
 # DoxygenFile/
 
 DesignLab/shot/*
+python/*.png
+python/result/*

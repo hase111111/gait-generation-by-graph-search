@@ -77,8 +77,8 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgFlat() const {
   auto graph_searcher =
       std::make_unique<GraphSearcherStraightMove>(checker_ptr_);
 
-  auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorThread>(
-      std::move(graph_tree_creator), std::move(graph_searcher), 5, 20000000);
+  auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorBasic>(
+      std::move(graph_tree_creator), std::move(graph_searcher), 4, 2000000);
 
   return std::move(gait_pattern_generator);
 }

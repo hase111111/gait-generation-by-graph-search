@@ -145,6 +145,9 @@ def main3(filter_str, raw=True, show_plot=True):
     fig, ax = plt.subplots(figsize=(16, 8))
 
     for i, df in enumerate(file):
+        # # stepdown か stepupを含むものはスキップする
+        # if "stepdown" in df or "stepup" in df:
+        #     continue
         if filter_str not in df:
             continue
         print(f"Processing file {i}: {df}")
@@ -174,4 +177,4 @@ def main3(filter_str, raw=True, show_plot=True):
         plt.show()
 
 if __name__ == "__main__":
-    main3("stepup", raw=True, show_plot=True)
+    main3("", raw=True, show_plot=True)

@@ -256,7 +256,19 @@ def result_to_hierarchy_csv(result, filename="transition_pairs.csv", count_filte
 
 
 def main1():
-    csvs = file_io.read_all_csv_files("node_list1.csv")
+    filter = "stepdown"
+    file = file_io.get_file_paths("node_list1.csv")
+
+    csvs = []
+    for i, df in enumerate(file):
+        # stepdown か stepupを含むものはスキップする
+        if "stepdown" in df or "stepup" in df:
+            continue
+        # if filter not in df:
+        #     continue
+        data = file_io.read_csv_file(df)
+        csvs.append(data)
+
     print("Number of CSV files read:", len(csvs))
 
     combined_df = file_io.combine_csv_data(csvs)
@@ -280,10 +292,10 @@ def main1():
             f"From: {util.tuple_list_to_simple_str(s1_1)} -> {util.tuple_list_to_simple_str(s1_2)} "
             f"To: {util.tuple_list_to_simple_str(s2_1)} -> {util.tuple_list_to_simple_str(s2_2)} | Count: {count}"
         )
-        print (
-            f"  Ints: {util.bool_int_list_to_int(s1_1)} -> {util.bool_int_list_to_int(s1_2)} "
-            f"=> {util.bool_int_list_to_int(s2_1)} -> {util.bool_int_list_to_int(s2_2)}"
-        )
+        # print (
+        #     f"  Ints: {util.bool_int_list_to_int(s1_1)} -> {util.bool_int_list_to_int(s1_2)} "
+        #     f"=> {util.bool_int_list_to_int(s2_1)} -> {util.bool_int_list_to_int(s2_2)}"
+        # )
 
     result_to_hierarchy_csv(result, filename="transition_pairs.csv", count_filter=1)
     draw_state_graph(result, min_count=20, layout="spring")
