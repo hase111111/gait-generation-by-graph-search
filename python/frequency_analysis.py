@@ -292,10 +292,10 @@ def main1():
             f"From: {util.tuple_list_to_simple_str(s1_1)} -> {util.tuple_list_to_simple_str(s1_2)} "
             f"To: {util.tuple_list_to_simple_str(s2_1)} -> {util.tuple_list_to_simple_str(s2_2)} | Count: {count}"
         )
-        # print (
-        #     f"  Ints: {util.bool_int_list_to_int(s1_1)} -> {util.bool_int_list_to_int(s1_2)} "
-        #     f"=> {util.bool_int_list_to_int(s2_1)} -> {util.bool_int_list_to_int(s2_2)}"
-        # )
+        print (
+            f"  Ints: {util.bool_int_list_to_int(s1_1)} -> {util.bool_int_list_to_int(s1_2)} "
+            f"=> {util.bool_int_list_to_int(s2_1)} -> {util.bool_int_list_to_int(s2_2)}"
+        )
 
     result_to_hierarchy_csv(result, filename="transition_pairs.csv", count_filter=1)
     draw_state_graph(result, min_count=20, layout="spring")

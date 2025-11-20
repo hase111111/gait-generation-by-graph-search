@@ -155,6 +155,17 @@ def convert_base7(arr):
 
     return num
 
+def convert_hierarchy_str(arr):
+    """
+    arr: 長さ6の配列（要素は1～7）
+    戻り値: "n1-n2-n3-n4-n5-n6" の形式の文字列
+    """
+
+    if len(arr) != 6:
+        raise ValueError("配列の長さが6ではありません")
+
+    return '-'.join(str(x) for x in arr)
+
 def command_to_vec(cmd, index=0):
     """
     単一コマンドを (前後, 上下) の2次元ベクトルへ変換
