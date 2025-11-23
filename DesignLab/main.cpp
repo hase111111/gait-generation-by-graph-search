@@ -28,6 +28,7 @@
 #include "robot_operator_factory.h"
 #include "simulation_end_checker_factory.h"
 #include "system_main_continuous_simulation.h"
+#include "system_main_create_map_csv.h"
 #include "system_main_graph_viewer.h"
 #include "system_main_result_viewer.h"
 #include "system_main_robot_control.h"
@@ -281,6 +282,10 @@ int main() {
             std::move(gait_pattern_generator),
             std::move(simulation_end_checker), std::move(robot_operator),
             std::move(node_initializer), app_setting_record, hexapod, hexapod);
+        break;
+      }
+      case BootMode::kCreateMapCsv: {
+        system_main = std::make_unique<SystemMainCreateMapCsv>();
         break;
       }
       default: {

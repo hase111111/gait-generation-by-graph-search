@@ -265,6 +265,12 @@
     <Filter Include="ソース ファイル\System\ContinuousSimulation">
       <UniqueIdentifier>{7874915c-101e-4dec-9181-5212cc9abe06}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\System\CreateMapCsv">
+      <UniqueIdentifier>{c0203018-66b7-49f4-b185-a5348e6a1efb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\System\CreateMapCsv">
+      <UniqueIdentifier>{ca80be9b-2a4f-4d17-8c5f-bef485f81715}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math_vector2.h">
@@ -846,6 +852,9 @@
     <ClInclude Include="system_main_continuous_simulation.h">
       <Filter>ヘッダー ファイル\System\ContinuousSimulation</Filter>
     </ClInclude>
+    <ClInclude Include="system_main_create_map_csv.h">
+      <Filter>ヘッダー ファイル\System\CreateMapCsv</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
@@ -1213,6 +1222,9 @@
     </ClCompile>
     <ClCompile Include="system_main_continuous_simulation.cpp">
       <Filter>ソース ファイル\System\ContinuousSimulation</Filter>
+    </ClCompile>
+    <ClCompile Include="system_main_create_map_csv.cpp">
+      <Filter>ソース ファイル\System\CreateMapCsv</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

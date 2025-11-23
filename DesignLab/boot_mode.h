@@ -20,6 +20,7 @@ enum class BootMode : int {
   kResultViewer,          //!< リザルトビューワーモード.
   kRobotControl,          //!< ロボットコントロールモード.
   kContinuousSimulation,  //!< 連続シミュレーションモード.
+  kCreateMapCsv,          //!< マップのCSV作成モード.
 };
 
 }  // namespace designlab

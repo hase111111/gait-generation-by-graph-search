@@ -58,6 +58,7 @@
     <ClInclude Include="node_creator_sequence_straight_move_legacy.h" />
     <ClInclude Include="node_creator_sequence_wall.h" />
     <ClInclude Include="serial_communication_thread.h" />
+    <ClInclude Include="system_main_create_map_csv.h" />
     <ClInclude Include="string_util_test.h" />
     <ClInclude Include="divided_map_state_test.h" />
     <ClInclude Include="dxlib_3d_renderer_group.h" />
@@ -265,6 +266,7 @@
     <ClCompile Include="com_candidate_polygon_maker.cpp" />
     <ClCompile Include="node_creator_com_move.cpp" />
     <ClCompile Include="math_rot_converter.cpp" />
+    <ClCompile Include="system_main_create_map_csv.cpp" />
     <ClCompile Include="string_util.cpp" />
     <ClCompile Include="divided_map_state.cpp" />
     <ClCompile Include="node_creator_sequence_turn.cpp" />
