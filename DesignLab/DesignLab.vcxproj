@@ -184,6 +184,7 @@
     <ClInclude Include="dead_lock_checker.h" />
     <ClInclude Include="phantomx_mk2.h" />
     <ClInclude Include="result_file_exporter.h" />
+    <ClInclude Include="system_main_continuous_simulation.h" />
     <ClInclude Include="system_main_result_viewer.h" />
     <ClInclude Include="robot_ground_point_renderer.h" />
     <ClInclude Include="simulation_result_record.h" />
@@ -319,6 +320,7 @@
     <ClCompile Include="dead_lock_checker.cpp" />
     <ClCompile Include="phantomx_mk2.cpp" />
     <ClCompile Include="result_file_exporter.cpp" />
+    <ClCompile Include="system_main_continuous_simulation.cpp" />
     <ClCompile Include="system_main_result_viewer.cpp" />
     <ClCompile Include="robot_ground_point_renderer.cpp" />
     <ClCompile Include="simulation_result_record.cpp" />

@@ -28,8 +28,8 @@
     initial_move = "kLegHierarchyChange"
     
     #シミュレーション開始時のロボットの位置を設定します．[mm]．地面にめり込んでいる場合には機能しないため，注意すること．
-    # initial_positions = "     0.0, 0.0,     60.000"
-    initial_positions = "     -80.0, -30.0,     -245.000"
+    initial_positions = "     0.0, 0.0,     60.000"
+    # initial_positions = "     -80.0, -30.0,     -245.000"
     
     #シミュレーション開始時のロボットの姿勢を設定します．[deg]．地面にめり込んでいる場合には機能しないため，注意すること．
     initial_posture = "     0.000,     0.000,     0.000"
@@ -38,7 +38,7 @@
 [Map]
     
     #マップの作成方法を設定します．( "kForSimulation" / "kFromFile" )
-    map_create_mode = "kFromFile" 
+    map_create_mode = "kForSimulation" 
     
     #マップの作成方法がファイルから読み込むモード ( FromFile ) の場合，マップの csvファイルの名前を設定します．
     map_file_name = "terrain_with_rectangle.csv"

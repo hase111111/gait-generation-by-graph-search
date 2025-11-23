@@ -20,6 +20,10 @@ class TomlDirectoryExporter final {
   //! TOMLファイルを入れるディレクトリのパス.
   static const char kTomlFileDirPath[];
 
+  //! 連続シミュレーションをする際に map の csv
+  //! ファイルを入れるディレクトリのパス.
+  static const char kContinuousSimulationMapDirPath[];
+
   //! @brief TOMLファイルを入れるディレクトリを作成し,
   //! TOMLファイル読み込みの準備をする.
   void Export();

@@ -45,6 +45,7 @@ class MapRenderer final : public IDxlibNodeSetter, public IDxlib3dRenderer {
   const float cube_size_;
   const bool draw_flat_map_;
   const bool draw_area_;
+  const float max_draw_distance_ = 5000.f;
 
   MapState map_;
   DividedMapState divided_map_;

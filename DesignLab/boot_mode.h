@@ -14,11 +14,12 @@ namespace designlab {
 //! @brief 起動モードを表す列挙型.
 //! @see BootModeSelector
 enum class BootMode : int {
-  kSimulation = 0,  //!< シミュレーションモード.
-  kViewer,          //!< ビューワーモード.
-  kDisplayModel,    //!< ディスプレイモード.
-  kResultViewer,    //!< リザルトビューワーモード.
-  kRobotControl,    //!< ロボットコントロールモード.
+  kSimulation = 0,        //!< シミュレーションモード.
+  kViewer,                //!< ビューワーモード.
+  kDisplayModel,          //!< ディスプレイモード.
+  kResultViewer,          //!< リザルトビューワーモード.
+  kRobotControl,          //!< ロボットコントロールモード.
+  kContinuousSimulation,  //!< 連続シミュレーションモード.
 };
 
 }  // namespace designlab

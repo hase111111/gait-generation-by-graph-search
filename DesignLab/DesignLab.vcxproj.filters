@@ -259,6 +259,12 @@
     <Filter Include="ヘッダー ファイル\Graphic\3DRender\HexapodRender">
       <UniqueIdentifier>{d25f64fc-9648-4e44-b4cf-ab67cd1c356a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\System\ContinuousSimulation">
+      <UniqueIdentifier>{a0fb7097-09ff-4237-bd41-90bb991bcdbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\System\ContinuousSimulation">
+      <UniqueIdentifier>{7874915c-101e-4dec-9181-5212cc9abe06}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math_vector2.h">
@@ -837,6 +843,9 @@
     <ClInclude Include="node_creator_leg_up_down_pruning_branch.h">
       <Filter>ヘッダー ファイル\Node\NodeCreator\LegChanger</Filter>
     </ClInclude>
+    <ClInclude Include="system_main_continuous_simulation.h">
+      <Filter>ヘッダー ファイル\System\ContinuousSimulation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
@@ -1201,6 +1210,9 @@
     </ClCompile>
     <ClCompile Include="node_creator_leg_up_down_pruning_branch.cpp">
       <Filter>ソース ファイル\Node\NodeCreator\LegChanger</Filter>
+    </ClCompile>
+    <ClCompile Include="system_main_continuous_simulation.cpp">
+      <Filter>ソース ファイル\System\ContinuousSimulation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

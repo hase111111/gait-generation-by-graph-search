@@ -14,10 +14,17 @@ namespace designlab {
 const char TomlDirectoryExporter::kTomlFileDirPath[] =
     "./simulation_condition/";
 
+const char TomlDirectoryExporter::kContinuousSimulationMapDirPath[] =
+    "./simulation_condition/continuous_simulation_map/";
+
 void TomlDirectoryExporter::Export() {
   // ディレクトリが存在しない場合は作成.
   if (!std::filesystem::exists(kTomlFileDirPath)) {
     std::filesystem::create_directory(kTomlFileDirPath);
+  }
+
+  if (!std::filesystem::exists(kContinuousSimulationMapDirPath)) {
+    std::filesystem::create_directory(kContinuousSimulationMapDirPath);
   }
 }
 

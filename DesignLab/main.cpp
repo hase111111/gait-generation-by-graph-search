@@ -27,6 +27,7 @@
 #include "phantomx_mk2.h"
 #include "robot_operator_factory.h"
 #include "simulation_end_checker_factory.h"
+#include "system_main_continuous_simulation.h"
 #include "system_main_graph_viewer.h"
 #include "system_main_result_viewer.h"
 #include "system_main_robot_control.h"
@@ -255,6 +256,35 @@ int main() {
                 app_setting_record);
 
         graphic_system.ChangeGraphicMain(std::move(graphic_main_robot_control));
+        break;
+      }
+      case BootMode::kContinuousSimulation: {
+        // シミュレーションシステムクラスを作成する.
+        auto phantomx_mk2 = LoadXrR1();
+
+        const auto gpg_builder = std::make_unique<GpgSelector>(
+            phantomx_mk2, phantomx_mk2, phantomx_mk2);
+        auto gait_pattern_generator = gpg_builder->Select(GpgType::kFlat);
+
+        const auto sim_setting_record =
+            TomlFileImporter<SimulationSettingRecord>{}.ImportOrUseDefault(
+                "./simulation_condition/simulation_setting.toml");
+
+        auto map_creator = MapCreatorSelector{}.Select(sim_setting_record);
+        auto simulation_end_checker =
+            SimulationEndCheckerFactory::Create(sim_setting_record);
+        auto robot_operator = RobotOperatorFactory::Create(sim_setting_record);
+        auto node_initializer = std::make_unique<NodeInitializer>(
+            sim_setting_record.initial_positions,
+            sim_setting_record.initial_posture,
+            sim_setting_record.initial_move);
+        auto result_exporter =
+            std::make_shared<ResultFileExporter>(phantomx_mk2, phantomx_mk2);
+
+        system_main = std::make_unique<SystemMainContinuousSimulation>(
+            std::move(gait_pattern_generator), std::move(map_creator),
+            std::move(simulation_end_checker), std::move(robot_operator),
+            std::move(node_initializer), app_setting_record, result_exporter);
         break;
       }
       default: {

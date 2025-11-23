@@ -61,8 +61,8 @@ void NodeCreatorComMoveStraight::Create(
       // IsLegInRange,IsStable,IsBodyInterfering を確認する.
       if (checker_ptr_->IsAllLegInRange(next_node.leg_state,
                                         next_node.leg_pos) &&
-          checker_ptr_->IsStable(next_node.leg_state, next_node.leg_pos) /*&&
-          !checker_ptr_->IsBodyInterferingWithGround(next_node, map_)*/) {
+          checker_ptr_->IsStable(next_node.leg_state, next_node.leg_pos) &&
+          !checker_ptr_->IsBodyInterferingWithGround(next_node, map_)) {
         is_able = true;
         able_count = static_cast<int>(j);
       } else {

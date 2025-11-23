@@ -41,6 +41,10 @@ void MapRenderer::Draw() const {
   const size_t map_point_size = map_.GetMapPointSize();  // マップの点の数.
 
   for (size_t i = 0; i < map_point_size; i++) {
+    if (hexapod_pos_.GetDistanceFrom(map_.GetMapPoint(i)) >
+        max_draw_distance_) {
+      continue;  // 一定距離以上離れている点は描画しない.
+    }
     DrawCube3DWithTopPos(ConvertToDxlibVec(map_.GetMapPoint(i)), cube_size_,
                          color_dark_gray_);
   }
