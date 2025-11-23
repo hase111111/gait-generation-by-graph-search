@@ -20,26 +20,22 @@ void DeadLockChecker::AddNode(const RobotStateNode& node) {
 }
 
 bool DeadLockChecker::IsDeadLock() const {
-  if (node_vec_.size() < 1) {
-    // 比較するためのノードがないならば即終了.
+  // 最大数に達していない場合は,デッドロックしていないと判断する.
+  if (node_vec_.size() < kMaxDataNum) {
     return false;
   }
 
-  auto itr = node_vec_.begin();  // ノードの最初を指すイテレーターを取得して,
-  itr++;                         // 一つ進める.
+  // 最新のノードと最も古いノードを比較し，
+  // 重心位置と姿勢が同じならばデッドロックしていると判断する.
+  const auto& latest_node = node_vec_.front();
+  const auto& oldest_node = node_vec_.back();
 
-  for (size_t i = 0; i < kMaxDataNum; i++) {
-    if (itr != node_vec_.end()) {
-      itr++;
-    }
-  }
+  const float dist = 100.f;
 
-  // イテレーターが最後になるまでループする.
-  for (itr; itr != node_vec_.end(); itr++) {
-    // 同じノードがあれば,動作がループしているとみなし,trueを返す.
-    if (node_vec_.front() == (*itr)) {
-      return true;
-    }
+  if (latest_node.center_of_mass_global_coord.GetDistanceFrom(
+          oldest_node.center_of_mass_global_coord) < dist &&
+      latest_node.posture == oldest_node.posture) {
+    return true;
   }
 
   return false;

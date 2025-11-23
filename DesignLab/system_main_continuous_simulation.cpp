@@ -43,9 +43,6 @@ SystemMainContinuousSimulation::SystemMainContinuousSimulation(
   assert(simulation_end_checker_ptr_ != nullptr);
   assert(robot_operator_ptr_ != nullptr);
   assert(setting_ptr_ != nullptr);
-
-  //// マップを生成する.
-  // map_state_ = map_creator_ptr_->InitMap();
 }
 
 void SystemMainContinuousSimulation::Main() {
@@ -92,8 +89,8 @@ void SystemMainContinuousSimulation::Main() {
     record.graph_search_result_recorder.push_back(
         GraphSearchResultRecord{current_node, 0.0, 0, true});
 
-    cmdio::OutputF(kSystem, "Start simulation {} times / {}", i + 1,
-                   map_file_paths[i]);
+    cmdio::SystemOutputF("[*] Start simulation {} / {} | {}", i + 1,
+                         map_file_paths.size(), map_file_paths[i]);
     cmdio::SpacedOutputF(kInfo, "[Initial node state]\n{}",
                          current_node.ToString());
 
@@ -183,6 +180,11 @@ void SystemMainContinuousSimulation::Main() {
             "The simulation was successful. SimulationResult = {}",
             EnumToStringRemoveTopK(record.simulation_result));
       }
+
+      if (j % (kGaitPatternGenerationLimit / 10) ==
+          kGaitPatternGenerationLimit / 10 - 1) {
+        cmdio::SystemOutputF("    Gait generation {} times completed.", j + 1);
+      }
     }  // 歩容生成のループ終了.
 
     // 結果を格納する変数にマップの状態を格納する.
@@ -196,8 +198,6 @@ void SystemMainContinuousSimulation::Main() {
             "_" + GetStem(map_file_paths[i]),
         true);
 
-    cmdio::OutputNewLine(1, kSystem);
-    cmdio::OutputHorizontalLine("=", kSystem);
     cmdio::OutputNewLine(1, kSystem);
   }
 

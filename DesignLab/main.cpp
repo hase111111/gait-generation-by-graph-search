@@ -285,7 +285,14 @@ int main() {
         break;
       }
       case BootMode::kCreateMapCsv: {
-        system_main = std::make_unique<SystemMainCreateMapCsv>();
+        const auto graphic_data_broker = std::make_shared<GraphicDataBroker>();
+        const auto hexapod = LoadXrR1();
+        system_main =
+            std::make_unique<SystemMainCreateMapCsv>(graphic_data_broker);
+        auto graphic_main = std::make_unique<GraphicMainBasic>(
+            graphic_data_broker, hexapod, hexapod, hexapod, app_setting_record);
+
+        graphic_system.ChangeGraphicMain(std::move(graphic_main));
         break;
       }
       default: {

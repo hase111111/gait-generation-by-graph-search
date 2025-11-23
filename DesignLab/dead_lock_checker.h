@@ -42,7 +42,7 @@ class DeadLockChecker final {
   //! 全てのデータを保持し続けると非常に重たくなるので,
   //! この変数の値の数までデータを持つ.
   //! 先行研究のプログラムでは30個程持つようにしていたので,その値を参考にする.
-  static constexpr int kMaxDataNum = 30;
+  static constexpr int kMaxDataNum = 100;
 
   std::deque<RobotStateNode> node_vec_;  //!< 歩容生成した物を保持する.
 };
