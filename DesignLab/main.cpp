@@ -79,14 +79,13 @@ auto LoadPhantomXMkII() {
 }
 
 auto LoadXrR1() {
+  using designlab::TomlFileImporter;
   using designlab::XrR1;
   using designlab::XrR1ParameterRecord;
 
-  auto record = XrR1ParameterRecord{};
-  // record.max_leg_range = 250.f;
-  // record.movable_coxa_angle_max_deg = 40.f;
-  // record.movable_coxa_angle_min_deg = -40.f;
-  // record.body_lifting_height_min = 60.f;
+  TomlFileImporter<XrR1ParameterRecord> parameter_importer;
+  const auto record = parameter_importer.ImportOrUseDefault(
+      "./simulation_condition/xr_r1.toml");
 
   return std::make_shared<XrR1>(record);
 }
@@ -260,17 +259,16 @@ int main() {
       }
       case BootMode::kContinuousSimulation: {
         // シミュレーションシステムクラスを作成する.
-        auto phantomx_mk2 = LoadXrR1();
+        auto hexapod = LoadXrR1();
 
-        const auto gpg_builder = std::make_unique<GpgSelector>(
-            phantomx_mk2, phantomx_mk2, phantomx_mk2);
+        const auto gpg_builder =
+            std::make_unique<GpgSelector>(hexapod, hexapod, hexapod);
         auto gait_pattern_generator = gpg_builder->Select(GpgType::kFlat);
 
         const auto sim_setting_record =
             TomlFileImporter<SimulationSettingRecord>{}.ImportOrUseDefault(
                 "./simulation_condition/simulation_setting.toml");
 
-        auto map_creator = MapCreatorSelector{}.Select(sim_setting_record);
         auto simulation_end_checker =
             SimulationEndCheckerFactory::Create(sim_setting_record);
         auto robot_operator = RobotOperatorFactory::Create(sim_setting_record);
@@ -278,13 +276,11 @@ int main() {
             sim_setting_record.initial_positions,
             sim_setting_record.initial_posture,
             sim_setting_record.initial_move);
-        auto result_exporter =
-            std::make_shared<ResultFileExporter>(phantomx_mk2, phantomx_mk2);
 
         system_main = std::make_unique<SystemMainContinuousSimulation>(
-            std::move(gait_pattern_generator), std::move(map_creator),
+            std::move(gait_pattern_generator),
             std::move(simulation_end_checker), std::move(robot_operator),
-            std::move(node_initializer), app_setting_record, result_exporter);
+            std::move(node_initializer), app_setting_record, hexapod, hexapod);
         break;
       }
       default: {

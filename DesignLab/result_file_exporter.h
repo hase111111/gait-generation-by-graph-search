@@ -10,6 +10,7 @@
 
 #include <fstream>
 #include <memory>
+#include <optional>
 #include <string>
 #include <vector>
 
@@ -62,12 +63,14 @@ class ResultFileExporter final {
   void PushSimulationResult(const SimulationResultRecord& simulation_result);
 
   //! @brief 結果をファイルに出力する.
-  void Export() const;
+  void Export(const std::optional<std::string>& file_name = std::nullopt,
+              bool output_leg_pos = false) const;
 
  private:
   //! @brief 出力先ディレクトリの名前を受け付け,そのディレクトリを作成する.
   //! @return 作成したディレクトリのパス.
-  std::string MakeOutputDirectory() const;
+  std::string MakeOutputDirectory(
+      const std::optional<std::string>& default_file_name) const;
 
   //! @brief ノードリストをファイルに出力する.
   //! @param[in] path 出力先のファイルパス.

@@ -65,7 +65,8 @@ void ResultFileExporter::PushSimulationResult(
   result_list_.push_back(result);
 }
 
-void ResultFileExporter::Export() const {
+void ResultFileExporter::Export(const std::optional<std::string>& file_name,
+                                const bool output_leg_pos) const {
   using enum OutputDetail;
 
   // 結果出力先フォルダがなければ終了する.
@@ -75,7 +76,7 @@ void ResultFileExporter::Export() const {
   }
 
   // 出力先フォルダを作成する.
-  std::string output_folder_path = MakeOutputDirectory();
+  std::string output_folder_path = MakeOutputDirectory(file_name);
 
   // NodeListを出力する.
   ExportEachNodeList(output_folder_path);
@@ -89,28 +90,32 @@ void ResultFileExporter::Export() const {
   // シミュレーション全体の結果を出力する.
   ExportSuccessfulCount(output_folder_path);
 
-  // 脚の位置を出力する.
-  ExportEachLegPos(output_folder_path);
+  if (!output_leg_pos) {
+    // 脚の位置を出力する.
+    ExportEachLegPos(output_folder_path);
 
-  // 脚の位置を出力する.
-  ExportAllLegPos(output_folder_path);
+    // 脚の位置を出力する.
+    ExportAllLegPos(output_folder_path);
 
-  // 成功したシミュレーションのみを出力する.
-  ExportEachLegPosAllSuccessfulSimulation(output_folder_path);
+    // 成功したシミュレーションのみを出力する.
+    ExportEachLegPosAllSuccessfulSimulation(output_folder_path);
 
-  // 成功したシミュレーションのみを出力する.
-  ExportAllLegPosAllSuccessfulSimulation(output_folder_path);
+    // 成功したシミュレーションのみを出力する.
+    ExportAllLegPosAllSuccessfulSimulation(output_folder_path);
 
-  ExportAllLegAngle(output_folder_path);
+    ExportAllLegAngle(output_folder_path);
+  }
 
   cmdio::Output("結果の出力が完了しました.", kInfo);
 }
 
-std::string ResultFileExporter::MakeOutputDirectory() const {
+std::string ResultFileExporter::MakeOutputDirectory(
+    const std::optional<std::string>& default_file_name) const {
   using enum OutputDetail;
 
-  cmdio::Output("フォルダ名を入力してください.", kInfo);
-  const auto input_result = cmdio::InputDirName();
+  if (default_file_name) cmdio::InfoOutput("フォルダ名を入力してください.");
+  const auto input_result =
+      default_file_name ? default_file_name.value() : cmdio::InputDirName();
 
   Stopwatch stopwatch;
   const std::string folder_name =

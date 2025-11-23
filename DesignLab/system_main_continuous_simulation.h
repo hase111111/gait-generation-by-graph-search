@@ -13,7 +13,6 @@
 
 #include "application_setting_record.h"
 #include "interface_gait_pattern_generator.h"
-#include "interface_map_creator.h"
 #include "interface_robot_operator.h"
 #include "interface_simulation_end_checker.h"
 #include "interface_system_main.h"
@@ -21,7 +20,6 @@
 #include "node_initializer.h"
 #include "result_file_exporter.h"
 #include "robot_operation.h"
-#include "robot_operator_for_gpg.h"
 #include "stopwatch.h"
 
 namespace designlab {
@@ -42,12 +40,12 @@ class SystemMainContinuousSimulation final : public ISystemMain {
   //! @param[in] setting_ptr 設定ファイルの内容を格納する構造体.
   SystemMainContinuousSimulation(
       std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
-      std::unique_ptr<IMapCreator>&& map_creator_ptr,
       std::unique_ptr<ISimulationEndChecker>&& simulation_end_checker_ptr,
       std::unique_ptr<IRobotOperator>&& robot_operator_ptr,
       std::unique_ptr<NodeInitializer>&& node_initializer_ptr,
       const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr,
-      const std::shared_ptr<ResultFileExporter>& result_exporter_ptr);
+      const std::shared_ptr<const IHexapodJointCalculator>& calculator_ptr,
+      const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr);
 
   //! @brief いままで int mainで行われた処理をまとめたもの.
   //! @n 目標地点へ着くか,歩容計画に失敗した場合に,シミュレーションを終える.
@@ -55,17 +53,13 @@ class SystemMainContinuousSimulation final : public ISystemMain {
   void Main() override;
 
  private:
-  static constexpr int kSimulationNum{
-      5};  //!< 連続でシミュレーションを行う回数.
+  std::vector<std::string> GetMapFilePath() const;
 
   //! 1シミュレーション当たりの最大歩容生成回数.
   static constexpr int kGaitPatternGenerationLimit{5000};
 
   //! 自由歩容パターン生成を行うクラス.
   const std::unique_ptr<IGaitPatternGenerator> gait_pattern_generator_ptr_;
-
-  //! マップを生成するクラス.
-  const std::unique_ptr<IMapCreator> map_creator_ptr_;
 
   //! シミュレーションの終了を判定するクラス.
   const std::unique_ptr<const ISimulationEndChecker>
@@ -80,8 +74,8 @@ class SystemMainContinuousSimulation final : public ISystemMain {
   //! 設定ファイルの内容を格納する構造体.
   const std::shared_ptr<const ApplicationSettingRecord> setting_ptr_;
 
-  const std::shared_ptr<ResultFileExporter>
-      result_exporter_ptr_;  //!< 結果をファイルに出力するクラス.
+  const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;
+  const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
 
   MapState map_state_;  //!< 地形の状態.
 
