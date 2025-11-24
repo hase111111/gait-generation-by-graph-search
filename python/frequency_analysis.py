@@ -298,7 +298,7 @@ def main1():
         )
 
     result_to_hierarchy_csv(result, filename="transition_pairs.csv", count_filter=1)
-    draw_state_graph(result, min_count=20, layout="spring")
+    draw_state_graph(result, min_count=50, layout="spring")
 
 
 if __name__ == "__main__":
