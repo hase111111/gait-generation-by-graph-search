@@ -41,7 +41,7 @@
     map_create_mode = "kForSimulation" 
     
     #マップの作成方法がファイルから読み込むモード ( FromFile ) の場合，マップの csvファイルの名前を設定します．
-    map_file_name = "terrain_with_rectangle.csv"
+    map_file_name = "normal_random_30%_100x.csv"
     
     #マップの作成方法がシミュレーション専用マップを出力するモード ( ForSimulation ) の場合，マップのパラメータを記述した toml ファイルの名前を設定します．
     simulation_map_param_file_name = "simulation_map.toml"
