@@ -127,7 +127,7 @@ def main3(do_print: bool = True):
         print(f"Total unique transitions: {len(sorted_transition)}")
 
         for key, count in sorted_transition:
-            if count < 50:
+            if count < 100:
                 continue
             print(f"{key}: {count}")
 
@@ -141,7 +141,7 @@ def main4():
     sizes: List[int] = []
     only_once_cnt: int = 0
     for key, count in data:
-        if count < 100:
+        if count < 2:
             only_once_cnt += count
             continue
         labels.append(key)
@@ -170,7 +170,14 @@ def main4():
     plt.xlabel("Number of Occurrences")  # type: ignore
     plt.ylabel("Number of Hierarchies")  # type: ignore
     plt.title("Hierarchy Occurrence Distribution")  # type: ignore
-    plt.xticks(rotation=80)  # type: ignore
+    plt.xticks(fontsize=10, rotation=90)  # type: ignore
+    # xのラベルを交互に上下にずらす
+    for i, label in enumerate(plt.gca().get_xticklabels()):
+        if i % 2 == 0:
+            label.set_y(-0.04)
+        else:
+            label.set_y(-0.0)
+
     plt.show()  # type: ignore
 
     # 同じことを総数ベースでも表示.
@@ -188,7 +195,13 @@ def main4():
     plt.xlabel("Number of Occurrences")  # type: ignore
     plt.ylabel("Total Count of Hierarchies")  # type: ignore
     plt.title("Hierarchy Total Count Distribution")  # type: ignore
-    plt.xticks(rotation=80)  # type: ignore
+    plt.xticks(fontsize=10, rotation=90)  # type: ignore
+    # xのラベルを交互に上下にずらす
+    for i, label in enumerate(plt.gca().get_xticklabels()):
+        if i % 2 == 0:
+            label.set_y(-0.04)
+        else:
+            label.set_y(-0.0)
     plt.show()  # type: ignore
 
 def main5():
@@ -199,7 +212,7 @@ def main5():
     sizes: List[int] = []
     only_once_cnt: int = 0
     for key, count in data:
-        if count < 50:
+        if count < 3:
             only_once_cnt += count
             continue
         labels.append(f"{key[0]} -> {key[1]}")
@@ -207,6 +220,9 @@ def main5():
     if only_once_cnt > 0:
         labels.append("only once")
         sizes.append(only_once_cnt)
+
+    # 横軸のラベルサイズを小さくする
+    plt.rcParams['font.size'] = 8  # type: ignore
     plt.figure(figsize=(10,10))  # type: ignore
     plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140)  # type: ignore
     plt.axis('equal')  # type: ignore
@@ -228,7 +244,13 @@ def main5():
     plt.xlabel("Number of Occurrences")  # type: ignore
     plt.ylabel("Number of Transitions")  # type: ignore
     plt.title("Transition Occurrence Distribution")  # type: ignore
-    plt.xticks(rotation=80)  # type: ignore
+    plt.xticks(fontsize=10, rotation=90)  # type: ignore
+    # xのラベルを交互に上下にずらす
+    for i, label in enumerate(plt.gca().get_xticklabels()):
+        if i % 2 == 0:
+            label.set_y(-0.04)
+        else:
+            label.set_y(-0.0)
     plt.show()  # type: ignore
 
     # 同じことを総数ベースでも表示
@@ -246,8 +268,14 @@ def main5():
     plt.xlabel("Number of Occurrences")  # type: ignore
     plt.ylabel("Total Count of Transitions")  # type: ignore
     plt.title("Transition Total Count Distribution")  # type: ignore
-    plt.xticks(rotation=80)  # type: ignore
+    plt.xticks(fontsize=10, rotation=90)  # type: ignore
+    # xのラベルを交互に上下にずらす
+    for i, label in enumerate(plt.gca().get_xticklabels()):
+        if i % 2 == 0:
+            label.set_y(-0.04)
+        else:
+            label.set_y(-0.0)
     plt.show()  # type: ignore
 
 if __name__ == "__main__":
-    main5()
+    main3()
