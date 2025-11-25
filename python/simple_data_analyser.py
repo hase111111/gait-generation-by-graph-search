@@ -1,26 +1,25 @@
-import pandas as pd
 import util
 import file_io
 import matplotlib.pyplot as plt
+import pandas as pd
+from typing import Dict, Tuple, List
 
-def count_up_leg_state(data):
-    leg_state_data = dict()
-    raw_data = util.hierarcy_data_from_csv(data)
-    for bitstr in raw_data:
-        bool_int_list = util.bitstr_to_bool_int_list(bitstr)
-        key = util.tuple_list_to_simple_str(bool_int_list)
+def count_up_leg_state(data: pd.DataFrame) -> Dict[str, int]:
+    leg_state_data: Dict[str, int] = dict()
+    raw_data = util.make_tupledata_list_from_csv(data)
+    for r in raw_data:
+        key = util.tupledata_to_simple_str(r)
         if key in leg_state_data:
             leg_state_data[key] += 1
         else:
             leg_state_data[key] = 1
     return leg_state_data
 
-def count_up_hierarchy(data):
-    hierarchy_data = dict()
-    raw_data = util.hierarcy_data_from_csv(data)
-    for bitstr in raw_data:
-        bool_int_list = util.bitstr_to_bool_int_list(bitstr)
-        ints = [n for _, n in bool_int_list]
+def count_up_hierarchy(data: pd.DataFrame) -> Dict[str, int]:
+    hierarchy_data: Dict[str, int] = dict()
+    raw_data = util.make_tupledata_list_from_csv(data)
+    for r in raw_data:
+        ints = [n for _, n in r]
         hierarchy_key = util.convert_hierarchy_str(ints)
         if hierarchy_key in hierarchy_data:
             hierarchy_data[hierarchy_key] += 1
@@ -28,26 +27,26 @@ def count_up_hierarchy(data):
             hierarchy_data[hierarchy_key] = 1
     return hierarchy_data
 
-def count_up_transition(data):
-    transition_data = dict()
-    raw_data = util.hierarcy_data_from_csv(data)
-    prev_bool_int_list = None
-    for bitstr in raw_data:
-        bool_int_list = util.bitstr_to_bool_int_list(bitstr)
-        if prev_bool_int_list is not None:
-            key = (util.tuple_list_to_simple_str(prev_bool_int_list), util.tuple_list_to_simple_str(bool_int_list))
+def count_up_transition(data: pd.DataFrame) -> Dict[Tuple[str, str], int]:
+    transition_data: Dict[Tuple[str, str], int] = dict()
+    raw_data = util.make_tupledata_list_from_csv(data)
+    prev_tupledata_list = None
+    for r in raw_data:
+        if prev_tupledata_list is not None:
+            key = (util.tupledata_to_simple_str(prev_tupledata_list), 
+                   util.tupledata_to_simple_str(r))
             if key in transition_data:
                 transition_data[key] += 1
             else:
                 transition_data[key] = 1
-        prev_bool_int_list = bool_int_list
+        prev_tupledata_list = r
     return transition_data
 
 def main1():
     file = file_io.get_file_paths("node_list1.csv")
     print("Number of CSV files read:", len(file))
 
-    all_leg_state_counts = dict()
+    all_leg_state_counts: Dict[str, int] = dict()
 
     for i, df in enumerate(file):
         print(f"Processing file {i}: {df}")
@@ -70,12 +69,12 @@ def main1():
             continue
         print(f"{key}: {count}")
 
-def main2(do_print=True):
+def main2(do_print: bool = True):
     file = file_io.get_file_paths("node_list1.csv")
     if do_print:
         print("Number of CSV files read:", len(file))
 
-    all_hierarchy_counts = dict()
+    all_hierarchy_counts: Dict[str, int] = dict()
 
     for i, df in enumerate(file):
         if do_print:
@@ -102,12 +101,12 @@ def main2(do_print=True):
 
     return sorted_hierarchy
 
-def main3(do_print=True):
+def main3(do_print: bool = True):
     file = file_io.get_file_paths("node_list1.csv")
     if do_print:
         print("Number of CSV files read:", len(file))
 
-    all_transition_counts = dict()
+    all_transition_counts: Dict[Tuple[str, str], int] = dict()
 
     for i, df in enumerate(file):
         if do_print:
@@ -137,10 +136,10 @@ def main3(do_print=True):
 def main4():
     data = main2(do_print=False)
 
-    # どの階層がどれだけ出現したかを円グラフで表示
-    labels = [] 
-    sizes = []
-    only_once_cnt = 0
+    # どの階層がどれだけ出現したかを円グラフで表示.
+    labels: List[str] = [] 
+    sizes: List[int] = []
+    only_once_cnt: int = 0
     for key, count in data:
         if count < 100:
             only_once_cnt += count
@@ -150,14 +149,14 @@ def main4():
     if only_once_cnt > 0:
         labels.append("only once")
         sizes.append(only_once_cnt)
-    plt.figure(figsize=(10,10))
-    plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140)
-    plt.axis('equal')  # 円を丸く表示
-    plt.title("Hierarchy Distribution")
-    plt.show()
+    plt.figure(figsize=(10,10))  # type: ignore
+    plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140)  # type: ignore
+    plt.axis('equal')  # type: ignore
+    plt.title("Hierarchy Distribution")  # type: ignore
+    plt.show()  # type: ignore
 
-    # 棒グラフで，出現した回数ごとの階層数を表示
-    count_distribution = dict()
+    # 棒グラフで，出現した回数ごとの階層数を表示.
+    count_distribution: Dict[int, int] = dict()
     for _, count in data:
         if count in count_distribution:
             count_distribution[count] += 1
@@ -166,16 +165,16 @@ def main4():
     sorted_distribution = sorted(count_distribution.items())
     x = [str(k) for k, _ in sorted_distribution]
     y = [v for _, v in sorted_distribution]
-    plt.figure(figsize=(20,10))
-    plt.bar(x, y)
-    plt.xlabel("Number of Occurrences")
-    plt.ylabel("Number of Hierarchies")
-    plt.title("Hierarchy Occurrence Distribution")
-    plt.xticks(rotation=80) #横軸目盛りを80度傾ける
-    plt.show()
+    plt.figure(figsize=(20,10))  # type: ignore
+    plt.bar(x, y)  # type: ignore
+    plt.xlabel("Number of Occurrences")  # type: ignore
+    plt.ylabel("Number of Hierarchies")  # type: ignore
+    plt.title("Hierarchy Occurrence Distribution")  # type: ignore
+    plt.xticks(rotation=80)  # type: ignore
+    plt.show()  # type: ignore
 
-    # 同じことを総数ベースでも表示
-    count_distribution = dict()
+    # 同じことを総数ベースでも表示.
+    count_distribution: Dict[int, int] = dict()
     for _, count in data:
         if count in count_distribution:
             count_distribution[count] += count
@@ -184,21 +183,21 @@ def main4():
     sorted_distribution = sorted(count_distribution.items())
     x = [str(k) for k, _ in sorted_distribution]
     y = [v for _, v in sorted_distribution]
-    plt.figure(figsize=(20,10))
-    plt.bar(x, y)
-    plt.xlabel("Number of Occurrences")
-    plt.ylabel("Total Count of Hierarchies")
-    plt.title("Hierarchy Total Count Distribution")
-    plt.xticks(rotation=80) #横軸目盛りを80度傾ける
-    plt.show()
+    plt.figure(figsize=(20,10))  # type: ignore
+    plt.bar(x, y)  # type: ignore
+    plt.xlabel("Number of Occurrences")  # type: ignore
+    plt.ylabel("Total Count of Hierarchies")  # type: ignore
+    plt.title("Hierarchy Total Count Distribution")  # type: ignore
+    plt.xticks(rotation=80)  # type: ignore
+    plt.show()  # type: ignore
 
 def main5():
     data = main3(do_print=False)
 
     # どの遷移がどれだけ出現したかを円グラフで表示
-    labels = []
-    sizes = []
-    only_once_cnt = 0
+    labels: List[str] = []
+    sizes: List[int] = []
+    only_once_cnt: int = 0
     for key, count in data:
         if count < 50:
             only_once_cnt += count
@@ -208,14 +207,14 @@ def main5():
     if only_once_cnt > 0:
         labels.append("only once")
         sizes.append(only_once_cnt)
-    plt.figure(figsize=(10,10))
-    plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140)
-    plt.axis('equal')  # 円を丸く表示
-    plt.title("Transition Distribution")
-    plt.show()
+    plt.figure(figsize=(10,10))  # type: ignore
+    plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140)  # type: ignore
+    plt.axis('equal')  # type: ignore
+    plt.title("Transition Distribution")  # type: ignore
+    plt.show()  # type: ignore
 
-    # 棒グラフで，出現した回数ごとの遷移数を表示
-    count_distribution = dict()
+    # 棒グラフで，出現した回数ごとの遷移数を表示.
+    count_distribution: Dict[int, int] = dict()
     for _, count in data:
         if count in count_distribution:
             count_distribution[count] += 1
@@ -224,16 +223,16 @@ def main5():
     sorted_distribution = sorted(count_distribution.items())
     x = [str(k) for k, _ in sorted_distribution]
     y = [v for _, v in sorted_distribution]
-    plt.figure(figsize=(20,10))
-    plt.bar(x, y)
-    plt.xlabel("Number of Occurrences")
-    plt.ylabel("Number of Transitions")
-    plt.title("Transition Occurrence Distribution")
-    plt.xticks(rotation=80) #横軸目盛りを80度
-    plt.show()
+    plt.figure(figsize=(20,10))  # type: ignore
+    plt.bar(x, y)  # type: ignore
+    plt.xlabel("Number of Occurrences")  # type: ignore
+    plt.ylabel("Number of Transitions")  # type: ignore
+    plt.title("Transition Occurrence Distribution")  # type: ignore
+    plt.xticks(rotation=80)  # type: ignore
+    plt.show()  # type: ignore
 
     # 同じことを総数ベースでも表示
-    count_distribution = dict()
+    count_distribution: Dict[int, int] = dict()
     for _, count in data:
         if count in count_distribution:
             count_distribution[count] += count
@@ -242,13 +241,13 @@ def main5():
     sorted_distribution = sorted(count_distribution.items())
     x = [str(k) for k, _ in sorted_distribution]    
     y = [v for _, v in sorted_distribution] 
-    plt.figure(figsize=(20,10))
-    plt.bar(x, y)
-    plt.xlabel("Number of Occurrences")
-    plt.ylabel("Total Count of Transitions")
-    plt.title("Transition Total Count Distribution")
-    plt.xticks(rotation=80) #横軸目盛りを80度
-    plt.show()
+    plt.figure(figsize=(20,10))  # type: ignore
+    plt.bar(x, y)  # type: ignore
+    plt.xlabel("Number of Occurrences")  # type: ignore
+    plt.ylabel("Total Count of Transitions")  # type: ignore
+    plt.title("Transition Total Count Distribution")  # type: ignore
+    plt.xticks(rotation=80)  # type: ignore
+    plt.show()  # type: ignore
 
 if __name__ == "__main__":
     main5()

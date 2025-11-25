@@ -4,7 +4,7 @@ import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
 import file_io
-import util
+from typing import List, Tuple
 
 def analyze_transition_pairs1(states):
     """
@@ -105,8 +105,8 @@ def draw_state_graph(result, min_count=1, layout="spring"):
             continue
         
         # ノード名（読みやすい文字列）へ変換
-        s1_str = util.tuple_list_to_simple_str(s1[0]) + "->" + util.tuple_list_to_simple_str(s1[1]) + f":{util.bool_list_to_leg_ground_int([b for b, _ in s1[0]])}" 
-        s2_str = util.tuple_list_to_simple_str(s2[0]) + "->" + util.tuple_list_to_simple_str(s2[1]) + f":{util.bool_list_to_leg_ground_int([b for b, _ in s2[0]])}"
+        s1_str = util.tupledata_to_simple_str(s1[0]) + "->" + util.tupledata_to_simple_str(s1[1]) + f":{util.bool_list_to_leg_ground_int([b for b, _ in s1[0]])}" 
+        s2_str = util.tupledata_to_simple_str(s2[0]) + "->" + util.tupledata_to_simple_str(s2[1]) + f":{util.bool_list_to_leg_ground_int([b for b, _ in s2[0]])}"
 
         G.add_node(s1_str)
         G.add_node(s2_str)
@@ -122,7 +122,7 @@ def draw_state_graph(result, min_count=1, layout="spring"):
     elif layout == "kamada_kawai":
         pos = nx.kamada_kawai_layout(G)
     else:
-        pos = nx.spring_layout(G)
+        pos = nx.spectral_layout(G)
 
     # エッジ太さ＝頻度
     weights = [G[u][v]['weight'] for u, v in G.edges()]
@@ -256,16 +256,12 @@ def result_to_hierarchy_csv(result, filename="transition_pairs.csv", count_filte
 
 
 def main1():
-    filter = "stepdown"
     file = file_io.get_file_paths("node_list1.csv")
 
-    csvs = []
-    for i, df in enumerate(file):
-        # stepdown か stepupを含むものはスキップする
-        if "stepdown" in df or "stepup" in df:
+    csvs : List[pd.DataFrame] = []
+    for _, df in enumerate(file):
+        if "normal" not in df:
             continue
-        # if filter not in df:
-        #     continue
         data = file_io.read_csv_file(df)
         csvs.append(data)
 
@@ -273,8 +269,7 @@ def main1():
 
     combined_df = file_io.combine_csv_data(csvs)
     print("Combined DataFrame shape:", combined_df.shape)
-    res = util.hierarcy_data_from_csv(combined_df)
-    data = [util.bitstr_to_bool_int_list(r) for r in res]
+    data = util.make_tupledata_list_from_csv(combined_df)
     result = analyze_transition_pairs1(data)
 
     # printする
@@ -289,8 +284,8 @@ def main1():
         s1_1, s1_2 = s1
         s2_1, s2_2 = s2
         print(
-            f"From: {util.tuple_list_to_simple_str(s1_1)} -> {util.tuple_list_to_simple_str(s1_2)} "
-            f"To: {util.tuple_list_to_simple_str(s2_1)} -> {util.tuple_list_to_simple_str(s2_2)} | Count: {count}"
+            f"From: {util.tupledata_to_simple_str(s1_1)} -> {util.tupledata_to_simple_str(s1_2)} "
+            f"To: {util.tupledata_to_simple_str(s2_1)} -> {util.tupledata_to_simple_str(s2_2)} | Count: {count}"
         )
         print (
             f"  Ints: {util.bool_int_list_to_int(s1_1)} -> {util.bool_int_list_to_int(s1_2)} "
@@ -298,7 +293,41 @@ def main1():
         )
 
     result_to_hierarchy_csv(result, filename="transition_pairs.csv", count_filter=1)
-    draw_state_graph(result, min_count=50, layout="spring")
+    graph = draw_state_graph(result, min_count=10, layout="spring")
+
+    print("Drawing all cycle nodes subgraph...")
+    # 1. サイクルを抽出
+    sccs = list(nx.strongly_connected_components(graph))
+    print(f"Number of cycles found: {len(sccs)}")
+
+    # 2. サイクルに含まれるノードを全部集める
+    cycle_nodes = set()
+
+    for comp in sccs:
+        if len(comp) > 1:                     # サイクル候補
+            sub = graph.subgraph(comp)
+            for cyc in nx.simple_cycles(sub):
+                cycle_nodes.update(cyc)
+            print(f"Cycle nodes found in component: {comp}")
+
+    # cycle_nodes だけの subgraph を作成
+    print("Number of nodes in cycle subgraph:", len(cycle_nodes))
+    H = graph.subgraph(cycle_nodes).copy()
+
+    # 3. レイアウト（ループ構造がわかりやすい circo 推奨）
+    try:
+        pos = nx.nx_agraph.graphviz_layout(H, prog="circo")
+    except:
+        pos = nx.kamada_kawai_layout(H)
+
+    # 4. 描画（ラベル付き）
+    colors = [util.get_color_by_leg_ground(int(n.split(":")[-1])) for n in H.nodes()]
+    print("Number of nodes in cycle subgraph:", len(H.nodes()))
+    plt.figure(figsize=(10,10))
+    nx.draw(H, pos, with_labels=True, 
+            node_size=500, font_size=8, node_color=colors)
+    plt.title("All Cycle Nodes Subgraph")
+    plt.show()
 
 
 if __name__ == "__main__":
