@@ -29,7 +29,7 @@ class TestMapCreator final : public IMapCreator {
 
   //! @brief kMin [mm] ～ kMax [mm]の範囲に kInterval
   //! [mm]間隔で脚設置可能点を生成する.
-  MapState InitMap() override {
+  MapState InitMap() const override {
     std::vector<Vector3> map_point;
 
     for (float x = kMin; x <= kMax; x += kInterval) {
@@ -42,7 +42,7 @@ class TestMapCreator final : public IMapCreator {
     return MapState(map_point);
   }
 
-  void UpdateMap([[maybe_unused]] MapState* current_map) override {}
+  void UpdateMap([[maybe_unused]] MapState* current_map) const override {}
 
  private:
   static_assert(kMax > DividedMapState::kDividedMapMaxX,
@@ -88,8 +88,11 @@ TEST_SUITE("DividedMapState::Init") {
         (DividedMapState::kDividedAreaLength / TestMapCreator::kInterval) *
         (DividedMapState::kDividedAreaLength / TestMapCreator::kInterval));
 
-    CHECK_EQ(divided_map_state.GetPointNum(center_index_x, center_index_y),
-             expected_num);
+    const auto result =
+        divided_map_state.GetPointNum(center_index_x, center_index_y);
+
+    REQUIRE(result.has_value());
+    CHECK_EQ(result.value(), expected_num);
   }
 }
 
