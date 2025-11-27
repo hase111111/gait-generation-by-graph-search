@@ -68,17 +68,21 @@ void cmdio::Output(const std::string& str, const OutputDetail detail) {
 #if defined(DESIGNLAB_USE_COLOR_OUTPUT)
 
     if (detail == OutputDetail::kError) {
+      // 赤色.
       std::cout << "\x1b[31m";
-    }  // 赤色.
-    if (detail == OutputDetail::kWarning) {
+    } else if (detail == OutputDetail::kWarning) {
+      // 黄色.
       std::cout << "\x1b[33m";
-    }  // 黄色.
-    if (detail == OutputDetail::kInfo) {
+    } else if (detail == OutputDetail::kInfo) {
+      // シアン.
       std::cout << "\x1b[36m";
-    }  // シアン.
-    if (detail == OutputDetail::kDebug) {
+    } else if (detail == OutputDetail::kDebug) {
+      // 緑色.
       std::cout << "\x1b[32m";
-    }  // 緑色.
+    } else {
+      // デフォルトの色.
+      std::cout << "\x1b[0m";
+    }
 
 #endif  // DESIGNLAB_USE_COLOR_OUTPUT
 

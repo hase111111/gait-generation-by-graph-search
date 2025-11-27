@@ -1,18 +1,17 @@
 ﻿
-//! @file math_vector3.h
+//! @file vector3.h
 
 // Copyright(c) 2023-2025 Design Engineering Laboratory, Saitama University
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MATH_VECTOR3_H_
-#define DESIGNLAB_MATH_VECTOR3_H_
+#pragma once
 
 #include <cmath>
 #include <string>
 
 #include "math_util.h"
-#include "math_vector2.h"
+#include "vector2.h"
 
 namespace designlab {
 
@@ -40,7 +39,7 @@ namespace designlab {
 //! https://programming.pc-note.net/cpp/operator2.html ( アクセス日 2024/2/29 )
 //! @li 衝突判定編 http://marupeke296.com/COL_main.html ( アクセス日 2024/2/29 )
 struct Vector3 final {
-  //!< デフォルトコンストラクタ.(0,0,0)で初期化される.
+  //!< デフォルトコンストラクタ. (0,0,0)で初期化される.
   constexpr Vector3() : x(0.f), y(0.f), z(0.f) {}
 
   constexpr Vector3(const float x_pos, const float y_pos, const float z_pos)
@@ -86,7 +85,7 @@ struct Vector3 final {
     return !(*this < other);
   }
 
-  // 算術演算子,ベクトル同士の掛け算(内積・外積)はメンバ関数として実装する.
+  // 算術演算子, ベクトル同士の掛け算(内積・外積)はメンバ関数として実装する.
   constexpr Vector3 operator+() const noexcept { return *this; }
 
   constexpr Vector3 operator-() const noexcept { return {-x, -y, -z}; }
@@ -284,5 +283,3 @@ static_assert(Vector3::GetZeroVec().y == 0.f, "It is not a 0 vector.");
 static_assert(Vector3::GetZeroVec().z == 0.f, "It is not a 0 vector.");
 
 }  // namespace designlab
-
-#endif  // DESIGNLAB_MATH_VECTOR3_H_

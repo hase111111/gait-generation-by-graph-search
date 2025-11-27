@@ -10,8 +10,8 @@
 
 #include <vector>
 
-#include "math_vector3.h"
 #include "robot_state_node.h"
+#include "vector3.h"
 
 namespace designlab {
 

@@ -124,12 +124,6 @@
     <Filter Include="ソース ファイル\System\RobotControl">
       <UniqueIdentifier>{06cb33da-eddd-4c1e-bda0-3c6604b38800}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Common\StandardLibraryLike">
-      <UniqueIdentifier>{d446f023-75a5-4f18-bc2a-9c0434ac1eaf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Common\StandardLibraryLike\Test">
-      <UniqueIdentifier>{575afc69-7456-45f3-b0b1-6d9e80044961}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Node\CenterOfMass">
       <UniqueIdentifier>{9e53a133-1381-4a6b-a2d3-780dcb9a3771}</UniqueIdentifier>
     </Filter>
@@ -166,12 +160,18 @@
     <Filter Include="ソース ファイル\System\Simulation\Setting">
       <UniqueIdentifier>{24e512b5-5bf6-4133-8f62-e4201200e5e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Common\STDLike">
+      <UniqueIdentifier>{d446f023-75a5-4f18-bc2a-9c0434ac1eaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Common\STDLike\Test">
+      <UniqueIdentifier>{575afc69-7456-45f3-b0b1-6d9e80044961}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="math_vector2.h">
+    <ClInclude Include="vector2.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
-    <ClInclude Include="math_vector3.h">
+    <ClInclude Include="vector3.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
     <ClInclude Include="math_polygon2.h">
@@ -310,25 +310,25 @@
       <Filter>ソース ファイル\Common\Test</Filter>
     </ClInclude>
     <ClInclude Include="make_array.h">
-      <Filter>ソース ファイル\Common\StandardLibraryLike</Filter>
+      <Filter>ソース ファイル\Common\STDLike</Filter>
     </ClInclude>
     <ClInclude Include="cassert_define.h">
-      <Filter>ソース ファイル\Common\StandardLibraryLike</Filter>
+      <Filter>ソース ファイル\Common\STDLike</Filter>
     </ClInclude>
     <ClInclude Include="my_expected.h">
-      <Filter>ソース ファイル\Common\StandardLibraryLike</Filter>
+      <Filter>ソース ファイル\Common\STDLike</Filter>
     </ClInclude>
     <ClInclude Include="my_unexpected.h">
-      <Filter>ソース ファイル\Common\StandardLibraryLike</Filter>
+      <Filter>ソース ファイル\Common\STDLike</Filter>
     </ClInclude>
     <ClInclude Include="my_expected_concept.h">
-      <Filter>ソース ファイル\Common\StandardLibraryLike</Filter>
+      <Filter>ソース ファイル\Common\STDLike</Filter>
     </ClInclude>
     <ClInclude Include="my_unexpected_test.h">
-      <Filter>ソース ファイル\Common\StandardLibraryLike\Test</Filter>
+      <Filter>ソース ファイル\Common\STDLike\Test</Filter>
     </ClInclude>
     <ClInclude Include="my_expected_test.h">
-      <Filter>ソース ファイル\Common\StandardLibraryLike\Test</Filter>
+      <Filter>ソース ファイル\Common\STDLike\Test</Filter>
     </ClInclude>
     <ClInclude Include="hexapod_const.h">
       <Filter>ソース ファイル\Hexapod\Const</Filter>
@@ -779,7 +779,7 @@
     <ClCompile Include="graphic_main_display_model.cpp">
       <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClCompile>
-    <ClCompile Include="math_vector3.cpp">
+    <ClCompile Include="vector3.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
     <ClCompile Include="com_candidate_polygon_maker.cpp">
@@ -881,7 +881,7 @@
     <ClCompile Include="interpolated_node_creator.cpp">
       <Filter>ソース ファイル\Node</Filter>
     </ClCompile>
-    <ClCompile Include="math_vector2.cpp">
+    <ClCompile Include="vector2.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
     <ClCompile Include="node_creator_sequence_straight_move.cpp">

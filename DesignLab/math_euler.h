@@ -11,7 +11,7 @@
 #include <string>
 
 #include "math_util.h"
-#include "math_vector3.h"
+#include "vector3.h"
 
 namespace designlab {
 

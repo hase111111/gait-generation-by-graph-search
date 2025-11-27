@@ -12,8 +12,8 @@
 
 #include "interface_map_creator.h"
 #include "map_state.h"
-#include "math_vector3.h"
 #include "simulation_map_parameter.h"
+#include "vector3.h"
 
 namespace designlab {
 

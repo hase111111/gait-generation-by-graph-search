@@ -16,8 +16,8 @@
 #include "abstract_dxlib_gui.h"
 #include "dxlib_camera.h"
 #include "interface_dxlib_node_setter.h"
-#include "math_vector3.h"
 #include "simple_button.h"
+#include "vector3.h"
 
 namespace designlab {
 

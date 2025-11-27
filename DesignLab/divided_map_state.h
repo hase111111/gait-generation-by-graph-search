@@ -13,8 +13,8 @@
 
 #include "map_state.h"
 #include "math_plane.h"
-#include "math_vector3.h"
 #include "my_expected.h"
+#include "vector3.h"
 
 namespace designlab {
 

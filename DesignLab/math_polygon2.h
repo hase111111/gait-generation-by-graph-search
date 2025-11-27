@@ -14,7 +14,7 @@
 #include <vector>
 
 #include "cassert_define.h"
-#include "math_vector2.h"
+#include "vector2.h"
 
 namespace designlab {
 

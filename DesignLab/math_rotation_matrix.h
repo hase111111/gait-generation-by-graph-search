@@ -12,7 +12,7 @@
 #include <string>
 
 #include "math_euler.h"
-#include "math_vector3.h"
+#include "vector3.h"
 
 namespace designlab {
 

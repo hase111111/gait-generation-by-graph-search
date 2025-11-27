@@ -15,8 +15,8 @@
 #include "com_type.h"
 #include "interface_hexapod_posture_validator.h"
 #include "math_polygon2.h"
-#include "math_vector3.h"
 #include "robot_state_node.h"
+#include "vector3.h"
 
 namespace designlab {
 
@@ -36,7 +36,7 @@ class ComSelector final {
  public:
   explicit ComSelector(
       const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr)
-      : checker_ptr_(checker_ptr){};
+      : checker_ptr_(checker_ptr) {};
 
   //! @brief 重心を求める.
   //! @param[in] polygon 重心を求める対象のポリゴン.この中に入る点を出力する.

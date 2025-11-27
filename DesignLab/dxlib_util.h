@@ -13,7 +13,7 @@
 #include <array>
 
 #include "math_rotation_matrix.h"
-#include "math_vector3.h"
+#include "vector3.h"
 
 //! @namespace designlab::dxlib_util
 //! @brief Dxlibの3D表示を行う処理を書き直した関数をまとめた名前空間.

@@ -16,7 +16,7 @@
 #include <utility>
 #include <vector>
 
-#include "math_vector3.h"
+#include "vector3.h"
 
 TEST_SUITE("Vector3") {
   using designlab::Vector2;

@@ -12,7 +12,7 @@
 #include "interface_dxlib_3d_renderer.h"
 #include "interface_dxlib_node_setter.h"
 #include "map_state.h"
-#include "math_vector3.h"
+#include "vector3.h"
 
 namespace designlab {
 

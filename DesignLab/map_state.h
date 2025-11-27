@@ -12,7 +12,7 @@
 #include <vector>
 
 #include "cassert_define.h"
-#include "math_vector3.h"
+#include "vector3.h"
 
 namespace designlab {
 
@@ -31,7 +31,7 @@ class MapState final {
   MapState() : map_point_({}) {}
   explicit MapState(const std::vector<Vector3>& map_point)
       : map_point_(map_point) {}
-  MapState(const MapState& other) = default;  //!< コピーコンストラクタ
+  MapState(const MapState& other) = default;      //!< コピーコンストラクタ
   MapState(MapState&& other) noexcept = default;  //!< ムーブコンストラクタ
   MapState& operator=(const MapState& other) = default;  //!< 代入演算子
 

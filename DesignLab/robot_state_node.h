@@ -18,7 +18,7 @@
 #include "leg_state.h"
 #include "make_array.h"
 #include "math_quaternion.h"
-#include "math_vector3.h"
+#include "vector3.h"
 
 namespace designlab {
 

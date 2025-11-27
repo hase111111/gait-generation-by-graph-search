@@ -11,9 +11,9 @@
 #include <format>
 
 #include "math_quaternion.h"
-#include "math_vector3.h"
 #include "string_util.h"
 #include "toml_serialize_macro.h"
+#include "vector3.h"
 
 namespace designlab {
 
@@ -32,12 +32,12 @@ namespace designlab {
 //! 安全のため enum class の使用をおすすめする.
 //! @n よくわからない場合は, RobotOperationType の記述を真似してみること.
 enum class RobotOperationType : int {
-  kNone,  //!< 無効値.
+  kNone,                //!< 無効値.
   kStraightMoveVector,  //!< 直線移動をさせる（移動したい方向をベクトルで示す）
   kStraightMovePosition,  //!< 直線移動をさせる（移動したい座標を示す）
-  kSpotTurnLastPosture,  //!< その場で旋回させる（最終的な姿勢 Posture を示す）
+  kSpotTurnLastPosture,   //!< その場で旋回させる（最終的な姿勢 Posture を示す）
   kSpotTurnRotAxis,  //!< その場で旋回させる（回転軸を示し,その軸周りの右ねじの回転）
-  kTurn,  //!< 旋回中心と,旋回半径と,旋回方向を与えて旋回させる.
+  kTurn,             //!< 旋回中心と,旋回半径と,旋回方向を与えて旋回させる.
 };
 
 //! @struct RobotOperation

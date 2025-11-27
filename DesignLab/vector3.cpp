@@ -1,11 +1,11 @@
 ﻿
-//! @file math_vector3.cpp
+//! @file vector3.cpp
 
 // Copyright(c) 2023-2025 Design Engineering Laboratory, Saitama University
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#include "math_vector3.h"
+#include "vector3.h"
 
 #include <format>
 #include <sstream>
@@ -34,9 +34,9 @@ std::string Vector3::ToString() const {
 }
 
 std::string Vector3::ToCsvString() const {
-  std::stringstream ss;
-  ss << *this;
-  return ss.str();
+  return std::format("{},{},{}", math_util::FloatingPointNumToString(x),
+                     math_util::FloatingPointNumToString(y),
+                     math_util::FloatingPointNumToString(z));
 }
 
 Vector3& Vector3::operator+=(const Vector3& other) noexcept {

@@ -181,7 +181,7 @@
     <ClInclude Include="simulation_map_parameter_validator_test.h" />
     <ClInclude Include="simulation_setting_record.h" />
     <ClInclude Include="stopwatch.h" />
-    <ClInclude Include="math_vector2.h" />
+    <ClInclude Include="vector2.h" />
     <ClInclude Include="dead_lock_checker.h" />
     <ClInclude Include="phantomx_mk2.h" />
     <ClInclude Include="result_file_exporter.h" />
@@ -198,7 +198,7 @@
     <ClInclude Include="robot_operation.h" />
     <ClInclude Include="robot_state_node.h" />
     <ClInclude Include="map_creator_for_simulation.h" />
-    <ClInclude Include="math_vector3.h" />
+    <ClInclude Include="vector3.h" />
     <ClInclude Include="robot_operator_factory.h" />
     <ClInclude Include="robot_operator_for_gpg.h" />
     <ClInclude Include="robot_operator_fixed.h" />
@@ -275,7 +275,7 @@
     <ClCompile Include="node_creator_com_up_down.cpp" />
     <ClCompile Include="math_quaternion.cpp" />
     <ClCompile Include="math_rotation_matrix.cpp" />
-    <ClCompile Include="math_vector2.cpp" />
+    <ClCompile Include="vector2.cpp" />
     <ClCompile Include="dxlib_gui_display_node_switcher.cpp" />
     <ClCompile Include="file_tree.cpp" />
     <ClCompile Include="graphic_main_basic.cpp" />
@@ -330,7 +330,7 @@
     <ClCompile Include="system_main_robot_control.cpp" />
     <ClCompile Include="system_main_simulation.cpp" />
     <ClCompile Include="system_main_graph_viewer.cpp" />
-    <ClCompile Include="math_vector3.cpp" />
+    <ClCompile Include="vector3.cpp" />
     <ClCompile Include="robot_operator_factory.cpp" />
     <ClCompile Include="robot_operator_for_gpg.cpp" />
     <ClCompile Include="robot_operator_fixed.cpp" />

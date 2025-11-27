@@ -14,7 +14,7 @@
 #include "cassert_define.h"
 #include "math_euler.h"
 #include "math_util.h"
-#include "math_vector3.h"
+#include "vector3.h"
 
 namespace designlab {
 

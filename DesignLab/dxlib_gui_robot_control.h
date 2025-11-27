@@ -20,9 +20,9 @@
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_joint_calculator.h"
 #include "interface_hexapod_posture_validator.h"
-#include "math_vector3.h"
 #include "serial_communication_thread.h"
 #include "simple_button.h"
+#include "vector3.h"
 
 namespace designlab {
 

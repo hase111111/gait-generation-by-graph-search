@@ -13,8 +13,8 @@
 #include "divided_map_state.h"
 #include "hexapod_const.h"
 #include "leg_state.h"
-#include "math_vector3.h"
 #include "robot_state_node.h"
+#include "vector3.h"
 
 namespace designlab {
 

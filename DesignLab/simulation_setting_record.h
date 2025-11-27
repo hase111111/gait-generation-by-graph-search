@@ -14,9 +14,9 @@
 
 #include "hexapod_next_move.h"
 #include "math_euler.h"
-#include "math_vector3.h"
 #include "string_util.h"
 #include "toml_serialize_macro.h"
+#include "vector3.h"
 
 namespace designlab::enums {
 

@@ -12,7 +12,7 @@
 
 #include <utility>
 
-#include "math_vector2.h"
+#include "vector2.h"
 
 TEST_SUITE("Vector2::Constructor") {
   using designlab::Vector2;

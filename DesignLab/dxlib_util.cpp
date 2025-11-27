@@ -10,7 +10,7 @@
 #include <Dxlib.h>
 
 #include "graphic_const.h"
-#include "math_vector3.h"
+#include "vector3.h"
 
 namespace designlab::dxlib_util {
 

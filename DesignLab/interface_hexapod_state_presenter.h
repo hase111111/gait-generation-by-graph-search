@@ -8,7 +8,7 @@
 #ifndef DESIGNLAB_INTERFACE_HEXAPOD_STATE_PRESENTER_H_
 #define DESIGNLAB_INTERFACE_HEXAPOD_STATE_PRESENTER_H_
 
-#include "math_vector3.h"
+#include "vector3.h"
 
 namespace designlab {
 

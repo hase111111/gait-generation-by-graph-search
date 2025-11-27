@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MATH_VECTOR2_H_
-#define DESIGNLAB_MATH_VECTOR2_H_
+#pragma once
 
 #include <cmath>
 #include <string>
@@ -14,6 +13,7 @@
 #include "math_util.h"
 
 namespace designlab {
+
 //! @struct designlab::Vector2
 //! @brief 2次元の位置ベクトルを表す構造体.
 //! @details
@@ -26,7 +26,7 @@ namespace designlab {
 //! しかし,実用的に使用するのは2次元,3次元程度であるため,
 //! このようにそれぞれ実装する.
 struct Vector2 final {
-  constexpr Vector2() : x(0), y(0) {}
+  constexpr Vector2() : x(0.f), y(0.f) {}
   constexpr Vector2(float x_pos, float y_pos) : x(x_pos), y(y_pos) {}
   constexpr Vector2(const Vector2& other) = default;
   constexpr Vector2(Vector2&& other) noexcept = default;
@@ -117,7 +117,7 @@ struct Vector2 final {
   //! 静的な関数なので Vector2::GetZeroVec() と呼ぶことができる.
   //! @return 零ベクトル.
   [[nodiscard]] constexpr static Vector2 GetZeroVec() noexcept {
-    return Vector2(0.f, 0.f);
+    return {0.f, 0.f};
   }
 
   //! @brief このベクトルを文字列にして返す.
@@ -138,7 +138,7 @@ struct Vector2 final {
 //! @param[in] s スカラー.
 //! @param[in] v ベクトル.
 //! @return s * v.
-constexpr Vector2 operator*(float s, const Vector2& v) {
+constexpr Vector2 operator*(const float s, const Vector2& v) {
   return {s * v.x, s * v.y};
 }
 
@@ -157,5 +157,3 @@ inline std::basic_istream<Char>& operator>>(std::basic_istream<Char>& is,
 }
 
 }  // namespace designlab
-
-#endif  // DESIGNLAB_MATH_VECTOR2_H_

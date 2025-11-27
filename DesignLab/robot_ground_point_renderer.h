@@ -14,8 +14,8 @@
 
 #include "hexapod_const.h"
 #include "interface_hexapod_coordinate_converter.h"
-#include "math_vector3.h"
 #include "robot_state_node.h"
+#include "vector3.h"
 
 namespace designlab {
 
