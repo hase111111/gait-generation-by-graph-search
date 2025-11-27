@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MATH_QUATERNION_H_
-#define DESIGNLAB_MATH_QUATERNION_H_
+#pragma once
 
 #include <cmath>
 #include <string>
@@ -235,5 +234,3 @@ inline std::basic_istream<Char>& operator>>(std::basic_istream<Char>& is,
 Quaternion SlerpQuaternion(const Quaternion& q1, const Quaternion& q2, float t);
 
 }  // namespace designlab
-
-#endif  // DESIGNLAB_MATH_QUATERNION_H_

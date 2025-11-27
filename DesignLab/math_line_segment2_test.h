@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MATH_LINE_SEGMENT2_TEST_H_
-#define DESIGNLAB_MATH_LINE_SEGMENT2_TEST_H_
+#pragma once
 
 #include <doctest.h>
 
@@ -203,5 +202,3 @@ TEST_SUITE("LineSegment2") {
     }
   }
 }
-
-#endif  // DESIGNLAB_MATH_LINE_SEGMENT2_TEST_H_

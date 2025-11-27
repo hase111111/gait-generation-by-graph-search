@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MATH_VECTOR2_TEST_H_
-#define DESIGNLAB_MATH_VECTOR2_TEST_H_
+#pragma once
 
 #include <doctest.h>
 
@@ -282,5 +281,3 @@ TEST_SUITE("Vector2::Normalize") {
     }
   }
 }
-
-#endif  // DESIGNLAB_MATH_VECTOR2_TEST_H_

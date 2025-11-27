@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MY_UNEXPECTED_TEST_H_
-#define DESIGNLAB_MY_UNEXPECTED_TEST_H_
+#pragma once
 
 #include <doctest.h>
 
@@ -110,5 +109,3 @@ TEST_SUITE("unexpected") {
     CHECK_EQ(u2.error(), "new error");
   }
 }
-
-#endif  // DESIGNLAB_MY_UNEXPECTED_TEST_H_

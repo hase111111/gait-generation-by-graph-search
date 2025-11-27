@@ -5,12 +5,11 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MATH_ROT_CONVERTER_H_
-#define DESIGNLAB_MATH_ROT_CONVERTER_H_
+#pragma once
 
 #include "math_euler.h"
 #include "math_quaternion.h"
-#include "math_rotation_matrix.h"
+#include "rotation_matrix_3x3.h"
 
 namespace designlab {
 
@@ -45,5 +44,3 @@ namespace designlab {
 [[nodiscard]] EulerXYZ ToEulerXYZ(const Quaternion& q);
 
 }  // namespace designlab
-
-#endif  // DESIGNLAB_MATH_ROT_CONVERTER_H_

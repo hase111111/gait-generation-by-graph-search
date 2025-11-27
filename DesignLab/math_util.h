@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MATH_UTIL_H_
-#define DESIGNLAB_MATH_UTIL_H_
+#pragma once
 
 #include <concepts>
 #include <iomanip>
@@ -160,5 +159,3 @@ std::string FloatingPointNumToString(const T num, const int digit = kDigit,
 }
 
 }  // namespace designlab::math_util
-
-#endif  // DESIGNLAB_MATH_UTIL_H_

@@ -201,7 +201,7 @@
     <ClInclude Include="asyncable_data.h">
       <Filter>ソース ファイル\Common</Filter>
     </ClInclude>
-    <ClInclude Include="math_rotation_matrix.h">
+    <ClInclude Include="rotation_matrix_3x3.h">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClInclude>
     <ClInclude Include="file_tree.h">
@@ -273,7 +273,7 @@
     <ClInclude Include="simulation_map_parameter_validator_test.h">
       <Filter>ソース ファイル\Map\MapCreator\Parameter\Test</Filter>
     </ClInclude>
-    <ClInclude Include="math_vector3_test.h">
+    <ClInclude Include="vector3_test.h">
       <Filter>ソース ファイル\Common\Math\Test</Filter>
     </ClInclude>
     <ClInclude Include="math_const.h">
@@ -288,7 +288,7 @@
     <ClInclude Include="math_util_test.h">
       <Filter>ソース ファイル\Common\Math\Test</Filter>
     </ClInclude>
-    <ClInclude Include="math_vector2_test.h">
+    <ClInclude Include="vector2_test.h">
       <Filter>ソース ファイル\Common\Math\Test</Filter>
     </ClInclude>
     <ClInclude Include="math_rotation_matrix_test.h">
@@ -887,7 +887,7 @@
     <ClCompile Include="node_creator_sequence_straight_move.cpp">
       <Filter>ソース ファイル\Node\NodeCreatorSequence</Filter>
     </ClCompile>
-    <ClCompile Include="math_rotation_matrix.cpp">
+    <ClCompile Include="rotation_matrix_3x3.cpp">
       <Filter>ソース ファイル\Common\Math</Filter>
     </ClCompile>
     <ClCompile Include="file_tree.cpp">

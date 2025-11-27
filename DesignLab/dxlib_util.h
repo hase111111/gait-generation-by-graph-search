@@ -12,7 +12,7 @@
 
 #include <array>
 
-#include "math_rotation_matrix.h"
+#include "rotation_matrix_3x3.h"
 #include "vector3.h"
 
 //! @namespace designlab::dxlib_util

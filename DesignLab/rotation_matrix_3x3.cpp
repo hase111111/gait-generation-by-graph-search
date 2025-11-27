@@ -5,7 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#include "math_rotation_matrix.h"
+#include "rotation_matrix_3x3.h"
 
 #include <cmath>
 

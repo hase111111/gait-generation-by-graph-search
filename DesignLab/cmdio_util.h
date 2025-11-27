@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_CMDIO_UTIL_H_
-#define DESIGNLAB_CMDIO_UTIL_H_
+#pragma once
 
 #include <format>
 #include <string>
@@ -218,5 +217,3 @@ std::string InputDirName(
 constexpr int kHorizontalLineLength = 100;  //!< 水平線の長さ.
 
 }  // namespace designlab::cmdio
-
-#endif  // DESIGNLAB_CMDIO_UTIL_H_

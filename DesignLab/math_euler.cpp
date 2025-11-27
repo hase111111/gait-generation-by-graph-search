@@ -11,7 +11,7 @@
 #include <sstream>
 
 #include "math_rot_converter.h"
-#include "math_rotation_matrix.h"
+#include "rotation_matrix_3x3.h"
 
 namespace designlab {
 

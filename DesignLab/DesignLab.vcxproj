@@ -42,7 +42,7 @@
     <ClInclude Include="loop_util_test.h" />
     <ClInclude Include="math_line_segment2_test.h" />
     <ClInclude Include="math_rotation_matrix_test.h" />
-    <ClInclude Include="math_vector2_test.h" />
+    <ClInclude Include="vector2_test.h" />
     <ClInclude Include="my_expected_concept.h" />
     <ClInclude Include="my_expected_test.h" />
     <ClInclude Include="my_unexpected_test.h" />
@@ -88,14 +88,14 @@
     <ClInclude Include="map_state_test.h" />
     <ClInclude Include="math_const.h" />
     <ClInclude Include="math_util_test.h" />
-    <ClInclude Include="math_vector3_test.h" />
+    <ClInclude Include="vector3_test.h" />
     <ClInclude Include="node_creator_body_rot.h" />
     <ClInclude Include="make_array.h" />
     <ClInclude Include="asyncable_data.h" />
     <ClInclude Include="boot_mode_selector.h" />
     <ClInclude Include="cassert_define.h" />
     <ClInclude Include="average_calculator.h" />
-    <ClInclude Include="math_rotation_matrix.h" />
+    <ClInclude Include="rotation_matrix_3x3.h" />
     <ClInclude Include="math_rot_converter.h" />
     <ClInclude Include="string_util.h" />
     <ClInclude Include="divided_map_state.h" />
@@ -274,7 +274,7 @@
     <ClCompile Include="com_selector.cpp" />
     <ClCompile Include="node_creator_com_up_down.cpp" />
     <ClCompile Include="math_quaternion.cpp" />
-    <ClCompile Include="math_rotation_matrix.cpp" />
+    <ClCompile Include="rotation_matrix_3x3.cpp" />
     <ClCompile Include="vector2.cpp" />
     <ClCompile Include="dxlib_gui_display_node_switcher.cpp" />
     <ClCompile Include="file_tree.cpp" />

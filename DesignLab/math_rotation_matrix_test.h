@@ -5,12 +5,11 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MATH_ROTATION_MATRIX_TEST_H_
-#define DESIGNLAB_MATH_ROTATION_MATRIX_TEST_H_
+#pragma once
 
 #include <doctest.h>
 
-#include "math_rotation_matrix.h"
+#include "rotation_matrix_3x3.h"
 
 TEST_SUITE("RotationMatrix3x3") {
   using designlab::RotationMatrix3x3;
@@ -155,5 +154,3 @@ TEST_SUITE("RotationMatrix3x3") {
     CHECK(rot_mat.element[2][2] == doctest::Approx(1.0f));
   }
 }
-
-#endif  // DESIGNLAB_MATH_ROTATION_MATRIX_TEST_H_

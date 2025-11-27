@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MATH_POLYGON2_H_
-#define DESIGNLAB_MATH_POLYGON2_H_
+#pragma once
 
 #include <array>
 #include <optional>
@@ -189,5 +188,3 @@ inline std::basic_ostream<Char>& operator<<(std::basic_ostream<Char>& os,
 }
 
 }  // namespace designlab
-
-#endif  // DESIGNLAB_MATH_POLYGON2_H_

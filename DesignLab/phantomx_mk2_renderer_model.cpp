@@ -11,10 +11,10 @@
 
 #include "dxlib_util.h"
 #include "math_rot_converter.h"
-#include "math_rotation_matrix.h"
 #include "math_util.h"
 #include "model_loader.h"
 #include "phantomx_mk2_const.h"
+#include "rotation_matrix_3x3.h"
 
 namespace designlab {
 

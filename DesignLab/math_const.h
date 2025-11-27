@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MATH_CONST_H_
-#define DESIGNLAB_MATH_CONST_H_
+#pragma once
 
 namespace designlab {
 
@@ -48,5 +47,3 @@ struct MathConst<double> {
 };
 
 }  // namespace designlab
-
-#endif  // DESIGNLAB_MATH_CONST_H_

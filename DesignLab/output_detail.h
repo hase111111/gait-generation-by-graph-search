@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_OUTPUT_DETAIL_H_
-#define DESIGNLAB_OUTPUT_DETAIL_H_
+#pragma once
 
 namespace designlab {
 
@@ -16,11 +15,9 @@ namespace designlab {
 enum class OutputDetail : int {
   kSystem = 0,  //!< システムメッセージ,常に出力する.
   kError,       //!< エラーメッセージ.
-  kWarning,  //!< 警告メッセージ,エラーではないが注意が必要なメッセージ.
-  kInfo,     //!< 優先度低めの情報.
-  kDebug,    //!< デバッグ時のみ出力,一番優先度が低い.
+  kWarning,     //!< 警告メッセージ,エラーではないが注意が必要なメッセージ.
+  kInfo,        //!< 優先度低めの情報.
+  kDebug,       //!< デバッグ時のみ出力,一番優先度が低い.
 };
 
 }  // namespace designlab
-
-#endif  // DESIGNLAB_OUTPUT_DETAIL_H_

@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MATH_EULER_H_
-#define DESIGNLAB_MATH_EULER_H_
+#pragma once
 
 #include <string>
 
@@ -130,5 +129,3 @@ inline std::basic_istream<Char>& operator>>(std::basic_istream<Char>& is,
 [[nodiscard]] Vector3 RotateVector3(const Vector3& vec, const EulerXYZ& rot);
 
 }  // namespace designlab
-
-#endif  // DESIGNLAB_MATH_EULER_H_
