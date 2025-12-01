@@ -88,7 +88,7 @@ TEST_SUITE("RotationMatrix3x3") {
     constexpr float angle = ConvertDegToRad(30.0f);
 
     const RotationMatrix3x3 rot_mat =
-        RotationMatrix3x3::CreateRotationMatrixX(angle);
+        RotationMatrix3x3::MakeRotationMatrixX(angle);
 
     const float cos_angle = std::cos(angle);
     const float sin_angle = std::sin(angle);
@@ -112,7 +112,7 @@ TEST_SUITE("RotationMatrix3x3") {
     constexpr float angle = ConvertDegToRad(30.0f);
 
     const RotationMatrix3x3 rot_mat =
-        RotationMatrix3x3::CreateRotationMatrixY(angle);
+        RotationMatrix3x3::MakeRotationMatrixY(angle);
 
     const float cos_angle = std::cos(angle);
     const float sin_angle = std::sin(angle);
@@ -136,7 +136,7 @@ TEST_SUITE("RotationMatrix3x3") {
     constexpr float angle = ConvertDegToRad(30.0f);
 
     const RotationMatrix3x3 rot_mat =
-        RotationMatrix3x3::CreateRotationMatrixZ(angle);
+        RotationMatrix3x3::MakeRotationMatrixZ(angle);
 
     const float cos_angle = std::cos(angle);
     const float sin_angle = std::sin(angle);

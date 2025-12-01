@@ -48,17 +48,17 @@ struct RotationMatrix3x3 final {
   //! @brief x軸周りに回転する回転行列を生成する.
   //! @param[in] angle 回転角 [rad].
   //! @return x軸周りに回転する回転行列.
-  [[nodiscard]] static RotationMatrix3x3 CreateRotationMatrixX(float angle);
+  [[nodiscard]] static RotationMatrix3x3 MakeRotationMatrixX(float angle);
 
   //! @brief y軸周りに回転する回転行列を生成する.
   //! @param[in] angle 回転角 [rad].
   //! @return y軸周りに回転する回転行列.
-  [[nodiscard]] static RotationMatrix3x3 CreateRotationMatrixY(float angle);
+  [[nodiscard]] static RotationMatrix3x3 MakeRotationMatrixY(float angle);
 
   //! @brief z軸周りに回転する回転行列を生成する.
   //! @param[in] angle 回転角 [rad].
   //! @return z軸周りに回転する回転行列.
-  [[nodiscard]] static RotationMatrix3x3 CreateRotationMatrixZ(float angle);
+  [[nodiscard]] static RotationMatrix3x3 MakeRotationMatrixZ(float angle);
 
   //! @brief 回転行列を文字列に変換する.
   //! @return 回転行列を表す文字列.

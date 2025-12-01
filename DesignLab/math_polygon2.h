@@ -59,7 +59,7 @@ struct Polygon2 final {
   //! @param[in] index 削除する頂点のインデックス.
   //! @note 存在しない頂点を指定した場合は何もしない.
   //! @note 削除した頂点のインデックスは変わるので注意.
-  void RemoveVertex(const int index);
+  void RemoveVertex(int index);
 
   //! @brief 1番最後の頂点を削除する関数.
   //! @note 頂点が1つもない場合は何もしない.

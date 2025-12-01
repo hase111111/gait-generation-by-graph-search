@@ -79,9 +79,9 @@ RotationMatrix3x3 ToRotationMatrix(const Quaternion& q) {
 }
 
 RotationMatrix3x3 ToRotationMatrix(const EulerXYZ& q) {
-  const auto mat_x = RotationMatrix3x3::CreateRotationMatrixX(q.x_angle);
-  const auto mat_y = RotationMatrix3x3::CreateRotationMatrixY(q.y_angle);
-  const auto mat_z = RotationMatrix3x3::CreateRotationMatrixZ(q.z_angle);
+  const auto mat_x = RotationMatrix3x3::MakeRotationMatrixX(q.x_angle);
+  const auto mat_y = RotationMatrix3x3::MakeRotationMatrixY(q.y_angle);
+  const auto mat_z = RotationMatrix3x3::MakeRotationMatrixZ(q.z_angle);
 
   // X→Y→Zの順に回転する.
   return mat_z * mat_y * mat_x;
