@@ -617,13 +617,14 @@ void MapCreatorForSimulation::ChangeMapToTilt(std::vector<Vector3>* map) const {
 
 void MapCreatorForSimulation::ChangeMapToRough(
     std::vector<Vector3>* map) const {
-  assert(map != nullptr);  // map が nullptr でないことを確認する.
+  assert(map != nullptr);
 
-  // まずはマップを STRIPE_INTERVAL
-  // にあわせて区切って,全部で何マスあるか調べる.
+  // 粗い地形を適用する範囲（待機場所より右側）
+  const float rough_range_x =
+      (parameter_.map_max_x - parameter_.map_start_rough_x);
+
   const int cell_num_x =
-      static_cast<int>((parameter_.map_start_rough_x - parameter_.map_min_x) /
-                       MapState::kMapPointDistance) /
+      static_cast<int>(rough_range_x / MapState::kMapPointDistance) /
       parameter_.stripe_interval;
 
   const int cell_num_y =
@@ -633,34 +634,35 @@ void MapCreatorForSimulation::ChangeMapToRough(
 
   const int cell_sum = cell_num_x * cell_num_y;
 
-  // マスの数だけ要素を持つ vector を用意する.
-  std::vector<float> change_z_length;
+  if (cell_sum <= 0) return;
+
+  // 各セルにランダムな高さを割り当てる
+  std::vector<float> change_z_length(cell_sum);
 
   for (int i = 0; i < cell_sum; i++) {
-    // ランダムなZ座標を入れる.
-    change_z_length.push_back(math_util::GenerateRandomNumber(
-        parameter_.rough_min_height, parameter_.rough_max_height));
+    change_z_length[i] = math_util::GenerateRandomNumber(
+        parameter_.rough_min_height, parameter_.rough_max_height);
   }
 
+  // マップに適用
   for (auto& i : *map) {
     if (i.x <= parameter_.map_start_rough_x) {
       continue;
     }
 
-    // マスで区切るとどこに位置するかを調べる.
-    const int cell_pos_x =
-        static_cast<int>((i.x - parameter_.map_start_rough_x) /
-                         MapState::kMapPointDistance) /
-        parameter_.stripe_interval;
+    const float local_x =
+        (i.x - parameter_.map_start_rough_x) / MapState::kMapPointDistance;
+    const float local_y =
+        (i.y - parameter_.map_min_y) / MapState::kMapPointDistance;
 
-    const int cell_pos_y = static_cast<int>((i.y - parameter_.map_min_y) /
-                                            MapState::kMapPointDistance) /
-                           parameter_.stripe_interval;
+    const int cell_pos_x =
+        static_cast<int>(local_x) / parameter_.stripe_interval;
+    const int cell_pos_y =
+        static_cast<int>(local_y) / parameter_.stripe_interval;
 
     const int cell_index = cell_pos_x * cell_num_y + cell_pos_y;
 
-    // cell_index の値がおかしくないかチェックする.
-    if (0 <= cell_index && cell_index < change_z_length.size()) {
+    if (0 <= cell_index && cell_index < cell_sum) {
       i.z += change_z_length[cell_index];
     }
   }
