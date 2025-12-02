@@ -22,7 +22,8 @@ class NodeCreatorSequencePruningBranch final : public INodeCreatorSequence {
   NodeCreatorSequencePruningBranch(
       const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
       const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
-      const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr);
+      const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
+      bool use_normal);
 
   std::map<HexapodMove, std::unique_ptr<INodeCreator>> Build(
       const DividedMapState& map) const override;
@@ -31,6 +32,7 @@ class NodeCreatorSequencePruningBranch final : public INodeCreatorSequence {
   const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
   const std::shared_ptr<const IHexapodStatePresenter> presenter_ptr_;
   const std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
+  const bool use_normal_;
 };
 
 }  // namespace designlab

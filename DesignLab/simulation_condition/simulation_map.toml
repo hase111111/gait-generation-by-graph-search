@@ -1,8 +1,21 @@
 #生成するマップの種類.("kFlat" / "kVerticalStripe" / "kHorizontalStripe" / "kDiagonalStripe" / "kSlantedStripes" / "kMesh" / "kLatticePoint" / "kCircle" / "kDonut" / "kWall")
-mode = "kFlat"
+mode = "kFlat" 
 
 #マップ生成のオプション.複数指定したいならば足し合わせて指定すること.( kNone = 0 / kPerforated = 1 / kStep = 2 / kSlope = 4 / kTilt = 8 / kRough = 16 / kRadiation = 32 )
-option = 0
+option = 16
+
+[Perforated]
+    
+    #不整地上の足場を除外する割合.ホール率[%].0～100の間にすること.
+    hole_rate = 40
+
+[Stripe]
+    
+    #斜め縞の角度[deg].
+    diagonal_angle = 60.0
+    
+    #各種模様や穴を作成する際,これで指定したマス分(1マス20[mm])の1辺を持つ正方形状にあなをあける.0より大きくすること.
+    stripe_interval = 5
 
 [Basic]
     
@@ -41,11 +54,6 @@ option = 0
     #ドーナツの内側の半径.
     donut_radius = 200.0
 
-[Perforated]
-    
-    #不整地上の足場を除外する割合.ホール率[%].0～100の間にすること.
-    hole_rate = 20
-
 [Radial]
     
     #放射状の地形の角度オフセット[deg].
@@ -82,14 +90,6 @@ option = 0
     #階段の奥行[mm].正の値にすること.
     step_length = 600.0
     step_start_x = 0.0
-
-[Stripe]
-    
-    #斜め縞の角度[deg].
-    diagonal_angle = 45.0
-    
-    #各種模様や穴を作成する際,これで指定したマス分(1マス20[mm])の1辺を持つ正方形状にあなをあける.0より大きくすること.
-    stripe_interval = 5
 
 [Tilt]
     

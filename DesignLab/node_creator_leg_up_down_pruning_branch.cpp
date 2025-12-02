@@ -44,9 +44,9 @@ void NodeCreatorLegUpDownPruningBranch::Create(
   is_able_leg_ground_pattern.set();  // 全て true にする.
 
   // まず離散化された重心位置から取り得ない接地パターンを除外する.
-  com_func::RemoveLegGroundPatternFromCom(
-      leg_func::GetDiscreteComPos(current_node.leg_state),
-      &is_able_leg_ground_pattern);
+  // com_func::RemoveLegGroundPatternFromCom(
+  //    leg_func::GetDiscreteComPos(current_node.leg_state),
+  //    &is_able_leg_ground_pattern);
 
   // 次に脚が地面に接地可能か調べる.
 

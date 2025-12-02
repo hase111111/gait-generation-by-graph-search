@@ -5,11 +5,11 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_PRUNING_BRANCH_H_
-#define DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_PRUNING_BRANCH_H_
+#pragma once
 
 #include <map>
 #include <memory>
+#include <set>
 #include <utility>
 #include <vector>
 
@@ -29,7 +29,8 @@ class NodeCreatorLegHierarchyPruningBranch final : public INodeCreator {
   //! @param[in] discrete_leg_pos_list 離散化された脚位置のリスト.
   NodeCreatorLegHierarchyPruningBranch(
       HexapodMove next_move,
-      const std::vector<DiscreteLegPos>& discrete_leg_pos_list);
+      const std::vector<DiscreteLegPos>& discrete_leg_pos_list,
+      bool use_legacy);
 
   ~NodeCreatorLegHierarchyPruningBranch() = default;
 
@@ -38,10 +39,26 @@ class NodeCreatorLegHierarchyPruningBranch final : public INodeCreator {
 
  private:
   std::map<std::pair<int, int>, std::vector<int>> InitTable() const;
+  std::set<int> InitTableLegacy() const;
 
   int BitToLegPosIndex(const leg_func::LegStateBit& leg_bit) const;
   int BitToGroundLegIndex(const leg_func::LegStateBit& leg_bit) const;
   std::vector<DiscreteLegPos> IndexToLegPosList(int index) const;
+
+  void CreateLegacy(const RobotStateNode& current_node, int current_node_index,
+                    std::vector<RobotStateNode>* output_nodes) const;
+
+  void Create1LegLifted(const RobotStateNode& current_node,
+                        int current_node_index,
+                        std::vector<RobotStateNode>* output_nodes) const;
+
+  void Create2LegLifted(const RobotStateNode& current_node,
+                        int current_node_index,
+                        std::vector<RobotStateNode>* output_nodes) const;
+
+  void Create3LegLifted(const RobotStateNode& current_node,
+                        int current_node_index,
+                        std::vector<RobotStateNode>* output_nodes) const;
 
   const HexapodMove next_move_;  //!< 次の動作.
 
@@ -49,8 +66,9 @@ class NodeCreatorLegHierarchyPruningBranch final : public INodeCreator {
   const std::vector<DiscreteLegPos> discrete_leg_pos_list_;
 
   static std::map<std::pair<int, int>, std::vector<int>> leg_pos_change_table_;
+  static std::set<int> leg_pos_change_table_legacy;
+
+  const bool use_legacy_;
 };
 
 }  // namespace designlab
-
-#endif  // DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_H_

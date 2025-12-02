@@ -566,31 +566,31 @@ bool XrR1::IsBodyInterferingWithGround(
       }
     }
 
-    // 脚先の座標(グローバル)を取得する.
-    const Vector3 leg_pos_global_coord =
-        leg_func::IsGrounded(node.leg_state, i)
-            ? ConvertLegToGlobalCoordinate(GetFreeLegPosLegCoordinate(i), i,
-                                           node.center_of_mass_global_coord,
-                                           node.posture, true)
-            : ConvertLegToGlobalCoordinate(node.leg_pos[i], i,
-                                           node.center_of_mass_global_coord,
-                                           node.posture, true);
+    //// 脚先の座標(グローバル)を取得する.
+    // const Vector3 leg_pos_global_coord =
+    //     leg_func::IsGrounded(node.leg_state, i)
+    //         ? ConvertLegToGlobalCoordinate(GetFreeLegPosLegCoordinate(i), i,
+    //                                        node.center_of_mass_global_coord,
+    //                                        node.posture, true)
+    //         : ConvertLegToGlobalCoordinate(node.leg_pos[i], i,
+    //                                        node.center_of_mass_global_coord,
+    //                                        node.posture, true);
 
-    if (divided_map.IsInMap(leg_pos_global_coord)) {
-      const float leg_top_z = (std::max)(
-          divided_map.GetTopZ(
-              divided_map.GetDividedMapIndexX(leg_pos_global_coord.x),
-              divided_map.GetDividedMapIndexY(leg_pos_global_coord.y)),
-          divided_map.GetMapMinZ());
+    // if (divided_map.IsInMap(leg_pos_global_coord)) {
+    //   const float leg_top_z = (std::max)(
+    //       divided_map.GetTopZ(
+    //           divided_map.GetDividedMapIndexX(leg_pos_global_coord.x),
+    //           divided_map.GetDividedMapIndexY(leg_pos_global_coord.y)),
+    //       divided_map.GetMapMinZ());
 
-      if (leg_top_z != divided_map.GetMapMinZ() &&
-          leg_top_z + GetGroundHeightMarginMin() +
-                  GetFreeLegPosLegCoordinate(i).z -
-                  MathConst<float>::kAllowableError >
-              leg_pos_global_coord.z) {
-        return true;
-      }
-    }
+    //  if (leg_top_z != divided_map.GetMapMinZ() &&
+    //      leg_top_z + GetGroundHeightMarginMin() +
+    //              GetFreeLegPosLegCoordinate(i).z -
+    //              MathConst<float>::kAllowableError >
+    //          leg_pos_global_coord.z) {
+    //    return true;
+    //  }
+    //}
   }
 
   return false;
