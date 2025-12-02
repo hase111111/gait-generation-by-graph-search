@@ -63,7 +63,7 @@ class DividedMapState final {
   //! その中に存在する脚設置可能点を集める.
   //! @param[in] map_state マップのデータ.
   //! @param[in] global_robot_com ロボットの重心のグローバル座標.
-  void Init(const MapState& map_state, const Vector3 global_robot_com);
+  void Init(const MapState& map_state, const Vector3& global_robot_com);
 
   //! @brief マップのデータを消去する.
   void Clear();

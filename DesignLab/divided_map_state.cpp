@@ -22,7 +22,7 @@ DividedMapState::DividedMapState(const float min_z)
 }
 
 void DividedMapState::Init(const MapState& map_state,
-                           const Vector3 global_robot_com) {
+                           const Vector3& global_robot_com) {
   // 配列のサイズが確保されているか確認.
   assert(divided_map_point_.size() == math_util::Squared(kDividedNum));
   assert(divided_map_top_z_.size() == math_util::Squared(kDividedNum));
@@ -127,7 +127,7 @@ void DividedMapState::GetPointVector(const int x_index, const int y_index,
   (*point_vec) = divided_map_point_[GetDividedMapIndex(x_index, y_index)];
 }
 
-float DividedMapState::GetTopZ(int x_index, int y_index) const {
+float DividedMapState::GetTopZ(const int x_index, const int y_index) const {
   // 存在していなければ終了.
   if (!IsValidIndex(x_index) || !IsValidIndex(y_index)) {
     return kMapMinZ;
