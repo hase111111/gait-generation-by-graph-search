@@ -222,7 +222,7 @@ void ResultFileExporter::ExportEachSimulationDetail(
     int max_node_count = 0;
 
     AverageCalculator<double> time_average_calculator;
-    AverageCalculator<int> node_average_calculator;
+    AverageCalculator<unsigned long long> node_average_calculator;
 
     // 最初のノードは除く(計算時間0で固定のため)
     if (recorder.graph_search_result_recorder.size() > 1) {

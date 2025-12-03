@@ -750,6 +750,9 @@
     <ClInclude Include="system_main_simulation.h">
       <Filter>ソース ファイル\System\Simulation</Filter>
     </ClInclude>
+    <ClInclude Include="gpg_type.h">
+      <Filter>ソース ファイル\GaitPatternGenerator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">

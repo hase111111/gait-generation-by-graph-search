@@ -1,65 +1,80 @@
-#シミュレーションを行う際の設定はこのファイルで設定します．
+#シミュレーションを行う際の設定はこのファイルで設定します.
 
 
-#終了条件についての設定です．
 [EndChecker]
     
-    #どのような方法で終了させるかを設定します．( "kGoalTape" / "kPosture" / "kPosition" )
-    end_check_mode = "kGoalTape" 
+    #どのような方法で終了させるかを設定します.( "kGoalTape" / "kPosture" / "kPosition" )
+    end_check_mode = "kGoalTape"
     
-    #終了条件がゴールテープに到達したか ( GoalTape ) の場合，ゴールテープのx座標を設定します．[mm]
-    goal_tape_position_x = 5000.0
+    #終了条件がゴールテープに到達したか ( GoalTape ) の場合,ゴールテープのx座標を設定します.[mm]
+    goal_tape_position_x = 1200.0
     
-    #終了条件が目的の座標に到達したか ( Position ) の場合，目標の座標を設定します．[mm]
-    target_position = "     0.000,     0.000,     100000.0"
+    #終了条件が目的の座標に到達したか ( Position ) の場合,目標の座標を設定します.[mm]
+    target_position = "     0.000,     0.000,     0.000"
     
-    #終了条件が目的の座標に到達したか ( Position ) の場合，目標の座標の許容誤差を設定します．[mm]
-    target_position_allowable_error = 200.0
+    #終了条件が目的の座標に到達したか ( Position ) の場合,目標の座標の許容誤差を設定します.[mm]
+    target_position_allowable_error = 50.0
     
-    #終了条件が目標姿勢となったか ( Posture ) の場合，目標の姿勢(xyzオイラー角)を設定します．[deg]
+    #終了条件が目標姿勢となったか ( Posture ) の場合,目標の姿勢(xyzオイラー角)を設定します.[deg]
     target_posture = "     0.000,     0.000,     0.000"
     
-    #終了条件が目標姿勢となったか ( Posture ) の場合，目標の姿勢の角度の許容誤差を設定します．[deg]
+    #終了条件が目標姿勢となったか ( Posture ) の場合,目標の姿勢の角度の許容誤差を設定します.[deg]
     target_posture_allowable_error_deg = 1.0
+    
+#歩容パターンの設定です.Map
+[GaitPattern]
+    
+    #探索の深さ. 5程度にすること
+    gpg_depth = 5
+    
+    #メモリを確保する量．最低20000000は用意すること
+    gpg_memory_limit = 40000000
+    
+    #歩容パターン生成の方法を設定する. ( "kFlatLegacyAlgorithm" / "kFlat" / "kPitchRot" / "kStraightMove" / "kSwichByMap" / "kWall" / "kPruningBranch" / "kPruningBranchLegacy" )
+    gpg_type = "kFlat"
 
 [Initial]
     
-    #シミュレーション開始時のロボットの歩容を設定します．( "kNone" / "kLegUpDown" / "kLegHierarchyChange" / "kComMove" / "kComUpDown" / "kBodyPitchRot" / "kBodyYawRot" )
-    initial_move = "kLegHierarchyChange"
+    #シミュレーション開始時のロボットの歩容を設定します.( "kNone" / "kLegUpDown" / "kLegHierarchyChange" / "kComMove" / "kComUpDown" / "kBodyRollRot" / "kBodyPitchRot" / "kBodyYawRot" )
+    initial_move = "kComMove"
     
-    #シミュレーション開始時のロボットの位置を設定します．[mm]．地面にめり込んでいる場合には機能しないため，注意すること．
-    initial_positions = "     0.0, 0.0,     60.000"
-    # initial_positions = "     -80.0, -30.0,     -245.000"
+    #シミュレーション開始時のロボットの位置を設定します.[mm].地面にめり込んでいる場合には機能しないため,注意すること.
+    initial_positions = "     0.000,     0.000,    30.000"
     
-    #シミュレーション開始時のロボットの姿勢を設定します．[deg]．地面にめり込んでいる場合には機能しないため，注意すること．
+    #シミュレーション開始時のロボットの姿勢を設定します.[deg].地面にめり込んでいる場合には機能しないため,注意すること.
     initial_posture = "     0.000,     0.000,     0.000"
-    
-#マップについての設定です．
+
 [Map]
     
-    #マップの作成方法を設定します．( "kForSimulation" / "kFromFile" )
-    map_create_mode = "kForSimulation" 
+    #マップの作成方法を設定します.( "kForSimulation" / "kFromFile" )
+    map_create_mode = "kForSimulation"
     
-    #マップの作成方法がファイルから読み込むモード ( FromFile ) の場合，マップの csvファイルの名前を設定します．
-    map_file_name = "normal_random_30%_100x.csv"
+    #マップの作成方法がファイルから読み込むモード ( FromFile ) の場合,マップの csvファイルの名前を設定します.
+    map_file_name = "map_state.csv"
     
-    #マップの作成方法がシミュレーション専用マップを出力するモード ( ForSimulation ) の場合，マップのパラメータを記述した toml ファイルの名前を設定します．
+    #マップの作成方法がシミュレーション専用マップを出力するモード ( ForSimulation ) の場合,マップのパラメータを記述した toml ファイルの名前を設定します.
     simulation_map_param_file_name = "simulation_map.toml"
-    # simulation_map_param_file_name = "simulation_map_fissured.toml"
-    
-#ロボットの操作方法の設定です．
+
 [RobotOperator]
     
-    #ロボットの操作方法が固定 ( Fixed ) の場合，その操作方法を指定するファイルを設定します．
+    #ロボットの操作方法が固定 ( Fixed ) の場合,その操作方法を指定するファイルを設定します.
     fixed_operate_file_name = "robot_operator.toml"
     
-    #ロボットの操作方法を設定します．( "kForGloabalPathGenerate" / "kFixed" / "kForPath" )
-    operate_mode = "kFixed" 
+    #ロボットの操作方法を設定します.( "kForGloabalPathGenerate" / "kFixed" / "kForPath" )
+    operate_mode = "kFixed"
     
-    #ロボットの操作方法がパス ( ForPath ) の場合，そのパスを設定します．
+    #ロボットの操作方法がパス ( ForPath ) の場合,そのパスを設定します.
     path_points = [
-    "     0.000,     0.000,     30.000",
-    "  1000.000,    0.000,     30.000",
-    "  -400.000,   0.000,     30.000",
+    "     0.000,     0.000,     0.000",
+    "  1000.000,     0.000,     0.000",
     ]
+    
+#EndChecker
+["マップについての設定です."]
+    
+#
+["ロボットの操作方法の設定です."]
+    
+#RobotOperator
+["終了条件についての設定です."]
     

@@ -12,6 +12,7 @@
 #include <string>
 #include <vector>
 
+#include "gpg_type.h"
 #include "hexapod_next_move.h"
 #include "math_euler.h"
 #include "string_util.h"
@@ -35,6 +36,12 @@ enum class SimulationEndCheckMode : int {
 namespace designlab {
 
 struct SimulationSettingRecord final {
+  GpgType gpg_type{GpgType::kFlat};
+
+  int gpg_depth{5};
+
+  int gpg_memory_limit{40000000};
+
   enums::MapCreateMode map_create_mode{enums::MapCreateMode::kForSimulation};
 
   std::string simulation_map_param_file_name{"simulation_map.toml"};
@@ -77,9 +84,19 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationSettingRecord) {
       "シミュレーションを行う際の設定はこのファイルで設定します.");
 
   DESIGNLAB_TOML11_TABLE_ADD_DESCRIPTION(
-      "Map", "マップについての設定です.", "EndChecker",
-      "終了条件についての設定です.", "RobotOperator",
-      "ロボットの操作方法の設定です.");
+      "GaitPattern", "歩容パターンの設定です.", "Map",
+      "マップについての設定です.", "EndChecker", "終了条件についての設定です.",
+      "RobotOperator", "ロボットの操作方法の設定です.");
+
+  DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
+      gpg_type, "GaitPattern",
+      std::format("歩容パターン生成の方法を設定する. ( \"{}\" )",
+                  string_util::EnumValuesToString<GpgType>("\" / \"")));
+  DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(gpg_depth, "GaitPattern",
+                                            "探索の深さ. 5程度にすること");
+  DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
+      gpg_memory_limit, "GaitPattern",
+      "メモリを確保する量．最低20000000は用意すること");
 
   DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
       map_create_mode, "Map",
@@ -164,7 +181,8 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationSettingRecord) {
 
 }  // namespace designlab
 
-DESIGNLAB_TOML11_SERIALIZE(designlab::SimulationSettingRecord, map_create_mode,
+DESIGNLAB_TOML11_SERIALIZE(designlab::SimulationSettingRecord, gpg_type,
+                           gpg_depth, gpg_memory_limit, map_create_mode,
                            simulation_map_param_file_name, map_file_name,
                            end_check_mode, goal_tape_position_x, target_posture,
                            target_posture_allowable_error_deg, target_position,

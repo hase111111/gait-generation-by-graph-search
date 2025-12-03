@@ -148,14 +148,15 @@ int main() {
         // シミュレーションシステムクラスを作成する.
         auto phantomx_mk2 = LoadXrR1();
 
-        const auto gpg_builder = std::make_unique<GpgSelector>(
-            phantomx_mk2, phantomx_mk2, phantomx_mk2);
-        auto gait_pattern_generator =
-            gpg_builder->Select(GpgType::kPruningBranch);
-
         const auto sim_setting_record =
             TomlFileImporter<SimulationSettingRecord>{}.ImportOrUseDefault(
                 "./simulation_condition/simulation_setting.toml");
+
+        const auto gpg_builder = std::make_unique<GpgSelector>(
+            phantomx_mk2, phantomx_mk2, phantomx_mk2,
+            sim_setting_record.gpg_depth, sim_setting_record.gpg_memory_limit);
+        auto gait_pattern_generator =
+            gpg_builder->Select(sim_setting_record.gpg_type);
 
         auto map_creator = MapCreatorSelector{}.Select(sim_setting_record);
         auto simulation_end_checker =
@@ -263,13 +264,15 @@ int main() {
         // シミュレーションシステムクラスを作成する.
         auto hexapod = LoadXrR1();
 
-        const auto gpg_builder =
-            std::make_unique<GpgSelector>(hexapod, hexapod, hexapod);
-        auto gait_pattern_generator = gpg_builder->Select(GpgType::kFlat);
-
         const auto sim_setting_record =
             TomlFileImporter<SimulationSettingRecord>{}.ImportOrUseDefault(
                 "./simulation_condition/simulation_setting.toml");
+
+        const auto gpg_builder = std::make_unique<GpgSelector>(
+            hexapod, hexapod, hexapod, sim_setting_record.gpg_depth,
+            sim_setting_record.gpg_memory_limit);
+        auto gait_pattern_generator =
+            gpg_builder->Select(sim_setting_record.gpg_type);
 
         auto simulation_end_checker =
             SimulationEndCheckerFactory::Create(sim_setting_record);

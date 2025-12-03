@@ -9,6 +9,7 @@
 
 #include <memory>
 
+#include "gpg_type.h"
 #include "interface_gait_pattern_generator.h"
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_posture_validator.h"
@@ -16,23 +17,13 @@
 
 namespace designlab {
 
-enum class GpgType {
-  kFlatLegacyAlgorithm,  //!< 平坦な地面を歩く(旧アルゴリズム).
-  kFlat,                 //!< 平坦な地面を歩く.
-  kPitchRot,             //!< ピッチ回転を行う.
-  kStraightMove,         //!< 直進移動を行う.
-  kSwichByMap,           //!< マップに応じて歩容を切り替える.
-  kWall,                 //!< 壁を歩く.
-  kPruningBranch,        //!< 新しく実装した枝刈りアルゴリズム.
-  kPruningBranchLegacy,  //!< 旧アルゴリズムで枝刈りを行う.
-};
-
 class GpgSelector final {
  public:
   GpgSelector(
       const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
       const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
-      const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr);
+      const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
+      int gpg_depth, int gpg_memory_limit);
   ~GpgSelector() = default;
 
   std::unique_ptr<IGaitPatternGenerator> Select(GpgType type) const;
@@ -50,6 +41,8 @@ class GpgSelector final {
   const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
   const std::shared_ptr<const IHexapodStatePresenter> presenter_ptr_;
   const std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
+  const int gpg_depth_;
+  const int gpg_memory_limit_;
 };
 
 }  // namespace designlab

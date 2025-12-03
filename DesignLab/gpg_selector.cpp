@@ -29,13 +29,18 @@ namespace designlab {
 GpgSelector::GpgSelector(
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
     const std::shared_ptr<const IHexapodStatePresenter>& presenter_ptr,
-    const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr)
+    const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
+    int gpg_depth, int gpg_memory_limit)
     : converter_ptr_(converter_ptr),
       presenter_ptr_(presenter_ptr),
-      checker_ptr_(checker_ptr) {
+      checker_ptr_(checker_ptr),
+      gpg_depth_{gpg_depth},
+      gpg_memory_limit_{gpg_memory_limit} {
   assert(converter_ptr_ != nullptr);
   assert(presenter_ptr_ != nullptr);
   assert(checker_ptr_ != nullptr);
+  assert(gpg_depth_ > 0);
+  assert(gpg_memory_limit_ > 0);
 }
 
 std::unique_ptr<IGaitPatternGenerator> GpgSelector::Select(
@@ -81,7 +86,8 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgFlat() const {
       std::make_unique<GraphSearcherStraightMove>(checker_ptr_);
 
   auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorThread>(
-      std::move(graph_tree_creator), std::move(graph_searcher), 5, 40000000);
+      std::move(graph_tree_creator), std::move(graph_searcher), gpg_depth_,
+      gpg_memory_limit_);
 
   return std::move(gait_pattern_generator);
 }
@@ -98,7 +104,8 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgFlatLegacyAlgorithm()
       std::make_unique<GraphSearcherStraightMove>(checker_ptr_);
 
   auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorBasic>(
-      std::move(graph_tree_creator), std::move(graph_searcher), 6, 20000000);
+      std::move(graph_tree_creator), std::move(graph_searcher), gpg_depth_,
+      gpg_memory_limit_);
 
   return std::move(gait_pattern_generator);
 }
@@ -113,7 +120,8 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgPitchRot() const {
       checker_ptr_, presenter_ptr_, converter_ptr_);
 
   auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorBasic>(
-      std::move(graph_tree_creator), std::move(graph_searcher), 5, 20000000);
+      std::move(graph_tree_creator), std::move(graph_searcher), gpg_depth_,
+      gpg_memory_limit_);
 
   return std::move(gait_pattern_generator);
 }
@@ -128,7 +136,8 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgRollRot() const {
       checker_ptr_, presenter_ptr_, converter_ptr_);
 
   auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorBasic>(
-      std::move(graph_tree_creator), std::move(graph_searcher), 5, 20000000);
+      std::move(graph_tree_creator), std::move(graph_searcher), gpg_depth_,
+      gpg_memory_limit_);
 
   return std::move(gait_pattern_generator);
 }
@@ -150,7 +159,8 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgWall() const {
       std::make_unique<GraphSearcherStraightMove>(checker_ptr_);
 
   auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorBasic>(
-      std::move(graph_tree_creator), std::move(graph_searcher), 5, 20000000);
+      std::move(graph_tree_creator), std::move(graph_searcher), gpg_depth_,
+      gpg_memory_limit_);
 
   return std::move(gait_pattern_generator);
 }
@@ -166,7 +176,8 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgPruningBranch()
       std::make_unique<GraphSearcherStraightMove>(checker_ptr_);
 
   auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorThread>(
-      std::move(graph_tree_creator), std::move(graph_searcher), 5, 20000000);
+      std::move(graph_tree_creator), std::move(graph_searcher), gpg_depth_,
+      gpg_memory_limit_);
 
   return std::move(gait_pattern_generator);
 }
@@ -182,7 +193,8 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgPruningBranchLegacy()
       std::make_unique<GraphSearcherStraightMove>(checker_ptr_);
 
   auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorThread>(
-      std::move(graph_tree_creator), std::move(graph_searcher), 5, 40000000);
+      std::move(graph_tree_creator), std::move(graph_searcher), gpg_depth_,
+      gpg_memory_limit_);
 
   return std::move(gait_pattern_generator);
 }
