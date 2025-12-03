@@ -44,6 +44,8 @@ class GaitPatternGeneratorBasic final : public IGaitPatternGenerator {
     return graph_tree_.GetGraphSize();
   }
 
+  std::vector<int> GetExpandedNodeCountPerDepth() const override;
+
  private:
   //! グラフ探索を行う木構造のグラフを作成するクラス.
   const std::unique_ptr<GraphTreeCreator> graph_tree_creator_ptr_;

@@ -5,11 +5,11 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_GRAPH_SEARCH_RESULT_RECORD_H_
-#define DESIGNLAB_GRAPH_SEARCH_RESULT_RECORD_H_
+#pragma once
 
 #include <magic_enum.hpp>
 #include <string>
+#include <vector>
 
 #include "my_expected.h"
 #include "robot_state_node.h"
@@ -22,16 +22,19 @@ namespace designlab {
 struct GraphSearchResultRecord final {
   GraphSearchResultRecord()
       : result_node{},
-        computation_time(0.0),
-        node_expanded_count(0),
+        computation_time{0.0},
+        total_node_expanded_count{0},
+        node_expanded_count_per_depth{},
         graph_search_result{} {}
 
   GraphSearchResultRecord(const RobotStateNode& node, const double time,
                           const int count,
+                          const std::vector<int>& count_per_depth,
                           const nostd::expected<bool, std::string> result)
-      : result_node(node),
-        computation_time(time),
-        node_expanded_count(count),
+      : result_node{node},
+        computation_time{time},
+        total_node_expanded_count{count},
+        node_expanded_count_per_depth{count_per_depth},
         graph_search_result{result} {}
 
   //! @brief 構造体の内容をCSV形式の文字列にして返す. , (カンマ) で区切られる.
@@ -47,7 +50,10 @@ struct GraphSearchResultRecord final {
 
   double computation_time;  //!< グラフ探索にかかった計算時間 [milli sec]
 
-  int node_expanded_count;  //!< 展開したノード数.
+  int total_node_expanded_count;  //!< 展開したノード数.
+
+  std::vector<int>
+      node_expanded_count_per_depth;  //!< 各深さごとに展開したノード数.
 
   //! @brief グラフ探索の結果,成功か失敗か.
   //! @todo expected<void, std::string> にする
@@ -55,5 +61,3 @@ struct GraphSearchResultRecord final {
 };
 
 }  // namespace designlab
-
-#endif  // DESIGNLAB_GRAPH_SEARCH_RESULT_RECORD_H_

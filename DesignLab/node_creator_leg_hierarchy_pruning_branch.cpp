@@ -272,7 +272,7 @@ void NodeCreatorLegHierarchyPruningBranch::Create2LegLifted(
     std::vector<RobotStateNode>* output_graph) const {
   using leg_func::ChangeDiscreteLegPos;
 
-  // 遊脚している脚を探す.遊脚数は2なので2つの数字が帰るはず
+  // 遊脚している脚を探す.遊脚数は2なので2つの数字が帰るはず.
   std::vector<int> lifted_leg_list;
 
   leg_func::GetLiftedLegIndexByVector(current_node.leg_state, &lifted_leg_list);
@@ -305,7 +305,7 @@ void NodeCreatorLegHierarchyPruningBranch::Create3LegLifted(
     std::vector<RobotStateNode>* output_graph) const {
   using leg_func::ChangeDiscreteLegPos;
 
-  // 遊脚している脚を探す.遊脚数は3なので3つの数字が帰るはず
+  // 遊脚している脚を探す.遊脚数は3なので3つの数字が帰るはず.
   std::vector<int> lifted_leg_list;
 
   leg_func::GetLiftedLegIndexByVector(current_node.leg_state, &lifted_leg_list);

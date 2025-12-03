@@ -76,4 +76,15 @@ GaitPatternGeneratorBasic::GetNextNodeByGraphSearch(
   return next_node;
 }
 
+std::vector<int> GaitPatternGeneratorBasic::GetExpandedNodeCountPerDepth()
+    const {
+  std::vector<int> node_count_per_depth(max_depth_ + 1, 0);
+
+  for (int depth = 0; depth <= max_depth_; ++depth) {
+    node_count_per_depth[depth] = graph_tree_.GetNodeCountAtDepth(depth);
+  }
+
+  return node_count_per_depth;
+}
+
 }  // namespace designlab

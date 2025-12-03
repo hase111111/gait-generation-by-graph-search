@@ -127,11 +127,32 @@ GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
 }
 
 int GaitPatternGeneratorThread::GetExpandedNodeCount() const {
-  int total_node_count = graph_tree_.GetGraphSize();
+  int total_node_count{0};
   for (const auto& graph_tree : graph_tree_array_) {
     total_node_count += graph_tree.GetGraphSize();
   }
-  return total_node_count;
+
+  // 深さ1のノードは重複してカウントされているため,差し引く.
+  return total_node_count - (kThreadNum - 1);
+}
+
+std::vector<int> GaitPatternGeneratorThread::GetExpandedNodeCountPerDepth()
+    const {
+  std::vector<int> total_node_count_per_depth(max_depth_ + 1, 0);
+  // 深さごとのノード数を集計する.
+  for (int depth = 0; depth < max_depth_ + 1; depth++) {
+    total_node_count_per_depth[depth] += graph_tree_.GetNodeCountAtDepth(depth);
+
+    if (depth <= 1) {
+      continue;
+    }
+
+    for (const auto& graph_tree : graph_tree_array_) {
+      total_node_count_per_depth[depth] +=
+          graph_tree.GetNodeCountAtDepth(depth);
+    }
+  }
+  return total_node_count_per_depth;
 }
 
 std::vector<GaitPatternGraphTree>

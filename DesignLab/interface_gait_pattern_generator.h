@@ -45,6 +45,8 @@ class IGaitPatternGenerator {
       const RobotOperation& operation) = 0;
 
   virtual int GetExpandedNodeCount() const = 0;
+
+  virtual std::vector<int> GetExpandedNodeCountPerDepth() const = 0;
 };
 
 }  // namespace designlab

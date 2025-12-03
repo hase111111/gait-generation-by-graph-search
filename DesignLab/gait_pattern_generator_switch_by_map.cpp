@@ -47,7 +47,18 @@ GaitPatternGeneratorSwitchByMap::GetNextNodeByGraphSearch(
   }
 }
 
-int GaitPatternGeneratorSwitchByMap::GetExpandedNodeCount() const { return 0; }
+int GaitPatternGeneratorSwitchByMap::GetExpandedNodeCount() const {
+  // もしこの関数を使用したい場合は，以下の assert 文を削除すること.
+  assert("この関数はまだ未実装のため，非推奨です．" && false);
+  return 0;
+}
+
+std::vector<int> GaitPatternGeneratorSwitchByMap::GetExpandedNodeCountPerDepth()
+    const {
+  // もしこの関数を使用したい場合は，以下の assert 文を削除すること.
+  assert("この関数はまだ未実装のため，非推奨です．" && false);
+  return {};
+}
 
 bool GaitPatternGeneratorSwitchByMap::DoPitchRotation(
     const RobotStateNode&, const MapState&, const RobotOperation&) const {

@@ -41,6 +41,8 @@ class GaitPatternGeneratorRevaluation final : public IGaitPatternGenerator {
 
   int GetExpandedNodeCount() const override;
 
+  std::vector<int> GetExpandedNodeCountPerDepth() const override;
+
  private:
   bool IsValidNode(const RobotStateNode& current_node,
                    const RobotStateNode& next_node) const;

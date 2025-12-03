@@ -244,7 +244,7 @@ void ResultFileExporter::ExportEachSimulationDetail(
 
         // 展開ノード数
         const int node_count =
-            recorder.graph_search_result_recorder[j].node_expanded_count;
+            recorder.graph_search_result_recorder[j].total_node_expanded_count;
 
         if (node_count > max_node_count) {
           max_node_count = node_count;

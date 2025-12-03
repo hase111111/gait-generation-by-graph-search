@@ -87,7 +87,7 @@ void SystemMainContinuousSimulation::Main() {
     SimulationResultRecord record;
 
     record.graph_search_result_recorder.push_back(
-        GraphSearchResultRecord{current_node, 0.0, 0, true});
+        GraphSearchResultRecord{current_node, 0.0, 0, {}, true});
 
     cmdio::SystemOutputF("[*] Start simulation {} / {} | {}", i + 1,
                          map_file_paths.size(), map_file_paths[i]);
@@ -115,6 +115,7 @@ void SystemMainContinuousSimulation::Main() {
           result_node.value_or(RobotStateNode{}),
           timer_.GetElapsedMilliSecond(),
           gait_pattern_generator_ptr_->GetExpandedNodeCount(),
+          gait_pattern_generator_ptr_->GetExpandedNodeCountPerDepth(),
           result_node.has_value()});
 
       // グラフ探索に失敗.

@@ -51,7 +51,11 @@ std::string GraphSearchResultRecord::ToCsvString() const {
   stream << string_util::EnumToStringRemoveTopK(result_node.next_move) << ",";
   stream << math_util::FloatingPointNumToString(computation_time) << ",";
   stream << graph_search_result.error_or("Success") << ",";
-  stream << node_expanded_count;
+  stream << total_node_expanded_count;
+
+  for (const auto& count : node_expanded_count_per_depth) {
+    stream << "," << count;
+  }
 
   return stream.str();
 }

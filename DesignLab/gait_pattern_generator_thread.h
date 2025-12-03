@@ -45,6 +45,8 @@ class GaitPatternGeneratorThread final : public IGaitPatternGenerator {
 
   int GetExpandedNodeCount() const override;
 
+  std::vector<int> GetExpandedNodeCountPerDepth() const override;
+
  private:
   static constexpr int kThreadNum = 6;  //!< スレッド数.
 

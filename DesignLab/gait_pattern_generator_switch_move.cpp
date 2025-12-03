@@ -61,4 +61,19 @@ int GaitPatternGeneratorSwitchMove::GetExpandedNodeCount() const {
   }
 }
 
+std::vector<int> GaitPatternGeneratorSwitchMove::GetExpandedNodeCountPerDepth()
+    const {
+  // 直前の動作に応じて,深さごとに展開したノード数を返す.
+  using enum RobotOperationType;
+  if (last_operation_.operation_type == kStraightMoveVector ||
+      last_operation_.operation_type == kStraightMovePosition) {
+    return gpg_for_straight_ptr_->GetExpandedNodeCountPerDepth();
+  } else if (last_operation_.operation_type == kSpotTurnRotAxis ||
+             last_operation_.operation_type == kSpotTurnLastPosture) {
+    return gpg_for_turn_spot_ptr_->GetExpandedNodeCountPerDepth();
+  } else {
+    return {};
+  }
+}
+
 }  // namespace designlab

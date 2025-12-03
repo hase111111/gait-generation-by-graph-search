@@ -34,6 +34,11 @@ class GaitPatternGraphTree final {
   //! @return グラフのノードの総数.
   [[nodiscard]] constexpr int GetGraphSize() const { return graph_size_; }
 
+  //! @brief 指定した深さのノードの総数を返す.
+  //! @param[in] depth ノードの深さ.
+  //! @return 指定した深さのノードの総数.
+  [[nodiscard]] int GetNodeCountAtDepth(const int depth) const;
+
   //! @brief グラフが空かどうかを返す.
   //! @retval true グラフが空.
   //! @retval false グラフが空でない.
@@ -72,7 +77,7 @@ class GaitPatternGraphTree final {
   }
 
   //! @brief
-  //! 指定したノードの親ノードの参照を返す.depthは親ノードの深さを指定する.
+  //! 指定したノードの親ノードの参照を返す. depth は親ノードの深さを指定する.
   //! @param[in] index 参照したいノードのインデックス.
   //! 最大ノード数を超える数を指定するとアサーションに引っかかる.
   //! @param[in] depth 親ノードの深さ.

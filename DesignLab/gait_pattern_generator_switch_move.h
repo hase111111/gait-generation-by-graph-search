@@ -37,6 +37,8 @@ class GaitPatternGeneratorSwitchMove final : public IGaitPatternGenerator {
 
   int GetExpandedNodeCount() const override;
 
+  std::vector<int> GetExpandedNodeCountPerDepth() const override;
+
  private:
   const std::unique_ptr<IGaitPatternGenerator> gpg_for_straight_ptr_;
   const std::unique_ptr<IGaitPatternGenerator> gpg_for_turn_spot_ptr_;

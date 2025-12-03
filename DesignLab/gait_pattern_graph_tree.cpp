@@ -9,6 +9,16 @@
 
 namespace designlab {
 
+int GaitPatternGraphTree::GetNodeCountAtDepth(const int depth) const {
+  int count = 0;
+  for (int i = 0; i < graph_size_; ++i) {
+    if (nodes_[i].depth == depth) {
+      ++count;
+    }
+  }
+  return count;
+}
+
 const RobotStateNode& GaitPatternGraphTree::GetParentNode(
     const int index, const int depth) const {
   assert(0 <= index);
