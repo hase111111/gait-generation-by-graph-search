@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_GPG_SELECTOR_H_
-#define DESIGNLAB_GPG_SELECTOR_H_
+#pragma once
 
 #include <memory>
 
@@ -54,5 +53,3 @@ class GpgSelector final {
 };
 
 }  // namespace designlab
-
-#endif  // DESIGNLAB_GPG_SELECTOR_H_

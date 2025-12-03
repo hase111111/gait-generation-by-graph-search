@@ -53,8 +53,23 @@ std::string GraphSearchResultRecord::ToCsvString() const {
   stream << graph_search_result.error_or("Success") << ",";
   stream << total_node_expanded_count;
 
+  // 深さごとの展開ノード数を追加する.
   for (const auto& count : node_expanded_count_per_depth) {
     stream << "," << count;
+  }
+
+  // 深さ間の比を追加する.
+  for (int i = 1; i < node_expanded_count_per_depth.size(); i++) {
+    const int past_count =
+        node_expanded_count_per_depth[static_cast<size_t>(i) - 1];
+    const int current_count = node_expanded_count_per_depth[i];
+    if (past_count == 0) {
+      stream << ",-1";
+    } else {
+      const double ratio =
+          static_cast<double>(current_count) / static_cast<double>(past_count);
+      stream << "," << math_util::FloatingPointNumToString(ratio);
+    }
   }
 
   return stream.str();
