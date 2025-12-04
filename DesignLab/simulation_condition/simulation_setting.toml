@@ -1,6 +1,7 @@
 #シミュレーションを行う際の設定はこのファイルで設定します.
 
 
+#終了条件についての設定です.
 [EndChecker]
     
     #どのような方法で終了させるかを設定します.( "kGoalTape" / "kPosture" / "kPosition" )
@@ -21,7 +22,7 @@
     #終了条件が目標姿勢となったか ( Posture ) の場合,目標の姿勢の角度の許容誤差を設定します.[deg]
     target_posture_allowable_error_deg = 1.0
     
-#歩容パターンの設定です.Map
+#歩容パターンの設定です.
 [GaitPattern]
     
     #探索の深さ. 5程度にすること
@@ -31,7 +32,7 @@
     gpg_memory_limit = 40000000
     
     #歩容パターン生成の方法を設定する. ( "kFlatLegacyAlgorithm" / "kFlat" / "kPitchRot" / "kStraightMove" / "kSwichByMap" / "kWall" / "kPruningBranch" / "kPruningBranchLegacy" )
-    gpg_type = "kFlat"
+    gpg_type = "kPruningBranchLegacy" 
 
 [Initial]
     
@@ -39,11 +40,12 @@
     initial_move = "kComMove"
     
     #シミュレーション開始時のロボットの位置を設定します.[mm].地面にめり込んでいる場合には機能しないため,注意すること.
-    initial_positions = "     0.000,     0.000,    30.000"
+    initial_positions = "     0.000,     0.000,    60.000"
     
     #シミュレーション開始時のロボットの姿勢を設定します.[deg].地面にめり込んでいる場合には機能しないため,注意すること.
     initial_posture = "     0.000,     0.000,     0.000"
-
+    
+#マップについての設定です.
 [Map]
     
     #マップの作成方法を設定します.( "kForSimulation" / "kFromFile" )
@@ -54,7 +56,8 @@
     
     #マップの作成方法がシミュレーション専用マップを出力するモード ( ForSimulation ) の場合,マップのパラメータを記述した toml ファイルの名前を設定します.
     simulation_map_param_file_name = "simulation_map.toml"
-
+    
+#ロボットの操作方法の設定です.
 [RobotOperator]
     
     #ロボットの操作方法が固定 ( Fixed ) の場合,その操作方法を指定するファイルを設定します.
@@ -68,13 +71,4 @@
     "     0.000,     0.000,     0.000",
     "  1000.000,     0.000,     0.000",
     ]
-    
-#EndChecker
-["マップについての設定です."]
-    
-#
-["ロボットの操作方法の設定です."]
-    
-#RobotOperator
-["終了条件についての設定です."]
     

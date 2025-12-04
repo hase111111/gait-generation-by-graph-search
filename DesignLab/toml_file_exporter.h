@@ -50,8 +50,8 @@ class TomlFileExporter final {
 
     // ファイルが開けなかったら何もしない.
     if (!ofs) {
-      cmdio::Output("Failed to output TOML file. file_path : " + file_path,
-                    OutputDetail::kSystem);
+      cmdio::Print("Failed to output TOML file. file_path : " + file_path,
+                   OutputDetail::kSystem);
       return;
     }
 
@@ -59,8 +59,8 @@ class TomlFileExporter final {
 
     ofs.close();  // ファイルを閉じる.
 
-    cmdio::Output("TOML files are output. file_path : " + file_path,
-                  OutputDetail::kSystem);
+    cmdio::Print("TOML files are output. file_path : " + file_path,
+                 OutputDetail::kSystem);
   }
 
  private:

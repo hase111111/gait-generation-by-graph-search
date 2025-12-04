@@ -16,7 +16,7 @@ namespace designlab {
 //! このクラスはテンプレートクラスであり,
 //! テンプレート引数Tには float か double を指定する.
 //! それ以外の型を指定した場合,コンパイルエラーを出す.
-//! @n なお,円周率のような定数は,std::numbers::pi がC++20から提供される.
+//! @n なお,円周率のような定数は, std::numbers::pi がC++20から提供される.
 template <typename T>
 struct MathConst {
   // Tが float でも double でもない場合,エラーを出す.

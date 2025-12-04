@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_DIVIDED_MAP_STATE_H_
-#define DESIGNLAB_DIVIDED_MAP_STATE_H_
+#pragma once
 
 #include <string>
 #include <vector>
@@ -222,5 +221,3 @@ class DividedMapState final {
 };
 
 }  // namespace designlab
-
-#endif  // DESIGNLAB_DIVIDED_MAP_STATE_H_

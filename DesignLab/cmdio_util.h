@@ -43,36 +43,36 @@ void DoOutput(bool do_output);
 //! @n SetOutputLimit 関数で設定した出力の許可範囲内であれば出力される.
 //! @param[in] str 出力する文字列.
 //! @param[in] detail 出力する文字列の詳細.
-void Output(const std::string& str, OutputDetail detail);
+void Print(const std::string& str, OutputDetail detail);
 
 //! @brief コマンドラインに文字を出力する関数. Debug 用の出力.
 //! @param[in] str 出力する文字列.
 inline void DebugOutput(const std::string& str) {
-  Output(str, OutputDetail::kDebug);
+  Print(str, OutputDetail::kDebug);
 }
 
 //! @brief コマンドラインに文字を出力する関数. Info 用の出力.
 //! @param[in] str 出力する文字列.
 inline void InfoOutput(const std::string& str) {
-  Output(str, OutputDetail::kInfo);
+  Print(str, OutputDetail::kInfo);
 }
 
 //! @brief コマンドラインに文字を出力する関数. Warning 用の出力.
 //! @param[in] str 出力する文字列.
 inline void WarningOutput(const std::string& str) {
-  Output(str, OutputDetail::kWarning);
+  Print(str, OutputDetail::kWarning);
 }
 
 //! @brief コマンドラインに文字を出力する関数. Error 用の出力.
 //! @param[in] str 出力する文字列.
 inline void ErrorOutput(const std::string& str) {
-  Output(str, OutputDetail::kError);
+  Print(str, OutputDetail::kError);
 }
 
 //! @brief コマンドラインに文字を出力する関数. System 用の出力.
 //! @param[in] str 出力する文字列.
 inline void SystemOutput(const std::string& str) {
-  Output(str, OutputDetail::kSystem);
+  Print(str, OutputDetail::kSystem);
 }
 
 //! @brief コマンドラインに文字を出力する関数.
@@ -91,7 +91,7 @@ void OutputF(OutputDetail detail, const std::format_string<Args...> str,
              Args&&... args) {
   const std::string formatted_str =
       std::format(str, std::forward<Args>(args)...);
-  Output(formatted_str, detail);
+  Print(formatted_str, detail);
 }
 
 //! @brief コマンドラインに文字を出力する関数. Debug 用の出力.

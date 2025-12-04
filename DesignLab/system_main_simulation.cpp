@@ -220,11 +220,11 @@ void SystemMainSimulation::Main() {
 void SystemMainSimulation::OutputSetting() const {
   using enum OutputDetail;
 
-  cmdio::Output("[Setting]", kSystem);
+  cmdio::Print("[Setting]", kSystem);
   cmdio::OutputNewLine(1, kSystem);
 
   if (setting_ptr_->do_cmd_output) {
-    cmdio::Output("・Output to command line.", kSystem);
+    cmdio::Print("・Output to command line.", kSystem);
 
     const std::string output_str =
         magic_enum::enum_name(setting_ptr_->cmd_output_detail).data();
@@ -244,25 +244,25 @@ void SystemMainSimulation::OutputSetting() const {
   cmdio::OutputNewLine(1, kSystem);
 
   if (setting_ptr_->do_step_execution_each_simulation) {
-    cmdio::Output("・Step through the simulation.", kSystem);
+    cmdio::Print("・Step through the simulation.", kSystem);
   } else {
-    cmdio::Output("・Does not step through the simulation.", kSystem);
+    cmdio::Print("・Does not step through the simulation.", kSystem);
   }
 
   cmdio::OutputNewLine(1, kSystem);
 
   if (setting_ptr_->do_step_execution_each_gait) {
-    cmdio::Output("・Step through each step.", kSystem);
+    cmdio::Print("・Step through each step.", kSystem);
   } else {
-    cmdio::Output("・Does not step through each step.", kSystem);
+    cmdio::Print("・Does not step through each step.", kSystem);
   }
 
   cmdio::OutputNewLine(1, kSystem);
 
   if (setting_ptr_->do_gui_display) {
-    cmdio::Output("・Display GUI.", kSystem);
+    cmdio::Print("・Display GUI.", kSystem);
   } else {
-    cmdio::Output("・Do not display GUI.", kSystem);
+    cmdio::Print("・Do not display GUI.", kSystem);
   }
 
   cmdio::OutputNewLine(1, kSystem);

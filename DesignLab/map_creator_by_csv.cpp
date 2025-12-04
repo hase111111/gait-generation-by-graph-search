@@ -27,7 +27,7 @@ MapCreatorByCsv::MapCreatorByCsv(const std::string& map_file_path)
         "map fileが存在しません.ファイルのパスは{}です.({}のコンストラクタ)",
         map_file_path_, string_util::GetTypeName(*this));
 
-    cmdio::Output(error_mes, OutputDetail::kError);
+    cmdio::Print(error_mes, OutputDetail::kError);
 
     assert(false);
   }

@@ -109,14 +109,14 @@ SetTomlValue(::toml::basic_value<toml::preserve_comments, std::map>* v,
   (*v)[str] = str_vec;
 }
 
-//! プライマリ テンプレート.特殊化されない場合はコンパイルエラーになる.
+//! プライマリ テンプレート. 特殊化されない場合はコンパイルエラーになる.
 template <typename T, typename Enable = void>
 struct GetTomlValueImpl;
 
 //! @brief tomlファイルから値を取得するための関数を
 //! 特殊化するために暗黙的に呼ばれる構造体.
 //! @tparam T toml11に対応している型.
-//! @details 型の条件によって,Get関数を特殊化する.
+//! @details 型の条件によって, Get 関数を特殊化する.
 //! @see GetTomlValue
 template <typename T>
 struct GetTomlValueImpl<

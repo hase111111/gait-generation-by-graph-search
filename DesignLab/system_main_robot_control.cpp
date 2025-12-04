@@ -36,14 +36,14 @@ void SystemMainRobotControl::Main() {
 
     if (!file_tree.SelectFile(kResultFileDirectoryPath, -1, "csv",
                               ResultFileConst::kNodeListName, &res_path)) {
-      cmdio::Output("No data were found. Terminate.", kSystem);
+      cmdio::Print("No data were found. Terminate.", kSystem);
       cmdio::OutputNewLine(1, kSystem);
 
       //! ヒントを表示する.「kResultFileDirectoryPath
       //! の中にファイルを入れてください.」
-      cmdio::Output("Please put the file in the directory. \"./" +
-                        kResultFileDirectoryPath + "\"",
-                    kSystem);
+      cmdio::Print("Please put the file in the directory. \"./" +
+                       kResultFileDirectoryPath + "\"",
+                   kSystem);
 
       break;
     }
@@ -65,13 +65,13 @@ void SystemMainRobotControl::Main() {
       broker_ptr_->simulation_end_index.SetData({graph.size() - 1});
 
       // データを表示する.
-      cmdio::Output("Displays data.", kSystem);
+      cmdio::Print("Displays data.", kSystem);
       cmdio::OutputNewLine(1, kSystem);
       cmdio::WaitAnyKey();
       cmdio::OutputNewLine(1, kSystem);
       cmdio::OutputHorizontalLine("=", kSystem);
     } else {
-      cmdio::Output("Failed to load file. Exit.", kSystem);
+      cmdio::Print("Failed to load file. Exit.", kSystem);
     }
 
     // 終了するかどうかを選択

@@ -44,7 +44,7 @@ void cmdio::SetOutputLimit(const OutputDetail limit) {
 
 void cmdio::DoOutput(const bool do_output_) { do_output = do_output_; }
 
-void cmdio::Output(const std::string& str, const OutputDetail detail) {
+void cmdio::Print(const std::string& str, const OutputDetail detail) {
   assert(is_initialized);  // SetOutputLimitを呼んでから使用すること.
 
   // 出力を許可している かつ
@@ -114,7 +114,7 @@ void cmdio::Output(const std::string& str, const OutputDetail detail) {
 
 void cmdio::SpacedOutput(const std::string& str, OutputDetail detail) {
   OutputNewLine(1, detail);
-  Output(str, detail);
+  Print(str, detail);
   OutputNewLine(1, detail);
 }
 
@@ -134,9 +134,9 @@ void cmdio::OutputCenter(const std::string& str, const OutputDetail detail) {
         space += " ";
       }
 
-      Output(space + line, detail);
+      Print(space + line, detail);
     } else {
-      Output(line, detail);
+      Print(line, detail);
     }
   }
 }
@@ -157,9 +157,9 @@ void cmdio::OutputRight(const std::string& str, const OutputDetail detail) {
         space += " ";
       }
 
-      Output(space + line, detail);
+      Print(space + line, detail);
     } else {
-      Output(line, detail);
+      Print(line, detail);
     }
   }
 }
@@ -170,7 +170,7 @@ void cmdio::OutputNewLine(const int num, const OutputDetail detail) {
   }
 
   for (int i = 0; i < num; i++) {
-    Output("", detail);
+    Print("", detail);
   }
 }
 
@@ -186,7 +186,7 @@ void cmdio::OutputHorizontalLine(const std::string& line_visual,
     str += line_visual;
   }
 
-  Output(str, detail);
+  Print(str, detail);
 }
 
 void cmdio::OutputTitle(const std::string& title_name, bool output_copy_right) {
@@ -208,7 +208,7 @@ void cmdio::OutputTitle(const std::string& title_name, bool output_copy_right) {
 }
 
 void cmdio::WaitAnyKey(const std::string& str) {
-  Output(str, OutputDetail::kSystem);
+  Print(str, OutputDetail::kSystem);
 
   // 何かキーを押すまで待機.
   system("PAUSE");
@@ -251,7 +251,7 @@ int cmdio::InputInt(const int min, const int max, const int default_num,
 }
 
 bool cmdio::InputYesNo(const std::string& str) {
-  Output(str + " ( y / n ) ", OutputDetail::kSystem);
+  Print(str + " ( y / n ) ", OutputDetail::kSystem);
 
   while (true) {
     std::string input_str;
@@ -273,7 +273,7 @@ bool cmdio::InputYesNo(const std::string& str) {
 }
 
 std::string cmdio::InputDirName(const std::string& str) {
-  Output(str, OutputDetail::kSystem);
+  Print(str, OutputDetail::kSystem);
 
   const std::vector<std::string> invalid_chars = {"\\", "/", ":", "*", "?",
                                                   "\"", "<", ">", "|"};

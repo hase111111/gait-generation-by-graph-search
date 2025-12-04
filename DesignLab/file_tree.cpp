@@ -43,7 +43,7 @@ bool FileTree::SelectFile(const std::string& path, int max_depth,
   std::vector<std::string> file_list = MakeFileList(tree);
 
   if (file_list.empty()) {
-    cmdio::Output("The file did not exist.", OutputDetail::kSystem);
+    cmdio::Print("The file did not exist.", OutputDetail::kSystem);
     return false;
   }
 
@@ -53,7 +53,7 @@ bool FileTree::SelectFile(const std::string& path, int max_depth,
                         "Please select a file. Enter an integer.");
 
     cmdio::OutputNewLine(1, OutputDetail::kSystem);
-    cmdio::Output(
+    cmdio::Print(
         "The selected file is " + file_list[static_cast<size_t>(select_index)],
         OutputDetail::kSystem);
 
@@ -124,14 +124,14 @@ void FileTree::OutputFileTree(const FileTreeData& tree, int depth,
   if (!(not_display_empty && tree.file.empty() && tree.directory.empty())) {
     // ディレクトリ名を出力する際に,パスの階層を削除する
 
-    cmdio::Output(indent, OutputDetail::kSystem);
+    cmdio::Print(indent, OutputDetail::kSystem);
 
     std::string::size_type pos = tree.path.find_last_of("/\\");
     std::string dir_name = ((depth == 0) ? "" : "- ");
     dir_name +=
         std::string("[ ") + tree.path.substr(pos + 1) + std::string(" ]");
 
-    cmdio::Output(indent + dir_name, OutputDetail::kSystem);
+    cmdio::Print(indent + dir_name, OutputDetail::kSystem);
   }
 
   for (const auto& directory : tree.directory) {
@@ -139,10 +139,10 @@ void FileTree::OutputFileTree(const FileTreeData& tree, int depth,
   }
 
   if (!tree.file.empty()) {
-    cmdio::Output(indent + "|", OutputDetail::kSystem);
+    cmdio::Print(indent + "|", OutputDetail::kSystem);
 
     for (const auto& file : tree.file) {
-      cmdio::Output(
+      cmdio::Print(
           indent + "|- " + file + " [-" + std::to_string(*file_count) + "-]",
           OutputDetail::kSystem);
 

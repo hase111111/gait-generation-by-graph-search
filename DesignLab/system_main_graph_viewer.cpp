@@ -109,12 +109,12 @@ void SystemMainGraphViewer::Main() {
       });
 
       cmdio::OutputNewLine(1, OutputDetail::kSystem);
-      cmdio::Output("操作を選択してください", OutputDetail::kSystem);
-      cmdio::Output("　0 : ノード選択し,そのノードを親にしてグラフを生成する",
-                    OutputDetail::kSystem);
-      cmdio::Output("　1 : ノード選択して表示する", OutputDetail::kSystem);
-      cmdio::Output("　2 : グラフを全削除する", OutputDetail::kSystem);
-      cmdio::Output("　3 : 終了する", OutputDetail::kSystem);
+      cmdio::Print("操作を選択してください", OutputDetail::kSystem);
+      cmdio::Print("　0 : ノード選択し,そのノードを親にしてグラフを生成する",
+                   OutputDetail::kSystem);
+      cmdio::Print("　1 : ノード選択して表示する", OutputDetail::kSystem);
+      cmdio::Print("　2 : グラフを全削除する", OutputDetail::kSystem);
+      cmdio::Print("　3 : 終了する", OutputDetail::kSystem);
 
       int selected_index = cmdio::InputInt(
           0, static_cast<int>(func_list.size()),
@@ -188,7 +188,7 @@ void SystemMainGraphViewer::OutputGraphStatus(
   cmdio::OutputNewLine(1, detail);
   cmdio::OutputHorizontalLine("=", detail);
   cmdio::OutputNewLine(1, detail);
-  cmdio::Output("Displays the status of the graph.", detail);
+  cmdio::Print("Displays the status of the graph.", detail);
   cmdio::OutputNewLine(1, detail);
   cmdio::OutputF(detail, "Number of nodes in the graph : {}", graph.size());
 
@@ -214,8 +214,8 @@ void SystemMainGraphViewer::OutputGraphStatus(
       depth_cnt++;
     }
   } else {
-    cmdio::Output("グラフが空なので,深さごとのノード数を表示できません.",
-                  detail);
+    cmdio::Print("グラフが空なので,深さごとのノード数を表示できません.",
+                 detail);
   }
 
   cmdio::OutputNewLine(1, detail);
@@ -228,10 +228,10 @@ RobotStateNode SystemMainGraphViewer::SelectNodeByInput(
   using enum OutputDetail;
 
   cmdio::OutputNewLine(1, kSystem);
-  cmdio::Output("ノードを選択する", kSystem);
+  cmdio::Print("ノードを選択する", kSystem);
 
   if (graph.size() == 0) {
-    cmdio::Output("グラフが空なので,初期状態のノードを返す", kSystem);
+    cmdio::Print("グラフが空なので,初期状態のノードを返す", kSystem);
 
     NodeInitializer node_initializer{Vector3{0.f, 0.f, 30.f}, EulerXYZ(),
                                      HexapodMove::kNone};
@@ -239,14 +239,14 @@ RobotStateNode SystemMainGraphViewer::SelectNodeByInput(
 
     return first_node;
   } else {
-    cmdio::Output("グラフの中から1つのノードを選択してください.", kSystem);
+    cmdio::Print("グラフの中から1つのノードを選択してください.", kSystem);
 
     // ノードを選択する.
     int selected_node_index =
         cmdio::InputInt(0, static_cast<int>(graph.size()) - 1, 0,
                         "整数でノードを選択してください.");
 
-    cmdio::Output(
+    cmdio::Print(
         std::format("選択されたノード,{}番を親にします.", selected_node_index),
         kSystem);
 

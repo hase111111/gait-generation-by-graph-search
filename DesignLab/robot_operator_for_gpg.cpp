@@ -85,7 +85,7 @@ RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node) {
     }
   }
 
-  cmdio::Output(std::format("most_near_index : {}", most_near_index), kDebug);
+  cmdio::Print(std::format("most_near_index : {}", most_near_index), kDebug);
 
   // 次の地点への角度を計算する.
   const float euler_z_angle = NormalizeAngle(ToEulerXYZ(node.posture).z_angle);
@@ -95,10 +95,10 @@ RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node) {
       NormalizeAngle(atan2(diff_vector.y, diff_vector.x));
   const float rot_dif = target_angle - euler_z_angle;
 
-  cmdio::Output(std::format("target_angle : {} / now_angle : {}",
-                            math_util::ConvertRadToDeg(target_angle),
-                            math_util::ConvertRadToDeg(euler_z_angle)),
-                kDebug);
+  cmdio::Print(std::format("target_angle : {} / now_angle : {}",
+                           math_util::ConvertRadToDeg(target_angle),
+                           math_util::ConvertRadToDeg(euler_z_angle)),
+               kDebug);
 
   if (abs(rot_dif) > kAllowableAngleError) {
     RobotOperation operation;
@@ -106,10 +106,10 @@ RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node) {
     operation.spot_turn_last_posture =
         Quaternion::MakeByAngleAxis(target_angle, Vector3::GetUpVec());
 
-    cmdio::Output(std::format("target_angle : {} / now_angle : {}",
-                              math_util::ConvertRadToDeg(target_angle),
-                              math_util::ConvertRadToDeg(euler_z_angle)),
-                  kDebug);
+    cmdio::Print(std::format("target_angle : {} / now_angle : {}",
+                             math_util::ConvertRadToDeg(target_angle),
+                             math_util::ConvertRadToDeg(euler_z_angle)),
+                 kDebug);
 
     return operation;
   }
@@ -127,8 +127,8 @@ RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node) {
                      static_cast<float>(i + 1);
   }
 
-  cmdio::Output(std::format("target_vector : {}", target_vector.ToString()),
-                kDebug);
+  cmdio::Print(std::format("target_vector : {}", target_vector.ToString()),
+               kDebug);
 
   RobotOperation operation;
   operation.operation_type = kStraightMoveVector;

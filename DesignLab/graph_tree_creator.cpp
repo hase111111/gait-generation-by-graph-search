@@ -31,7 +31,7 @@ void GraphTreeCreator::Init(const DividedMapState& map_state) {
 
 nostd::expected<bool, std::string> GraphTreeCreator::CreateGraphTree(
     int start_depth, int max_depth, GaitPatternGraphTree* graph) const {
-  assert(0 <= start_depth);         // start_depthは0以上である.
+  assert(0 <= start_depth);         // start_depth は0以上である.
   assert(start_depth < max_depth);  // start_depth は max_depth より小さい.
   assert(graph != nullptr);         // nullptrでない.
   assert(!graph->IsEmpty());        // 空でない.

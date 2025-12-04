@@ -24,7 +24,7 @@ BootMode BootModeSelector::SelectBootMode() {
   // kSystem にすると、設定にかかわらず必ず表示される.
   const OutputDetail output_detail = OutputDetail::kSystem;
 
-  cmdio::Output("Select the mode to run.", output_detail);
+  cmdio::Print("Select the mode to run.", output_detail);
 
   // 起動モードの名前を表示する.
   for (int i = 0; i < kBootModeNum; i++) {
@@ -55,7 +55,7 @@ BootMode BootModeSelector::SelectBootMode() {
   } else {
     // 入力が不正な場合はデフォルトのモードを返す.
 
-    cmdio::Output("Input value is invalid. Run default mode.", output_detail);
+    cmdio::Print("Input value is invalid. Run default mode.", output_detail);
 
     return default_mode_;
   }

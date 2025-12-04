@@ -71,7 +71,7 @@ void ResultFileExporter::Export(const std::optional<std::string>& file_name,
 
   // 結果出力先フォルダがなければ終了する.
   if (!sf::exists(ResultFileConst::kDirectoryPath)) {
-    cmdio::Output("出力先フォルダがないので終了します.", kError);
+    cmdio::Print("出力先フォルダがないので終了します.", kError);
     return;
   }
 
@@ -106,7 +106,7 @@ void ResultFileExporter::Export(const std::optional<std::string>& file_name,
     ExportAllLegAngle(output_folder_path);
   }
 
-  cmdio::Output("結果の出力が完了しました.", kInfo);
+  cmdio::Print("結果の出力が完了しました.", kInfo);
 }
 
 std::string ResultFileExporter::MakeOutputDirectory(
@@ -125,8 +125,8 @@ std::string ResultFileExporter::MakeOutputDirectory(
   // 指定されたフォルダを作成する.
   if (!sf::exists(folder_name)) {
     sf::create_directory(folder_name);
-    cmdio::Output(std::format("フォルダ {} を作成しました.", folder_name),
-                  kInfo);
+    cmdio::Print(std::format("フォルダ {} を作成しました.", folder_name),
+                 kInfo);
   }
 
   return folder_name;
@@ -135,7 +135,7 @@ std::string ResultFileExporter::MakeOutputDirectory(
 void ResultFileExporter::ExportEachNodeList(const std::string& path) const {
   using enum OutputDetail;
 
-  cmdio::Output("NodeListを出力します.", kInfo);
+  cmdio::Print("NodeListを出力します.", kInfo);
 
   for (size_t i = 0; i < result_list_.size(); ++i) {
     // 出力先ファイルを作成する.
@@ -146,7 +146,7 @@ void ResultFileExporter::ExportEachNodeList(const std::string& path) const {
 
     // ファイルが作成できなかった場合は,なにも出力しない.
     if (!ofs) {
-      cmdio::Output(
+      cmdio::Print(
           std::format("ファイル {} を作成できませんでした.", output_file_name),
           kError);
       return;
@@ -158,16 +158,16 @@ void ResultFileExporter::ExportEachNodeList(const std::string& path) const {
 
     ofs.close();  // ファイルを閉じる.
 
-    cmdio::Output("出力ファイル : " + output_file_name, kInfo);
+    cmdio::Print("出力ファイル : " + output_file_name, kInfo);
   }
 
-  cmdio::Output("NodeListの出力が完了しました.", kInfo);
+  cmdio::Print("NodeListの出力が完了しました.", kInfo);
 }
 
 void ResultFileExporter::ExportEachMapState(const std::string& path) const {
   using enum designlab::OutputDetail;
 
-  cmdio::Output("MapStateを出力します.", kInfo);
+  cmdio::Print("MapStateを出力します.", kInfo);
 
   for (size_t i = 0; i < result_list_.size(); ++i) {
     // 出力先ファイルを作成する.
@@ -178,20 +178,20 @@ void ResultFileExporter::ExportEachMapState(const std::string& path) const {
 
     if (map_file_exporter.ExportMap(output_file_name,
                                     result_list_[i].map_state)) {
-      cmdio::Output("出力ファイル : " + output_file_name, kInfo);
+      cmdio::Print("出力ファイル : " + output_file_name, kInfo);
     } else {
-      cmdio::Output("出力ファイル : " + output_file_name, kInfo);
+      cmdio::Print("出力ファイル : " + output_file_name, kInfo);
     }
   }
 
-  cmdio::Output("MapStateの出力が完了しました.", kInfo);
+  cmdio::Print("MapStateの出力が完了しました.", kInfo);
 }
 
 void ResultFileExporter::ExportEachSimulationDetail(
     const std::string& path) const {
   using enum designlab::OutputDetail;
 
-  cmdio::Output("シミュレーション詳細を出力します.", kInfo);
+  cmdio::Print("シミュレーション詳細を出力します.", kInfo);
 
   for (size_t i = 0; i < result_list_.size(); ++i) {
     // 出力先ファイルを作成する.
@@ -202,7 +202,7 @@ void ResultFileExporter::ExportEachSimulationDetail(
 
     // ファイルが作成できなかった場合は,なにも出力しない.
     if (!ofs) {
-      cmdio::Output(
+      cmdio::Print(
           std::format("ファイル {} を作成できませんでした.", output_file_name),
           kError);
       return;
@@ -383,17 +383,17 @@ void ResultFileExporter::ExportEachSimulationDetail(
 
     ofs.close();
 
-    cmdio::Output("出力ファイル : " + output_file_name, kInfo);
+    cmdio::Print("出力ファイル : " + output_file_name, kInfo);
   }
 
-  cmdio::Output("シミュレーション詳細の出力が完了しました.", kInfo);
+  cmdio::Print("シミュレーション詳細の出力が完了しました.", kInfo);
 }
 
 void ResultFileExporter::ExportSuccessfulCount(const std::string& path) const {
   using enum designlab::OutputDetail;
   using enum designlab::enums::SimulationResult;
 
-  cmdio::Output(
+  cmdio::Print(
       std::format(
           "シミュレーション全体の結果を出力します.シミュレーション数 : {}",
           result_list_.size()),
@@ -407,7 +407,7 @@ void ResultFileExporter::ExportSuccessfulCount(const std::string& path) const {
 
   // ファイルが作成できなかった場合は,なにも出力しない.
   if (!ofs) {
-    cmdio::Output(std::format("ファイルを作成できませんでした."), kError);
+    cmdio::Print(std::format("ファイルを作成できませんでした."), kError);
     return;
   }
 
@@ -458,9 +458,9 @@ void ResultFileExporter::ExportEachLegPos(const std::string& path) const {
 
       // ファイルが作成できなかった場合は,なにも出力しない.
       if (!ofs) {
-        cmdio::Output(std::format("ファイル {} を作成できませんでした.",
-                                  output_file_name),
-                      OutputDetail::kError);
+        cmdio::Print(std::format("ファイル {} を作成できませんでした.",
+                                 output_file_name),
+                     OutputDetail::kError);
         return;
       }
 
@@ -539,7 +539,7 @@ void ResultFileExporter::ExportAllLegPos(const std::string& path) const {
 
     // ファイルが作成できなかった場合は,なにも出力しない.
     if (!ofs) {
-      cmdio::Output(
+      cmdio::Print(
           std::format("ファイル {} を作成できませんでした.", output_file_name),
           OutputDetail::kError);
       return;
@@ -624,7 +624,7 @@ void ResultFileExporter::ExportEachLegPosAllSuccessfulSimulation(
 
     // ファイルが作成できなかった場合は,なにも出力しない.
     if (!ofs) {
-      cmdio::Output(
+      cmdio::Print(
           std::format("ファイル {} を作成できませんでした.", output_file_name),
           OutputDetail::kError);
       return;

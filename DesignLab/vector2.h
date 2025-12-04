@@ -125,9 +125,9 @@ struct Vector2 final {
   //! @return このベクトルを文字列にしたもの.
   [[nodiscard]] std::string ToString() const;
 
-  //! @brief このベクトルをCSV形式の文字列にして返す.
-  //! @n x, y, z の形式,小数点以下3桁まで.
-  //! @return このベクトルをCSV形式の文字列にしたもの.
+  //! @brief このベクトルをカンマ区切りの文字列にして返す.
+  //! @n x, y の形式,小数点以下3桁まで.
+  //! @return このベクトルをカンマ区切りの文字列にしたもの.
   [[nodiscard]] std::string ToCsvString() const;
 
   float x;
