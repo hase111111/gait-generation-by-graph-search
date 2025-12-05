@@ -47,7 +47,7 @@ class GraphTreeCreator final {
       int start_depth, int max_depth, GaitPatternGraphTree* graph_ptr) const;
 
  private:
-  //! @brief current_nodeの子ノードを生成して,output_graphに代入する.
+  //! @brief current_nodeの子ノードを生成して, output_graph に代入する.
   //! @param[in] current_node 現在のノード.
   //! @param[in] current_num 現在のノードのインデックス.
   //! @param[out] output_graph_ptr

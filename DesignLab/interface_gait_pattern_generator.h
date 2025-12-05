@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_INTERFACE_GAIT_PATTERN_GENERATOR_H_
-#define DESIGNLAB_INTERFACE_GAIT_PATTERN_GENERATOR_H_
+#pragma once
 
 #include <vector>
 
@@ -50,5 +49,3 @@ class IGaitPatternGenerator {
 };
 
 }  // namespace designlab
-
-#endif  // DESIGNLAB_INTERFACE_GAIT_PATTERN_GENERATOR_H_
