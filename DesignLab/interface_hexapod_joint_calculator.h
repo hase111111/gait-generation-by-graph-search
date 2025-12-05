@@ -5,15 +5,14 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_INTERFACE_HEXAPOD_JOINT_CALCULATOR_H_
-#define DESIGNLAB_INTERFACE_HEXAPOD_JOINT_CALCULATOR_H_
+#pragma once
 
 #include <array>
 #include <vector>
 
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @struct HexapodJointState
 //! @brief ロボットの関節の状態を表す構造体.
@@ -101,6 +100,4 @@ class IHexapodJointCalculator {
       const HexapodJointState& joint_state) const noexcept = 0;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_INTERFACE_HEXAPOD_JOINT_CALCULATOR_H_
+}  // namespace gaitgen

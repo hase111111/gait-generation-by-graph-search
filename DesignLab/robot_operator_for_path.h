@@ -5,15 +5,14 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_ROBOT_OPERATOR_FOR_PATH_H_
-#define DESIGNLAB_ROBOT_OPERATOR_FOR_PATH_H_
+#pragma once
 
 #include <vector>
 
 #include "interface_robot_operator.h"
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class RobotOperatorForPath
 //! @brief 指定した中継地点を通るようにロボットを動かすクラス.
@@ -33,6 +32,4 @@ class RobotOperatorForPath final : public IRobotOperator {
   int most_near_index_{0};
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_ROBOT_OPERATOR_FOR_PATH_H_
+}  // namespace gaitgen

@@ -10,7 +10,7 @@
 #include "cassert_define.h"
 #include "dxlib_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 CameraDragger::CameraDragger(const std::shared_ptr<DxlibCamera> camera)
     : camera_ptr_(camera) {
@@ -133,4 +133,4 @@ void CameraDragger::RotMouseWheel(const int rot) const {
   camera_ptr_->AddCameraToTargetLength(kCameraZoomSpeed * rot * -1);
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

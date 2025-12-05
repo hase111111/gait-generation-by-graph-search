@@ -5,15 +5,14 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_ASYNCABLE_DATA_TEST_H_
-#define DESIGNLAB_ASYNCABLE_DATA_TEST_H_
+#pragma once
 
 #include <doctest.h>
 
 #include "asyncable_data.h"
 
 TEST_SUITE("AsyncableData") {
-  using designlab::AsyncableData;
+  using gaitgen::AsyncableData;
 
   TEST_CASE_TEMPLATE(
       "GetUpdateCountTest_WhenValueIsNotUpdated_ShouldBeZeroForUpdateCount", T,
@@ -74,5 +73,3 @@ TEST_SUITE("AsyncableData") {
     CHECK_EQ(data.GetData(), act2);
   }
 }
-
-#endif  // DESIGNLAB_ASYNCABLE_DATA_TEST_H_

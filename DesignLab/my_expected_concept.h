@@ -5,15 +5,14 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MY_EXPECTED_CONCEPT_H_
-#define DESIGNLAB_MY_EXPECTED_CONCEPT_H_
+#pragma once
 
 #include <concepts>
 #include <type_traits>
 
 #include "my_unexpected.h"
 
-namespace designlab::nostd::impl {
+namespace gaitgen::nostd::impl {
 
 // 前方宣言
 template <typename T>
@@ -28,6 +27,4 @@ concept IsExpected =
     !std::is_same_v<std::remove_cvref_t<T>, std::in_place_t> &&
     !std::is_same_v<std::remove_cvref_t<T>, unexpected<std::remove_cvref_t<T>>>;
 
-}  // namespace designlab::nostd::impl
-
-#endif  // DESIGNLAB_MY_EXPECTED_CONCEPT_H_
+}  // namespace gaitgen::nostd::impl

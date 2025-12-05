@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_DXLIB_GUI_TERMINAL_H_
-#define DESIGNLAB_DXLIB_GUI_TERMINAL_H_
+#pragma once
 
 #include <memory>
 #include <vector>
@@ -15,7 +14,7 @@
 #include "interface_dxlib_gui.h"
 #include "simple_button.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class DxlibGuiTerminal
 //! @brief ×ボタンを押して消えたGUIを復活させるためのクラス.
@@ -54,6 +53,4 @@ class DxlibGuiTerminal final : public IDxlibGui, public IDxlibClickable {
   bool is_closed_{true};
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_DXLIB_GUI_TERMINAL_H_
+}  // namespace gaitgen

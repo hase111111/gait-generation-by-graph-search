@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_GAIT_PATTERN_GENERATOR_BASIC_H_
-#define DESIGNLAB_GAIT_PATTERN_GENERATOR_BASIC_H_
+#pragma once
 
 #include <memory>
 #include <vector>
@@ -18,7 +17,7 @@
 #include "interpolated_node_creator.h"
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class GaitPatternGeneratorBasic
 //! @brief 普通にグラフ探索を行い,歩容パターン生成を行うクラス.
@@ -58,6 +57,4 @@ class GaitPatternGeneratorBasic final : public IGaitPatternGenerator {
   const int max_depth_;  //!< グラフ探索の最大深さ.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_GAIT_PATTERN_GENERATOR_BASIC_H_
+}  // namespace gaitgen

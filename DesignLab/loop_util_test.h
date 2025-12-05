@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_LOOP_UTIL_TEST_H_
-#define DESIGNLAB_LOOP_UTIL_TEST_H_
+#pragma once
 
 #include <doctest.h>
 
@@ -15,7 +14,7 @@
 #include "loop_util.h"
 
 TEST_SUITE("DoubleIntRange") {
-  using designlab::DoubleIntRange;
+  using gaitgen::DoubleIntRange;
 
   TEST_CASE("When pram is [3,3]") {
     std::vector<std::tuple<int, int>> expected = {
@@ -59,5 +58,3 @@ TEST_SUITE("DoubleIntRange") {
     CHECK_EQ(expected, actual);
   }
 }
-
-#endif  // DESIGNLAB_LOOP_UTIL_TEST_H_

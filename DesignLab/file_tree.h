@@ -5,13 +5,12 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_FILE_TREE_H_
-#define DESIGNLAB_FILE_TREE_H_
+#pragma once
 
 #include <string>
 #include <vector>
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class FileTree
 //! @brief ファイルツリーを作成するクラス.
@@ -50,7 +49,7 @@ class FileTree final {
 
     std::string path;                     //!< 自分自身へのパス.
     std::vector<FileTreeData> directory;  //!< ディレクトリ.
-    std::vector<std::string> file;  //!< ディレクトリの中のファイル.
+    std::vector<std::string> file;        //!< ディレクトリの中のファイル.
   };
 
   //! @brief ファイルツリーを作成する.
@@ -81,6 +80,4 @@ class FileTree final {
   std::vector<std::string> MakeFileList(const FileTreeData& tree) const;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_FILE_TREE_H_
+}  // namespace gaitgen

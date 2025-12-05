@@ -15,7 +15,7 @@
 #include "leg_state.h"
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 GraphSearcherPlane::GraphSearcherPlane(
     const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr,
@@ -334,4 +334,4 @@ PlaneRect GraphSearcherPlane::MakeRobotPlaneRect(
   return plane_rect;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

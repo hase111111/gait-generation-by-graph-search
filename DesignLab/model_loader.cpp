@@ -9,7 +9,7 @@
 
 #include <DxLib.h>
 
-namespace designlab {
+namespace gaitgen {
 
 int ModelLoader::GetModelHandle(const std::string& file_path) {
   // すでに読み込み済みのモデルの場合は,ハンドル番号を返す.
@@ -31,4 +31,4 @@ int ModelLoader::GetModelHandle(const std::string& file_path) {
   return handle;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

@@ -15,9 +15,9 @@
 #include "math_util.h"
 #include "vector3.h"
 
-namespace designlab {
+namespace gaitgen {
 
-//! @struct designlab::Quaternion
+//! @struct gaitgen::Quaternion
 //! @brief クォータニオンを表す構造体.
 //! @details クォータニオンは,スカラー成分とベクトル成分からなる.
 //! 四元数とも呼ばれる.
@@ -233,4 +233,4 @@ inline std::basic_istream<Char>& operator>>(std::basic_istream<Char>& is,
 //! @return 補間されたクォータニオン.
 Quaternion SlerpQuaternion(const Quaternion& q1, const Quaternion& q2, float t);
 
-}  // namespace designlab
+}  // namespace gaitgen

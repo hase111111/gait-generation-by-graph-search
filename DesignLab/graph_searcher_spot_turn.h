@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_GRAPH_SEARCHER_SPOT_TURN_H_
-#define DESIGNLAB_GRAPH_SEARCHER_SPOT_TURN_H_
+#pragma once
 
 #include <memory>
 #include <string>
@@ -16,7 +15,7 @@
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_posture_validator.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class GraphSearcherSpotTurn
 //! @brief グラフ探索を行い,直進する動作を評価するクラス.
@@ -63,6 +62,4 @@ class GraphSearcherSpotTurn final : public IGraphSearcher {
   GraphSearchEvaluator evaluator_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_GRAPH_SEARCHER_SPOT_TURN_H_
+}  // namespace gaitgen

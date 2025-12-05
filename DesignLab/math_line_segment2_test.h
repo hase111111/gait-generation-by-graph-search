@@ -12,8 +12,8 @@
 #include "math_line_segment2.h"
 
 TEST_SUITE("LineSegment2") {
-  using designlab::LineSegment2;
-  using designlab::Vector2;
+  using gaitgen::LineSegment2;
+  using gaitgen::Vector2;
 
   TEST_CASE("ConstructorTest_ShouldZeroForStartAndEnd") {
     // デフォルトコンストラクタで初期化した場合,start と end が 0

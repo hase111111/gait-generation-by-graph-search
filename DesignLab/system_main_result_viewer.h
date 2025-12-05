@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_SYSTEM_MAIN_RESULT_VIEWER_H_
-#define DESIGNLAB_SYSTEM_MAIN_RESULT_VIEWER_H_
+#pragma once
 
 #include <memory>
 #include <string>
@@ -18,33 +17,31 @@
 #include "interface_system_main.h"
 #include "result_file_importer.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class SystemMainResultViewer
 //! @brief 結果を表示するシステムのクラス.
 class SystemMainResultViewer final : public ISystemMain {
-public:
-    SystemMainResultViewer(
-        const std::shared_ptr<GraphicDataBroker>& broker_ptr,
-        const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr,
-        const std::shared_ptr<const IHexapodJointCalculator>& joint_calculator,
-        const std::shared_ptr<const IHexapodCoordinateConverter>& converter);
+ public:
+  SystemMainResultViewer(
+      const std::shared_ptr<GraphicDataBroker>& broker_ptr,
+      const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr,
+      const std::shared_ptr<const IHexapodJointCalculator>& joint_calculator,
+      const std::shared_ptr<const IHexapodCoordinateConverter>& converter);
 
-    void Main() override;
+  void Main() override;
 
-private:
-    ResultFileImporter result_importer_;
+ private:
+  ResultFileImporter result_importer_;
 
-    const std::shared_ptr<GraphicDataBroker> broker_ptr_;
+  const std::shared_ptr<GraphicDataBroker> broker_ptr_;
 
-    const std::shared_ptr<const IHexapodJointCalculator> joint_calculator_;
+  const std::shared_ptr<const IHexapodJointCalculator> joint_calculator_;
 
-    const std::shared_ptr<const IHexapodCoordinateConverter> converter_;
+  const std::shared_ptr<const IHexapodCoordinateConverter> converter_;
 
-    void OutputErrorLegPos(const std::string& file,
-                           const std::vector<RobotStateNode>& nodes);
+  void OutputErrorLegPos(const std::string& file,
+                         const std::vector<RobotStateNode>& nodes);
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_SYSTEM_MAIN_RESULT_VIEWER_H_
+}  // namespace gaitgen

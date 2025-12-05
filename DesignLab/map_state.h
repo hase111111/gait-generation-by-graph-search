@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MAP_STATE_H_
-#define DESIGNLAB_MAP_STATE_H_
+#pragma once
 
 #include <map>
 #include <vector>
@@ -14,7 +13,7 @@
 #include "cassert_define.h"
 #include "vector3.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class MapState
 //! @brief マップを表すクラス.
@@ -87,6 +86,4 @@ class MapState final {
                 "kMapPointDistanceは正の実数である必要があります.");
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_MAP_STATE_H_
+}  // namespace gaitgen

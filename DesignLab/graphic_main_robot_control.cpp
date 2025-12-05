@@ -21,7 +21,7 @@
 #include "node_initializer.h"
 #include "phantomx_mk2_const.h"
 
-namespace designlab {
+namespace gaitgen {
 
 GraphicMainRobotControl::GraphicMainRobotControl(
     const std::shared_ptr<GraphicDataBroker>& broker,
@@ -140,4 +140,4 @@ void GraphicMainRobotControl::Draw() const {
   gui_updater_.Draw();
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

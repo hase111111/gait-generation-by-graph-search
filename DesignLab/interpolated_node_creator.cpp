@@ -11,7 +11,7 @@
 #include "hexapod_const.h"
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 InterpolatedNodeCreator::InterpolatedNodeCreator(
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr)
@@ -393,4 +393,4 @@ std::vector<int> InterpolatedNodeCreator::GetFreeMoveIndex(
   return res_index;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

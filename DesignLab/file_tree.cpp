@@ -12,7 +12,7 @@
 #include "cassert_define.h"
 #include "cmdio_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 void FileTree::DisplayFileTree(const std::string& path, int max_depth) const {
   FileTreeData tree = MakeFileTree(path, max_depth, "", "sim");
@@ -168,4 +168,4 @@ std::vector<std::string> FileTree::MakeFileList(
   return file_list;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

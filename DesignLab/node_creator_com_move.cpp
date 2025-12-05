@@ -10,7 +10,7 @@
 #include "leg_state.h"
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 NodeCreatorComMove::NodeCreatorComMove(
     const DividedMapState& map,
@@ -79,4 +79,4 @@ void NodeCreatorComMove::Create(
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

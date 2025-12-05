@@ -5,12 +5,11 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_INTERFACE_MAP_CREATOR_H_
-#define DESIGNLAB_INTERFACE_MAP_CREATOR_H_
+#pragma once
 
 #include "map_state.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class IMapCreator
 //! @brief マップ生成クラスのインターフェース.
@@ -34,6 +33,4 @@ class IMapCreator {
   virtual void UpdateMap(MapState* current_map) const = 0;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_INTERFACE_MAP_CREATOR_H_
+}  // namespace gaitgen

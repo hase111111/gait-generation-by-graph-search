@@ -13,7 +13,7 @@
 #include "com_type.h"
 #include "leg_state.h"
 
-namespace designlab {
+namespace gaitgen {
 
 std::map<std::pair<int, int>, std::vector<int>>
     NodeCreatorLegHierarchyPruningBranch::leg_pos_change_table_ = {};
@@ -336,4 +336,4 @@ void NodeCreatorLegHierarchyPruningBranch::Create3LegLifted(
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_GAIT_PATTERN_GENERATOR_SWITCH_MOVE_H_
-#define DESIGNLAB_GAIT_PATTERN_GENERATOR_SWITCH_MOVE_H_
+#pragma once
 
 #include <memory>
 #include <vector>
@@ -15,7 +14,7 @@
 #include "interface_gait_pattern_generator.h"
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class GaitPatternGeneratorSwitchMove
 //! @brief 複数の種類の歩容パターンの生成方法を切り替えるためのクラス.
@@ -46,6 +45,4 @@ class GaitPatternGeneratorSwitchMove final : public IGaitPatternGenerator {
   RobotOperation last_operation_{};
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_GAIT_PATTERN_GENERATOR_SWITCH_MOVE_H_
+}  // namespace gaitgen

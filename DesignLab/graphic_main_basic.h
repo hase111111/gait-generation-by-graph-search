@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_GRAPHIC_MAIN_BASIC_H_
-#define DESIGNLAB_GRAPHIC_MAIN_BASIC_H_
+#pragma once
 
 #include <memory>
 #include <vector>
@@ -33,7 +32,7 @@
 #include "robot_state_node.h"
 #include "stability_margin_renderer.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class GraphicMainBasic
 //! @brief シミュレーションの一覧表示,ロボットの動きの軌跡の表示
@@ -109,6 +108,4 @@ class GraphicMainBasic final : public IGraphicMain {
   bool draw_gui_{true};  //!< GUIを描画しないかどうか.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_GRAPHIC_MAIN_BASIC_H_
+}  // namespace gaitgen

@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_STABILITY_MARGIN_RENDERER_H_
-#define DESIGNLAB_STABILITY_MARGIN_RENDERER_H_
+#pragma once
 
 #include <memory>
 
@@ -15,7 +14,7 @@
 #include "interface_hexapod_coordinate_converter.h"
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class StabilityMarginRenderer
 //! @brief ロボットの静的安定余裕(支持脚多角形)を描画するクラス.
@@ -46,6 +45,4 @@ class StabilityMarginRenderer final : public IDxlib3dRenderer,
   RobotStateNode node_;  //!< ロボットの状態.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_STABILITY_MARGIN_RENDERER_H_
+}  // namespace gaitgen

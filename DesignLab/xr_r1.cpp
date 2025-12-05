@@ -16,7 +16,7 @@
 #include "math_util.h"
 #include "xr_r1_const.h"
 
-namespace designlab {
+namespace gaitgen {
 
 XrR1::XrR1(const XrR1ParameterRecord& parameter_record)
     : kBodyLiftingHeightMin(parameter_record.body_lifting_height_min),
@@ -718,4 +718,4 @@ std::array<Vector2, HexapodConst::kLegNum> XrR1::InitMaxLegPosXY() const {
   return res;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

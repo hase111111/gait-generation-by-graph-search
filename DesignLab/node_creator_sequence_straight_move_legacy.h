@@ -5,15 +5,14 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_NODE_CREATOR_SEQUENCE_STRAIGHT_MOVE_LEGACY_H_
-#define DESIGNLAB_NODE_CREATOR_SEQUENCE_STRAIGHT_MOVE_LEGACY_H_
+#pragma once
 
 #include <map>
 #include <memory>
 
 #include "interface_node_creator_sequence.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class NodeCreatorSequenceStraightMoveLegacy
 //! @brief 第1報の直進動作を行うノードを生成するクラス.
@@ -34,6 +33,4 @@ class NodeCreatorSequenceStraightMoveLegacy final
   const std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_NODE_CREATOR_SEQUENCE_STRAIGHT_MOVE_LEGACY_H_
+}  // namespace gaitgen

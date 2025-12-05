@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_GRAPH_SEARCHER_PLANE_H_
-#define DESIGNLAB_GRAPH_SEARCHER_PLANE_H_
+#pragma once
 
 #include <memory>
 #include <string>
@@ -18,7 +17,7 @@
 #include "interface_hexapod_posture_validator.h"
 #include "interface_hexapod_state_presenter.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class GraphSearcherPlane
 //! @brief グラフ探索を行い,直進する動作を評価するクラス.
@@ -71,6 +70,4 @@ class GraphSearcherPlane final : public IGraphSearcher {
   GraphSearchEvaluator evaluator_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_GRAPH_SEARCHER_PLANE_H_
+}  // namespace gaitgen

@@ -5,15 +5,14 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MOVEMENT_LOCUS_RENDERER_H_
-#define DESIGNLAB_MOVEMENT_LOCUS_RENDERER_H_
+#pragma once
 
 #include <vector>
 
 #include "robot_state_node.h"
 #include "vector3.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class MovementLocusRenderer
 //! @brief ロボットの移動軌跡を描画するクラス.
@@ -65,6 +64,4 @@ class MovementLocusRenderer final {
   bool is_high_quality_;  //!< 高画質モードかどうか.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_MOVEMENT_LOCUS_RENDERER_H_
+}  // namespace gaitgen

@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_NODE_CREATOR_BODY_ROT_H_
-#define DESIGNLAB_NODE_CREATOR_BODY_ROT_H_
+#pragma once
 
 #include <memory>
 #include <vector>
@@ -17,7 +16,7 @@
 #include "interface_node_creator.h"
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class NodeCreatorBodyRot
 //! @brief ロボットの回転を表すノードを生成するクラス.
@@ -82,6 +81,4 @@ class NodeCreatorBodyRot final : public INodeCreator {
                 "kBodyYawRotAngleDivNum は奇数である必要があります.");
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_NODE_CREATOR_BODY_ROT_H_
+}  // namespace gaitgen

@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_GRAPH_TREE_CREATOR_H_
-#define DESIGNLAB_GRAPH_TREE_CREATOR_H_
+#pragma once
 
 #include <map>
 #include <memory>
@@ -18,7 +17,7 @@
 #include "interface_node_creator_sequence.h"
 #include "my_expected.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class GraphTreeCreator
 //! @brief 歩容パターングラフを作成するクラス.
@@ -64,6 +63,4 @@ class GraphTreeCreator final {
   const std::unique_ptr<INodeCreatorSequence> node_creator_builder_ptr_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_GRAPH_TREE_CREATOR_H_
+}  // namespace gaitgen

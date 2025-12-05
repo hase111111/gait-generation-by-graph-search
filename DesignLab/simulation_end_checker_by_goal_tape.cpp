@@ -7,7 +7,7 @@
 
 #include "simulation_end_checker_by_goal_tape.h"
 
-namespace designlab {
+namespace gaitgen {
 
 SimulationEndCheckerByGoalTape::SimulationEndCheckerByGoalTape(
     const float goal_tape_x)
@@ -21,4 +21,4 @@ bool SimulationEndCheckerByGoalTape::IsEnd(const RobotStateNode& node) const {
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

@@ -16,7 +16,7 @@
 #include "math_util.h"
 #include "phantomx_mk2_const.h"
 
-namespace designlab {
+namespace gaitgen {
 
 PhantomXMkII::PhantomXMkII(const PhantomXMkIIParameterRecord& parameter_record)
     : kBodyLiftingHeightMin(parameter_record.body_lifting_height_min),
@@ -739,4 +739,4 @@ std::array<Vector2, HexapodConst::kLegNum> PhantomXMkII::InitMaxLegPosXY()
   return res;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

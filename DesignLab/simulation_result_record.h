@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_SIMULATION_RESULT_RECORD_H_
-#define DESIGNLAB_SIMULATION_RESULT_RECORD_H_
+#pragma once
 
 #include <string>
 #include <vector>
@@ -14,7 +13,7 @@
 #include "graph_search_result_record.h"
 #include "map_state.h"
 
-namespace designlab::enums {
+namespace gaitgen::enums {
 
 //! @enum SimulationResult
 //! @brief シミュレーション全体の結果を表す列挙型.
@@ -32,9 +31,9 @@ enum class SimulationResult {
   kFailureByNodeLimitExceeded,
 };
 
-}  // namespace designlab::enums
+}  // namespace gaitgen::enums
 
-namespace designlab {
+namespace gaitgen {
 
 //! @struct SimulationResultRecord
 //! @brief シミュレーションの結果を格納する構造体.
@@ -53,6 +52,4 @@ struct SimulationResultRecord final {
   enums::SimulationResult simulation_result{};  //!< シミュレーション全体の結果.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_SIMULATION_RESULT_RECORD_H_
+}  // namespace gaitgen

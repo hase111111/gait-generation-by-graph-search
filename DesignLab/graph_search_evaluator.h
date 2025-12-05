@@ -5,14 +5,13 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_GRAPH_SEARCH_EVALUATOR_H_
-#define DESIGNLAB_GRAPH_SEARCH_EVALUATOR_H_
+#pragma once
 
 #include <map>
 #include <string>
 #include <vector>
 
-namespace designlab {
+namespace gaitgen {
 
 //! @struct GraphSearchEvaluationValue
 //! @brief グラフ探索の評価値を格納する構造体.
@@ -93,6 +92,4 @@ class GraphSearchEvaluator final {
   const std::vector<Tag> evaluation_priority_list_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_GRAPH_SEARCH_EVALUATOR_H_
+}  // namespace gaitgen

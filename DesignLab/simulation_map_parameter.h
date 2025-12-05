@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_SIMULATION_MAP_PARAMETER_H_
-#define DESIGNLAB_SIMULATION_MAP_PARAMETER_H_
+#pragma once
 
 #include <vector>
 
@@ -14,7 +13,7 @@
 #include "string_util.h"
 #include "toml_serialize_macro.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @enum SimulationMapMode
 //! @brief getMap関数のマップ生成のモードを指定する列挙体.
@@ -254,9 +253,9 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationMapParameter) {
       radial_angle_offset, "Radial", "放射状の地形の角度オフセット[deg].");
 };
 
-}  // namespace designlab
+}  // namespace gaitgen
 
-DESIGNLAB_TOML11_SERIALIZE(designlab::SimulationMapParameter, mode, option,
+DESIGNLAB_TOML11_SERIALIZE(gaitgen::SimulationMapParameter, mode, option,
                            base_z, map_max_x, map_min_x, map_max_y, map_min_y,
                            map_start_rough_x, wall_x, wall_height,
                            stripe_interval, diagonal_angle, hole_rate,
@@ -266,5 +265,3 @@ DESIGNLAB_TOML11_SERIALIZE(designlab::SimulationMapParameter, mode, option,
                            circle_radius, donut_radius, radial_center,
                            radial_division, radial_hole_rate,
                            radial_angle_offset);
-
-#endif  // DESIGNLAB_SIMULATION_MAP_PARAMETER_H_

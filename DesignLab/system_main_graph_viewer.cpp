@@ -23,7 +23,7 @@
 #include "phantomx_mk2.h"
 #include "string_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 SystemMainGraphViewer::SystemMainGraphViewer(
     std::unique_ptr<GraphTreeCreator>&& graph_tree_creator,
@@ -254,4 +254,4 @@ RobotStateNode SystemMainGraphViewer::SelectNodeByInput(
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

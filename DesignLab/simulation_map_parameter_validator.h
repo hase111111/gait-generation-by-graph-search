@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_SIMULATION_MAP_PARAMETER_VALIDATOR_H_
-#define DESIGNLAB_SIMULATION_MAP_PARAMETER_VALIDATOR_H_
+#pragma once
 
 #include <string>
 #include <tuple>
@@ -14,7 +13,7 @@
 #include "interface_toml_data_validator.h"
 #include "simulation_map_parameter.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class SimulationMapParameterValidator
 //! @brief SimulationMapParameter のバリデータ.
@@ -35,6 +34,4 @@ class SimulationMapParameterValidator final
       "階段の奥行は0より大きい必要があります."};
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_SIMULATION_MAP_PARAMETER_VALIDATOR_H_
+}  // namespace gaitgen

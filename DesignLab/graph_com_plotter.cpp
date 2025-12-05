@@ -7,8 +7,8 @@
 
 #include "graph_com_plotter.h"
 
-namespace designlab {
+namespace gaitgen {
 
 void GraphComPlotter::Draw() const {}
 
-}  // namespace designlab
+}  // namespace gaitgen

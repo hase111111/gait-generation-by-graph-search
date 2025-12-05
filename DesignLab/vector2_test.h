@@ -14,7 +14,7 @@
 #include "vector2.h"
 
 TEST_SUITE("Vector2::Constructor") {
-  using designlab::Vector2;
+  using gaitgen::Vector2;
 
   TEST_CASE("デフォルトコンストラクタを呼んだ時,0ベクトルになるべき") {
     const auto v = Vector2();
@@ -45,7 +45,7 @@ TEST_SUITE("Vector2::Constructor") {
 }
 
 TEST_SUITE("Vector2::Cross") {
-  using designlab::Vector2;
+  using gaitgen::Vector2;
 
   TEST_CASE("他のベクトルを渡した時,自身×他のベクトルの外積が返るべき") {
     SUBCASE("(1,0)と(0,1)を引数に渡したとき,1が返るべき") {
@@ -75,7 +75,7 @@ TEST_SUITE("Vector2::Cross") {
 }
 
 TEST_SUITE("Vector2::Dot") {
-  using designlab::Vector2;
+  using gaitgen::Vector2;
 
   TEST_CASE("他のベクトルを渡した時,自身×他のベクトルの内積が返るべき") {
     SUBCASE("(1,0)と(0,1)を引数に渡したとき,0が返るべき") {
@@ -105,7 +105,7 @@ TEST_SUITE("Vector2::Dot") {
 }
 
 TEST_SUITE("Vector2::GetDistanceFrom") {
-  using designlab::Vector2;
+  using gaitgen::Vector2;
 
   TEST_CASE("他のベクトルを渡した時,そのベクトルとの距離が返るべき") {
     SUBCASE("(1,0)と(0,1)を引数に渡したとき,1.41421356237fが返るべき") {
@@ -135,7 +135,7 @@ TEST_SUITE("Vector2::GetDistanceFrom") {
 }
 
 TEST_SUITE("Vector2::GetLength") {
-  using designlab::Vector2;
+  using gaitgen::Vector2;
 
   TEST_CASE("実行時,長さが返るべき") {
     SUBCASE("(3,5)で実行時,5.83095189485fが返るべき") {
@@ -162,7 +162,7 @@ TEST_SUITE("Vector2::GetLength") {
 }
 
 TEST_SUITE("Vector2::GetNormalized") {
-  using designlab::Vector2;
+  using gaitgen::Vector2;
 
   TEST_CASE("実行時,正規化されたベクトルを返すべき") {
     SUBCASE("(3,5)で実行時,(0.514495,0.857493)が返るべき") {
@@ -195,7 +195,7 @@ TEST_SUITE("Vector2::GetNormalized") {
 }
 
 TEST_SUITE("Vector2::GetSquaredLength") {
-  using designlab::Vector2;
+  using gaitgen::Vector2;
 
   TEST_CASE("実行時,長さの2乗が返るべき") {
     SUBCASE("(3,5)で実行時,34が返るべき") {
@@ -222,7 +222,7 @@ TEST_SUITE("Vector2::GetSquaredLength") {
 }
 
 TEST_SUITE("Vector2::IsZero") {
-  using designlab::Vector2;
+  using gaitgen::Vector2;
 
   TEST_CASE("零ベクトルを渡した時,trueが返るべき") {
     const auto v1 = Vector2(0, 0);
@@ -250,7 +250,7 @@ TEST_SUITE("Vector2::IsZero") {
 }
 
 TEST_SUITE("Vector2::Normalize") {
-  using designlab::Vector2;
+  using gaitgen::Vector2;
 
   TEST_CASE("実行時,正規化されたベクトルになるべき") {
     SUBCASE("(3,5)で実行時,(0.514495,0.857493)になるべき") {

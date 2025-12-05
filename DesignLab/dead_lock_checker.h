@@ -5,14 +5,13 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_DEAD_LOCK_CHECKER_H_
-#define DESIGNLAB_DEAD_LOCK_CHECKER_H_
+#pragma once
 
 #include <deque>
 
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class DeadLockChecker
 //! @brief 動作のループを感知するクラス.
@@ -47,6 +46,4 @@ class DeadLockChecker final {
   std::deque<RobotStateNode> node_vec_;  //!< 歩容生成した物を保持する.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_DEAD_LOCK_CHECKER_H_
+}  // namespace gaitgen

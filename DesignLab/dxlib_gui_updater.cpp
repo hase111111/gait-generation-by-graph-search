@@ -13,7 +13,7 @@
 
 #include "dxlib_gui_terminal.h"
 
-namespace designlab {
+namespace gaitgen {
 
 void DxlibGuiUpdater::OpenTerminal() {
   // 2回以上呼ばれたら何もしない.
@@ -236,4 +236,4 @@ void DxlibGuiUpdater::ActivateWheelHandler(
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

@@ -5,10 +5,9 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_INTERFACE_DXLIB_WHEEL_HANDLER_H_
-#define DESIGNLAB_INTERFACE_DXLIB_WHEEL_HANDLER_H_
+#pragma once
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class IDxlibWheelHandler
 //! @brief マウスホイールの入力を受け取るためのインターフェース.
@@ -29,6 +28,4 @@ class IDxlibWheelHandler {
   virtual void RotMouseWheel(int rot) const = 0;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_INTERFACE_DXLIB_WHEEL_HANDLER_H_
+}  // namespace gaitgen

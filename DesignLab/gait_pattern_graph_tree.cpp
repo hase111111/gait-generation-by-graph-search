@@ -7,7 +7,7 @@
 
 #include "gait_pattern_graph_tree.h"
 
-namespace designlab {
+namespace gaitgen {
 
 int GaitPatternGraphTree::GetNodeCountAtDepth(const int depth) const {
   int count = 0;
@@ -59,4 +59,4 @@ const int GaitPatternGraphTree::GetParentNodeIndex(const int index,
   return res_index;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

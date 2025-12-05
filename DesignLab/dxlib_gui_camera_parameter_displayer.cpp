@@ -13,7 +13,7 @@
 #include "math_rot_converter.h"
 #include "string_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 DxlibGuiCameraParameterDisplayer::DxlibGuiCameraParameterDisplayer(
     const int window_x, const int window_y,
@@ -130,4 +130,4 @@ bool DxlibGuiCameraParameterDisplayer::IsInWindow() const {
          0 < gui_left_pos_x_ + width_ && 0 < gui_top_pos_y_ + height_;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

@@ -9,7 +9,7 @@
 
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 Quaternion ToQuaternion(const RotationMatrix3x3& rot) {
   Quaternion q;
@@ -102,4 +102,4 @@ EulerXYZ ToEulerXYZ(const Quaternion& q) {
   return ToEulerXYZ(ToRotationMatrix(q));
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

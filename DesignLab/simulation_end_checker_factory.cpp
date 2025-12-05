@@ -16,7 +16,7 @@
 #include "simulation_end_checker_by_position.h"
 #include "simulation_end_checker_by_posture.h"
 
-namespace designlab {
+namespace gaitgen {
 
 std::unique_ptr<ISimulationEndChecker> SimulationEndCheckerFactory::Create(
     const SimulationSettingRecord& record) {
@@ -55,4 +55,4 @@ std::unique_ptr<ISimulationEndChecker> SimulationEndCheckerFactory::Create(
   return nullptr;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

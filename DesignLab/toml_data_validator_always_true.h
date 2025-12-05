@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_TOML_DATA_VALIDATOR_ALWAYS_TRUE_H_
-#define DESIGNLAB_TOML_DATA_VALIDATOR_ALWAYS_TRUE_H_
+#pragma once
 
 #include <string>
 #include <tuple>
@@ -14,7 +13,7 @@
 #include "cmdio_util.h"
 #include "interface_toml_data_validator.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class TomlDataValidatorAlwaysTrue
 //! @brief 常に trueを返す ITomlDataValidator の実装クラス.
@@ -30,6 +29,4 @@ class TomlDataValidatorAlwaysTrue final : public ITomlDataValidator<T> {
   }
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_TOML_DATA_VALIDATOR_ALWAYS_TRUE_H_
+}  // namespace gaitgen

@@ -20,11 +20,11 @@
 // アクセスするには,先頭に::をつける.
 //! @todo クラスにするべき.
 namespace {
-using designlab::HexapodConst;
-using designlab::com_func::LegGroundedMap;
-using designlab::com_func::LegGroundedMapValue;
-using designlab::enums::DiscreteComPos;
-using designlab::leg_func::LegGroundedBit;
+using gaitgen::HexapodConst;
+using gaitgen::com_func::LegGroundedMap;
+using gaitgen::com_func::LegGroundedMapValue;
+using gaitgen::enums::DiscreteComPos;
+using gaitgen::leg_func::LegGroundedBit;
 
 //! @brief
 //! 脚の接地パターンを表すマップを作成する関数.初期化時に一度だけ呼び出す.
@@ -173,10 +173,10 @@ std::vector<std::vector<int>> MakeLegGroundedPatternBanListFromLeg() {
   std::vector<std::vector<int>> res;
 
   res.resize(
-      designlab::HexapodConst::kLegNum);  // 脚の数だけ vector を確保する.
+      gaitgen::HexapodConst::kLegNum);  // 脚の数だけ vector を確保する.
 
   // i 番脚を接地しなければ,取ることができないものを保存する.
-  for (int i = 0; i < designlab::HexapodConst::kLegNum; i++) {
+  for (int i = 0; i < gaitgen::HexapodConst::kLegNum; i++) {
     for (int j = 0; j < ::kLegGroundedPatternNum; ++j) {
       // i番目のビットを確認し,立っているならば
       // (つまり,その脚を接地しなければいけないなら),そのパターンを禁止する.
@@ -190,7 +190,7 @@ std::vector<std::vector<int>> MakeLegGroundedPatternBanListFromLeg() {
 }
 
 //! 重心位置から使用不可能な接地パターンを map で管理する.
-const std::unordered_map<::designlab::enums::DiscreteComPos, std::vector<int>>
+const std::unordered_map<::gaitgen::enums::DiscreteComPos, std::vector<int>>
     kLegGroundedPatternBanList = MakeLegGroundedPatternBanList();
 
 //! その脚が遊脚のとき,取り得ない脚の接地パターンを管理する.
@@ -199,7 +199,7 @@ const std::vector<std::vector<int>> kLegGroundedPatternBanListFromLeg =
 
 }  // namespace
 
-namespace designlab::com_func {
+namespace gaitgen::com_func {
 
 int GetLegGroundPatternNum() { return kLegGroundedPatternNum; }
 
@@ -269,4 +269,4 @@ void RemoveLegGroundPatternFromNotFreeLeg(int not_lift_leg_index,
   (*output) &= inverse_output;
 }
 
-}  // namespace designlab::com_func
+}  // namespace gaitgen::com_func

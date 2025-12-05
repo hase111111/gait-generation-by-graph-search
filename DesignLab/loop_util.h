@@ -5,12 +5,11 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_LOOP_UTIL_H_
-#define DESIGNLAB_LOOP_UTIL_H_
+#pragma once
 
 #include <tuple>
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class DoubleIntRange
 //! @brief 2つの変数を for 範囲ループで回すためのクラス
@@ -62,6 +61,4 @@ class DoubleIntRange final {
   int j_max_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_LOOP_UTIL_H_
+}  // namespace gaitgen

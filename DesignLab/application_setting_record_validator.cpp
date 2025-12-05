@@ -9,7 +9,7 @@
 
 #include <format>
 
-namespace designlab {
+namespace gaitgen {
 
 ApplicationSettingRecordValidator::ApplicationSettingRecordValidator()
     : kErrorMesForWindowWidthGeMin(
@@ -74,4 +74,4 @@ std::tuple<bool, std::string> ApplicationSettingRecordValidator::Validate(
   return std::make_tuple(true, "");
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

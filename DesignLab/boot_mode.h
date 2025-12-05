@@ -5,10 +5,9 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_BOOT_MODE_H_
-#define DESIGNLAB_BOOT_MODE_H_
+#pragma once
 
-namespace designlab {
+namespace gaitgen {
 
 //! @enum BootMode
 //! @brief 起動モードを表す列挙型.
@@ -23,6 +22,4 @@ enum class BootMode : int {
   kCreateMapCsv,          //!< マップのCSV作成モード.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_BOOT_MODE_H_
+}  // namespace gaitgen

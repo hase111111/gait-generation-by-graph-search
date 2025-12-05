@@ -10,7 +10,7 @@
 #include "cmdio_util.h"
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 DividedMapState::DividedMapState(const float min_z)
     : kMapMinZ(min_z),
@@ -136,4 +136,4 @@ float DividedMapState::GetTopZ(const int x_index, const int y_index) const {
   return divided_map_top_z_[GetDividedMapIndex(x_index, y_index)];
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

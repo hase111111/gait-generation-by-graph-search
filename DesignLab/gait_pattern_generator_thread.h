@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_GAIT_PATTERN_GENERATOR_THREAD_H_
-#define DESIGNLAB_GAIT_PATTERN_GENERATOR_THREAD_H_
+#pragma once
 
 #include <memory>
 #include <tuple>
@@ -19,7 +18,7 @@
 #include "interpolated_node_creator.h"
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class GaitPatternGeneratorThread
 //! @brief 普通にグラフ探索を行い,歩容パターン生成を行うクラス.
@@ -70,6 +69,4 @@ class GaitPatternGeneratorThread final : public IGaitPatternGenerator {
   static_assert(0 < kThreadNum, "The number of threads must be positive.");
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_GAIT_PATTERN_GENERATOR_THREAD_H_
+}  // namespace gaitgen

@@ -19,7 +19,7 @@
 #include "math_util.h"
 #include "stopwatch.h"
 
-namespace designlab {
+namespace gaitgen {
 
 namespace sf =
     ::std::filesystem;  // 長すぎるので,filesystemの名前空間を短縮する.
@@ -165,7 +165,7 @@ void ResultFileExporter::ExportEachNodeList(const std::string& path) const {
 }
 
 void ResultFileExporter::ExportEachMapState(const std::string& path) const {
-  using enum designlab::OutputDetail;
+  using enum gaitgen::OutputDetail;
 
   cmdio::Print("MapStateを出力します.", kInfo);
 
@@ -189,7 +189,7 @@ void ResultFileExporter::ExportEachMapState(const std::string& path) const {
 
 void ResultFileExporter::ExportEachSimulationDetail(
     const std::string& path) const {
-  using enum designlab::OutputDetail;
+  using enum gaitgen::OutputDetail;
 
   cmdio::Print("シミュレーション詳細を出力します.", kInfo);
 
@@ -390,8 +390,8 @@ void ResultFileExporter::ExportEachSimulationDetail(
 }
 
 void ResultFileExporter::ExportSuccessfulCount(const std::string& path) const {
-  using enum designlab::OutputDetail;
-  using enum designlab::enums::SimulationResult;
+  using enum gaitgen::OutputDetail;
+  using enum gaitgen::enums::SimulationResult;
 
   cmdio::Print(
       std::format(
@@ -699,8 +699,8 @@ void ResultFileExporter::ExportEachLegPosAllSuccessfulSimulation(
 
 void ResultFileExporter::ExportAllLegPosAllSuccessfulSimulation(
     const std::string& path) const {
-  using enum designlab::OutputDetail;
-  using enum designlab::enums::SimulationResult;
+  using enum gaitgen::OutputDetail;
+  using enum gaitgen::enums::SimulationResult;
 
   // ディレクトリを作成する.
   std::string leg_pos_dir_path =
@@ -855,4 +855,4 @@ std::string ResultFileExporter::GetLegChangeStatus(
   return "o";
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

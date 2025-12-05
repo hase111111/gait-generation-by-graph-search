@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_SYSTEM_MAIN_GRAPH_VIEWER_H_
-#define DESIGNLAB_SYSTEM_MAIN_GRAPH_VIEWER_H_
+#pragma once
 
 #include <memory>
 #include <vector>
@@ -19,7 +18,7 @@
 #include "map_state.h"
 #include "stopwatch.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class SystemMainGraphViewer
 //! @brief グラフを表示するシステムのメインクラス.
@@ -69,6 +68,4 @@ class SystemMainGraphViewer final : public ISystemMain {
   Stopwatch stopwatch_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_SYSTEM_MAIN_GRAPH_VIEWER_H_
+}  // namespace gaitgen

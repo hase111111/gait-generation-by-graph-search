@@ -5,16 +5,15 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_STRING_UTIL_H_
-#define DESIGNLAB_STRING_UTIL_H_
+#pragma once
 
 #include <magic_enum.hpp>
 #include <string>
 #include <vector>
 
-//! @namespace designlab::string_util
+//! @namespace gaitgen::string_util
 //! @brief 文字列操作に関する関数を提供する名前空間.
-namespace designlab::string_util {
+namespace gaitgen::string_util {
 
 //! @brief 文字列を分割する関数.指定した文字で文字列を分割する.
 //! @n 分割した結果,空白が含まれる場合や文字列がない場合は,そのまま返す.
@@ -120,8 +119,7 @@ template <typename T>
 std::string GetTypeName(const T& type) {
   std::string str = typeid(type).name();
 
-  std::vector<std::string> eliminate{"class ", "struct ",
-                                     "designlab::", ",void"};
+  std::vector<std::string> eliminate{"class ", "struct ", "gaitgen::", ",void"};
 
   for (const auto& e : eliminate) {
     while (true) {
@@ -137,6 +135,4 @@ std::string GetTypeName(const T& type) {
   return str;
 }
 
-}  // namespace designlab::string_util
-
-#endif  // DESIGNLAB_STRING_UTIL_H_
+}  // namespace gaitgen::string_util

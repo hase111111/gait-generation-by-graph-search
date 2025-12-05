@@ -13,7 +13,7 @@
 #include "math_util.h"
 #include "vector2.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @struct Vector3
 //! @brief 3次元の位置ベクトルを表す構造体.
@@ -282,4 +282,4 @@ static_assert(Vector3::GetZeroVec().x == 0.f, "It is not a 0 vector.");
 static_assert(Vector3::GetZeroVec().y == 0.f, "It is not a 0 vector.");
 static_assert(Vector3::GetZeroVec().z == 0.f, "It is not a 0 vector.");
 
-}  // namespace designlab
+}  // namespace gaitgen

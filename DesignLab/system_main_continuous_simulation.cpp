@@ -18,7 +18,7 @@
 #include "string_util.h"
 #include "toml_directory_exporter.h"
 
-namespace designlab {
+namespace gaitgen {
 
 static std::string GetStem(const std::string& path) {
   return std::filesystem::path(path).stem().string();
@@ -241,4 +241,4 @@ std::vector<std::string> SystemMainContinuousSimulation::GetMapFilePath()
   return file_paths;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_NODE_CREATOR_COM_MOVE_STRAIGHT_H_
-#define DESIGNLAB_NODE_CREATOR_COM_MOVE_STRAIGHT_H_
+#pragma once
 
 #include <array>
 #include <memory>
@@ -19,7 +18,7 @@
 #include "interface_node_creator.h"
 #include "math_polygon2.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class NodeCreatorComMoveStraight
 //! @brief 直線方向に重心の平行移動を行うクラス.
@@ -39,8 +38,8 @@ class NodeCreatorComMoveStraight final : public INodeCreator {
 
  private:
   static constexpr int kCandidateDirectionNum = 8;  //!< 候補となる移動方向の数.
-  static constexpr float kMaxMoveDistance = 70.f;  //!< 重心の移動距離の最大値.
-  static constexpr float kMoveDistanceStep = 5.f;  //!< 重心の移動距離の刻み幅.
+  static constexpr float kMaxMoveDistance = 70.f;   //!< 重心の移動距離の最大値.
+  static constexpr float kMoveDistanceStep = 5.f;   //!< 重心の移動距離の刻み幅.
 
   const DividedMapState map_;    //!< 地面の状態を格納したクラス.
   const HexapodMove next_move_;  //!< 次の動作.
@@ -53,6 +52,4 @@ class NodeCreatorComMoveStraight final : public INodeCreator {
   std::array<Vector3, kCandidateDirectionNum> candidate_directions_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_NODE_CREATOR_COM_MOVE_STRAIGHT_H_
+}  // namespace gaitgen

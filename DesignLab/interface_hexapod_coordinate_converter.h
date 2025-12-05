@@ -5,13 +5,12 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_INTERFACE_HEXAPOD_COORDINATE_CONVERTER_H_
-#define DESIGNLAB_INTERFACE_HEXAPOD_COORDINATE_CONVERTER_H_
+#pragma once
 
 #include "math_quaternion.h"
 #include "vector3.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class IHexapodCoordinateConverter
 //! @brief
@@ -81,6 +80,4 @@ class IHexapodCoordinateConverter {
                                               int leg_index) const = 0;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_INTERFACE_HEXAPOD_COORDINATE_CONVERTER_H_
+}  // namespace gaitgen

@@ -11,7 +11,7 @@
 
 #include "dxlib_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 MovementLocusRenderer::MovementLocusRenderer()
     : kHiddenLocusLineColor(GetColor(173, 187, 50)),
@@ -101,4 +101,4 @@ void MovementLocusRenderer::Draw(const size_t draw_simulation_num,
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

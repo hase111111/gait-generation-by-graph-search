@@ -13,7 +13,7 @@
 
 namespace sc = ::std::chrono;
 
-namespace designlab {
+namespace gaitgen {
 
 Stopwatch::Stopwatch()
     : start_time_(sc::system_clock::now()),
@@ -84,4 +84,4 @@ std::string Stopwatch::GetNowTimeString() const {
   return std::string(now_time_str);
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_DXLIB_GUI_CAMERA_PARAMETER_DISPLAYER_H_
-#define DESIGNLAB_DXLIB_GUI_CAMERA_PARAMETER_DISPLAYER_H_
+#pragma once
 
 #include <array>
 #include <memory>
@@ -17,7 +16,7 @@
 #include "dxlib_camera.h"
 #include "simple_button.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class DxlibGuiCameraParameterDisplayer
 //! @brief カメラの情報を表示するGUIの処理・描画を行うクラス.
@@ -48,10 +47,8 @@ class DxlibGuiCameraParameterDisplayer final : public AbstractDxlibGui {
 
   const std::shared_ptr<const DxlibCamera> camera_ptr_;  //!< カメラのポインタ.
 
-  const int kFontSize{16};  //!< フォントのサイズ.
+  const int kFontSize{16};                               //!< フォントのサイズ.
   const std::string kFontPath{"font/Yu_Gothic_UI.dft"};  //!< フォントへのパス.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_DXLIB_GUI_CAMERA_PARAMETER_DISPLAYER_H_
+}  // namespace gaitgen

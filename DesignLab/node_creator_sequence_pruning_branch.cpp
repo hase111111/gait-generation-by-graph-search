@@ -15,7 +15,7 @@
 #include "node_creator_leg_hierarchy_pruning_branch.h"
 #include "node_creator_leg_up_down_pruning_branch.h"
 
-namespace designlab {
+namespace gaitgen {
 
 NodeCreatorSequencePruningBranch::NodeCreatorSequencePruningBranch(
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
@@ -79,4 +79,4 @@ NodeCreatorSequencePruningBranch::Build(const DividedMapState& map) const {
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

@@ -10,7 +10,7 @@
 #include "cassert_define.h"
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 Polygon2::Polygon2(const std::vector<Vector2>& vertex) {
   assert(vertex.size() <= kMaxVertexNum);  // 頂点数は最大値を超えてはいけない.
@@ -157,4 +157,4 @@ std::string Polygon2::ToString() const {
   return res;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

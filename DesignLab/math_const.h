@@ -7,7 +7,7 @@
 
 #pragma once
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class MathConst
 //! @brief float 型と double 型の定数を提供するクラス.
@@ -46,4 +46,4 @@ struct MathConst<double> {
   static constexpr double kRoundAngle = 360.0;
 };
 
-}  // namespace designlab
+}  // namespace gaitgen

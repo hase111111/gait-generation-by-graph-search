@@ -7,7 +7,7 @@
 
 #include "robot_operator_fixed.h"
 
-namespace designlab {
+namespace gaitgen {
 
 RobotOperatorFixed::RobotOperatorFixed(const RobotOperation& operation)
     : operation_(operation) {}
@@ -19,4 +19,4 @@ RobotOperation RobotOperatorFixed::Update(
   return operation_;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

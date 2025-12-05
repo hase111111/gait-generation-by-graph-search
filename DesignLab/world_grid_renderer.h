@@ -5,12 +5,11 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_WORLD_GRID_RENDERER_H_
-#define DESIGNLAB_WORLD_GRID_RENDERER_H_
+#pragma once
 
 #include "interface_dxlib_3d_renderer.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class WorldGridRenderer
 //! @brief ワールドの格子線を描画するクラス.
@@ -39,6 +38,4 @@ class WorldGridRenderer final : public IDxlib3dRenderer {
   const float kGridLineZPos;  //!< 格子線のZ座標.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_WORLD_GRID_RENDERER_H_
+}  // namespace gaitgen

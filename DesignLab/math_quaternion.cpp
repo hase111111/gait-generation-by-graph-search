@@ -11,7 +11,7 @@
 
 #include "cassert_define.h"
 
-namespace designlab {
+namespace gaitgen {
 
 Quaternion Quaternion::GetNormalized() const noexcept {
   // ノルムが0の場合は,(0,0,0,0)を返す.
@@ -84,4 +84,4 @@ Quaternion SlerpQuaternion(const Quaternion& q1, const Quaternion& q2,
   return sin_1_t_theta * sin_theta_inv * q1 + sin_t_theta * sin_theta_inv * q2;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

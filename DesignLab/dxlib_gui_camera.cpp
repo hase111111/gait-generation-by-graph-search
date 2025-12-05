@@ -13,7 +13,7 @@
 #include "font_loader.h"
 #include "mouse.h"
 
-namespace designlab {
+namespace gaitgen {
 
 DxlibGuiCamera::DxlibGuiCamera(const int window_x, const int window_y,
                                const std::shared_ptr<DxlibCamera> camera)
@@ -155,4 +155,4 @@ bool DxlibGuiCamera::IsInWindow() const {
          0 < gui_left_pos_x_ + kWidth && 0 < gui_top_pos_y_ + kHeight;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

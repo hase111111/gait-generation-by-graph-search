@@ -43,13 +43,13 @@
 namespace {
 
 auto LoadApplicationSettingRecord() {
-  using enum designlab::OutputDetail;
-  using designlab::ApplicationSettingRecord;
-  using designlab::ApplicationSettingRecordValidator;
-  using designlab::TomlDirectoryExporter;
-  using designlab::TomlFileImporter;
+  using enum gaitgen::OutputDetail;
+  using gaitgen::ApplicationSettingRecord;
+  using gaitgen::ApplicationSettingRecordValidator;
+  using gaitgen::TomlDirectoryExporter;
+  using gaitgen::TomlFileImporter;
 
-  designlab::cmdio::SetOutputLimit(kSystem);
+  gaitgen::cmdio::SetOutputLimit(kSystem);
 
   TomlDirectoryExporter toml_directory_exporter;
   toml_directory_exporter.Export();
@@ -62,15 +62,15 @@ auto LoadApplicationSettingRecord() {
 }
 
 void InitOutputSetting(
-    std::shared_ptr<const designlab::ApplicationSettingRecord> setting) {
-  designlab::cmdio::DoOutput(setting->do_cmd_output);
-  designlab::cmdio::SetOutputLimit(setting->cmd_output_detail);
+    std::shared_ptr<const gaitgen::ApplicationSettingRecord> setting) {
+  gaitgen::cmdio::DoOutput(setting->do_cmd_output);
+  gaitgen::cmdio::SetOutputLimit(setting->cmd_output_detail);
 }
 
 auto LoadPhantomXMkII() {
-  using designlab::PhantomXMkII;
-  using designlab::PhantomXMkIIParameterRecord;
-  using designlab::TomlFileImporter;
+  using gaitgen::PhantomXMkII;
+  using gaitgen::PhantomXMkIIParameterRecord;
+  using gaitgen::TomlFileImporter;
 
   TomlFileImporter<PhantomXMkIIParameterRecord> parameter_importer;
   const auto record = parameter_importer.ImportOrUseDefault(
@@ -80,9 +80,9 @@ auto LoadPhantomXMkII() {
 }
 
 auto LoadXrR1() {
-  using designlab::TomlFileImporter;
-  using designlab::XrR1;
-  using designlab::XrR1ParameterRecord;
+  using gaitgen::TomlFileImporter;
+  using gaitgen::XrR1;
+  using gaitgen::XrR1ParameterRecord;
 
   TomlFileImporter<XrR1ParameterRecord> parameter_importer;
   const auto record = parameter_importer.ImportOrUseDefault(
@@ -94,9 +94,9 @@ auto LoadXrR1() {
 }  // namespace
 
 int main() {
-  // int main内では designlab:: を省略できる.
+  // int main内では gaitgen:: を省略できる.
   // 推奨されない書き方だが,可読性のため,ここでのみ使用する.
-  using namespace designlab;
+  using namespace gaitgen;
   using enum OutputDetail;
 
   // 設定を読み込む.

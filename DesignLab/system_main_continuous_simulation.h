@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_SYSTEM_MAIN_CONTINUOUS_SIMULATION_H_
-#define DESIGNLAB_SYSTEM_MAIN_CONTINUOUS_SIMULATION_H_
+#pragma once
 
 #include <memory>
 #include <string>
@@ -22,7 +21,7 @@
 #include "robot_operation.h"
 #include "stopwatch.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class SystemMainContinuousSimulation
 class SystemMainContinuousSimulation final : public ISystemMain {
@@ -82,6 +81,4 @@ class SystemMainContinuousSimulation final : public ISystemMain {
   Stopwatch timer_;  //!< 時間計測用のクラス.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_SYSTEM_MAIN_CONTINUOUS_SIMULATION_H_
+}  // namespace gaitgen

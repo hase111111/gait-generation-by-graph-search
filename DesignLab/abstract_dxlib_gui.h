@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_ABSTRACT_DXLIB_GUI_H_
-#define DESIGNLAB_ABSTRACT_DXLIB_GUI_H_
+#pragma once
 
 #include <memory>
 #include <string>
@@ -17,7 +16,7 @@
 #include "interface_dxlib_gui.h"
 #include "simple_button.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class AbstractDxlibGui
 //! @brief Dxlibを使ったGUIの抽象クラス.
@@ -99,6 +98,4 @@ class AbstractDxlibGui : public IDxlibGui,
   int font_handle_{-1};  //!< フォントハンドル.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_ABSTRACT_DXLIB_GUI_H_
+}  // namespace gaitgen

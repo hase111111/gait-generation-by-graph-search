@@ -16,7 +16,7 @@
 #include "graphic_const.h"
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 DxlibCamera::DxlibCamera()
     : kDefaultCameraFrontVec{Vector3::GetFrontVec()},
@@ -182,4 +182,4 @@ void DxlibCamera::SetCameraPosAndRot() {
   ChangeLightTypeDir(light_dir);
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

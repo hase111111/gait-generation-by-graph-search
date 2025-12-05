@@ -17,7 +17,7 @@
 #include "map_creator_for_simulation.h"
 #include "string_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 SystemMainSimulation::SystemMainSimulation(
     std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
@@ -270,4 +270,4 @@ void SystemMainSimulation::OutputSetting() const {
   cmdio::OutputNewLine(1, kSystem);
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

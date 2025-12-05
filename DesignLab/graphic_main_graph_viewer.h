@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_GRAPHIC_MAIN_GRAPH_VIEWER_H_
-#define DESIGNLAB_GRAPHIC_MAIN_GRAPH_VIEWER_H_
+#pragma once
 
 #include <memory>
 #include <vector>
@@ -22,7 +21,7 @@
 #include "interface_hexapod_posture_validator.h"
 #include "mouse.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class GraphicMainGraphViewer
 //! @brief GraphViewerの画面を表示するクラス.
@@ -57,6 +56,4 @@ class GraphicMainGraphViewer final : public IGraphicMain {
   int graph_update_count_{0};
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_GRAPHIC_MAIN_GRAPH_VIEWER_H_
+}  // namespace gaitgen

@@ -11,7 +11,7 @@
 
 #include "string_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 std::string GraphSearchResultRecord::ToCsvString() const {
   // std::boolalphaを使うと,bool値を文字列に変換できる.
@@ -113,4 +113,4 @@ std::string GraphSearchResultRecord::GetCsvHeader() {
   return stream.str();
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

@@ -14,7 +14,7 @@
 #include "my_unexpected.h"
 
 TEST_SUITE("unexpected") {
-  using designlab::nostd::unexpected;
+  using gaitgen::nostd::unexpected;
 
   TEST_CASE("unexpected construction") {
     // 単一の変数によるコンストラクタ

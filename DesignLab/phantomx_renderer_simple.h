@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_PHANTOMX_RENDERER_SIMPLE_H_
-#define DESIGNLAB_PHANTOMX_RENDERER_SIMPLE_H_
+#pragma once
 
 #include <Dxlib.h>
 
@@ -21,7 +20,7 @@
 #include "interface_hexapod_joint_calculator.h"
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class PhantomXRendererSimple
 //! @brief 3Dモデルを使用せず,多角形を組み合わせてPhantomXの描画を行うクラス.
@@ -41,14 +40,14 @@ class PhantomXRendererSimple final : public IDxlib3dRenderer,
   //! @brief 通常通りにロボットの描画をする
   void DrawHexapodNormal() const;
 
-  const unsigned int kColorBody;       //!< 胴体の色.
-  const unsigned int kColorLeg;        //!< 脚の色.
-  const unsigned int kColorLiftedLeg;  //!< 遊脚している脚の色.
-  const unsigned int kColorJoint;      //!< ジョイントの色.
+  const unsigned int kColorBody;         //!< 胴体の色.
+  const unsigned int kColorLeg;          //!< 脚の色.
+  const unsigned int kColorLiftedLeg;    //!< 遊脚している脚の色.
+  const unsigned int kColorJoint;        //!< ジョイントの色.
   const unsigned int kColorLiftedJoint;  //!< 遊脚しているジョイントの色.
-  const unsigned int kColorLegBase;     //!< 脚の基部の色.
-  const unsigned int kColorErrorJoint;  //!< 文字の色.
-  const unsigned int kColorErrorText;   //!< エラーの文字色.
+  const unsigned int kColorLegBase;      //!< 脚の基部の色.
+  const unsigned int kColorErrorJoint;   //!< 文字の色.
+  const unsigned int kColorErrorText;    //!< エラーの文字色.
 
   //! ロボットのモデルの円柱をどれだけ細かく描画するか.4 ～
   //! 20ぐらいがちょうどよい.
@@ -78,6 +77,4 @@ class PhantomXRendererSimple final : public IDxlib3dRenderer,
   DisplayQuality display_quality_;  //!< 描画品質.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_PHANTOMX_RENDERER_SIMPLE_H_
+}  // namespace gaitgen

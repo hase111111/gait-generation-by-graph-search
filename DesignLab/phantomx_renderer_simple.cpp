@@ -14,7 +14,7 @@
 #include "math_util.h"
 #include "phantomx_mk2_const.h"
 
-namespace designlab {
+namespace gaitgen {
 
 PhantomXRendererSimple::PhantomXRendererSimple(
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
@@ -157,4 +157,4 @@ void PhantomXRendererSimple::DrawHexapodNormal() const {
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

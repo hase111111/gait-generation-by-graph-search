@@ -7,7 +7,7 @@
 
 #include "simulation_map_parameter_validator.h"
 
-namespace designlab {
+namespace gaitgen {
 
 std::tuple<bool, std::string> SimulationMapParameterValidator::Validate(
     const SimulationMapParameter& toml_data) const {
@@ -30,4 +30,4 @@ std::tuple<bool, std::string> SimulationMapParameterValidator::Validate(
   return {true, ""};
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_TOML_FILE_IMPORTER_H_
-#define DESIGNLAB_TOML_FILE_IMPORTER_H_
+#pragma once
 
 #include <concepts>
 #include <filesystem>
@@ -23,7 +22,7 @@
 #include "toml_data_validator_always_true.h"
 #include "toml_file_exporter.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @brief FromTomlを持つか判定するコンセプト.
 //! @n toml::from<T>::from_toml()が定義されているかどうかを判定する.
@@ -212,6 +211,4 @@ class TomlFileImporter final {
   const std::unique_ptr<ITomlDataValidator<T>> validator_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_TOML_FILE_IMPORTER_H_
+}  // namespace gaitgen

@@ -13,7 +13,7 @@
 #include "leg_state.h"
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 bool ComSelector::GetComFromPolygon(const Polygon2& polygon,
                                     const RobotStateNode& current_node,
@@ -145,4 +145,4 @@ bool ComSelector::IsInMargin(const Polygon2& polygon,
   return true;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

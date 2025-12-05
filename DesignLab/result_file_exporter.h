@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_RESULT_FILE_EXPORTER_H_
-#define DESIGNLAB_RESULT_FILE_EXPORTER_H_
+#pragma once
 
 #include <fstream>
 #include <memory>
@@ -20,7 +19,7 @@
 #include "robot_state_node.h"
 #include "simulation_result_record.h"
 
-namespace designlab {
+namespace gaitgen {
 
 class ResultFileConst final {
  public:
@@ -122,6 +121,4 @@ class ResultFileExporter final {
       interpolated_node_creator_ptr_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_RESULT_FILE_EXPORTER_H_
+}  // namespace gaitgen

@@ -15,7 +15,7 @@
 #include "math_const.h"
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 NodeCreatorLegUpDownPruningBranch::NodeCreatorLegUpDownPruningBranch(
     const DividedMapState& divided_map,
@@ -298,4 +298,4 @@ bool NodeCreatorLegUpDownPruningBranch::IsAbleLegPos(
   return false;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

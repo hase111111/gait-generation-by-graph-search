@@ -9,7 +9,7 @@
 
 #include "cassert_define.h"
 
-namespace designlab {
+namespace gaitgen {
 
 GraphSearchEvaluator::GraphSearchEvaluator(
     const std::map<GraphSearchEvaluationValue::Tag, EvaluationMethod>&
@@ -106,4 +106,4 @@ GraphSearchEvaluationValue GraphSearchEvaluator::InitializeEvaluationValue()
   return evaluation_value;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

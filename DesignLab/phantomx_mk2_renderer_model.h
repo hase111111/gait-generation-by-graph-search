@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_PHANTOMX_MK2_RENDERER_MODEL_H_
-#define DESIGNLAB_PHANTOMX_MK2_RENDERER_MODEL_H_
+#pragma once
 
 #include <Dxlib.h>
 
@@ -21,7 +20,7 @@
 #include "interface_hexapod_joint_calculator.h"
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class PhantomXMkIIRendererModel
 //! @brief 3Dモデルを使用して PhantomX の描画を行うクラス.
@@ -62,6 +61,4 @@ class PhantomXMkIIRendererModel final : public IDxlib3dRenderer,
   DisplayQuality display_quality_;  //!< 描画品質.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_PHANTOMX_MK2_RENDERER_MODEL_H_
+}  // namespace gaitgen

@@ -29,7 +29,7 @@ float NormalizeAngle(float angle) {
 
 }  // namespace
 
-namespace designlab {
+namespace gaitgen {
 
 RobotOperatorForPath::RobotOperatorForPath(const std::vector<Vector3>& path)
     : global_route_(path), most_near_index_(0) {}
@@ -114,4 +114,4 @@ RobotOperation RobotOperatorForPath::Update(const RobotStateNode& node) {
   return operation_straight;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

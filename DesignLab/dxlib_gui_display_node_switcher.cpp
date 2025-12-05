@@ -13,7 +13,7 @@
 
 #include "font_loader.h"
 
-namespace designlab {
+namespace gaitgen {
 
 DxlibGuiDisplayNodeSwitcher::DxlibGuiDisplayNodeSwitcher(const int window_x,
                                                          const int window_y)
@@ -299,4 +299,4 @@ bool DxlibGuiDisplayNodeSwitcher::IsInWindow() const {
          0 < gui_left_pos_x_ + kWidth && 0 < gui_top_pos_y_ + kHeight;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

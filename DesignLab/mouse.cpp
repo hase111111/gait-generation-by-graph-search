@@ -13,7 +13,7 @@
 
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 Mouse::Mouse()
     : kMouseKeyCodes{MOUSE_INPUT_RIGHT, MOUSE_INPUT_LEFT, MOUSE_INPUT_MIDDLE,
@@ -79,4 +79,4 @@ double Mouse::GetDiffPos() const {
                                   math_util::Squared(GetDiffPosX())));
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

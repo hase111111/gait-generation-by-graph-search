@@ -16,7 +16,7 @@
 #include "phantomx_mk2_const.h"
 #include "rotation_matrix_3x3.h"
 
-namespace designlab {
+namespace gaitgen {
 
 PhantomXMkIIRendererModel::PhantomXMkIIRendererModel(
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
@@ -332,4 +332,4 @@ void PhantomXMkIIRendererModel::DrawJointAxis(const int leg_index) const {
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

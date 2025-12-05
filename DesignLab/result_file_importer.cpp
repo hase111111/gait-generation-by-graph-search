@@ -17,7 +17,7 @@
 
 namespace fs = ::std::filesystem;
 
-namespace designlab {
+namespace gaitgen {
 
 bool ResultFileImporter::ImportNodeListAndMapState(
     const std::string& file_path, std::vector<RobotStateNode>* node_list,
@@ -138,4 +138,4 @@ bool ResultFileImporter::ImportMapState(const std::string& file_path,
   return true;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

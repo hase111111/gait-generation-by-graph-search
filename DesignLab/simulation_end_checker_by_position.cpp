@@ -7,7 +7,7 @@
 
 #include "simulation_end_checker_by_position.h"
 
-namespace designlab {
+namespace gaitgen {
 
 SimulationEndCheckerByPosition::SimulationEndCheckerByPosition(
     const Vector3& goal_position, const float allowable_error)
@@ -25,4 +25,4 @@ bool SimulationEndCheckerByPosition::IsEnd(const RobotStateNode& node) const {
   return true;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

@@ -5,12 +5,9 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_DOCUMENT_H_
-#define DESIGNLAB_DOCUMENT_H_
+#pragma once
 
 // ドキュメント用のファイルのため,処理は無し.
-
-#endif  // DESIGNLAB_DOCUMENT_H_
 
 //! @mainpage
 //! @details
@@ -225,7 +222,7 @@
 //! constexprという機能があり,これを使うとコンパイル時に定数を計算してくれるため,
 //! 実行時の負荷が減る.
 //! 使用可能であるならばこれを使うべき.
-//! @see designlab::PhantomXMkIIConst
+//! @see gaitgen::PhantomXMkIIConst
 //!
 //! @anchor anchor_array
 //! @section ●配列について
@@ -367,8 +364,8 @@
 //!     return error_value::kErrorValue;
 //! }
 //! @endcode
-//! @see designlab::BootMode
-//! @see designlab::BootModeSelector
+//! @see gaitgen::BootMode
+//! @see gaitgen::BootModeSelector
 //! @n
 //!
 //! @anchor anchor_struct
@@ -380,6 +377,6 @@
 //! @nそのため,structを継承したクラスを作ることもできる.(非推奨だが)
 //! @n 構造体を使用する場合は,メンバ変数は全て public にしておき,
 //! そのようなクラスを作成したい場合に構造体を使うとよい.
-//! @see designlab::ApplicationSettingRecord
-//! @see designlab::Vector3
-//! @see designlab::Vector2
+//! @see gaitgen::ApplicationSettingRecord
+//! @see gaitgen::Vector3
+//! @see gaitgen::Vector2

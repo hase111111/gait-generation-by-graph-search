@@ -9,7 +9,7 @@
 
 #include <Dxlib.h>
 
-namespace designlab {
+namespace gaitgen {
 
 Keyboard::Keyboard() {
   for (int i = 0; i < kKeyNum; i++) {
@@ -68,4 +68,4 @@ bool Keyboard::IsAvailableCode(const int key_code) const {
   return true;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

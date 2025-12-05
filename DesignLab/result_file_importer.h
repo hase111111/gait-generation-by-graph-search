@@ -5,15 +5,14 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_RESULT_FILE_IMPORTER_H_
-#define DESIGNLAB_RESULT_FILE_IMPORTER_H_
+#pragma once
 
 #include <string>
 #include <vector>
 
 #include "result_file_exporter.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class ResultFileImporter
 //! @brief 結果をファイルから読み込むクラス.
@@ -36,6 +35,4 @@ class ResultFileImporter final {
   bool ImportMapState(const std::string& file_path, MapState* map_state) const;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_RESULT_FILE_IMPORTER_H_
+}  // namespace gaitgen

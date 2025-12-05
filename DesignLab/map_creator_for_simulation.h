@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MAP_CREATOR_FOR_SIMULATION_H_
-#define DESIGNLAB_MAP_CREATOR_FOR_SIMULATION_H_
+#pragma once
 
 #include <vector>
 
@@ -15,7 +14,7 @@
 #include "simulation_map_parameter.h"
 #include "vector3.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class MapCreatorForSimulation
 //! @brief シミュレーション用のマップを生成するクラス.
@@ -84,6 +83,4 @@ class MapCreatorForSimulation final : public IMapCreator {
   const SimulationMapParameter parameter_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_MAP_CREATOR_FOR_SIMULATION_H_
+}  // namespace gaitgen

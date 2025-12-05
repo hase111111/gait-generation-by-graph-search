@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_GRAPHIC_SYSTEM_H_
-#define DESIGNLAB_GRAPHIC_SYSTEM_H_
+#pragma once
 
 #include <boost/thread.hpp>
 #include <memory>
@@ -16,7 +15,7 @@
 #include "graphic_data_broker.h"
 #include "interface_graphic_main.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class GraphicSystem
 //! @brief Dxlibの処理を行うクラス.
@@ -123,6 +122,4 @@ class GraphicSystem final {
   boost::mutex mutex_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_GRAPHIC_SYSTEM_H_
+}  // namespace gaitgen

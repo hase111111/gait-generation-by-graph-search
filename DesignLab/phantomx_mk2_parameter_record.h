@@ -5,12 +5,11 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_PHANTOMX_MK2_PARAMETER_RECORD_H_
-#define DESIGNLAB_PHANTOMX_MK2_PARAMETER_RECORD_H_
+#pragma once
 
 #include "toml_serialize_macro.h"
 
-namespace designlab {
+namespace gaitgen {
 
 struct PhantomXMkIIParameterRecord final {
   //!  地面から胴体を持ち上げる高さ[mm].最小ここまで下げられる.
@@ -20,7 +19,7 @@ struct PhantomXMkIIParameterRecord final {
   float body_lifting_height_max{160.f};
 
   float movable_coxa_angle_min_deg{-40.f};  //!< 脚の可動範囲の最小値[deg]
-  float movable_coxa_angle_max_deg{40.f};  //!< 脚の可動範囲の最大値[deg]
+  float movable_coxa_angle_max_deg{40.f};   //!< 脚の可動範囲の最大値[deg]
 
   float min_leg_range{140.f};  //!< 脚の付け根から脚先までの最小距離[mm]
   float max_leg_range{200.f};  //!< 脚の付け根から脚先までの最大距離[mm]
@@ -68,12 +67,10 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(PhantomXMkIIParameterRecord) {
       "(Based on previous studies, max is about 40 mm.)");
 };
 
-}  // namespace designlab
+}  // namespace gaitgen
 
-DESIGNLAB_TOML11_SERIALIZE(designlab::PhantomXMkIIParameterRecord,
+DESIGNLAB_TOML11_SERIALIZE(gaitgen::PhantomXMkIIParameterRecord,
                            body_lifting_height_min, body_lifting_height_max,
                            movable_coxa_angle_min_deg,
                            movable_coxa_angle_max_deg, min_leg_range,
                            max_leg_range, free_leg_height, stable_margin);
-
-#endif  // DESIGNLAB_PHANTOMX_MK2_PARAMETER_RECORD_H_

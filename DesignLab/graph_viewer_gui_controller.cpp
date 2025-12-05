@@ -16,7 +16,7 @@
 #include "keyboard.h"
 #include "leg_state.h"
 
-namespace designlab {
+namespace gaitgen {
 
 GraphViewerGUIController::GraphViewerGUIController(
     const std::vector<RobotStateNode>* const p_graph,
@@ -345,4 +345,4 @@ void GraphViewerGUIController::UpdateGraphNodeDepthData() {
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

@@ -24,7 +24,7 @@
 #include "node_creator_sequence_straight_move_legacy.h"
 #include "node_creator_sequence_wall.h"
 
-namespace designlab {
+namespace gaitgen {
 
 GpgSelector::GpgSelector(
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
@@ -199,4 +199,4 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgPruningBranchLegacy()
   return std::move(gait_pattern_generator);
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

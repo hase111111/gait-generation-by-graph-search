@@ -27,7 +27,7 @@
 #include "toml_file_importer.h"
 #include "world_grid_renderer.h"
 
-namespace designlab {
+namespace gaitgen {
 
 GraphicMainDisplayModel::GraphicMainDisplayModel(
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
@@ -345,4 +345,4 @@ void GraphicMainDisplayModel::MoveLeg() {
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

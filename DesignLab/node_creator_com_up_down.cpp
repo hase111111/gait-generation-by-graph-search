@@ -15,7 +15,7 @@
 #include "math_util.h"
 #include "phantomx_mk2_const.h"
 
-namespace designlab {
+namespace gaitgen {
 
 NodeCreatorComUpDown::NodeCreatorComUpDown(
     const DividedMapState& divided_map,
@@ -136,4 +136,4 @@ void NodeCreatorComUpDown::pushNodeByMaxAndMinPosZ(
   (*output_graph).emplace_back(same_node);
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

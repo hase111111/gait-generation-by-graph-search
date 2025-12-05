@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_SIMULATION_SETTING_RECORD_H_
-#define DESIGNLAB_SIMULATION_SETTING_RECORD_H_
+#pragma once
 
 #include <format>
 #include <string>
@@ -19,7 +18,7 @@
 #include "toml_serialize_macro.h"
 #include "vector3.h"
 
-namespace designlab::enums {
+namespace gaitgen::enums {
 
 enum class MapCreateMode : int { kForSimulation, kFromFile };
 
@@ -31,9 +30,9 @@ enum class SimulationEndCheckMode : int {
   kPosition,  //!< 目的の座標に到達したかどうか.
 };
 
-}  // namespace designlab::enums
+}  // namespace gaitgen::enums
 
-namespace designlab {
+namespace gaitgen {
 
 struct SimulationSettingRecord final {
   GpgType gpg_type{GpgType::kFlat};
@@ -179,9 +178,9 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationSettingRecord) {
           string_util::EnumValuesToString<HexapodMove>("\" / \"")));
 };
 
-}  // namespace designlab
+}  // namespace gaitgen
 
-DESIGNLAB_TOML11_SERIALIZE(designlab::SimulationSettingRecord, gpg_type,
+DESIGNLAB_TOML11_SERIALIZE(gaitgen::SimulationSettingRecord, gpg_type,
                            gpg_depth, gpg_memory_limit, map_create_mode,
                            simulation_map_param_file_name, map_file_name,
                            end_check_mode, goal_tape_position_x, target_posture,
@@ -189,5 +188,3 @@ DESIGNLAB_TOML11_SERIALIZE(designlab::SimulationSettingRecord, gpg_type,
                            target_position_allowable_error, operate_mode,
                            fixed_operate_file_name, path_points,
                            initial_positions, initial_move, initial_posture);
-
-#endif  // DESIGNLAB_SIMULATION_SETTING_RECORD_H_

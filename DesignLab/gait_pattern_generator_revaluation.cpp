@@ -14,7 +14,7 @@
 #include "gait_pattern_graph_tree.h"
 #include "map_state.h"
 
-namespace designlab {
+namespace gaitgen {
 
 GaitPatternGeneratorRevaluation::GaitPatternGeneratorRevaluation(
     std::unique_ptr<IGaitPatternGenerator>&& gait_pattern_generator_ptr,
@@ -105,4 +105,4 @@ std::vector<int> GaitPatternGeneratorRevaluation::GetExpandedNodeCountPerDepth()
   return {};
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

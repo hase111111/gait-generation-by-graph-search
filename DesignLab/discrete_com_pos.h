@@ -5,10 +5,9 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_DISCRETE_COM_POS_H_
-#define DESIGNLAB_DISCRETE_COM_POS_H_
+#pragma once
 
-namespace designlab::enums {
+namespace gaitgen::enums {
 
 //! @enum 離散化された重心位置を表す列挙型.
 //! @brief 重心がどこにあるかを表す.
@@ -23,6 +22,4 @@ enum class DiscreteComPos {
   kCenterBack,   //!< 重心が中央後方にある.逆三角径.
 };
 
-}  // namespace designlab::enums
-
-#endif  // DESIGNLAB_DISCRETE_COM_POS_H_
+}  // namespace gaitgen::enums

@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_DXLIB_GUI_UPDATER_H_
-#define DESIGNLAB_DXLIB_GUI_UPDATER_H_
+#pragma once
 
 #include <map>
 #include <memory>
@@ -19,7 +18,7 @@
 #include "interface_dxlib_wheel_handler.h"
 #include "mouse.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @brief IDxlibGuiを継承しているかどうかを判定する.
 template <typename T>
@@ -53,7 +52,7 @@ concept IsDxlibUpdatable = (IsDxlibGui<T> || IsDxlibClickable<T> ||
 //! @n 神クラスになっている感は否めないが,また問題が起きたら修正する.
 class DxlibGuiUpdater final {
  public:
-  static constexpr int kBottomPriority{0};  //!< 最も優先度が低い.
+  static constexpr int kBottomPriority{0};     //!< 最も優先度が低い.
   static constexpr int kTopPriority{1000000};  //!< 最も優先的に処理される.
 
   //! @brief UpdateとDrawを行うGUIを登録する.
@@ -143,6 +142,4 @@ class DxlibGuiUpdater final {
   bool is_terminal_opened_{false};  //!< Terminal が開かれているかどうか.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_DXLIB_GUI_UPDATER_H_
+}  // namespace gaitgen

@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_INTERPOLATE_VALIDATOR_H_
-#define DESIGNLAB_INTERPOLATE_VALIDATOR_H_
+#pragma once
 
 #include <memory>
 
@@ -15,7 +14,7 @@
 #include "interpolated_node_creator.h"
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class InterpolateValidator
 //! @brief 補間の妥当性を検証するクラス.
@@ -42,6 +41,4 @@ class InterpolateValidator final {
   InterpolatedNodeCreator interpolated_node_creator_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_INTERPOLATE_VALIDATOR_H_
+}  // namespace gaitgen

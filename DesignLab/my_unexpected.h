@@ -5,15 +5,14 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_UNEXPECTED_H_
-#define DESIGNLAB_UNEXPECTED_H_
+#pragma once
 
 #include <initializer_list>
 #include <stdexcept>
 #include <type_traits>
 #include <utility>
 
-namespace designlab::nostd {
+namespace gaitgen::nostd {
 
 template <typename E>
 class unexpected final {
@@ -45,7 +44,7 @@ class unexpected final {
   // コンストラクタ
 
   constexpr unexpected(const unexpected&) = default;  //!< コピーコンストラクタ
-  constexpr unexpected(unexpected&&) = default;  //!< ムーブコンストラクタ
+  constexpr unexpected(unexpected&&) = default;       //!< ムーブコンストラクタ
 
   template <typename Err = E,
             std::enable_if_t<param_concept3<Err>, std::nullptr_t> = nullptr>
@@ -111,6 +110,4 @@ static_assert(unexpected<int>{0}.error() == 0,
 static_assert(unexpected<std::string>{"error"}.error() == "error",
               "unexpected<std::string>のerror()が正しく動作しません。");
 
-}  // namespace designlab::nostd
-
-#endif  // DESIGNLAB_UNEXPECTED_H_
+}  // namespace gaitgen::nostd

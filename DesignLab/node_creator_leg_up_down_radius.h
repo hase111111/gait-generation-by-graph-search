@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_NODE_CREATOR_LEG_UP_DOWN_RADIUS_H_
-#define DESIGNLAB_NODE_CREATOR_LEG_UP_DOWN_RADIUS_H_
+#pragma once
 
 #include <memory>
 #include <vector>
@@ -18,7 +17,7 @@
 #include "interface_hexapod_state_presenter.h"
 #include "interface_node_creator.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class NodeCreatorLegUpDownRadius
 //! @brief
@@ -60,6 +59,4 @@ class NodeCreatorLegUpDownRadius final : public INodeCreator {
   const std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_NODE_CREATOR_LEG_UP_DOWN_RADIUS_H_
+}  // namespace gaitgen

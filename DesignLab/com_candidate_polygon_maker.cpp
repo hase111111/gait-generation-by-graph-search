@@ -11,7 +11,7 @@
 #include "hexapod_const.h"
 #include "math_line_segment2.h"
 
-namespace designlab {
+namespace gaitgen {
 
 ComCandidatePolygonMaker::ComCandidatePolygonMaker(
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr)
@@ -173,4 +173,4 @@ bool ComCandidatePolygonMaker::IsAblePolygon(const Polygon2& poly) const {
   return false;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

@@ -5,14 +5,13 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_DXLIB_CAMERA_H_
-#define DESIGNLAB_DXLIB_CAMERA_H_
+#pragma once
 
 #include <Dxlib.h>
 
 #include "math_quaternion.h"
 
-namespace designlab::enums {
+namespace gaitgen::enums {
 
 //! @enum CameraViewMode
 //! @brief カメラの視点を表す列挙体.
@@ -30,9 +29,9 @@ enum class CameraViewMode {
   kFreeControlledAndMovableTarget,  //!< 自由に操作可能かつ注視点を設定可能.
 };
 
-}  // namespace designlab::enums
+}  // namespace gaitgen::enums
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class DxlibCamera
 //! @brief Dxlib の3Dのカメラの状態を管理するクラス.
@@ -128,8 +127,8 @@ class DxlibCamera final {
   struct CameraState final {
     CameraState() : camera_quat{}, target_pos{}, length_camera_to_target(0) {}
 
-    Quaternion camera_quat;  //!< カメラの回転を表すクォータニオン.
-    Vector3 target_pos;      //!< カメラの注視点.
+    Quaternion camera_quat;         //!< カメラの回転を表すクォータニオン.
+    Vector3 target_pos;             //!< カメラの注視点.
     float length_camera_to_target;  //!< カメラと注視点との距離.
   };
 
@@ -155,6 +154,4 @@ class DxlibCamera final {
   CameraState goal_camera_state_;  //!< 目標とするカメラの状態をまとめた構造体.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_DXLIB_CAMERA_H_
+}  // namespace gaitgen

@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_NODE_CREATOR_COM_MOVE_H_
-#define DESIGNLAB_NODE_CREATOR_COM_MOVE_H_
+#pragma once
 
 #include <memory>
 #include <vector>
@@ -20,7 +19,7 @@
 #include "interface_node_creator.h"
 #include "math_polygon2.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class NodeCreatorComMove
 //! @brief 波東さんの手法で重心の平行移動を行うクラス.
@@ -52,6 +51,4 @@ class NodeCreatorComMove final : public INodeCreator {
   const std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_NODE_CREATOR_COM_MOVE_H_
+}  // namespace gaitgen

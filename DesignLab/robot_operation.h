@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_ROBOT_OPERATION_H_
-#define DESIGNLAB_ROBOT_OPERATION_H_
+#pragma once
 
 #include <format>
 
@@ -15,7 +14,7 @@
 #include "toml_serialize_macro.h"
 #include "vector3.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @enum RobotOperationType
 //! @brief Robotをどのように動かすかを表す列挙体.
@@ -112,11 +111,9 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(RobotOperation) {
                   string_util::EnumValuesToString<RobotOperationType>(" / ")));
 };
 
-}  // namespace designlab
+}  // namespace gaitgen
 
-DESIGNLAB_TOML11_SERIALIZE(designlab::RobotOperation, straight_move_vector,
+DESIGNLAB_TOML11_SERIALIZE(gaitgen::RobotOperation, straight_move_vector,
                            straight_move_position, spot_turn_last_posture,
                            spot_turn_rot_axis, operation_type, turn_center,
                            turn_radius, turn_clockwise);
-
-#endif  // DESIGNLAB_ROBOT_OPERATION_H_

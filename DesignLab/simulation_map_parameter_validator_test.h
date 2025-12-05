@@ -5,16 +5,15 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_SIMULATION_MAP_PARAMETER_VALIDATOR_TEST_H_
-#define DESIGNLAB_SIMULATION_MAP_PARAMETER_VALIDATOR_TEST_H_
+#pragma once
 
 #include <doctest.h>
 
 #include "simulation_map_parameter_validator.h"
 
 TEST_SUITE("SimulationMapParameterValidator::Validate") {
-  using designlab::SimulationMapParameter;
-  using designlab::SimulationMapParameterValidator;
+  using gaitgen::SimulationMapParameter;
+  using gaitgen::SimulationMapParameterValidator;
 
   SimulationMapParameterValidator validator;
 
@@ -115,5 +114,3 @@ TEST_SUITE("SimulationMapParameterValidator::Validate") {
     }
   }
 }
-
-#endif  // DESIGNLAB_SIMULATION_MAP_PARAMETER_VALIDATOR_TEST_H_

@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_COM_CANDIDATE_POLYGON_MAKER_H_
-#define DESIGNLAB_COM_CANDIDATE_POLYGON_MAKER_H_
+#pragma once
 
 #include <array>
 #include <memory>
@@ -17,7 +16,7 @@
 #include "math_polygon2.h"
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @struct ComPosAndPolygon
 //! @brief
@@ -29,7 +28,7 @@ struct ComPosAndPolygon {
 
   enums::DiscreteComPos com_pos;  //!< 離散化された重心位置.
   Polygon2 polygon;               //!< 重心位置を含む多角形.
-  bool is_able;  //!< 重心位置を含む多角形が正しいかどうか.
+  bool is_able;                   //!< 重心位置を含む多角形が正しいかどうか.
 };
 
 //! @class ComCandidatePolygonMaker
@@ -76,6 +75,4 @@ class ComCandidatePolygonMaker final {
   const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_COM_CANDIDATE_POLYGON_MAKER_H_
+}  // namespace gaitgen

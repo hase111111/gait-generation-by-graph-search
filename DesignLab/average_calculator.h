@@ -5,14 +5,13 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_AVERAGE_CALCULATOR_H_
-#define DESIGNLAB_AVERAGE_CALCULATOR_H_
+#pragma once
 
 #include <cmath>
 #include <optional>
 #include <vector>
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class AverageCalculator
 //! @brief 平均値,分散,標準偏差を求めるテンプレートクラス.
@@ -113,6 +112,4 @@ class AverageCalculator final {
   std::optional<double> standard_deviation_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_AVERAGE_CALCULATOR_H_
+}  // namespace gaitgen

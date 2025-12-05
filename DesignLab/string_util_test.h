@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_STRING_UTIL_TEST_H_
-#define DESIGNLAB_STRING_UTIL_TEST_H_
+#pragma once
 
 #include <doctest.h>
 
@@ -39,7 +38,7 @@ TEST_SUITE("string_util::Split") {
 
       const std::vector<std::string> ans = {"a", "b", "c"};
       const std::vector<std::string> result =
-          designlab::string_util::Split(str, delim);
+          gaitgen::string_util::Split(str, delim);
 
       INFO("分割された文字列は次の通りです." << StringVectorToString(result));
 
@@ -54,7 +53,7 @@ TEST_SUITE("string_util::Split") {
 
       const std::vector<std::string> ans = {"a", "b", "c"};
       const std::vector<std::string> result =
-          designlab::string_util::Split(str, delim);
+          gaitgen::string_util::Split(str, delim);
 
       INFO("分割された文字列は次の通りです." << StringVectorToString(result));
 
@@ -69,7 +68,7 @@ TEST_SUITE("string_util::Split") {
 
       const std::vector<std::string> ans = {"", "a", "b", "c"};
       const std::vector<std::string> result =
-          designlab::string_util::Split(str, delim);
+          gaitgen::string_util::Split(str, delim);
 
       INFO("分割された文字列は次の通りです." << StringVectorToString(result));
 
@@ -88,7 +87,7 @@ TEST_SUITE("string_util::EnumToStringRemoveTopK") {
       const SampleEnum sample_enum = SampleEnum::kOne;
       const std::string expect = "One";
       const std::string actual =
-          designlab::string_util::EnumToStringRemoveTopK(sample_enum);
+          gaitgen::string_util::EnumToStringRemoveTopK(sample_enum);
 
       INFO("変換された文字列は次の通りです." << actual);
 
@@ -99,7 +98,7 @@ TEST_SUITE("string_util::EnumToStringRemoveTopK") {
       const SampleEnum sample_enum = SampleEnum::knight;
       const std::string expect = "night";
       const std::string actual =
-          designlab::string_util::EnumToStringRemoveTopK(sample_enum);
+          gaitgen::string_util::EnumToStringRemoveTopK(sample_enum);
 
       INFO("変換された文字列は次の通りです." << actual);
 
@@ -113,7 +112,7 @@ TEST_SUITE("string_util::EnumToStringRemoveTopK") {
       const SampleEnum sample_enum = SampleEnum::three;
       const std::string expect = "three";
       const std::string actual =
-          designlab::string_util::EnumToStringRemoveTopK(sample_enum);
+          gaitgen::string_util::EnumToStringRemoveTopK(sample_enum);
 
       INFO("変換された文字列は次の通りです." << actual);
 
@@ -124,7 +123,7 @@ TEST_SUITE("string_util::EnumToStringRemoveTopK") {
       const SampleEnum sample_enum = SampleEnum::FOUR;
       const std::string expect = "FOUR";
       const std::string actual =
-          designlab::string_util::EnumToStringRemoveTopK(sample_enum);
+          gaitgen::string_util::EnumToStringRemoveTopK(sample_enum);
 
       INFO("変換された文字列は次の通りです." << actual);
 
@@ -135,7 +134,7 @@ TEST_SUITE("string_util::EnumToStringRemoveTopK") {
       const SampleEnum sample_enum = SampleEnum::Five;
       const std::string expect = "Five";
       const std::string actual =
-          designlab::string_util::EnumToStringRemoveTopK(sample_enum);
+          gaitgen::string_util::EnumToStringRemoveTopK(sample_enum);
 
       INFO("変換された文字列は次の通りです." << actual);
 
@@ -157,7 +156,7 @@ TEST_SUITE("string_util::EnumValuesToString") {
     const std::string expect = "kApple,kBanana,kTomato";
     const std::string sep = ",";
     const std::string actual =
-        designlab::string_util::EnumValuesToString<SampleEnum>(sep);
+        gaitgen::string_util::EnumValuesToString<SampleEnum>(sep);
 
     INFO("変換された文字列は次の通りです." << actual);
 
@@ -178,12 +177,10 @@ TEST_SUITE("string_util::EnumEntriesToString") {
     const std::string expect = "kApple = 0,kBanana = 1,kTomato = 5";
     const std::string sep = ",";
     const std::string actual =
-        designlab::string_util::EnumEntriesToString<SampleEnum>(sep);
+        gaitgen::string_util::EnumEntriesToString<SampleEnum>(sep);
 
     INFO("変換された文字列は次の通りです." << actual);
 
     CHECK(actual == expect);
   }
 }
-
-#endif  // DESIGNLAB_STRING_UTIL_TEST_H_

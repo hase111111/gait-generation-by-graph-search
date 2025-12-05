@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_HEXAPOD_RENDERER_BUILDER_H_
-#define DESIGNLAB_HEXAPOD_RENDERER_BUILDER_H_
+#pragma once
 
 #include <memory>
 #include <tuple>
@@ -17,7 +16,7 @@
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_joint_calculator.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class HexapodRendererBuilder
 //! @brief HexapodRendererクラスのインスタンスを作成するクラス.
@@ -36,6 +35,4 @@ class HexapodRendererBuilder final {
         DisplayQuality display_quality);
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_HEXAPOD_RENDERER_BUILDER_H_
+}  // namespace gaitgen

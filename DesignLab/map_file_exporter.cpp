@@ -11,7 +11,7 @@
 
 #include "cmdio_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 bool MapFileExporter::ExportMap(const std::string& file_path,
                                 const MapState& map_state) const noexcept {
@@ -38,4 +38,4 @@ bool MapFileExporter::ExportMap(const std::string& file_path,
   return true;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

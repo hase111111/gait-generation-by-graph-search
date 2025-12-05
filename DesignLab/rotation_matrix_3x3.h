@@ -13,9 +13,9 @@
 #include "math_euler.h"
 #include "vector3.h"
 
-namespace designlab {
+namespace gaitgen {
 
-//! @struct designlab::RotationMatrix3x3
+//! @struct gaitgen::RotationMatrix3x3
 //! @brief 3次元の回転行列を表す構造体.
 //! @details
 //! 回転行列については以下の参考資料を確認すること.
@@ -81,4 +81,4 @@ struct RotationMatrix3x3 final {
 [[nodiscard]] Vector3 RotateVector3(const Vector3& vec,
                                     const RotationMatrix3x3& rot);
 
-}  // namespace designlab
+}  // namespace gaitgen

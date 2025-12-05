@@ -11,7 +11,7 @@
 
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 RotationMatrix3x3 RotationMatrix3x3::operator*(
     const RotationMatrix3x3& other) const {
@@ -85,4 +85,4 @@ Vector3 RotateVector3(const Vector3& vec, const RotationMatrix3x3& rot) {
   return res;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

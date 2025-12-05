@@ -15,7 +15,7 @@
 #include "file_tree.h"
 #include "serial_communication_thread.h"
 
-namespace designlab {
+namespace gaitgen {
 
 SystemMainRobotControl::SystemMainRobotControl(
     const std::shared_ptr<GraphicDataBroker>& broker_ptr)
@@ -191,4 +191,4 @@ void SystemMainRobotControl::InitializeDirectory() {
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

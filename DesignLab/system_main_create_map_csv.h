@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_SYSTEM_MAIN_CREATE_MAP_CSV_H_
-#define DESIGNLAB_SYSTEM_MAIN_CREATE_MAP_CSV_H_
+#pragma once
 
 #include <memory>
 #include <string>
@@ -24,7 +23,7 @@
 #include "robot_operation.h"
 #include "stopwatch.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class SystemMainCreateMapCsv
 class SystemMainCreateMapCsv final : public ISystemMain {
@@ -39,6 +38,4 @@ class SystemMainCreateMapCsv final : public ISystemMain {
   const std::shared_ptr<GraphicDataBroker> broker_ptr_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_SYSTEM_MAIN_CREATE_MAP_CSV_H_
+}  // namespace gaitgen

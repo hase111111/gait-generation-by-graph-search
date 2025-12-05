@@ -13,7 +13,7 @@
 
 #include "font_loader.h"
 
-namespace designlab {
+namespace gaitgen {
 
 AbstractDxlibGui::AbstractDxlibGui(int width, int height)
     : width_(width),
@@ -137,4 +137,4 @@ void AbstractDxlibGui::DrawBackground(const std::string& str) const {
   SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

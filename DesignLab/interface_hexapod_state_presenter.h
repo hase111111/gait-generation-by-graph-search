@@ -5,12 +5,11 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_INTERFACE_HEXAPOD_STATE_PRESENTER_H_
-#define DESIGNLAB_INTERFACE_HEXAPOD_STATE_PRESENTER_H_
+#pragma once
 
 #include "vector3.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class IHexapodStatePresenter
 //! @brief 6脚ロボットの状態を表示するクラス.
@@ -39,6 +38,4 @@ class IHexapodStatePresenter {
   [[nodiscard]] virtual float GetGroundHeightMarginMax() const noexcept = 0;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_INTERFACE_HEXAPOD_STATE_PRESENTER_H_
+}  // namespace gaitgen

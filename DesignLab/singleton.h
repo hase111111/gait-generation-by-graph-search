@@ -5,10 +5,9 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_SINGLETON_H_
-#define DESIGNLAB_SINGLETON_H_
+#pragma once
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class Singleton
 //! @brief Singletonクラス作成のためのテンプレートクラス.
@@ -42,6 +41,4 @@ class Singleton {
   Singleton& operator=(const Singleton& r) = default;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_SINGLETON_H_
+}  // namespace gaitgen

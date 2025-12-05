@@ -15,7 +15,7 @@
 #include "leg_state.h"
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 GraphSearcherStraightMove::GraphSearcherStraightMove(
     const std::shared_ptr<const IHexapodPostureValidator>& checker_ptr)
@@ -282,4 +282,4 @@ float GraphSearcherStraightMove::GetZDiffEvaluationValue(
   return result;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

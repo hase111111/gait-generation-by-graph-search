@@ -5,14 +5,13 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_INTERFACE_NODE_CREATOR_H_
-#define DESIGNLAB_INTERFACE_NODE_CREATOR_H_
+#pragma once
 
 #include <vector>
 
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class INodeCreator
 //! @brief ノード生成処理のインターフェース.
@@ -31,6 +30,4 @@ class INodeCreator {
                       std::vector<RobotStateNode>* output_graph) const = 0;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_INTERFACE_NODE_CREATOR_H_
+}  // namespace gaitgen

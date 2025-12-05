@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_SIMPLE_BUTTON_H_
-#define DESIGNLAB_SIMPLE_BUTTON_H_
+#pragma once
 
 #include <functional>
 #include <string>
@@ -15,7 +14,7 @@
 #include "interface_dxlib_clickable.h"
 #include "interface_dxlib_gui.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class SimpleButton
 //! @brief Dxlibのウィンドウのボタンの処理・描画を管理するクラス.
@@ -78,7 +77,7 @@ class SimpleButton final : public IDxlibGui, public IDxlibClickable {
   int GetFitButtonSizeX(int now_size_x) const noexcept;
   int GetFitButtonSizeY(int now_size_y) const noexcept;
 
-  const int kFontSize{16};  //!< フォントのサイズ
+  const int kFontSize{16};                               //!< フォントのサイズ
   const std::string kFontPath{"font/Yu_Gothic_UI.dft"};  //!< フォントへのパス
 
   //! ボタンに書かれているテキスト,複数行に対応.
@@ -97,6 +96,4 @@ class SimpleButton final : public IDxlibGui, public IDxlibClickable {
   std::function<void()> click_function_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_SIMPLE_BUTTON_H_
+}  // namespace gaitgen

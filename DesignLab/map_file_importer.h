@@ -5,15 +5,14 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MAP_FILE_IMPORTER_H_
-#define DESIGNLAB_MAP_FILE_IMPORTER_H_
+#pragma once
 
 #include <string>
 
 #include "map_state.h"
 #include "my_expected.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class MapFileImporter
 //! @brief マップを csv に出力したものを読み込むクラス.
@@ -28,6 +27,4 @@ class MapFileImporter final {
       const std::string& file_path) const noexcept;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_MAP_FILE_IMPORTER_H_
+}  // namespace gaitgen

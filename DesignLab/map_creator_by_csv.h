@@ -5,14 +5,13 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MAP_CREATOR_BY_CSV_H_
-#define DESIGNLAB_MAP_CREATOR_BY_CSV_H_
+#pragma once
 
 #include <string>
 
 #include "interface_map_creator.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class MapCreatorByCsv
 //! @brief CSV ファイルからマップを生成するクラス.
@@ -30,6 +29,4 @@ class MapCreatorByCsv final : public IMapCreator {
   std::string map_file_path_;  //!< マップの CSV ファイルのパス.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_MAP_CREATOR_BY_CSV_H_
+}  // namespace gaitgen

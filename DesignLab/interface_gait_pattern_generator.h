@@ -15,7 +15,7 @@
 #include "robot_operation.h"
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class IGaitPatternGenerator
 //! @brief グラフ探索による歩容パターン生成を行うクラスのインターフェース.
@@ -48,4 +48,4 @@ class IGaitPatternGenerator {
   virtual std::vector<int> GetExpandedNodeCountPerDepth() const = 0;
 };
 
-}  // namespace designlab
+}  // namespace gaitgen

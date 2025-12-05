@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_DXLIB_GUI_CAMERA_H_
-#define DESIGNLAB_DXLIB_GUI_CAMERA_H_
+#pragma once
 
 #include <map>
 #include <memory>
@@ -19,7 +18,7 @@
 #include "simple_button.h"
 #include "vector3.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class DxlibGuiCamera
 //! @brief カメラの操作・管理を行うGUIの処理・描画を行うクラス.
@@ -56,6 +55,4 @@ class DxlibGuiCamera final : public AbstractDxlibGui, public IDxlibNodeSetter {
   const std::shared_ptr<DxlibCamera> camera_;  //!< カメラの管理を行うクラス.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_DXLIB_GUI_CAMERA_H_
+}  // namespace gaitgen

@@ -5,15 +5,14 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_ROBOT_OPERATOR_FACTORY_H_
-#define DESIGNLAB_ROBOT_OPERATOR_FACTORY_H_
+#pragma once
 
 #include <memory>
 
 #include "interface_robot_operator.h"
 #include "simulation_setting_record.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class RobotOperatorFactory
 //! @brief TargetUpdaterを生成するファクトリクラス.
@@ -26,6 +25,4 @@ class RobotOperatorFactory final {
       const SimulationSettingRecord& setting);
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_ROBOT_OPERATOR_FACTORY_H_
+}  // namespace gaitgen

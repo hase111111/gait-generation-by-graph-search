@@ -13,7 +13,7 @@
 
 #include "cassert_define.h"
 
-namespace designlab {
+namespace gaitgen {
 
 GaitPatternGeneratorSwitchMove::GaitPatternGeneratorSwitchMove(
     std::unique_ptr<IGaitPatternGenerator>&& gpg_for_straight_ptr,
@@ -76,4 +76,4 @@ std::vector<int> GaitPatternGeneratorSwitchMove::GetExpandedNodeCountPerDepth()
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

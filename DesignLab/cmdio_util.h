@@ -23,7 +23,7 @@
 
 #define DESIGNLAB_USE_COLOR_OUTPUT
 
-namespace designlab::cmdio {
+namespace gaitgen::cmdio {
 
 //! @brief 出力するメッセージをどこまで許可するかを設定する関数.
 //! @n この関数を呼び出してから出ないと,他の関数を使えない.
@@ -216,4 +216,4 @@ std::string InputDirName(
 
 constexpr int kHorizontalLineLength = 100;  //!< 水平線の長さ.
 
-}  // namespace designlab::cmdio
+}  // namespace gaitgen::cmdio

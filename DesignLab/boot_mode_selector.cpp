@@ -14,7 +14,7 @@
 #include "cmdio_util.h"
 #include "string_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 BootModeSelector::BootModeSelector()
     : kBootModeNum(static_cast<int>(magic_enum::enum_count<BootMode>())),
@@ -61,4 +61,4 @@ BootMode BootModeSelector::SelectBootMode() {
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

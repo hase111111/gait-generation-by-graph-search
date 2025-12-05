@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_INTERFACE_HEXAPOD_POSTURE_VALIDATOR_H_
-#define DESIGNLAB_INTERFACE_HEXAPOD_POSTURE_VALIDATOR_H_
+#pragma once
 
 #include <array>
 
@@ -16,7 +15,7 @@
 #include "robot_state_node.h"
 #include "vector3.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class IHexapodPostureValidator
 //! @brief 6脚ロボットが有効な姿勢をとっているかを
@@ -86,6 +85,4 @@ class IHexapodPostureValidator {
       const RobotStateNode& node, const DividedMapState& divided_map) const = 0;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_INTERFACE_HEXAPOD_POSTURE_VALIDATOR_H_
+}  // namespace gaitgen

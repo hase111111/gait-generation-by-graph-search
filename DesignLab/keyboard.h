@@ -5,12 +5,11 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_KEYBOARD_H_
-#define DESIGNLAB_KEYBOARD_H_
+#pragma once
 
 #include <array>
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class Keyboard
 //! @brief Dxlibのキーボード入力を取得するクラス.
@@ -48,6 +47,4 @@ class Keyboard final {
   std::array<int, kKeyNum> key_releasing_counter_;  //!< 離されカウンタ.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_KEYBOARD_H_
+}  // namespace gaitgen

@@ -15,7 +15,7 @@
 #include "math_util.h"
 #include "string_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 void RobotStateNode::ChangeGlobalCenterOfMass(const Vector3& new_com,
                                               const bool base) {
@@ -182,4 +182,4 @@ RobotStateNode RobotStateNode::FromString(const std::string& str) {
   return res;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

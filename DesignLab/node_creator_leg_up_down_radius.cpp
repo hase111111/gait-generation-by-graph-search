@@ -15,7 +15,7 @@
 #include "math_const.h"
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 NodeCreatorLegUpDownRadius::NodeCreatorLegUpDownRadius(
     const DividedMapState& divided_map,
@@ -296,4 +296,4 @@ bool NodeCreatorLegUpDownRadius::IsAbleLegPos(const RobotStateNode& _node,
   return false;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

@@ -5,12 +5,11 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_INTERFACE_DXLIB_NODE_SETTER_H_
-#define DESIGNLAB_INTERFACE_DXLIB_NODE_SETTER_H_
+#pragma once
 
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class IDxlibNodeSetter
 //! @brief DxLibのGuiやRendererでノードのセットを行うためのインターフェース.
@@ -23,6 +22,4 @@ class IDxlibNodeSetter {
   virtual void SetNode(const RobotStateNode& node) = 0;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_INTERFACE_DXLIB_NODE_SETTER_H_
+}  // namespace gaitgen

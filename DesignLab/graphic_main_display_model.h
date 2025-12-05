@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_GRAPHIC_MAIN_DISPLAY_MODEL_H_
-#define DESIGNLAB_GRAPHIC_MAIN_DISPLAY_MODEL_H_
+#pragma once
 
 #include <memory>
 
@@ -23,7 +22,7 @@
 #include "map_state.h"
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class GraphicMainDisplayModel
 //! @brief
@@ -51,7 +50,7 @@ class GraphicMainDisplayModel final : public IGraphicMain {
 
   DxlibGuiUpdater gui_updater_;             //!< GUIの更新を行うクラス.
   DxlibNodeSetterGroup node_setter_group_;  //!< ノードの設定を行うクラス.
-  Dxlib3dRendererGroup render_group_;  //!< 描画を行うクラス.
+  Dxlib3dRendererGroup render_group_;       //!< 描画を行うクラス.
 
   const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
   const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;
@@ -59,7 +58,7 @@ class GraphicMainDisplayModel final : public IGraphicMain {
   MapState map_state_;  //!< マップの状態を保持するクラス.
   DividedMapState
       divided_map_state_;  //!< 分割したマップの状態を保持するクラス.
-  RobotStateNode robot_;  //!< ロボットの状態.
+  RobotStateNode robot_;   //!< ロボットの状態.
 
   Keyboard keyboard_;  //!< キーボードの入力を制御するクラス.
 
@@ -67,6 +66,4 @@ class GraphicMainDisplayModel final : public IGraphicMain {
   int divided_map_tile_index_{0};
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_GRAPHIC_MAIN_DISPLAY_MODEL_H_
+}  // namespace gaitgen

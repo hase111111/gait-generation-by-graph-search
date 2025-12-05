@@ -5,12 +5,11 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_FPS_CONTROLLER_H_
-#define DESIGNLAB_FPS_CONTROLLER_H_
+#pragma once
 
 #include <list>
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class FpsController
 //! @brief FPSを一定にキープするためのクラス.
@@ -78,6 +77,4 @@ class FpsController final {
   bool need_skip_draw_screen_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_FPS_CONTROLLER_H_
+}  // namespace gaitgen

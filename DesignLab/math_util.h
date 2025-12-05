@@ -19,12 +19,12 @@
 #include "cassert_define.h"
 #include "math_const.h"
 
-//! @namespace designlab::math_util
+//! @namespace gaitgen::math_util
 //! @brief 基本的な計算を行う関数をまとめた名前空間.
 //! @details
 //! この名前空間にある関数は,基本的に constexprである.
 //! そのため,コンパイル時に計算が行われる.
-namespace designlab::math_util {
+namespace gaitgen::math_util {
 
 template <typename T>
 concept Arithmetic = std::is_arithmetic_v<T>;
@@ -158,4 +158,4 @@ std::string FloatingPointNumToString(const T num, const int digit = kDigit,
   return ss.str();
 }
 
-}  // namespace designlab::math_util
+}  // namespace gaitgen::math_util

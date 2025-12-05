@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MATH_VECTOR3_TEST_H_
-#define DESIGNLAB_MATH_VECTOR3_TEST_H_
+#pragma once
 
 #include <doctest.h>
 
@@ -19,8 +18,8 @@
 #include "vector3.h"
 
 TEST_SUITE("Vector3") {
-  using designlab::Vector2;
-  using designlab::Vector3;
+  using gaitgen::Vector2;
+  using gaitgen::Vector3;
 
   TEST_CASE("DefaultConstructorTest_ShouldBeZeroVector") {
     const auto v = Vector3();
@@ -371,5 +370,3 @@ TEST_SUITE("Vector3") {
     }
   }
 }
-
-#endif  // DESIGNLAB_MATH_VECTOR3_TEST_H_

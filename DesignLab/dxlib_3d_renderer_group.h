@@ -5,15 +5,14 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_DXLIB_3D_RENDERER_GROUP_H_
-#define DESIGNLAB_DXLIB_3D_RENDERER_GROUP_H_
+#pragma once
 
 #include <memory>
 #include <vector>
 
 #include "interface_dxlib_3d_renderer.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class Dxlib3dRendererGroup
 //! @brief dxlib_renderer の draw 関数を呼ぶためのクラス.
@@ -30,6 +29,4 @@ class Dxlib3dRendererGroup final {
   std::vector<std::shared_ptr<const IDxlib3dRenderer> > renderers_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_DXLIB_3D_RENDERER_GROUP_H_
+}  // namespace gaitgen

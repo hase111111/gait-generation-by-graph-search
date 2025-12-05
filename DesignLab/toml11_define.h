@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_TOML11_DEFINE_H_
-#define DESIGNLAB_TOML11_DEFINE_H_
+#pragma once
 
 // ライブラリの toml11の設定を行うためのヘッダファイル.
 // #include <toml.hpp>はこのプロジェクトの中では書かず,
@@ -18,5 +17,3 @@
 #define TOML11_PRESERVE_COMMENTS_BY_DEFAULT
 
 #include <toml.hpp>
-
-#endif  // DESIGNLAB_TOML11_DEFINE_H_

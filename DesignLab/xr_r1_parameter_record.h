@@ -5,12 +5,11 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_XR_R1_PARAMETER_RECORD_H_
-#define DESIGNLAB_XR_R1_PARAMETER_RECORD_H_
+#pragma once
 
 #include "toml_serialize_macro.h"
 
-namespace designlab {
+namespace gaitgen {
 
 struct XrR1ParameterRecord final {
   //!  地面から胴体を持ち上げる高さ[mm].最小ここまで下げられる.
@@ -68,12 +67,10 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(XrR1ParameterRecord) {
       "(Based on previous studies, max is about 40 mm.)");
 };
 
-}  // namespace designlab
+}  // namespace gaitgen
 
-DESIGNLAB_TOML11_SERIALIZE(designlab::XrR1ParameterRecord,
+DESIGNLAB_TOML11_SERIALIZE(gaitgen::XrR1ParameterRecord,
                            body_lifting_height_min, body_lifting_height_max,
                            movable_coxa_angle_min_deg,
                            movable_coxa_angle_max_deg, min_leg_range,
                            max_leg_range, free_leg_height, stable_margin);
-
-#endif  // DESIGNLAB_XR_R1_PARAMETER_RECORD_H_

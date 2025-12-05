@@ -5,13 +5,12 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_STOPWATCH_H_
-#define DESIGNLAB_STOPWATCH_H_
+#pragma once
 
 #include <chrono>
 #include <string>
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class Stopwatch
 //! @brief 時間計測用のクラス.
@@ -20,7 +19,7 @@ namespace designlab {
 //! コンストラクタにて現在時刻で初期化するので,Start()
 //! を呼ばずとも計測開始できる.
 //! @code
-//! designlab::Stopwatch stopwatch;
+//! gaitgen::Stopwatch stopwatch;
 //! stopwatch.Start();
 //! // 何か処理
 //! stopwatch.End();
@@ -77,6 +76,4 @@ class Stopwatch final {
   std::chrono::system_clock::time_point end_time_;  //!< 測定終了時間.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_STOPWATCH_H_
+}  // namespace gaitgen

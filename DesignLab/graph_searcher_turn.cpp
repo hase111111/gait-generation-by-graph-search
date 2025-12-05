@@ -11,7 +11,7 @@
 
 #include "cassert_define.h"
 
-namespace designlab {
+namespace gaitgen {
 
 GraphSearcherTurn::GraphSearcherTurn(
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
@@ -222,4 +222,4 @@ float GraphSearcherTurn::GetZDiffEvaluationValue(
   return abs(node.center_of_mass_global_coord.z - target_z_value);
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

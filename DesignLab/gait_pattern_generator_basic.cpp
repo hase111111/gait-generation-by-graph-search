@@ -14,7 +14,7 @@
 #include "cmdio_util.h"
 #include "map_state.h"
 
-namespace designlab {
+namespace gaitgen {
 
 GaitPatternGeneratorBasic::GaitPatternGeneratorBasic(
     std::unique_ptr<GraphTreeCreator>&& graph_tree_creator,
@@ -87,4 +87,4 @@ std::vector<int> GaitPatternGeneratorBasic::GetExpandedNodeCountPerDepth()
   return node_count_per_depth;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

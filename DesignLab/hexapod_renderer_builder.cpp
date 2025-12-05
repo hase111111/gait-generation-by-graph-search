@@ -11,7 +11,7 @@
 #include "phantomx_mk2_renderer_model.h"
 #include "phantomx_renderer_simple.h"
 
-namespace designlab {
+namespace gaitgen {
 
 std::tuple<std::shared_ptr<IDxlib3dRenderer>,
            std::shared_ptr<IDxlibNodeSetter> >
@@ -34,4 +34,4 @@ HexapodRendererBuilder::Build(
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

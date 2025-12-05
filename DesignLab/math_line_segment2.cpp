@@ -10,7 +10,7 @@
 #include "cassert_define.h"
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 Vector2 LineSegment2::GetIntersection(const LineSegment2& other) const {
   if (IsParallel(other)) {
@@ -103,4 +103,4 @@ bool LineSegment2::CheckAndGetIntersection(const LineSegment2& other,
   return true;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

@@ -5,15 +5,14 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_ROBOT_OPERATOR_FOR_GPG_H_
-#define DESIGNLAB_ROBOT_OPERATOR_FOR_GPG_H_
+#pragma once
 
 #include <vector>
 
 #include "interface_robot_operator.h"
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class RobotOperatorForGpg
 //! @brief global path generator を行うための仮置きクラス.
@@ -32,6 +31,4 @@ class RobotOperatorForGpg final : public IRobotOperator {
   std::vector<Vector3> global_route_;  //!< グローバルパス.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_ROBOT_OPERATOR_FOR_GPG_H_
+}  // namespace gaitgen

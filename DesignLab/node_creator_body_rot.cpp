@@ -7,7 +7,7 @@
 
 #include "node_creator_body_rot.h"
 
-namespace designlab {
+namespace gaitgen {
 
 NodeCreatorBodyRot::NodeCreatorBodyRot(
     const DividedMapState& divided_map,
@@ -61,4 +61,4 @@ void NodeCreatorBodyRot::Create(
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

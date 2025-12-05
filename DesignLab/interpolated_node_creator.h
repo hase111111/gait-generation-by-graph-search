@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_INTERPOLATED_NODE_CREATOR_H_
-#define DESIGNLAB_INTERPOLATED_NODE_CREATOR_H_
+#pragma once
 
 #include <array>
 #include <memory>
@@ -16,7 +15,7 @@
 #include "math_util.h"
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class InterpolatedNodeCreator
 //! @brief 矩形軌道を生成し,ノード間を補間するクラス.
@@ -78,6 +77,4 @@ class InterpolatedNodeCreator final {
   const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_INTERPOLATED_NODE_CREATOR_H_
+}  // namespace gaitgen

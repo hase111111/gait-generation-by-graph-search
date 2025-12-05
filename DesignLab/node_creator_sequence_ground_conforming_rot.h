@@ -5,15 +5,14 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_NODE_CREATOR_SEQUENCE_GROUND_CONFORMING_ROT_H_
-#define DESIGNLAB_NODE_CREATOR_SEQUENCE_GROUND_CONFORMING_ROT_H_
+#pragma once
 
 #include <map>
 #include <memory>
 
 #include "interface_node_creator_sequence.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class NodeCreatorSequenceGroundConformingRot
 class NodeCreatorSequenceGroundConformingRot final
@@ -33,6 +32,4 @@ class NodeCreatorSequenceGroundConformingRot final
   const std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_NODE_CREATOR_SEQUENCE_GROUND_CONFORMING_ROT_H_
+}  // namespace gaitgen

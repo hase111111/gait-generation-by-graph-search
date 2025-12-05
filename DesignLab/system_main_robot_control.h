@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_SYSTEM_MAIN_ROBOT_CONTROL_H_
-#define DESIGNLAB_SYSTEM_MAIN_ROBOT_CONTROL_H_
+#pragma once
 
 #include <memory>
 #include <string>
@@ -15,7 +14,7 @@
 #include "interface_system_main.h"
 #include "result_file_importer.h"
 
-namespace designlab {
+namespace gaitgen {
 
 class SystemMainRobotControl final : public ISystemMain {
  public:
@@ -45,6 +44,4 @@ class SystemMainRobotControl final : public ISystemMain {
       "robot_control"};  //!< ファイルを読み込むディレクトリのパス.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_SYSTEM_MAIN_ROBOT_CONTROL_H_
+}  // namespace gaitgen

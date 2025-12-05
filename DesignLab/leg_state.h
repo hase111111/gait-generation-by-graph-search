@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_LEG_STATE_H_
-#define DESIGNLAB_LEG_STATE_H_
+#pragma once
 
 #include <array>
 #include <bitset>
@@ -16,7 +15,7 @@
 #include "discrete_leg_pos.h"
 #include "hexapod_const.h"
 
-//! @namespace designlab::leg_func
+//! @namespace gaitgen::leg_func
 //! @brief
 //! このプログラムでは脚状態をビット(28bit)の情報で表す.
 //! そのデータを処理するための関数.
@@ -38,7 +37,7 @@
 //! @n 脚は右前脚を0として時計回りに 0 ～ 5 .
 //! @n 定数は基本的には編集しないように.
 //! 脚の離散化方法を変更する時以外編集する必要はないはず.
-namespace designlab::leg_func {
+namespace gaitgen::leg_func {
 
 // 使用する型の定義
 
@@ -169,6 +168,4 @@ void ChangeAllLegGround(const LegGroundedBit& is_ground_list,
 void ChangeDiscreteComPos(enums::DiscreteComPos new_com_pattern,
                           LegStateBit* leg_state);
 
-}  // namespace designlab::leg_func
-
-#endif  // DESIGNLAB_LEG_STATE_H_
+}  // namespace gaitgen::leg_func

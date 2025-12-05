@@ -11,7 +11,7 @@
 
 #include "math_rot_converter.h"
 
-namespace designlab {
+namespace gaitgen {
 
 SimulationEndCheckerByPosture::SimulationEndCheckerByPosture(
     const Quaternion& goal_orientation, const float allowable_error)
@@ -47,4 +47,4 @@ bool SimulationEndCheckerByPosture::IsEnd(const RobotStateNode& node) const {
   return true;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

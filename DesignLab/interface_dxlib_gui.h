@@ -5,10 +5,9 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_INTERFACE_DXLIB_GUI_H_
-#define DESIGNLAB_INTERFACE_DXLIB_GUI_H_
+#pragma once
 
-namespace designlab {
+namespace gaitgen {
 
 constexpr unsigned int kDxlibGuiAnchorLeft = 1 << 0;
 constexpr unsigned int kDxlibGuiAnchorMiddleX = 1 << 1;
@@ -65,6 +64,4 @@ class IDxlibGui {
   [[nodiscard]] virtual bool IsVisible() const = 0;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_INTERFACE_DXLIB_GUI_H_
+}  // namespace gaitgen

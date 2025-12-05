@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_GAIT_PATTERN_GENERATOR_REVALUATION_H_
-#define DESIGNLAB_GAIT_PATTERN_GENERATOR_REVALUATION_H_
+#pragma once
 
 #include <memory>
 #include <vector>
@@ -18,7 +17,7 @@
 #include "interpolated_node_creator.h"
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class GaitPatternGeneratorRevaluation
 //! @brief 再評価手法を実装したクラス.
@@ -56,6 +55,4 @@ class GaitPatternGeneratorRevaluation final : public IGaitPatternGenerator {
   InterpolatedNodeCreator interpolated_node_creator_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_GAIT_PATTERN_GENERATOR_REVALUATION_H_
+}  // namespace gaitgen

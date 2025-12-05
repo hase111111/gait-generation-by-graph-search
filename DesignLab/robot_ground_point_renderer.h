@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_ROBOT_GROUND_POINT_RENDERER_H_
-#define DESIGNLAB_ROBOT_GROUND_POINT_RENDERER_H_
+#pragma once
 
 #include <array>
 #include <memory>
@@ -17,7 +16,7 @@
 #include "robot_state_node.h"
 #include "vector3.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class RobotGroundPointRenderer
 //! @brief ロボットが接地点した地点の履歴を描画するクラス.
@@ -72,6 +71,4 @@ class RobotGroundPointRenderer final {
       ground_point_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_ROBOT_GROUND_POINT_RENDERER_H_
+}  // namespace gaitgen

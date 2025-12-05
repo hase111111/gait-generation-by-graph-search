@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_APPLICATION_SETTING_RECORD_VALIDATOR_H_
-#define DESIGNLAB_APPLICATION_SETTING_RECORD_VALIDATOR_H_
+#pragma once
 
 #include <string>
 #include <tuple>
@@ -14,7 +13,7 @@
 #include "application_setting_record.h"
 #include "interface_toml_data_validator.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class ApplicationSettingRecordValidator
 //! @brief ApplicationSettingRecord のバリデータ.
@@ -46,6 +45,4 @@ class ApplicationSettingRecordValidator final
   const std::string kErrorMesForFpsLeMax;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_APPLICATION_SETTING_RECORD_VALIDATOR_H_
+}  // namespace gaitgen

@@ -5,14 +5,13 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_GRAPHIC_CONST_H_
-#define DESIGNLAB_GRAPHIC_CONST_H_
+#pragma once
 
 #include <string>
 
 #include "cassert_define.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class GraphicConst
 //! @brief 画像表示処理用の定数クラス.
@@ -42,6 +41,4 @@ class GraphicConst final {
   static const float kCameraToTargetMin;  //!< カメラと注視目標の最小距離.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_GRAPHIC_CONST_H_
+}  // namespace gaitgen

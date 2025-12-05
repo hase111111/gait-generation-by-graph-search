@@ -14,7 +14,7 @@
 
 #include "string_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 DxlibGuiTerminal::DxlibGuiTerminal(
     std::vector<std::shared_ptr<IDxlibGui>> gui_list)
@@ -220,4 +220,4 @@ void DxlibGuiTerminal::DrawButtonGuard() const {
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_APPLICATION_SETTING_RECORD_H_
-#define DESIGNLAB_APPLICATION_SETTING_RECORD_H_
+#pragma once
 
 #include <format>
 #include <map>
@@ -19,7 +18,7 @@
 #include "string_util.h"
 #include "toml_serialize_macro.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @struct ApplicationSettingRecord
 //! @brief アプリの設定を記録する構造体.
@@ -147,14 +146,12 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(ApplicationSettingRecord) {
       "Draw the area recognized by the robot. ( true / false )");
 };
 
-}  // namespace designlab
+}  // namespace gaitgen
 
-DESIGNLAB_TOML11_SERIALIZE(designlab::ApplicationSettingRecord, version_major,
+DESIGNLAB_TOML11_SERIALIZE(gaitgen::ApplicationSettingRecord, version_major,
                            version_minor, version_patch, ask_about_modes,
                            default_mode, do_step_execution_each_simulation,
                            do_step_execution_each_gait, do_cmd_output,
                            cmd_output_detail, do_gui_display,
                            gui_display_quality, window_size_x, window_size_y,
                            window_fps, draw_flat_ground, draw_robot_area);
-
-#endif  // DESIGNLAB_APPLICATION_SETTING_RECORD_H_

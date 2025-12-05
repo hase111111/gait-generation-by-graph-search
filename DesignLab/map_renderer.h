@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MAP_RENDERER_H_
-#define DESIGNLAB_MAP_RENDERER_H_
+#pragma once
 
 #include "divided_map_state.h"
 #include "interface_dxlib_3d_renderer.h"
@@ -14,7 +13,7 @@
 #include "map_state.h"
 #include "vector3.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class MapRenderer
 //! @brief マップの描画を行うクラス.
@@ -52,6 +51,4 @@ class MapRenderer final : public IDxlibNodeSetter, public IDxlib3dRenderer {
   Vector3 hexapod_pos_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_MAP_RENDERER_H_
+}  // namespace gaitgen

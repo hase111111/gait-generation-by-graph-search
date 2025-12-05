@@ -13,7 +13,7 @@
 #include "math_util.h"
 #include "phantomx_mk2_const.h"
 
-namespace designlab {
+namespace gaitgen {
 
 NodeInitializer::NodeInitializer(const Vector3& pos, const EulerXYZ& posture,
                                  HexapodMove move)
@@ -105,4 +105,4 @@ RobotStateNode NodeInitializer::InitNodeForTerrain(const RobotStateNode& node,
   return res;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

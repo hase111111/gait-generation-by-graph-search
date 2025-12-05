@@ -9,7 +9,7 @@
 
 #include <format>
 
-namespace designlab {
+namespace gaitgen {
 
 Vector2& Vector2::operator+=(const Vector2& other) {
   x += other.x;
@@ -56,4 +56,4 @@ std::string Vector2::ToCsvString() const {
                      math_util::FloatingPointNumToString(y));
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

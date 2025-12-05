@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_APPROXIMATED_MOTION_RANGE_RENDER_H_
-#define DESIGNLAB_APPROXIMATED_MOTION_RANGE_RENDER_H_
+#pragma once
 
 #include <memory>
 
@@ -15,7 +14,7 @@
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_posture_validator.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class ApproximatedMotionRangeRender
 //! @brief 6脚歩行ロボットの近似された脚の動作範囲を描画するクラス.
@@ -55,6 +54,4 @@ class ApproximatedMotionRangeRender : public IDxlib3dRenderer,
   RobotStateNode node_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_APPROXIMATED_MOTION_RANGE_RENDER_H_
+}  // namespace gaitgen

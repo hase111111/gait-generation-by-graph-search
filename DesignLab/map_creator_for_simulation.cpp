@@ -13,7 +13,7 @@
 #include "cassert_define.h"
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 MapCreatorForSimulation::MapCreatorForSimulation(
     const SimulationMapParameter& param)
@@ -704,4 +704,4 @@ void MapCreatorForSimulation::ChangeMapToRadial(
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

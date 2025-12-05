@@ -7,7 +7,7 @@
 
 #pragma once
 
-namespace designlab {
+namespace gaitgen {
 
 enum class GpgType {
   kFlatLegacyAlgorithm,  //!< 平坦な地面を歩く(旧アルゴリズム).
@@ -20,4 +20,4 @@ enum class GpgType {
   kPruningBranchLegacy,  //!< 旧アルゴリズムで枝刈りを行う.
 };
 
-}  // namespace designlab
+}  // namespace gaitgen

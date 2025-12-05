@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_DXLIB_GUI_NODE_DISPLAYER_H_
-#define DESIGNLAB_DXLIB_GUI_NODE_DISPLAYER_H_
+#pragma once
 
 #include <array>
 #include <memory>
@@ -20,7 +19,7 @@
 #include "robot_state_node.h"
 #include "simple_button.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class DxlibGuiNodeDisplayer
 //! @brief ノードの情報を表示するGUIのクラス.
@@ -71,6 +70,4 @@ class DxlibGuiNodeDisplayer final : public AbstractDxlibGui,
   const int window_x_, window_y_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_DXLIB_GUI_NODE_DISPLAYER_H_
+}  // namespace gaitgen

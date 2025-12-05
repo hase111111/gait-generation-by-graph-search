@@ -12,7 +12,7 @@
 
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 Vector3 Vector3::GetNormalized() const noexcept {
   const float GetLength = this->GetLength();
@@ -67,4 +67,4 @@ Vector3& Vector3::operator/=(const float other) {
   return *this;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

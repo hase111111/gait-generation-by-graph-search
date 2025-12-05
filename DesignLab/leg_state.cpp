@@ -9,7 +9,7 @@
 
 #include "cassert_define.h"
 
-namespace designlab::leg_func {
+namespace gaitgen::leg_func {
 
 LegStateBit MakeLegStateBit(
     const enums::DiscreteComPos discrete_com_pos,
@@ -227,4 +227,4 @@ void ChangeDiscreteComPos(const enums::DiscreteComPos new_com_pattern,
   (*leg_state) ^= sub;
 }
 
-}  // namespace designlab::leg_func
+}  // namespace gaitgen::leg_func

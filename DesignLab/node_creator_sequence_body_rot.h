@@ -5,15 +5,14 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_NODE_CREATOR_SEQUENCE_BODY_ROT_H_
-#define DESIGNLAB_NODE_CREATOR_SEQUENCE_BODY_ROT_H_
+#pragma once
 
 #include <map>
 #include <memory>
 
 #include "interface_node_creator_sequence.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class NodeCreatorSequenceBodyRot
 //! @brief ノード作成ビルダーのボディ回転クラス.
@@ -36,6 +35,4 @@ class NodeCreatorSequenceBodyRot final : public INodeCreatorSequence {
   const Vector3 body_rot_axis_;  //!< ボディ回転の軸
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_NODE_CREATOR_SEQUENCE_BODY_ROT_H_
+}  // namespace gaitgen

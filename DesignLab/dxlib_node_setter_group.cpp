@@ -9,7 +9,7 @@
 
 #include "cassert_define.h"
 
-namespace designlab {
+namespace gaitgen {
 
 void DxlibNodeSetterGroup::Register(
     const std::shared_ptr<IDxlibNodeSetter>& setter) {
@@ -24,4 +24,4 @@ void DxlibNodeSetterGroup::SetNode(const RobotStateNode& node) {
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

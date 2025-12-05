@@ -18,7 +18,7 @@
 #include "map_state.h"
 #include "result_file_exporter.h"
 
-namespace designlab {
+namespace gaitgen {
 
 SystemMainResultViewer::SystemMainResultViewer(
     const std::shared_ptr<GraphicDataBroker>& broker_ptr,
@@ -253,4 +253,4 @@ void SystemMainResultViewer::OutputErrorLegPos(
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

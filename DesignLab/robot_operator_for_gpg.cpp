@@ -31,7 +31,7 @@ float NormalizeAngle(float angle) {
 
 }  // namespace
 
-namespace designlab {
+namespace gaitgen {
 
 RobotOperatorForGpg::RobotOperatorForGpg()
     : global_route_{
@@ -138,4 +138,4 @@ RobotOperation RobotOperatorForGpg::Update(const RobotStateNode& node) {
   return operation;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

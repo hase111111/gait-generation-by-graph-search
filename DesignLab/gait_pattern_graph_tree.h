@@ -5,15 +5,14 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_GAIT_PATTERN_GRAPH_TREE_H_
-#define DESIGNLAB_GAIT_PATTERN_GRAPH_TREE_H_
+#pragma once
 
 #include <vector>
 
 #include "cassert_define.h"
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class GaitPatternGraphTree
 //! @brief RobotStateNode 構造体をノードとする木構造のグラフのクラス.
@@ -162,6 +161,4 @@ class GaitPatternGraphTree final {
   const int kGraphMaxSize;  //!< グラフの最大サイズ.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_GAIT_PATTERN_GRAPH_TREE_H_
+}  // namespace gaitgen

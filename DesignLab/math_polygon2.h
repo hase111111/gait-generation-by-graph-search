@@ -15,9 +15,9 @@
 #include "cassert_define.h"
 #include "vector2.h"
 
-namespace designlab {
+namespace gaitgen {
 
-//! @struct designlab::Polygon2
+//! @struct gaitgen::Polygon2
 //! @brief 2次元の多角形を表す構造体.
 //! @details
 //! @n 頂点は反時計回り,或いは時計回りに並んでいる必要がある.
@@ -187,4 +187,4 @@ inline std::basic_ostream<Char>& operator<<(std::basic_ostream<Char>& os,
   return os;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

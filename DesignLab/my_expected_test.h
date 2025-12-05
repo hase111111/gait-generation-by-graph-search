@@ -13,7 +13,7 @@
 
 #include "my_expected.h"
 
-namespace designlab::impl::my_expected_test {
+namespace gaitgen::impl::my_expected_test {
 
 struct CustomValue final {
   int code;
@@ -39,8 +39,8 @@ std::string ToFizzBuzz(int value) {
   }
 }
 
-using ess = designlab::nostd::expected<std::string, std::string>;
-using ues = designlab::nostd::unexpected<std::string>;
+using ess = gaitgen::nostd::expected<std::string, std::string>;
+using ues = gaitgen::nostd::unexpected<std::string>;
 
 ess FizzBuzz(int value) {
   if (value < 0) {
@@ -56,16 +56,16 @@ ess FizzBuzzRef(const int& value) {
   return ToFizzBuzz(value);
 }
 
-}  // namespace designlab::impl::my_expected_test
+}  // namespace gaitgen::impl::my_expected_test
 
 TEST_SUITE("expected") {
-  using designlab::impl::my_expected_test::CustomValue;
-  using designlab::impl::my_expected_test::FizzBuzz;
-  using designlab::impl::my_expected_test::FizzBuzzRef;
-  using designlab::impl::my_expected_test::Sample;
-  using designlab::nostd::bad_expected_access;
-  using designlab::nostd::expected;
-  using designlab::nostd::unexpected;
+  using gaitgen::impl::my_expected_test::CustomValue;
+  using gaitgen::impl::my_expected_test::FizzBuzz;
+  using gaitgen::impl::my_expected_test::FizzBuzzRef;
+  using gaitgen::impl::my_expected_test::Sample;
+  using gaitgen::nostd::bad_expected_access;
+  using gaitgen::nostd::expected;
+  using gaitgen::nostd::unexpected;
 
   TEST_CASE("expected construction") {
     // 単一の変数によるコンストラクタ

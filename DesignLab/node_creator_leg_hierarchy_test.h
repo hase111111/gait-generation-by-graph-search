@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_TEST_H_
-#define DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_TEST_H_
+#pragma once
 
 #include <array>
 #include <vector>
@@ -15,13 +14,13 @@
 #include "node_creator_leg_hierarchy.h"
 
 TEST_SUITE("NodeCreatorLegHierarchyTest") {
-  using designlab::DiscreteLegPos;
-  using designlab::HexapodConst;
-  using designlab::HexapodMove;
-  using designlab::NodeCreatorLegHierarchy;
-  using designlab::RobotStateNode;
-  using designlab::enums::DiscreteComPos;
-  using designlab::leg_func::MakeLegStateBit;
+  using gaitgen::DiscreteLegPos;
+  using gaitgen::HexapodConst;
+  using gaitgen::HexapodMove;
+  using gaitgen::NodeCreatorLegHierarchy;
+  using gaitgen::RobotStateNode;
+  using gaitgen::enums::DiscreteComPos;
+  using gaitgen::leg_func::MakeLegStateBit;
 
   TEST_CASE("CreateTest_WhenOneLegIsSwinging") {
     using enum DiscreteLegPos;
@@ -55,5 +54,3 @@ TEST_SUITE("NodeCreatorLegHierarchyTest") {
     CHECK(actual.size() == 3);
   }
 }
-
-#endif  // DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_TEST_H_

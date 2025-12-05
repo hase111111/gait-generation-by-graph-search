@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_NODE_CREATOR_COM_MOVE_WALL_H_
-#define DESIGNLAB_NODE_CREATOR_COM_MOVE_WALL_H_
+#pragma once
 
 #include <array>
 #include <memory>
@@ -19,7 +18,7 @@
 #include "interface_node_creator.h"
 #include "math_polygon2.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class NodeCreatorComMoveWall
 //! @brief 直線方向に重心の平行移動を行うクラス.
@@ -53,6 +52,4 @@ class NodeCreatorComMoveWall final : public INodeCreator {
   std::array<Vector3, kCandidateDirectionNum> candidate_directions_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_NODE_CREATOR_COM_MOVE_WALL_H_
+}  // namespace gaitgen

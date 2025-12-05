@@ -5,14 +5,13 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_INTERFACE_DXLIB_CLICKABLE_H_
-#define DESIGNLAB_INTERFACE_DXLIB_CLICKABLE_H_
+#pragma once
 
 #include <memory>
 
 #include "mouse.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @struct DxlibMouseState
 //! @brief マウスの状態を表す構造体.
@@ -56,6 +55,4 @@ class IDxlibClickable {
                                          int cursor_y) const noexcept = 0;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_INTERFACE_DXLIB_CLICKABLE_H_
+}  // namespace gaitgen

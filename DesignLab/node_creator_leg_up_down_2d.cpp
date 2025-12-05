@@ -14,7 +14,7 @@
 #include "leg_state.h"
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 NodeCreatorLegUpDown2d::NodeCreatorLegUpDown2d(
     const DividedMapState& divided_map,
@@ -287,4 +287,4 @@ DiscreteLegPos NodeCreatorLegUpDown2d::ConvertTo2D(
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

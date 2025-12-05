@@ -12,7 +12,7 @@
 #include "graphic_const.h"
 #include "vector3.h"
 
-namespace designlab::dxlib_util {
+namespace gaitgen::dxlib_util {
 
 void InitDxlib3DSetting(const bool high_quality) {
   if (high_quality) {
@@ -139,4 +139,4 @@ void DrawFlatPlane(const std::array<VECTOR, 4>& vertex, const VECTOR&,
   DrawTriangle3D(vertex[2], vertex[3], vertex[0], color, TRUE);
 }
 
-}  // namespace designlab::dxlib_util
+}  // namespace gaitgen::dxlib_util

@@ -5,15 +5,14 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_SIMULATION_END_CHECKER_FACTORY_H_
-#define DESIGNLAB_SIMULATION_END_CHECKER_FACTORY_H_
+#pragma once
 
 #include <memory>
 
 #include "interface_simulation_end_checker.h"
 #include "simulation_setting_record.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class SimulationEndCheckerFactory
 //! @brief シミュレーションの終了を判定するクラスを生成するクラス.
@@ -26,6 +25,4 @@ class SimulationEndCheckerFactory final {
       const SimulationSettingRecord& record);
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_SIMULATION_END_CHECKER_FACTORY_H_
+}  // namespace gaitgen

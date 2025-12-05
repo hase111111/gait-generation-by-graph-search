@@ -5,10 +5,9 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_INTERFACE_DXLIB_DRAGGABLE_H_
-#define DESIGNLAB_INTERFACE_DXLIB_DRAGGABLE_H_
+#pragma once
 
-namespace designlab {
+namespace gaitgen {
 
 //! @brief ドラッグ可能なGUIのインターフェース.
 //! @details ドラッグ動作を実装したいGUIはこのインターフェースを継承する.
@@ -40,6 +39,4 @@ class IDxlibDraggable {
                              unsigned int mouse_key_bit) = 0;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_INTERFACE_DXLIB_DRAGGABLE_H_
+}  // namespace gaitgen

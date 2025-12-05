@@ -5,13 +5,12 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MOUSE_H_
-#define DESIGNLAB_MOUSE_H_
+#pragma once
 
 #include <array>
 #include <map>
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class Mouse
 //! @brief Dxlibでマウス入力を取得するクラス.
@@ -102,6 +101,4 @@ class Mouse final {
   int wheel_rot_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_MOUSE_H_
+}  // namespace gaitgen

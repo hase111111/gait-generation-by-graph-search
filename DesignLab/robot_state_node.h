@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_ROBOT_STATE_NODE_H_
-#define DESIGNLAB_ROBOT_STATE_NODE_H_
+#pragma once
 
 #include <array>
 #include <magic_enum.hpp>
@@ -20,7 +19,7 @@
 #include "math_quaternion.h"
 #include "vector3.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @struct RobotStateNode
 //! @brief グラフ構造のためのノード(頂点).
@@ -214,6 +213,4 @@ std::basic_ostream<Char>& operator<<(std::basic_ostream<Char>& os,
   return os;
 }
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_ROBOT_STATE_NODE_H_
+}  // namespace gaitgen

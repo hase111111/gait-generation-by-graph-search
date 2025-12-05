@@ -7,7 +7,7 @@
 
 #include "interpolate_validator.h"
 
-namespace designlab {
+namespace gaitgen {
 
 InterpolateValidator::InterpolateValidator(
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter,
@@ -46,4 +46,4 @@ bool InterpolateValidator::IsValid(const RobotStateNode& current_node,
   return true;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

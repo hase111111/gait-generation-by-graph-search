@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_GRAPHIC_MAIN_ROBOT_CONTROL_H_
-#define DESIGNLAB_GRAPHIC_MAIN_ROBOT_CONTROL_H_
+#pragma once
 
 #include <memory>
 #include <vector>
@@ -26,7 +25,7 @@
 #include "map_state.h"
 #include "mouse.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class GraphicMainRobotControl
 //! @brief ロボットの制御を行うGUIの処理,描画を行うクラス.
@@ -48,7 +47,7 @@ class GraphicMainRobotControl final : public IGraphicMain {
 
   DxlibGuiUpdater gui_updater_;             //!< GUIの更新を行うクラス.
   DxlibNodeSetterGroup node_setter_group_;  //!< ノードの設定を行うクラス.
-  Dxlib3dRendererGroup render_group_;  //!< 描画を行うクラス.
+  Dxlib3dRendererGroup render_group_;       //!< 描画を行うクラス.
 
   const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
   const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;
@@ -69,6 +68,4 @@ class GraphicMainRobotControl final : public IGraphicMain {
   int map_update_count_{0};    //!< マップの更新回数.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_GRAPHIC_MAIN_ROBOT_CONTROL_H_
+}  // namespace gaitgen

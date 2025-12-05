@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_XR_R1_H_
-#define DESIGNLAB_XR_R1_H_
+#pragma once
 
 #include "interface_hexapod_coordinate_converter.h"
 #include "interface_hexapod_joint_calculator.h"
@@ -14,7 +13,7 @@
 #include "interface_hexapod_state_presenter.h"
 #include "xr_r1_parameter_record.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class XrR1
 //! @brief XiaoRGeek社のロボットXR_R1の状態を計算するクラス.
@@ -121,6 +120,4 @@ class XrR1 : public IHexapodCoordinateConverter,
   const std::array<Vector3, HexapodConst::kLegNum> free_leg_pos_leg_coordinate_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_XR_R1_H_
+}  // namespace gaitgen

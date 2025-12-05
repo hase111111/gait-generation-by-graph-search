@@ -12,7 +12,7 @@
 #include "rotation_matrix_3x3.h"
 
 TEST_SUITE("RotationMatrix3x3") {
-  using designlab::RotationMatrix3x3;
+  using gaitgen::RotationMatrix3x3;
 
   TEST_CASE("ConstructorTest_ShouldCreateIdentityMatrix") {
     // デフォルトコンストラクタで単位行列が生成される.
@@ -83,7 +83,7 @@ TEST_SUITE("RotationMatrix3x3") {
   }
 
   TEST_CASE("CreateRotationMatrixXTest") {
-    using designlab::math_util::ConvertDegToRad;
+    using gaitgen::math_util::ConvertDegToRad;
 
     constexpr float angle = ConvertDegToRad(30.0f);
 
@@ -107,7 +107,7 @@ TEST_SUITE("RotationMatrix3x3") {
   }
 
   TEST_CASE("CreateRotationMatrixYTest") {
-    using designlab::math_util::ConvertDegToRad;
+    using gaitgen::math_util::ConvertDegToRad;
 
     constexpr float angle = ConvertDegToRad(30.0f);
 
@@ -131,7 +131,7 @@ TEST_SUITE("RotationMatrix3x3") {
   }
 
   TEST_CASE("CreateRotationMatrixZTest") {
-    using designlab::math_util::ConvertDegToRad;
+    using gaitgen::math_util::ConvertDegToRad;
 
     constexpr float angle = ConvertDegToRad(30.0f);
 

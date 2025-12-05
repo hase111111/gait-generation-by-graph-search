@@ -12,7 +12,7 @@
 #include "math_util.h"
 #include "vector3.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @struct EulerXYZ
 //! @brief XYZオイラー角を用いた回転を表す構造体.
@@ -128,4 +128,4 @@ inline std::basic_istream<Char>& operator>>(std::basic_istream<Char>& is,
 //! @return 回転した後の位置ベクトル.
 [[nodiscard]] Vector3 RotateVector3(const Vector3& vec, const EulerXYZ& rot);
 
-}  // namespace designlab
+}  // namespace gaitgen

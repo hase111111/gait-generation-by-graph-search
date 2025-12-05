@@ -5,14 +5,13 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_BOOT_MODE_SELECTOR_H_
-#define DESIGNLAB_BOOT_MODE_SELECTOR_H_
+#pragma once
 
 #include <type_traits>
 
 #include "boot_mode.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class BootModeSelector
 //! @brief 起動モードを選択するクラス.
@@ -43,6 +42,4 @@ class BootModeSelector final {
                 "'BootMode' must be able to convert to int type.");
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_BOOT_MODE_SELECTOR_H_
+}  // namespace gaitgen

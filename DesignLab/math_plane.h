@@ -12,7 +12,7 @@
 #include "my_expected.h"
 #include "vector3.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @todo アドホックな実装なので、後でリファクタリングすること
 
@@ -108,8 +108,8 @@ inline Vector3 powerIterationEigenVector(
 }
 
 inline PlaneRect fitRectangleToInliers(
-    const std::vector<designlab::Vector3>& inliers, designlab::Vector3 normal) {
-  using namespace designlab;
+    const std::vector<gaitgen::Vector3>& inliers, gaitgen::Vector3 normal) {
+  using namespace gaitgen;
 
   // 1. 法線を正規化（念のため）
   normal.Normalize();
@@ -390,4 +390,4 @@ inline nostd::expected<Vector3, std::string> IntersectPointWithPlaneRect(
   return intersection;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

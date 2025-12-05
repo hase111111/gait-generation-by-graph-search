@@ -9,7 +9,7 @@
 
 #include <array>
 
-namespace designlab::nostd {
+namespace gaitgen::nostd {
 
 //! @brief std::array を作成する関数.
 //! @n この関数を作成したモチベーションとしては,
@@ -22,4 +22,4 @@ constexpr std::array<T, sizeof...(Args)> make_array(Args&&... args) {
   return std::array<T, sizeof...(Args)>{static_cast<Args&&>(args)...};
 }
 
-}  // namespace designlab::nostd
+}  // namespace gaitgen::nostd

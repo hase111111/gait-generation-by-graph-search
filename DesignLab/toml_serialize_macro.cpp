@@ -7,7 +7,7 @@
 
 #include "toml_serialize_macro.h"
 
-namespace designlab::toml_func
+namespace gaitgen::toml_func
 {
 
 const char Toml11Description::kNoTable[] = "no_table_value";
@@ -26,4 +26,4 @@ std::vector<std::string> sjis_to_utf8_vec(const std::vector<std::string>& str_ve
 }
 
 
-}  // namespace designlab::toml_func
+}  // namespace gaitgen::toml_func

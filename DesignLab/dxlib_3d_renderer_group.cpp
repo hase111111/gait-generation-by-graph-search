@@ -10,7 +10,7 @@
 #include "cassert_define.h"
 #include "dxlib_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 void Dxlib3dRendererGroup::Register(
     const std::shared_ptr<IDxlib3dRenderer>& renderer) {
@@ -27,4 +27,4 @@ void Dxlib3dRendererGroup::Draw() const {
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

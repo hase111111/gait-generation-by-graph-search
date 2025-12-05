@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MY_EXPECTED_H_
-#define DESIGNLAB_MY_EXPECTED_H_
+#pragma once
 
 #include <functional>
 #include <optional>
@@ -18,7 +17,7 @@
 #include "my_expected_concept.h"
 #include "my_unexpected.h"
 
-namespace designlab::nostd {
+namespace gaitgen::nostd {
 
 // 自作の例外 bad_expected_access
 class bad_expected_access : public std::exception {
@@ -203,6 +202,4 @@ class expected final {
   bool has_value_;
 };
 
-}  // namespace designlab::nostd
-
-#endif  // DESIGNLAB_MY_EXPECTED_H_
+}  // namespace gaitgen::nostd

@@ -19,7 +19,7 @@
 #include "phantomx_mk2_const.h"
 #include "string_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 DxlibGuiNodeDisplayer::DxlibGuiNodeDisplayer(
     const int pos_x, const int pos_y,
@@ -476,4 +476,4 @@ bool DxlibGuiNodeDisplayer::IsInWindow() const {
          0 < gui_left_pos_x_ + width_ && 0 < gui_top_pos_y_ + height_;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

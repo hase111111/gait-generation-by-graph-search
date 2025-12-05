@@ -5,15 +5,14 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_PHANTOMX_MK2_CONST_H_
-#define DESIGNLAB_PHANTOMX_MK2_CONST_H_
+#pragma once
 
 #include <array>
 
 #include "cassert_define.h"
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class PhantomXMkIIConst
 //! @brief PhantomX mk-Ⅱ のパラメータを定数で表現したもの.
@@ -61,8 +60,8 @@ class PhantomXMkIIConst final {
   //!< 第2関節の可動範囲の最大値[rad].詳しくは referenceフォルダ参照.
   constexpr static float kTibiaAngleMax = math_util::ConvertDegToRad(25.5f);
 
-  constexpr static float kCoxaLength = 52.0f;   //!< 第1関節部の長さ[mm].
-  constexpr static float kFemurLength = 66.0f;  //!< 第2関節部の長さ[mm].
+  constexpr static float kCoxaLength = 52.0f;    //!< 第1関節部の長さ[mm].
+  constexpr static float kFemurLength = 66.0f;   //!< 第2関節部の長さ[mm].
   constexpr static float kTibiaLength = 130.0f;  //!< 第3関節部の長さ[mm].
 
   //!< coxa linkの付け根(前方・後方)までの長さ[mm].
@@ -123,6 +122,4 @@ class PhantomXMkIIConst final {
                 "kTibiaLength and Tibia Link must be positive.");
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_PHANTOMX_MK2_CONST_H_
+}  // namespace gaitgen

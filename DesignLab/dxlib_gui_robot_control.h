@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_DXLIB_GUI_ROBOT_CONTROL_H_
-#define DESIGNLAB_DXLIB_GUI_ROBOT_CONTROL_H_
+#pragma once
 
 #include <boost/thread.hpp>
 #include <map>
@@ -24,7 +23,7 @@
 #include "simple_button.h"
 #include "vector3.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class DxlibGuiRobotControl
 //! @brief カメラの操作・管理を行うGUIの処理・描画を行うクラス.
@@ -86,6 +85,4 @@ class DxlibGuiRobotControl final : public AbstractDxlibGui,
   int counter_{0};                //!< カウンタ.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_DXLIB_GUI_ROBOT_CONTROL_H_
+}  // namespace gaitgen

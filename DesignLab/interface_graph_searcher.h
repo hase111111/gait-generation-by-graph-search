@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_INTERFACE_GRAPH_SEARCHER_H_
-#define DESIGNLAB_INTERFACE_GRAPH_SEARCHER_H_
+#pragma once
 
 #include <memory>
 #include <tuple>
@@ -19,7 +18,7 @@
 #include "my_expected.h"
 #include "robot_operation.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class IGraphSearcher
 //! @brief グラフ探索の処理のインターフェース.
@@ -51,6 +50,4 @@ class IGraphSearcher {
                         int max_depth) const = 0;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_INTERFACE_GRAPH_SEARCHER_H_
+}  // namespace gaitgen

@@ -11,7 +11,7 @@
 
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 NodeCreatorComMoveWall::NodeCreatorComMoveWall(
     const DividedMapState& divided_map,
@@ -104,4 +104,4 @@ void NodeCreatorComMoveWall::Create(
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

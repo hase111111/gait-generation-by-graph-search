@@ -7,7 +7,7 @@
 
 #pragma once
 
-namespace designlab {
+namespace gaitgen {
 
 //! @enum OutputDetail
 //! @brief コマンドラインに文字を出力する際に,その詳細を指定するための列挙体.
@@ -20,4 +20,4 @@ enum class OutputDetail : int {
   kDebug,       //!< デバッグ時のみ出力,一番優先度が低い.
 };
 
-}  // namespace designlab
+}  // namespace gaitgen

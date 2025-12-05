@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_DXLIB_UTIL_H_
-#define DESIGNLAB_DXLIB_UTIL_H_
+#pragma once
 
 #include <Dxlib.h>
 
@@ -15,11 +14,11 @@
 #include "rotation_matrix_3x3.h"
 #include "vector3.h"
 
-//! @namespace designlab::dxlib_util
+//! @namespace gaitgen::dxlib_util
 //! @brief Dxlibの3D表示を行う処理を書き直した関数をまとめた名前空間.
 //! @details Dxlib の 3Dで表示する機能は使いづらいので,
 //! ここである程度使いやすくなるように処理を書いてまとめておく.
-namespace designlab::dxlib_util {
+namespace gaitgen::dxlib_util {
 
 //! @brief 3D処理を行う上で必要な初期化処理をまとめたもの.
 //! @param[in] high_quality trueなら高品質モードで初期化する.
@@ -103,7 +102,7 @@ void DrawHexagonalPrism(const std::array<VECTOR, 6>& vertex, float height,
 void DrawFlatPlane(const std::array<VECTOR, 4>& vertex, const VECTOR& normal,
                    unsigned int color);
 
-}  // namespace designlab::dxlib_util
+}  // namespace gaitgen::dxlib_util
 
 namespace DxLib {
 // VECTORの算術演算子を自作する.
@@ -129,5 +128,3 @@ constexpr VECTOR operator/(const VECTOR& vec, const float s) {
 };
 
 }  // namespace DxLib
-
-#endif  // DESIGNLAB_DXLIB_UTIL_H_

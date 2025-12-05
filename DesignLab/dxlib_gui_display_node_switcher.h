@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_DXLIB_GUI_DISPLAY_NODE_SWITCHER_H_
-#define DESIGNLAB_DXLIB_GUI_DISPLAY_NODE_SWITCHER_H_
+#pragma once
 
 #include <memory>
 #include <string>
@@ -15,7 +14,7 @@
 #include "abstract_dxlib_gui.h"
 #include "simple_button.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class DxlibGuiDisplayNodeSwitcher
 //! @brief ノードの表示・切り替えを行うGUIのクラス.
@@ -85,11 +84,9 @@ class DxlibGuiDisplayNodeSwitcher final : public AbstractDxlibGui {
   int simulation_num_;       //!< 表示するシミュレーションの番号.
   bool do_auto_animation_;   //!< 自動再生中かどうか.
   int animation_speed_{(kAnimeSpeedMax + kAnimeSpeedMin) / 2};  //!< 再生速度.
-  int counter_{0};  //!< カウンター.
+  int counter_{0};                                              //!< カウンター.
 
   bool in_animation_{false};  //!< アニメーション中か.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_DXLIB_GUI_DISPLAY_NODE_SWITCHER_H_
+}  // namespace gaitgen

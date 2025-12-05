@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_CAMERA_DRAGGER_H_
-#define DESIGNLAB_CAMERA_DRAGGER_H_
+#pragma once
 
 #include <memory>
 
@@ -14,7 +13,7 @@
 #include "interface_dxlib_draggable.h"
 #include "interface_dxlib_wheel_handler.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class CameraDragger
 //! @brief マウスの入力でカメラを動かすクラス.
@@ -61,6 +60,4 @@ class CameraDragger final : public IDxlibDraggable, public IDxlibWheelHandler {
   bool is_dragged_{false};  //!< ドラッグ中かどうかのフラグ.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_CAMERA_DRAGGER_H_
+}  // namespace gaitgen

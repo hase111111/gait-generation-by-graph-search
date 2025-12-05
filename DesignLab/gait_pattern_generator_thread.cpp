@@ -17,7 +17,7 @@
 #include "map_state.h"
 #include "string_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 GaitPatternGeneratorThread::GaitPatternGeneratorThread(
     std::unique_ptr<GraphTreeCreator>&& graph_tree_creator_ptr,
@@ -167,4 +167,4 @@ GaitPatternGeneratorThread::InitializeGraphTreeArray(
   return graph_tree_array;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

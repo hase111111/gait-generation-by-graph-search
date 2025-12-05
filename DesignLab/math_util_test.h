@@ -14,8 +14,8 @@
 #include "math_util.h"
 
 TEST_SUITE("math_util::IsEqual") {
-  using designlab::MathConst;
-  using designlab::math_util::IsEqual;
+  using gaitgen::MathConst;
+  using gaitgen::math_util::IsEqual;
 
   TEST_CASE_TEMPLATE("値が等しい時,trueを返すべき", T, float, double) {
     CHECK(IsEqual(T(0.0), T(0.0)));
@@ -53,7 +53,7 @@ TEST_SUITE("math_util::IsEqual") {
 }
 
 TEST_SUITE("math_util::Squared") {
-  using designlab::math_util::Squared;
+  using gaitgen::math_util::Squared;
 
   TEST_CASE_TEMPLATE("値の2乗を返すべき", T, int, float, double) {
     CHECK(Squared(T(0.0)) == T(0.0));
@@ -67,7 +67,7 @@ TEST_SUITE("math_util::Squared") {
 }
 
 TEST_SUITE("math_util::CanMakeTriangle") {
-  using designlab::math_util::CanMakeTriangle;
+  using gaitgen::math_util::CanMakeTriangle;
 
   TEST_CASE_TEMPLATE("3角形を作ることが可能な時,trueを返すべき", T, int, float,
                      double) {
@@ -107,8 +107,8 @@ TEST_SUITE("math_util::CanMakeTriangle") {
 }
 
 TEST_SUITE("math_util::ConvertRadToDeg") {
-  using designlab::MathConst;
-  using designlab::math_util::ConvertRadToDeg;
+  using gaitgen::MathConst;
+  using gaitgen::math_util::ConvertRadToDeg;
 
   TEST_CASE_TEMPLATE("0 [rad]が渡された時,0 [deg]を返すべき", T, float,
                      double) {
@@ -146,7 +146,7 @@ TEST_SUITE("math_util::ConvertRadToDeg") {
 }
 
 TEST_SUITE("math_util::ConvertDegToRad") {
-  using designlab::math_util::ConvertDegToRad;
+  using gaitgen::math_util::ConvertDegToRad;
 
   TEST_CASE_TEMPLATE("", T, float, double) {
     CHECK(ConvertDegToRad(T(0.0)) == T(0.0));
@@ -167,7 +167,7 @@ TEST_SUITE("math_util::ConvertDegToRad") {
 }
 
 TEST_SUITE("math_util::LimitRangeAngleDeg") {
-  using designlab::math_util::LimitRangeAngleDeg;
+  using gaitgen::math_util::LimitRangeAngleDeg;
 
   TEST_CASE_TEMPLATE(
       "[-180 [deg], 180 [deg] )の範囲の値が渡された時,そのまま返すべき", T,

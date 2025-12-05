@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_DXLIB_NODE_SETTER_GROUP_H_
-#define DESIGNLAB_DXLIB_NODE_SETTER_GROUP_H_
+#pragma once
 
 #include <memory>
 #include <vector>
@@ -14,7 +13,7 @@
 #include "interface_dxlib_node_setter.h"
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class DxlibNodeSetterGroup
 //! @brief DxLibでノードの設定を行うクラスをまとめるクラス.
@@ -32,6 +31,4 @@ class DxlibNodeSetterGroup final {
   std::vector<std::shared_ptr<IDxlibNodeSetter>> setters_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_DXLIB_NODE_SETTER_GROUP_H_
+}  // namespace gaitgen

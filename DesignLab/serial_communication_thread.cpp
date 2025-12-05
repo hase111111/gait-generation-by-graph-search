@@ -32,7 +32,7 @@ const std::string kComName[] = {"",
                                 "\\\\.\\COM13"};
 }  // namespace
 
-namespace designlab {
+namespace gaitgen {
 
 void SerialCommunicationThread::Loop() {
   if (!Initialize()) {
@@ -244,4 +244,4 @@ bool SerialCommunicationThread::Write() {
   return true;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

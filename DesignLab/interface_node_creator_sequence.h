@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_INTERFACE_NODE_CREATOR_SEQUENCE_H_
-#define DESIGNLAB_INTERFACE_NODE_CREATOR_SEQUENCE_H_
+#pragma once
 
 #include <map>
 #include <memory>
@@ -18,7 +17,7 @@
 #include "interface_hexapod_state_presenter.h"
 #include "interface_node_creator.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class INodeCreatorSequence
 //! @brief INodeCreator を生成するためのビルダークラス.
@@ -36,6 +35,4 @@ class INodeCreatorSequence {
       const DividedMapState& map) const = 0;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_INTERFACE_NODE_CREATOR_SEQUENCE_H_
+}  // namespace gaitgen

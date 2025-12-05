@@ -5,12 +5,11 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_TOML_DIRECTORY_EXPORTER_H_
-#define DESIGNLAB_TOML_DIRECTORY_EXPORTER_H_
+#pragma once
 
 #include <string>
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class TomlDirectoryExporter
 //! @brief TOMLファイルを入れるディレクトリを作成し,
@@ -29,6 +28,4 @@ class TomlDirectoryExporter final {
   void Export();
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_TOML_DIRECTORY_EXPORTER_H_
+}  // namespace gaitgen

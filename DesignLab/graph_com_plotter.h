@@ -5,12 +5,11 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_GRAPH_COM_PLOTTER_H_
-#define DESIGNLAB_GRAPH_COM_PLOTTER_H_
+#pragma once
 
 #include "interface_dxlib_3d_renderer.h"
 
-namespace designlab {
+namespace gaitgen {
 
 class GraphComPlotter : public IDxlib3dRenderer {
  public:
@@ -20,6 +19,4 @@ class GraphComPlotter : public IDxlib3dRenderer {
   void Draw() const override;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_GRAPH_COM_PLOTTER_H_
+}  // namespace gaitgen

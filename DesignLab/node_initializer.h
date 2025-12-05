@@ -5,13 +5,12 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_NODE_INITIALIZER_H_
-#define DESIGNLAB_NODE_INITIALIZER_H_
+#pragma once
 
 #include "map_state.h"
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class NodeInitializer
 //! @brief ノードの初期化を行うクラス.
@@ -35,6 +34,4 @@ class NodeInitializer final {
   const HexapodMove move_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_NODE_INITIALIZER_H_
+}  // namespace gaitgen

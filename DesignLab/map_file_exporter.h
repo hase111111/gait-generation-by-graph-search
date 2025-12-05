@@ -5,14 +5,13 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MAP_FILE_EXPORTER_H_
-#define DESIGNLAB_MAP_FILE_EXPORTER_H_
+#pragma once
 
 #include <string>
 
 #include "map_state.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class MapFileExporter
 //! @brief マップを csv に出力するクラス.
@@ -28,6 +27,4 @@ class MapFileExporter final {
                  const MapState& map_state) const noexcept;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_MAP_FILE_EXPORTER_H_
+}  // namespace gaitgen

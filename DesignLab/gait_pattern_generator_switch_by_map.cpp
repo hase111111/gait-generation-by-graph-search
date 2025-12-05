@@ -14,7 +14,7 @@
 #include "cassert_define.h"
 #include "cmdio_util.h"
 
-namespace designlab {
+namespace gaitgen {
 GaitPatternGeneratorSwitchByMap::GaitPatternGeneratorSwitchByMap(
     std::unique_ptr<IGaitPatternGenerator>&& gpg_normal,
     std::unique_ptr<IGaitPatternGenerator>&& gpg_pitch_rot,
@@ -71,4 +71,4 @@ bool GaitPatternGeneratorSwitchByMap::DoRollRotation(
   return false;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

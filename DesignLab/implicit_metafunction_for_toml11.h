@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_IMPLICIT_METAFUNCTION_FOR_TOML11_H_
-#define DESIGNLAB_IMPLICIT_METAFUNCTION_FOR_TOML11_H_
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -15,9 +14,9 @@
 
 #include "toml11_define.h"
 
-//! @namespace designlab::impl
+//! @namespace gaitgen::impl
 //! @brief 明示的に使用することのない関数をまとめた名前空間.
-namespace designlab::impl {
+namespace gaitgen::impl {
 
 //! @brief toml::into<T>()が存在するかどうかを判定するメタ関数.
 //! @details toml::into<T>()が存在する場合には,こちらが呼ばれる.
@@ -217,6 +216,4 @@ struct is_vector_of_enum : std::false_type {};
 template <typename T>
 struct is_vector_of_enum<std::vector<T>> : std::is_enum<T> {};
 
-}  // namespace designlab::impl
-
-#endif  // DESIGNLAB_IMPLICIT_METAFUNCTION_FOR_TOML11_H_
+}  // namespace gaitgen::impl

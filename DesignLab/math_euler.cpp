@@ -13,7 +13,7 @@
 #include "math_rot_converter.h"
 #include "rotation_matrix_3x3.h"
 
-namespace designlab {
+namespace gaitgen {
 
 std::string EulerXYZ::ToString() const {
   std::string str;
@@ -53,4 +53,4 @@ Vector3 RotateVector3(const Vector3& vec, const EulerXYZ& rot) {
   return RotateVector3(vec, rot_mat);
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

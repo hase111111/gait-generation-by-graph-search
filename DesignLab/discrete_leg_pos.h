@@ -5,10 +5,9 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_DISCRETE_LEG_POS_H_
-#define DESIGNLAB_DISCRETE_LEG_POS_H_
+#pragma once
 
-namespace designlab {
+namespace gaitgen {
 
 //! @enum DiscreteLegPos
 //! @brief 離散化された脚位置を表す列挙体.
@@ -26,6 +25,4 @@ enum class DiscreteLegPos : int {
   kUpperFront,     //!< 現在の位置より前方かつ上方にある.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_DISCRETE_LEG_POS_H_
+}  // namespace gaitgen

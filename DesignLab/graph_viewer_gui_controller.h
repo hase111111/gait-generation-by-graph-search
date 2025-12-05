@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_GRAPH_VIEWER_GUI_CONTROLLER_H_
-#define DESIGNLAB_GRAPH_VIEWER_GUI_CONTROLLER_H_
+#pragma once
 
 #include <memory>
 #include <utility>
@@ -18,7 +17,7 @@
 
 //! @todo 仮置きのはずが,本実装になっているので,後で直す
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class GraphViewerGUIController
 //! @brief グラフのノードのデータを表示するGUIのコントローラークラス.
@@ -64,6 +63,4 @@ class GraphViewerGUIController final {
   int input_number_ = -1;                   //!< 入力された数値.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_GRAPH_VIEWER_GUI_CONTROLLER_H_
+}  // namespace gaitgen

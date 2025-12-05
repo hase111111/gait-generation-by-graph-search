@@ -9,7 +9,7 @@
 
 #include "leg_state.h"
 
-namespace designlab {
+namespace gaitgen {
 
 NodeCreatorLegHierarchy::NodeCreatorLegHierarchy(
     const HexapodMove next_move,
@@ -130,4 +130,4 @@ void NodeCreatorLegHierarchy::Create3LegLifted(
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

@@ -12,9 +12,9 @@
 
 #include "math_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
-//! @struct designlab::Vector2
+//! @struct gaitgen::Vector2
 //! @brief 2次元の位置ベクトルを表す構造体.
 //! @details
 //! @subsubsection 参考
@@ -156,4 +156,4 @@ inline std::basic_istream<Char>& operator>>(std::basic_istream<Char>& is,
   return is >> unused >> v.x >> unused >> v.y >> unused;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

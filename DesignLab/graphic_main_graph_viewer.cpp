@@ -21,7 +21,7 @@
 #include "node_initializer.h"
 #include "world_grid_renderer.h"
 
-namespace designlab {
+namespace gaitgen {
 
 GraphicMainGraphViewer::GraphicMainGraphViewer(
     const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
@@ -126,4 +126,4 @@ void GraphicMainGraphViewer::Draw() const {
   gui_updater_.Draw();
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

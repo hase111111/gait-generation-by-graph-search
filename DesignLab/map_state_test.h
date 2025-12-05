@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MAP_STATE_TEST_H_
-#define DESIGNLAB_MAP_STATE_TEST_H_
+#pragma once
 
 #include <vector>
 
@@ -14,8 +13,8 @@
 #include "map_state.h"
 
 TEST_SUITE("MapState::Constructor") {
-  using designlab::MapState;
-  using designlab::Vector3;
+  using gaitgen::MapState;
+  using gaitgen::Vector3;
 
   TEST_CASE(
       "デフォルトコンストラクタの呼び出し時,マップのサイズは0になるべき") {
@@ -62,8 +61,8 @@ TEST_SUITE("MapState::Constructor") {
 }
 
 TEST_SUITE("MapState::AssignmentOperator") {
-  using designlab::MapState;
-  using designlab::Vector3;
+  using gaitgen::MapState;
+  using gaitgen::Vector3;
 
   TEST_CASE("代入した時,代入元と同じサイズになるべき") {
     std::vector<Vector3> map_point = {{1, 2, 3}, {4, 5, 6}};
@@ -86,8 +85,8 @@ TEST_SUITE("MapState::AssignmentOperator") {
 }
 
 TEST_SUITE("MapState::SetMapPoint") {
-  using designlab::MapState;
-  using designlab::Vector3;
+  using gaitgen::MapState;
+  using gaitgen::Vector3;
 
   TEST_CASE("0番目にデータをセットした時,マップのサイズは変わるべきでない") {
     std::vector<Vector3> map_point = {{1, 2, 3}, {4, 5, 6}};
@@ -114,8 +113,8 @@ TEST_SUITE("MapState::SetMapPoint") {
 }
 
 TEST_SUITE("MapState::SetMapPointVec") {
-  using designlab::MapState;
-  using designlab::Vector3;
+  using gaitgen::MapState;
+  using gaitgen::Vector3;
 
   TEST_CASE("3つの脚接地点をセットした時,マップのサイズは3になるべき") {
     SUBCASE("マップが空の時") {
@@ -173,8 +172,8 @@ TEST_SUITE("MapState::SetMapPointVec") {
 }
 
 TEST_SUITE("MapState::AddMapPoint") {
-  using designlab::MapState;
-  using designlab::Vector3;
+  using gaitgen::MapState;
+  using gaitgen::Vector3;
 
   TEST_CASE("2回呼び出した時,マップのサイズは2増えるべき") {
     std::vector<Vector3> map_point = {{1, 2, 3}, {4, 5, 6}};
@@ -205,8 +204,8 @@ TEST_SUITE("MapState::AddMapPoint") {
 }
 
 TEST_SUITE("MapState::ClearMapPoint") {
-  using designlab::MapState;
-  using designlab::Vector3;
+  using gaitgen::MapState;
+  using gaitgen::Vector3;
 
   TEST_CASE("ClearMapPoint") {
     SUBCASE("2つの脚接地点を消去した時,マップのサイズは0になるべき") {
@@ -220,5 +219,3 @@ TEST_SUITE("MapState::ClearMapPoint") {
     }
   }
 }
-
-#endif  // DESIGNLAB_MAP_STATE_TEST_H_

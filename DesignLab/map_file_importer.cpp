@@ -13,7 +13,7 @@
 
 #include "cmdio_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 using nostd::expected;
 using nostd::unexpected;
@@ -50,4 +50,4 @@ expected<MapState, std::string> MapFileImporter::ImportMap(
   return MapState(map_point);
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

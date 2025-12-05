@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_TOML_FILE_EXPORTER_H_
-#define DESIGNLAB_TOML_FILE_EXPORTER_H_
+#pragma once
 
 #include <filesystem>
 #include <fstream>
@@ -19,7 +18,7 @@
 #include "string_util.h"
 #include "toml11_define.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @brief into<T>を持つか判定するコンセプト.
 template <typename T>
@@ -125,6 +124,4 @@ class TomlFileExporter final {
   }
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_TOML_FILE_EXPORTER_H_
+}  // namespace gaitgen

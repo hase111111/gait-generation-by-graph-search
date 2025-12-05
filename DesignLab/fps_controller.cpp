@@ -12,7 +12,7 @@
 #include <cmath>
 #include <string>
 
-namespace designlab {
+namespace gaitgen {
 
 FpsController::FpsController(const int target_fps)
     : kTargetFpsValue(target_fps),
@@ -135,4 +135,4 @@ bool FpsController::TargetFpsIsValid() const {
   return true;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

@@ -9,7 +9,7 @@
 
 #include <filesystem>
 
-namespace designlab {
+namespace gaitgen {
 
 const char TomlDirectoryExporter::kTomlFileDirPath[] =
     "./simulation_condition/";
@@ -28,4 +28,4 @@ void TomlDirectoryExporter::Export() {
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

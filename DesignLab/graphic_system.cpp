@@ -16,7 +16,7 @@
 #include "graphic_const.h"
 #include "keyboard.h"
 
-namespace designlab {
+namespace gaitgen {
 
 GraphicSystem::GraphicSystem(
     const std::shared_ptr<const ApplicationSettingRecord> setting_ptr)
@@ -187,4 +187,4 @@ void GraphicSystem::MyDxlibFinalize() const {
   // ほかにも処理があればここに追記する.
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_CASSERT_DEFINE_H_
-#define DESIGNLAB_CASSERT_DEFINE_H_
+#pragma once
 
 // Visual Studioでは,デバッグモードではアサートを有効化し,
 // リリースモードではアサートを無効化する.
@@ -31,5 +30,3 @@
 #endif  // _DEBUG
 
 #include <cassert>
-
-#endif  // DESIGNLAB_CASSERT_DEFINE_H_

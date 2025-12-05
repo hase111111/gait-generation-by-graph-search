@@ -18,7 +18,7 @@
 #include "interface_node_creator.h"
 #include "leg_state.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class NodeCreatorLegHierarchyPruningBranch
 //! @brief 脚の階層構造を作るためのクラス.
@@ -71,4 +71,4 @@ class NodeCreatorLegHierarchyPruningBranch final : public INodeCreator {
   const bool use_legacy_;
 };
 
-}  // namespace designlab
+}  // namespace gaitgen

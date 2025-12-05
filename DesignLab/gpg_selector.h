@@ -15,7 +15,7 @@
 #include "interface_hexapod_posture_validator.h"
 #include "interface_hexapod_state_presenter.h"
 
-namespace designlab {
+namespace gaitgen {
 
 class GpgSelector final {
  public:
@@ -45,4 +45,4 @@ class GpgSelector final {
   const int gpg_memory_limit_;
 };
 
-}  // namespace designlab
+}  // namespace gaitgen

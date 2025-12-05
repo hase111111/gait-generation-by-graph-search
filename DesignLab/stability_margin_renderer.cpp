@@ -15,7 +15,7 @@
 #include "leg_state.h"
 #include "math_polygon2.h"
 
-namespace designlab {
+namespace gaitgen {
 
 StabilityMarginRenderer::StabilityMarginRenderer(
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr)
@@ -77,4 +77,4 @@ void StabilityMarginRenderer::Draw() const {
   DrawSphere3D(projected_center_pos, 5, 10, 10, GetColor(255, 255, 255), TRUE);
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

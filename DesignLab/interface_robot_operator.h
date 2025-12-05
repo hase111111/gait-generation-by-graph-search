@@ -5,13 +5,12 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_INTERFACE_ROBOT_OPERATOR_H_
-#define DESIGNLAB_INTERFACE_ROBOT_OPERATOR_H_
+#pragma once
 
 #include "robot_operation.h"
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class IRobotOperator
 //! @brief ロボットの動作を決定する処理のインターフェース.
@@ -29,6 +28,4 @@ class IRobotOperator {
   virtual RobotOperation Update(const RobotStateNode& state) = 0;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_INTERFACE_ROBOT_OPERATOR_H_
+}  // namespace gaitgen

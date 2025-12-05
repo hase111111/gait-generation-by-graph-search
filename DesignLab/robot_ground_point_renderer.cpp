@@ -12,7 +12,7 @@
 #include "dxlib_util.h"
 #include "leg_state.h"
 
-namespace designlab {
+namespace gaitgen {
 
 RobotGroundPointRenderer::RobotGroundPointRenderer(
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr)
@@ -95,4 +95,4 @@ void RobotGroundPointRenderer::Draw(const size_t draw_simulation_num,
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

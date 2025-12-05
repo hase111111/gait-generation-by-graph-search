@@ -9,7 +9,7 @@
 
 #include <Dxlib.h>
 
-namespace designlab {
+namespace gaitgen {
 
 const char GraphicConst::kWindowName[] = "HexapodGraphic";
 
@@ -23,4 +23,4 @@ const float GraphicConst::kCameraToTargetMax = 10000.0f;
 
 const float GraphicConst::kCameraToTargetMin = 10.0f;
 
-}  // namespace designlab
+}  // namespace gaitgen

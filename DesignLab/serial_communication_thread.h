@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_SERIAL_COMMUNICATION_THREAD_H_
-#define DESIGNLAB_SERIAL_COMMUNICATION_THREAD_H_
+#pragma once
 
 #include <Windows.h>  // シリアル通信を行うために必要.
 
@@ -14,7 +13,7 @@
 #include <string>
 #include <vector>
 
-namespace designlab {
+namespace gaitgen {
 
 class SerialCommunicationThread final {
  public:
@@ -78,13 +77,11 @@ class SerialCommunicationThread final {
   HANDLE serial_handle_{INVALID_HANDLE_VALUE};  //!< シリアル通信のハンドル.
 
   std::vector<std::string> read_data_;  //!< シリアル通信で受信した文字列群.
-  std::string write_data_;  //!< シリアル通信で送信する文字列.
+  std::string write_data_;              //!< シリアル通信で送信する文字列.
 
   bool end_flag_{false};  //!< スレッド終了フラグ.
 
   mutable boost::mutex mutex_;  //!< 排他制御用のミューテックス.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_SERIAL_COMMUNICATION_THREAD_H_
+}  // namespace gaitgen

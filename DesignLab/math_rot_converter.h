@@ -11,7 +11,7 @@
 #include "math_quaternion.h"
 #include "rotation_matrix_3x3.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @brief 回転角行列からクォータニオンへの変換.
 //! @param[in] rot 回転角行列.
@@ -43,4 +43,4 @@ namespace designlab {
 //! @return オイラー角.
 [[nodiscard]] EulerXYZ ToEulerXYZ(const Quaternion& q);
 
-}  // namespace designlab
+}  // namespace gaitgen

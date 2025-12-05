@@ -5,12 +5,11 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_SIMULATION_END_CHECKER_BY_POSITION_H_
-#define DESIGNLAB_SIMULATION_END_CHECKER_BY_POSITION_H_
+#pragma once
 
 #include "interface_simulation_end_checker.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class SimulationEndCheckerByPosition
 //! @brief 最終位置によるシミュレーション終了判定クラス.
@@ -26,6 +25,4 @@ class SimulationEndCheckerByPosition final : public ISimulationEndChecker {
   const float allowable_error_;  //!< 許容誤差.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_SIMULATION_END_CHECKER_BY_POSITION_H_
+}  // namespace gaitgen

@@ -5,16 +5,15 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_GRAPH_SEARCH_EVALUATOR_TEST_H_
-#define DESIGNLAB_GRAPH_SEARCH_EVALUATOR_TEST_H_
+#pragma once
 
 #include <doctest.h>
 
 #include "graph_search_evaluator.h"
 
 TEST_SUITE("GraphSearchEvaluator") {
-  using GraphSearchEvaluator = designlab::GraphSearchEvaluator;
-  using GraphSearchEvaluationValue = designlab::GraphSearchEvaluationValue;
+  using GraphSearchEvaluator = gaitgen::GraphSearchEvaluator;
+  using GraphSearchEvaluationValue = gaitgen::GraphSearchEvaluationValue;
   using Tag = GraphSearchEvaluationValue::Tag;
 
   constexpr Tag kFirstTag = 10;  // 1つ目の評価値のタグ.
@@ -257,5 +256,3 @@ TEST_SUITE("GraphSearchEvaluator") {
     CHECK(actual.value.size() == expected.value.size());
   }
 }
-
-#endif  // DESIGNLAB_GRAPH_SEARCH_EVALUATOR_TEST_H_

@@ -15,7 +15,7 @@
 #include "my_expected.h"
 #include "vector3.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class DividedMapState
 //! @brief マップを格子状に分割して管理するクラス.
@@ -220,4 +220,4 @@ class DividedMapState final {
                 "kDividedMapMaxY は kDividedMapMinY より大きい必要があります.");
 };
 
-}  // namespace designlab
+}  // namespace gaitgen

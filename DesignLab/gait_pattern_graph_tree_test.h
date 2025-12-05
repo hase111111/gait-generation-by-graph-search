@@ -5,14 +5,13 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_GAIT_PATTERN_GRAPH_TREE_TEST_H_
-#define DESIGNLAB_GAIT_PATTERN_GRAPH_TREE_TEST_H_
+#pragma once
 
 #include "doctest.h"
 #include "gait_pattern_graph_tree.h"
 
 TEST_SUITE("GaitPatternGraphTree::Constructor") {
-  using designlab::GaitPatternGraphTree;
+  using gaitgen::GaitPatternGraphTree;
 
   TEST_CASE("初期化した時,グラフの要素は０になるべき") {
     const GaitPatternGraphTree tree_10(10);
@@ -43,8 +42,8 @@ TEST_SUITE("GaitPatternGraphTree::Constructor") {
 }
 
 TEST_SUITE("GaitPatternGraphTree::HasRoot") {
-  using designlab::GaitPatternGraphTree;
-  using designlab::RobotStateNode;
+  using gaitgen::GaitPatternGraphTree;
+  using gaitgen::RobotStateNode;
 
   TEST_CASE("根ノードがある時,trueを返すべき") {
     RobotStateNode root_node;
@@ -67,5 +66,3 @@ TEST_SUITE("GaitPatternGraphTree::HasRoot") {
     CHECK(tree_1000.HasRoot());
   }
 }
-
-#endif  // DESIGNLAB_GAIT_PATTERN_GRAPH_TREE_TEST_H_

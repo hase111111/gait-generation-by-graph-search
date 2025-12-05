@@ -5,13 +5,12 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_INTERFACE_TOML_DATA_VALIDATOR_H_
-#define DESIGNLAB_INTERFACE_TOML_DATA_VALIDATOR_H_
+#pragma once
 
 #include <string>
 #include <tuple>
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class ITomlDataValidator
 //! @brief TOMLファイルのデータの検証を行う処理のインターフェース.
@@ -26,6 +25,4 @@ class ITomlDataValidator {
   virtual std::tuple<bool, std::string> Validate(const T& toml_data) const = 0;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_INTERFACE_TOML_DATA_VALIDATOR_H_
+}  // namespace gaitgen

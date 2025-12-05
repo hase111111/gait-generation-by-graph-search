@@ -13,7 +13,7 @@
 #include "leg_state.h"
 #include "string_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 std::string SimulationResultRecord::ToCsvString() const {
   // シミュレーションの最終的な結果の出力.
@@ -40,4 +40,4 @@ std::string SimulationResultRecord::ToCsvString() const {
   return ss.str();
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

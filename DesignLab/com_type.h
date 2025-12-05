@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_COM_TYPE_H_
-#define DESIGNLAB_COM_TYPE_H_
+#pragma once
 
 #include <bitset>
 #include <boost/bimap.hpp>
@@ -28,7 +27,7 @@ bool operator<(const std::bitset<N>& lhs, const std::bitset<N>& rhs) {
 
 }  // namespace std
 
-//! @namespace designlab::com_func
+//! @namespace gaitgen::com_func
 //! @brief 重心タイプに関する名前空間.Center of Mass Function の略.
 //! @details
 //! leg_stateの上位ビットにて表されているもの.詳細は波東さんの修論で
@@ -45,7 +44,7 @@ bool operator<(const std::bitset<N>& lhs, const std::bitset<N>& rhs) {
 //! @n ・2本遊脚 15通り.
 //! @n ・3本遊脚 20通り → 実現可能なものは14通り.
 //! @n なので全部で36通りある.
-namespace designlab::com_func {
+namespace gaitgen::com_func {
 
 //! @brief 脚の接地パターンを表す型.leftがビットのデータ,rightが int型の番号.
 //! @n bimaps::bimap は,左右の型の両方からアクセスできる map.
@@ -101,6 +100,4 @@ void RemoveLegGroundPatternFromNotGroundableLeg(
 void RemoveLegGroundPatternFromNotFreeLeg(int not_lift_leg_index,
                                           boost::dynamic_bitset<>* output);
 
-}  // namespace designlab::com_func
-
-#endif  // DESIGNLAB_COM_TYPE_H_
+}  // namespace gaitgen::com_func

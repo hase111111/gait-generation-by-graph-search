@@ -16,7 +16,7 @@
 #include "map_file_importer.h"
 #include "string_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 MapCreatorByCsv::MapCreatorByCsv(const std::string& map_file_path)
     : map_file_path_(map_file_path) {
@@ -51,4 +51,4 @@ void MapCreatorByCsv::UpdateMap(MapState*) const {
   // 何もしない.
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

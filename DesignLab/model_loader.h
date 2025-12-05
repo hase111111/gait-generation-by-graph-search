@@ -5,15 +5,14 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MODEL_LOADER_H_
-#define DESIGNLAB_MODEL_LOADER_H_
+#pragma once
 
 #include <map>
 #include <string>
 
 #include "singleton.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class ModelLoader
 //! @brief Dxlibの3Dモデルを読み込むクラス.
@@ -53,6 +52,4 @@ class ModelLoader final : public Singleton<ModelLoader> {
   std::map<std::string, int> model_handle_map_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_MODEL_LOADER_H_
+}  // namespace gaitgen

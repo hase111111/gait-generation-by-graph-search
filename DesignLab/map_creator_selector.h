@@ -5,15 +5,14 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_MAP_CREATOR_SELECTOR_H_
-#define DESIGNLAB_MAP_CREATOR_SELECTOR_H_
+#pragma once
 
 #include <memory>
 
 #include "interface_map_creator.h"
 #include "simulation_setting_record.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class MapCreatorSelector
 //! @brief マップを生成するクラスを生成するクラス.
@@ -26,6 +25,4 @@ class MapCreatorSelector final {
       const SimulationSettingRecord& record) const;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_MAP_CREATOR_SELECTOR_H_
+}  // namespace gaitgen

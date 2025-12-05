@@ -15,7 +15,7 @@
 #include "node_creator_leg_hierarchy.h"
 #include "node_creator_leg_up_down.h"
 
-namespace designlab {
+namespace gaitgen {
 
 NodeCreatorSequenceStraightMove::NodeCreatorSequenceStraightMove(
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
@@ -55,4 +55,4 @@ NodeCreatorSequenceStraightMove::Build(const DividedMapState& map) const {
   return node_creator;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

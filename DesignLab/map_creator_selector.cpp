@@ -18,7 +18,7 @@
 #include "toml_directory_exporter.h"
 #include "toml_file_importer.h"
 
-namespace designlab {
+namespace gaitgen {
 
 std::unique_ptr<IMapCreator> MapCreatorSelector::Select(
     const SimulationSettingRecord& record) const {
@@ -50,4 +50,4 @@ std::unique_ptr<IMapCreator> MapCreatorSelector::Select(
   return std::move(map_creator);
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

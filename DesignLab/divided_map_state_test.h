@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_DIVIDED_MAP_STATE_TEST_H_
-#define DESIGNLAB_DIVIDED_MAP_STATE_TEST_H_
+#pragma once
 
 #include <vector>
 
@@ -16,10 +15,10 @@
 
 namespace divided_map_state_test_internal {
 
-using designlab::DividedMapState;
-using designlab::IMapCreator;
-using designlab::MapState;
-using designlab::Vector3;
+using gaitgen::DividedMapState;
+using gaitgen::IMapCreator;
+using gaitgen::MapState;
+using gaitgen::Vector3;
 
 class TestMapCreator final : public IMapCreator {
  public:
@@ -58,9 +57,9 @@ class TestMapCreator final : public IMapCreator {
 }  // namespace divided_map_state_test_internal
 
 TEST_SUITE("DividedMapState::Init") {
-  using designlab::DividedMapState;
-  using designlab::MapState;
-  using designlab::Vector3;
+  using gaitgen::DividedMapState;
+  using gaitgen::MapState;
+  using gaitgen::Vector3;
 
   TEST_CASE(
       "マップの状態とロボットの重心座標を渡した時,"
@@ -97,7 +96,7 @@ TEST_SUITE("DividedMapState::Init") {
 }
 
 TEST_SUITE("DividedMapState::ClampDividedMapIndex") {
-  using designlab::DividedMapState;
+  using gaitgen::DividedMapState;
 
   TEST_CASE("0未満の値を渡した時,0を返すべき") {
     CHECK_EQ(DividedMapState::ClampDividedMapIndex(-1), 0);
@@ -124,5 +123,3 @@ TEST_SUITE("DividedMapState::ClampDividedMapIndex") {
         DividedMapState::kDividedNum - 1);
   }
 }
-
-#endif  // DESIGNLAB_DIVIDED_MAP_STATE_TEST_H_

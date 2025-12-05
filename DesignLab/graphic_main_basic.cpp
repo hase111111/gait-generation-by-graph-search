@@ -20,7 +20,7 @@
 #include "stopwatch.h"
 #include "world_grid_renderer.h"
 
-namespace designlab {
+namespace gaitgen {
 
 GraphicMainBasic::GraphicMainBasic(
     const std::shared_ptr<const GraphicDataBroker>& broker_ptr,
@@ -49,20 +49,20 @@ GraphicMainBasic::GraphicMainBasic(
   const auto camera_gui = std::make_shared<DxlibGuiCamera>(
       setting_ptr->window_size_x, setting_ptr->window_size_y,
       dxlib_camera_ptr_);
-  camera_gui->SetPos(10, 10, designlab::kDxlibGuiAnchorLeftTop, true);
+  camera_gui->SetPos(10, 10, gaitgen::kDxlibGuiAnchorLeftTop, true);
   display_node_switch_gui_->SetPos(10, setting_ptr->window_size_y - 10,
-                                   designlab::kDxlibGuiAnchorLeftBottom, true);
+                                   gaitgen::kDxlibGuiAnchorLeftBottom, true);
   const auto camera_parameter_gui =
       std::make_shared<DxlibGuiCameraParameterDisplayer>(
           setting_ptr->window_size_x, setting_ptr->window_size_y,
           dxlib_camera_ptr_);
-  camera_parameter_gui->SetPos(10, 10, designlab::kDxlibGuiAnchorLeftTop, true);
+  camera_parameter_gui->SetPos(10, 10, gaitgen::kDxlibGuiAnchorLeftTop, true);
   camera_parameter_gui->SetVisible(false);
   const auto node_display_gui = std::make_shared<DxlibGuiNodeDisplayer>(
       setting_ptr->window_size_x, setting_ptr->window_size_y, converter_ptr,
       calculator_ptr, checker_ptr);
   node_display_gui->SetPos(setting_ptr->window_size_x - 10, 10,
-                           designlab::kDxlibGuiAnchorRightTop, true);
+                           gaitgen::kDxlibGuiAnchorRightTop, true);
   const auto camera_dragger =
       std::make_shared<CameraDragger>(dxlib_camera_ptr_);
 
@@ -227,4 +227,4 @@ void GraphicMainBasic::Draw() const {
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

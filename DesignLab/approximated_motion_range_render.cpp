@@ -11,7 +11,7 @@
 
 #include "dxlib_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 ApproximatedMotionRangeRender::ApproximatedMotionRangeRender(
     const std::shared_ptr<const IHexapodPostureValidator>& validator,
@@ -113,4 +113,4 @@ void ApproximatedMotionRangeRender::InitPosState() {
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

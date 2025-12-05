@@ -9,7 +9,7 @@
 
 #include "cassert_define.h"
 
-namespace designlab::string_util {
+namespace gaitgen::string_util {
 
 std::vector<std::string> Split(const std::string& str,
                                const std::string& separator) {
@@ -41,4 +41,4 @@ std::vector<std::string> Split(const std::string& str,
   return list;
 }
 
-}  // namespace designlab::string_util
+}  // namespace gaitgen::string_util

@@ -16,7 +16,7 @@
 #include "math_util.h"
 #include "string_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 SimpleButton::SimpleButton(const std::string& text, const int pos_x,
                            const int pos_y, const int size_x, const int size_y,
@@ -147,4 +147,4 @@ int SimpleButton::GetFitButtonSizeY(const int now_size_y) const noexcept {
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

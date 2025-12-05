@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_GRAPHIC_DATA_BROKER_H_
-#define DESIGNLAB_GRAPHIC_DATA_BROKER_H_
+#pragma once
 
 #include <vector>
 
@@ -14,7 +13,7 @@
 #include "map_state.h"
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @struct GraphicDataBroker
 //! @brief
@@ -33,6 +32,4 @@ struct GraphicDataBroker final {
   AsyncableData<std::vector<size_t>> simulation_end_index;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_GRAPHIC_DATA_BROKER_H_
+}  // namespace gaitgen

@@ -10,7 +10,7 @@
 #include "math_util.h"
 #include "vector2.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @struct LineSegment2
 //! @brief 2次元の線分を表す構造体.
@@ -73,4 +73,4 @@ struct LineSegment2 final {
   Vector2 end;    //!< 線分の終点.
 };
 
-}  // namespace designlab
+}  // namespace gaitgen

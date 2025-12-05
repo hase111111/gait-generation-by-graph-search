@@ -9,7 +9,7 @@
 
 #include <Dxlib.h>
 
-namespace designlab {
+namespace gaitgen {
 
 WorldGridRenderer::WorldGridRenderer()
     : kMainGridXColor(GetColor(217, 0, 0)),
@@ -83,4 +83,4 @@ void WorldGridRenderer::Draw() const {
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

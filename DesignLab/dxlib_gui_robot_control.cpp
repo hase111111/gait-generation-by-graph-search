@@ -14,7 +14,7 @@
 #include "font_loader.h"
 #include "mouse.h"
 
-namespace designlab {
+namespace gaitgen {
 
 DxlibGuiRobotControl::DxlibGuiRobotControl(
     const int window_x, const int window_y,
@@ -208,4 +208,4 @@ std::string DxlibGuiRobotControl::GetSerialData() const {
   return str;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

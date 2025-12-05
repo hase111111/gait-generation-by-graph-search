@@ -13,7 +13,7 @@
 #include "toml_directory_exporter.h"
 #include "toml_file_importer.h"
 
-namespace designlab {
+namespace gaitgen {
 
 SystemMainCreateMapCsv::SystemMainCreateMapCsv(
     const std::shared_ptr<GraphicDataBroker>& broker_ptr)
@@ -76,4 +76,4 @@ SystemMainCreateMapCsv::MakeMapCreator() const {
   return std::make_unique<MapCreatorForSimulation>(simulation_map_parameter);
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

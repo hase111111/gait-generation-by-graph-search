@@ -5,10 +5,9 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_INTERFACE_DXLIB_3D_RENDERER_H_
-#define DESIGNLAB_INTERFACE_DXLIB_3D_RENDERER_H_
+#pragma once
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class IDxlib3dRenderer
 //! @brief DxLibの描画処理を行うクラスのインターフェース.
@@ -22,6 +21,4 @@ class IDxlib3dRenderer {
   virtual void Draw() const = 0;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_INTERFACE_DXLIB_3D_RENDERER_H_
+}  // namespace gaitgen

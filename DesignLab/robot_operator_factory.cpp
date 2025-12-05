@@ -15,7 +15,7 @@
 #include "toml_directory_exporter.h"
 #include "toml_file_importer.h"
 
-namespace designlab {
+namespace gaitgen {
 
 std::unique_ptr<IRobotOperator> RobotOperatorFactory::Create(
     const SimulationSettingRecord& setting) {
@@ -40,4 +40,4 @@ std::unique_ptr<IRobotOperator> RobotOperatorFactory::Create(
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

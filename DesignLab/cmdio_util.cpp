@@ -17,7 +17,7 @@
 #include "cassert_define.h"
 #include "string_util.h"
 
-namespace designlab {
+namespace gaitgen::cmdio {
 
 OutputDetail output_limit = OutputDetail::kSystem;
 
@@ -25,7 +25,7 @@ bool do_output = true;
 
 bool is_initialized = false;
 
-void cmdio::SetOutputLimit(const OutputDetail limit) {
+void SetOutputLimit(const OutputDetail limit) {
   output_limit = limit;
 
   if (!is_initialized) {
@@ -42,9 +42,9 @@ void cmdio::SetOutputLimit(const OutputDetail limit) {
           string_util::EnumToStringRemoveTopK(output_limit));
 }
 
-void cmdio::DoOutput(const bool do_output_) { do_output = do_output_; }
+void DoOutput(const bool do_output_) { do_output = do_output_; }
 
-void cmdio::Print(const std::string& str, const OutputDetail detail) {
+void Print(const std::string& str, const OutputDetail detail) {
   assert(is_initialized);  // SetOutputLimitを呼んでから使用すること.
 
   // 出力を許可している かつ
@@ -112,13 +112,13 @@ void cmdio::Print(const std::string& str, const OutputDetail detail) {
   }
 }
 
-void cmdio::SpacedOutput(const std::string& str, OutputDetail detail) {
+void SpacedOutput(const std::string& str, OutputDetail detail) {
   OutputNewLine(1, detail);
   Print(str, detail);
   OutputNewLine(1, detail);
 }
 
-void cmdio::OutputCenter(const std::string& str, const OutputDetail detail) {
+void OutputCenter(const std::string& str, const OutputDetail detail) {
   // 改行ごとに文字列を取り出す.
   std::stringstream ss(str);
   std::string line;
@@ -141,7 +141,7 @@ void cmdio::OutputCenter(const std::string& str, const OutputDetail detail) {
   }
 }
 
-void cmdio::OutputRight(const std::string& str, const OutputDetail detail) {
+void OutputRight(const std::string& str, const OutputDetail detail) {
   // 改行ごとに文字列を取り出す.
   std::stringstream ss(str);
   std::string line;
@@ -164,7 +164,7 @@ void cmdio::OutputRight(const std::string& str, const OutputDetail detail) {
   }
 }
 
-void cmdio::OutputNewLine(const int num, const OutputDetail detail) {
+void OutputNewLine(const int num, const OutputDetail detail) {
   if (num <= 0) {
     return;
   }
@@ -174,8 +174,8 @@ void cmdio::OutputNewLine(const int num, const OutputDetail detail) {
   }
 }
 
-void cmdio::OutputHorizontalLine(const std::string& line_visual,
-                                 const OutputDetail detail) {
+void OutputHorizontalLine(const std::string& line_visual,
+                          const OutputDetail detail) {
   if (line_visual.size() != 1) {
     return;
   }
@@ -189,7 +189,7 @@ void cmdio::OutputHorizontalLine(const std::string& line_visual,
   Print(str, detail);
 }
 
-void cmdio::OutputTitle(const std::string& title_name, bool output_copy_right) {
+void OutputTitle(const std::string& title_name, bool output_copy_right) {
   OutputDetail detail = OutputDetail::kSystem;
 
   OutputNewLine(1, detail);
@@ -207,15 +207,15 @@ void cmdio::OutputTitle(const std::string& title_name, bool output_copy_right) {
   OutputNewLine(1, detail);
 }
 
-void cmdio::WaitAnyKey(const std::string& str) {
+void WaitAnyKey(const std::string& str) {
   Print(str, OutputDetail::kSystem);
 
   // 何かキーを押すまで待機.
   system("PAUSE");
 }
 
-int cmdio::InputInt(const int min, const int max, const int default_num,
-                    const std::string& str) {
+int InputInt(const int min, const int max, const int default_num,
+             const std::string& str) {
   assert(min <= max);  // 最小値は最大値より小さい.
 
   OutputF(OutputDetail::kSystem, "{} ( {} ～ {} ) ", str, min, max);
@@ -250,7 +250,7 @@ int cmdio::InputInt(const int min, const int max, const int default_num,
   return res;
 }
 
-bool cmdio::InputYesNo(const std::string& str) {
+bool InputYesNo(const std::string& str) {
   Print(str + " ( y / n ) ", OutputDetail::kSystem);
 
   while (true) {
@@ -272,7 +272,7 @@ bool cmdio::InputYesNo(const std::string& str) {
   }
 }
 
-std::string cmdio::InputDirName(const std::string& str) {
+std::string InputDirName(const std::string& str) {
   Print(str, OutputDetail::kSystem);
 
   const std::vector<std::string> invalid_chars = {"\\", "/", ":", "*", "?",
@@ -322,4 +322,4 @@ std::string cmdio::InputDirName(const std::string& str) {
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen::cmdio

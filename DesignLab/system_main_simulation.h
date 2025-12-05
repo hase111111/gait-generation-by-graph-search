@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_SYSTEM_MAIN_SIMULATION_H_
-#define DESIGNLAB_SYSTEM_MAIN_SIMULATION_H_
+#pragma once
 
 #include <memory>
 #include <string>
@@ -25,7 +24,7 @@
 #include "robot_operator_for_gpg.h"
 #include "stopwatch.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class SystemMainSimulation
 //! @brief 先行研究における int main()で行われていた処理をまとめたもので,
@@ -98,6 +97,4 @@ class SystemMainSimulation final : public ISystemMain {
   Stopwatch timer_;  //!< 時間計測用のクラス.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_SYSTEM_MAIN_SIMULATION_H_
+}  // namespace gaitgen

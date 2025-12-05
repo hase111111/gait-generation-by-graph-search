@@ -5,12 +5,11 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_INTERFACE_SIMULATION_END_CHECKER_H_
-#define DESIGNLAB_INTERFACE_SIMULATION_END_CHECKER_H_
+#pragma once
 
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class ISimulationEndChecker
 //! @brief シミュレーションの終了を判定するクラスのインターフェース.
@@ -24,6 +23,4 @@ class ISimulationEndChecker {
   virtual bool IsEnd(const RobotStateNode& node) const = 0;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_INTERFACE_SIMULATION_END_CHECKER_H_
+}  // namespace gaitgen

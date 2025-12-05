@@ -5,10 +5,9 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_INTERFACE_SYSTEM_MAIN_H_
-#define DESIGNLAB_INTERFACE_SYSTEM_MAIN_H_
+#pragma once
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class ISystemMain
 //! @brief プログラムの面の処理のインターフェース.
@@ -20,6 +19,4 @@ class ISystemMain {
   virtual void Main() = 0;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_INTERFACE_SYSTEM_MAIN_H_
+}  // namespace gaitgen

@@ -5,8 +5,7 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_H_
-#define DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_H_
+#pragma once
 
 #include <memory>
 #include <vector>
@@ -15,7 +14,7 @@
 #include "hexapod_next_move.h"
 #include "interface_node_creator.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class NodeCreatorLegHierarchy
 //! @brief 脚の階層構造を作るためのクラス.
@@ -64,6 +63,4 @@ class NodeCreatorLegHierarchy final : public INodeCreator {
   const std::vector<DiscreteLegPos> discrete_leg_pos_list_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_NODE_CREATOR_LEG_HIERARCHY_H_
+}  // namespace gaitgen

@@ -5,13 +5,12 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_ASYNCABLE_DATA_H_
-#define DESIGNLAB_ASYNCABLE_DATA_H_
+#pragma once
 
 #include <boost/thread.hpp>
 #include <vector>
 
-namespace designlab {
+namespace gaitgen {
 
 template <typename T>
 concept CopyAssignable = std::is_copy_assignable<T>::value;
@@ -220,6 +219,4 @@ class AsyncableData<std::vector<T> > final {
   int update_count_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_ASYNCABLE_DATA_H_
+}  // namespace gaitgen

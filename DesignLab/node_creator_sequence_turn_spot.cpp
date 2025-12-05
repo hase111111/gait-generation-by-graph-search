@@ -18,7 +18,7 @@
 #include "node_creator_leg_up_down_2d.h"
 #include "node_creator_leg_up_down_radius.h"
 
-namespace designlab {
+namespace gaitgen {
 
 NodeCreatorSequenceTurnSpot::NodeCreatorSequenceTurnSpot(
     const std::shared_ptr<const IHexapodCoordinateConverter>& converter_ptr,
@@ -54,4 +54,4 @@ NodeCreatorSequenceTurnSpot::Build(const DividedMapState& map) const {
   return node_creator;
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

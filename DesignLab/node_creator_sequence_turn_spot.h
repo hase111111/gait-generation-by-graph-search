@@ -5,15 +5,14 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_NODE_CREATOR_SEQUENCE_TURN_SPOT_H_
-#define DESIGNLAB_NODE_CREATOR_SEQUENCE_TURN_SPOT_H_
+#pragma once
 
 #include <map>
 #include <memory>
 
 #include "interface_node_creator_sequence.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class NodeCreatorSequenceTurnSpot
 //! @brief 旋回動作用のノード生成クラスを生成するクラス.
@@ -33,6 +32,4 @@ class NodeCreatorSequenceTurnSpot final : public INodeCreatorSequence {
   const std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_NODE_CREATOR_SEQUENCE_TURN_SPOT_H_
+}  // namespace gaitgen

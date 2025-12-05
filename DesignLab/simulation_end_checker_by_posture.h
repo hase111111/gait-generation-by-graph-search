@@ -5,14 +5,13 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_SIMULATION_END_CHECKER_BY_POSTURE_H_
-#define DESIGNLAB_SIMULATION_END_CHECKER_BY_POSTURE_H_
+#pragma once
 
 #include "interface_simulation_end_checker.h"
 #include "math_euler.h"
 #include "math_quaternion.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class SimulationEndCheckerByPosture
 //! @brief 最終姿勢によるシミュレーション終了判定クラス.
@@ -30,6 +29,4 @@ class SimulationEndCheckerByPosture final : public ISimulationEndChecker {
   const float allowable_error_;  //!< 許容誤差.
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_SIMULATION_END_CHECKER_BY_POSTURE_H_
+}  // namespace gaitgen

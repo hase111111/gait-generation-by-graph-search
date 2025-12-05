@@ -13,7 +13,7 @@
 
 #include "cassert_define.h"
 
-namespace designlab {
+namespace gaitgen {
 
 GraphTreeCreator::GraphTreeCreator(
     std::unique_ptr<INodeCreatorSequence>&& node_creator_builder_ptr)
@@ -86,4 +86,4 @@ void GraphTreeCreator::MakeNewNodesByCurrentNode(
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

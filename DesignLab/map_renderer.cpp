@@ -12,7 +12,7 @@
 #include "dxlib_util.h"
 #include "loop_util.h"
 
-namespace designlab {
+namespace gaitgen {
 
 MapRenderer::MapRenderer(const bool draw_flat_map, const bool draw_area)
     : color_gray_(GetColor(180, 80, 80)),
@@ -98,4 +98,4 @@ void MapRenderer::Draw() const {
   }
 }
 
-}  // namespace designlab
+}  // namespace gaitgen

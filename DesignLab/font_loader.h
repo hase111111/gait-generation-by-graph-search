@@ -5,15 +5,14 @@
 // Released under the MIT license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef DESIGNLAB_FONT_LOADER_H_
-#define DESIGNLAB_FONT_LOADER_H_
+#pragma once
 
 #include <map>
 #include <string>
 
 #include "singleton.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @class FontLoader
 //! @brief Dxlibのフォントを読み込むクラス.
@@ -54,6 +53,4 @@ class FontLoader final : public Singleton<FontLoader> {
   std::map<std::string, int> font_handle_map_;
 };
 
-}  // namespace designlab
-
-#endif  // DESIGNLAB_FONT_LOADER_H_
+}  // namespace gaitgen

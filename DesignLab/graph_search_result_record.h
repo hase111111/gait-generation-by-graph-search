@@ -14,7 +14,7 @@
 #include "my_expected.h"
 #include "robot_state_node.h"
 
-namespace designlab {
+namespace gaitgen {
 
 //! @struct GraphSearchResultRecord
 //! @brief グラフ探索の結果を格納する構造体.
@@ -60,4 +60,4 @@ struct GraphSearchResultRecord final {
   nostd::expected<bool, std::string> graph_search_result;
 };
 
-}  // namespace designlab
+}  // namespace gaitgen
