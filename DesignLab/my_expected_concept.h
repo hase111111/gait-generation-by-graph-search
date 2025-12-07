@@ -20,7 +20,7 @@ class unexpected;
 
 //! @brief expected の concept
 //! 型 T は参照型ではなく, 関数型でもなく,
-//! unexpectedの特殊化でなく,in_place_tの特殊化でもないことを要求する
+//! unexpectedの特殊化でなく,in_place_tの特殊化でもないことを要求する.
 template <typename T>
 concept IsExpected =
     !std::is_reference_v<T> && !std::is_function_v<T> &&

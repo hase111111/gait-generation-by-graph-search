@@ -29,7 +29,6 @@ GaitPatternGeneratorSwitchMove::GetNextNodeByGraphSearch(
     const RobotStateNode& current_node, const MapState& map_state,
     const RobotOperation& operation) {
   using enum RobotOperationType;
-  using unexpected = nostd::unexpected<std::string>;
 
   last_operation_ = operation;
 
@@ -42,7 +41,7 @@ GaitPatternGeneratorSwitchMove::GetNextNodeByGraphSearch(
     return gpg_for_turn_spot_ptr_->GetNextNodeByGraphSearch(
         current_node, map_state, operation);
   } else {
-    return unexpected{"A non-existent behavior was specified."};
+    return nostd::unexpected{"A non-existent behavior was specified."};
   }
 }
 

@@ -55,7 +55,7 @@ GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
       graph_tree_creator_ptr_->CreateGraphTree(0, 1, &graph_tree_);
 
   if (!create_result) {
-    return nostd::unexpected<std::string>{create_result.error()};
+    return nostd::unexpected{create_result.error()};
   }
 
   cmdio::DebugOutput("Graph tree generation has been completed to depth 1.");
@@ -108,7 +108,7 @@ GaitPatternGeneratorThread::GetNextNodeByGraphSearch(
 
   if (!search_result) {
     cmdio::DebugOutput("Failed to evaluate the graph tree.");
-    return nostd::unexpected<std::string>{search_result.error()};
+    return nostd::unexpected{search_result.error()};
   }
 
   cmdio::DebugOutput(

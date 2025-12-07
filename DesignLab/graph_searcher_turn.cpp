@@ -29,7 +29,7 @@ GraphSearcherTurn::SearchGraphTree(const GaitPatternGraphTree& graph,
 
   if (!graph.HasRoot()) {
     // 根ノードがない場合は失敗.
-    return nostd::unexpected<std::string>{
+    return nostd::unexpected{
         "Failed to search graph tree: "
         "root node is not found."};
   }
@@ -79,7 +79,7 @@ GraphSearcherTurn::SearchGraphTree(const GaitPatternGraphTree& graph,
   if (max_evaluation_value_index < 0 ||
       graph.GetGraphSize() <= max_evaluation_value_index) {
     // 最大評価値のインデックスが範囲外の場合は失敗.
-    return nostd::unexpected<std::string>{
+    return nostd::unexpected{
         "Failed to search graph tree: "
         "max evaluation value index is out of range."};
   }
@@ -126,7 +126,7 @@ GraphSearcherTurn::SearchGraphTreeVector(
   if (max_evaluation_value_index < 0 ||
       result_vector.size() <= max_evaluation_value_index) {
     // 最大評価値のインデックスが範囲外の場合は失敗.
-    return nostd::unexpected<std::string>{
+    return nostd::unexpected{
         "Failed to search graph tree: "
         "max evaluation value index is out of range."};
   }
