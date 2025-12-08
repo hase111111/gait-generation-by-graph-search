@@ -344,20 +344,20 @@ IntersectRayWithPlaneRect(const Vector3& origin, const Vector3& direction,
   const float denom = target.normal.Dot(direction);
   if (std::abs(denom) < 1e-6f) {
     // 平面に平行な場合
-    return nostd::unexpected<std::string>("Line is parallel to plane");
+    return nostd::unexpected{"Line is parallel to plane"};
   }
 
   const Vector3& p0 = target.corners[0];
   const float t = -target.normal.Dot(origin - p0) / denom;
   if (t < 0) {
     // 交点が原点より後ろにある場合
-    return nostd::unexpected<std::string>("No intersection, behind origin");
+    return nostd::unexpected{"No intersection, behind origin"};
   }
 
   Vector3 intersection = origin + direction * t;
   if (!PointInQuad(intersection, target.corners)) {
     // 交点が矩形の内部にない場合
-    return nostd::unexpected<std::string>("Intersection not within rectangle");
+    return nostd::unexpected{"Intersection not within rectangle"};
   }
 
   return std::make_tuple(t, intersection);
@@ -370,21 +370,21 @@ inline nostd::expected<Vector3, std::string> IntersectPointWithPlaneRect(
   float denom = plane.normal.Dot(direction);
   if (std::abs(denom) < epsilon) {
     // レイと平面が平行
-    return nostd::unexpected<std::string>("Ray is parallel to the plane");
+    return nostd::unexpected{"Ray is parallel to the plane"};
   }
 
-  // 平面上の1点（四角形の1つの角）を取得
+  // 平面上の1点（四角形の1つの角）を取得.
   const Vector3& plane_point = plane.corners[0];
 
-  // t を計算：レイと平面の交差スカラー
+  // t を計算：レイと平面の交差スカラー.
   float t = -plane.normal.Dot(origin - plane_point) / denom;
 
   if (t < 0) {
-    // レイが逆方向に交差する（不可視）
-    return nostd::unexpected<std::string>("Ray intersects behind the origin");
+    // レイが逆方向に交差する（不可視）.
+    return nostd::unexpected{"Ray intersects behind the origin"};
   }
 
-  // 交点を計算
+  // 交点を計算.
   Vector3 intersection = origin + direction * t;
 
   return intersection;

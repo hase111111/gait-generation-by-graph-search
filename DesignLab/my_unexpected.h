@@ -17,7 +17,7 @@ namespace gaitgen::nostd {
 template <typename E>
 class unexpected final {
  public:
-  // テンプレートパラメータ制約
+  // テンプレートパラメータ制約.
 
   template <typename Err>
   static constexpr bool param_concept3_1 =
@@ -41,10 +41,10 @@ class unexpected final {
   static constexpr bool param_concept5 =
       std::is_constructible_v<E, std::initializer_list<U>, Args...>;
 
-  // コンストラクタ
+  // コンストラクタ.
 
-  constexpr unexpected(const unexpected&) = default;  //!< コピーコンストラクタ
-  constexpr unexpected(unexpected&&) = default;       //!< ムーブコンストラクタ
+  constexpr unexpected(const unexpected&) = default;  //!< コピーコンストラクタ.
+  constexpr unexpected(unexpected&&) = default;       //!< ムーブコンストラクタ.
 
   template <typename Err = E,
             std::enable_if_t<param_concept3<Err>, std::nullptr_t> = nullptr>
@@ -67,7 +67,7 @@ class unexpected final {
 
   constexpr ~unexpected() = default;
 
-  // 比較演算子(friend関数で定義)
+  // 比較演算子 ( friend 関数で定義).
   template <typename E2>
   friend constexpr bool operator==(const unexpected<E2>& lhs,
                                    const unexpected<E2>& rhs);
@@ -89,7 +89,7 @@ constexpr unexpected<std::decay_t<E>> make_unexpected(E&& e) {
   return unexpected<std::decay_t<E>>(std::forward<E>(e));
 }
 
-// 型推論のためのエイリアス
+// 型推論のためのエイリアス.
 template <class E>
 unexpected(E) -> unexpected<E>;
 
@@ -103,11 +103,11 @@ constexpr bool operator!=(const unexpected<E>& lhs, const unexpected<E>& rhs) {
   return !(lhs == rhs);
 }
 
-// constexprでのテスト
+// constexpr でのテスト.
 static_assert(unexpected<int>{0}.error() == 0,
-              "unexpected<int>のerror()が正しく動作しません。");
+              "unexpected<int> の error() が正しく動作してません。");
 
 static_assert(unexpected<std::string>{"error"}.error() == "error",
-              "unexpected<std::string>のerror()が正しく動作しません。");
+              "unexpected<std::string> の error() が正しく動作してません。");
 
 }  // namespace gaitgen::nostd

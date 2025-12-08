@@ -68,7 +68,7 @@ TEST_SUITE("expected") {
   using gaitgen::nostd::unexpected;
 
   TEST_CASE("expected construction") {
-    // 単一の変数によるコンストラクタ
+    // 単一の変数によるコンストラクタ.
 
     SUBCASE("when T is a integral type, it should be constructible") {
       expected<int, std::string> e(42);
@@ -103,13 +103,13 @@ TEST_SUITE("expected") {
   TEST_CASE("arrow operator") {
     SUBCASE(
         "when T is a class with member functions, arrow operator should work") {
-      // Act1
+      // Act1.
       expected<Sample, std::string> e;
 
       CHECK_EQ(e->value(), 42);
       CHECK_EQ(e->cnt, 0);
 
-      // Act2
+      // Act2.
       e->count();
 
       CHECK_EQ(e->cnt, 1);
@@ -203,14 +203,14 @@ TEST_SUITE("expected") {
         return expected<int, std::string>(value / 2);
       };
 
-      // Act1
+      // Act1.
       const expected<int, std::string> e1(42);
       const auto result = e1.and_then(div2);
 
       CHECK(result.has_value());
       CHECK_EQ(result.value(), 21);
 
-      // Act2
+      // Act2.
       const expected<int, std::string> e2(44);
       const auto result2 = e2.and_then(div2).and_then(div2);
 
@@ -223,14 +223,14 @@ TEST_SUITE("expected") {
         return expected<int, std::string>(value / 2);
       };
 
-      // Act1
+      // Act1.
       const expected<int, std::string> e1(unexpected<std::string>("error"));
       const auto result1 = e1.and_then(div2);
 
       CHECK(!result1.has_value());
       CHECK_EQ(result1.error(), "error");
 
-      // Act2
+      // Act2.
       const expected<int, std::string> e2(unexpected<std::string>("error"));
       const auto result2 = e2.and_then(div2).and_then(div2);
 
@@ -243,7 +243,7 @@ TEST_SUITE("expected") {
         return expected<int, std::string>(s.value());
       };
 
-      // Act
+      // Act.
       expected<Sample, std::string> e(Sample{});
       const auto result = e.and_then(get_value);
 
@@ -251,10 +251,10 @@ TEST_SUITE("expected") {
       CHECK_EQ(result.value(), 42);
     }
 
-    SUBCASE("") {
+    SUBCASE("when chaining and_then, it should work correctly") {
       const expected<int, std::string> e1(42);
 
-      // Act1
+      // Act1.
       const auto res1 = e1.and_then(FizzBuzz);
       const auto res2 = e1.and_then(FizzBuzzRef);
 

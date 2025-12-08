@@ -91,7 +91,11 @@ class expected final {
 
   template <class G>
   constexpr expected(const unexpected<G>& e)
+<<<<<<< HEAD
       : storage_(unexpected<E>{e.error()}), has_value_(false) {}
+=======
+      : storage_{unexpected<E>{e.error()}}, has_value_(false) {}
+>>>>>>> b3b30736d78eb3de877d40a43c264a3b0b4186e8
 
   constexpr ~expected() = default;  //!< デストラクタ
 
@@ -170,7 +174,7 @@ class expected final {
     return has_value() ? std::forward<G>(e) : error();
   }
 
-  // Monadic operations
+  // Monadic operations.
   template <class Return>
   constexpr expected<Return, E> and_then(
       const std::function<expected<Return, E>(T)>& func) const& {

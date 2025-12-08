@@ -34,7 +34,6 @@ nostd::expected<RobotStateNode, std::string>
 GaitPatternGeneratorBasic::GetNextNodeByGraphSearch(
     const RobotStateNode& current_node, const MapState& map_state,
     const RobotOperation& operation) {
-  using unexpected = nostd::unexpected<std::string>;
   assert(current_node.IsLootNode());
   assert(graph_tree_creator_ptr_ != nullptr);
   assert(graph_searcher_ptr_ != nullptr);
@@ -53,7 +52,7 @@ GaitPatternGeneratorBasic::GetNextNodeByGraphSearch(
       graph_tree_creator_ptr_->CreateGraphTree(0, max_depth_, &graph_tree_);
 
   if (!create_result) {
-    return unexpected{"GraphTreeCreator: " + create_result.error()};
+    return nostd::unexpected{"GraphTreeCreator: " + create_result.error()};
   }
 
   // グラフ探索を行う
@@ -61,7 +60,7 @@ GaitPatternGeneratorBasic::GetNextNodeByGraphSearch(
       graph_tree_, operation, divided_map, max_depth_);
 
   if (!search_result) {
-    return unexpected{search_result.error()};
+    return nostd::unexpected{search_result.error()};
   }
 
   const auto& [next_evaluation_value, next_node] = *search_result;

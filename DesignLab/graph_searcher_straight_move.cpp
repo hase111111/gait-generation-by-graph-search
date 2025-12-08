@@ -32,7 +32,7 @@ GraphSearcherStraightMove::SearchGraphTree(
 
   if (!graph.HasRoot()) {
     // 根ノードがない場合は失敗.
-    return nostd::unexpected<std::string>{
+    return nostd::unexpected{
         "Failed to search graph tree: "
         "root node is not found."};
   }
@@ -105,7 +105,7 @@ GraphSearcherStraightMove::SearchGraphTree(
 
   if (graph.GetGraphSize() <= max_evaluation_value_index) {
     // 最大評価値のインデックスが範囲外の場合は失敗.
-    return nostd::unexpected<std::string>{
+    return nostd::unexpected{
         "Failed to search graph tree: "
         "max evaluation value index is out of range."};
   }
@@ -116,7 +116,7 @@ GraphSearcherStraightMove::SearchGraphTree(
         "max_depth: {}, move: {}",
         log_depth, string_util::EnumToStringRemoveTopK(log_move));
 
-    return nostd::unexpected<std::string>{mes};
+    return nostd::unexpected{mes};
   }
 
   cmdio::DebugOutputF("max_evaluation_value = {}",
@@ -167,7 +167,7 @@ GraphSearcherStraightMove::SearchGraphTreeVector(
   if (max_evaluation_value_index < 0 ||
       result_vector.size() <= max_evaluation_value_index) {
     // 最大評価値のインデックスが範囲外の場合は失敗.
-    return nostd::unexpected<std::string>{
+    return nostd::unexpected{
         "Failed to search graph tree: "
         "max evaluation value index is out of range."};
   }

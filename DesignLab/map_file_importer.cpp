@@ -15,17 +15,14 @@
 
 namespace gaitgen {
 
-using nostd::expected;
-using nostd::unexpected;
-
-expected<MapState, std::string> MapFileImporter::ImportMap(
+nostd::expected<MapState, std::string> MapFileImporter::ImportMap(
     const std::string& file_path) const noexcept {
   // ファイルを開く.
   std::ifstream ifs(file_path);
 
   // ファイルが開けないならば, エラーを返す.
   if (!ifs.is_open()) {
-    return unexpected("Cannot open file. file name: " + file_path);
+    return nostd::unexpected{"Cannot open file. file name: " + file_path};
   }
 
   // ファイルを1行ずつ読み込み,Mapに追加する.
