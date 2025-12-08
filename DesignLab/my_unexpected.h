@@ -48,19 +48,19 @@ class unexpected final {
 
   template <typename Err = E,
             std::enable_if_t<param_concept3<Err>, std::nullptr_t> = nullptr>
-  constexpr explicit unexpected(const Err& e) : error_(e) {}
+  constexpr explicit unexpected(const Err& e) : error_{e} {}
 
   template <typename... Args,
             std::enable_if_t<param_concept4<Args...>, std::nullptr_t> = nullptr>
   constexpr explicit unexpected(std::in_place_t, Args&&... args)
-      : error_(std::forward<Args>(args)...) {}
+      : error_{std::forward<Args>(args)...} {}
 
   template <
       typename U, typename... Args,
       std::enable_if_t<param_concept5<U, Args...>, std::nullptr_t> = nullptr>
   constexpr explicit unexpected(std::in_place_t, std::initializer_list<U> il,
                                 Args&&... args)
-      : error_(il, std::forward<Args>(args)...) {}
+      : error_{il, std::forward<Args>(args)...} {}
 
   constexpr unexpected& operator=(const unexpected&) = default;
   constexpr unexpected& operator=(unexpected&&) = default;

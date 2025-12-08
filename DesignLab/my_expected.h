@@ -91,7 +91,7 @@ class expected final {
 
   template <class G>
   constexpr expected(const unexpected<G>& e)
-      : storage_(unexpected(e.error())), has_value_(false) {}
+      : storage_(unexpected<E>{e.error()}), has_value_(false) {}
 
   constexpr ~expected() = default;  //!< デストラクタ
 
