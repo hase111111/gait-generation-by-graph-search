@@ -17,8 +17,8 @@ namespace gaitgen {
 //! @n シミュレーション時にノードの初期値を設定するために使用する.
 class NodeInitializer final {
  public:
-  NodeInitializer(const Vector3& pos, const EulerXYZ& posture,
-                  HexapodMove move);
+  NodeInitializer(const Vector3& pos, const EulerXYZ& posture, HexapodMove move,
+                  float leg_z_local);
 
   //! @brief ノードの初期化を行う.
   //! @return 初期化されたノード.
@@ -32,6 +32,7 @@ class NodeInitializer final {
   const Vector3 pos_;
   const EulerXYZ posture_;
   const HexapodMove move_;
+  const float leg_z_local_;
 };
 
 }  // namespace gaitgen

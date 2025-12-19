@@ -71,6 +71,8 @@ struct SimulationSettingRecord final {
   EulerXYZ initial_posture{0.f, 0.f, 0.f};
 
   HexapodMove initial_move{HexapodMove::kComMove};
+
+  float initial_leg_z_local{-60.f};
 };
 
 DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationSettingRecord) {
@@ -176,6 +178,11 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationSettingRecord) {
       std::format(
           "シミュレーション開始時のロボットの歩容を設定します.( \"{}\" )",
           string_util::EnumValuesToString<HexapodMove>("\" / \"")));
+  DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
+      initial_leg_z_local, "Initial",
+      "シミュレーション開始時のロボットの脚のZ座標のローカル座標系での値を設定"
+      "します.[mm]."
+      "地面にめり込んでいる場合には機能しないため,注意すること.");
 };
 
 }  // namespace gaitgen
@@ -187,4 +194,5 @@ DESIGNLAB_TOML11_SERIALIZE(gaitgen::SimulationSettingRecord, gpg_type,
                            target_posture_allowable_error_deg, target_position,
                            target_position_allowable_error, operate_mode,
                            fixed_operate_file_name, path_points,
-                           initial_positions, initial_move, initial_posture);
+                           initial_positions, initial_move, initial_posture,
+                           initial_leg_z_local);

@@ -37,8 +37,8 @@ GraphicMainDisplayModel::GraphicMainDisplayModel(
     : mouse_ptr_(std::make_shared<Mouse>()),
       calculator_ptr_(calculator_ptr),
       converter_ptr_(converter_ptr) {
-  NodeInitializer node_initializer{Vector3{0.f, 0.f, 30.f}, EulerXYZ(),
-                                   HexapodMove::kNone};
+  NodeInitializer node_initializer{Vector3{0.f, 0.f, 60.f}, EulerXYZ(),
+                                   HexapodMove::kNone, -60.0f};
   robot_ = node_initializer.InitNode();
 
   TomlFileImporter<SimulationSettingRecord> simulation_setting_importer;

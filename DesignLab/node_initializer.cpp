@@ -16,8 +16,9 @@
 namespace gaitgen {
 
 NodeInitializer::NodeInitializer(const Vector3& pos, const EulerXYZ& posture,
-                                 HexapodMove move)
-    : pos_(pos), posture_(posture), move_(move) {}
+                                 const HexapodMove move,
+                                 const float leg_z_local)
+    : pos_(pos), posture_(posture), move_(move), leg_z_local_(leg_z_local) {}
 
 RobotStateNode NodeInitializer::InitNode() const {
   RobotStateNode res;
@@ -36,7 +37,7 @@ RobotStateNode NodeInitializer::InitNode() const {
   for (int i = 0; i < HexapodConst::kLegNum; i++) {
     res.leg_pos[i] = res.leg_reference_pos[i] = {
         160.f * cos(PhantomXMkIIConst::kCoxaDefaultAngle[i]),
-        160.f * sin(PhantomXMkIIConst::kCoxaDefaultAngle[i]), -60};
+        160.f * sin(PhantomXMkIIConst::kCoxaDefaultAngle[i]), leg_z_local_};
   }
 
   res.center_of_mass_global_coord = pos_;

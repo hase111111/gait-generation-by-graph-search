@@ -37,8 +37,8 @@ GraphicMainGraphViewer::GraphicMainGraphViewer(
   assert(broker_ptr_ != nullptr);
 
   // 適当なノードを生成して,描画クラスを初期化する.
-  NodeInitializer node_initializer{Vector3{0.f, 0.f, 30.f}, EulerXYZ(),
-                                   HexapodMove::kNone};
+  NodeInitializer node_initializer{Vector3{0.f, 0.f, 60.f}, EulerXYZ(),
+                                   HexapodMove::kNone, -60.0};
   RobotStateNode init_node = node_initializer.InitNode();
 
   const auto camera = std::make_shared<DxlibCamera>();

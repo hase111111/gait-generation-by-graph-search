@@ -15,8 +15,8 @@
 namespace gaitgen {
 
 MapRenderer::MapRenderer(const bool draw_flat_map, const bool draw_area)
-    : color_gray_(GetColor(180, 80, 80)),
-      color_light_gray_(GetColor(200, 160, 160)),
+    : color_gray_(GetColor(0, 255, 0)),
+      color_light_gray_(GetColor(255, 0, 0)),
       color_dark_gray_(GetColor(40, 40, 40)),
       cube_size_(15.f),
       draw_flat_map_(draw_flat_map),

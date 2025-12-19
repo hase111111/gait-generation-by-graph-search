@@ -29,5 +29,5 @@
     free_leg_height = -40.0
     
     #Static safety margin: 15mm is a reasonable value. (Based on previous studies, max is about 40 mm.)
-    stable_margin = 10.0
+    stable_margin = 15.0
     

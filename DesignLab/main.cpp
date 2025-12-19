@@ -164,8 +164,8 @@ int main() {
         auto robot_operator = RobotOperatorFactory::Create(sim_setting_record);
         auto node_initializer = std::make_unique<NodeInitializer>(
             sim_setting_record.initial_positions,
-            sim_setting_record.initial_posture,
-            sim_setting_record.initial_move);
+            sim_setting_record.initial_posture, sim_setting_record.initial_move,
+            sim_setting_record.initial_leg_z_local);
         auto result_exporter =
             std::make_shared<ResultFileExporter>(phantomx_mk2, phantomx_mk2);
 
@@ -279,8 +279,8 @@ int main() {
         auto robot_operator = RobotOperatorFactory::Create(sim_setting_record);
         auto node_initializer = std::make_unique<NodeInitializer>(
             sim_setting_record.initial_positions,
-            sim_setting_record.initial_posture,
-            sim_setting_record.initial_move);
+            sim_setting_record.initial_posture, sim_setting_record.initial_move,
+            sim_setting_record.initial_leg_z_local);
 
         system_main = std::make_unique<SystemMainContinuousSimulation>(
             std::move(gait_pattern_generator),

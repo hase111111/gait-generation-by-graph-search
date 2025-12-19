@@ -175,7 +175,7 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgPruningBranch()
   auto graph_searcher =
       std::make_unique<GraphSearcherStraightMove>(checker_ptr_);
 
-  auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorThread>(
+  auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorBasic>(
       std::move(graph_tree_creator), std::move(graph_searcher), gpg_depth_,
       gpg_memory_limit_);
 

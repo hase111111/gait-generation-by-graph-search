@@ -52,7 +52,7 @@ void SystemMainGraphViewer::Main() {
 
   RobotStateNode first_node =
       NodeInitializer{Vector3{0.f, 0.f, 60.f}, EulerXYZ{},
-                      HexapodMove::kComUpDown}
+                      HexapodMove::kComUpDown, -60.0f}
           .InitNode();
   std::vector<RobotStateNode> graph;
 
@@ -233,8 +233,8 @@ RobotStateNode SystemMainGraphViewer::SelectNodeByInput(
   if (graph.size() == 0) {
     cmdio::Print("グラフが空なので,初期状態のノードを返す", kSystem);
 
-    NodeInitializer node_initializer{Vector3{0.f, 0.f, 30.f}, EulerXYZ(),
-                                     HexapodMove::kNone};
+    NodeInitializer node_initializer{Vector3{0.f, 0.f, 60.f}, EulerXYZ(),
+                                     HexapodMove::kNone, -60.f};
     RobotStateNode first_node = node_initializer.InitNode();
 
     return first_node;
