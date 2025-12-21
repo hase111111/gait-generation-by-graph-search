@@ -18,7 +18,7 @@
 [LegRange]
     
     #Maximum distance from the base of the leg to the tip of the leg [mm].
-    max_leg_range = 200.0
+    max_leg_range = 250.0
     
     #Minimum distance from the base of the leg to the tip of the leg [mm].
     min_leg_range = 135.0

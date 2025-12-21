@@ -55,7 +55,7 @@ class SystemMainContinuousSimulation final : public ISystemMain {
   std::vector<std::string> GetMapFilePath() const;
 
   //! 1シミュレーション当たりの最大歩容生成回数.
-  static constexpr int kGaitPatternGenerationLimit{5000};
+  static constexpr int kGaitPatternGenerationLimit{100};
 
   //! 自由歩容パターン生成を行うクラス.
   const std::unique_ptr<IGaitPatternGenerator> gait_pattern_generator_ptr_;
