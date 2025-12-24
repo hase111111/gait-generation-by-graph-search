@@ -347,12 +347,12 @@ if __name__ == "__main__":
 
     # main2()
 
-    # file = file_io.get_file_paths("node_list1.csv")
-    # print("Number of CSV files read:", len(file))
-    # filtered_files = [f for f in file if "flat" in f] 
-    # main3(filtered_files, raw=True, show_plot=True, name="node_list1")
-
     file = file_io.get_file_paths("node_list1.csv")
     print("Number of CSV files read:", len(file))
-    filtered_files = [f for f in file if "" in f] 
-    main4(filtered_files, raw=True, show_plot=True, shrink=True, name="node_list1")
+    filtered_files = [f for f in file if "rough" in f] 
+    main3(filtered_files, raw=True, show_plot=True, name="node_list1")
+
+    # file = file_io.get_file_paths("node_list1.csv")
+    # print("Number of CSV files read:", len(file))
+    # filtered_files = [f for f in file if "normal" in f] 
+    # main4(filtered_files, raw=True, show_plot=True, shrink=True, name="node_list1")

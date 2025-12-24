@@ -8,7 +8,7 @@
     end_check_mode = "kGoalTape"
     
     #終了条件がゴールテープに到達したか ( GoalTape ) の場合,ゴールテープのx座標を設定します.[mm]
-    goal_tape_position_x = 1000000.0
+    goal_tape_position_x = 900.0
     
     #終了条件が目的の座標に到達したか ( Position ) の場合,目標の座標を設定します.[mm]
     target_position = "     0.000,     0.000,     0.000"
@@ -32,19 +32,19 @@
     gpg_memory_limit = 50000000
     
     #歩容パターン生成の方法を設定する. ( "kFlatLegacyAlgorithm" / "kFlat" / "kPitchRot" / "kStraightMove" / "kSwichByMap" / "kWall" / "kPruningBranch" / "kPruningBranchLegacy" )
-    gpg_type = "kPruningBranchLegacy" 
+    gpg_type = "kPruningBranch" 
 
 [Initial]
     
     #シミュレーション開始時のロボットの脚のZ座標のローカル座標系での値を設定します.[mm].地面にめり込んでいる場合には機能しないため,注意すること.
-    initial_leg_z_local = -60.0
+    initial_leg_z_local = -80.0
 
     #シミュレーション開始時のロボットの歩容を設定します.( "kNone" / "kLegUpDown" / "kLegHierarchyChange" / "kComMove" / "kComUpDown" / "kBodyRollRot" / "kBodyPitchRot" / "kBodyYawRot" )
     initial_move = "kComMove"
     
     #シミュレーション開始時のロボットの位置を設定します.[mm].地面にめり込んでいる場合には機能しないため,注意すること.
-    initial_positions = "     0.000,     0.000,    60.000"
-    # initial_positions = "     -110.000,     -30.000,    -230.000"
+    #initial_positions = "     0.000,     0.000,    60.000"
+    initial_positions = "     -110.000,     -30.000,    -230.000"
     
     #シミュレーション開始時のロボットの姿勢を設定します.[deg].地面にめり込んでいる場合には機能しないため,注意すること.
     initial_posture = "     0.000,     0.000,     0.000"
@@ -53,7 +53,7 @@
 [Map]
     
     #マップの作成方法を設定します.( "kForSimulation" / "kFromFile" )
-    map_create_mode = "kForSimulation" 
+    map_create_mode = "kFromFile" 
     
     #マップの作成方法がファイルから読み込むモード ( FromFile ) の場合,マップの csvファイルの名前を設定します.
     map_file_name = "filtered_xy_result.csv"

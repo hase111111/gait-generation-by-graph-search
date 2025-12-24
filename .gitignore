@@ -371,3 +371,5 @@ DesignLab/Log.txt
 DesignLab/shot/*
 python/*.png
 python/result/*
+
+*.tex
