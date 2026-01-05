@@ -143,6 +143,7 @@ struct SimulationMapParameter final {
   float map_start_rough_x{400.f};  //!< 不整地が始まるX座標.
   float wall_x{0.f};               //!< 壁のX座標 [mm].
   float wall_height{1000.f};       //!< 壁の高さ [mm].
+  float wall_degree{90.f};         //!< 壁の角度 [deg].
 
   //! 各種模様や穴を作成する際,これで指定したマス分の1辺を持つ正方形状にあなをあける.
   int stripe_interval{5};
@@ -200,6 +201,8 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationMapParameter) {
   DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(wall_x, "Basic", "壁のX座標 [mm].");
   DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(wall_height, "Basic",
                                             "壁の高さ [mm].");
+  DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(wall_degree, "Basic",
+                                            "壁の角度 [deg].");
 
   DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(
       stripe_interval, "Stripe",
@@ -257,7 +260,7 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationMapParameter) {
 
 DESIGNLAB_TOML11_SERIALIZE(gaitgen::SimulationMapParameter, mode, option,
                            base_z, map_max_x, map_min_x, map_max_y, map_min_y,
-                           map_start_rough_x, wall_x, wall_height,
+                           map_start_rough_x, wall_x, wall_height, wall_degree,
                            stripe_interval, diagonal_angle, hole_rate,
                            step_height, step_length, step_start_x, slope_angle,
                            slope_start_x, tilt_angle, tilt_start_x,

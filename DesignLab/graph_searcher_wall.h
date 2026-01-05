@@ -39,7 +39,7 @@ class GraphSearcherWall final : public IGraphSearcher {
   static constexpr Tag kTagMoveForward = 0;
   static constexpr Tag kTagLegRot = 1;
   static constexpr Tag kTagStablyMargin = 2;
-  static constexpr Tag kTagZDiff = 3;
+  static constexpr Tag kTagPose = 3;
 
   GraphSearchEvaluator InitializeEvaluator() const;
 
@@ -54,8 +54,8 @@ class GraphSearcherWall final : public IGraphSearcher {
   float GetLegRotEvaluationValue(const RobotStateNode& node,
                                  const RobotStateNode& root_node) const;
 
-  float GetZDiffEvaluationValue(const std::vector<float>& com_trajectory,
-                                const float target_z_value) const;
+  float GetPoseEvaluationValue(const RobotStateNode& node,
+                               const Quaternion quat) const;
 
   const std::shared_ptr<const IHexapodPostureValidator> checker_ptr_;
 

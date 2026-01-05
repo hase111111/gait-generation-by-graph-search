@@ -155,8 +155,7 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgWall() const {
   auto graph_tree_creator =
       std::make_unique<GraphTreeCreator>(std::move(node_creator_seq));
 
-  auto graph_searcher =
-      std::make_unique<GraphSearcherStraightMove>(checker_ptr_);
+  auto graph_searcher = std::make_unique<GraphSearcherWall>(checker_ptr_);
 
   auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorBasic>(
       std::move(graph_tree_creator), std::move(graph_searcher), gpg_depth_,

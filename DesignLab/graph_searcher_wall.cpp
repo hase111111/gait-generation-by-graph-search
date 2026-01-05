@@ -24,7 +24,7 @@ GraphSearcherWall::GraphSearcherWall(
 nostd::expected<GraphSearcherWall::return_type, std::string>
 GraphSearcherWall::SearchGraphTree(const GaitPatternGraphTree& graph,
                                    const RobotOperation& operation,
-                                   const DividedMapState& divided_map_state,
+                                   const DividedMapState&,
                                    const int max_depth) const {
   // ターゲットモードは直進である.
   assert(operation.operation_type ==
@@ -54,11 +54,6 @@ GraphSearcherWall::SearchGraphTree(const GaitPatternGraphTree& graph,
                                     : normalized_move_direction;
   }
 
-  const float target_z_value = InitTargetZValue(
-      graph.GetRootNode(), divided_map_state, normalized_move_direction);
-
-  cmdio::DebugOutputF("target_z_value = {}", target_z_value);
-
   GraphSearchEvaluationValue max_evaluation_value =
       evaluator_.InitializeEvaluationValue();
   int max_evaluation_value_index = -1;
@@ -87,6 +82,11 @@ GraphSearcherWall::SearchGraphTree(const GaitPatternGraphTree& graph,
     candidate_evaluation_value.value.at(kTagLegRot) =
         GetLegRotEvaluationValue(graph.GetNode(i), graph.GetRootNode());
 
+    candidate_evaluation_value.value.at(kTagPose) = GetPoseEvaluationValue(
+        graph.GetNode(i),
+        Quaternion::MakeByAngleAxis(math_util::ConvertDegToRad(-70.f),
+                                    Vector3::GetLeftVec()));
+
     // 評価値を比較する.
     if (evaluator_.LeftIsBetter(candidate_evaluation_value,
                                 max_evaluation_value)) {
@@ -111,9 +111,6 @@ GraphSearcherWall::SearchGraphTree(const GaitPatternGraphTree& graph,
 
     return nostd::unexpected{mes};
   }
-
-  cmdio::DebugOutputF("max_evaluation_value = {}",
-                      max_evaluation_value.value[kTagZDiff]);
 
   return return_type{
       max_evaluation_value,
@@ -179,15 +176,15 @@ GraphSearchEvaluator GraphSearcherWall::InitializeEvaluator() const {
       .margin = 0.0f,
   };
 
-  GraphSearchEvaluator::EvaluationMethod z_diff_method = {
-      .is_lower_better = true,
+  GraphSearchEvaluator::EvaluationMethod pose_method = {
+      .is_lower_better = false,
       .margin = 5.0f,
   };
 
   GraphSearchEvaluator ret({{kTagMoveForward, move_forward_method},
                             {kTagLegRot, leg_rot_method},
-                            {kTagZDiff, z_diff_method}},
-                           {kTagZDiff, kTagMoveForward, kTagLegRot});
+                            {kTagPose, pose_method}},
+                           {kTagPose, kTagMoveForward, kTagLegRot});
 
   return ret;
 }
@@ -255,24 +252,14 @@ float GraphSearcherWall::GetLegRotEvaluationValue(
   }
 
   return result;
-
-  // const float margin = 10.0f;
 }
 
-float GraphSearcherWall::GetZDiffEvaluationValue(
-    const std::vector<float>& com_trajectory,
-    const float target_z_value) const {
-  float result = abs(com_trajectory.back() - target_z_value);
-
-  if (com_trajectory.size() == 3) {
-    if ((com_trajectory[0] - com_trajectory[1]) *
-            (com_trajectory[0] - com_trajectory[2]) <=
-        0) {
-      result += abs(com_trajectory[0] - com_trajectory[1]);
-    }
-  }
-
-  return result;
+float GraphSearcherWall::GetPoseEvaluationValue(const RobotStateNode& node,
+                                                const Quaternion quat) const {
+  // 姿勢が目標姿勢に近いほど高評価.
+  const Quaternion diff_quat = node.posture.GetConjugate() * quat;
+  const float angle = std::acos(diff_quat.w) * 2.0f;
+  return -angle * 180.0f / 3.1415f;
 }
 
 }  // namespace gaitgen

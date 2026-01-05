@@ -464,40 +464,52 @@ void MapCreatorForSimulation::CreateDonutMap(std::vector<Vector3>* map) const {
 }
 
 void MapCreatorForSimulation::CreateWallMap(std::vector<Vector3>* map) const {
-  assert(map != nullptr);  // map が nullptr でないことを確認する.
-  assert(map->empty());    // map が空であることを確認する.
+  assert(map != nullptr);
+  assert(map->empty());
 
-  // マップの xとyの存在範囲全体に脚設置可能点を敷き詰める.
-  const float x_max = (parameter_.map_max_x - parameter_.map_min_x) /
-                      MapState::kMapPointDistance;
-  const float y_max = (parameter_.map_max_y - parameter_.map_min_y) /
-                      MapState::kMapPointDistance;
+  // --- 床面（従来通り） ---
+  const int x_max =
+      static_cast<int>((parameter_.map_max_x - parameter_.map_min_x) /
+                       MapState::kMapPointDistance);
+  const int y_max =
+      static_cast<int>((parameter_.map_max_y - parameter_.map_min_y) /
+                       MapState::kMapPointDistance);
 
   for (int x = 0; x < x_max; x++) {
     for (int y = 0; y < y_max; y++) {
-      // ロボットの正面方向.
       const float x_pos =
           parameter_.map_min_x + x * MapState::kMapPointDistance;
-
-      // ロボットの側面方向.
       const float y_pos =
           parameter_.map_min_y + y * MapState::kMapPointDistance;
 
-      map->push_back(
-          {x_pos, y_pos, parameter_.base_z});  // 脚設置可能点を追加する.
+      map->push_back({x_pos, y_pos, parameter_.base_z});
     }
   }
 
-  // 壁を作成する.
+  // --- 壁生成（Y軸回り回転） ---
+  // 90deg = 垂直壁
+  const float tilt_rad =
+      math_util::ConvertDegToRad(90.0f - parameter_.wall_degree);
+
+  const float tan_tilt = std::tan(tilt_rad);
+
   for (float h = 0; h < parameter_.wall_height;
        h += MapState::kMapPointDistance) {
+    // 高さ h における x 方向のずれ
+    const float x_offset = h * tan_tilt;
+
     for (int y = 1; y < y_max; y++) {
-      // ロボットの側面方向.
       const float y_pos =
           parameter_.map_min_y + y * MapState::kMapPointDistance;
 
-      // 脚設置可能点を追加する.
-      map->push_back({parameter_.wall_x, y_pos, h});
+      const float x_pos = parameter_.wall_x + x_offset;
+
+      // マップ範囲外チェック
+      if (x_pos < parameter_.map_min_x || x_pos > parameter_.map_max_x) {
+        continue;
+      }
+
+      map->push_back({x_pos, y_pos, h});
     }
   }
 }
