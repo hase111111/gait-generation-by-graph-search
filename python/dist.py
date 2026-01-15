@@ -1,3 +1,7 @@
+"""
+移動量を計算するモジュール
+"""
+
 import os
 import statistics
 
@@ -5,11 +9,12 @@ BASE_DIR = "result"
 TARGET_FILE = "simulation_result_detail1.csv"
 
 all_values = []
+val_dict = {}
 
 for folder in os.listdir(BASE_DIR):
     folder_path = os.path.join(BASE_DIR, folder)
 
-    if not folder.startswith("pruning_"):
+    if not folder.startswith("normal_"):
         continue
 
     if not os.path.isdir(folder_path):
@@ -27,7 +32,8 @@ for folder in os.listdir(BASE_DIR):
                 cols = line.strip().split(",")
                 if len(cols) >= 60:
                     try:
-                        all_values.append(float(cols[61]))
+                        all_values.append(float(cols[15]))
+                        val_dict[folder[:-16]] = float(cols[15])
                     except ValueError:
                         pass  # 数値でない行は無視
 
@@ -41,3 +47,20 @@ else:
     print("標準偏差:", statistics.stdev(all_values))
     print("最小値:", min(all_values))
     print("最大値:", max(all_values))
+
+# 全データについて，横軸をステップ数，縦軸を距離としたグラフをプロット
+# 各データごとの最大値のみをプロット
+import matplotlib.pyplot as plt
+plt.figure()
+x = list(val_dict.keys())
+y = list(val_dict.values())
+plt.bar(x, y)
+plt.xticks(rotation=90)
+plt.xlabel("Folder")
+plt.ylabel("Distance")
+plt.title("Distance by Folder")
+plt.tight_layout()
+
+# 縦軸を1600までに制限
+plt.ylim(0, 1600)
+plt.show()

@@ -25,7 +25,7 @@ option = 0
     map_start_rough_x = 400.0
     
     #壁の角度 [deg].
-    wall_degree = 70.0
+    wall_degree = 90.0
     
     #壁の高さ [mm].
     wall_height = 2000.0
