@@ -1,7 +1,7 @@
 #Note that this file is not referenced by some settings.
 
 #This is the setting of the robot's operation method. (kNone / kStraightMoveVector / kStraightMovePosition / kSpotTurnLastPosture / kSpotTurnRotAxis / kTurn)
-operation_type = "kStraightMovePosition" 
+operation_type = "kTurn" 
 
 [Param]
     
@@ -12,8 +12,8 @@ operation_type = "kStraightMovePosition"
     spot_turn_rot_axis = "     0.000,     0.000,     1.000"
     
     #The value that is referred to when the setting is to go straight to the specified coordinates.
-    #straight_move_position = " 100000000.000,     0.000,     0.000"
-    straight_move_position = " 300.000,     0.000,     10000.000"
+    straight_move_position = " 100000000.000,     0.000,     0.000"
+    #straight_move_position = " 300.000,     0.000,     10000.000"
     #straight_move_position = " 100000.000,   0.00,  100000.000"
     
     #The value that is referenced when the setting is to go straight in the specified direction.
@@ -26,5 +26,5 @@ operation_type = "kStraightMovePosition"
     turn_clockwise = true
     
     #The value referenced in the case of a setup that turns at a specified radius.
-    turn_radius = 1000.0
+    turn_radius = 0.0
     

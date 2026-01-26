@@ -8,7 +8,7 @@
     end_check_mode = "kGoalTape"
     
     #終了条件がゴールテープに到達したか ( GoalTape ) の場合,ゴールテープのx座標を設定します.[mm]
-    goal_tape_position_x = 300.0
+    goal_tape_position_x = 1000.0
     
     #終了条件が目的の座標に到達したか ( Position ) の場合,目標の座標を設定します.[mm]
     target_position = "     0.000,     0.000,     0.000"
@@ -26,13 +26,13 @@
 [GaitPattern]
     
     #探索の深さ. 5程度にすること
-    gpg_depth = 4
+    gpg_depth = 5
     
     #メモリを確保する量．最低20000000は用意すること
     gpg_memory_limit = 50000000
     
     #歩容パターン生成の方法を設定する. ( "kFlatLegacyAlgorithm" / "kFlat" / "kPitchRot" / "kStraightMove" / "kSwichByMap" / "kWall" / "kPruningBranch" / "kPruningBranchLegacy" )
-    gpg_type = "kWall" 
+    gpg_type = "kFlat" 
 
 [Initial]
     
