@@ -81,6 +81,7 @@ def leg_ground_map(bit_str: str) -> int:
     elif bit_str =="110100":
         return 35
     else:
+        return 0
         raise ValueError(f"脚接地パターンが不正です: {bit_str}")
   
 def get_color_by_leg_ground(leg_ground_int: int) -> str:

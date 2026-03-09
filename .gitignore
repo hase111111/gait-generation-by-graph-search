@@ -368,8 +368,13 @@ FodyWeavers.xsd
 DesignLab/Log.txt
 # DoxygenFile/
 
+DesignLab/result/*
+DesignLab/result_/*
+DesignLab/result__/*
 DesignLab/shot/*
 python/*.png
 python/result/*
+python/result_/*
 
 *.tex
+

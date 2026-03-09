@@ -1,9 +1,13 @@
 import matplotlib.pyplot as plt
 from matplotlib.axes import Axes
+import os
 import util
 import file_io
 from typing import List, Tuple, Dict, Set
 from collections import defaultdict
+
+StateKey = Tuple[Tuple[bool, int], ...]
+EdgeKey = Tuple[StateKey, StateKey]
 
 def _get_label_name(label : str = "x") -> str:
     """
@@ -120,6 +124,169 @@ def plot_2d_pairs_alternate_color(
         plt.close()
     else:
         plt.show()  # type: ignore
+
+
+def _tupledata_to_state_key(tupledata: List[Tuple[bool, int]]) -> StateKey:
+    return tuple(tupledata)
+
+
+def _state_key_to_label(state: StateKey) -> str:
+    return util.tupledata_to_simple_str(list(state))
+
+
+def _filter_files_by_base_dir(file_list: List[str], base_dir: str = "result") -> List[str]:
+    """
+    file_list から base_dir 配下のファイルのみを抽出する.
+    例: base_dir="result" の場合，result_ は除外される.
+    """
+    base_name = os.path.normpath(base_dir)
+    filtered: List[str] = []
+
+    for file_path in file_list:
+        normalized = os.path.normpath(file_path)
+        parts = normalized.split(os.sep)
+        if base_name in parts:
+            filtered.append(file_path)
+
+    return filtered
+
+
+def count_state_and_transition_frequencies(
+    file_list: List[str],
+) -> Tuple[Dict[StateKey, int], Dict[EdgeKey, int]]:
+    """
+    状態の出現頻度と，隣接状態間の遷移頻度を集計する.
+    """
+    state_counts: Dict[StateKey, int] = defaultdict(int)
+    edge_counts: Dict[EdgeKey, int] = defaultdict(int)
+
+    for index, file_path in enumerate(file_list):
+        print(f"Processing file {index}: {file_path}")
+        data = file_io.read_csv_file(file_path)
+        states = util.make_tupledata_list_from_csv(data)
+
+        state_keys = [_tupledata_to_state_key(state) for state in states]
+        for state in state_keys:
+            state_counts[state] += 1
+
+        for j in range(len(state_keys) - 1):
+            edge_counts[(state_keys[j], state_keys[j + 1])] += 1
+
+    return state_counts, edge_counts
+
+
+def plot_state_transition_network(
+    file_list: List[str],
+    state_count_threshold: int = 1,
+    edge_count_threshold: int = 0,
+    layout: str = "spring",
+    show_edge_labels: bool = True,
+    show_plot: bool = True,
+    file_name: str = "state_transition_network.png",
+):
+    """
+    状態遷移を NetworkX の有向グラフとして可視化する.
+
+    state_count_threshold 以下のノードは非表示.
+    edge_count_threshold 以下のエッジは非表示.
+    """
+    if state_count_threshold < 0:
+        raise ValueError("state_count_threshold は 0 以上で指定してください.")
+    if edge_count_threshold < 0:
+        raise ValueError("edge_count_threshold は 0 以上で指定してください.")
+
+    try:
+        import networkx as nx
+    except ModuleNotFoundError as exc:
+        raise ModuleNotFoundError(
+            "networkx が必要です. `pip install networkx` を実行してください."
+        ) from exc
+
+    state_counts, edge_counts = count_state_and_transition_frequencies(file_list)
+
+    visible_states: Set[StateKey] = {
+        state for state, count in state_counts.items()
+        if count > state_count_threshold
+    }
+
+    graph = nx.DiGraph()
+    state_to_label: Dict[StateKey, str] = {}
+
+    for state in visible_states:
+        label = _state_key_to_label(state)
+        state_to_label[state] = label
+        leg_pattern = util.bool_list_to_leg_ground_int([int(value) for value, _ in state])
+        graph.add_node(label, count=state_counts[state], leg_pattern=leg_pattern)
+
+    for (from_state, to_state), count in edge_counts.items():
+        if count <= edge_count_threshold:
+            continue
+        if from_state not in visible_states or to_state not in visible_states:
+            continue
+        graph.add_edge(state_to_label[from_state], state_to_label[to_state], weight=count)
+
+    print(f"Total unique states: {len(state_counts)}")
+    print(f"Visible states (> {state_count_threshold}): {graph.number_of_nodes()}")
+    print(f"Visible edges (> {edge_count_threshold}): {graph.number_of_edges()}")
+
+    if graph.number_of_nodes() == 0:
+        print("表示対象のノードがありませんでした. 閾値を下げてください.")
+        return graph
+
+    if layout == "spring":
+        pos = nx.spring_layout(graph, k=1.0, seed=0)
+    elif layout == "circular":
+        pos = nx.circular_layout(graph)
+    elif layout == "kamada_kawai":
+        pos = nx.kamada_kawai_layout(graph)
+    else:
+        pos = nx.spectral_layout(graph)
+
+    node_counts = [graph.nodes[node]["count"] for node in graph.nodes()]
+    max_node_count = max(node_counts) if node_counts else 1
+    node_sizes = [
+        300 + 1700 * (graph.nodes[node]["count"] / max_node_count)
+        for node in graph.nodes()
+    ]
+    node_colors = [
+        util.get_color_by_leg_ground(graph.nodes[node]["leg_pattern"])
+        for node in graph.nodes()
+    ]
+
+    edge_weights = [graph[u][v]["weight"] for u, v in graph.edges()]
+    max_edge_weight = max(edge_weights) if edge_weights else 1
+    edge_widths = [
+        0.5 + 4.5 * (graph[u][v]["weight"] / max_edge_weight)
+        for u, v in graph.edges()
+    ]
+
+    plt.figure(figsize=(20, 14))  # type: ignore
+    nx.draw(
+        graph,
+        pos,
+        with_labels=True,
+        node_size=node_sizes,
+        node_color=node_colors,
+        edge_color="gray",
+        width=edge_widths,
+        arrows=True,
+        font_size=8,
+    )
+
+    if show_edge_labels and graph.number_of_edges() <= 250:
+        edge_labels = {(u, v): graph[u][v]["weight"] for u, v in graph.edges()}
+        nx.draw_networkx_edge_labels(graph, pos, edge_labels=edge_labels, font_size=7)
+
+    plt.title(
+        f"State Transition Network (state > {state_count_threshold}, edge > {edge_count_threshold})"
+    )  # type: ignore
+    plt.subplots_adjust(left=0.02, right=0.98, top=0.94, bottom=0.06)  # type: ignore
+    plt.savefig(file_name, dpi=300)  # type: ignore
+
+    if show_plot:
+        plt.show()  # type: ignore
+
+    return graph
 
 def main1():
     """
@@ -342,17 +509,161 @@ def main4(file_list: List[str], raw: bool =True, show_plot: bool =True, shrink: 
     if show_plot:
         plt.show()  # type: ignore
 
+def main5(
+    file_list: List[str],
+    raw: bool = True,
+    show_plot: bool = True,
+    name: str = "no_name"
+) -> None:
+    """
+    main3 をベースに，
+    ・横線：赤
+    ・縦線：青
+    ・斜め線は描画しない
+    ・出現頻度に応じて濃度(alpha)を変更
+    """
+
+    from collections import defaultdict
+
+    # 横線: (x1, x2, y) -> count
+    horiz_edges: Dict[Tuple[int, int, int], int] = defaultdict(int)
+    # 縦線: (y1, y2, x) -> count
+    vert_edges: Dict[Tuple[int, int, int], int] = defaultdict(int)
+
+    # ===== 1. 出現頻度カウント =====
+    for i, df in enumerate(file_list):
+        print(f"Processing file {i}: {df}")
+        data = file_io.read_csv_file(df)
+        res = util.make_tupledata_list_from_csv(data)
+        pairs = [util.bool_int_list_to_int(r, raw) for r in res]
+
+        for j in range(len(pairs) - 1):
+            (x1, y1) = pairs[j]
+            (x2, y2) = pairs[j + 1]
+
+            # 横線
+            if y1 == y2 and x1 != x2:
+                horiz_edges[(x1, x2, y1)] += 1
+
+            # 縦線
+            elif x1 == x2 and y1 != y2:
+                vert_edges[(y1, y2, x1)] += 1
+
+            # 斜め線は無視
+
+    max_h = max(horiz_edges.values()) if horiz_edges else 1
+    max_v = max(vert_edges.values()) if vert_edges else 1
+
+    print(f"Horizontal edges: {len(horiz_edges)}, max freq: {max_h}")
+    print(f"Vertical edges: {len(vert_edges)}, max freq: {max_v}")
+
+    # ===== 2. プロット =====
+    fig, ax = plt.subplots(figsize=(16, 8))  # type: ignore
+
+    # 横線（赤）
+    for (x1, x2, y), count in horiz_edges.items():
+        alpha = count / max_h * 0.9 + 0.1
+        ax.plot(
+            [x1, x2],
+            [y, y],
+            color="red",
+            alpha=alpha,
+            linewidth=1.5
+        )  # type: ignore
+
+    # 縦線（青）
+    for (y1, y2, x), count in vert_edges.items():
+        alpha = count / max_v * 0.9 + 0.1
+        ax.plot(
+            [x, x],
+            [y1, y2],
+            color="blue",
+            alpha=alpha,
+            linewidth=1.5
+        )  # type: ignore
+
+    # ===== 3. 軸設定 =====
+    ax.set_xlabel(_get_label_name("y"))  # type: ignore
+    ax.set_ylabel(_get_label_name("z"))  # type: ignore
+
+    ax.xaxis.grid(True)  # type: ignore
+    ax.xaxis.set_major_locator(plt.MultipleLocator(1))  # type: ignore
+    ax.set_xlim(-1, 36)
+
+    if raw:
+        ax.set_ylim(-1, 7 ** 6 + 1)
+    else:
+        ax.set_ylim(-5000, 5000)
+
+    plt.savefig(
+        f"2d_frequency_axis_only_{name}_{'raw' if raw else 'scalar'}.png",
+        dpi=300
+    )  # type: ignore
+
+    if show_plot:
+        plt.show()  # type: ignore
+
+
+def main6(
+    file_list: List[str],
+    state_count_threshold: int = 1,
+    edge_count_threshold: int = 0,
+    layout: str = "spring",
+    show_plot: bool = True,
+    show_edge_labels: bool = True,
+    target_base_dir: str = "result",
+    name: str = "no_name",
+) -> None:
+    """
+    状態間遷移を NetworkX で可視化する.
+
+    state_count_threshold 以下の出現回数の状態は表示しない.
+    """
+    if not file_list:
+        print("file_list が空です")
+        return
+
+    target_files = _filter_files_by_base_dir(file_list, base_dir=target_base_dir)
+    if not target_files:
+        print(f"{target_base_dir} 配下に対象ファイルがありませんでした")
+        return
+
+    print("Number of input files:", len(file_list))
+    print(f"Number of target files in '{target_base_dir}':", len(target_files))
+    print("state_count_threshold:", state_count_threshold)
+    print("edge_count_threshold:", edge_count_threshold)
+
+    plot_state_transition_network(
+        file_list=target_files,
+        state_count_threshold=state_count_threshold,
+        edge_count_threshold=edge_count_threshold,
+        layout=layout,
+        show_edge_labels=show_edge_labels,
+        show_plot=show_plot,
+        file_name=f"state_transition_network_{name}.png",
+    )
+
 if __name__ == "__main__":
     # main1()
 
     # main2()
 
+    # file = file_io.get_file_paths("node_list1.csv")
+    # print("Number of CSV files read:", len(file))
+    # filtered_files = [f for f in file if "rough" in f] 
+    # main3(filtered_files, raw=True, show_plot=True, name="node_list1")
+
     file = file_io.get_file_paths("node_list1.csv")
     print("Number of CSV files read:", len(file))
-    filtered_files = [f for f in file if "rough" in f] 
-    main3(filtered_files, raw=True, show_plot=True, name="node_list1")
+    filtered_files = [f for f in file if "normal" in f] 
+    main4(filtered_files, raw=True, show_plot=True, shrink=True, name="node_list1")
 
     # file = file_io.get_file_paths("node_list1.csv")
     # print("Number of CSV files read:", len(file))
-    # filtered_files = [f for f in file if "normal" in f] 
-    # main4(filtered_files, raw=True, show_plot=True, shrink=True, name="node_list1")
+    # filtered_files = [f for f in file if "rough" in f] 
+    # main5(filtered_files, raw=True, show_plot=True, name="node_list1")
+
+    # file = file_io.get_file_paths("node_list1.csv")
+    # filtered_files = [f for f in file if "rough" in f]
+    # main6(filtered_files, state_count_threshold=150, edge_count_threshold=2,
+    #       layout="spring", show_plot=True, show_edge_labels=False, name="node_list1")

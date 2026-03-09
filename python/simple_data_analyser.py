@@ -180,29 +180,35 @@ def main4():
 
     plt.show()  # type: ignore
 
-    # 同じことを総数ベースでも表示.
-    count_distribution: Dict[int, int] = dict()
-    for _, count in data:
-        if count in count_distribution:
-            count_distribution[count] += count
-        else:
-            count_distribution[count] = count
-    sorted_distribution = sorted(count_distribution.items())
-    x = [str(k) for k, _ in sorted_distribution]
-    y = [v for _, v in sorted_distribution]
-    plt.figure(figsize=(20,10))  # type: ignore
-    plt.bar(x, y)  # type: ignore
-    plt.xlabel("Number of Occurrences")  # type: ignore
-    plt.ylabel("Total Count of Hierarchies")  # type: ignore
-    plt.title("Hierarchy Total Count Distribution")  # type: ignore
-    plt.xticks(fontsize=10, rotation=90)  # type: ignore
-    # xのラベルを交互に上下にずらす
-    for i, label in enumerate(plt.gca().get_xticklabels()):
-        if i % 2 == 0:
-            label.set_y(-0.04)
-        else:
-            label.set_y(-0.0)
-    plt.show()  # type: ignore
+    # 階層状態ごとの出現回数を表示（200回以下は非表示）.
+    filtered_hierarchies = [
+        (key.replace("-", ""), count)
+        for key, count in data
+        if count > 500
+    ]
+
+    if len(filtered_hierarchies) == 0:
+        print("出現回数が500回を超える階層状態はありませんでした")
+    else:
+        x = [key for key, _ in filtered_hierarchies]
+        y = [count for _, count in filtered_hierarchies]
+
+        plt.figure(figsize=(max(20, len(x) * 0.35), 10))  # type: ignore
+        plt.bar(x, y)  # type: ignore
+        plt.xlabel("Hierarchy State (6 digits)")  # type: ignore
+        plt.ylabel("Count")  # type: ignore
+        plt.title("Hierarchy Count (Count > 500)")  # type: ignore
+        plt.xticks(fontsize=10, rotation=90)  # type: ignore
+        plt.yticks(fontsize=8, rotation=90)  # type: ignore
+        # xのラベルを交互に上下にずらす
+        for i, label in enumerate(plt.gca().get_xticklabels()):
+            if i % 2 == 0:
+                label.set_y(-0.04)
+            else:
+                label.set_y(-0.0)
+
+        plt.tight_layout()  # type: ignore
+        plt.show()  # type: ignore
 
 def main5():
     data = main3(do_print=False)
@@ -278,4 +284,4 @@ def main5():
     plt.show()  # type: ignore
 
 if __name__ == "__main__":
-    main3()
+    main4()

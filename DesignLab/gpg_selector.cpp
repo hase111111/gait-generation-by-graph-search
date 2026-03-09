@@ -53,7 +53,7 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::Select(
       return MakeGpgFlatLegacyAlgorithm();
     }
     case GpgType::kPitchRot: {
-      return MakeGpgPitchRot();
+      return MakeGpgRollRot();
     }
     case GpgType::kSwichByMap: {
       return MakeGpgSwitchByMap();
@@ -128,12 +128,12 @@ std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgPitchRot() const {
 
 std::unique_ptr<IGaitPatternGenerator> GpgSelector::MakeGpgRollRot() const {
   auto node_creator_builder = std::make_unique<NodeCreatorSequenceBodyRot>(
-      converter_ptr_, presenter_ptr_, checker_ptr_, Vector3::GetFrontVec());
+      converter_ptr_, presenter_ptr_, checker_ptr_, Vector3::GetUpVec());
   auto graph_tree_creator =
       std::make_unique<GraphTreeCreator>(std::move(node_creator_builder));
 
-  auto graph_searcher = std::make_unique<GraphSearcherPlane>(
-      checker_ptr_, presenter_ptr_, converter_ptr_);
+  auto graph_searcher =
+      std::make_unique<GraphSearcherSpotTurn>(converter_ptr_, checker_ptr_);
 
   auto gait_pattern_generator = std::make_unique<GaitPatternGeneratorBasic>(
       std::move(graph_tree_creator), std::move(graph_searcher), gpg_depth_,

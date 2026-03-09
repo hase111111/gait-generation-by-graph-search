@@ -1,1 +1,1 @@
-pruning
+  plt.ylabel("Count")  # t
