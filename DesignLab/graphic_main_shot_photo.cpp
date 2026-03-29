@@ -10,6 +10,7 @@
 #include "dxlib_gui_camera_parameter_displayer.h"
 #include "dxlib_gui_node_displayer.h"
 #include "dxlib_util.h"
+#include "graphic_const.h"
 #include "graphic_main_display_model.h"
 #include "hexapod_renderer_builder.h"
 #include "keyboard.h"
@@ -32,9 +33,8 @@ GraphicMainShotPhoto::GraphicMainShotPhoto(
     const std::shared_ptr<const ApplicationSettingRecord>& setting_ptr)
     : mouse_ptr_(std::make_shared<Mouse>()),
       result_directory_paths_(InitResultDirectoryPaths()),
-      phantomx_mk2_renderer_model_{converter_ptr, calculator_ptr},
-      phantomx_renderer_simple_{converter_ptr, calculator_ptr,
-                                DisplayQuality::kMedium} {
+      converter_ptr_(converter_ptr),
+      calculator_ptr_(calculator_ptr) {
   const auto camera = std::make_shared<DxlibCamera>();
   const auto camera_gui = std::make_shared<DxlibGuiCamera>(
       setting_ptr->window_size_x, setting_ptr->window_size_y, camera);
@@ -81,8 +81,9 @@ bool GraphicMainShotPhoto::Update() {
 
   counter_++;
 
-  if (counter_ % 60 == 0) {
-    LoadGraphFromFile(result_directory_paths_[counter_ / 60]);
+  const int count_step = 300;
+  if (counter_ % count_step == 0) {
+    LoadGraphFromFile(result_directory_paths_[counter_ / count_step]);
   }
 
   mouse_ptr_->Update();
@@ -97,6 +98,25 @@ bool GraphicMainShotPhoto::Update() {
 }
 
 void GraphicMainShotPhoto::Draw() const {
+  DxLib::DrawBox(
+      0, 0, 1280, 720,
+      GetColor(GraphicConst::kBackColorRed, GraphicConst::kBackColorBlue,
+               GraphicConst::kBackColorGreen),
+      TRUE);
+
+  if (!graph_.empty()) {
+    PhantomXMkIIRendererModel phantomx_mk2_renderer_model_{converter_ptr_,
+                                                           calculator_ptr_};
+    // PhantomXRendererSimple phantomx_renderer_simple_;
+    const int step = 60;
+    for (int i = 0; i < graph_.size(); i += step) {
+      phantomx_mk2_renderer_model_.SetNode(graph_[i]);
+      phantomx_mk2_renderer_model_.Draw();
+      // phantomx_renderer_simple_.SetNode(graph_[i]);
+      // phantomx_renderer_simple_.Draw();
+    }
+  }
+
   renderer_group_.Draw();
 
   gui_updater_.Draw();
@@ -129,13 +149,14 @@ std::vector<std::string> GraphicMainShotPhoto::InitResultDirectoryPaths()
 void GraphicMainShotPhoto::LoadGraphFromFile(const std::string& file_path) {
   // file_path 直下にある node_list1.csv というファイルを読み込む．
   const ResultFileImporter result_importer;
-  std::vector<RobotStateNode> graph;
   MapState map_state;
   cmdio::SystemOutputF("Loading data from the file: {}", file_path);
+  graph_.clear();
 
   if (result_importer.ImportNodeListAndMapState(file_path + "/node_list1.csv",
-                                                &graph, &map_state)) {
+                                                &graph_, &map_state)) {
     cmdio::SystemOutput("Data loaded successfully.");
+
     map_renderer_ptr_->SetMapState(map_state);
   } else {
     cmdio::SystemOutput("Failed to read the file. Exit.");

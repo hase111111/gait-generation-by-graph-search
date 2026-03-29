@@ -45,6 +45,8 @@ class GraphicMainShotPhoto final : public IGraphicMain {
   std::vector<std::string> InitResultDirectoryPaths() const;
   void LoadGraphFromFile(const std::string& file_path);
 
+  const std::shared_ptr<const IHexapodCoordinateConverter> converter_ptr_;
+  const std::shared_ptr<const IHexapodJointCalculator> calculator_ptr_;
   const std::shared_ptr<Mouse> mouse_ptr_;
   const std::vector<std::string> result_directory_paths_;
   std::shared_ptr<MapRenderer> map_renderer_ptr_;
@@ -56,9 +58,6 @@ class GraphicMainShotPhoto final : public IGraphicMain {
   Dxlib3dRendererGroup renderer_group_;
   DxlibGuiUpdater gui_updater_;
   DxlibNodeSetterGroup node_setter_group_;
-
-  PhantomXMkIIRendererModel phantomx_mk2_renderer_model_;
-  PhantomXRendererSimple phantomx_renderer_simple_;
 
   std::vector<RobotStateNode> graph_;
 

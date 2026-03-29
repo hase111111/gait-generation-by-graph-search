@@ -49,10 +49,10 @@
     window_fps = 60
     
     #Sets the width of the GUI. The range is from 512 to 1920. The recommended value is 1600.
-    window_size_x = 1600
+    window_size_x = 1280
     
     #Sets the height of the GUI. The range is from 288 to 1080. The recommended value is 900.
-    window_size_y = 900
+    window_size_y = 720
     
 #The order is major.minor.patch.
 [Verion]
