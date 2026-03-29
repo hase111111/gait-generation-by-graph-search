@@ -114,6 +114,18 @@ MapState MapCreatorForSimulation::InitMap() const {
     ChangeMapToRadial(&map_data);
   }
 
+  if (parameter_.option &
+      static_cast<unsigned int>(SimulationMapOption::kStepUpDown)) {
+    // 上りと下りの段差の地形にする.
+    ChangeMapToStepUpDown(&map_data);
+  }
+
+  if (parameter_.option &
+      static_cast<unsigned int>(SimulationMapOption::kValley)) {
+    // V字型の谷状の地形にする.
+    ChangeMapToValley(&map_data);
+  }
+
   return MapState(map_data);
 }
 
@@ -713,6 +725,67 @@ void MapCreatorForSimulation::ChangeMapToRadial(
       // 消さないならば次へ移動する.
       itr++;
     }
+  }
+}
+
+void MapCreatorForSimulation::ChangeMapToStepUpDown(
+    std::vector<Vector3>* map) const {
+  assert(map != nullptr);
+
+  for (auto& i : *map) {
+    if (i.x <= parameter_.map_start_rough_x) continue;
+
+    const int step_index = static_cast<int>(
+        (i.x - parameter_.map_start_rough_x) / parameter_.step_length);
+
+    const int t = step_index % 5;
+
+    int height_level;
+
+    switch (t) {
+      case 0:
+        height_level = 1;
+        break;
+      case 1:
+        height_level = 2;
+        break;
+      case 2:
+        height_level = 1;
+        break;
+      case 3:
+        height_level = 0;
+        break;
+      case 4:
+        height_level = 0;
+        break;
+      default:
+        height_level = 0;
+        break;  // 念のため
+    }
+
+    i.z += parameter_.step_height * height_level;
+  }
+}
+
+void MapCreatorForSimulation::ChangeMapToValley(
+    std::vector<Vector3>* map) const {
+  assert(map != nullptr);
+
+  const float center_y = 0;
+
+  // 角度 → 傾き（tan）
+  const float slope =
+      std::tan(math_util::ConvertDegToRad(parameter_.valley_angle));
+
+  for (auto& i : *map) {
+    // 待機場所は変更しない
+    if (i.x <= parameter_.map_start_rough_x) continue;
+
+    // 中心からの距離（絶対値でV字にする）
+    const float dy = std::abs(i.y - center_y);
+
+    // V字の高さ変化
+    i.z += dy * slope;
   }
 }
 

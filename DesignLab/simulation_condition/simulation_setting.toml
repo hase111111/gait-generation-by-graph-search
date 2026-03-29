@@ -8,7 +8,7 @@
     end_check_mode = "kGoalTape"
     
     #終了条件がゴールテープに到達したか ( GoalTape ) の場合,ゴールテープのx座標を設定します.[mm]
-    goal_tape_position_x = 1000.0
+    goal_tape_position_x = 10000.0
     
     #終了条件が目的の座標に到達したか ( Position ) の場合,目標の座標を設定します.[mm]
     target_position = "     0.000,     0.000,     0.000"
@@ -29,10 +29,10 @@
     gpg_depth = 5
     
     #メモリを確保する量．最低20000000は用意すること
-    gpg_memory_limit = 50000000
+    gpg_memory_limit = 70000000
     
     #歩容パターン生成の方法を設定する. ( "kFlatLegacyAlgorithm" / "kFlat" / "kPitchRot" / "kStraightMove" / "kSwichByMap" / "kWall" / "kPruningBranch" / "kPruningBranchLegacy" )
-    gpg_type = "kPitchRot" 
+    gpg_type = "kFlat" 
 
 [Initial]
     
@@ -56,7 +56,7 @@
     map_create_mode = "kForSimulation" 
     
     #マップの作成方法がファイルから読み込むモード ( FromFile ) の場合,マップの csvファイルの名前を設定します.
-    map_file_name = "filtered_xy_result.csv"
+    map_file_name = "map_state1_stairs.csv"
     
     #マップの作成方法がシミュレーション専用マップを出力するモード ( ForSimulation ) の場合,マップのパラメータを記述した toml ファイルの名前を設定します.
     simulation_map_param_file_name = "simulation_map.toml"

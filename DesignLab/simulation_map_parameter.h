@@ -46,6 +46,8 @@ enum class SimulationMapOption : unsigned int {
   kTilt = 1 << 3,        //!< 縦軸を中心軸として回転させた地形に変化させる.
   kRough = 1 << 4,       //!< 凸凹の地形に変化させる.
   kRadiation = 1 << 5,   //!< 放射状の地形に変化させる.
+  kStepUpDown = 1 << 6,  //!< 上り下りの段差の地形に変化させる.
+  kValley = 1 << 7,      //!< 谷の地形に変化させる.
 };
 
 //! @struct SimulationMapParameter
@@ -159,6 +161,7 @@ struct SimulationMapParameter final {
   float tilt_start_x{0.f};   //!< 地形を傾ける開始位置のX座標[mm]
   float rough_max_height{30.f};   //!< デコボコな地形の最大高さ[mm]
   float rough_min_height{-30.f};  //!< デコボコな地形の最小高さ[mm]
+  float valley_angle{0};          //!< 谷の地形の角度[deg].
 
   Vector3 circle_center{0.f, 0.f, 0.f};  //!< 円 / ドーナツの中心座標.
   float circle_radius{1000.f};           //!< 円 / ドーナツの半径.
@@ -239,6 +242,9 @@ DESIGNLAB_TOML11_DESCRIPTION_CLASS(SimulationMapParameter) {
   DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(rough_min_height, "Rough",
                                             "デコボコな地形の最小高さ[mm]");
 
+  DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(valley_angle, "Valley",
+                                            "谷の地形の角度[deg].");
+
   DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(circle_center, "Circle",
                                             "円 / ドーナツの中心座標.");
   DESIGNLAB_TOML11_VARIABLE_ADD_DESCRIPTION(circle_radius, "Circle",
@@ -264,7 +270,7 @@ DESIGNLAB_TOML11_SERIALIZE(gaitgen::SimulationMapParameter, mode, option,
                            stripe_interval, diagonal_angle, hole_rate,
                            step_height, step_length, step_start_x, slope_angle,
                            slope_start_x, tilt_angle, tilt_start_x,
-                           rough_max_height, rough_min_height, circle_center,
-                           circle_radius, donut_radius, radial_center,
-                           radial_division, radial_hole_rate,
+                           rough_max_height, rough_min_height, valley_angle,
+                           circle_center, circle_radius, donut_radius,
+                           radial_center, radial_division, radial_hole_rate,
                            radial_angle_offset);

@@ -18,7 +18,7 @@
 [LegRange]
     
     #Maximum distance from the base of the leg to the tip of the leg [mm].
-    max_leg_range = 250.0
+    max_leg_range = 200.0
     
     #Minimum distance from the base of the leg to the tip of the leg [mm].
     min_leg_range = 135.0
@@ -29,5 +29,5 @@
     free_leg_height = -40.0
     
     #Static safety margin: 15mm is a reasonable value. (Based on previous studies, max is about 40 mm.)
-    stable_margin = 15.0
+    stable_margin = 5.0
     

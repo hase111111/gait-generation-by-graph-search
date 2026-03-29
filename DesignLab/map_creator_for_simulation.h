@@ -79,6 +79,12 @@ class MapCreatorForSimulation final : public IMapCreator {
   //! 生成されたマップに放射状の穴をあける.
   void ChangeMapToRadial(std::vector<Vector3>* map) const;
 
+  //! 生成されたマップを上りと下りがある階段状にする.
+  void ChangeMapToStepUpDown(std::vector<Vector3>* map) const;
+
+  //! 生成されたマップをV字型の谷状にする.
+  void ChangeMapToValley(std::vector<Vector3>* map) const;
+
   //! マップ生成のモードを指定する列挙体.
   const SimulationMapParameter parameter_;
 };
