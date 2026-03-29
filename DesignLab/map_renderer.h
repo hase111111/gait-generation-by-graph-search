@@ -48,7 +48,7 @@ class MapRenderer final : public IDxlibNodeSetter, public IDxlib3dRenderer {
 
   MapState map_;
   DividedMapState divided_map_;
-  Vector3 hexapod_pos_;
+  Vector3 hexapod_pos_{};
 };
 
 }  // namespace gaitgen

@@ -13,16 +13,16 @@ option = 129
     map_max_x = 11000.0
     
     #マップのY座標の最大値.
-    map_max_y = 2000.0
+    map_max_y = 5000.0
     
     #マップのX座標の最小値.
     map_min_x = -500.0
     
     #マップのY座標の最小値.
-    map_min_y = -2000.0
+    map_min_y = -5000.0
     
     #不整地が始まるX座標.
-    map_start_rough_x = 400.0
+    map_start_rough_x = 500.0
     
     #壁の角度 [deg].
     wall_degree = 90.0

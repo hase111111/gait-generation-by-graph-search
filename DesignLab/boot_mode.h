@@ -20,6 +20,7 @@ enum class BootMode : int {
   kRobotControl,          //!< ロボットコントロールモード.
   kContinuousSimulation,  //!< 連続シミュレーションモード.
   kCreateMapCsv,          //!< マップのCSV作成モード.
+  kAutoShotPhoto,         //!< 写真撮影モード.
 };
 
 }  // namespace gaitgen

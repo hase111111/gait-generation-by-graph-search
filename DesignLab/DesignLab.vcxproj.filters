@@ -753,6 +753,9 @@
     <ClInclude Include="gpg_type.h">
       <Filter>ソース ファイル\GaitPatternGenerator</Filter>
     </ClInclude>
+    <ClInclude Include="graphic_main_shot_photo.h">
+      <Filter>ソース ファイル\Graphic\Main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="leg_state.cpp">
@@ -1123,6 +1126,9 @@
     </ClCompile>
     <ClCompile Include="system_main_create_map_csv.cpp">
       <Filter>ソース ファイル\System\CreateMapCsv</Filter>
+    </ClCompile>
+    <ClCompile Include="graphic_main_shot_photo.cpp">
+      <Filter>ソース ファイル\Graphic\Main</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

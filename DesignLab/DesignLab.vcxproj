@@ -27,6 +27,7 @@
     <ClInclude Include="dxlib_gui_robot_control.h" />
     <ClInclude Include="gait_pattern_generator_switch_by_map.h" />
     <ClInclude Include="gpg_type.h" />
+    <ClInclude Include="graphic_main_shot_photo.h" />
     <ClInclude Include="graph_searcher_plane.h" />
     <ClInclude Include="graph_searcher_wall.h" />
     <ClInclude Include="math_plane.h" />
@@ -230,6 +231,7 @@
     <ClCompile Include="gait_pattern_graph_tree.cpp" />
     <ClCompile Include="gpg_selector.cpp" />
     <ClCompile Include="graphic_main_robot_control.cpp" />
+    <ClCompile Include="graphic_main_shot_photo.cpp" />
     <ClCompile Include="graph_com_plotter.cpp" />
     <ClCompile Include="graph_searcher_plane.cpp" />
     <ClCompile Include="graph_searcher_spot_turn.cpp" />

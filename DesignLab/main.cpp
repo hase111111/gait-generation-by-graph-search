@@ -21,6 +21,7 @@
 #include "graphic_main_display_model.h"
 #include "graphic_main_graph_viewer.h"
 #include "graphic_main_robot_control.h"
+#include "graphic_main_shot_photo.h"
 #include "graphic_system.h"
 #include "map_creator_selector.h"
 #include "node_creator_sequence_body_rot.h"
@@ -297,6 +298,16 @@ int main() {
             graphic_data_broker, hexapod, hexapod, hexapod, app_setting_record);
 
         graphic_system.ChangeGraphicMain(std::move(graphic_main));
+        break;
+      }
+      case BootMode::kAutoShotPhoto: {
+        auto phantomx_mk2 = LoadXrR1();
+
+        std::unique_ptr<IGraphicMain> graphic_main_test =
+            std::make_unique<GraphicMainShotPhoto>(
+                phantomx_mk2, phantomx_mk2, phantomx_mk2, app_setting_record);
+
+        graphic_system.ChangeGraphicMain(std::move(graphic_main_test));
         break;
       }
       default: {

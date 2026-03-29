@@ -16,7 +16,7 @@ WorldGridRenderer::WorldGridRenderer()
       kMainGridYColor(GetColor(0, 217, 0)),
       kSubGridXColor(GetColor(63, 0, 0)),
       kSubGridYColor(GetColor(0, 63, 0)),
-      kMainGridNum(20),
+      kMainGridNum(40),
       kMainGridInterval(500.0f),
       kSubGridDividedNum(5),
       kGridLineZPos(-50.0f) {}
